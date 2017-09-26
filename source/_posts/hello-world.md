@@ -36,3 +36,5 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/deployment.html)
+
+{% asset_img 1e71f724b899a901f17c560a17950a7b0208f506.jpg test-image %}

@@ -26,6 +26,7 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
+  '*.json'
 
 # Writing
 new_post_name: :title.md # File name of new posts
@@ -34,7 +35,7 @@ titlecase: false # Transform title into titlecase
 external_link: true # Open external links in new tab
 filename_case: 0
 render_drafts: false
-post_asset_folder: false
+post_asset_folder: true
 relative_link: false
 future: true
 highlight:
@@ -62,6 +63,15 @@ pagination_dir: page
 
 # Extensions
 ## Plugins: https://hexo.io/plugins/
+plugins:
+  hexo-generator-baidu-sitemap
+  hexo-generator-sitemap
+
+baidusitemap:
+  path: baidusitemap.xml
+sitemap:
+  path: sitemap.xml
+
 ## Themes: https://hexo.io/themes/
 theme: alpha-dust
 

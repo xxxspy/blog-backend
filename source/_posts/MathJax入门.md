@@ -1,9 +1,10 @@
 ---
 title: MathJax入门
 date: 2017-06-02 18:02:32
-tags: MathJax, Latex
-categoris: 数学
+tags: [MathJax, Latex]
+categories: [数学分析] 
 mathjax: true
+comments: true
 ---
 
 ## MathJax简介
@@ -68,6 +69,7 @@ MathJax是一款展示数学符号、数学公式的JavaScript库，可以解析
 
 - 比较运算符：`\lt \gt \le \ge \neq` --> `\(\lt \gt \le \ge \neq\)`
 - 箭头符号：`\to \rightarrow \leftarrow \Rightarrow \Leftarrow \mapsto` --> `\(\to \rightarrow \leftarrow \Rightarrow \Leftarrow \mapsto\)`
+- 四则运算：`+ - \times \div` --> `\(+ - \times \div\)`
 
 
 ## 顶部符号
@@ -134,9 +136,16 @@ n & \text{左} & \text{中} & \text{右} \\
 
 `
 \[J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha}\]
+
 `
 
+## 一些常用公式
 
+- 二项式定理
+
+`
+\[ (a + b)^n = /sum{r=0}^n C_n^ra^{n-r}b^r \]
+`
 
 
 
