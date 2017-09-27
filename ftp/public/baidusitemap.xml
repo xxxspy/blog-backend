@@ -4,6 +4,23 @@
 
     
   <url>
+    <loc>http://mlln.cn/2017/09/27/psychopy%E4%B8%AD%E6%96%87%E7%89%88%E5%AE%89%E8%A3%85-%E9%99%84%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/</loc>
+    <lastmod>2017-09-27T08:13:24.279Z</lastmod>
+    <data>
+        <display>
+        <title>psychopy中文版安装(附下载地址)</title>
+        <pubTime>2017-09-27T00:34:46.000Z</pubTime>
+        
+        <tag>eprime, psychopy</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlln.cn/2017/09/07/gitlab%E5%92%8Cgit%E5%85%A5%E9%97%A8/</loc>
     <lastmod>2017-09-07T05:50:30.068Z</lastmod>
     <data>
@@ -3186,7 +3203,7 @@
 
     
   <url>
-    <loc>http://mlln.cn/2015/03/01/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5DURLpattern%E7%9A%84%E8%AF%AD%E6%B3%95%20-%20%E5%89%AF%E6%9C%AC/</loc>
+    <loc>http://mlln.cn/2015/03/01/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5DURLpattern%E7%9A%84%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2017-06-07T14:21:10.292Z</lastmod>
     <data>
         <display>
@@ -3203,7 +3220,7 @@
 
     
   <url>
-    <loc>http://mlln.cn/2015/03/01/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5DURLpattern%E7%9A%84%E8%AF%AD%E6%B3%95/</loc>
+    <loc>http://mlln.cn/2015/03/01/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5DURLpattern%E7%9A%84%E8%AF%AD%E6%B3%95%20-%20%E5%89%AF%E6%9C%AC/</loc>
     <lastmod>2017-06-07T14:21:10.292Z</lastmod>
     <data>
         <display>
@@ -5506,11 +5523,11 @@
         <title>DataNitro：[1]怎样在Excel中使用python脚本</title>
         <pubTime>2015-05-23T10:05:05.000Z</pubTime>
         
-        <tag>datanitro</tag>
-         
         <tag>python</tag>
          
         <tag>excel</tag>
+         
+        <tag>datanitro</tag>
          
          
            
@@ -6326,9 +6343,9 @@
         <title>DataNitro：[2]调用Python的方法</title>
         <pubTime>2015-10-01T10:03:19.000Z</pubTime>
         
-        <tag>datanitro</tag>
-         
         <tag>python</tag>
+         
+        <tag>datanitro</tag>
          
          
            
