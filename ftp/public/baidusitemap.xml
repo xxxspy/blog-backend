@@ -4,14 +4,92 @@
 
     
   <url>
+    <loc>http://mlln.cn/2017/10/02/psychopy%E6%95%99%E7%A8%8B2-builder%E6%A6%82%E5%BF%B5%E4%BB%8B%E7%BB%8D/</loc>
+    <lastmod>2017-10-02T01:53:18.136Z</lastmod>
+    <data>
+        <display>
+        <title>psychopy教程2-builder概念介绍</title>
+        <pubTime>2017-10-01T22:47:18.000Z</pubTime>
+        
+        <tag>eprime</tag>
+         
+        <tag>psychopy</tag>
+         
+        <tag>e-prime</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mlln.cn/2017/09/27/selenium%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/</loc>
+    <lastmod>2017-10-01T22:40:03.676Z</lastmod>
+    <data>
+        <display>
+        <title>selenium进阶教程</title>
+        <pubTime>2017-09-27T10:16:38.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>selenium</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mlln.cn/2017/09/29/psychopy%E6%95%99%E7%A8%8B1-%E5%85%A5%E9%97%A8%E8%AE%A4%E8%AF%86psychopy/</loc>
+    <lastmod>2017-09-29T13:58:59.203Z</lastmod>
+    <data>
+        <display>
+        <title>psychopy教程1-入门认识psychopy</title>
+        <pubTime>2017-09-29T08:56:24.000Z</pubTime>
+        
+        <tag>psychopy</tag>
+         
+        <tag>eprime/e-prime</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>http://mlln.cn/2017/09/28/EPrime%E4%B8%AD%E5%A6%82%E4%BD%BF%E4%BD%95%E5%91%88%E7%8E%B0%E6%97%B6%E9%97%B4%E9%9A%8F%E6%9C%BA/</loc>
+    <lastmod>2017-09-28T13:44:31.794Z</lastmod>
+    <data>
+        <display>
+        <title>EPrime中如使何呈现时间随机</title>
+        <pubTime>2017-09-28T13:40:33.000Z</pubTime>
+        
+        <tag>eprime</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlln.cn/2017/09/27/psychopy%E4%B8%AD%E6%96%87%E7%89%88%E5%AE%89%E8%A3%85-%E9%99%84%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/</loc>
-    <lastmod>2017-09-27T08:13:24.279Z</lastmod>
+    <lastmod>2017-09-27T08:27:13.084Z</lastmod>
     <data>
         <display>
         <title>psychopy中文版安装(附下载地址)</title>
         <pubTime>2017-09-27T00:34:46.000Z</pubTime>
         
-        <tag>eprime, psychopy</tag>
+        <tag>eprime</tag>
+         
+        <tag>psychopy</tag>
          
          
            
@@ -5523,11 +5601,11 @@
         <title>DataNitro：[1]怎样在Excel中使用python脚本</title>
         <pubTime>2015-05-23T10:05:05.000Z</pubTime>
         
+        <tag>datanitro</tag>
+         
         <tag>python</tag>
          
         <tag>excel</tag>
-         
-        <tag>datanitro</tag>
          
          
            
@@ -6343,9 +6421,9 @@
         <title>DataNitro：[2]调用Python的方法</title>
         <pubTime>2015-10-01T10:03:19.000Z</pubTime>
         
-        <tag>python</tag>
-         
         <tag>datanitro</tag>
+         
+        <tag>python</tag>
          
          
            
