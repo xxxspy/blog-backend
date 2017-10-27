@@ -111,6 +111,36 @@ element_located_selection_state_to_be
 staleness_of  
 ```
 
+### 避免等待时间过长
+
+如果你使用了隐形等待, 那么有时候你会发现程序运行很慢, 因为程序在等待某个元素出现. 但是问题是, 某个元素可能永远都不会出现. 这就造成了时间浪费. 为了避免等待时间过程, 一方面你要设置的等待时间不要太长; 另一方面你要避免使用只返回一个元素的方法, 比如:
+
+```
+find_element_by_id
+find_element_by_class_name
+find_element_by_css_selector
+find_element_by_xpath
+```
+
+提倡使用的方法:
+
+```
+find_elements_by_class_name
+find_elements_by_css_selector
+find_elements_by_xpath
+find_elements_by_tag_name
+```
+
+但是你会想, 这样返回了多个元素如何处理? 通过遍历来找到你需要的元素. 
+
+```
+for ele in elements:
+	#在这里检查是不是你要的元素
+	if 是你想要的:
+		break # 跳出循环
+```
+
+
 ### iframe
 
 selenium不能直接操作iframe内部的元素，因为iframe内部元素相当于另一个页面，这个页面有自己的head和body。 为了获取iframe内部元素，需要使用`switch_to_frame`方法，参数是iframe元素的id属性或者通过`find_element_by*`方法获取得到的iframe元素对象。想要跳出iframe可以用`switch_to_default_content`方法。
@@ -130,6 +160,16 @@ driver.switch_to_frame(frame)
 driver.find_element_by_id('su').click()
 driver.switch_to_default_content()
 ```
+
+### 移动鼠标
+
+为了反爬虫, 一些网站会记录你的鼠标动作, 因为爬虫通常不会产生鼠标动作. selenium也能控制鼠标的运动, 比如:
+
+```python
+pwd_input = driver.find_element_by_css_selector('input.W_input[name=password]')
+webdriver.ActionChains(driver).move_to_element(pwd_input).perform() #移动鼠标到我的密码输入框
+```
+
 
 ### 未完待续
 

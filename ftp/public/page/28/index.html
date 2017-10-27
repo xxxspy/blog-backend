@@ -7,6 +7,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--Description-->
     
@@ -74,7 +76,7 @@
     
     
     
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 </head>
 
 
@@ -157,6 +159,519 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/08/11/Python教程：[29]读取/">
+                Python教程：[29]读取
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>我们用python搞数据挖掘，通常要从Excel里读取数据，这就用到了xlrd，下面我们来系统的看一下xlrd的使用方法。（下面的方法介绍了为什么从Excel读取的数据是乱码，其实就是编码的问题。）</p>
+<ul>
+<li>先导入xlrd模块</li>
+</ul>
+<img src="/2015/08/11/Python教程：[29]读取/476217f7905298223eebded5d5ca7bcb0b46d489.jpg" alt="Python教程：[29]读取" title="Python教程：[29]读取">
+<ul>
+<li>打开指定路径的Excel文件，Excel这个变量存放的是Excel文件的路径</li>
+</ul>
+<img src="/2015/08/11/Python教程：[29]读取/99636c0e0cf3d7ca342ed860f01fbe096a63a989.jpg" alt="Python教程：[29]读取" title="Python教程：[29]读取">
+<ul>
+<li>介绍两种获取sheet对象的方法，第一个俄式通过索引获取第一个sheet</li>
+</ul>
+<img src="/2015/08/11/Python教程：[29]读取/7a8a1446f21fbe093886240269600c338644ad89.jpg" alt="Python教程：[29]读取" title="Python教程：[29]读取">
+<ul>
+<li>通过sheet的名称获取</li>
+</ul>
+<img src="/2015/08/11/Python教程：[29]读取/6a22e8246b600c33d0a139de184c510fd8f9a189.jpg" alt="Python教程：[29]读取" title="Python教程：[29]读取">
+<ul>
+<li>根据坐标来获取单元格的值，我们看到cv在python当中的编码，但是打印出来的话就是正常显示的了。</li>
+</ul>
+<img src="/2015/08/11/Python教程：[29]读取/ae10eddeb48f8c543551223938292df5e1fe7fe3.jpg" alt="Python教程：[29]读取" title="Python教程：[29]读取">
+<ul>
+<li>我们还可以读取整行的数据</li>
+</ul>
+<img src="/2015/08/11/Python教程：[29]读取/bd70426034a85edf260e19354b540923dc5475e3.jpg" alt="Python教程：[29]读取" title="Python教程：[29]读取">
+<ul>
+<li>从读取整整行数据中获得第一个值</li>
+</ul>
+<img src="/2015/08/11/Python教程：[29]读取/cbc17b380cd79123ef387362af345982b3b78089.jpg" alt="Python教程：[29]读取" title="Python教程：[29]读取">
+<ul>
+<li>当然，我们还可以获取sheet中有多少行和多少列。</li>
+</ul>
+<img src="/2015/08/11/Python教程：[29]读取/d1e312f431adcbeff7ec9910aeaf2edda2cc9f89.jpg" alt="Python教程：[29]读取" title="Python教程：[29]读取">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/11/SPSS自动化：[4]/">
+                SPSS自动化：[4]
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>syntax是spss中的命令，在spss有syntax文档对象，这个对象有哪些属性呢？</p>
+<ul>
+<li><p>1&gt;designated属性：为当前输出文档、语法文档或草稿文档返回或设置指定的窗口状态。指定的窗口（designatedwindow）是spss传送输出、粘贴或运行语法命令的窗口。当一个新的输出窗口打开以后它就成为了指定窗口。</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>Intcount=objdocuments.outputdoccount</p>
+</li>
+<li><p>Set objoutputdoc=objdocuments.getoutputdoc(intcount-1)</p>
+</li>
+<li><p>Objoutputdoc.designated=true</p>
+</li>
+<li><p>‘本实例将最后一个输出文档设置成指定文档接收新的输出。</p>
+</li>
+<li><p>2&gt;height和width属性、left和top属性、modified属性在前面其他对象中有介绍，这里省略。</p>
+</li>
+<li><p>3&gt;papersource属性：设置打印时候纸张的来源，它有四个值：</p>
+</li>
+<li><p>1    Upper</p>
+</li>
+<li><p>2    Lower</p>
+</li>
+<li><p>3    Middle</p>
+</li>
+<li><p>4    envelop</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>Setobjprintoptions=objoutputdoc.printoptions</p>
+</li>
+<li><p>‘设置打印选项</p>
+</li>
+<li><p>Printoptions.papersource-2</p>
+</li>
+<li><p>4&gt;rtftext属性：返回或设置语法窗口中的格式化文本，或rich文本框中的rtf文本编辑器。</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>String=objsyntaxdoc.text</p>
+</li>
+<li><p>Objsyntaxdoc.rtftext=string</p>
+</li>
+<li><p>Objsyntaxdoc.run</p>
+</li>
+<li><p>5&gt;text属性：在语法窗口或者激活的rtf文本编辑器中返回或设置文本，可以使用该属性写成或接收未格式化的文本。</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>Dim syntaxcommands as string</p>
+</li>
+<li><p>Syntaxcommands=objdatadoc.invokedialogandreturnsyntax(“analyze&gt;compare means&gt;paired-samples t test”,1)</p>
+</li>
+<li><p>‘获取了syntax命令</p>
+</li>
+<li><p>Dim objsyntaxdoc as ispsssyntaxdoc</p>
+</li>
+<li><p>Set objsyntaxdoc=objspssapp.newsyntaxdoc</p>
+</li>
+<li><p>Objsyntaxdoc.text=syntaxcommands</p>
+</li>
+<li><p>6&gt;toolbarvisible属性、visible属性、windowstate属性略去。</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/">
+                spss如何用散点图检验两个变量之间的交互作用
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>散点图如图所示， 就是由一些点所构成的图，他是怎么看出交互作用的呢？好吧，我们一步一步来做你就懂了，下面是具体的过程。<br>工具/原料</p>
+<ul>
+<li>spss<br>方法/步骤</li>
+</ul>
+<ul>
+<li>首先在spss中准备好数据，然后在菜单栏上执行：graphs–散点图，如图所示，我这里是spss20.0，如果你要是其他的版本，菜单是不一样的，你得找找散点图在哪里</li>
+</ul>
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/4e4a20a4462309f7380b0cd1720e0cf3d6cad689.jpg" alt="spss如何用散点图检验两个变量之间的交互作用" title="spss如何用散点图检验两个变量之间的交互作用">
+<ul>
+<li>弹出一个窗口，让你选择使用哪个散点图，我们选择第一个最简单的散点图</li>
+</ul>
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/64380cd7912397dd762039c75982b2b7d1a2879c.jpg" alt="spss如何用散点图检验两个变量之间的交互作用" title="spss如何用散点图检验两个变量之间的交互作用">
+<ul>
+<li>因为我们要检验摸底考试成绩与教学方法之间的交互作用，所以你看好了，期末考试是因变量，也就是在y轴，而摸底考试成绩在x轴，分类变量是教学方法</li>
+</ul>
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/91529822720e0cf37ba3ef380a46f21fbf09aa99.jpg" alt="spss如何用散点图检验两个变量之间的交互作用" title="spss如何用散点图检验两个变量之间的交互作用">
+<ul>
+<li>点击ok按钮，开始输出散点图，如图所示，那是一个初步的散点图</li>
+</ul>
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/8b82b9014a90f60303803c843912b31bb151edc5.jpg" alt="spss如何用散点图检验两个变量之间的交互作用" title="spss如何用散点图检验两个变量之间的交互作用">
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/d788d43f8794a4c2411047e80ef41bd5ac6e39c5.jpg" alt="spss如何用散点图检验两个变量之间的交互作用" title="spss如何用散点图检验两个变量之间的交互作用">
+<ul>
+<li>在散点图上右键单击，然后选择在新的窗口中编辑</li>
+</ul>
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/9e3df8dcd100baa1e203e7784710b912c9fc2ec1.jpg" alt="spss如何用散点图检验两个变量之间的交互作用" title="spss如何用散点图检验两个变量之间的交互作用">
+<ul>
+<li>我们要用到上面两个按钮，第一个是所有的点拟合直线，其实就是忽略教学方法这个变量，得到一条回归曲线，但是我们为了比较教学方法，所以需要给不同的教学方法分别绘制回归线，所以点击右侧的按钮</li>
+</ul>
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/7af40ad162d9f2d3c619842ca9ec8a136227cced.jpg" alt="spss如何用散点图检验两个变量之间的交互作用" title="spss如何用散点图检验两个变量之间的交互作用">
+<ul>
+<li>出现了两条回归线，这两条回归线代表不同的教学方法，这两条线如果是平行的就可以认为他们是没有交互作用的，显然这个线有交叉的取向，我们只能先假定有交互作用的取向，但是还无法说达到了显著的水平。</li>
+</ul>
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/9922720e0cf3d7cad7ea9fb5f21fbe096a63a9d1.jpg" alt="spss如何用散点图检验两个变量之间的交互作用" title="spss如何用散点图检验两个变量之间的交互作用">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/">
+                Excel2013：[6]为不同的区域设置不同密码
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>有时候，我们给客户开发的Excel报表需要设置密码，防止他们随便编辑，把表格弄乱。为了让不同的人编辑表格的不同部分，我们就是用不同区域设置不同密码，下面是具体的方法：</p>
+<ul>
+<li>我们先取消所有单元格的锁定和隐藏状态，按下快捷键ctr+a，选中所有单元格；然后按下ctr+1，打开【设置单元格格式】对话框。在保护选项下，取消勾选锁定和隐藏</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/9a1151c2d5628535a14ac43792ef76c6a7ef633a.jpg" alt="Excel2013：[6]为不同的区域设置不同密码" title="Excel2013：[6]为不同的区域设置不同密码">
+<ul>
+<li>然后我们选中要保护的单元格，记得是要保护的，也就是要设置密码的，同样是在这个对话框，我们勾选锁定和隐藏</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/9864a2315c6034a8076eae97c9134954082376dc.jpg" alt="Excel2013：[6]为不同的区域设置不同密码" title="Excel2013：[6]为不同的区域设置不同密码">
+<ul>
+<li>在审阅标签下，选择【允许用户编辑区域】</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/064936381f30e92460c68a274e086e061d95f703.jpg" alt="Excel2013：[6]为不同的区域设置不同密码" title="Excel2013：[6]为不同的区域设置不同密码">
+<ul>
+<li>打开这个对话框，我们点击【新建】</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/4d4970061d950a7bdc5758d208d162d9f2d3c903.jpg" alt="Excel2013：[6]为不同的区域设置不同密码" title="Excel2013：[6]为不同的区域设置不同密码">
+<ul>
+<li>设置你要保护的单元格的区域，然后设置一个密码，点击确定</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/fc5e5f34970a304e5652b6ecd3c8a786c9175c70.jpg" alt="Excel2013：[6]为不同的区域设置不同密码" title="Excel2013：[6]为不同的区域设置不同密码">
+<ul>
+<li>再新建一个保护区域，同样设置一个不同的密码</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/f392492c11dfa9ec6c4c400160d0f703918fc103.jpg" alt="Excel2013：[6]为不同的区域设置不同密码" title="Excel2013：[6]为不同的区域设置不同密码">
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/7e7f7909c93d70cf478abc1bfadcd100baa12b70.jpg" alt="Excel2013：[6]为不同的区域设置不同密码" title="Excel2013：[6]为不同的区域设置不同密码">
+<ul>
+<li>点击左下角【保护工作表】</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/bbe0d311728b47103d5febdac1cec3fdfc032370.jpg" alt="Excel2013：[6]为不同的区域设置不同密码" title="Excel2013：[6]为不同的区域设置不同密码">
+<ul>
+<li>我们在这里输入总密码，这个密码一旦泄露，他们就可以对所有的单元格进行编辑</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/4651a712c8fcc3ce44b0df259045d688d43f2070.jpg" alt="Excel2013：[6]为不同的区域设置不同密码" title="Excel2013：[6]为不同的区域设置不同密码">
+<ul>
+<li>返回表单，你编辑一个区域试试，如果是没有设置密码的区域，它提示你不可以更改；如果是有密码的区域，你必须先输入密码才能修改</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/c28fddfdfc0392455cc5f7198594a4c27d1e2570.jpg" alt="Excel2013：[6]为不同的区域设置不同密码" title="Excel2013：[6]为不同的区域设置不同密码">
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/4e0b3ea4462309f7690dbb04700e0cf3d7cad603.jpg" alt="Excel2013：[6]为不同的区域设置不同密码" title="Excel2013：[6]为不同的区域设置不同密码">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/11/python教程：[76]mro()解析/">
+                python教程：[76]mro()解析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天在看django-xadmin源码的时候看到的一个mro方法，我这种小白还不太懂python里比较深入的内容，所以百度了很多文章来看，现在总结一下。</p>
+<ul>
+<li>这个方法用于返回某个类的基类以及基类的基类，我们举一个简单的例子：创建一个类A，然后调用mro，它返回了一个列表，列表元素是类A本身和它的基类</li>
+</ul>
+<img src="/2015/08/11/python教程：[76]mro()解析/d002b34bd11373f04c42a5a4a70f4bfbfbed0449.jpg" alt="python教程：[76]mro()解析" title="python教程：[76]mro()解析">
+<ul>
+<li>假如我们再创建一个类B，继承于A，然后调用mro，现在列表里多了内容，看到了吧，mro总是返回类本身和其基类的列表</li>
+</ul>
+<img src="/2015/08/11/python教程：[76]mro()解析/ac2fc3c451da81cb80aa49f65166d0160924317a.jpg" alt="python教程：[76]mro()解析" title="python教程：[76]mro()解析">
+<ul>
+<li>假如把类的继承关系弄的复杂一些，类C和类B都继承自A，D继承B和C，这时候调用D.mro，我们看到这时候列表的顺序为：D-B-C-A</li>
+</ul>
+<img src="/2015/08/11/python教程：[76]mro()解析/d048adde9c82d158444d938a830a19d8bd3e42fb.jpg" alt="python教程：[76]mro()解析" title="python教程：[76]mro()解析">
+<ul>
+<li>在负责一些，增加类E继承类A，F继承自E和D，然后调用F.mro，这时候你就可以看到类A总是列表的最后一个元素，列表的顺序是：F-E-D-B-C-A</li>
+</ul>
+<img src="/2015/08/11/python教程：[76]mro()解析/814b07d8bc3eb135be7d8287a51ea8d3fd1f4410.jpg" alt="python教程：[76]mro()解析" title="python教程：[76]mro()解析">
+<ul>
+<li>记住这个列表的顺序很有用，因为以后再复制的类调用的时候，可能会考虑到初始化类的顺序，它们遵循的就是mro的顺序</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/11/SPSS python教程：[1]安装Python Essentials/">
+                SPSS python教程：[1]安装Python Essentials
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>这个系列教程是用来教大家如何使用python脚本来操作spss，使用脚本的好处是可以批量处理，如果你有很多数据要处理，他们的处理方法类似，那就需要用到脚本，可以自动化、智能化处理数据，大大减少数据分析的工作量，关于更多好处，你们可以参考spss的官方文档，这里不多少，开始介绍如何设置spss中的python插件：SPSS Python Essentials。</p>
+<ul>
+<li><p>我用的spss版本是22.0，也是最近为了使用SPSS Python Essentials才安装的这个版本，大家可以参考这篇文章，以便正确安装spss 22.0。【<a href="http://jingyan.baidu.com/article/3d69c55187d5faf0cf02d73f.html】" target="_blank" rel="external">http://jingyan.baidu.com/article/3d69c55187d5faf0cf02d73f.html】</a></p>
+</li>
+<li><p>安装好了spss22.0以后，如果你按照上面的安装教程进行的安装，SPSS Python Essentials就自动的安装在了你的spss22.0的安装目录下。接下来我们要进行必要的设置。</p>
+</li>
+<li><p>打开spss22的界面，打开编辑菜单下的【选项】</p>
+</li>
+</ul>
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/ea85a94543a982266fc821b18882b9014b90ebd8.jpg" alt="SPSS python教程：[1]安装Python Essentials" title="SPSS python教程：[1]安装Python Essentials">
+<ul>
+<li>切换到脚本选项下，我们设置一下缺省脚本语言为python，点击【应用】</li>
+</ul>
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/f9589818367adab4e5d911d589d4b31c8601e4d8.jpg" alt="SPSS python教程：[1]安装Python Essentials" title="SPSS python教程：[1]安装Python Essentials">
+<ul>
+<li>切换到【文件位置】选项下，设置python的位置，我们有两个选项，一个是随IBM SPSS安装的位置，这就是说，spss22在安装的时候自动安装了python2.7，如果我们想要使用这个python，就选择第一个选项；但是我现在有一个更好的建议，使用我们自己安装的python，也就是说在安装spss之前就有一个python安装好了，我现在想使用这个python，我们可以设置python的其他安装，然后找到这个python安装的目录，最后点击确定就可以了。为什么我建议使用第二种选择呢？因为我的python下有很多安装好的扩展包，需要在处理数据的时候调用，以后安装新的扩展包也很方便。如果使用是、随spss安装的python，还需要另行安装这些扩展包</li>
+</ul>
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/8a95ad1c8701a18b32e218d99c2f07082938fed8.jpg" alt="SPSS python教程：[1]安装Python Essentials" title="SPSS python教程：[1]安装Python Essentials">
+<ul>
+<li>设置完成以后，我们想要启动python的编辑窗口，需要在开始菜单中启动，如图所示。不能直接从python的安装目录里启动。</li>
+</ul>
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/d35a10f41bd5ad6eaacc6e7c83cb39dbb6fd3c2b.jpg" alt="SPSS python教程：[1]安装Python Essentials" title="SPSS python教程：[1]安装Python Essentials">
+<ul>
+<li>另外，spss22还有一个bug，我们虽然设置了Python的主目录，但是在新建脚本的时候，还是用的随spss安装的python的shell。所以想要使用python脚本，你就从上面那个方面里启动python shell</li>
+</ul>
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/90cebeec08fa513df4a366483f6d55fbb3fbd9d8.jpg" alt="SPSS python教程：[1]安装Python Essentials" title="SPSS python教程：[1]安装Python Essentials">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/05/numpy函数：[13]切片数组共享内存/">
+                numpy函数：[13]切片数组共享内存
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>使用切片的方法获取数组的一部分，并没有创建新的数组，而切片只是原始数组的一种视图，所以改变切片中的数值，也会改变原始数组的元素值，具体通过例子来看一下：</p>
+<ul>
+<li>先从Numpy中引用所有</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/8cf0d513495409233eb9c8e19058d109b2de491a.jpg" alt="numpy函数：[13]切片数组共享内存" title="numpy函数：[13]切片数组共享内存">
+<ul>
+<li>创建一个一位数组a</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/6dc09e0a19d8bc3e5f2aac55808ba61ea9d345d4.jpg" alt="numpy函数：[13]切片数组共享内存" title="numpy函数：[13]切片数组共享内存">
+<ul>
+<li>通过切片获取数组b</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/bd7faf3533fa828b54f3367cff1f4134960a5a1a.jpg" alt="numpy函数：[13]切片数组共享内存" title="numpy函数：[13]切片数组共享内存">
+<ul>
+<li>假如改变数组b中的元素的值</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/948bcfc8a786c9178321f8a6cb3d70cf3ac757d4.jpg" alt="numpy函数：[13]切片数组共享内存" title="numpy函数：[13]切片数组共享内存">
+<ul>
+<li>数组a相应的值也会发生变化</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/948bcfc8a786c91782d3f9a6cb3d70cf3ac7571a.jpg" alt="numpy函数：[13]切片数组共享内存" title="numpy函数：[13]切片数组共享内存">
+<ul>
+<li>假如把a全部赋值给c，也是一样的效果，还是改变了原数组的值</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/a28d62d98d1001e984ecbf90ba0e7bec55e7971a.jpg" alt="numpy函数：[13]切片数组共享内存" title="numpy函数：[13]切片数组共享内存">
+<ul>
+<li>想要保证原始数组的值不发生变化，我们最好使用copy方法获取数组c</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/fcbbb151f3deb48f58b90a41f21f3a292cf5781a.jpg" alt="numpy函数：[13]切片数组共享内存" title="numpy函数：[13]切片数组共享内存">
+<ul>
+<li>现在改变数组c的元素的值，数组a将不放生变化。</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/48151723dd54564e76474ea6b1de9c82d0584fd4.jpg" alt="numpy函数：[13]切片数组共享内存" title="numpy函数：[13]切片数组共享内存">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/08/05/Python教程：[48]集合对象用法/">
                 Python教程：[48]集合对象用法
             </a>
@@ -210,6 +725,14 @@
 <p>邮箱: 675495787@qq.com </p>
 </blockquote>
 
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
         </div>
     
 
@@ -290,6 +813,14 @@
         </div>
     
 
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
 </div>
             
                 
@@ -344,804 +875,11 @@
         </div>
     
 
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/23/Excel2013：[28]countif函数用法大全/">
-                Excel2013：[28]countif函数用法大全
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
     
-        <div class="content">
-            <p>countif函数时我们经常用到的函数之一，经过组合它可以求得任何我们想要的计数结果，下面是具体的用法：</p>
-<ul>
-<li>假如我们要统计男女生的人数，我们可以在E5单元格输入公式=COUNTIF(A2:A21,”男”)；公式中A2:A21是我们计数的范围，第二个参数“男”表示对单元格中为男的计数</li>
-</ul>
-<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/61183b2dd42a28344b75b77259b5c9ea14cebfbd.jpg" alt="Excel2013：[28]countif函数用法大全" title="Excel2013：[28]countif函数用法大全">
-<ul>
-<li>同样的，在F5单元格输入公式也可以求得女生人数：=COUNTIF(A2:A21,”女”)</li>
-</ul>
-<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/d56b3634349b033bda5b7da317ce36d3d439bdbd.jpg" alt="Excel2013：[28]countif函数用法大全" title="Excel2013：[28]countif函数用法大全">
-<ul>
-<li>假如我们要统计成绩大于60的人数</li>
-</ul>
-<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/35da1d3b5bb5c9ea9620829ad739b6003bf3b3bd.jpg" alt="Excel2013：[28]countif函数用法大全" title="Excel2013：[28]countif函数用法大全">
-<ul>
-<li>我们可以在单元格中输入公式=COUNTIF(B2:B21,”&gt;=60”)</li>
-</ul>
-<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/dc15484e9258d10963cf29cbd358ccbf6c814d58.jpg" alt="Excel2013：[28]countif函数用法大全" title="Excel2013：[28]countif函数用法大全">
-<ul>
-<li>假如我们要计算一个区间内的人数，我们可以使用两个countif函数，运用减法就可以算出来，下面是计算成绩在60到65之间的个数</li>
-</ul>
-<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/9dc3cf58ccbf6c81551bac91be3eb13533fa4058.jpg" alt="Excel2013：[28]countif函数用法大全" title="Excel2013：[28]countif函数用法大全">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
     
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/23/wxpython教程：[4]菜单中的图标/">
-                wxpython教程：[4]菜单中的图标
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们看到的菜单中多半是有一个图标的，那么今天我们就来做一个菜单，菜单选项左侧有一个图标。要达到这个目的我们必须手动创建一个选项。下面是今天代码的全部：由于这些大部分代码在之前的文章中有讲解，所以这篇文章就着重讲不同的部分。</p>
-<ul>
-<li>先创建一个选项：注意第二个参数设定了该选项的id，以后绑定方法的时候可以用id来表示该选项</li>
-</ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/0e655ca7d933c895c3031a14d21373f082020024.jpg" alt="wxpython教程：[4]菜单中的图标" title="wxpython教程：[4]菜单中的图标">
-<ul>
-<li>设置选项的图标用到了方法：SetBitmap，该方法需要传入一个Bitmap对象：exit.jpg是我自己做的一个图片</li>
-</ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/c9d4cf43ad4bd11366b0355d59afa40f4bfb0524.jpg" alt="wxpython教程：[4]菜单中的图标" title="wxpython教程：[4]菜单中的图标">
-<ul>
-<li>将创建好的选项添加到菜单</li>
-</ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/72b19c025aafa40f52bb4cb2a864034f78f01924.jpg" alt="wxpython教程：[4]菜单中的图标" title="wxpython教程：[4]菜单中的图标">
-<ul>
-<li>将选项与方法绑定，这样点击该菜单选项就能执行OnQuit动作。注意现在用id来表示跟哪个选项进行的绑定，因为我们在</li>
-</ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/55a628d12f2eb9383071f89dd6628535e5dd6f06.jpg" alt="wxpython教程：[4]菜单中的图标" title="wxpython教程：[4]菜单中的图标">
-<ul>
-<li>这是最后做出来的效果图</li>
-</ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/b25d9901a18b87d61b3c2670040828381f30fd20.jpg" alt="wxpython教程：[4]菜单中的图标" title="wxpython教程：[4]菜单中的图标">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/19/amos21.0教程：[6]结构方程模型分析流程/">
-                amos21.0教程：[6]结构方程模型分析流程
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>结构方程模型的分析遵循严格的步骤，在今天这一节我们着重探讨一下使用amos进行结构方程分析时需要的流程，下面这个是整个的流程图。</p>
-<ul>
-<li><p>第一个步骤是相关理论研究，这里主要要明白自己所做的是什么研究，主要的变量有哪些；查看前人的文献来考察这几个变量之间是否相关，正相关还是负相关，是否存在因果关系。当这几个变量的相互关系都基本了解以后，你可以进入下一个阶段了。</p>
-</li>
-<li><p>界定测量模型：前面的文章已经介绍过什么是测量模型了，如果你还不知道什么是测量模型，可以看下面参考资料的内容。界定测量模型首先你要知道那几个变量是通过测量得到的，比如主观幸福感需要使用主观幸福感量表来测定，如果有些变量没有成熟的量表来测定，你需要使用几个指标来作为操作定义，比如“学业成就”可以用四六级英语成绩和其他学习成绩的总分来计算。这个步骤主要的目的就是知道所有的变量都是如何测定的。为了让得到的模型具有可识别性，每个测量模型需要只有少两个指标变量。</p>
-</li>
-<li><p>界定结构模型：确定潜在变量之间的关系，绘制关系图。这时候你需要利用第一步中获得的只是来绘制关系图，也就是变量之间的关系。</p>
-</li>
-<li><p>测量抽样调查：这时候就是你做实验或者做调查的阶段了，从总体中随机抽样，然后根据测量模型对变量进行测定。得到数据。</p>
-</li>
-<li><p>模型参数判别：这时候你已经在amos中绘制好了结构方程模型的图形，图中出现的各个参数需要进行估计，这个过程就是得出各个路径的系数。</p>
-</li>
-<li><p>模型适配：根据得到的模型参数来判断模型是否合适。以后我们会专门介绍如何判断得到的模型是否合适，如果不合适该怎么做，现在你的知识有限，所以我们先不作介绍。这一步如果模型合适就可以进入下一步，如果模型不合适需要返回到第二步重新界定测量模型。</p>
-</li>
-<li><p>假如模型合适，这时候我们需要根据自己的专业知识来对结构方程模型进行解释，得出因果关系。</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/17/amos21.0教程：[9]绘制测量模型/">
-                amos21.0教程：[9]绘制测量模型
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>经过前几篇文章的努力，我们终于到了真正的教程，今天就来教大家如何绘制测量模型，关于测量模型是什么，你可以参考前面的文章，有专门的介绍，现在我们就打开amos，开始绘制。</p>
-<ul>
-<li>打开amos，先新建一个文件，在菜单上执行：file–new</li>
-</ul>
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/b87985504fc2d56220352717e61190ef77c66cc8.jpg" alt="amos21.0教程：[9]绘制测量模型" title="amos21.0教程：[9]绘制测量模型">
-<ul>
-<li>接着我们看到这个按钮就是添加潜变量的按钮，点击一次，选中这个工具，然后在画布上拖动可以绘制一个椭圆，这就是潜变量了</li>
-</ul>
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/d478a8003af33a8794d6f4e0c75c10385243b556.jpg" alt="amos21.0教程：[9]绘制测量模型" title="amos21.0教程：[9]绘制测量模型">
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/969cbf44ad3459823c3111680df431adcaef8456.jpg" alt="amos21.0教程：[9]绘制测量模型" title="amos21.0教程：[9]绘制测量模型">
-<ul>
-<li>接着在椭圆上连续点击四次，可以绘制四个指标变量，得到下面这个图，我们看到这个图的第一个指标变量默认的路径系数是1，这是系统自动添加的，只是给测量一个标准，不必在意太多</li>
-</ul>
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/5202e5f2b211931335df0b4a64380cd790238d69.jpg" alt="amos21.0教程：[9]绘制测量模型" title="amos21.0教程：[9]绘制测量模型">
-<ul>
-<li>接着我们要调整格式，假如要调整指标变量，也就是矩形的大小，我们要先选中，选择如图所示的选择工具，依次点击矩形就可以将其选中，选中的矩形呈现蓝色边框</li>
-</ul>
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/8c511fe93901213f25afba2655e736d12e2e9569.jpg" alt="amos21.0教程：[9]绘制测量模型" title="amos21.0教程：[9]绘制测量模型">
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/fcbbb151f3deb48f3ef55524f11f3a292cf57869.jpg" alt="amos21.0教程：[9]绘制测量模型" title="amos21.0教程：[9]绘制测量模型">
-<ul>
-<li>接着我们看到有一个改变大小的工具，选中它，然后拖动矩形的一个角就可以任意改变大小</li>
-</ul>
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/fd428c45d688d43f681265087c1ed21b0ff43b56.jpg" alt="amos21.0教程：[9]绘制测量模型" title="amos21.0教程：[9]绘制测量模型">
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/b7bc4c66d0160924559e56e1d50735fae7cd3456.jpg" alt="amos21.0教程：[9]绘制测量模型" title="amos21.0教程：[9]绘制测量模型">
-<ul>
-<li>取消选择的工具，如图所示</li>
-</ul>
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/d872d695d143ad4bdd94b23a83025aafa50f0656.jpg" alt="amos21.0教程：[9]绘制测量模型" title="amos21.0教程：[9]绘制测量模型">
-<ul>
-<li>接下来要给变量命名，我们使用菜单中的plugins–name unobserved variables，变量就会自动命名了。如图所示。</li>
-</ul>
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/0fb505d5ad6eddc4a67b400138dbb6fd53663369.jpg" alt="amos21.0教程：[9]绘制测量模型" title="amos21.0教程：[9]绘制测量模型">
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/62667cd0f703918fee6bc930503d269758eec457.jpg" alt="amos21.0教程：[9]绘制测量模型" title="amos21.0教程：[9]绘制测量模型">
-<ul>
-<li>好了，今天我们就绘制了一个测量模型，下一篇文章我们要学习如何复制测量模型，如何调整指标变量的位置。</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/17/numpy函数：[1]shape用法/">
-                numpy函数：[1]shape用法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>shape函数是numpy.core.fromnumeric中的函数，它的功能是读取矩阵的长度，比如shape[0]就是读取矩阵第一维度的长度。它的输入参数可以使一个整数表示维度，也可以是一个矩阵。这么说你可能不太理解，我们还是用各种例子来说明他的用法：</p>
-<ul>
-<li>一维矩阵[1]返回值为(1L,)                   </li>
-</ul>
-<img src="/2015/07/17/numpy函数：[1]shape用法/a6c7d7177f3e67093192d5f339c79f3df9dc55e9.jpg" alt="numpy函数：[1]shape用法" title="numpy函数：[1]shape用法">
-<ul>
-<li>二维矩阵，返回两个值                                  </li>
-</ul>
-<img src="/2015/07/17/numpy函数：[1]shape用法/9304c888d43f8794af72d822d01b0ef41ad53ae9.jpg" alt="numpy函数：[1]shape用法" title="numpy函数：[1]shape用法">
-<ul>
-<li>一个单独的数字，返回值为空       </li>
-</ul>
-<img src="/2015/07/17/numpy函数：[1]shape用法/5327ce160924ab188d9b713b37fae6cd7a890be9.jpg" alt="numpy函数：[1]shape用法" title="numpy函数：[1]shape用法">
-<ul>
-<li>我们还可以将shape作为矩阵的方法来调用，下面先创建了一个单位矩阵e     </li>
-</ul>
-<img src="/2015/07/17/numpy函数：[1]shape用法/b25aae51f819861871ca7f8848ed2e738ad4e6ea.jpg" alt="numpy函数：[1]shape用法" title="numpy函数：[1]shape用法">
-<ul>
-<li>我们可以快速读取e的形状            </li>
-</ul>
-<img src="/2015/07/17/numpy函数：[1]shape用法/58af236d55fbb2fb32a6c81e4d4a20a44723dcea.jpg" alt="numpy函数：[1]shape用法" title="numpy函数：[1]shape用法">
-<ul>
-<li>假如我们只想读取e的第一维度长度，使用shape[0]        </li>
-</ul>
-<img src="/2015/07/17/numpy函数：[1]shape用法/5202e5f2b211931310ce6fbc67380cd790238dea.jpg" alt="numpy函数：[1]shape用法" title="numpy函数：[1]shape用法">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/17/gitignore配置详解/">
-                gitignore配置详解
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>如果你使用git来管理代码版本，你必须懂得如何使用.gitignore文件，该文件可以指定git忽略哪些文件，在git中的作用非常重要。在理解gitignore的配置之前，我们要先看看这些规则都可以来自哪里。通常git可以从多个地方获取忽略规则，优先级从上到下依次为：</p>
-<ul>
-<li><p>.gitignore文件适合写于项目有关的规则，并且这些规则需要与合作者分享。</p>
-</li>
-<li><p><code>$GIT_DIR/info/exclude</code>适用于与项目有关，但是你不想分享给其他作者，这些规则可能只适用于你自己。</p>
-</li>
-<li><p><code>core.excludesFile</code>适用于你在任何情况下都需要忽略的规则。这种情况不常用。</p>
-</li>
-<li><p>空行不匹配任何文件，所以空行通常是规则分组的分隔符，只是在视觉上将不同的规则分组。</p>
-</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/21e5582309f790527c5640f005f3d7ca7acbd570.jpg" alt="gitignore配置详解" title="gitignore配置详解">
-<ul>
-<li>以<code>#</code>开始的行代表注释，所以也不匹配任何文件。</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/73ca5910b912c8fcb345f103f5039245d788210e.jpg" alt="gitignore配置详解" title="gitignore配置详解">
-<ul>
-<li><p>末尾的空格没有任何意义，如果你想匹配空格，你需要在空格前加转义字符``。</p>
-</li>
-<li><p>例如：<code>a</code>这种写法可以匹配<code>a</code></p>
-</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/d7c9ca3f8794a4c20583e0e507f41bd5ac6e3918.jpg" alt="gitignore配置详解" title="gitignore配置详解">
-<ul>
-<li><p>感叹号<code>!</code>的作用是从已有的忽略规则里排除一部分文件。注意想要让感叹号起作用，必须在前规则中使用通配符<code>*</code>。例如：</p>
-</li>
-<li><p>前规则写成：<code>.env/*</code></p>
-</li>
-<li><p>想要追踪<code>.env</code>文件夹下的<code>data.txt</code>，需要追加一个规则：<code>!.env/data.txt</code></p>
-</li>
-<li><p>如果前规则写成<code>.env</code>，则<code>!.env/data.txt</code>不起作用。</p>
-</li>
-<li><p>如果规则以<code>/</code>结尾，则表示匹配文件夹, 类似的文件和链接都不会匹配。</p>
-</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/4bd1e803738da977974181e5b951f8198718e357.jpg" alt="gitignore配置详解" title="gitignore配置详解">
-<ul>
-<li>如果规则中不包含<code>/</code>，则规则即可匹配文件夹也可以匹配文件和链接，类似于linux shell中的通配符，可以匹配任何可以与通配符匹配的路径。</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/ae8267310a55b31949fc85bb4aa98226cefc17b3.jpg" alt="gitignore配置详解" title="gitignore配置详解">
-<ul>
-<li>通配符无法匹配符号<code>/</code>，所以类似这样的规则<code>foo/*.html</code>不能匹配<code>foo/bar/test.html</code>。</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/61183b2dd42a2834ceef31c552b5c9ea14cebf70.jpg" alt="gitignore配置详解" title="gitignore配置详解">
-<ul>
-<li>规则以<code>/</code>开头表示匹配<code>.gitignore</code>文件所在的目录。也就是说规则<code>/*.txt</code>只能匹配.gitignore所在目录下的所有txt文件，不能匹配其他目录下的txt文件。</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/dc854fda81cb39db37766098d9160924aa18300e.jpg" alt="gitignore配置详解" title="gitignore配置详解">
-<ul>
-<li><p>以<code>**/</code>开头的规则表示匹配所有文件夹，规则<code>**/a/b</code>能匹配<code>foo/a/b</code>也能匹配<code>foo/bar/a/b</code></p>
-</li>
-<li><p>以<code>/**</code>结尾的规则表示匹配目录下所有文件和文件夹，规则<code>a/b/**</code>能匹配<code>/a/b/c</code>也能匹配<code>a/b/c/d/e</code></p>
-</li>
-<li><p>规则中间包含<code>/**/</code>表示匹配任意路径，比如规则<code>a/**/b</code>可以匹配<code>a/foo/bar/b</code>和<code>a/e/m/c/b</code>。</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/15/python 线性代数：[3]矩阵转置/">
-                python 线性代数：[3]矩阵转置
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>矩阵的转置很简单，就是将矩阵的行变为列，将列变为行，我们先通过例子看一下矩阵转置是怎么做的。然后验证几个规律。</p>
-<ul>
-<li>先创建一个矩阵A</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/faacb564034f78f014b75c027b310a55b2191c40.jpg" alt="python 线性代数：[3]矩阵转置" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>我们使用属性T来得到矩阵A的转置矩阵</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/5327ce160924ab185b0727c637fae6cd7a890beb.jpg" alt="python 线性代数：[3]矩阵转置" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>我们验证第一个性质：(A’)’=A</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/d019d2bf6c81800a81044fffb33533fa838b471b.jpg" alt="python 线性代数：[3]矩阵转置" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>再创建两个尺寸相同的矩阵</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/1899a23eb13533fa1e5755dfaad3fd1f40345b1b.jpg" alt="python 线性代数：[3]矩阵转置" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>验证矩阵转置的第二个性质：(A±B)’=A’±B’</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/dbf554ed2e738bd44d9c74c0a38b87d6267ff940.jpg" alt="python 线性代数：[3]矩阵转置" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>验证矩阵转置的第三个性质：(KA)’=KA’</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/2f3295d4b31c8701a10a7417257f9e2f0608ff40.jpg" alt="python 线性代数：[3]矩阵转置" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>验证矩阵转置的第四个性质：(A×B)’= B’×A’</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/c87c6ecf3bc79f3d560022c1b8a1cd11738b291b.jpg" alt="python 线性代数：[3]矩阵转置" title="python 线性代数：[3]矩阵转置">
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/6648d73d70cf3bc733560c1dd300baa1cc112aaa.jpg" alt="python 线性代数：[3]矩阵转置" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li><p>本文用到的所有代码如下：</p>
-</li>
-<li></li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 2, 3],</p>
-</li>
-<li><p>[4, 5, 6]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A.T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 4],</p>
-</li>
-<li><p>[2, 5],</p>
-</li>
-<li><p>[3, 6]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A.T.T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 2, 3],</p>
-</li>
-<li><p>[4, 5, 6]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>B</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 4],</p>
-</li>
-<li><p>[2, 5],</p>
-</li>
-<li><p>[3, 6]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>D</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[0, 3],</p>
-</li>
-<li><p>[1, 4],</p>
-</li>
-<li><p>[2, 5]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>(B+D).T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1,  3,  5],</p>
-</li>
-<li><p>[ 7,  9, 11]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>B.T+D.T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1,  3,  5],</p>
-</li>
-<li><p>[ 7,  9, 11]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>10*A.T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[10, 40],</p>
-</li>
-<li><p>[20, 50],</p>
-</li>
-<li><p>[30, 60]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>(10*A).T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[10, 40],</p>
-</li>
-<li><p>[20, 50],</p>
-</li>
-<li><p>[30, 60]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>np.dot(A,B).T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[14, 32],</p>
-</li>
-<li><p>[32, 77]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>np.dot(A.T,B.T)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[17, 22, 27],</p>
-</li>
-<li><p>[22, 29, 36],</p>
-</li>
-<li><p>[27, 36, 45]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>np.dot(B.T,A.T)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[14, 32],</p>
-</li>
-<li><p>[32, 77]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
         </div>
     
 
@@ -1199,19 +937,19 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         <ul>
             
             <li>
-                <a class="footer-post" href="/2017/10/02/psychopy教程2-builder概念介绍/">psychopy教程2-builder概念介绍</a>
+                <a class="footer-post" href="/2017/10/26/python时间序列分析-纯随机性检验/">python时间序列分析-纯随机性检验</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/09/29/psychopy教程1-入门认识psychopy/">psychopy教程1-入门认识psychopy</a>
+                <a class="footer-post" href="/2017/10/25/psychopy实验设计技术/">psychopy实验设计技术</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/09/28/EPrime中如使何呈现时间随机/">EPrime中如使何呈现时间随机</a>
+                <a class="footer-post" href="/2017/10/16/心理学大数据研究工作坊/">心理学大数据研究工作坊</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/09/27/selenium进阶教程/">selenium进阶教程</a>
+                <a class="footer-post" href="/2017/10/12/scikit-learn安装和入门-for-educationist/">scikit-learn安装和入门(for_edu</a>
             </li>
             
         </ul>

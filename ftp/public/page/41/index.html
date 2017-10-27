@@ -7,6 +7,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--Description-->
     
@@ -74,7 +76,7 @@
     
     
     
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 </head>
 
 
@@ -157,6 +159,496 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/02/01/pandas教程：[13]agg分组多种计算/">
+                pandas教程：[13]agg分组多种计算
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年02月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>有时候aggregate不能满足需求，因为我们要对分组数据进行多种计算，比如要同时计算各组数据的平均数、标准差、总数等等，这时候用agg()就比较好了。</p>
+<ul>
+<li>先引入必要的变量，并且创建一个DataFrame<br>我们可以看一下DataFrame包含哪些数据</li>
+</ul>
+<img src="/2015/02/01/pandas教程：[13]agg分组多种计算/246cca2a2834349b2ee45d93caea15ce37d3be82.jpg" alt="pandas教程：[13]agg分组多种计算" title="pandas教程：[13]agg分组多种计算">
+<img src="/2015/02/01/pandas教程：[13]agg分组多种计算/2f9cbdcc7cd98d1052363f27223fb80e7aec9082.jpg" alt="pandas教程：[13]agg分组多种计算" title="pandas教程：[13]agg分组多种计算">
+<ul>
+<li>按照颜色将数据分组：</li>
+</ul>
+<img src="/2015/02/01/pandas教程：[13]agg分组多种计算/77485536acaf2eddecc67bff8e1001e9390193b5.jpg" alt="pandas教程：[13]agg分组多种计算" title="pandas教程：[13]agg分组多种计算">
+<ul>
+<li>计算各组数据的总数、平均数、标准差<br>计算结果为：</li>
+</ul>
+<img src="/2015/02/01/pandas教程：[13]agg分组多种计算/027a45b5c9ea15ce070cd31fb5003af33b87b282.jpg" alt="pandas教程：[13]agg分组多种计算" title="pandas教程：[13]agg分组多种计算">
+<img src="/2015/02/01/pandas教程：[13]agg分组多种计算/00a82701213fb80e2c3352c135d12f2eb8389482.jpg" alt="pandas教程：[13]agg分组多种计算" title="pandas教程：[13]agg分组多种计算">
+<ul>
+<li>假如我们只需要对a列数据进行计算，可以选择a列：<br>计算结果为：</li>
+</ul>
+<img src="/2015/02/01/pandas教程：[13]agg分组多种计算/3792cb39b6003af30f58ef76362ac65c1138b682.jpg" alt="pandas教程：[13]agg分组多种计算" title="pandas教程：[13]agg分组多种计算">
+<img src="/2015/02/01/pandas教程：[13]agg分组多种计算/ae10eddeb48f8c54ffe4f73939292df5e0fe7fb5.jpg" alt="pandas教程：[13]agg分组多种计算" title="pandas教程：[13]agg分组多种计算">
+<ul>
+<li>假如我们需要定制显示的标题，也可以如此设置：<br>输出结果为：</li>
+</ul>
+<img src="/2015/02/01/pandas教程：[13]agg分组多种计算/c71d0e385343fbf28ece9535b37eca8064388f82.jpg" alt="pandas教程：[13]agg分组多种计算" title="pandas教程：[13]agg分组多种计算">
+<img src="/2015/02/01/pandas教程：[13]agg分组多种计算/9a1151c2d56285358502e13793ef76c6a6ef6382.jpg" alt="pandas教程：[13]agg分组多种计算" title="pandas教程：[13]agg分组多种计算">
+<ul>
+<li>另外，我们还可以通过lambda匿名函数来进行特殊的计算：<br>计算各组数据的绝对值的平均数（离均差）：</li>
+</ul>
+<img src="/2015/02/01/pandas教程：[13]agg分组多种计算/b87985504fc2d562db3fe2fbe41190ef76c66cb5.jpg" alt="pandas教程：[13]agg分组多种计算" title="pandas教程：[13]agg分组多种计算">
+<img src="/2015/02/01/pandas教程：[13]agg分组多种计算/e49cf91190ef76c6c330c83d9e16fdfaae516782.jpg" alt="pandas教程：[13]agg分组多种计算" title="pandas教程：[13]agg分组多种计算">
+<ul>
+<li>我们还可以使用字符串作为一个function，要正确使用字符串，必须先学习groupby对象有哪些可用的方法。这种方式可以实现一些更高级的功能，比如定制计算方法，不建议新手使用。<br>计算结果为：</li>
+</ul>
+<img src="/2015/02/01/pandas教程：[13]agg分组多种计算/ac754782b2b7d0a2452b378bc8ef76094a369a82.jpg" alt="pandas教程：[13]agg分组多种计算" title="pandas教程：[13]agg分组多种计算">
+<img src="/2015/02/01/pandas教程：[13]agg分组多种计算/9319cf09b3de9c82ae52cb996f81800a19d843b5.jpg" alt="pandas教程：[13]agg分组多种计算" title="pandas教程：[13]agg分组多种计算">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/01/23/Excel2013：[46]如何绘制半圆饼图/">
+                Excel2013：[46]如何绘制半圆饼图
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>很多时候需要美化你的图表这样才能让人感觉你是一个有创意的员工，是一个对工作有激情的员工。额。。好吧，其实这句话我也不信，但信不信由你，我现在开始讲如何绘制一个半圆的饼图。</p>
+<ul>
+<li>先来看一下我的数据，下面要对这些数据绘制半圆饼图；先选中这些数据</li>
+</ul>
+<img src="/2015/01/23/Excel2013：[46]如何绘制半圆饼图/245e8bcad1c8a786a48d52616509c93d71cf50fe.jpg" alt="Excel2013：[46]如何绘制半圆饼图" title="Excel2013：[46]如何绘制半圆饼图">
+<ul>
+<li>在插入一个饼图</li>
+</ul>
+<img src="/2015/01/23/Excel2013：[46]如何绘制半圆饼图/eab9044c510fd9f9d6a84d06272dd42a2934a4e6.jpg" alt="Excel2013：[46]如何绘制半圆饼图" title="Excel2013：[46]如何绘制半圆饼图">
+<ul>
+<li>这里是自动生成的一个饼图</li>
+</ul>
+<img src="/2015/01/23/Excel2013：[46]如何绘制半圆饼图/61183b2dd42a283432192e6459b5c9ea14cebfe6.jpg" alt="Excel2013：[46]如何绘制半圆饼图" title="Excel2013：[46]如何绘制半圆饼图">
+<ul>
+<li>点击两次半圆的【总计】部分，选中它，然后右键单击它，选择填充【白色】</li>
+</ul>
+<img src="/2015/01/23/Excel2013：[46]如何绘制半圆饼图/3a86813df8dcd100cc3be04e708b4710b8122ffe.jpg" alt="Excel2013：[46]如何绘制半圆饼图" title="Excel2013：[46]如何绘制半圆饼图">
+<ul>
+<li>好了，半圆饼图的雏形已经有了，我们接着要删除【总计】这个标签了。</li>
+</ul>
+<img src="/2015/01/23/Excel2013：[46]如何绘制半圆饼图/bbe0d311728b4710c388e5a3c1cec3fdfd0323fe.jpg" alt="Excel2013：[46]如何绘制半圆饼图" title="Excel2013：[46]如何绘制半圆饼图">
+<ul>
+<li>右键单击饼图，然后我们在这里可以看到有一个【设置图表区域格式】</li>
+</ul>
+<img src="/2015/01/23/Excel2013：[46]如何绘制半圆饼图/1a94b36eddc451da0a7c1484b4fd5266d1163293.jpg" alt="Excel2013：[46]如何绘制半圆饼图" title="Excel2013：[46]如何绘制半圆饼图">
+<ul>
+<li>如何旋转饼图：来到这里，设置系列选项，我们设置第一扇区起始角度为270</li>
+</ul>
+<img src="/2015/01/23/Excel2013：[46]如何绘制半圆饼图/4651a712c8fcc3cebe67d15c9045d688d53f20fe.jpg" alt="Excel2013：[46]如何绘制半圆饼图" title="Excel2013：[46]如何绘制半圆饼图">
+<ul>
+<li>看一下这一步我们的效果喽</li>
+</ul>
+<img src="/2015/01/23/Excel2013：[46]如何绘制半圆饼图/b853d6fcc3cec3fd8299bf1ad488d43f869427fe.jpg" alt="Excel2013：[46]如何绘制半圆饼图" title="Excel2013：[46]如何绘制半圆饼图">
+<ul>
+<li>如果你给它添加上标签会更好看</li>
+</ul>
+<img src="/2015/01/23/Excel2013：[46]如何绘制半圆饼图/b74124f33a87e95024a8eb0312385343faf2b4e6.jpg" alt="Excel2013：[46]如何绘制半圆饼图" title="Excel2013：[46]如何绘制半圆饼图">
+<ul>
+<li>接着可以再设置一下数据标签格式，也是在右键菜单中</li>
+</ul>
+<img src="/2015/01/23/Excel2013：[46]如何绘制半圆饼图/d7c9ca3f8794a4c2f984ff440cf41bd5ac6e39fe.jpg" alt="Excel2013：[46]如何绘制半圆饼图" title="Excel2013：[46]如何绘制半圆饼图">
+<ul>
+<li>在打开的选项中，我们设置为【值】而不是【百分比】，因为百分比是错误的百分比呀！</li>
+</ul>
+<img src="/2015/01/23/Excel2013：[46]如何绘制半圆饼图/c71d0e385343fbf2a493be4cb27eca8064388fe6.jpg" alt="Excel2013：[46]如何绘制半圆饼图" title="Excel2013：[46]如何绘制半圆饼图">
+<ul>
+<li>最终的效果就是它了。</li>
+</ul>
+<img src="/2015/01/23/Excel2013：[46]如何绘制半圆饼图/5202e5f2b2119313a8fce7df67380cd790238de6.jpg" alt="Excel2013：[46]如何绘制半圆饼图" title="Excel2013：[46]如何绘制半圆饼图">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/01/19/Django教程：[2]创建一个站点/">
+                Django教程：[2]创建一个站点
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>上一篇文章我们安装了django，并测试成功；今天我们就要使用django创建一个站点，创建完成以后你就发现，一个最简单的网站已经制作完毕，我们接下来的任务就是在这个站点的基础上进行开发。下面是创建站点（工程）的具体方法：</p>
+<ul>
+<li>按下快捷键win+r，打开运行窗口，输入cmd，按下回车键，打开命令窗口</li>
+</ul>
+<img src="/2015/01/19/Django教程：[2]创建一个站点/3792cb39b6003af3717c1819372ac65c1138b642.jpg" alt="Django教程：[2]创建一个站点" title="Django教程：[2]创建一个站点">
+<ul>
+<li>我们将当前目录定位到你想要存放网站的目录，比如我想要放到D盘下的website文件夹中，我们输入命令：cd /d d:\website</li>
+</ul>
+<img src="/2015/01/19/Django教程：[2]创建一个站点/718e25c79f3df8dc612a48e8cf11728b47102871.jpg" alt="Django教程：[2]创建一个站点" title="Django教程：[2]创建一个站点">
+<ul>
+<li>在该目录下，我们输入命令来创建站点：django-admin.py startproject djangoweb；其中最后一个参数djangoweb就是我给我的站点起的名字，该命令将在当前目录下创建一个文件夹，该文件夹命名为django；我的命令出现了错误，因为我之前已经创建好了一个站点</li>
+</ul>
+<img src="/2015/01/19/Django教程：[2]创建一个站点/b853d6fcc3cec3fd4529600cd488d43f87942771.jpg" alt="Django教程：[2]创建一个站点" title="Django教程：[2]创建一个站点">
+<ul>
+<li>我们可以看到这个文件夹已经创建了，我们打开文件夹看看有什么内容</li>
+</ul>
+<img src="/2015/01/19/Django教程：[2]创建一个站点/389aa8fd5266d016c20e5951952bd40735fa3571.jpg" alt="Django教程：[2]创建一个站点" title="Django教程：[2]创建一个站点">
+<ul>
+<li>有一个py文件和一个文件夹，继续打开文件夹</li>
+</ul>
+<img src="/2015/01/19/Django教程：[2]创建一个站点/0b14ad19ebc4b745a86c706fcdfc1e178b821594.jpg" alt="Django教程：[2]创建一个站点" title="Django教程：[2]创建一个站点">
+<ul>
+<li>在这个文件夹内有四个文件，如图所示。这么简单的几个文件实际上已经构成了一个站点，下一篇文章我们介绍如何启动服务器，让你在浏览器看到自己的站点。</li>
+</ul>
+<img src="/2015/01/19/Django教程：[2]创建一个站点/ac0acf1373f082028785564649fbfbedab641b71.jpg" alt="Django教程：[2]创建一个站点" title="Django教程：[2]创建一个站点">
+<ul>
+<li>下面的参考资料可能会对你学习django有用</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/django/">#django</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/01/19/Python教程：[66]sorted()排序详解/">
+                Python教程：[66]sorted()排序详解
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>使用python对列表（list）进行排序，说简单也简单，说复杂也复杂，我一开始学的时候也搞不懂在说什么，只能搜索一些英文文章看看讲解，现在积累了一些经验，写在这里跟大家分享，我们通过例子来详细解释一下函数sorted的具体用法：</p>
+<ul>
+<li>先创建一个列表a</li>
+</ul>
+<img src="/2015/01/19/Python教程：[66]sorted()排序详解/58af236d55fbb2fb18b1d6924d4a20a44723dc5d.jpg" alt="Python教程：[66]sorted()排序详解" title="Python教程：[66]sorted()排序详解">
+<ul>
+<li>直接使用sorted方法，返回一个列表b，b就是排序好了的</li>
+</ul>
+<img src="/2015/01/19/Python教程：[66]sorted()排序详解/72ccb7773912b31b9ec043a98418367adbb4e147.jpg" alt="Python教程：[66]sorted()排序详解" title="Python教程：[66]sorted()排序详解">
+<ul>
+<li>假如a是一个由元组构成的列表，这时候就麻烦了。</li>
+</ul>
+<img src="/2015/01/19/Python教程：[66]sorted()排序详解/425773224f4a20a41984b24792529822730ed05d.jpg" alt="Python教程：[66]sorted()排序详解" title="Python教程：[66]sorted()排序详解">
+<ul>
+<li>我们需要用到参数key，也就是关键词，看下面这句命令，lambda是一个隐函数，是固定写法，不要写成别的单词；a_tuple表示列表中的一个元素，在这里，表示一个元组，a_tuple只是临时起的一个名字，你可以使用任意的名字；a_tuple[0]表示元组里的第一个元素，当然第二个元素就是a_tuple[1]；所以这句命令的意思就是按照列表中元组里的第一个元素进行排序。</li>
+</ul>
+<img src="/2015/01/19/Python教程：[66]sorted()排序详解/109eb7ec8a13632732414cb3938fa0ec09fac747.jpg" alt="Python教程：[66]sorted()排序详解" title="Python教程：[66]sorted()排序详解">
+<ul>
+<li>按照元组里的第二个元素排序</li>
+</ul>
+<img src="/2015/01/19/Python教程：[66]sorted()排序详解/08b68e529822720e68546c7a79cb0a46f31fab5d.jpg" alt="Python教程：[66]sorted()排序详解" title="Python教程：[66]sorted()排序详解">
+<ul>
+<li>除了key参数可以实现这个功能外，还可以使用cmp参数，注意看，这里不同之处是使用了x和y两个元组，他俩都是临时起的名字，你可以任意更改，我们用x表示列表里第一个元素，y表示列表里第二个元素，x[1]表示第一个元组的第二个元素，同理y[1]也是，而cmp()就是比较函数，也就是说，比较x[1]和y[1]的大小。</li>
+</ul>
+<img src="/2015/01/19/Python教程：[66]sorted()排序详解/90cebeec08fa513d7006e25e3f6d55fbb3fbd947.jpg" alt="Python教程：[66]sorted()排序详解" title="Python教程：[66]sorted()排序详解">
+<ul>
+<li>我们还可以使用reverse参数实现倒序排列</li>
+</ul>
+<img src="/2015/01/19/Python教程：[66]sorted()排序详解/0b07ec1fbe096b639d83d0d00e338744eaf8ac5d.jpg" alt="Python教程：[66]sorted()排序详解" title="Python教程：[66]sorted()排序详解">
+<ul>
+<li><p>如果你现在还不能理解，先记住他们的固定写法，写多了自然就懂了。</p>
+</li>
+<li><p>下一篇文章讲更加深入的一个排序方法，在写法上更见简单，请看传送门：<a href="http://jingyan.baidu.com/article/f3ad7d0ffe8e1409c2345b48.html" target="_blank" rel="external">http://jingyan.baidu.com/article/f3ad7d0ffe8e1409c2345b48.html</a></p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/01/19/SPSS实例：[13]检验调节变量的调节方向/">
+                SPSS实例：[13]检验调节变量的调节方向
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>上一篇文章中我们讲了【SPSS实例：[11]如何检验调节作用】，这篇文章呢，我们要深入分析调节变量到底是如何调节自变量对因变量的作用的。我们先来看一下上一篇文章中得到的结果：在模型3中，我们可以看到红色方框中，交互项的系数是显著的，而其他系数是不显著的。</p>
+<ul>
+<li><p>我们根据上图中的模型3，可以得到一个回归方程：Y=1.12-0.008<em>A</em>B；其中Y是因变量，A是自变量，B是调节变量。</p>
+</li>
+<li><p>因为我们在做调节效应的验证之前，首先做了数据的中心化，如果你没有做中心化，你可以看这篇文章【数据中心化的手工操作】先将数据中心化然后，再进行层次回归，最后才能对调节变量的调节方向进行探索。</p>
+</li>
+<li><p>我们使用描述性统计计算出调节变量B的标准差</p>
+</li>
+</ul>
+<img src="/2015/01/19/SPSS实例：[13]检验调节变量的调节方向/8c511fe93901213ffda563cf56e736d12e2e95cb.jpg" alt="SPSS实例：[13]检验调节变量的调节方向" title="SPSS实例：[13]检验调节变量的调节方向">
+<ul>
+<li>然后设B的值分别为一个正标准差或一个负标准差，得到两个方程：</li>
+</ul>
+<img src="/2015/01/19/SPSS实例：[13]检验调节变量的调节方向/91ae68c6a7efce1bc988e4d9ad51f3deb58f65c6.jpg" alt="SPSS实例：[13]检验调节变量的调节方向" title="SPSS实例：[13]检验调节变量的调节方向">
+<ul>
+<li>然后取B两个真实的值，从你的数据库里面挑两个，然后带入方程，求得Y值，你就可以在Excel里绘制出散点图。</li>
+</ul>
+<img src="/2015/01/19/SPSS实例：[13]检验调节变量的调节方向/cf5a8316fdfaaf51a45aadac8e5494eef01f7a2c.jpg" alt="SPSS实例：[13]检验调节变量的调节方向" title="SPSS实例：[13]检验调节变量的调节方向">
+<ul>
+<li>从上面的散点图中我们就可以看到，调节变量取不同的值得时候，自变量和因变量之间的斜率是不同的。这样你就可以看到，再什么情况下斜率比较大，也就是红色的那条线。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/01/19/pandas教程：[15]移动复制删除列/">
+                pandas教程：[15]移动复制删除列
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>pandas的DataFrame非常灵活，我们可以快速的移动、复制、删除列，今天就用案例来说明一下具体的工作是如何完成的。</p>
+<ul>
+<li>首先我们创建一个dataframe<br>打印一下：</li>
+</ul>
+<img src="/2015/01/19/pandas教程：[15]移动复制删除列/b74124f33a87e95019c1d76f13385343faf2b49b.jpg" alt="pandas教程：[15]移动复制删除列" title="pandas教程：[15]移动复制删除列">
+<img src="/2015/01/19/pandas教程：[15]移动复制删除列/62667cd0f703918f5bcc1ac9523d269759eec451.jpg" alt="pandas教程：[15]移动复制删除列" title="pandas教程：[15]移动复制删除列">
+<ul>
+<li>增加列，我们可以把df当作一个object，给它增加一个属性c，如下：<br>这是增加c列以后的数据：</li>
+</ul>
+<img src="/2015/01/19/pandas教程：[15]移动复制删除列/0d729944ebf81a4c482ecbcad42a6059252da651.jpg" alt="pandas教程：[15]移动复制删除列" title="pandas教程：[15]移动复制删除列">
+<img src="/2015/01/19/pandas教程：[15]移动复制删除列/4a77b2af2edda3cc3a329c2302e93901203f929b.jpg" alt="pandas教程：[15]移动复制删除列" title="pandas教程：[15]移动复制删除列">
+<ul>
+<li>我们还可以插入一列数据到任意位置：比如插入到第二列<br>插入后的数据：</li>
+</ul>
+<img src="/2015/01/19/pandas教程：[15]移动复制删除列/61183b2dd42a283414ba110858b5c9ea15cebf51.jpg" alt="pandas教程：[15]移动复制删除列" title="pandas教程：[15]移动复制删除列">
+<img src="/2015/01/19/pandas教程：[15]移动复制删除列/148f28d3d539b60012d228b4ea50352ac65cb751.jpg" alt="pandas教程：[15]移动复制删除列" title="pandas教程：[15]移动复制删除列">
+<ul>
+<li>永久删除一列数据用del，虽然我们不建议你这么武断的删除c列：<br>删除后的数据：</li>
+</ul>
+<img src="/2015/01/19/pandas教程：[15]移动复制删除列/3790312eb9389b501d29c4518635e5dde6116e9b.jpg" alt="pandas教程：[15]移动复制删除列" title="pandas教程：[15]移动复制删除列">
+<img src="/2015/01/19/pandas教程：[15]移动复制删除列/cbc17b380cd79123a0fcb377ae345982b2b78051.jpg" alt="pandas教程：[15]移动复制删除列" title="pandas教程：[15]移动复制删除列">
+<ul>
+<li>更明智的方法是使用drop，它不改变原有的df中的数据，而是返回另一个dataframe来存放删除后的数据<br>这是df2中的数据：</li>
+</ul>
+<img src="/2015/01/19/pandas教程：[15]移动复制删除列/d4239b35e5dde711c70467f5a4efce1b9c16619b.jpg" alt="pandas教程：[15]移动复制删除列" title="pandas教程：[15]移动复制删除列">
+<img src="/2015/01/19/pandas教程：[15]移动复制删除列/91ae68c6a7efce1bc6fdecc9ac51f3deb58f659b.jpg" alt="pandas教程：[15]移动复制删除列" title="pandas教程：[15]移动复制删除列">
+<ul>
+<li>移动列也很简单，假如我们想要将c列移动到第一列，我们可以使用pop来输出并删除b列，然后再将b列插入到第一列，这样就完成了移动<br>移动后的结果为：</li>
+</ul>
+<img src="/2015/01/19/pandas教程：[15]移动复制删除列/d4239b35e5dde711c6ce64f5a4efce1b9d166151.jpg" alt="pandas教程：[15]移动复制删除列" title="pandas教程：[15]移动复制删除列">
+<img src="/2015/01/19/pandas教程：[15]移动复制删除列/ae10eddeb48f8c54f505e12c39292df5e1fe7f9b.jpg" alt="pandas教程：[15]移动复制删除列" title="pandas教程：[15]移动复制删除列">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/01/17/Python教程：[64]判断文件 文件夹/">
+                Python教程：[64]判断文件 文件夹
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>如何判断某个路径是不是存在、是不是文件夹、是不是文件？我们今天就来介绍一下判断文件、文件夹，同样也是用到了os.path模块，下面看看具体的例子：</p>
+<ul>
+<li>装载一下os模块，然后我们写一个路径，这个路径是真是存在的</li>
+</ul>
+<img src="/2015/01/17/Python教程：[64]判断文件%20文件夹/5f9e93b1cb134954fcd956e4544e9258d0094a28.jpg" alt="Python教程：[64]判断文件 文件夹" title="Python教程：[64]判断文件 文件夹">
+<ul>
+<li>判断一下这个目录是不是文件夹，用isdir</li>
+</ul>
+<img src="/2015/01/17/Python教程：[64]判断文件%20文件夹/c87c6ecf3bc79f3dede45db0b8a1cd11738b29ed.jpg" alt="Python教程：[64]判断文件 文件夹" title="Python教程：[64]判断文件 文件夹">
+<ul>
+<li>判断该路径是不是指向一个文件，用isfile</li>
+</ul>
+<img src="/2015/01/17/Python教程：[64]判断文件%20文件夹/9e7ce6dcd100baa1d529fe3b4510b912c9fc2eed.jpg" alt="Python教程：[64]判断文件 文件夹" title="Python教程：[64]判断文件 文件夹">
+<ul>
+<li>判断一下该路径是不是绝对路径：用isabs</li>
+</ul>
+<img src="/2015/01/17/Python教程：[64]判断文件%20文件夹/b29f8282d158ccbf927b0bba1bd8bc3eb0354128.jpg" alt="Python教程：[64]判断文件 文件夹" title="Python教程：[64]判断文件 文件夹">
+<ul>
+<li>判断一下，该路径是否存在：用exists</li>
+</ul>
+<img src="/2015/01/17/Python教程：[64]判断文件%20文件夹/cdfe7281800a19d8bdc53a8531fa828ba71e4628.jpg" alt="Python教程：[64]判断文件 文件夹" title="Python教程：[64]判断文件 文件夹">
+<ul>
+<li>总结一下，os.path模块下的五个判断函数：</li>
+</ul>
+<img src="/2015/01/17/Python教程：[64]判断文件%20文件夹/d7c9ca3f8794a4c258265eab0cf41bd5ac6e39ed.jpg" alt="Python教程：[64]判断文件 文件夹" title="Python教程：[64]判断文件 文件夹">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/01/15/spss简单因素分析的操作和结果分析方法/">
                 spss简单因素分析的操作和结果分析方法
             </a>
@@ -224,6 +716,14 @@
         </div>
     
 
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
 </div>
             
                 
@@ -275,6 +775,14 @@
 <p>邮箱: 675495787@qq.com </p>
 </blockquote>
 
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
         </div>
     
 
@@ -359,557 +867,11 @@
         </div>
     
 
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/01/11/DataNitro：[11]自动换行/">
-                DataNitro：[11]自动换行
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年01月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
     
-        <div class="content">
-            <p>本篇文章原创于《百度经验》，如果转载此文章，需要注明出处、链接地址和作者名称，否则侵权。</p>
-<ul>
-<li>我们知道只要点击这里就可以实现自动换行</li>
-</ul>
-<img src="/2015/01/11/DataNitro：[11]自动换行/d4239b35e5dde71132ecb0b4a4efce1b9d166173.jpg" alt="DataNitro：[11]自动换行" title="DataNitro：[11]自动换行">
-<ul>
-<li>换行后就会实现这个效果：</li>
-</ul>
-<img src="/2015/01/11/DataNitro：[11]自动换行/a992e31f4134970afe44e36d96cad1c8a7865d7a.jpg" alt="DataNitro：[11]自动换行" title="DataNitro：[11]自动换行">
-<ul>
-<li>但是现在我们需要使用datanitro来实现这个效果，而在datanitro里面没有直接的模块可以用，这时候我们想到用vba，在vbe里面的vba1模块里，写入一个过程：wraptext</li>
-</ul>
-<img src="/2015/01/11/DataNitro：[11]自动换行/8367d1fc1e178a82a3268de2f503738da977e81f.jpg" alt="DataNitro：[11]自动换行" title="DataNitro：[11]自动换行">
-<ul>
-<li>接着，我们打开Python shell</li>
-</ul>
-<img src="/2015/01/11/DataNitro：[11]自动换行/ae10eddeb48f8c543f78376d39292df5e1fe7f8e.jpg" alt="DataNitro：[11]自动换行" title="DataNitro：[11]自动换行">
-<ul>
-<li>写入如下代码，然后按下回车，注意参数是vba过程的名称</li>
-</ul>
-<img src="/2015/01/11/DataNitro：[11]自动换行/245e8bcad1c8a7861beeb84c6409c93d71cf5069.jpg" alt="DataNitro：[11]自动换行" title="DataNitro：[11]自动换行">
-<ul>
-<li>这样就实现了自动换行</li>
-</ul>
-<img src="/2015/01/11/DataNitro：[11]自动换行/245e8bcad1c8a786182cb74c6409c93d70cf502b.jpg" alt="DataNitro：[11]自动换行" title="DataNitro：[11]自动换行">
-<ul>
-<li>再运行一遍，就可以回到没有自动换行的状态。</li>
-</ul>
-<img src="/2015/01/11/DataNitro：[11]自动换行/373bc4b44aed2e73acd67b6e8401a18b87d6fa72.jpg" alt="DataNitro：[11]自动换行" title="DataNitro：[11]自动换行">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
     
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/01/11/Python教程：[18]urlparse模块/">
-                Python教程：[18]urlparse模块
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年01月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>使用urlparse模块可以对url进行分析，最主要的操作就是拆分和合并url的各个部件，那么url有哪些部件呢？下图列出了所有的部件。你可能不太理解，不要着急，我们在例子中看看每个部分都代表着什么。</p>
-<ul>
-<li>引入urlparse模块，这里只引入了urlparse方法，如果你想要用所有的方法，你需要import urlparse</li>
-</ul>
-<img src="/2015/01/11/Python教程：[18]urlparse模块/d7c9ca3f8794a4c23abdb8070cf41bd5ac6e39c4.jpg" alt="Python教程：[18]urlparse模块" title="Python教程：[18]urlparse模块">
-<ul>
-<li>我们将下面的url地址进行拆解，将拆解的结果存放到parsed中</li>
-</ul>
-<img src="/2015/01/11/Python教程：[18]urlparse模块/f7426d8da9773912cd4fda4dfa198618367ae276.jpg" alt="Python教程：[18]urlparse模块" title="Python教程：[18]urlparse模块">
-<ul>
-<li>之后，我们通过parsed的各个属性来访问不同的部分</li>
-</ul>
-<img src="/2015/01/11/Python教程：[18]urlparse模块/d5462bfae6cd7b89c4f265af0d2442a7d8330ec4.jpg" alt="Python教程：[18]urlparse模块" title="Python教程：[18]urlparse模块">
-<ul>
-<li>我们看最后输出的结果：通过这样的方法我们可以快速的对url进行操作</li>
-</ul>
-<img src="/2015/01/11/Python教程：[18]urlparse模块/834344afa40f4bfb934ec178014f78f0f63618c4.jpg" alt="Python教程：[18]urlparse模块" title="Python教程：[18]urlparse模块">
-<ul>
-<li><p>所有的源码都写在下面：</p>
-</li>
-<li><p>from urlparse import urlparse</p>
-</li>
-<li><p>parsed = urlparse(‘url地址’)</p>
-</li>
-<li><p>print ‘scheme  :’+ parsed.scheme   #网络协议</p>
-</li>
-<li><p>print ‘netloc  :’+ parsed.netloc   #服务器位置（也可呢能有用户信息）</p>
-</li>
-<li><p>print ‘path    :’+ parsed.path     #网页文件在服务器中存放的位置</p>
-</li>
-<li><p>print ‘params  :’+ parsed.params   #可选参数</p>
-</li>
-<li><p>print ‘query   :’+ parsed.query    #连接符（&amp;）连接键值对</p>
-</li>
-<li><p>print ‘fragment:’+ parsed.fragment #拆分文档中的特殊猫</p>
-</li>
-<li><p>print ‘username:’+ parsed.username #用户名</p>
-</li>
-<li><p>print ‘password:’+ parsed.password #密码</p>
-</li>
-<li><p>print ‘hostname:’+ parsed.hostname #服务器名称或者地址</p>
-</li>
-<li><p>print ‘port    :’, parsed.port     #端口（默认是80</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/01/05/spss交叉设计如何进行方差分析/">
-                spss交叉设计如何进行方差分析
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年01月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>交叉设计是自身配对基础上发展的设计方法，是一种特殊的自身对照设计，通常的设计方案为被试分为两组，一组接受实验的顺序是AB，一组接受的实验顺序是BA，这样就形成了对照，这样的设计如何进行方差分析呢？下面是具体的方法：<br>工具/原料</p>
-<ul>
-<li>spss20.0<br>方法/步骤</li>
-</ul>
-<ul>
-<li>首先要明白数据的录入方式，如图所示，stage就是接受条件AB的阶段</li>
-</ul>
-<img src="/2015/01/05/spss交叉设计如何进行方差分析/f603918fa0ec08faab3c106659ee3d6d55fbda37.jpg" alt="spss交叉设计如何进行方差分析" title="spss交叉设计如何进行方差分析">
-<ul>
-<li>在菜单栏上执行：analyse–GLM–univariate，打开方差分析对话框</li>
-</ul>
-<img src="/2015/01/05/spss交叉设计如何进行方差分析/b8014a90f603738d79ee0fe3b31bb051f919ec4f.jpg" alt="spss交叉设计如何进行方差分析" title="spss交叉设计如何进行方差分析">
-<ul>
-<li>将自变量和因变量放入格子的框中，点击model按钮，开始设置模型</li>
-</ul>
-<img src="/2015/01/05/spss交叉设计如何进行方差分析/e1fe9925bc315c605105682e8db1cb134854775a.jpg" alt="spss交叉设计如何进行方差分析" title="spss交叉设计如何进行方差分析">
-<img src="/2015/01/05/spss交叉设计如何进行方差分析/024f78f0f736afc3b8283da4b319ebc4b64512ce.jpg" alt="spss交叉设计如何进行方差分析" title="spss交叉设计如何进行方差分析">
-<ul>
-<li>勾选“custom”，然后将三个变量放入右侧的模型框中</li>
-</ul>
-<img src="/2015/01/05/spss交叉设计如何进行方差分析/03087bf40ad162d91cef60dd11dfa9ec8b13cdea.jpg" alt="spss交叉设计如何进行方差分析" title="spss交叉设计如何进行方差分析">
-<img src="/2015/01/05/spss交叉设计如何进行方差分析/63d0f703918fa0ecf0c666cc269759ee3c6ddbea.jpg" alt="spss交叉设计如何进行方差分析" title="spss交叉设计如何进行方差分析">
-<ul>
-<li>将type设置为maineffect，意思是没有交互作用，回到主菜单，点击ok</li>
-</ul>
-<img src="/2015/01/05/spss交叉设计如何进行方差分析/80cb39dbb6fd526675313ed5ab18972bd50736dc.jpg" alt="spss交叉设计如何进行方差分析" title="spss交叉设计如何进行方差分析">
-<img src="/2015/01/05/spss交叉设计如何进行方差分析/34fae6cd7b899e51a19438d542a7d933c9950ddc.jpg" alt="spss交叉设计如何进行方差分析" title="spss交叉设计如何进行方差分析">
-<ul>
-<li>我们看到输出的结果，治疗方案treat边缘显著，但是质量的顺序stage是不显著的，判断标准就是sig值</li>
-</ul>
-<img src="/2015/01/05/spss交叉设计如何进行方差分析/7dd98d1001e9390164138fff7bec54e737d196d9.jpg" alt="spss交叉设计如何进行方差分析" title="spss交叉设计如何进行方差分析">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/01/05/python 线性代数：[9]求矩阵的秩/">
-                python 线性代数：[9]求矩阵的秩
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年01月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>矩阵的秩，课本上是这么定义的：</p>
-<ul>
-<li>先引入numpy模块</li>
-</ul>
-<img src="/2015/01/05/python%20线性代数：[9]求矩阵的秩/834344afa40f4bfba7e0dda3014f78f0f63618d1.jpg" alt="python 线性代数：[9]求矩阵的秩" title="python 线性代数：[9]求矩阵的秩">
-<ul>
-<li>创建一个单位矩阵i</li>
-</ul>
-<img src="/2015/01/05/python%20线性代数：[9]求矩阵的秩/020e66f0f736afc31b3c7c92b119ebc4b64512d1.jpg" alt="python 线性代数：[9]求矩阵的秩" title="python 线性代数：[9]求矩阵的秩">
-<ul>
-<li>计算单位矩阵i的秩</li>
-</ul>
-<img src="/2015/01/05/python%20线性代数：[9]求矩阵的秩/a84052086e061d95802574cf79f40ad163d9caa3.jpg" alt="python 线性代数：[9]求矩阵的秩" title="python 线性代数：[9]求矩阵的秩">
-<ul>
-<li>改变一下i右下角元素的值，设置为0</li>
-</ul>
-<img src="/2015/01/05/python%20线性代数：[9]求矩阵的秩/1cd4147b02087bf4878f141ef0d3572c10dfcfa3.jpg" alt="python 线性代数：[9]求矩阵的秩" title="python 线性代数：[9]求矩阵的秩">
-<ul>
-<li>重新计算矩阵的秩，得到3</li>
-</ul>
-<img src="/2015/01/05/python%20线性代数：[9]求矩阵的秩/f392492c11dfa9ec194d15e060d0f703908fc1a3.jpg" alt="python 线性代数：[9]求矩阵的秩" title="python 线性代数：[9]求矩阵的秩">
-<ul>
-<li><p>以下是我们用到的所有代码：</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>import numpy</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>i=numpy.eye(4)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>i</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1.,  0.,  0.,  0.],</p>
-</li>
-<li><p>[ 0.,  1.,  0.,  0.],</p>
-</li>
-<li><p>[ 0.,  0.,  1.,  0.],</p>
-</li>
-<li><p>[ 0.,  0.,  0.,  1.]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>numpy.matrix_rank(i)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>Traceback (most recent call last):</p>
-</li>
-<li><p>File “<pyshell#6>“, line 1, in <module></module></pyshell#6></p>
-</li>
-<li><p>numpy.matrix_rank(i)</p>
-</li>
-<li><p>AttributeError: ‘module’ object has no attribute ‘matrix_rank’</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>numpy.linalg.matrix_rank(i)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>4</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>i[-1,-1]=0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>i</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1.,  0.,  0.,  0.],</p>
-</li>
-<li><p>[ 0.,  1.,  0.,  0.],</p>
-</li>
-<li><p>[ 0.,  0.,  1.,  0.],</p>
-</li>
-<li><p>[ 0.,  0.,  0.,  0.]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>i[1,1]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>1.0</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>numpy.linalg.matrix_rank(i)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>3</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/01/05/Excel2013：[52]月日年格式的日期转换为年月日/">
-                Excel2013：[52]月日年格式的日期转换为年月日
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年01月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>数据在录入的时候录入的是文本格式的日期“1/1/09”，直接转换数据格式为日期行不通，因为它是一个字符串，Excel也不知道那是月日年，所以我们需要设置分列，还好，非常简单，大家跟我来做。</p>
-<ul>
-<li>先来看看我的原始数据，日期是文本格式的月日年</li>
-</ul>
-<img src="/2015/01/05/Excel2013：[52]月日年格式的日期转换为年月日/f15e24292df5e0fe252b005e5e6034a85edf727b.jpg" alt="Excel2013：[52]月日年格式的日期转换为年月日" title="Excel2013：[52]月日年格式的日期转换为年月日">
-<ul>
-<li>选中日期一列</li>
-</ul>
-<img src="/2015/01/05/Excel2013：[52]月日年格式的日期转换为年月日/507c389759ee3d6d0c01099441166d224e4ade6f.jpg" alt="Excel2013：[52]月日年格式的日期转换为年月日" title="Excel2013：[52]月日年格式的日期转换为年月日">
-<ul>
-<li>打开数据选项下的【分列】</li>
-</ul>
-<img src="/2015/01/05/Excel2013：[52]月日年格式的日期转换为年月日/54baacfb43166d2212b09bcb442309f79152d26f.jpg" alt="Excel2013：[52]月日年格式的日期转换为年月日" title="Excel2013：[52]月日年格式的日期转换为年月日">
-<ul>
-<li>选择【分隔符号】，点击下一步按钮</li>
-</ul>
-<img src="/2015/01/05/Excel2013：[52]月日年格式的日期转换为年月日/6c63514a20a44623690d2b3d9a22720e0df3d76f.jpg" alt="Excel2013：[52]月日年格式的日期转换为年月日" title="Excel2013：[52]月日年格式的日期转换为年月日">
-<ul>
-<li>接着，选择第一个选项，然后点击下一步</li>
-</ul>
-<img src="/2015/01/05/Excel2013：[52]月日年格式的日期转换为年月日/814b07d8bc3eb135e1f43ee4a41ea8d3fd1f447b.jpg" alt="Excel2013：[52]月日年格式的日期转换为年月日" title="Excel2013：[52]月日年格式的日期转换为年月日">
-<ul>
-<li>这是关键，我们要告诉Excel第一位是月，然后是日，然后是年，于是选择格式为“MDY”，点击完成</li>
-</ul>
-<img src="/2015/01/05/Excel2013：[52]月日年格式的日期转换为年月日/d8b8c92a6059252da2d0935b369b033b5ab5b96f.jpg" alt="Excel2013：[52]月日年格式的日期转换为年月日" title="Excel2013：[52]月日年格式的日期转换为年月日">
-<ul>
-<li>这是转换以后得到的日期</li>
-</ul>
-<img src="/2015/01/05/Excel2013：[52]月日年格式的日期转换为年月日/964b2e4e251f95ca0dc61be9cb177f3e6709527b.jpg" alt="Excel2013：[52]月日年格式的日期转换为年月日" title="Excel2013：[52]月日年格式的日期转换为年月日">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/01/03/Django教程：[8]第一个动态页面/">
-                Django教程：[8]第一个动态页面
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年01月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>今天我们写一个动态页面，让我们理解一下动态页面的原理。其实前面我们写过一篇文章介绍如何构建第一个静态页面，你可以搜索【Django教程：[4]制作第一个网页】，今天的这一篇文章与上一篇仅有一点不同，今天是动态的页面，你每次访问这个页面都是不同的。</p>
-<ul>
-<li>我们先在view文件中创建一个函数来返回页面，关于view文件，你应该参考下面的参考资料。我们先引入了datetime模块来计算当前的时间，然后增加一个函数ctime，此函数可以计算当前时间，保存在cutime变量中，然后通过HttpResponse返回到页面</li>
-</ul>
-<img src="/2015/01/03/Django教程：[8]第一个动态页面/ae10eddeb48f8c547927765538292df5e1fe7f91.jpg" alt="Django教程：[8]第一个动态页面" title="Django教程：[8]第一个动态页面">
-<ul>
-<li>接下来设置函数ctime与url的映射。先要引入ctime函数，看下面第一个红色方框；然后再建立函数与url模式的映射关系，看下面第二个红色方框</li>
-</ul>
-<img src="/2015/01/03/Django教程：[8]第一个动态页面/91ae68c6a7efce1b7afc7bb0ad51f3deb58f65b2.jpg" alt="Django教程：[8]第一个动态页面" title="Django教程：[8]第一个动态页面">
-<ul>
-<li>我们在浏览器中输入url既可以看到在相应的url下，打开一个页面，显示当前的日期。</li>
-</ul>
-<img src="/2015/01/03/Django教程：[8]第一个动态页面/3b6833f5e0fe99254ff8da2a36a85edf8cb17191.jpg" alt="Django教程：[8]第一个动态页面" title="Django教程：[8]第一个动态页面">
-<ul>
-<li>刷新页面，你可以看到不同的时间，这就是动态页面。与动态页面相对，还有动态url，我们下一篇文章介绍如何设置动态的url。</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/01/01/spss两因素（有一个连续变量）如何进行方差分析/">
-                spss两因素（有一个连续变量）如何进行方差分析
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年01月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>假如两因素的设计，其中一个变量是连续型变量，那么通常的方差分析就没有办法了，必须使用协方差分析，下面是具体的方法。<br>工具/原料</p>
-<ul>
-<li>spss20.0<br>方法/步骤</li>
-</ul>
-<ul>
-<li>确保数据满足平行性假设的前提下，我们用协方差分析进行检验， 在菜单栏上执行：analyse–GLM–univariate</li>
-</ul>
-<img src="/2015/01/01/spss两因素（有一个连续变量）如何进行方差分析/562c11dfa9ec8a13f2aafb23f703918fa1ecc045.jpg" alt="spss两因素（有一个连续变量）如何进行方差分析" title="spss两因素（有一个连续变量）如何进行方差分析">
-<ul>
-<li>将变量放入各自的框中，从上到下依次是：因变量、固定因素、斜变量（连续变量）</li>
-</ul>
-<img src="/2015/01/01/spss两因素（有一个连续变量）如何进行方差分析/0df431adcbef76099086355c2edda3cc7dd99e60.jpg" alt="spss两因素（有一个连续变量）如何进行方差分析" title="spss两因素（有一个连续变量）如何进行方差分析">
-<ul>
-<li>点击model按钮，进入model对话框，在custom模式下，设置type为main effect，将两个变量放入模型</li>
-</ul>
-<img src="/2015/01/01/spss两因素（有一个连续变量）如何进行方差分析/c2fdfc039245d688e1d61e67a4c27d1ed31b2418.jpg" alt="spss两因素（有一个连续变量）如何进行方差分析" title="spss两因素（有一个连续变量）如何进行方差分析">
-<ul>
-<li>点击options按钮，设置输出的参数，下面第二幅图是设置的参数，如图所示</li>
-</ul>
-<img src="/2015/01/01/spss两因素（有一个连续变量）如何进行方差分析/bd315c6034a85edf8ee151e049540923dc547587.jpg" alt="spss两因素（有一个连续变量）如何进行方差分析" title="spss两因素（有一个连续变量）如何进行方差分析">
-<img src="/2015/01/01/spss两因素（有一个连续变量）如何进行方差分析/37d3d539b6003af3f8d573a3352ac65c1138b682.jpg" alt="spss两因素（有一个连续变量）如何进行方差分析" title="spss两因素（有一个连续变量）如何进行方差分析">
-<ul>
-<li>点击ok开始处理数据，并输出结果</li>
-</ul>
-<img src="/2015/01/01/spss两因素（有一个连续变量）如何进行方差分析/50da81cb39dbb6fd109849e50924ab18962b3735.jpg" alt="spss两因素（有一个连续变量）如何进行方差分析" title="spss两因素（有一个连续变量）如何进行方差分析">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
         </div>
     
 
@@ -967,19 +929,19 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         <ul>
             
             <li>
-                <a class="footer-post" href="/2017/10/02/psychopy教程2-builder概念介绍/">psychopy教程2-builder概念介绍</a>
+                <a class="footer-post" href="/2017/10/26/python时间序列分析-纯随机性检验/">python时间序列分析-纯随机性检验</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/09/29/psychopy教程1-入门认识psychopy/">psychopy教程1-入门认识psychopy</a>
+                <a class="footer-post" href="/2017/10/25/psychopy实验设计技术/">psychopy实验设计技术</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/09/28/EPrime中如使何呈现时间随机/">EPrime中如使何呈现时间随机</a>
+                <a class="footer-post" href="/2017/10/16/心理学大数据研究工作坊/">心理学大数据研究工作坊</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/09/27/selenium进阶教程/">selenium进阶教程</a>
+                <a class="footer-post" href="/2017/10/12/scikit-learn安装和入门-for-educationist/">scikit-learn安装和入门(for_edu</a>
             </li>
             
         </ul>

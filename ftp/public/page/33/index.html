@@ -7,6 +7,8 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
 
     <!--Description-->
     
@@ -74,7 +76,7 @@
     
     
     
-    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 </head>
 
 
@@ -157,6 +159,483 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/">
+                DataNitro：[1]怎样在Excel中使用python脚本
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>怎么在Excel中运行python脚本？这个问题由来已久，很多pythoner都希望直接用python控制Excel，但是只能从外部调用，有没有一个VBA的东西可以直接在Excel中运行呢？答案是有，DataNitro就是这么一个东西，看看下面Excel中的界面，他就是了，可以直接点击‘run’来运行一个Python脚本。下面我们来看看它是如何安装与配置的。</p>
+<ul>
+<li>先安装python2.7，其他版本不知道行不行，但是这个肯定行，然后配置环境变量，保证python在该环境中，打开开始菜单，找到计算机，然后右键单击它，选择【属性】</li>
+</ul>
+<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/00a82701213fb80e416877e135d12f2eb938940f.jpg" alt="DataNitro：[1]怎样在Excel中使用python脚本" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<ul>
+<li>找到高级系统设置</li>
+</ul>
+<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/4e83cb628535e5dda375b3e975c6a7efce1b626f.jpg" alt="DataNitro：[1]怎样在Excel中使用python脚本" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<ul>
+<li>找到环境变量，点击该按钮，打开环境变量设置窗口</li>
+</ul>
+<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/ae10eddeb48f8c54db6ad31939292df5e0fe7f0f.jpg" alt="DataNitro：[1]怎样在Excel中使用python脚本" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<ul>
+<li>找到Path系统变量，然后点击【编辑】</li>
+</ul>
+<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/3b6833f5e0fe9925e9557f6637a85edf8db1716f.jpg" alt="DataNitro：[1]怎样在Excel中使用python脚本" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<ul>
+<li>在这里，确保python的安装目录在，没有的话，添加进去</li>
+</ul>
+<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/5d212aa85edf8db191976a520a23dd54564e740f.jpg" alt="DataNitro：[1]怎样在Excel中使用python脚本" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<ul>
+<li>下面就可以安装该插件了，去官网下载一个；或者百度一下，各大下载网站都有</li>
+</ul>
+<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/8cf0d51349540923803775489158d109b3de496e.jpg" alt="DataNitro：[1]怎样在Excel中使用python脚本" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<ul>
+<li>双击即可安装，安装过程就是一路点击’下一步，不过有一步需要注意</li>
+</ul>
+<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/b13fd48065380cd7b447b4dba244ad345982816f.jpg" alt="DataNitro：[1]怎样在Excel中使用python脚本" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/c87c6ecf3bc79f3d85bff206b9a1cd11728b296e.jpg" alt="DataNitro：[1]怎样在Excel中使用python脚本" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/78701455b319ebc40f2660af8126cffc1e17166e.jpg" alt="DataNitro：[1]怎样在Excel中使用python脚本" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/29790130e924b89971826f0e6d061d950a7bf60f.jpg" alt="DataNitro：[1]怎样在Excel中使用python脚本" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<ul>
+<li>在这里，不要勾选python，如果通过这种方式安装python，你原先安装的python就无法使用了</li>
+</ul>
+<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/eab9044c510fd9f9ddae435f262dd42a2834a40f.jpg" alt="DataNitro：[1]怎样在Excel中使用python脚本" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<ul>
+<li>最后安装完成，打开Excel就可以看到datanitro了</li>
+</ul>
+<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/969cbf44ad34598298d3f3a40ff431adcbef846f.jpg" alt="DataNitro：[1]怎样在Excel中使用python脚本" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/datanitro/">#datanitro</a> <a href="/tags/python/">#python</a> <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/23/pandas教程：[6]计数统计/">
+                pandas教程：[6]计数统计
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>经过之前的学习，我们现在可以做一个简单的统计了，比如计数，这是最简单的统计，我们现在就使用pandas统计一下数据中各个专业学生的数目：</p>
+<ul>
+<li>先来引入pandas，并且从csv文件中读取数据</li>
+</ul>
+<img src="/2015/05/23/pandas教程：[6]计数统计/8640bf8b87d6277fc3b99f2b2b381f30e924fc3f.jpg" alt="pandas教程：[6]计数统计" title="pandas教程：[6]计数统计">
+<ul>
+<li>查看一下前三行数据，看读取数据是否正确</li>
+</ul>
+<img src="/2015/05/23/pandas教程：[6]计数统计/29790130e924b899ca97d42b6d061d950a7bf63f.jpg" alt="pandas教程：[6]计数统计" title="pandas教程：[6]计数统计">
+<img src="/2015/05/23/pandas教程：[6]计数统计/8697397f9e2f070877d28713ea24b899a801f28b.jpg" alt="pandas教程：[6]计数统计" title="pandas教程：[6]计数统计">
+<ul>
+<li>选择数据：之前也有相关的教程，假如现在我们要统计【专业名称】这一列，那么需要学会选择它：</li>
+</ul>
+<img src="/2015/05/23/pandas教程：[6]计数统计/6391e903918fa0ec7e27c91e259759ee3c6ddb86.jpg" alt="pandas教程：[6]计数统计" title="pandas教程：[6]计数统计">
+<ul>
+<li>计数统计我们使用：save_counts()，打印这个结果，查看一下</li>
+</ul>
+<img src="/2015/05/23/pandas教程：[6]计数统计/09bb4f3d269759ee47b0cdd8b1fb43166c22df86.jpg" alt="pandas教程：[6]计数统计" title="pandas教程：[6]计数统计">
+<img src="/2015/05/23/pandas教程：[6]计数统计/d872d695d143ad4be32dead381025aafa40f0666.jpg" alt="pandas教程：[6]计数统计" title="pandas教程：[6]计数统计">
+<ul>
+<li>绘制柱形图，使用plot方法，如果想要输出该图，使用get_figure()和savefig()</li>
+</ul>
+<img src="/2015/05/23/pandas教程：[6]计数统计/27d647ee3d6d55fbce26db356e224f4a21a4dd86.jpg" alt="pandas教程：[6]计数统计" title="pandas教程：[6]计数统计">
+<ul>
+<li>最后我们可以在D盘下找到plot.png，这就是绘制好的bar图了。</li>
+</ul>
+<img src="/2015/05/23/pandas教程：[6]计数统计/b3ba5d166d224f4aa079de000af790529922d186.jpg" alt="pandas教程：[6]计数统计" title="pandas教程：[6]计数统计">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/23/SPSS实例：[16]中介效应的检验过程/">
+                SPSS实例：[16]中介效应的检验过程
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>spss做中介效应现在用的越来越普遍，虽然说用amos是最佳的工具，但是很多人还是喜欢spss，更容易理解，操作起来也比amos简单。下面我们就来分享一下如何使用spss进行中介效应的检验，这个教程是理论上的讲解，目的是让你理解这个过程。后面我们会具体的来操作一下，让你知道如何具体的去做，先来看看理论上的过程：</p>
+<ul>
+<li><p>先要明确你的自变量和因变量，假如我们有三个变量分别是：自变量（x），因变量（y），中介变量（M）。</p>
+</li>
+<li><p>第一个要检验的是自变量对因变量的作用，我们用下面的方程表示：我们首先要做的是对系数c的检验，你应该知道，用回归做检验，假如c不显著，说明不存在中介效应，停止检验；假如c显著，还不能说明存在中介效应，接着进行下面的步骤：</p>
+</li>
+</ul>
+<img src="/2015/05/23/SPSS实例：[16]中介效应的检验过程/43e6c733c895d143ecfc5b3b71f082025baf07e4.jpg" alt="SPSS实例：[16]中介效应的检验过程" title="SPSS实例：[16]中介效应的检验过程">
+<ul>
+<li>接着我们做自变量和中介变量之间的回归方程的检验，也就是用下面的方程来表示，假如系数a显著，说明X确实可以预测M，但仍然没有说明中介效应的存在。假如a不显著，那就需要进行sobel检验。我们暂时不去做sobel，因为还有一个步骤</li>
+</ul>
+<img src="/2015/05/23/SPSS实例：[16]中介效应的检验过程/b94f65ec54e736d1f92f321099504fc2d56269af.jpg" alt="SPSS实例：[16]中介效应的检验过程" title="SPSS实例：[16]中介效应的检验过程">
+<ul>
+<li>现在我们要检验M和Y之间的关系，也就是下面的方程的系数是否显著。假如a显著、b也显著，那么就可以证明中介效应存在；假如a和b中有一个不显著，另一个先不显著我们不知道，我们需要进行sobel检验，sobel检验显著，那么中介效应存在。</li>
+</ul>
+<img src="/2015/05/23/SPSS实例：[16]中介效应的检验过程/d35a10f41bd5ad6ef642daf283cb39dbb6fd3c2b.jpg" alt="SPSS实例：[16]中介效应的检验过程" title="SPSS实例：[16]中介效应的检验过程">
+<ul>
+<li>到此为止，我们就完成了中介效应的检验，下面来总结一下整个流程，看下面的流程图：</li>
+</ul>
+<img src="/2015/05/23/SPSS实例：[16]中介效应的检验过程/bbe0d311728b4710a5e043d4c1cec3fdfd03239f.jpg" alt="SPSS实例：[16]中介效应的检验过程" title="SPSS实例：[16]中介效应的检验过程">
+<ul>
+<li>中介效应的具体操作，参考我的下一篇文章。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/23/numpy函数：[5]dtype数组元素类型/">
+                numpy函数：[5]dtype数组元素类型
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>数组元素的类型可以通过dtype属性获得。下面我们创建几个数组，然后看看她们的元素类型是什么。然后我们看看dtype作为参数创建特定类型的数组的方法。</p>
+<ul>
+<li>引入numpy ，创建一个列表a</li>
+</ul>
+<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/0b07ec1fbe096b63bec1b5cc0e338744eaf8ac17.jpg" alt="numpy函数：[5]dtype数组元素类型" title="numpy函数：[5]dtype数组元素类型">
+<ul>
+<li>用列表a创建一个数组c</li>
+</ul>
+<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/f76575600c338744a71dc4e0530fd9f9d62aa017.jpg" alt="numpy函数：[5]dtype数组元素类型" title="numpy函数：[5]dtype数组元素类型">
+<ul>
+<li>我们看看数组c的元素的数据类型，是int32</li>
+</ul>
+<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/e1bf8725bc315c60a96a80738fb1cb1348547774.jpg" alt="numpy函数：[5]dtype数组元素类型" title="numpy函数：[5]dtype数组元素类型">
+<ul>
+<li>假如我们要创建一个其他类型的数组，可以设置dtype参数，如图所示，我们创建一个浮点型数据数组</li>
+</ul>
+<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/9864a2315c6034a8c01d531dc913495408237674.jpg" alt="numpy函数：[5]dtype数组元素类型" title="numpy函数：[5]dtype数组元素类型">
+<ul>
+<li>我们再创建一个complex类型数组</li>
+</ul>
+<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/d66b7e59252dd42a7cd1ea37013b5bb5c8eab817.jpg" alt="numpy函数：[5]dtype数组元素类型" title="numpy函数：[5]dtype数组元素类型">
+<ul>
+<li>当然，每一种数据类型都有几种字符串表达形式，我们可以使用typeDict字典来查询某种字符串所代表的数据类型，比如’d’和‘double’都表示float64数据类型</li>
+</ul>
+<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/48151723dd54564e379a0fa5b1de9c82d0584f74.jpg" alt="numpy函数：[5]dtype数组元素类型" title="numpy函数：[5]dtype数组元素类型">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/">
+                如何去掉excel保存文件时提示隐私问题警告
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>这几天编辑Excel中的宏的时候,保存的时候总是提示”隐私问题警告:此文档中包含宏、active插件、XML扩展包信息或web组件,其中可能包含个人信息,并且这些信息不能通过“文档检测器”进行删除”,这是为了保护用户的隐私才设置的一个安全警告,但是如果是我们经常使用vba,这个警告经常出现,很麻烦。那么怎么关闭警告呢?下面是具体的方法:</p>
+<ul>
+<li>打开Excel软件,然后在左上角有一个开始按钮,点击开始按钮,打开开始菜单</li>
+</ul>
+<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/35e940df8db1cb131c9c221bdc54564e93584b85.jpg" alt="如何去掉excel保存文件时提示隐私问题警告" title="如何去掉excel保存文件时提示隐私问题警告">
+<ul>
+<li>在开始菜单的右下角有一个Excel选项，打开Excel选项</li>
+</ul>
+<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/8cf0d513495409238af57d769358d109b2de49de.jpg" alt="如何去掉excel保存文件时提示隐私问题警告" title="如何去掉excel保存文件时提示隐私问题警告">
+<ul>
+<li>打开了Excel选项，切换到信任中心，在信任中心找到【信任中心设置】按钮，打开它</li>
+</ul>
+<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/8c511fe93901213f8be850d455e736d12e2e959b.jpg" alt="如何去掉excel保存文件时提示隐私问题警告" title="如何去掉excel保存文件时提示隐私问题警告">
+<ul>
+<li>在设置对话框中，找到最下面的个人信息选项，你会看到这里有一个文件检测器，下面有一个选项“保存时从属性中删除个人信息”，我们取消勾选这个选项，然后点击保存</li>
+</ul>
+<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/5d212aa85edf8db19ff5626c0823dd54574e749b.jpg" alt="如何去掉excel保存文件时提示隐私问题警告" title="如何去掉excel保存文件时提示隐私问题警告">
+<ul>
+<li>如果你是从网上下载下来的文档，你还可以对文档进行检测，这样在你保存文档前就可以确定他的安全性。点击文档检测器</li>
+</ul>
+<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/0ef2112442a7d9335727fa7bac4bd11372f001ef.jpg" alt="如何去掉excel保存文件时提示隐私问题警告" title="如何去掉excel保存文件时提示隐私问题警告">
+<ul>
+<li>这里也有一个文档属性和个人信息的选项，如果你勾选这个选项还是会提示安全警告</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/17/spss中如何检验残差的相互独立性/">
+                spss中如何检验残差的相互独立性
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在做线性回归的时候要检验残差的独立性，这里交给大家一个方法可以在做回归的时候用到的，可以方便的看出残差之间是否独立，下面是具体的方法：<br>工具/原料</p>
+<ul>
+<li>spss20.0<br>方法/步骤</li>
+</ul>
+<ul>
+<li>首先要早spss中准备好数据，如图所示，每一列数据作为一个变量</li>
+</ul>
+<img src="/2015/05/17/spss中如何检验残差的相互独立性/962bd40735fae6cdf93affa50fb30f2443a70f63.jpg" alt="spss中如何检验残差的相互独立性" title="spss中如何检验残差的相互独立性">
+<ul>
+<li>在菜单栏上执行：analyse–regression–linear，打开线性回归对话框</li>
+</ul>
+<img src="/2015/05/17/spss中如何检验残差的相互独立性/83025aafa40f4bfb6bdac990034f78f0f63618ef.jpg" alt="spss中如何检验残差的相互独立性" title="spss中如何检验残差的相互独立性">
+<ul>
+<li>在对话框中，将因变量和自变量放入各自的框中，如图所示上面的是因变量，注意因变量和自变量都是连续性变量，点击statistic按钮，设置输出的参数</li>
+</ul>
+<img src="/2015/05/17/spss中如何检验残差的相互独立性/29381f30e924b89913a02efc6e061d950b7bf652.jpg" alt="spss中如何检验残差的相互独立性" title="spss中如何检验残差的相互独立性">
+<img src="/2015/05/17/spss中如何检验残差的相互独立性/7aec54e736d12f2e9993f9a44fc2d5628435685b.jpg" alt="spss中如何检验残差的相互独立性" title="spss中如何检验残差的相互独立性">
+<ul>
+<li>勾选独立性检验的参数DW，如图所示，然后点击continue按钮，返回到主菜单</li>
+</ul>
+<img src="/2015/05/17/spss中如何检验残差的相互独立性/2934349b033b5bb53d44773a36d3d539b700bc67.jpg" alt="spss中如何检验残差的相互独立性" title="spss中如何检验残差的相互独立性">
+<ul>
+<li><p>点击ok开始输出数据，在下面第二幅图的表格中显示了DW值，如图所示，</p>
+</li>
+<li><p>–当DW值愈接近2时，残差项间愈无相关</p>
+</li>
+<li><p>–当DW值愈接近0时，残差项间正相关愈强</p>
+</li>
+</ul>
+<img src="/2015/05/17/spss中如何检验残差的相互独立性/9a504fc2d5628535c06e85e590ef76c6a6ef6363.jpg" alt="spss中如何检验残差的相互独立性" title="spss中如何检验残差的相互独立性">
+<img src="/2015/05/17/spss中如何检验残差的相互独立性/4d086e061d950a7bbd9419000ad162d9f3d3c955.jpg" alt="spss中如何检验残差的相互独立性" title="spss中如何检验残差的相互独立性">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/15/pandas教程：[9]MultiIndex用法/">
+                pandas教程：[9]MultiIndex用法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在pandas的DataFrame中经常使用多个索引，在pandas中成为MultiIndex对象，这篇文章介绍一下MultiIndex创建和使用方法：</p>
+<ul>
+<li>引入所有需要的模块</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/1f569482b9014a90cb5cd5a8aa773912b31bee02.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>创建两个<type 'numpy.ndarray'="">对象，分别为colors和foods</type></li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/2cb4fefe9925bc318f3c928d5ddf8db1cb137007.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>打印出这两个数组来查看一下，注意tm.choice创建的数组是随机的，你利用同样的代码创建的数组和我的可能不一样</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/207ea60e7bec54e78f92890bba389b504fc26a6e.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>创建MultiIndex对象，然后创建DataFrame对象（其中使用index=index参数）</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/55a628d12f2eb9382713e9e7d6628535e5dd6f6e.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>打印一下df看看里面的数据：有两个索引color和food</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/570f8c58d109b3de43de777dcfbf6c81800a4c07.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>如何利用索引来筛选数据：使用query（）<br>结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/ae10eddeb48f8c5458ad563a39292df5e0fe7f6e.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/b29f8282d158ccbf8edd262f1ad8bc3eb1354107.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>还可以在分组中使用索引，使用了level参数<br>打印结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/1899a23eb13533fa6ad7003babd3fd1f41345b07.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/4075890a304e251f659677eda486c9177f3e5307.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>删除或者更改索引的名称：如果删除了名称，我们只能使用ilevel_0表示第一个索引<br>打印结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/b29f8282d158ccbf8ec2262f1ad8bc3eb135416e.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/7e7f7909c93d70cfc39b3918fbdcd100baa12b07.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>分组中也是一样，删除掉索引名称以后，只能使用数字1表示第二个索引<br>打印结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/73ca5910b912c8fcc19365d8ff039245d6882107.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/b853d6fcc3cec3fdf85e3460d588d43f87942707.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/05/15/wxpython教程：[6]简单布局管理/">
                 wxpython教程：[6]简单布局管理
             </a>
@@ -205,6 +684,14 @@
 <p>邮箱: 675495787@qq.com </p>
 </blockquote>
 
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
         </div>
     
 
@@ -259,6 +746,14 @@
 <p>邮箱: 675495787@qq.com </p>
 </blockquote>
 
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
         </div>
     
 
@@ -321,474 +816,11 @@
         </div>
     
 
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/11/spss怎么合并变量/">
-                spss怎么合并变量
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
     
-        <div class="content">
-            <p>合并变量是合并数据的一种方法，比如我今天给被试测量几个变量，过几天再测了几个变量，这些数据合并在一起就是合并变量，这不是将case合并，这是关键，下面我来演示一下这个过程。<br>方法/步骤</p>
-<ul>
-<li>打开spss以后，先要打开第一个要合并的数据，然后合并变量如图所示，在菜单栏上执行：data–merge file–addvariable</li>
-</ul>
-<img src="/2015/05/11/spss怎么合并变量/8ad4b31c8701a18bcec8ecc29e2f07082838fe18.jpg" alt="spss怎么合并变量" title="spss怎么合并变量">
-<ul>
-<li>打开合并变量对话框，点击浏览选项，找到要合并的第二个文件</li>
-</ul>
-<img src="/2015/05/11/spss怎么合并变量/a08b87d6277f9e2f4b16e3851f30e924b899f318.jpg" alt="spss怎么合并变量" title="spss怎么合并变量">
-<ul>
-<li>找到要合并的第二个文件，然后点击open</li>
-</ul>
-<img src="/2015/05/11/spss怎么合并变量/d8f9d72a6059252d5212e389349b033b5bb5b932.jpg" alt="spss怎么合并变量" title="spss怎么合并变量">
-<ul>
-<li>回到合并变量对话框，点击continue按钮，进行下一步设置</li>
-</ul>
-<img src="/2015/05/11/spss怎么合并变量/9f2f070828381f30a63a7324a9014c086e06f018.jpg" alt="spss怎么合并变量" title="spss怎么合并变量">
-<ul>
-<li>在这里，我们先看到右边的列表指的是合并变量以后的数据，左侧的列表显示的是被排除的变量，这些变量之所以被排除是因为两个数据表出现了相同的变量。</li>
-</ul>
-<img src="/2015/05/11/spss怎么合并变量/1e30e924b899a9011e16a5bb1d950a7b0208f518.jpg" alt="spss怎么合并变量" title="spss怎么合并变量">
-<ul>
-<li>要想合并变量必须制定关键变量，也就是key variables，因为我们的关键变量是id，这个id在new active dataset中，先选中id，然后点击如图所示的按钮，让id变为排除变量</li>
-</ul>
-<img src="/2015/05/11/spss怎么合并变量/a8014c086e061d955f65c9b57bf40ad162d9ca18.jpg" alt="spss怎么合并变量" title="spss怎么合并变量">
-<ul>
-<li>接着在排除变量中，选中id，点击如图所示的按钮，将其添加到关键变量中</li>
-</ul>
-<img src="/2015/05/11/spss怎么合并变量/1c950a7b02087bf452cfa964f2d3572c11dfcf18.jpg" alt="spss怎么合并变量" title="spss怎么合并变量">
-<ul>
-<li><p>点击ok按钮，开始合并变量，一般会弹出警告框，点击ok即可。</p>
-</li>
-<li></li>
-</ul>
-<img src="/2015/05/11/spss怎么合并变量/3bf33a87e950352a5264db855343fbf2b2118b32.jpg" alt="spss怎么合并变量" title="spss怎么合并变量">
-<img src="/2015/05/11/spss怎么合并变量/63d9f2d3572c11dff4f241ae632762d0f703c218.jpg" alt="spss怎么合并变量" title="spss怎么合并变量">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
     
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/11/ipython教程：设置Notebook/">
-                ipython教程：设置Notebook
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们有两种方式来设置你的ipython notebook，一种方式是通过命令行启动notebook服务器的时候，在ipython notebook后面添加一个参数来设置notebook服务器；另一种方式是创建一个ipython_notebook_config.py文件来写入你的设置参数。今天我们就讲一下后者。</p>
-<ul>
-<li>这个文件应该放在你的ipython的文件夹下的profile文件夹。通过命令ipython locate来找到这个ipython_notebook_config.py文件放在哪里。</li>
-</ul>
-<img src="/2015/05/11/ipython教程：设置Notebook/f35ea0096b63f6248d5e328a8244ebf81b4ca3fd.jpg" alt="ipython教程：设置Notebook" title="ipython教程：设置Notebook">
-<ul>
-<li>这样你可以打开这个文件夹，看看里面都有什么：所有的配置文件都放在了profile_default文件夹。如果没有看到这个文件夹，你可以使用ipython prifile create来创建</li>
-</ul>
-<img src="/2015/05/11/ipython教程：设置Notebook/7c5fcc1b0ef41bd5d9a4e37d54da81cb38db3d00.jpg" alt="ipython教程：设置Notebook" title="ipython教程：设置Notebook">
-<img src="/2015/05/11/ipython教程：设置Notebook/9f1011b30f2442a75c22882cd443ad4bd01302cf.jpg" alt="ipython教程：设置Notebook" title="ipython教程：设置Notebook">
-<ul>
-<li>当然你可以给你的profile文件夹起个名字，比如就叫profile_aaa，你可以这样写命令：ipython profile create aaa</li>
-</ul>
-<img src="/2015/05/11/ipython教程：设置Notebook/d872d695d143ad4b5802334987025aafa50f06cf.jpg" alt="ipython教程：设置Notebook" title="ipython教程：设置Notebook">
-<img src="/2015/05/11/ipython教程：设置Notebook/dbf554ed2e738bd41da1c7b8a48b87d6267ff97c.jpg" alt="ipython教程：设置Notebook" title="ipython教程：设置Notebook">
-<ul>
-<li>如果你想要使用aaa这个profile，我们在启动ipython notebook的时候使用命令：ipython notebook –profile==aaa</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/05/Excel2013：[50]powerview报告怎么做/">
-                Excel2013：[50]powerview报告怎么做
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>Poverview报告是Excel2013的新功能，很多人可能还没见过，我用powerview的主要目的就是查看和筛选数据，其实这些功能在没有powerview之前也可以实现，现在有了它，我们就更方便了。下面来看看我们是如何使用powerview报告的。</p>
-<ul>
-<li>我们来看一下表格中的数据，有三列，分别是地区、销售额、成绩</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/8474fbdde71190efb7cb0e81cc1b9d16fdfa6079.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>选中表格中的所有数据，然后在菜单栏上执行：插入–powerview报告</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/f29faa8f8c5494ee3b1293472ff5e0fe99257e79.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>你可能会看到一个启动提示，点击启用</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/b5ce925494eef01ff624849be2fe9925bc317d79.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>如果你第一次使用，可能还没有安装silverlight，点击这个链接，然后浏览器会自动下载silverlight，之后你安装上它，然后点击【重新加载】（如下图）就可以了</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/ca5257540923dd548f433b36d309b3de9c824879.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>这就是插入的powerview报告，乍看起来没什么，我们接着往下看</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/9dc3cf58ccbf6c816107b0b6be3eb13533fa4079.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>将成绩拖入到【筛选器】</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/1899a23eb13533fa64860f70aad3fd1f41345b79.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>假如我们只勾选成绩为合格和不及格的数据，左侧的数据就会只显示这两个的数据</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/027a45b5c9ea15ceb9a67c57b4003af33b87b2e1.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/5f9e93b1cb134954dee4743a544e9258d0094ab3.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>接着，我们插入一个柱状图，选择【簇状柱形图】</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/8605f5f81a4c510f5c117f446259252dd52aa55c.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>原先的表格就变成了柱形图，同样可以进行筛选</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/948bcfc8a786c9178d33ce67cb3d70cf3bc75779.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>假如我们还想使用表格，还可以在菜单栏中选择【表】</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/29752a9b033b5bb54702bda034d3d539b700bc5c.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>好了，教程就到这里了，想学习Excel数据分析的，请关注我的百度经验，每天都会有新教程。</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/">
-                SPSS因素分析中如何旋转因子与分析结果
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>因子分析要求提取出的公因子有实际意义，但是大部分因子分析的结果中，各因子和原始变量之间额关系并不明显，为了使因子载荷矩阵中系数更加显著，可以对初始因子载荷矩阵进行旋转，使因子和原始变量间的关系进行重新分配，相关系数向0–1分化。<br>工具/原料</p>
-<ul>
-<li>spss20.0<br>方法/步骤</li>
-</ul>
-<ul>
-<li>如图所示，先要打开因素分析的主对话框，在菜单栏上执行：analyse–dimension reduction–factor</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/86d6277f9e2f0708fbee5ad4e924b899a801f27f.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<ul>
-<li>打开因素分析对话框以后，我们先将要进行因素分析的6个变量放入到variables框中</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/902397dda144ad347e9cf453d0a20cf430ad85c6.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<ul>
-<li>点击rotation按钮，打开因素旋转对话框</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/42166d224f4a20a4b21c4f1390529822730ed0e0.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<ul>
-<li>在这里，首先要设置因素旋转的方法，这里有5种方法，一般蕞常用的是最大方差旋转，也就是varimax方法；其他方法在【注意事项】里介绍。点击continue按钮返回</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/0e2442a7d933c8957500ebafd11373f0830200e3.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<ul>
-<li>回到了主对话框，点击ok按钮开始处理数据并输出结果</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/314e251f95cad1c8d4d48ff37f3e6709c83d51f2.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<ul>
-<li>我们看到的第一个结果是communalities，叫做变量共同度，extraction列表显示的是我们提取的因素能够解释多少自变量，值越接近1越好（最大值是1）。</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/63d0f703918fa0ece1af17d9269759ee3c6ddbfe.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<ul>
-<li>我们看到这这个表格指的是因子载荷矩阵，他显示出三个因子再原始变量上的载荷，根据这个表格我们能够求得各个变量的标准分数的表达式，不是因子的表达式啊哦！！</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/8ad4b31c8701a18b4ac6609b9e2f07082838fe31.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<ul>
-<li>这个表格是最重要的表格，显示了在旋转因子以后 三个因子再原始变量上的载荷，根据这个表格我们能够求得各个变量的标准分数的表达式，不是因子的表达式啊哦！！</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/9a504fc2d5628535a543a0f590ef76c6a6ef6346.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<p>注意事项</p>
-<ul>
-<li><p>介绍一下因子旋转的方法：</p>
-</li>
-<li><p>varimax方法：方差最大正交旋转，是最常用的方法，如果你不懂各种方法的原理，你只要用这个方法就不会有太大的误差。</p>
-</li>
-<li><p>quartimax是四次方最大正交旋转，该方法倾向于减少和每个变量有关联的因子数，从而简化对原变量的解释</p>
-</li>
-<li><p>equamax是平方最大正交旋转，该方法介于上面两种方法之间。</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/05/Excel2013：[57]文本日期互转/">
-                Excel2013：[57]文本日期互转
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>Excel中日期格式是一个非常头疼的问题，很多时候我们都搞不清楚自己的数据是日期格式还是文本格式，更别提两者的相互转化了。今天我们详细讲解一下这个问题，以及这两种格式如何互转。</p>
-<ul>
-<li>如何判断自己的数据是日期格式还是文本格式？大部分人都回答错误！因为大部分人都知道查看单元格格式可以知道！这是及其错误的，比如，有一个单元格，里面填写了一个字符“a”，通过设置单元格格式，你将这个单元格设置为数字格式，试试看。一个字母竟然可以成为一个数字格式。这就是说虽然我们可以任意设置单元格的格式，但是当Excel无法转换格式的时候，就保留了原先的格式。</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/246cca2a2834349bf3261892caea15ce36d3be42.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>所以，当我们想知道一个单元格是文本还是日期时，看单元格格式是不保险的。比如这一列日期，你可以在自己的电脑上录入这一列数据。我们将A列设置为日期格式，但是这一列数据仍然是文本，Excel并没有转换格式。因为Excel并不认识这种日期格式，所以就无法将其转换为日期，仍然保留了文本格式，虽然Excel显示的是日期格式。</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/58af236d55fbb2fb91162e054c4a20a44623dcad.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>除了Excel不识别的日期格式外，还有一种情况可以造成Excel无法将文本转换为日期：在下面这种情况下，我们先设置c列为文本，然后设置d列默认格式为常规。在两列都输入同样的“2013-1-1”，你会发现他们的不同：C列数据保持了你输入的内容不变；D列内容自动转换格式为Excel默认的日期格式。这说明你预先设置了c列的格式为文本，导致后面再输入数据都按照文本来保存数据了。</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/f6428f8fa0ec08fa9d3d65b05aee3d6d55fbdaad.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>如何鉴别到底是日期格式还是文本格式？很简单。当单元格为日期时，你在格式设置下啦菜单中，可以看到短日期和长日期格式不同，短日期下面显示2013/1/1，长日期下显示2013年1月1日。</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/b3ba5d166d224f4af29200040af790529822d15b.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>如果单元格为文本格式，你会发现，短日期和长日期显示相同的格式，说明Excel并没有正确的识别日期。</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/9252ae7eca8065380e22d40494dda144ac348299.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>现在我们有一列文本格式的日期，想要转换为日期格式</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/0db2c9ca7bcb0a462d1ffd2e6863f6246b60afad.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>先将这一列设置为日期格式</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/bf487563f6246b60e833c463e8f81a4c510fa2ad.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>按下ctrl+F，利用替换，将“.”替换为“-”,这样可以将Excel不认识的格式转换为它认识的格式</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/3c2c4bfbb2fb4316be3f0c6d23a4462309f7d342.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>结果就是这样了：显然Excel自动识别了日期。</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/29752a9b033b5bb53bea56e935d3d539b600bcad.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>但是有时候单元格内不是2013.1.1这种形式，而是2013-1-1，也很简单</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/1899a23eb13533fac4e4ee39abd3fd1f41345b13.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>还是用这个方法，先将该列设置为日期格式，然后将“-”替换为“/”即可</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/9c57e3faaf51f3de9cfec47397eef01f3a29791d.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>反过来，有些时候我们必须将日期格式转换为文本格式，还是这一列数据，它现在是日期格式</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/29752a9b033b5bb53bea56e935d3d539b600bcad.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>在B2单元格输入公式：=TEXT(A2,”yyyy-m-d”)，按下回车看一下结果</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/c9bdddcec3fdfc03f4c493afd73f8794a4c2262d.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>向下拖动单元格右下角，可以快速填充以下的单元格，完成日期向文本的转换。</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/c2bce2039245d688bcbec2b3a7c27d1ed21b242d.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/03/SPSS实例：[12]回归模型中如何增加交互项/">
-                SPSS实例：[12]回归模型中如何增加交互项
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>通常我们在回归分析中需要用到两个自变量之间的交互项来检验两个变量之间的交互效应，那么这个交互项是从哪里来的呢？其实就是两个变量的乘积，具体方式是：</p>
-<ul>
-<li>打开数据，在菜单栏上执行：转换–计算变量</li>
-</ul>
-<img src="/2015/05/03/SPSS实例：[12]回归模型中如何增加交互项/9304c888d43f879438af693dd01b0ef41bd53a15.jpg" alt="SPSS实例：[12]回归模型中如何增加交互项" title="SPSS实例：[12]回归模型中如何增加交互项">
-<ul>
-<li>打开计算变量的对话框，我们设置目标变量名称，你随便起一个英文的名字，然后设置这个变量的标签，为了以后处理数据方便，你一定要添加一个自己看得懂的标签，点击继续。</li>
-</ul>
-<img src="/2015/05/03/SPSS实例：[12]回归模型中如何增加交互项/1a94b36eddc451da25a62df8b4fd5266d0163215.jpg" alt="SPSS实例：[12]回归模型中如何增加交互项" title="SPSS实例：[12]回归模型中如何增加交互项">
-<ul>
-<li>然后在这里输入两个变量相乘的公式，如图所示就是变量P1Q01和P1Q02的乘积</li>
-</ul>
-<img src="/2015/05/03/SPSS实例：[12]回归模型中如何增加交互项/b7bc4c66d016092401758308d60735fae6cd3415.jpg" alt="SPSS实例：[12]回归模型中如何增加交互项" title="SPSS实例：[12]回归模型中如何增加交互项">
-<ul>
-<li>点击ok就可以运行程序，得到一个新的变量，也就是交互项</li>
-</ul>
-<img src="/2015/05/03/SPSS实例：[12]回归模型中如何增加交互项/7ac880510fb30f24f1cacd10ca95d143ad4b0315.jpg" alt="SPSS实例：[12]回归模型中如何增加交互项" title="SPSS实例：[12]回归模型中如何增加交互项">
-<ul>
-<li>用syntax的话更简单，下面的代码可以实现同样的效果。</li>
-</ul>
-<img src="/2015/05/03/SPSS实例：[12]回归模型中如何增加交互项/cf5a8316fdfaaf51af44a0ac8e5494eef01f7a3a.jpg" alt="SPSS实例：[12]回归模型中如何增加交互项" title="SPSS实例：[12]回归模型中如何增加交互项">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/">
-                Excel2013：[1]两类数据绘制在同一张图上
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>假如我有两个曲线要画在同一张图上，而且不能同时绘制出两条曲线，只能一条一条的绘制，如果你想要将两条曲线放到一张图上，你可以先绘制一条，然后再添加数据源。我们看看下面的案例吧。</p>
-<ul>
-<li>我们看下面的表格，有三列数据，自变量X和两个因变量y1和y2，我们要用散点图表示x和y1的关系，同时要用散点图表示x和y2的关系，如何将两个散点图绘制在一个图上呢？</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/d66b7e59252dd42a0a3624b8013b5bb5c9eab8a2.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>先绘制第一条曲线，选中x和y1两列数据，然后选择一个散点图，如图所示</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/d478a8003af33a87c44c2509c45c10385343b544.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>在图表上右键单击，点击【选择数据】</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/e8112b2ac65c1038625febd1b0119313b07e8944.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>我们看到打开了【数据源】对话框。点击【添加】按钮</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/5202e5f2b21193138562daa367380cd791238d44.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>编辑数据系列，你可以看到我用不同颜色表示出了不同的数据源，你按照箭头来操作就可以了</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/647912d7912397dd9a58bd175b82b2b7d0a28744.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>这是我设计好的数据系列，点击确定</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/cbc17b380cd79123addfb167af345982b2b780a2.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>回到了数据源对话框，我们点击确定按钮</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/58c3acb7d0a20cf470b1dbcc74094b36acaf9944.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>这时候已经出现了两条曲线，我们点击【添加】按钮，如图所示</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/ac754782b2b7d0a24cf6218ec9ef76094b369aa2.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>选择添加【图例】，这样你就可以知道这两条曲线分别代表的是谁了。</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/0db52fadcbef76090f34bc8c2cdda3cc7cd99ea2.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
         </div>
     
 
@@ -846,19 +878,19 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         <ul>
             
             <li>
-                <a class="footer-post" href="/2017/10/02/psychopy教程2-builder概念介绍/">psychopy教程2-builder概念介绍</a>
+                <a class="footer-post" href="/2017/10/26/python时间序列分析-纯随机性检验/">python时间序列分析-纯随机性检验</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/09/29/psychopy教程1-入门认识psychopy/">psychopy教程1-入门认识psychopy</a>
+                <a class="footer-post" href="/2017/10/25/psychopy实验设计技术/">psychopy实验设计技术</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/09/28/EPrime中如使何呈现时间随机/">EPrime中如使何呈现时间随机</a>
+                <a class="footer-post" href="/2017/10/16/心理学大数据研究工作坊/">心理学大数据研究工作坊</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/09/27/selenium进阶教程/">selenium进阶教程</a>
+                <a class="footer-post" href="/2017/10/12/scikit-learn安装和入门-for-educationist/">scikit-learn安装和入门(for_edu</a>
             </li>
             
         </ul>
