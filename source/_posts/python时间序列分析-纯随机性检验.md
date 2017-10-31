@@ -81,7 +81,7 @@ sequence_chart()
 自相关图
 --------
 
-自相关图就是将n阶自相关系数绘制成一个折线图. 注意统计学意义上的aotucorrelation和信号处理中用到的autocorrelation是不同的. 如果你用`matplotlib.pyplot.acorr`来绘制自相关图, 得到的是信号处理中常用的算法. 而如果使用pandas中的`pandas.plotting.autocorrelation_plot`得到的就是n阶的皮尔逊相关.
+自相关图就是将n步自相关系数绘制成一个折线图. 注意统计学意义上的aotucorrelation和信号处理中用到的autocorrelation是不同的. 如果你用`matplotlib.pyplot.acorr`来绘制自相关图, 得到的是信号处理中常用的算法. 而如果使用pandas中的`pandas.plotting.autocorrelation_plot`得到的就是n步的皮尔逊相关.
 
 下面我们对比一下完全随机序列和非随机序列的自相关图的差异:
 

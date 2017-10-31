@@ -188,7 +188,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">sequence_chart</span><span class="params">()</span>:</span></div><div class="line">    dpath = os.path.join(DATA_DIR, <span class="string">'附录1.1.xls'</span>)</div><div class="line">    data=pd.read_excel(dpath)</div><div class="line">    fig, ax = plt.subplots()</div><div class="line">    ax.plot(data[<span class="string">'年份'</span>], data[<span class="string">'黑子数'</span>])</div><div class="line">    ax.set(xlabel=<span class="string">'年份'</span>, ylabel=<span class="string">'黑子数'</span>, title=<span class="string">'黑子数'</span>)</div><div class="line">    plt.savefig(<span class="string">'../imgs/sunspots.png'</span>)</div><div class="line">    plt.show()</div><div class="line"></div><div class="line">sequence_chart()</div></pre></td></tr></table></figure>
 <p>生成如下图:</p>
 <img src="/2017/10/26/python时间序列分析-纯随机性检验/sunspots.png" alt="sunspots.png" title="">
-<h2 id="自相关图"><a href="#自相关图" class="headerlink" title="自相关图"></a>自相关图</h2><p>自相关图就是将n阶自相关系数绘制成一个折线图. 注意统计学意义上的aotucorrelation和信号处理中用到的autocorrelation是不同的. 如果你用<code>matplotlib.pyplot.acorr</code>来绘制自相关图, 得到的是信号处理中常用的算法. 而如果使用pandas中的<code>pandas.plotting.autocorrelation_plot</code>得到的就是n阶的皮尔逊相关.</p>
+<h2 id="自相关图"><a href="#自相关图" class="headerlink" title="自相关图"></a>自相关图</h2><p>自相关图就是将n步自相关系数绘制成一个折线图. 注意统计学意义上的aotucorrelation和信号处理中用到的autocorrelation是不同的. 如果你用<code>matplotlib.pyplot.acorr</code>来绘制自相关图, 得到的是信号处理中常用的算法. 而如果使用pandas中的<code>pandas.plotting.autocorrelation_plot</code>得到的就是n步的皮尔逊相关.</p>
 <p>下面我们对比一下完全随机序列和非随机序列的自相关图的差异:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">autocorr</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">from</span> pandas.plotting <span class="keyword">import</span> autocorrelation_plot</div><div class="line">    <span class="comment"># get data</span></div><div class="line">    dpath = os.path.join(DATA_DIR, <span class="string">'附录1.1.xls'</span>)</div><div class="line">    data=pd.read_excel(dpath)</div><div class="line">    <span class="comment"># plot</span></div><div class="line">    <span class="comment"># print(data['黑子数'])</span></div><div class="line">    fig, axes=plt.subplots(nrows=<span class="number">2</span>, ncols=<span class="number">1</span>)</div><div class="line">    autocorrelation_plot(data[<span class="string">'黑子数'</span>], ax=axes[<span class="number">0</span>])</div><div class="line">    axes[<span class="number">0</span>].set_title(<span class="string">'真实黑子数'</span>)</div><div class="line"></div><div class="line">    <span class="comment"># 随机化黑子数</span></div><div class="line">    x=[random.randint(<span class="number">1</span>, <span class="number">200</span>) <span class="keyword">for</span> i <span class="keyword">in</span> range(data.shape[<span class="number">0</span>])]</div><div class="line">    autocorrelation_plot(x, ax=axes[<span class="number">1</span>])</div><div class="line">    axes[<span class="number">1</span>].set_title(<span class="string">'随机黑子数'</span>)</div><div class="line">    plt.savefig(<span class="string">'../imgs/autocorr.png'</span>)</div><div class="line">    plt.show()</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__==<span class="string">'__main__'</span>:</div><div class="line">    autocorr()</div></pre></td></tr></table></figure>
 <p>可以生成如图所示的自相关图:</p>
@@ -259,6 +259,10 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         <ul>
             
             <li>
+                <a class="footer-post" href="/2017/10/29/python数据采集服务/">python数据采集服务</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2017/10/26/python时间序列分析-纯随机性检验/">python时间序列分析-纯随机性检验</a>
             </li>
             
@@ -268,10 +272,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
             
             <li>
                 <a class="footer-post" href="/2017/10/16/心理学大数据研究工作坊/">心理学大数据研究工作坊</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2017/10/12/scikit-learn安装和入门-for-educationist/">scikit-learn安装和入门(for_edu</a>
             </li>
             
         </ul>

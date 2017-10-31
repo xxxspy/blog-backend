@@ -4,8 +4,29 @@
 
     
   <url>
+    <loc>http://mlln.cn/2017/10/29/python%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E6%9C%8D%E5%8A%A1/</loc>
+    <lastmod>2017-10-30T08:39:21.910Z</lastmod>
+    <data>
+        <display>
+        <title>python数据采集服务</title>
+        <pubTime>2017-10-29T09:43:12.000Z</pubTime>
+        
+        <tag>python</tag>
+         
+        <tag>数据采集</tag>
+         
+        <tag>淘宝</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://mlln.cn/2017/10/26/python%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%88%86%E6%9E%90-%E7%BA%AF%E9%9A%8F%E6%9C%BA%E6%80%A7%E6%A3%80%E9%AA%8C/</loc>
-    <lastmod>2017-10-27T04:49:26.072Z</lastmod>
+    <lastmod>2017-10-27T08:00:25.650Z</lastmod>
     <data>
         <display>
         <title>python时间序列分析-纯随机性检验</title>
@@ -273,9 +294,9 @@
          
         <tag>selenium</tag>
          
-        <tag>psychology</tag>
-         
         <tag>数据采集</tag>
+         
+        <tag>psychology</tag>
          
          
            
@@ -3410,7 +3431,7 @@
 
     
   <url>
-    <loc>http://mlln.cn/2015/03/01/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5DURLpattern%E7%9A%84%E8%AF%AD%E6%B3%95/</loc>
+    <loc>http://mlln.cn/2015/03/01/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5DURLpattern%E7%9A%84%E8%AF%AD%E6%B3%95%20-%20%E5%89%AF%E6%9C%AC/</loc>
     <lastmod>2017-06-07T14:21:10.292Z</lastmod>
     <data>
         <display>
@@ -3427,7 +3448,7 @@
 
     
   <url>
-    <loc>http://mlln.cn/2015/03/01/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5DURLpattern%E7%9A%84%E8%AF%AD%E6%B3%95%20-%20%E5%89%AF%E6%9C%AC/</loc>
+    <loc>http://mlln.cn/2015/03/01/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5DURLpattern%E7%9A%84%E8%AF%AD%E6%B3%95/</loc>
     <lastmod>2017-06-07T14:21:10.292Z</lastmod>
     <data>
         <display>
@@ -5730,11 +5751,11 @@
         <title>DataNitro：[1]怎样在Excel中使用python脚本</title>
         <pubTime>2015-05-23T10:05:05.000Z</pubTime>
         
-        <tag>datanitro</tag>
-         
         <tag>python</tag>
          
         <tag>excel</tag>
+         
+        <tag>datanitro</tag>
          
          
            
@@ -6550,9 +6571,9 @@
         <title>DataNitro：[2]调用Python的方法</title>
         <pubTime>2015-10-01T10:03:19.000Z</pubTime>
         
-        <tag>datanitro</tag>
-         
         <tag>python</tag>
+         
+        <tag>datanitro</tag>
          
          
            
