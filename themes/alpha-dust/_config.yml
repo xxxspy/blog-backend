@@ -1,0 +1,55 @@
+# Logo (Font Awesome Class)
+fa_logo: fa-cube
+
+# Header
+menu:
+  Home: /
+  Archives: /archives
+  About: /about.html
+  Tags: /tags
+  Categories: /categories
+  Contact: /contact.html
+
+# Default post title
+default_post_title: Untitled
+
+# Archive Date Format
+archive_date_format: MMM YYYY
+
+# Comments.
+comments:
+  # Disqus comments
+  disqus_shortname:
+
+# Google Analytics Tracking ID
+google_analytics:
+
+# Social Accounts
+twitter_url: false
+facebook_url: false
+instagram_url: false
+dribble_url: false
+github_url: https://github.com/xxxspy
+googleplus_url: false
+behance_url: false
+fivehundredpx_url: false
+email_url: 675495787@qq.com
+rss_url: \#
+weibo_url: false
+
+
+# Footer About Text
+footer_about: "这是<code>xxxspy</code>的个人博客"
+
+# Footer Copyright Line
+footer_copyright: "@感谢github免费托管，hexo的静态网站引擎和模板主题制作者<a href=\"http://www.codeblocq.com/\">Jonathan Klughertz</a>"
+
+baidu_search: True
+
+baidu_static: True
+
+baidu_share: True
+
+bavbox: True
+
+

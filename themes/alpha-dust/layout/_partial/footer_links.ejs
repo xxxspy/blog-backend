@@ -1,0 +1,14 @@
+<!-- links -->
+<% if (site.data.links){ %>
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-about">
+        <h2><%- __('Links') %></h2>
+        <ul>
+            <% for(var link_name in site.data.links){ %>
+                <span> | </span><a class="footer-post" href="<%- site.data.links[link_name] %>" target="_blank"><%= link_name %></a><span> | </span>
+            <% } %>
+        </ul>
+    </div>
+</div>
+<% } %>
+
