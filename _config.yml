@@ -26,7 +26,8 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
-  '*.json'
+- '*.json'
+- '*.vender'
 
 # Writing
 new_post_name: :title.md # File name of new posts

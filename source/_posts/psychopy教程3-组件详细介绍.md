@@ -36,6 +36,10 @@ psychopy有很多方式定义开始结束时间，最常用的就是以秒为单
 - set every repeat: 每个trial设置一次，属性值里填写`$`+`变量名`, 这个变量名是你定义在一个文件中的。
 - set every frame: 每一帧设置一次
 
+#### 名称(name)属性
+
+psychopy里任何组件都必须有名称, 并且所有组件的名称都是唯一的, 不能重复, 这个在你设置name属性的时候会发现, 如果你用了相同的名称, 它会提示你错误.
+
 ### 文本组件
 
 点击组件框中的text组件，即可打开text的配置页面。
@@ -51,3 +55,95 @@ psychopy有很多方式定义开始结束时间，最常用的就是以秒为单
 - 结束时间可以为空，如果为空，文本组件的持续时间是永远，直到所在的环节(Routine)结束。
 - position: 在默认情况下，屏幕的中心点坐标就是(0, 0)，以此为原点绘制一个直角坐标系，然后你就可以用坐标表示屏幕上的任意一点，注意坐标系的轴的最大值是1最小值是-1。当然这不是绝对的，比如你可以用像素来定义坐标，不过为了简化问题，我们先不考虑。
 - letter height: 就是文字高度，其实就是font-size，如果你将该值设置成1，那么文字的高度就会占屏幕高度的一半。
+
+### 图片组件
+
+图片组件的配置页面:
+{% asset_img img_config.jpg %}
+
+关于此图的说明:
+
+- Name: 名称.
+- Start: 刺激出现时间.
+- Stop: 刺激结束时间.
+- Image: 图片文件路径, 如果为空就会显示一个色块.
+- Position: 图片中心的位置, 如果unit设置成norm, Position设置成(0,0)意味着图片处于屏幕中心.
+- Size: 图片大小, 参数设置为[sizex, sizey]的形式, 比如[0.5, 0.5], 意思为图片的宽度为屏幕宽的1/4(unit=norm情况下, 屏幕宽度为2). 如果设置为空, 图片按照原始大小呈现.
+- Orientation: 旋转角度.
+- Opacity: 透明度.
+- Units: 单位, 常用的是norm.
+
+图片组件的高级配置页面:
+{% asset_img img_config_advance.jpg %}
+
+关于此图的说明:
+
+- Color: 适用于灰度图片.
+- Color space: 在设置了Color的情况下设置该参数, 任何颜色值都应该有其对应的颜色空间.
+- Mask: 可以设置文件, 标准名称(gauss, circle, raisedCos) 或者一个numpy数组.
+- Interpolate: 差值算法. 图片尺寸适应屏幕时用到.
+- Texture Resolution: 用文本合成图片时用到.
+
+### 图形
+
+线段, 三角形, 圆形, 矩形等刺激都归为此类, 很多人用图片来呈现这些词, 但是如果没有特别复杂的图形, 仅用psychopy的图形组件(ploygon)即可.
+
+这是图形组件的基本配置项:
+
+{% asset_img ploygon.jpg %}
+
+关于此图的基本说明:
+
+- Name: 名称.
+- Start: 刺激出现时间.
+- Stop: 刺激结束时间.
+- Num.vertices: 顶点数量, 两个顶点就是一个线段, 三个顶点就是一个三角形,以此类推.
+- Line Width: 线宽度, 以像素为单位, 不遵循unit设置.
+- Size: 图片大小, 参数设置为[sizex, sizey]的形式, 比如[0.5, 0.5], 意思为图片的宽度为屏幕宽的1/4(unit=norm情况下, 屏幕宽度为2). 如果设置为空, 图片按照原始大小呈现.
+- Orientation: 旋转角度.
+- Opacity: 透明度.
+- Units: 单位, 常用的是norm.
+
+图形组件的高级配置:
+
+{% asset_img ploygon_advance.jpg %}
+
+关于此图的说明:
+
+- Fill color & Line color: 填充颜色和线条颜色.
+- color-space: 颜色空间, 关于颜色空间, 参考上面.
+- interpolate: 差值算法, 关于这个属性, 我们会有一个专题介绍.
+
+### 随机点
+
+这个可能不是一个通用功能, 只有一些特殊领域的人会用到. 这个组件的功能是产生一些随机分布的点. 有时候在记忆实验中, 随机点可以防止被试产生视觉记忆. 但是这个组件最多的用途还是用于 Random Dot Kinematogram 实验, 被试需要识别出不同移动方向的目标点.
+
+下图是随机点的一个示例:
+
+{% asset_img random-dot.jpg %}
+
+下图是随机点的基本配置:
+
+{% asset_img random-dot-config1.jpg %}
+
+关于此图的解释:(有些略去, 因为上面多次提到同样的配置项)
+
+- Fild position: 出现点的区域的中心坐标. 点是随机出现在某个区域的.
+- Field shape: 定义点出现区域的形状, 有`circle`和`square`两种可选. 当形状为circle时, 每一帧出现的随机点数的数量的平均值是固定的, 但是每一帧的数量是变化的.
+- Field size: 区域的大小, 用直径来定义, 如果unit设置为norm, 那么1就代表直径占屏幕的一半(整个屏幕宽2).
+
+下图是随机点组件的高级配置:
+
+{% asset_img random-dot-config2.jpg %}
+
+关于此图的解释:
+
+- Coherence: 目标动作的移动的一致性.
+- Direction: 目标动作的移动方向.
+- Dot life-time: 点的生命周期, 即一个点出现的帧数.
+- Dot size: 点的大小, 单位是像素.
+- Number of dots: 点的数量.
+- Noise Dots: 噪声点的行为方式. 可以设置成`position`, 则噪声点随机出现在每一帧; `direction`随机点的移动方向随机, 但是一个点的移动方向不变化, 也就是不拐弯;`walk`则是噪声点会在每一帧都改变移动方向, 但是移动的速度是固定的.
+- Dot refresh rule: 
+- Signal dots: 
+- Speed: 移动速度.

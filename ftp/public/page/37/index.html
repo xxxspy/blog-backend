@@ -9,7 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width"/>
+    <meta name="HandheldFriendly" content="true"/>
     <!--Description-->
     
         <meta name="description" content="专注于数据开发">
@@ -153,6 +155,548 @@
 </header>
 
         <section class="main">
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/04/17/Django教程：[7]网站根目录的设置/">
+                Django教程：[7]网站根目录的设置
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年04月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>现在我们开启开发服务器，然后访问一下网站根目录，也就是127.0.0.1:8000，你会发现出现了404错误提示，这是因为Django依赖于指定给该路径的模式来返回内容，现在我们并没有给改路径指定返回的内容，我们怎么设置呢？</p>
+<ul>
+<li>打开你的站点所在文件夹，找到view.py，使用IDLE进行编辑；根据我前面的文章可以知道，view.py是我自己创建的，不是startproject的时候自动创建的，所以你可能创建了不同名称的文件。</li>
+</ul>
+<img src="/2015/04/17/Django教程：[7]网站根目录的设置/4a77b2af2edda3cca0d8f15a03e93901213f9249.jpg" alt="Django教程：[7]网站根目录的设置" title="Django教程：[7]网站根目录的设置">
+<ul>
+<li>在该文件中添加一个函数homepage，它只返回一句话“这是首页”</li>
+</ul>
+<img src="/2015/04/17/Django教程：[7]网站根目录的设置/d7c9ca3f8794a4c2482fae510cf41bd5ad6e3978.jpg" alt="Django教程：[7]网站根目录的设置" title="Django教程：[7]网站根目录的设置">
+<ul>
+<li>接着哦我们打开urls.py</li>
+</ul>
+<img src="/2015/04/17/Django教程：[7]网站根目录的设置/30ecd5ef76094b3675ae5297a1cc7cd98d109d49.jpg" alt="Django教程：[7]网站根目录的设置" title="Django教程：[7]网站根目录的设置">
+<ul>
+<li>添加两句话，第一句引用homepage（刚才添加的函数）；第二句将hongpage与url模式相连接</li>
+</ul>
+<img src="/2015/04/17/Django教程：[7]网站根目录的设置/d1571724ab18972b903649b0e4cd7b899e510a78.jpg" alt="Django教程：[7]网站根目录的设置" title="Django教程：[7]网站根目录的设置">
+<ul>
+<li>这样，我们再访问网站根目录的时候就会得到网站首页</li>
+</ul>
+<img src="/2015/04/17/Django教程：[7]网站根目录的设置/966aca0735fae6cd3cb8e21b0db30f2442a70f78.jpg" alt="Django教程：[7]网站根目录的设置" title="Django教程：[7]网站根目录的设置">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/django/">#django</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/04/15/Python统计分析：[8]单因素卡方检验/">
+                Python统计分析：[8]单因素卡方检验
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年04月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>卡方检验主要用于检验计数数据是否符合某种分布，比如男女比率本应该是1:1，但实际采集的样本可能是1:2，那么1:1和1:2之间有没有差异，我们需要用卡方检验来比较。</p>
+<ul>
+<li>先引入相关模块</li>
+</ul>
+<img src="/2015/04/15/Python统计分析：[8]单因素卡方检验/3c2c4bfbb2fb43164eaebc1823a4462308f7d3e4.jpg" alt="Python统计分析：[8]单因素卡方检验" title="Python统计分析：[8]单因素卡方检验">
+<ul>
+<li>实例化ChiSqure1way对象</li>
+</ul>
+<img src="/2015/04/15/Python统计分析：[8]单因素卡方检验/4e0b3ea4462309f7b8de6b70710e0cf3d6cad6e4.jpg" alt="Python统计分析：[8]单因素卡方检验" title="Python统计分析：[8]单因素卡方检验">
+<ul>
+<li>运行卡方检验，如果我们只输入一个参数，表示我们要检验这一列数据分布是否均匀，也就是各组频数是否相等</li>
+</ul>
+<img src="/2015/04/15/Python统计分析：[8]单因素卡方检验/834344afa40f4bfb253a5836004f78f0f63618af.jpg" alt="Python统计分析：[8]单因素卡方检验" title="Python统计分析：[8]单因素卡方检验">
+<ul>
+<li>基本检验结果首先是数据的描述</li>
+</ul>
+<img src="/2015/04/15/Python统计分析：[8]单因素卡方检验/bf487563f6246b6038bf7416e8f81a4c500fa2e4.jpg" alt="Python统计分析：[8]单因素卡方检验" title="Python统计分析：[8]单因素卡方检验">
+<ul>
+<li>接着是卡方检验结果，根据p值可知两组差异不显著</li>
+</ul>
+<img src="/2015/04/15/Python统计分析：[8]单因素卡方检验/ae8267310a55b3190c13441740a98226cefc17af.jpg" alt="Python统计分析：[8]单因素卡方检验" title="Python统计分析：[8]单因素卡方检验">
+<ul>
+<li>统计量检验</li>
+</ul>
+<img src="/2015/04/15/Python统计分析：[8]单因素卡方检验/504ec7f9d72a605919a127782b34349b023bbae4.jpg" alt="Python统计分析：[8]单因素卡方检验" title="Python统计分析：[8]单因素卡方检验">
+<ul>
+<li>假如我们输入两个参数，可以指定各组频数的期望值</li>
+</ul>
+<img src="/2015/04/15/Python统计分析：[8]单因素卡方检验/aa251d4f78f0f7364c148a630955b319eac413af.jpg" alt="Python统计分析：[8]单因素卡方检验" title="Python统计分析：[8]单因素卡方检验">
+<ul>
+<li>结果是这样的：</li>
+</ul>
+<img src="/2015/04/15/Python统计分析：[8]单因素卡方检验/61183b2dd42a28340b17f06958b5c9ea14cebfe4.jpg" alt="Python统计分析：[8]单因素卡方检验" title="Python统计分析：[8]单因素卡方检验">
+<ul>
+<li>对于结果，我们可以使用字典的方式读取个别值，比如卡方：</li>
+</ul>
+<img src="/2015/04/15/Python统计分析：[8]单因素卡方检验/020e66f0f736afc39de6f907b019ebc4b64512af.jpg" alt="Python统计分析：[8]单因素卡方检验" title="Python统计分析：[8]单因素卡方检验">
+<img src="/2015/04/15/Python统计分析：[8]单因素卡方检验/35da1d3b5bb5c9ea5642c581d639b6003bf3b3e4.jpg" alt="Python统计分析：[8]单因素卡方检验" title="Python统计分析：[8]单因素卡方检验">
+<ul>
+<li>对于其他值，我们可以参考下面的列表：</li>
+</ul>
+<img src="/2015/04/15/Python统计分析：[8]单因素卡方检验/d0526df082025aaf7febbfa9f8edab64024f1abc.jpg" alt="Python统计分析：[8]单因素卡方检验" title="Python统计分析：[8]单因素卡方检验">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/04/15/Python教程：[2]pythonwin安装与下载/">
+                Python教程：[2]pythonwin安装与下载
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年04月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>很多人并不习惯在dos窗口中编辑python，包括我，我还是习惯在一些比较成熟的开发环境中编辑python，所以我们需要配置一个Pythonwin作为windows下的开发环境，当然你是用Linux就不关我的事情了，我不懂Linux，只能再windows下面来做，下面是安装的过程，在最下面的参考资料有提供Pythonwin的下载链接。因为我安装的python版本号是3.2，所以要下载对应版本的Pythonwin，下面我们先来看看如何知道自己python的版本号。</p>
+<ul>
+<li>打开windows的运行窗口，输入cmd，点击确定，打开命令窗口</li>
+</ul>
+<img src="/2015/04/15/Python教程：[2]pythonwin安装与下载/246cca2a2834349b7a32e0afcbea15ce36d3bea1.jpg" alt="Python教程：[2]pythonwin安装与下载" title="Python教程：[2]pythonwin安装与下载">
+<ul>
+<li>在命令窗口中输入python，你就会看到python的版本号，如图所示</li>
+</ul>
+<img src="/2015/04/15/Python教程：[2]pythonwin安装与下载/346bd85c103853437cfb090b9113b07eca8088a1.jpg" alt="Python教程：[2]pythonwin安装与下载" title="Python教程：[2]pythonwin安装与下载">
+<ul>
+<li>如果你的python版本为3.2，你可以直接从下面的参考资料里下载pythonwin；如果你的版本不对，你可以看下面参考资料里第二个链接，可以让你找到所有版本的下载，打开这个界面以后，你会看到这个列表，版本号就在红色方框里。</li>
+</ul>
+<img src="/2015/04/15/Python教程：[2]pythonwin安装与下载/34bbf8cd7b899e51058ab43e40a7d933c8950d50.jpg" alt="Python教程：[2]pythonwin安装与下载" title="Python教程：[2]pythonwin安装与下载">
+<ul>
+<li>安装就非常简单了，下载下来以后，我们双击打开，你会看到软件自己读取了python的安装目录，你什么都不用做，点击下一步。</li>
+</ul>
+<img src="/2015/04/15/Python教程：[2]pythonwin安装与下载/9252ae7eca80653881de2a3995dda144ad3482a1.jpg" alt="Python教程：[2]pythonwin安装与下载" title="Python教程：[2]pythonwin安装与下载">
+<ul>
+<li>接着点击下一步开始安装，等待一分钟就能安装完毕。</li>
+</ul>
+<img src="/2015/04/15/Python教程：[2]pythonwin安装与下载/4e83cb628535e5dd49c02af574c6a7efcf1b62e9.jpg" alt="Python教程：[2]pythonwin安装与下载" title="Python教程：[2]pythonwin安装与下载">
+<ul>
+<li>安装完成以后，在开始菜单中就能找到Pythonwin，打开它</li>
+</ul>
+<img src="/2015/04/15/Python教程：[2]pythonwin安装与下载/d872d695d143ad4bc0cec8ea80025aafa50f06fc.jpg" alt="Python教程：[2]pythonwin安装与下载" title="Python教程：[2]pythonwin安装与下载">
+<ul>
+<li>这就是pythonwin的界面了，在这个界面你可以编辑python语句。</li>
+</ul>
+<img src="/2015/04/15/Python教程：[2]pythonwin安装与下载/34bbf8cd7b899e51057bb43e40a7d933c9950de7.jpg" alt="Python教程：[2]pythonwin安装与下载" title="Python教程：[2]pythonwin安装与下载">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/04/15/pandas教程：[3]DataFrame切片操作/">
+                pandas教程：[3]DataFrame切片操作
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年04月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>DataFrame数据框允许我们使用iloc方法来像操作array（数组）一样对DataFrame进行切片操作，其形式上，跟对数组进行切片是一样的，我们下面来演示一下一些典型的切片操作：</p>
+<ul>
+<li>先创建一个6行4列的DataFrame数据框</li>
+</ul>
+<img src="/2015/04/15/pandas教程：[3]DataFrame切片操作/4e83cb628535e5dd397819eb75c6a7efce1b626b.jpg" alt="pandas教程：[3]DataFrame切片操作" title="pandas教程：[3]DataFrame切片操作">
+<ul>
+<li>使用iloc方法，提取第四行数据：</li>
+</ul>
+<img src="/2015/04/15/pandas教程：[3]DataFrame切片操作/4abae5edab64034f33d47e32acc379310a551dad.jpg" alt="pandas教程：[3]DataFrame切片操作" title="pandas教程：[3]DataFrame切片操作">
+<ul>
+<li>我们可以看一下，这种方法得到的返回值是一个series数据</li>
+</ul>
+<img src="/2015/04/15/pandas教程：[3]DataFrame切片操作/79b1e936afc3793145713a1de8c4b74543a911ad.jpg" alt="pandas教程：[3]DataFrame切片操作" title="pandas教程：[3]DataFrame切片操作">
+<ul>
+<li>返回4-5行，1-2列数据，用下面的写法，你可以看到跟array的切片操作是一模一样的额</li>
+</ul>
+<img src="/2015/04/15/pandas教程：[3]DataFrame切片操作/b5ce925494eef01fd140a4f1e3fe9925bc317d6b.jpg" alt="pandas教程：[3]DataFrame切片操作" title="pandas教程：[3]DataFrame切片操作">
+<ul>
+<li>我们也可以提取不连续行和列的数</li>
+</ul>
+<img src="/2015/04/15/pandas教程：[3]DataFrame切片操作/1f569482b9014a90ac27fa89aa773912b31beeae.jpg" alt="pandas教程：[3]DataFrame切片操作" title="pandas教程：[3]DataFrame切片操作">
+<ul>
+<li>想要提取某一样或者某几行的数据，保证所有列都在，可以使用一个冒号来表示所有列</li>
+</ul>
+<img src="/2015/04/15/pandas教程：[3]DataFrame切片操作/72ccb7773912b31bef75711d8518367adab4e1ae.jpg" alt="pandas教程：[3]DataFrame切片操作" title="pandas教程：[3]DataFrame切片操作">
+<ul>
+<li>当然，所有行，也可以用冒号来表示</li>
+</ul>
+<img src="/2015/04/15/pandas教程：[3]DataFrame切片操作/b110e6198618367ab990c3e92d738bd4b31ce5ae.jpg" alt="pandas教程：[3]DataFrame切片操作" title="pandas教程：[3]DataFrame切片操作">
+<ul>
+<li>提取某一个值，去掉所有冒号，比如取第2行第2列的这个数</li>
+</ul>
+<img src="/2015/04/15/pandas教程：[3]DataFrame切片操作/d019d2bf6c81800a18b2353ab23533fa828b476b.jpg" alt="pandas教程：[3]DataFrame切片操作" title="pandas教程：[3]DataFrame切片操作">
+<ul>
+<li>当然，iat是专门提取某个数的方法，它的效率高更高，因此建议在提取单个数的时候用iat</li>
+</ul>
+<img src="/2015/04/15/pandas教程：[3]DataFrame切片操作/8640bf8b87d6277ff20b8e0c2b381f30e924fcae.jpg" alt="pandas教程：[3]DataFrame切片操作" title="pandas教程：[3]DataFrame切片操作">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/04/11/spss协方差分析的操作过程和结果分析方法/">
+                spss协方差分析的操作过程和结果分析方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年04月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p> 协方差分析就是当研究中出现一个变量不是我们想要研究的变量，但是却会影响到我们的研究结果，我们不得不对其进行控制，这时候就可以用协方差分析的方法来控制，协方差分析一个最重要的假设是斜率同质假设，下面就要先检验斜率同质假设，然后才能进行协方差分析。<br>方法/步骤</p>
+<ul>
+<li>协方差分析之前，要先检验一下数据是否满足斜率同质假设，也就是检验自变量和斜变量之间有木有交互作用，如图所示，在菜单栏上执行：analyze–general linear model–univariate</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/9e3df8dcd100baa1d766d84c4710b912c9fc2efa.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li>在打开的对话框中，将因变量、自变量、斜变量都放到各自的位置，如图所示，评定得分为因变量，培训方式为自变量，家庭指数为斜变量，点击options按钮，进入子对话框</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/b219ebc4b74543a9d684653b1e178a82b80114ad.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/d31b0ef41bd5ad6ef1fafb1d81cb39dbb7fd3cc1.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li>在这里将培训方式，也就是自变量移动到display means for中，并且勾选描述统计和方差齐性检验，点击continue按钮继续</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/dcc451da81cb39db86c3f8a1d0160924aa1830c1.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li>点击model按钮，选择模型</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/4b90f603738da97764b019dcb051f8198718e3ae.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li>刚打开这个对话框的时候，默认是full factorial模式，但是我们要检验交互作用，所以要选中custom</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/f703738da9773912edb91a96f8198618377ae2ae.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li>将培训方式和家庭指数都放到model里</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/34fae6cd7b899e51348da5e342a7d933c9950dc1.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li>同时选中培训方式和家庭指数，将type设置为interaction，点击添加按钮，添加到model中，点击continue按钮</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/0b46f21fbe096b636ab9c1a70c338744eaf8aca1.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/34fae6cd7b899e5134c4a5e342a7d933c9950dfa.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li>点击ok按钮，开始处理数据</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/faedab64034f78f0bb08050479310a55b2191cc1.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li>在出来的结果中，我们主要是看自变量和斜变量的交互作用，如图所示，sig值大于0.05，所以交互作用不显著，这就满足了斜率同质性假设</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/8601a18b87d6277ff28dadcf28381f30e824fcae.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li>接着我们来进行协方差分析，在菜单栏上执行：analyse–general linear model–univariate</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/6159252dd42a28349d06a9fc5bb5c9ea14cebfa1.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li>将各个变量都放到各自的位置，和上面的步骤一样，点击options按钮</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/1f178a82b9014a90ac3dd94aa9773912b21beec2.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li>将培训方式移动到display means for列表里，勾选描述统计、方差齐性、效应值，点击continue继续</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/5ab5c9ea15ce36d37aa41cc73af33a87e850b1a1.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li>点击model，选择模型</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/a8773912b31bb05198272cdf367adab44bede0c2.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li>选择full factorial，点击continue</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/eac4b74543a982269a8bb4d08a82b9014b90ebfb.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li>点击ok按钮，开始处理数据</li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/03087bf40ad162d98971fdeb11dfa9ec8b13cdae.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<ul>
+<li><p>最后看分析的结果培训方式的效应显著，这说明不同的培训方式会影响到学生最后的分数</p>
+</li>
+<li></li>
+<li></li>
+</ul>
+<img src="/2015/04/11/spss协方差分析的操作过程和结果分析方法/10dfa9ec8a1363271dc75bc4918fa0ec08fac71b.jpg" alt="spss协方差分析的操作过程和结果分析方法" title="spss协方差分析的操作过程和结果分析方法">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/04/11/spss20.0如何进行反向计分/">
+                spss20.0如何进行反向计分
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年04月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p> 在心理学中经常使用反向计分的问卷，这种问卷获得数据在处理以前，要先进行重新编码。重新编码的目的就是要将反向计分的数据转换成正向计分，下面图是我分享的一个案例，他可以帮助你更好的理解什么是反向计分。<br>方法/步骤</p>
+<ul>
+<li>我们导入要转换的数据，在菜单栏上执行transform–recode into same variables，这个操作的意思你懂啦，就是将原有的数据转换，但是并不生成新的变量，而是替换掉原有的变量</li>
+</ul>
+<img src="/2015/04/11/spss20.0如何进行反向计分/f11f3a292df5e0feb7b4d6845c6034a85fdf7282.jpg" alt="spss20.0如何进行反向计分" title="spss20.0如何进行反向计分">
+<ul>
+<li>打开了如图所示的对话框，我们将要转换的变量选中，然后点击添加按钮</li>
+</ul>
+<img src="/2015/04/11/spss20.0如何进行反向计分/5243fbf2b21193134b03a03565380cd790238df7.jpg" alt="spss20.0如何进行反向计分" title="spss20.0如何进行反向计分">
+<ul>
+<li>接着要设置转换的方法 ，点击old and new values</li>
+</ul>
+<img src="/2015/04/11/spss20.0如何进行反向计分/b3119313b07eca8098456662912397dda04483f7.jpg" alt="spss20.0如何进行反向计分" title="spss20.0如何进行反向计分">
+<ul>
+<li>打开如图所示的对话框，我们在value这里填写1，在new value这里写5，意思是将1分转换为5分，然后点击add按钮</li>
+</ul>
+<img src="/2015/04/11/spss20.0如何进行反向计分/b17eca8065380cd76e5efd68a144ad34588281f7.jpg" alt="spss20.0如何进行反向计分" title="spss20.0如何进行反向计分">
+<ul>
+<li>同样的方法，我们将其他的数据转换方法都添加到这个列表里，然后点击继续按钮</li>
+</ul>
+<img src="/2015/04/11/spss20.0如何进行反向计分/d1a20cf431adcbef7f772183acaf2edda2cc9ff7.jpg" alt="spss20.0如何进行反向计分" title="spss20.0如何进行反向计分">
+<ul>
+<li>返回到了选择变量的对话框，点击ok按钮开始进行数据的转换。到此，反向计分就完成了。下面是介绍如何在反向计分的时候保留原始数据，生成新的变量。</li>
+</ul>
+<img src="/2015/04/11/spss20.0如何进行反向计分/b2de9c82d158ccbf5310eabf19d8bc3eb0354182.jpg" alt="spss20.0如何进行反向计分" title="spss20.0如何进行反向计分">
+<ul>
+<li><p>如何在反向计分的时候保留原始数据，生成新的变量，在导入数据以后，我们在菜单栏上执行：transform–recode into different variables</p>
+</li>
+<li><p>、</p>
+</li>
+</ul>
+<img src="/2015/04/11/spss20.0如何进行反向计分/0df431adcbef76094148c61a2edda3cc7dd99ef7.jpg" alt="spss20.0如何进行反向计分" title="spss20.0如何进行反向计分">
+<ul>
+<li>打开如图所示的对话框，我们选择要转换的数据，然后点击添加按钮</li>
+</ul>
+<img src="/2015/04/11/spss20.0如何进行反向计分/cdbf6c81800a19d8feafdb8033fa828ba71e4682.jpg" alt="spss20.0如何进行反向计分" title="spss20.0如何进行反向计分">
+<ul>
+<li>从中间的列表里选择一个变量，然后在右侧的name栏中输入新的变量的名字，然后点击change按钮</li>
+</ul>
+<img src="/2015/04/11/spss20.0如何进行反向计分/2fdda3cc7cd98d10119753b4213fb80e7aec90f7.jpg" alt="spss20.0如何进行反向计分" title="spss20.0如何进行反向计分">
+<ul>
+<li>同样的方法给所有的变量重新命名以后，点击old and new values，添加转换数据的规则</li>
+</ul>
+<img src="/2015/04/11/spss20.0如何进行反向计分/32fa828ba61ea8d3b58e2b81970a304e241f5882.jpg" alt="spss20.0如何进行反向计分" title="spss20.0如何进行反向计分">
+<ul>
+<li>和上面使用的方法一样的，我们左侧填写原始数据的值，有的填写转换成的值，然后点击add按钮</li>
+</ul>
+<img src="/2015/04/11/spss20.0如何进行反向计分/b90e7bec54e736d13850d38d9b504fc2d46269f7.jpg" alt="spss20.0如何进行反向计分" title="spss20.0如何进行反向计分">
+<ul>
+<li>将所有的转换规则都添加进去以后，我们点击continue按钮，好了数据转换完成。</li>
+</ul>
+<img src="/2015/04/11/spss20.0如何进行反向计分/960a304e251f95ca9f59cd33c9177f3e66095282.jpg" alt="spss20.0如何进行反向计分" title="spss20.0如何进行反向计分">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/04/05/Python教程：[4]字符串操作方法大全/">
+                Python教程：[4]字符串操作方法大全
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年04月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>python处理字符串的方法非常灵活好用，编程语言是vb.net，到我转成python以后发现，python处理字符串真的是太方便了，我们今天就来分享操作字符串最基本的几个方法，希望大家想不起来的时候可以用得到，至少我的记性不好，我会经常回来看的。</p>
+<ul>
+<li>字符串赋值：mystring=’python’，单引号内的字符串就是变量mystring的值</li>
+</ul>
+<img src="/2015/04/05/Python教程：[4]字符串操作方法大全/389aa8fd5266d016dab94102952bd40735fa353d.jpg" alt="Python教程：[4]字符串操作方法大全" title="Python教程：[4]字符串操作方法大全">
+<ul>
+<li>用[]表示字符串的位置，例如</li>
+</ul>
+<img src="/2015/04/05/Python教程：[4]字符串操作方法大全/b29f8282d158ccbff29b6b101bd8bc3eb13541b2.jpg" alt="Python教程：[4]字符串操作方法大全" title="Python教程：[4]字符串操作方法大全">
+<ul>
+<li>你还可以读取连续的几个字符，例如</li>
+</ul>
+<img src="/2015/04/05/Python教程：[4]字符串操作方法大全/a75fb6d3fd1f41343e3edb54271f95cad1c85e54.jpg" alt="Python教程：[4]字符串操作方法大全" title="Python教程：[4]字符串操作方法大全">
+<ul>
+<li>假如你只想知道最后的一个字符，你可以用负数表示</li>
+</ul>
+<img src="/2015/04/05/Python教程：[4]字符串操作方法大全/a992e31f4134970a9a7ace0597cad1c8a7865d54.jpg" alt="Python教程：[4]字符串操作方法大全" title="Python教程：[4]字符串操作方法大全">
+<ul>
+<li>当然，除了读取，我们还有乘法，当然这里的乘号代表的是重复几遍字符串，如图所示</li>
+</ul>
+<img src="/2015/04/05/Python教程：[4]字符串操作方法大全/a75fb6d3fd1f41343e10db54271f95cad1c85eb2.jpg" alt="Python教程：[4]字符串操作方法大全" title="Python教程：[4]字符串操作方法大全">
+<ul>
+<li>接着，还可以使用加号连接字符串</li>
+</ul>
+<img src="/2015/04/05/Python教程：[4]字符串操作方法大全/a6c7d7177f3e67097b099bd539c79f3df8dc5554.jpg" alt="Python教程：[4]字符串操作方法大全" title="Python教程：[4]字符串操作方法大全">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
             
                 
 <div class="post">
@@ -382,487 +926,6 @@
 
 </div>
             
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/04/01/spss多元方差分析的操作方法和结果分析/">
-                spss多元方差分析的操作方法和结果分析
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年04月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p> 多元方差分析就是有多个因变量的分析，但是这几个因变量并不是没有关系的，他们应该属于同一种质的不同的形式，比如一个问卷的几个不同的维度。下面我们来具体的操作一下多元方差分析。<br>方法/步骤</p>
-<ul>
-<li>在spss中打开数据，在菜单栏上执行：analyse–general linear model–multivariate，打开多元方差分析对话框</li>
-</ul>
-<img src="/2015/04/01/spss多元方差分析的操作方法和结果分析/ac4bd11373f082021f6c0ec64bfbfbedaa641b48.jpg" alt="spss多元方差分析的操作方法和结果分析" title="spss多元方差分析的操作方法和结果分析">
-<ul>
-<li>将所有的因变量都放到第一个列表里，将自变量放到固定因素列表里</li>
-</ul>
-<img src="/2015/04/01/spss多元方差分析的操作方法和结果分析/9213b07eca806538b27d3bea97dda144ac3482b0.jpg" alt="spss多元方差分析的操作方法和结果分析" title="spss多元方差分析的操作方法和结果分析">
-<ul>
-<li>点击options按钮，打开子对话框</li>
-</ul>
-<img src="/2015/04/01/spss多元方差分析的操作方法和结果分析/279759ee3d6d55fb3903e9df6d224f4a21a4dd06.jpg" alt="spss多元方差分析的操作方法和结果分析" title="spss多元方差分析的操作方法和结果分析">
-<ul>
-<li>将自变量矫正方式放到右侧的display means，勾选如图所示的三个选项，用来展示描述统计、方差齐性、效应大小，点击继续，返回到主对话框</li>
-</ul>
-<img src="/2015/04/01/spss多元方差分析的操作方法和结果分析/aec379310a55b319ba071d8c43a98226cefc1748.jpg" alt="spss多元方差分析的操作方法和结果分析" title="spss多元方差分析的操作方法和结果分析">
-<ul>
-<li>点击post hoc，设置事后检验</li>
-</ul>
-<img src="/2015/04/01/spss多元方差分析的操作方法和结果分析/b219ebc4b74543a9d6e565351e178a82b8011448.jpg" alt="spss多元方差分析的操作方法和结果分析" title="spss多元方差分析的操作方法和结果分析">
-<ul>
-<li>将自变量矫正方式放到事后检验的列表里，然后在方差齐性的方法中选择lsd，在方差不齐性的方法中选dunnet c，点击continue按钮</li>
-</ul>
-<img src="/2015/04/01/spss多元方差分析的操作方法和结果分析/adaf2edda3cc7cd942baab203901213fb90e91b0.jpg" alt="spss多元方差分析的操作方法和结果分析" title="spss多元方差分析的操作方法和结果分析">
-<ul>
-<li>点击ok按钮，开始数据处理</li>
-</ul>
-<img src="/2015/04/01/spss多元方差分析的操作方法和结果分析/0b46f21fbe096b636adcc1a90c338744eaf8ac06.jpg" alt="spss多元方差分析的操作方法和结果分析" title="spss多元方差分析的操作方法和结果分析">
-<ul>
-<li>我们先来分析多变量检验，如图所示的红色方框中显示的是检验的不同方法，有时候不同的方法会显示出不同的结果，你要分别解释，下面的结果是一致的</li>
-</ul>
-<img src="/2015/04/01/spss多元方差分析的操作方法和结果分析/377adab44aed2e73ed1719d58701a18b86d6fa49.jpg" alt="spss多元方差分析的操作方法和结果分析" title="spss多元方差分析的操作方法和结果分析">
-<ul>
-<li>我们以wilks lambda方法为例，看sig值为000说明差异显著，篇eta方位0.375说明可以解释变异的37.5%</li>
-</ul>
-<img src="/2015/04/01/spss多元方差分析的操作方法和结果分析/d52a2834349b033bf04d632315ce36d3d439bd06.jpg" alt="spss多元方差分析的操作方法和结果分析" title="spss多元方差分析的操作方法和结果分析">
-<ul>
-<li><p>接着看主体间效应的检验，在矫正方式这一栏，也就是自变量的这一栏，乍一看三个水平的自变量都达到了显著水平，但是，其实不然，因为对自变量的多次比较会造成一类错误的概率增加，所以我们要用显著性水平除以自变量的水平数，也就是0.05/3=0.17，这样来看重复减少这个水平是达不到显著水平的。</p>
-</li>
-<li></li>
-</ul>
-<img src="/2015/04/01/spss多元方差分析的操作方法和结果分析/1e30e924b899a9013fcbc4cf1d950a7b0308f549.jpg" alt="spss多元方差分析的操作方法和结果分析" title="spss多元方差分析的操作方法和结果分析">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/03/23/SPSS实例：[9]因子载荷图怎么做/">
-                SPSS实例：[9]因子载荷图怎么做
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年03月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>今天有网友提问关于因子载荷图（loading plots）怎么做，说实话我也有点忘记了，现在来跟大家一起学习一下，如何做因子载荷图。它是在主成分分析和因子分析中用到的。</p>
-<ul>
-<li>打开菜单，如图所示</li>
-</ul>
-<img src="/2015/03/23/SPSS实例：[9]因子载荷图怎么做/1e71f724b899a9015f13841f1f950a7b0208f5b2.jpg" alt="SPSS实例：[9]因子载荷图怎么做" title="SPSS实例：[9]因子载荷图怎么做">
-<ul>
-<li>将用到的变量放入右侧列表</li>
-</ul>
-<img src="/2015/03/23/SPSS实例：[9]因子载荷图怎么做/4651a712c8fcc3ce021e151a9045d688d53f20fa.jpg" alt="SPSS实例：[9]因子载荷图怎么做" title="SPSS实例：[9]因子载荷图怎么做">
-<ul>
-<li>点击rotation按钮</li>
-</ul>
-<img src="/2015/03/23/SPSS实例：[9]因子载荷图怎么做/fd428c45d688d43f41774ddb7f1ed21b0ff43bfa.jpg" alt="SPSS实例：[9]因子载荷图怎么做" title="SPSS实例：[9]因子载荷图怎么做">
-<ul>
-<li>勾选因子载荷图，如图所示，点击继续</li>
-</ul>
-<img src="/2015/03/23/SPSS实例：[9]因子载荷图怎么做/3c2c4bfbb2fb43164039a55322a4462309f7d3b2.jpg" alt="SPSS实例：[9]因子载荷图怎么做" title="SPSS实例：[9]因子载荷图怎么做">
-<ul>
-<li>提取得到5个主成分</li>
-</ul>
-<img src="/2015/03/23/SPSS实例：[9]因子载荷图怎么做/91138622720e0cf3e1d191d20846f21fbe09aab2.jpg" alt="SPSS实例：[9]因子载荷图怎么做" title="SPSS实例：[9]因子载荷图怎么做">
-<ul>
-<li>这个就是因子载荷图，双击它可以修改外观样式。图中最多只能展示三个因子</li>
-</ul>
-<img src="/2015/03/23/SPSS实例：[9]因子载荷图怎么做/79b1e936afc37931fab65a00e9c4b74542a911fa.jpg" alt="SPSS实例：[9]因子载荷图怎么做" title="SPSS实例：[9]因子载荷图怎么做">
-<ul>
-<li>点击旋转按钮，可以设置我们观察3D图的角度，让你更详细的了解这个图的分布</li>
-</ul>
-<img src="/2015/03/23/SPSS实例：[9]因子载荷图怎么做/263e802f070828380fd4003dba99a9014d08f1fb.jpg" alt="SPSS实例：[9]因子载荷图怎么做" title="SPSS实例：[9]因子载荷图怎么做">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/03/23/Excel2013：[19]如何添加设置页眉页脚/">
-                Excel2013：[19]如何添加设置页眉页脚
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年03月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>Excel2013插入和删除页眉页脚的方法和其他版本的有些不同，所以我在这里跟大家分享一下如何在Excel2013中插入页眉页脚、如何设置页眉页脚，好了，下面是具体的方法：</p>
-<ul>
-<li>我们插入页眉页脚的方法就是在插入标签下，找到文本–页眉页脚</li>
-</ul>
-<img src="/2015/03/23/Excel2013：[19]如何添加设置页眉页脚/f677b1c379310a5553be11f0b54543a9832610d9.jpg" alt="Excel2013：[19]如何添加设置页眉页脚" title="Excel2013：[19]如何添加设置页眉页脚">
-<ul>
-<li>然后选中页眉，来到设计标签，我们在【页眉】选项下，找到一个你需要的页眉显示方式，这个列表里都是</li>
-</ul>
-<img src="/2015/03/23/Excel2013：[19]如何添加设置页眉页脚/dc854fda81cb39db763ba852d2160924aa1830f8.jpg" alt="Excel2013：[19]如何添加设置页眉页脚" title="Excel2013：[19]如何添加设置页眉页脚">
-<ul>
-<li>这就是设置好的页眉，如果你需要更改页眉的样式，你可以返回到上一步进行设置</li>
-</ul>
-<img src="/2015/03/23/Excel2013：[19]如何添加设置页眉页脚/2f3295d4b31c8701582c7de2257f9e2f0608ffda.jpg" alt="Excel2013：[19]如何添加设置页眉页脚" title="Excel2013：[19]如何添加设置页眉页脚">
-<ul>
-<li>我们将界面缩小，你可以看到Excel实际上是实现了分页，下面显示了很多页面</li>
-</ul>
-<img src="/2015/03/23/Excel2013：[19]如何添加设置页眉页脚/1cd4147b02087bf4037998edf0d3572c10dfcfda.jpg" alt="Excel2013：[19]如何添加设置页眉页脚" title="Excel2013：[19]如何添加设置页眉页脚">
-<ul>
-<li>同样的方法我们需要先选中页脚，然后在设计标签下，设置页脚的样式</li>
-</ul>
-<img src="/2015/03/23/Excel2013：[19]如何添加设置页眉页脚/7ab514d162d9f2d35b84ebebabec8a136227ccda.jpg" alt="Excel2013：[19]如何添加设置页眉页脚" title="Excel2013：[19]如何添加设置页眉页脚">
-<img src="/2015/03/23/Excel2013：[19]如何添加设置页眉页脚/109eb7ec8a13632773780d37938fa0ec09fac7da.jpg" alt="Excel2013：[19]如何添加设置页眉页脚" title="Excel2013：[19]如何添加设置页眉页脚">
-<ul>
-<li>这就是设置好的页脚，你也可以在上一步中从新设置样式</li>
-</ul>
-<img src="/2015/03/23/Excel2013：[19]如何添加设置页眉页脚/90cebeec08fa513d313fa3da3f6d55fbb3fbd9da.jpg" alt="Excel2013：[19]如何添加设置页眉页脚" title="Excel2013：[19]如何添加设置页眉页脚">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/03/23/Excel2013：[10]一次性找出所有隐藏的行列/">
-                Excel2013：[10]一次性找出所有隐藏的行列
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年03月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>有时候Excel中隐藏的单元格和表单我们自己都忘记了，一个个找起来也麻烦，当我们想要删除这个隐藏的表格的时候更麻烦，其实Excel给我们提供了这样的功能，可以快速的找到和删除所有隐藏的cell和sheet，下面是具体的方法“</p>
-<ul>
-<li>打开文件——选项，如图所示</li>
-</ul>
-<img src="/2015/03/23/Excel2013：[10]一次性找出所有隐藏的行列/2e6fa7389b504fc2b46e811ce7dde71190ef6db2.jpg" alt="Excel2013：[10]一次性找出所有隐藏的行列" title="Excel2013：[10]一次性找出所有隐藏的行列">
-<ul>
-<li>在信任中心，点击设置信任中心</li>
-</ul>
-<img src="/2015/03/23/Excel2013：[10]一次性找出所有隐藏的行列/d5462bfae6cd7b895e130b9a0d2442a7d9330e68.jpg" alt="Excel2013：[10]一次性找出所有隐藏的行列" title="Excel2013：[10]一次性找出所有隐藏的行列">
-<ul>
-<li>在个人信息选项下，找到【文档检查器】</li>
-</ul>
-<img src="/2015/03/23/Excel2013：[10]一次性找出所有隐藏的行列/7787b9efce1b9d1697f6ab78f1deb48f8c5464b2.jpg" alt="Excel2013：[10]一次性找出所有隐藏的行列" title="Excel2013：[10]一次性找出所有隐藏的行列">
-<ul>
-<li>勾选这两个选项【隐藏行和列】和【隐藏工作表】</li>
-</ul>
-<img src="/2015/03/23/Excel2013：[10]一次性找出所有隐藏的行列/b5ce925494eef01f4b2529dce2fe9925bc317db2.jpg" alt="Excel2013：[10]一次性找出所有隐藏的行列" title="Excel2013：[10]一次性找出所有隐藏的行列">
-<ul>
-<li>检查一下，看看出现了什么有很多隐藏的行，我们点击全部删除就可以删除它们。</li>
-</ul>
-<img src="/2015/03/23/Excel2013：[10]一次性找出所有隐藏的行列/3b6833f5e0fe9925c93d584936a85edf8db171b2.jpg" alt="Excel2013：[10]一次性找出所有隐藏的行列" title="Excel2013：[10]一次性找出所有隐藏的行列">
-<ul>
-<li>删除以后这些隐藏的内容将再也不回来了。</li>
-</ul>
-<img src="/2015/03/23/Excel2013：[10]一次性找出所有隐藏的行列/e1bf8725bc315c6043a45af68fb1cb13495477b2.jpg" alt="Excel2013：[10]一次性找出所有隐藏的行列" title="Excel2013：[10]一次性找出所有隐藏的行列">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/03/23/Python教程：[52]win32com调用constants/">
-                Python教程：[52]win32com调用constants
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年03月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>今天使用python的win32com组间操作Excel的时候发现一个问题，想要使用常数constants.xlUp，但是却总是提示错误：</p>
-<ul>
-<li><p>Traceback (most recent call last):</p>
-</li>
-<li><p>File “<pyshell#1>“, line 1, in <module></module></pyshell#1></p>
-</li>
-<li><p>c.xlUp</p>
-</li>
-<li><p>File “D:\Python27\lib\site-packages\win32com\client__init<strong>.py”, line 170, in </strong>getattr__</p>
-</li>
-<li><p>raise AttributeError(a)</p>
-</li>
-<li><p>AttributeError: xlUp</p>
-</li>
-<li><p>我来介绍一下自己的代码吧，先来引入常量constants</p>
-</li>
-</ul>
-<img src="/2015/03/23/Python教程：[52]win32com调用constants/906289dda144ad34b56cd31dd2a20cf430ad851e.jpg" alt="Python教程：[52]win32com调用constants" title="Python教程：[52]win32com调用constants">
-<ul>
-<li>接着，我们引入client，这都是操作Excel的时候用到的基本模块</li>
-</ul>
-<img src="/2015/03/23/Python教程：[52]win32com调用constants/38403f3fb80e7beca9a4547b2d2eb9389a506beb.jpg" alt="Python教程：[52]win32com调用constants" title="Python教程：[52]win32com调用constants">
-<ul>
-<li>现在我们启动一下Excel，句柄存在xl中</li>
-</ul>
-<img src="/2015/03/23/Python教程：[52]win32com调用constants/2e6fa7389b504fc2d626e79fe7dde71191ef6deb.jpg" alt="Python教程：[52]win32com调用constants" title="Python教程：[52]win32com调用constants">
-<ul>
-<li>我们尝试调用一下c.xlUp,看到了吧，提示错误</li>
-</ul>
-<img src="/2015/03/23/Python教程：[52]win32com调用constants/b94f65ec54e736d12fc1d89299504fc2d462691e.jpg" alt="Python教程：[52]win32com调用constants" title="Python教程：[52]win32com调用constants">
-<ul>
-<li>假如，我现在用另一个方式启动Excel</li>
-</ul>
-<img src="/2015/03/23/Python教程：[52]win32com调用constants/b87985504fc2d56280da8477e51190ef77c66c1e.jpg" alt="Python教程：[52]win32com调用constants" title="Python教程：[52]win32com调用constants">
-<ul>
-<li>现在就可以正确读取了</li>
-</ul>
-<img src="/2015/03/23/Python教程：[52]win32com调用constants/e49cf91190ef76c6ad00afb19f16fdfaae51671e.jpg" alt="Python教程：[52]win32com调用constants" title="Python教程：[52]win32com调用constants">
-<ul>
-<li>我现在还不知道这两种方式到底有什么区别，只能先写到这里，如果哪位朋友知道为什么，可以在下面留言。</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/03/19/SPSS python教程：[3]怎样python代码/">
-                SPSS python教程：[3]怎样python代码
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年03月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>还是接着来介绍python在spss中的运用，今天我们具体的看看python在spss中是怎样运行的，每一种方法都有截图为证，大家先从感官上了解一下。</p>
-<ul>
-<li>首先，我们可以从【实用程序】下的【运行脚本】来运行python代码<br>打开这个【运行脚本】对话框以后，我们会看到下面这界面，假如我们已经编辑好了一个python脚本文件（*.py），可以在这里直接打开并运行</li>
-</ul>
-<img src="/2015/03/19/SPSS%20python教程：[3]怎样python代码/507c389759ee3d6d62fc6f5d41166d224f4ade2b.jpg" alt="SPSS python教程：[3]怎样python代码" title="SPSS python教程：[3]怎样python代码">
-<img src="/2015/03/19/SPSS%20python教程：[3]怎样python代码/647912d7912397ddcead71925b82b2b7d1a28715.jpg" alt="SPSS python教程：[3]怎样python代码" title="SPSS python教程：[3]怎样python代码">
-<ul>
-<li><p>或者，我们可以先打开这个脚本文件，然后再在python编辑器里运行，我们可以在开始菜单中【打开】-【脚本】中打开python文件</p>
-</li>
-<li><p>打开脚本文件以后，你会看到这个界面</p>
-</li>
-</ul>
-<img src="/2015/03/19/SPSS%20python教程：[3]怎样python代码/ac754782b2b7d0a2781ded0bc9ef76094a369a15.jpg" alt="SPSS python教程：[3]怎样python代码" title="SPSS python教程：[3]怎样python代码">
-<img src="/2015/03/19/SPSS%20python教程：[3]怎样python代码/58c3acb7d0a20cf44444174974094b36adaf9915.jpg" alt="SPSS python教程：[3]怎样python代码" title="SPSS python教程：[3]怎样python代码">
-<ul>
-<li>或者，我们可以在spss的syntax编辑界面中插入python代码，我们新建一个syntax文件<br>将python代码插入到begin program–end program之间，然后选中所有的代码以后，点击工具栏上面的绿色三角形，就可以运行了！注意，python对格式要求很严格，大小写是不同的；而spss的syntax是大小写不敏感的，大小写都一样。</li>
-</ul>
-<img src="/2015/03/19/SPSS%20python教程：[3]怎样python代码/08b68e529822720e4ef40a6c79cb0a46f21fab2b.jpg" alt="SPSS python教程：[3]怎样python代码" title="SPSS python教程：[3]怎样python代码">
-<img src="/2015/03/19/SPSS%20python教程：[3]怎样python代码/2cb4fefe9925bc31c289e80e5cdf8db1ca137015.jpg" alt="SPSS python教程：[3]怎样python代码" title="SPSS python教程：[3]怎样python代码">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/03/17/sublime教程[3]选择查找替换/">
-                sublime教程[3]选择查找替换
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年03月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>使用sublime进行查找替换是非常方便的，下面我们分别介绍一些快速查找和替换的方法，可以大大提高我们的代码编辑效率。</p>
-<ul>
-<li>“Ctrl + D”可以选中光标所在的词，然后按下“F3”可以逐个选中下一个同样的词：</li>
-</ul>
-<img src="/2015/03/17/sublime教程[3]选择查找替换/1e71f724b899a901f17c560a17950a7b0208f506.jpg" alt="sublime教程[3]选择查找替换" title="sublime教程[3]选择查找替换">
-<ul>
-<li>“F3”是选择下一个词，那么选择上一个词自然就是“Shift + F3”，两个搭配使用就可以自由选择了。</li>
-</ul>
-<img src="/2015/03/17/sublime教程[3]选择查找替换/f35ea0096b63f6248ccb343f8d44ebf81a4ca33d.jpg" alt="sublime教程[3]选择查找替换" title="sublime教程[3]选择查找替换">
-<ul>
-<li>在选中一个词的情况下，可以按“Ctrl + D”增加选择下一个同样的词，这样你就可以同时编辑多个词了。</li>
-</ul>
-<img src="/2015/03/17/sublime教程[3]选择查找替换/99636c0e0cf3d7ca9a60324af81fbe096b63a93d.jpg" alt="sublime教程[3]选择查找替换" title="sublime教程[3]选择查找替换">
-<ul>
-<li>“Ctrl + F”可以查找你输入的词语，然后按回车可以选择下一个，多次按回车可以继续选择下一个。</li>
-</ul>
-<img src="/2015/03/17/sublime教程[3]选择查找替换/ac2fc3c451da81cb4eee8cf15866d01609243146.jpg" alt="sublime教程[3]选择查找替换" title="sublime教程[3]选择查找替换">
-<ul>
-<li>“Ctrl + F”搜索到需要的词以后，可以按回车选择下一个，还可以按“Shift + Enter”选择上一个，或者“Alt + Enter”选择全部。</li>
-</ul>
-<img src="/2015/03/17/sublime教程[3]选择查找替换/8605f5f81a4c510f3328ec266a59252dd52aa5db.jpg" alt="sublime教程[3]选择查找替换" title="sublime教程[3]选择查找替换">
-<ul>
-<li>“Ctrl + H”可以调出替换工具栏，输入要替换的词，按“replace all”即可替换所有的词。使用“Ctrl + Shift + H”替换当前关键字，“Ctrl + Alt + Enter”替换所有匹配关键字。</li>
-</ul>
-<img src="/2015/03/17/sublime教程[3]选择查找替换/4651a712c8fcc3cea5dac00f9845d688d43f20b0.jpg" alt="sublime教程[3]选择查找替换" title="sublime教程[3]选择查找替换">
-<ul>
-<li>默认情况下，sublime查找字符串是大小写敏感的，“Alt + C”可以切换大小写是否敏感。“Alt + W”切换整字匹配（Whole matching）模式。</li>
-</ul>
-<img src="/2015/03/17/sublime教程[3]选择查找替换/cc506c8b4710b912a996fcc2c9fdfc0392452273.jpg" alt="sublime教程[3]选择查找替换" title="sublime教程[3]选择查找替换">
-<ul>
-<li>正则表达式是非常强大的文本查找&amp;替换工具，Sublime Text中使用Alt + R切换正则匹配模式的开启/关闭。Sublime Text的使用Boost里的Perl正则表达式风格。</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/sublime/">#sublime</a>
-        </div>
-    
-
-</div>
-            
         </section>
     </div>
 </div>
@@ -915,19 +978,19 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         <ul>
             
             <li>
-                <a class="footer-post" href="/2017/10/29/python数据采集服务/">python数据采集服务</a>
+                <a class="footer-post" href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">JavaScript做的表格卡方检验-一键在线测试</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/10/26/python时间序列分析-纯随机性检验/">python时间序列分析-纯随机性检验</a>
+                <a class="footer-post" href="/2017/11/19/eprime-e-prime的logging数据指标详解/">eprime/e-prime的logging数据指</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/10/25/psychopy实验设计技术/">psychopy实验设计技术</a>
+                <a class="footer-post" href="/2017/11/15/python计算卡方统计值及其矫正值/">python计算四格表卡方统计值及其矫正值</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/10/16/心理学大数据研究工作坊/">心理学大数据研究工作坊</a>
+                <a class="footer-post" href="/2017/11/14/eprime2-0试用版过期咋办如何破解详细过程/">eprime2.0试用版过期咋办如何破解详细过程</a>
             </li>
             
         </ul>

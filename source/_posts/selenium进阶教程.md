@@ -170,6 +170,19 @@ pwd_input = driver.find_element_by_css_selector('input.W_input[name=password]')
 webdriver.ActionChains(driver).move_to_element(pwd_input).perform() #移动鼠标到我的密码输入框
 ```
 
+### 重复使用cookie
+
+在抓取某些需要登录才能看到的页面时, 如果没有保存cookie, 你将不得不每次打开浏览器就登录一次. 解决这个问题的方法就是配置profile文件. 例如: 
+
+```python
+from selenium import webdriver
+options = webdriver.ChromeOptions()
+prefs={'profile.managed_default_content_settings.images':2}
+profile='C:/Users/username/AppData/Local/Google/Chrome/User Data/test_profile'
+options.add_argument("--user-data-dir="+profile)
+# 启动chrome浏览器, 传入options参数
+driver=webdriver.Chrome(chrome_options = options)
+```
 
 ### 未完待续
 

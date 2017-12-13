@@ -9,7 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width"/>
+    <meta name="HandheldFriendly" content="true"/>
     <!--Description-->
     
         <meta name="description" content="专注于数据开发">
@@ -153,6 +155,462 @@
 </header>
 
         <section class="main">
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/03/11/spss二分类的logistic回归的操作和分析方法/">
+                spss二分类的logistic回归的操作和分析方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>二分类指的是因变量的数据只有两个值，代表事物的两种类别，典型的二分类变量如性别、是否患病等。因变量为二分变量原则上是无法做回归的，在回归方程中的因变量实质上是概率，而不是变量本身。在理解二分类变量以后，我们看看如何做二分类变量的logistic回归。<br>工具/原料</p>
+<ul>
+<li>spss20.0<br>方法/步骤</li>
+</ul>
+<ul>
+<li>打开数据以后，菜单栏上依次点击：analyse–regression–binary logistic，打开二分回归对话框</li>
+</ul>
+<img src="/2015/03/11/spss二分类的logistic回归的操作和分析方法/e850352ac65c1038bd6b882fb2119313b17e89c2.jpg" alt="spss二分类的logistic回归的操作和分析方法" title="spss二分类的logistic回归的操作和分析方法">
+<ul>
+<li>将因变量和自变量放入格子的列表里，如图所示，上面的是因变量，下面的是自变量，我们看到这里有三个自变量</li>
+</ul>
+<img src="/2015/03/11/spss二分类的logistic回归的操作和分析方法/d788d43f8794a4c22380a1c60ef41bd5ac6e39bf.jpg" alt="spss二分类的logistic回归的操作和分析方法" title="spss二分类的logistic回归的操作和分析方法">
+<ul>
+<li>设置回归方法，这里选择最简单的方法：enter，它指的是将所有的变量一次纳入到方程。其他方法都是逐步进入的方法，在前面的文章中有介绍，这里就不再熬述。</li>
+</ul>
+<img src="/2015/03/11/spss二分类的logistic回归的操作和分析方法/2f738bd4b31c8701013bf40b277f9e2f0608ff4a.jpg" alt="spss二分类的logistic回归的操作和分析方法" title="spss二分类的logistic回归的操作和分析方法">
+<img src="/2015/03/11/spss二分类的logistic回归的操作和分析方法/060828381f30e9241f17dddc4c086e061c95f7a8.jpg" alt="spss二分类的logistic回归的操作和分析方法" title="spss二分类的logistic回归的操作和分析方法">
+<ul>
+<li>点击ok，开始处理数据并检验回归方程，等待一会就会弹出数据结果窗口</li>
+</ul>
+<img src="/2015/03/11/spss二分类的logistic回归的操作和分析方法/962bd40735fae6cd1494ea8c0fb30f2442a70f3e.jpg" alt="spss二分类的logistic回归的操作和分析方法" title="spss二分类的logistic回归的操作和分析方法">
+<ul>
+<li>看到的第一个结果是对case的描述，第一个列表告诉你有多少数据参与的计算，有多少数据是缺省值；第二个列表告诉你因变量的编码方式，得分为1代表患病，得分为0代表没有患病</li>
+</ul>
+<img src="/2015/03/11/spss二分类的logistic回归的操作和分析方法/c75c10385343fbf25d16e7ceb07eca8065388f21.jpg" alt="spss二分类的logistic回归的操作和分析方法" title="spss二分类的logistic回归的操作和分析方法">
+<ul>
+<li>这个列表告诉你在没有任何自变量进入以前，预测所有的case都是患病的正确率，正确率为%52.6</li>
+</ul>
+<img src="/2015/03/11/spss二分类的logistic回归的操作和分析方法/9345d688d43f8794f85f09c3d21b0ef41ad53abe.jpg" alt="spss二分类的logistic回归的操作和分析方法" title="spss二分类的logistic回归的操作和分析方法">
+<ul>
+<li>下面这个列表告诉你在没有任何自变量进入以前，常数项的预测情况。B是没有引入自变量时常数项的估计值，SE它的标准误，Wald是对总体回归系数是否为0进行统计学检验的卡方。</li>
+</ul>
+<img src="/2015/03/11/spss二分类的logistic回归的操作和分析方法/00e93901213fb80e72b2213a36d12f2eb83894ff.jpg" alt="spss二分类的logistic回归的操作和分析方法" title="spss二分类的logistic回归的操作和分析方法">
+<ul>
+<li>下面这个表格结果，通过sig值可以知道如果将模型外的各个变量纳入模型，则整个模型的拟合优度改变是否有统计学意义。 sig值小于0.05说明有统计学意义</li>
+</ul>
+<img src="/2015/03/11/spss二分类的logistic回归的操作和分析方法/9d82d158ccbf6c81b40b6f05bc3eb13533fa401a.jpg" alt="spss二分类的logistic回归的操作和分析方法" title="spss二分类的logistic回归的操作和分析方法">
+<ul>
+<li>这个表格是对模型的全局检验，为似然比检验，供给出三个结果：同样sig值&lt;0.05表明有统计学意义。</li>
+</ul>
+<img src="/2015/03/11/spss二分类的logistic回归的操作和分析方法/55e736d12f2eb938968c391fd5628535e4dd6f7d.jpg" alt="spss二分类的logistic回归的操作和分析方法" title="spss二分类的logistic回归的操作和分析方法">
+<img src="/2015/03/11/spss二分类的logistic回归的操作和分析方法/09fa513d269759ee816d2226b2fb43166d22df1a.jpg" alt="spss二分类的logistic回归的操作和分析方法" title="spss二分类的logistic回归的操作和分析方法">
+<ul>
+<li>下面的结果展示了-2log似然值和两个伪决定系数。两个伪决定系数反应的是自变量解释了因变量的变异占因变量的总变异的比例。他们俩的值不同因为使用的方法不同。</li>
+</ul>
+<img src="/2015/03/11/spss二分类的logistic回归的操作和分析方法/e7cd7b899e510fb361763a7ad933c895d0430ceb.jpg" alt="spss二分类的logistic回归的操作和分析方法" title="spss二分类的logistic回归的操作和分析方法">
+<ul>
+<li>分类表，这里展示了使用该回归方程对case进行分类，其准确度为%71.8。</li>
+</ul>
+<img src="/2015/03/11/spss二分类的logistic回归的操作和分析方法/08f790529822720ecb13af177bcb0a46f31fab7a.jpg" alt="spss二分类的logistic回归的操作和分析方法" title="spss二分类的logistic回归的操作和分析方法">
+<ul>
+<li>最后是输出回归方程中的各变量的系数和对系数的检验额值，sig值表明该系数是否具有统计学意义。到此，回归方程就求出来了。</li>
+</ul>
+<img src="/2015/03/11/spss二分类的logistic回归的操作和分析方法/d058ccbf6c81800a2bcbc5e3b13533fa828b4734.jpg" alt="spss二分类的logistic回归的操作和分析方法" title="spss二分类的logistic回归的操作和分析方法">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/03/11/numpy函数：[7]linspace创建等差数列/">
+                numpy函数：[7]linspace创建等差数列
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>numpy.linspace是用于创建一个一位数组，并且是等差数列构成的一位数组，它蕞常用的有三个参数，当然不只有三个参数，我们通过例子来了解一下它是如何使用的：</p>
+<ul>
+<li>首先，我们看一下第一个例子，用到三个参数，第一个参数表示起始点、第二个参数表示终止点，第三个参数表示数列的个数。</li>
+</ul>
+<img src="/2015/03/11/numpy函数：[7]linspace创建等差数列/834344afa40f4bfb989dc4c9014f78f0f636189a.jpg" alt="numpy函数：[7]linspace创建等差数列" title="numpy函数：[7]linspace创建等差数列">
+<ul>
+<li>我经常用它创建一个元素全部是1的等差数列，或者你也可以让所有元素为0</li>
+</ul>
+<img src="/2015/03/11/numpy函数：[7]linspace创建等差数列/0fb505d5ad6eddc41915ee663bdbb6fd53663379.jpg" alt="numpy函数：[7]linspace创建等差数列" title="numpy函数：[7]linspace创建等差数列">
+<ul>
+<li>我们看一下linspace创建的数组的元素的数据格式，当然是浮点型</li>
+</ul>
+<img src="/2015/03/11/numpy函数：[7]linspace创建等差数列/ae8267310a55b31980f3c7e841a98226cefc17e1.jpg" alt="numpy函数：[7]linspace创建等差数列" title="numpy函数：[7]linspace创建等差数列">
+<ul>
+<li>我们还可以使用参数endpoint来决定是否包含终止值，如果不设置这个参数，默认是True。我们看一下例子：注意步长改变了。</li>
+</ul>
+<img src="/2015/03/11/numpy函数：[7]linspace创建等差数列/c8ab0bce36d3d5397f554b5e3887e950342ab080.jpg" alt="numpy函数：[7]linspace创建等差数列" title="numpy函数：[7]linspace创建等差数列">
+<ul>
+<li>我试了试两个参数，也是可以的，但是创建的这个数组，我不太清楚是什么意义，有懂得人可以给我留言</li>
+</ul>
+<img src="/2015/03/11/numpy函数：[7]linspace创建等差数列/e8112b2ac65c103899088c5fb0119313b17e89fe.jpg" alt="numpy函数：[7]linspace创建等差数列" title="numpy函数：[7]linspace创建等差数列">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/03/03/Excel2013：[33]如何取消隐藏时输入密码/">
+                Excel2013：[33]如何取消隐藏时输入密码
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天cc问我如何隐藏一列数据，然后想要取消隐藏还得输入密码，我心想这是做什么，有什么不可告人的秘密？不管有什么不可告人的，我们的教程还是要写一下，而且是小白教程，看下面的具体过程：</p>
+<ul>
+<li>假如，我们要隐藏B列，先选中它</li>
+</ul>
+<img src="/2015/03/03/Excel2013：[33]如何取消隐藏时输入密码/d019d2bf6c81800ae2b22c72b33533fa828b473c.jpg" alt="Excel2013：[33]如何取消隐藏时输入密码" title="Excel2013：[33]如何取消隐藏时输入密码">
+<ul>
+<li>右键单击该列，然后在右键菜单里选择【隐藏】</li>
+</ul>
+<img src="/2015/03/03/Excel2013：[33]如何取消隐藏时输入密码/bd7faf3533fa828ba675389fff1f4134970a5a3c.jpg" alt="Excel2013：[33]如何取消隐藏时输入密码" title="Excel2013：[33]如何取消隐藏时输入密码">
+<ul>
+<li>看到了吧，隐藏了B列</li>
+</ul>
+<img src="/2015/03/03/Excel2013：[33]如何取消隐藏时输入密码/7ac880510fb30f2475f8497fca95d143ad4b0328.jpg" alt="Excel2013：[33]如何取消隐藏时输入密码" title="Excel2013：[33]如何取消隐藏时输入密码">
+<ul>
+<li>接下来点击左上角，选中所有单元格，然后按下快捷键Ctrl+1</li>
+</ul>
+<img src="/2015/03/03/Excel2013：[33]如何取消隐藏时输入密码/d002b34bd11373f0bc5dcae3a60f4bfbfbed0428.jpg" alt="Excel2013：[33]如何取消隐藏时输入密码" title="Excel2013：[33]如何取消隐藏时输入密码">
+<ul>
+<li>打开了一个对话框，我们切换到【保护】标签，然后确保下面两个选项是未选中的，如图所示，点击确定。</li>
+</ul>
+<img src="/2015/03/03/Excel2013：[33]如何取消隐藏时输入密码/bbe0d311728b4710ae7958b0c1cec3fdfc03233c.jpg" alt="Excel2013：[33]如何取消隐藏时输入密码" title="Excel2013：[33]如何取消隐藏时输入密码">
+<ul>
+<li>在审阅标签下，找到【保护工作表选项】，打开它</li>
+</ul>
+<img src="/2015/03/03/Excel2013：[33]如何取消隐藏时输入密码/b853d6fcc3cec3fde7680209d488d43f8794273c.jpg" alt="Excel2013：[33]如何取消隐藏时输入密码" title="Excel2013：[33]如何取消隐藏时输入密码">
+<ul>
+<li>输入密码，勾选前两个选项，点击确定</li>
+</ul>
+<img src="/2015/03/03/Excel2013：[33]如何取消隐藏时输入密码/c9bdddcec3fdfc038e2e46c4d63f8794a4c2263c.jpg" alt="Excel2013：[33]如何取消隐藏时输入密码" title="Excel2013：[33]如何取消隐藏时输入密码">
+<ul>
+<li>输入确认密码，对，和上面的密码一样，点击确定</li>
+</ul>
+<img src="/2015/03/03/Excel2013：[33]如何取消隐藏时输入密码/9304c888d43f879484a9ed52d01b0ef41bd53a3c.jpg" alt="Excel2013：[33]如何取消隐藏时输入密码" title="Excel2013：[33]如何取消隐藏时输入密码">
+<ul>
+<li>现在你看看，尝试显示隐藏列的时候，它的选项就是灰色的了，无法使用。</li>
+</ul>
+<img src="/2015/03/03/Excel2013：[33]如何取消隐藏时输入密码/8367d1fc1e178a82eb5edadcf403738da977e829.jpg" alt="Excel2013：[33]如何取消隐藏时输入密码" title="Excel2013：[33]如何取消隐藏时输入密码">
+<ul>
+<li>想要撤销隐藏列，必须先撤销保护工作表，这时候会提示你输入密码。</li>
+</ul>
+<img src="/2015/03/03/Excel2013：[33]如何取消隐藏时输入密码/aa59892bd40735fad472ebc59c510fb30e240888.jpg" alt="Excel2013：[33]如何取消隐藏时输入密码" title="Excel2013：[33]如何取消隐藏时输入密码">
+<ul>
+<li>但是，这种方法并不是万无一失的，像我这种专业做数据的人，一看就知道如何查看你隐藏的列，不信，你看我接下来的一篇文章介绍【Excel2013 如何查看加密隐藏单元格】</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/03/03/pandas教程：[24]删除缺失数据/">
+                pandas教程：[24]删除缺失数据
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>假如数据量比较大或者有冗余，我们可以删掉有缺失值的数据，你可以选择删除行或者删除列，用的都是DataFrame.dropna()，当然Series也有dropna方法，用法相同。</p>
+<ul>
+<li>引入相关模块</li>
+</ul>
+<img src="/2015/03/03/pandas教程：[24]删除缺失数据/e78c65899e510fb36d342190da33c895d1430c4c.jpg" alt="pandas教程：[24]删除缺失数据" title="pandas教程：[24]删除缺失数据">
+<ul>
+<li>创建一个带有缺失值的数据框：<br>查看一下数据内容：</li>
+</ul>
+<img src="/2015/03/03/pandas教程：[24]删除缺失数据/5af4d7ea15ce36d30012d53739f33a87e950b160.jpg" alt="pandas教程：[24]删除缺失数据" title="pandas教程：[24]删除缺失数据">
+<img src="/2015/03/03/pandas教程：[24]删除缺失数据/0b907cd9f2d3572cb2cfcadb8913632762d0c34d.jpg" alt="pandas教程：[24]删除缺失数据" title="pandas教程：[24]删除缺失数据">
+<ul>
+<li>通常情况下，我们选择删除行，使用参数axis=0，这是最常用的方法<br>删除后的结果为：</li>
+</ul>
+<img src="/2015/03/03/pandas教程：[24]删除缺失数据/a84052086e061d95966b613f78f40ad162d9ca4d.jpg" alt="pandas教程：[24]删除缺失数据" title="pandas教程：[24]删除缺失数据">
+<img src="/2015/03/03/pandas教程：[24]删除缺失数据/906289dda144ad34b0a9d180d3a20cf431ad8560.jpg" alt="pandas教程：[24]删除缺失数据" title="pandas教程：[24]删除缺失数据">
+<ul>
+<li>还有可能的是，我们选择删除列，这种情况不多，因为通常我们选择用列表示一个变量或者指标，我们通常不会因为有几个缺失值就删除一个变量<br>输出结果为：</li>
+</ul>
+<img src="/2015/03/03/pandas教程：[24]删除缺失数据/0b3a1c087bf40ad1c2c991e4542c11dfa9ecce4d.jpg" alt="pandas教程：[24]删除缺失数据" title="pandas教程：[24]删除缺失数据">
+<img src="/2015/03/03/pandas教程：[24]删除缺失数据/90cebeec08fa513d8b873ad93e6d55fbb2fbd94d.jpg" alt="pandas教程：[24]删除缺失数据" title="pandas教程：[24]删除缺失数据">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/03/01/Django教程：[5]URLpattern的语法/">
+                Django教程：[5]URLpattern的语法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>前一篇文章我们使用Django制作了第一个网页，针对其中的一些问题，我们补充一点知识，这是关于urls.py文件中的URLpattern的，</p>
+<ul>
+<li>我们在写url的时候实际上写的是正则表达式，尖号（^）和美元符号（$）都是正则表达式符号，分别表示字符串的开头和结尾。上面添加的url（’^hello/$’）表示url以hello/开头，也以hello/结尾，只有满足这两个条件的url才可以调用hello函数。</li>
+</ul>
+<img src="/2015/03/01/Django教程：[5]URLpattern的语法/fab3ac119313b07ef63b6f720ed7912396dd8c82.jpg" alt="Django教程：[5]URLpattern的语法" title="Django教程：[5]URLpattern的语法">
+<ul>
+<li><p>假如我们写成 ^hello/ ，没有$结尾，表示任何以hello/开头的url都是可以调用hello方法的，比如浏览器中访问<a href="http://127.0.0.1:8001/hello/dfdf也可以调用hello方法。" target="_blank" rel="external">http://127.0.0.1:8001/hello/dfdf也可以调用hello方法。</a></p>
+</li>
+<li><p>假如我们写成 hello/$，没有尖号（^）开头，那么任何以hello/结尾的url都可以调用hello方法。比如<a href="http://127.0.0.1:8001/dfdfdf/hello/" target="_blank" rel="external">http://127.0.0.1:8001/dfdfdf/hello/</a></p>
+</li>
+<li><p>那么，只写 hello/ ，没有尖号和美元符号，那么只要url中包含字符 hello/都可以调用方法 hello 。</p>
+</li>
+<li><p>学习python的正则表达式可以帮助你更好的理解这些内容，下面的参考资料里有python的正则表达式的学习教程。</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/django/">#django</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/03/01/Django教程：[5]URLpattern的语法 - 副本/">
+                Django教程：[5]URLpattern的语法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>前一篇文章我们使用Django制作了第一个网页，针对其中的一些问题，我们补充一点知识，这是关于urls.py文件中的URLpattern的，</p>
+<ul>
+<li>我们在写url的时候实际上写的是正则表达式，尖号（^）和美元符号（$）都是正则表达式符号，分别表示字符串的开头和结尾。上面添加的url（’^hello/$’）表示url以hello/开头，也以hello/结尾，只有满足这两个条件的url才可以调用hello函数。</li>
+</ul>
+
+<ul>
+<li><p>假如我们写成 ^hello/ ，没有$结尾，表示任何以hello/开头的url都是可以调用hello方法的，比如浏览器中访问<a href="http://127.0.0.1:8001/hello/dfdf也可以调用hello方法。" target="_blank" rel="external">http://127.0.0.1:8001/hello/dfdf也可以调用hello方法。</a></p>
+</li>
+<li><p>假如我们写成 hello/$，没有尖号（^）开头，那么任何以hello/结尾的url都可以调用hello方法。比如<a href="http://127.0.0.1:8001/dfdfdf/hello/" target="_blank" rel="external">http://127.0.0.1:8001/dfdfdf/hello/</a></p>
+</li>
+<li><p>那么，只写 hello/ ，没有尖号和美元符号，那么只要url中包含字符 hello/都可以调用方法 hello 。</p>
+</li>
+<li><p>学习python的正则表达式可以帮助你更好的理解这些内容，下面的参考资料里有python的正则表达式的学习教程。</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/django/">#django</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/03/01/SPSS实例：[26]如何使用注册码安装spss22.0/">
+                SPSS实例：[26]如何使用注册码安装spss22.0
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>spss如何使用序列号进行安装呢，其实很简单，就是不知道在哪里输入序列号，我们来看看我的安装演示吧。</p>
+<ul>
+<li>首先，我们打开下载得到的文件夹，找到【破解教程】这个压缩包</li>
+</ul>
+<img src="/2015/03/01/SPSS实例：[26]如何使用注册码安装spss22.0/9dc3cf58ccbf6c81a70f7ab7be3eb13533fa4071.jpg" alt="SPSS实例：[26]如何使用注册码安装spss22.0" title="SPSS实例：[26]如何使用注册码安装spss22.0">
+<ul>
+<li>接着，在这个压缩包里，你会看到有一个readme文件，我们双击打开它</li>
+</ul>
+<img src="/2015/03/01/SPSS实例：[26]如何使用注册码安装spss22.0/c87c6ecf3bc79f3dc6d9b26fb8a1cd11728b2971.jpg" alt="SPSS实例：[26]如何使用注册码安装spss22.0" title="SPSS实例：[26]如何使用注册码安装spss22.0">
+<ul>
+<li>接着，我们会看到有一列乱码，这就是序列码，将其复制下来</li>
+</ul>
+<img src="/2015/03/01/SPSS实例：[26]如何使用注册码安装spss22.0/c9d4cf43ad4bd113199ae16d58afa40f4afb05de.jpg" alt="SPSS实例：[26]如何使用注册码安装spss22.0" title="SPSS实例：[26]如何使用注册码安装spss22.0">
+<ul>
+<li>打开spss22.0的安装文件，然后一直点击下一步即可</li>
+</ul>
+<img src="/2015/03/01/SPSS实例：[26]如何使用注册码安装spss22.0/d35a10f41bd5ad6e8ec132b583cb39dbb6fd3c71.jpg" alt="SPSS实例：[26]如何使用注册码安装spss22.0" title="SPSS实例：[26]如何使用注册码安装spss22.0">
+<ul>
+<li>直到我们看到输入序列码的提示，输入刚才复制的代码，然后点击下一步，你就完成了！</li>
+</ul>
+<img src="/2015/03/01/SPSS实例：[26]如何使用注册码安装spss22.0/7e7f7909c93d70cf0631fd52fadcd100bba12b62.jpg" alt="SPSS实例：[26]如何使用注册码安装spss22.0" title="SPSS实例：[26]如何使用注册码安装spss22.0">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
             
                 
 <div class="post">
@@ -359,491 +817,6 @@
 
 </div>
             
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/02/23/python高级教程：[1]列表迭代/">
-                python高级教程：[1]列表迭代
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年02月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>Python在列表迭代时有许多灵活的用法，如果不用心去设计会让你走很多弯路，比如我们设定一个这样的问题：我们想找到年龄大于30的人的名字，现在有两个列表一个为names，存放着所有人的名字，一个为ages存放有所有人的年龄：</p>
-<ul>
-<li><p>我们用菜鸟的方式来解决这个问题：</p>
-</li>
-<li><p>在这里，我们创建了一个空列表oldPeople用来存放那些年龄大于30的人的名字。然后通过循环来获得那些“老人”。</p>
-</li>
-</ul>
-<img src="/2015/02/23/python高级教程：[1]列表迭代/d4239b35e5dde71187a438b3a1efce1b9c1661c5.jpg" alt="python高级教程：[1]列表迭代" title="python高级教程：[1]列表迭代">
-<ul>
-<li><p>另一种菜鸟的方式也好不到哪里去：</p>
-</li>
-<li><p>我们增加了一个递增变量i,for name in names这种写法就可以不必每次都重新获取name值；</p>
-</li>
-</ul>
-<img src="/2015/02/23/python高级教程：[1]列表迭代/8640bf8b87d6277f3d33487d2e381f30e924fc17.jpg" alt="python高级教程：[1]列表迭代" title="python高级教程：[1]列表迭代">
-<ul>
-<li>我们首先可以想到enumerate可以即得到索引i，又得到列表元素name，但是这仍然不是最佳的方式</li>
-</ul>
-<img src="/2015/02/23/python高级教程：[1]列表迭代/3853ad1bb051f8191e04790fdcb44aed2e73e717.jpg" alt="python高级教程：[1]列表迭代" title="python高级教程：[1]列表迭代">
-<ul>
-<li>一种极具Python风格的写法，只需要一句代码就可以完成这个任务。</li>
-</ul>
-<img src="/2015/02/23/python高级教程：[1]列表迭代/b0742dfa828ba61e97cab36a4734970a304e590b.jpg" alt="python高级教程：[1]列表迭代" title="python高级教程：[1]列表迭代">
-<ul>
-<li>所谓的Python高级教程就是这些，我们提供一些实例来对比菜鸟和Python高手之间的区别，以便于菜鸟能够快速的晋级为高手，如果你觉得这篇文章对你有帮助，请收藏！如果想转载，请注明作者。</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/02/23/SPSS实例：[25]列联表相关/">
-                SPSS实例：[25]列联表相关
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年02月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>如何求两个二分类数据的相关系数？或者两个变量不都是二分类，可能还有三分类、四分类，我们怎么求他们的相关呢？这种数据有一个特点就是，这两个变量都是名义变量，他们的数据没有大小之分，只有类别的不同，比如性别就是一个名义变量，我们定义男生为1，女生为2，不能说明女生大于男生。今天我们就来学习一下如何使用spss求列联表相关，而列联表相关就是用来求解分类数据（不连续数据）的相关的。</p>
-<ul>
-<li>数据的录入形式：如图所示，年龄组取值分别为0和1，图书顺序取值分别为1和2</li>
-</ul>
-<img src="/2015/02/23/SPSS实例：[25]列联表相关/29752a9b033b5bb53d7f579534d3d539b700bcf6.jpg" alt="SPSS实例：[25]列联表相关" title="SPSS实例：[25]列联表相关">
-<ul>
-<li>打开交叉表分析对话框，如图所示，找到菜单</li>
-</ul>
-<img src="/2015/02/23/SPSS实例：[25]列联表相关/54baacfb43166d2299df62ff442309f79152d2f6.jpg" alt="SPSS实例：[25]列联表相关" title="SPSS实例：[25]列联表相关">
-<ul>
-<li>我们将这两个变量分别放入行和列框中，这就是我们要求相关的两个变量</li>
-</ul>
-<img src="/2015/02/23/SPSS实例：[25]列联表相关/08b68e529822720ed166959179cb0a46f31fabf6.jpg" alt="SPSS实例：[25]列联表相关" title="SPSS实例：[25]列联表相关">
-<ul>
-<li>点击statistics，设置要输出的参数</li>
-</ul>
-<img src="/2015/02/23/SPSS实例：[25]列联表相关/4e83cb628535e5ddc1c1d2b474c6a7efcf1b62a8.jpg" alt="SPSS实例：[25]列联表相关" title="SPSS实例：[25]列联表相关">
-<ul>
-<li>在这里，我们用到了contingency coefficient（列联系数），点击continue按钮</li>
-</ul>
-<img src="/2015/02/23/SPSS实例：[25]列联表相关/8474fbdde71190ef5e16e5b4cc1b9d16fcfa60a8.jpg" alt="SPSS实例：[25]列联表相关" title="SPSS实例：[25]列联表相关">
-<ul>
-<li>回到主对话框，我们点击ok即可开始处理数据</li>
-</ul>
-<img src="/2015/02/23/SPSS实例：[25]列联表相关/9c57e3faaf51f3de9b5fce0f96eef01f3b2979a8.jpg" alt="SPSS实例：[25]列联表相关" title="SPSS实例：[25]列联表相关">
-<ul>
-<li>在结果中，我们主要看到列联系数的值和近似sig值，显然，相关系数很小，也不显著，说明两个变量不相关。</li>
-</ul>
-<img src="/2015/02/23/SPSS实例：[25]列联表相关/d56b3634349b033ba8208bb117ce36d3d439bdf6.jpg" alt="SPSS实例：[25]列联表相关" title="SPSS实例：[25]列联表相关">
-<ul>
-<li>如果觉得这篇文章写的还可以，记得分享给你的小伙伴！！</li>
-</ul>
-<img src="/2015/02/23/SPSS实例：[25]列联表相关/b74124f33a87e950ae5a650712385343faf2b4c9.jpg" alt="SPSS实例：[25]列联表相关" title="SPSS实例：[25]列联表相关">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/02/19/Python教程：[36]如何替换字符串/">
-                Python教程：[36]如何替换字符串
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年02月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>今天要从网页采集url，但是出现了一个问题，需要用到替换字符串来纠正，我们先在就来看看如何替换字符串，用到了正则表达式，下面是具体的过程。</p>
-<ul>
-<li>给txt赋值，注意看http：后面的“\/”，我们要把它替换成“/”</li>
-</ul>
-<img src="/2015/02/19/Python教程：[36]如何替换字符串/734f12f3d7ca7bcb22a40838bc096b63f724a88f.jpg" alt="Python教程：[36]如何替换字符串" title="Python教程：[36]如何替换字符串">
-<ul>
-<li>引入正则表达式的模块</li>
-</ul>
-<img src="/2015/02/19/Python教程：[36]如何替换字符串/bf487563f6246b6022d17d63e9f81a4c500fa28f.jpg" alt="Python教程：[36]如何替换字符串" title="Python教程：[36]如何替换字符串">
-<ul>
-<li>我们使用subn方法来替换字符串，其返回两个值，一个是替换以后的结果，一个是替换的次数</li>
-</ul>
-<img src="/2015/02/19/Python教程：[36]如何替换字符串/d68b65cb0a46f21f94dd9144f4246b600d33aef9.jpg" alt="Python教程：[36]如何替换字符串" title="Python教程：[36]如何替换字符串">
-<ul>
-<li>我们看一下替换以后的结果，URL显示就正常了。</li>
-</ul>
-<img src="/2015/02/19/Python教程：[36]如何替换字符串/0d729944ebf81a4c63ed23ded52a6059242da68f.jpg" alt="Python教程：[36]如何替换字符串" title="Python教程：[36]如何替换字符串">
-<ul>
-<li>当然，我们可以不使用正则表达式对象</li>
-</ul>
-<img src="/2015/02/19/Python教程：[36]如何替换字符串/72b19c025aafa40f9dee00caa964034f78f019ba.jpg" alt="Python教程：[36]如何替换字符串" title="Python教程：[36]如何替换字符串">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/02/19/统计分析amos21安装破解方法附带密钥注册码/">
-                统计分析amos21安装破解方法附带密钥注册码
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年02月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>amos是出色的统计分析软件, 通常我们使用amos进行结构方程的分析,因为它有强大而又简单的绘图功能,所以受到很多社会学者的青睐。下面我们分享一个破解该软件的方法,希望对各个研究者有所帮助。</p>
-<ul>
-<li>首先我们去下载amos软件,下面的链接上有这个软件的下载链接,里面还有一个破解文件,这个文件是最重要的。先安装amos,一直点击下一步,到下面这个界面的时候,选择下面第二个选项,也就是临时版本</li>
-</ul>
-<img src="/2015/02/19/统计分析amos21安装破解方法附带密钥注册码/6648d73d70cf3bc778b342c2d000baa1cd112a2a.jpg" alt="统计分析amos21安装破解方法附带密钥注册码" title="统计分析amos21安装破解方法附带密钥注册码">
-<ul>
-<li>接着我们要设置临时文件夹,我们使用软件默认的安装文件夹就可以了,点击右面的浏览按钮</li>
-</ul>
-<img src="/2015/02/19/统计分析amos21安装破解方法附带密钥注册码/0ef2112442a7d933d8546b5dac4bd11372f001e4.jpg" alt="统计分析amos21安装破解方法附带密钥注册码" title="统计分析amos21安装破解方法附带密钥注册码">
-<ul>
-<li>在打开的对话框中,有一个temp的文件,双击这个文件即可</li>
-</ul>
-<img src="/2015/02/19/统计分析amos21安装破解方法附带密钥注册码/d872d695d143ad4bc2d2c9ee83025aafa50f06e4.jpg" alt="统计分析amos21安装破解方法附带密钥注册码" title="统计分析amos21安装破解方法附带密钥注册码">
-<ul>
-<li>接着打开开始菜单，找到ibm spss amos，里面有一个注册快捷方式，点击它，如图所示</li>
-</ul>
-<img src="/2015/02/19/统计分析amos21安装破解方法附带密钥注册码/d56b3634349b033b27c073f414ce36d3d539bd11.jpg" alt="统计分析amos21安装破解方法附带密钥注册码" title="统计分析amos21安装破解方法附带密钥注册码">
-<ul>
-<li>打开这个授予许可对话框，点击下一步，选择立即授予产品许可</li>
-</ul>
-<img src="/2015/02/19/统计分析amos21安装破解方法附带密钥注册码/72b19c025aafa40f535c41f3aa64034f79f019c2.jpg" alt="统计分析amos21安装破解方法附带密钥注册码" title="统计分析amos21安装破解方法附带密钥注册码">
-<img src="/2015/02/19/统计分析amos21安装破解方法附带密钥注册码/78701455b319ebc49484f9b78326cffc1f1716e4.jpg" alt="统计分析amos21安装破解方法附带密钥注册码" title="统计分析amos21安装破解方法附带密钥注册码">
-<ul>
-<li>从下面的参考文献中下载下来的压缩包里有一个注册码，将注册码填写进去，然后点击下一步即可完成注册</li>
-</ul>
-<img src="/2015/02/19/统计分析amos21安装破解方法附带密钥注册码/3bc6f750352ac65c974de95dfaf2b21193138a11.jpg" alt="统计分析amos21安装破解方法附带密钥注册码" title="统计分析amos21安装破解方法附带密钥注册码">
-<img src="/2015/02/19/统计分析amos21安装破解方法附带密钥注册码/c71d0e385343fbf23864290db17eca8065388f11.jpg" alt="统计分析amos21安装破解方法附带密钥注册码" title="统计分析amos21安装破解方法附带密钥注册码">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/amos/">#amos</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/02/17/SPSS实例：[11]如何检验调节作用/">
-                SPSS实例：[11]如何检验调节作用
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年02月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们今天用到了spss中的分层回归，这种方法其实和回归没有太大差异，只是在回归的时候，分两个步骤进行，然后对两步中的R方值的改变大小进行显著性检验，如果达到了预先设置的显著性水平，就可以证明调节作用。我们来看看具体的步骤：</p>
-<ul>
-<li><p>明确变量类型：我们今天使用的自变量、调节变量、因变量都是连续性变量，或者说是等距变量。</p>
-</li>
-<li><p>我们在菜单栏上执行：分析——回归——线性回归，如图所示</p>
-</li>
-</ul>
-<img src="/2015/02/17/SPSS实例：[11]如何检验调节作用/b6045da98226cffc7dc6f7a0bb014a90f703eaf1.jpg" alt="SPSS实例：[11]如何检验调节作用" title="SPSS实例：[11]如何检验调节作用">
-<ul>
-<li>接着，我们要输入变量，放入因变量，然后放入自变量和调节变量，自变量和调节变量都在independent框中，图中没有列出调节变量，你别跟着犯错。点击next按钮，进入第二层</li>
-</ul>
-<img src="/2015/02/17/SPSS实例：[11]如何检验调节作用/5f9e93b1cb1349540abca076544e9258d0094ac6.jpg" alt="SPSS实例：[11]如何检验调节作用" title="SPSS实例：[11]如何检验调节作用">
-<ul>
-<li>在第二层中，independent框中不仅仅有自变量和调节变量，还有自变量和调节变量的交互项，假如你不知道这个交互项是从哪里来的，你可以在百度经验中搜索【回归模型中如何增加交互项】。这里就不再详述了。</li>
-</ul>
-<img src="/2015/02/17/SPSS实例：[11]如何检验调节作用/43e6c733c895d143e009af3171f082025aaf0761.jpg" alt="SPSS实例：[11]如何检验调节作用" title="SPSS实例：[11]如何检验调节作用">
-<ul>
-<li>我们点击statistics按钮，进行设置</li>
-</ul>
-<img src="/2015/02/17/SPSS实例：[11]如何检验调节作用/0e655ca7d933c8959c80d069d31373f0830200e2.jpg" alt="SPSS实例：[11]如何检验调节作用" title="SPSS实例：[11]如何检验调节作用">
-<ul>
-<li>在这里需要重点勾选R方改变值或者其他你感兴趣的指标，如图所示，然后点击继续</li>
-</ul>
-<img src="/2015/02/17/SPSS实例：[11]如何检验调节作用/b110e6198618367aaa6537cf2c738bd4b21ce5f1.jpg" alt="SPSS实例：[11]如何检验调节作用" title="SPSS实例：[11]如何检验调节作用">
-<ul>
-<li>我们先看R方的改变值是否达到了显著水平，如果达到了显著水平，然后找到模型的系数检验结果，因为保密原因，我把变量的名称都隐去了，你可以看到红色方框中就是交互项的系数检验，B值达到显著水平，说明调节作用得到了证明。</li>
-</ul>
-<img src="/2015/02/17/SPSS实例：[11]如何检验调节作用/fab3ac119313b07ef982761b0ed7912397dd8ca2.jpg" alt="SPSS实例：[11]如何检验调节作用" title="SPSS实例：[11]如何检验调节作用">
-<ul>
-<li>为了进一步看到调节变量是如何起到调节作用的，也就是具体的调节方向，我们需要进一步来进行探究，因为篇幅太长，我们在下一篇文章中讲【检验调节变量的调节方向】</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/02/17/pandas教程：[19]读写sql数据库/">
-                pandas教程：[19]读写sql数据库
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年02月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>如何从数据库中读取数据到DataFrame中？pandas提供这这样的接口完成此工作——read_sql()。下面我们用离子来说明这个方法。</p>
-<ul>
-<li>我们要从sqlite数据库中读取数据，引入相关模块</li>
-</ul>
-<img src="/2015/02/17/pandas教程：[19]读写sql数据库/5beeba0f4bfbfbed3468307a7bf0f736afc31f46.jpg" alt="pandas教程：[19]读写sql数据库" title="pandas教程：[19]读写sql数据库">
-<ul>
-<li>read_sql接受两个参数，一个是sql语句，这个你可能需要单独学习；一个是con（数据库连接）、read_sql直接返回一个DataFrame对象<br>打印一下，可以看到已经成功的读取了数据</li>
-</ul>
-<img src="/2015/02/17/pandas教程：[19]读写sql数据库/d019d2bf6c81800a41348e0bb23533fa838b47a6.jpg" alt="pandas教程：[19]读写sql数据库" title="pandas教程：[19]读写sql数据库">
-<img src="/2015/02/17/pandas教程：[19]读写sql数据库/f7426d8da977391207178364fb198618367ae247.jpg" alt="pandas教程：[19]读写sql数据库" title="pandas教程：[19]读写sql数据库">
-<ul>
-<li>我们还可以使用index_col参数来规定将那一列数据设置为index<br>结果输出为：</li>
-</ul>
-<img src="/2015/02/17/pandas教程：[19]读写sql数据库/79b1e936afc37931af59802ce8c4b74543a91146.jpg" alt="pandas教程：[19]读写sql数据库" title="pandas教程：[19]读写sql数据库">
-<img src="/2015/02/17/pandas教程：[19]读写sql数据库/b110e6198618367a63b879d82d738bd4b31ce547.jpg" alt="pandas教程：[19]读写sql数据库" title="pandas教程：[19]读写sql数据库">
-<ul>
-<li>当然，我们可以设置多个index，只要将index_col的值设置为列表<br>输出结果为：</li>
-</ul>
-<img src="/2015/02/17/pandas教程：[19]读写sql数据库/b258f5c4b74543a9282afcc91d178a82b9011446.jpg" alt="pandas教程：[19]读写sql数据库" title="pandas教程：[19]读写sql数据库">
-<img src="/2015/02/17/pandas教程：[19]读写sql数据库/718e25c79f3df8dcbeec8894ce11728b461028a6.jpg" alt="pandas教程：[19]读写sql数据库" title="pandas教程：[19]读写sql数据库">
-<ul>
-<li>写入数据库也很简单，下面第二句用于删除数据库中已有的表”weather_2012”，然后将df保存到数据库中的”weather_2012”表</li>
-</ul>
-<img src="/2015/02/17/pandas教程：[19]读写sql数据库/83cab81ea8d3fd1f21d8a53f334e251f94ca5fa6.jpg" alt="pandas教程：[19]读写sql数据库" title="pandas教程：[19]读写sql数据库">
-<ul>
-<li>假如我们使用的是mysql数据库也没问题，我们只需要建立与mysql的连接即可，用下面的con代替上面的con可以达到的效果相同。</li>
-</ul>
-<img src="/2015/02/17/pandas教程：[19]读写sql数据库/cebd00178a82b901e59cc536708da9773912ef47.jpg" alt="pandas教程：[19]读写sql数据库" title="pandas教程：[19]读写sql数据库">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/02/15/Excel单元格数据快速复制技巧/">
-                Excel单元格数据快速复制技巧
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年02月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>excel单元格数据可以快速的复制和剪切，一般excel高手很少用到比较低级的复制粘贴，而是使用其他的各种快速复制技巧，不过为了让新手了解一下，我也介绍了一下简单的方法。这些技巧其实也无所谓难不难，只要你记住了，稍加练习也能熟练掌握。<br>工具/原料</p>
-<ul>
-<li>excel<br>方法一：ctrl+c、ctrl+v</li>
-</ul>
-<ul>
-<li>先来介绍简单的，然后再介绍难的，ctrl+c就是复制的快捷键，ctrl+v就是粘贴的快捷键，使用的方法是鼠标选中要复制的单元格，按下ctrl+c，复制数据</li>
-</ul>
-<img src="/2015/02/15/Excel单元格数据快速复制技巧/902397dda144ad3403e8a128d0a20cf430ad85cd.jpg" alt="Excel单元格数据快速复制技巧" title="Excel单元格数据快速复制技巧">
-<ul>
-<li>鼠标选中A3单元格，有的人粘贴的时候选中很多单元格，这是没必要的，只要选中一个第一个单元格，不管你复制的是多少单元格，都可以顺利的粘贴，按下ctrl+v，粘贴，如图所示。</li>
-</ul>
-<img src="/2015/02/15/Excel单元格数据快速复制技巧/ac345982b2b7d0a2519e2232cbef76094a369acd.jpg" alt="Excel单元格数据快速复制技巧" title="Excel单元格数据快速复制技巧">
-<p>方法二：ctrl+D，复制上一个单元格</p>
-<ul>
-<li>有时候我们需要复制的数据就在单元格的上方，选中你要复制到的单元格，假如我们要复制李星到A4单元格，那么就要选中A4单元格</li>
-</ul>
-<img src="/2015/02/15/Excel单元格数据快速复制技巧/30adcbef76094b36cec53d42a3cc7cd98c109dcd.jpg" alt="Excel单元格数据快速复制技巧" title="Excel单元格数据快速复制技巧">
-<ul>
-<li>按下ctrl+D，你就会看到上面的单元格被复制到下面了。</li>
-</ul>
-<img src="/2015/02/15/Excel单元格数据快速复制技巧/86d6277f9e2f07082d490cafe924b899a801f2d4.jpg" alt="Excel单元格数据快速复制技巧" title="Excel单元格数据快速复制技巧">
-<ul>
-<li>假如你要复制多个单元格，你可以选中多个单元格如图所示。按下ctrl+d，就可以将上面所有的单元格数据复制。</li>
-</ul>
-<img src="/2015/02/15/Excel单元格数据快速复制技巧/9f2f070828381f30ee55ab06a9014c086f06f0d4.jpg" alt="Excel单元格数据快速复制技巧" title="Excel单元格数据快速复制技巧">
-<ul>
-<li>这是复制之后的效果：</li>
-</ul>
-<img src="/2015/02/15/Excel单元格数据快速复制技巧/8c1001e93901213fd264687354e736d12e2e95cd.jpg" alt="Excel单元格数据快速复制技巧" title="Excel单元格数据快速复制技巧">
-<p>方法三：ctrl+r，快速复制左侧单元格</p>
-<ul>
-<li>和上面讲到的ctrl+d是一个道理，选中要复制到的单元格，也就是说，想要将【入党时间】复制到D1单元格，我们就选中D1单元格。</li>
-</ul>
-<img src="/2015/02/15/Excel单元格数据快速复制技巧/1c950a7b02087bf41aa07146f2d3572c10dfcfd4.jpg" alt="Excel单元格数据快速复制技巧" title="Excel单元格数据快速复制技巧">
-<ul>
-<li>按下ctrl+r，快速复制左侧的单元格，你会看到这个效果。</li>
-</ul>
-<img src="/2015/02/15/Excel单元格数据快速复制技巧/37d12f2eb9389b503ea8c6fd8535e5dde6116ecd.jpg" alt="Excel单元格数据快速复制技巧" title="Excel单元格数据快速复制技巧">
-<ul>
-<li>假如你要复制多个数据，可以选中多个单元格，然后按下ctrl+r</li>
-</ul>
-<img src="/2015/02/15/Excel单元格数据快速复制技巧/d4628535e5dde711e6856559a7efce1b9c1661cd.jpg" alt="Excel单元格数据快速复制技巧" title="Excel单元格数据快速复制技巧">
-<img src="/2015/02/15/Excel单元格数据快速复制技巧/91ef76c6a7efce1be77cee65af51f3deb58f65cd.jpg" alt="Excel单元格数据快速复制技巧" title="Excel单元格数据快速复制技巧">
-<p>方法四：鼠标拖动</p>
-<ul>
-<li>选中你要复制的单元格，如图所示，按下ctrl键不松手，鼠标拖动这些单元格到你要复制到的单元格，假如我们拖动到C9单元格，你会看到下面第二幅图的效果：</li>
-</ul>
-<img src="/2015/02/15/Excel单元格数据快速复制技巧/9213b07eca8065385f4484bc97dda144ac3482f6.jpg" alt="Excel单元格数据快速复制技巧" title="Excel单元格数据快速复制技巧">
-<img src="/2015/02/15/Excel单元格数据快速复制技巧/f2deb48f8c5494ee717529b62df5e0fe98257ecd.jpg" alt="Excel单元格数据快速复制技巧" title="Excel单元格数据快速复制技巧">
-<ul>
-<li>如果你想剪切单元格，就不要按下ctrl键，直接拖动鼠标就可以了。</li>
-</ul>
-<img src="/2015/02/15/Excel单元格数据快速复制技巧/54fbb2fb43166d226a3b333b462309f79152d2d4.jpg" alt="Excel单元格数据快速复制技巧" title="Excel单元格数据快速复制技巧">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-            
         </section>
     </div>
 </div>
@@ -896,19 +869,19 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         <ul>
             
             <li>
-                <a class="footer-post" href="/2017/10/29/python数据采集服务/">python数据采集服务</a>
+                <a class="footer-post" href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">JavaScript做的表格卡方检验-一键在线测试</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/10/26/python时间序列分析-纯随机性检验/">python时间序列分析-纯随机性检验</a>
+                <a class="footer-post" href="/2017/11/19/eprime-e-prime的logging数据指标详解/">eprime/e-prime的logging数据指</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/10/25/psychopy实验设计技术/">psychopy实验设计技术</a>
+                <a class="footer-post" href="/2017/11/15/python计算卡方统计值及其矫正值/">python计算四格表卡方统计值及其矫正值</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/10/16/心理学大数据研究工作坊/">心理学大数据研究工作坊</a>
+                <a class="footer-post" href="/2017/11/14/eprime2-0试用版过期咋办如何破解详细过程/">eprime2.0试用版过期咋办如何破解详细过程</a>
             </li>
             
         </ul>

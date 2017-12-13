@@ -9,7 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Cache-Control" content="no-transform" />
     <meta http-equiv="Cache-Control" content="no-siteapp" />
-
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width"/>
+    <meta name="HandheldFriendly" content="true"/>
     <!--Description-->
     
         <meta name="description" content="专注于数据开发">
@@ -153,6 +155,468 @@
 </header>
 
         <section class="main">
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/23/SPSS实例：[16]中介效应的检验过程/">
+                SPSS实例：[16]中介效应的检验过程
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>spss做中介效应现在用的越来越普遍，虽然说用amos是最佳的工具，但是很多人还是喜欢spss，更容易理解，操作起来也比amos简单。下面我们就来分享一下如何使用spss进行中介效应的检验，这个教程是理论上的讲解，目的是让你理解这个过程。后面我们会具体的来操作一下，让你知道如何具体的去做，先来看看理论上的过程：</p>
+<ul>
+<li><p>先要明确你的自变量和因变量，假如我们有三个变量分别是：自变量（x），因变量（y），中介变量（M）。</p>
+</li>
+<li><p>第一个要检验的是自变量对因变量的作用，我们用下面的方程表示：我们首先要做的是对系数c的检验，你应该知道，用回归做检验，假如c不显著，说明不存在中介效应，停止检验；假如c显著，还不能说明存在中介效应，接着进行下面的步骤：</p>
+</li>
+</ul>
+<img src="/2015/05/23/SPSS实例：[16]中介效应的检验过程/43e6c733c895d143ecfc5b3b71f082025baf07e4.jpg" alt="SPSS实例：[16]中介效应的检验过程" title="SPSS实例：[16]中介效应的检验过程">
+<ul>
+<li>接着我们做自变量和中介变量之间的回归方程的检验，也就是用下面的方程来表示，假如系数a显著，说明X确实可以预测M，但仍然没有说明中介效应的存在。假如a不显著，那就需要进行sobel检验。我们暂时不去做sobel，因为还有一个步骤</li>
+</ul>
+<img src="/2015/05/23/SPSS实例：[16]中介效应的检验过程/b94f65ec54e736d1f92f321099504fc2d56269af.jpg" alt="SPSS实例：[16]中介效应的检验过程" title="SPSS实例：[16]中介效应的检验过程">
+<ul>
+<li>现在我们要检验M和Y之间的关系，也就是下面的方程的系数是否显著。假如a显著、b也显著，那么就可以证明中介效应存在；假如a和b中有一个不显著，另一个先不显著我们不知道，我们需要进行sobel检验，sobel检验显著，那么中介效应存在。</li>
+</ul>
+<img src="/2015/05/23/SPSS实例：[16]中介效应的检验过程/d35a10f41bd5ad6ef642daf283cb39dbb6fd3c2b.jpg" alt="SPSS实例：[16]中介效应的检验过程" title="SPSS实例：[16]中介效应的检验过程">
+<ul>
+<li>到此为止，我们就完成了中介效应的检验，下面来总结一下整个流程，看下面的流程图：</li>
+</ul>
+<img src="/2015/05/23/SPSS实例：[16]中介效应的检验过程/bbe0d311728b4710a5e043d4c1cec3fdfd03239f.jpg" alt="SPSS实例：[16]中介效应的检验过程" title="SPSS实例：[16]中介效应的检验过程">
+<ul>
+<li>中介效应的具体操作，参考我的下一篇文章。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/23/numpy函数：[5]dtype数组元素类型/">
+                numpy函数：[5]dtype数组元素类型
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>数组元素的类型可以通过dtype属性获得。下面我们创建几个数组，然后看看她们的元素类型是什么。然后我们看看dtype作为参数创建特定类型的数组的方法。</p>
+<ul>
+<li>引入numpy ，创建一个列表a</li>
+</ul>
+<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/0b07ec1fbe096b63bec1b5cc0e338744eaf8ac17.jpg" alt="numpy函数：[5]dtype数组元素类型" title="numpy函数：[5]dtype数组元素类型">
+<ul>
+<li>用列表a创建一个数组c</li>
+</ul>
+<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/f76575600c338744a71dc4e0530fd9f9d62aa017.jpg" alt="numpy函数：[5]dtype数组元素类型" title="numpy函数：[5]dtype数组元素类型">
+<ul>
+<li>我们看看数组c的元素的数据类型，是int32</li>
+</ul>
+<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/e1bf8725bc315c60a96a80738fb1cb1348547774.jpg" alt="numpy函数：[5]dtype数组元素类型" title="numpy函数：[5]dtype数组元素类型">
+<ul>
+<li>假如我们要创建一个其他类型的数组，可以设置dtype参数，如图所示，我们创建一个浮点型数据数组</li>
+</ul>
+<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/9864a2315c6034a8c01d531dc913495408237674.jpg" alt="numpy函数：[5]dtype数组元素类型" title="numpy函数：[5]dtype数组元素类型">
+<ul>
+<li>我们再创建一个complex类型数组</li>
+</ul>
+<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/d66b7e59252dd42a7cd1ea37013b5bb5c8eab817.jpg" alt="numpy函数：[5]dtype数组元素类型" title="numpy函数：[5]dtype数组元素类型">
+<ul>
+<li>当然，每一种数据类型都有几种字符串表达形式，我们可以使用typeDict字典来查询某种字符串所代表的数据类型，比如’d’和‘double’都表示float64数据类型</li>
+</ul>
+<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/48151723dd54564e379a0fa5b1de9c82d0584f74.jpg" alt="numpy函数：[5]dtype数组元素类型" title="numpy函数：[5]dtype数组元素类型">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/">
+                如何去掉excel保存文件时提示隐私问题警告
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>这几天编辑Excel中的宏的时候,保存的时候总是提示”隐私问题警告:此文档中包含宏、active插件、XML扩展包信息或web组件,其中可能包含个人信息,并且这些信息不能通过“文档检测器”进行删除”,这是为了保护用户的隐私才设置的一个安全警告,但是如果是我们经常使用vba,这个警告经常出现,很麻烦。那么怎么关闭警告呢?下面是具体的方法:</p>
+<ul>
+<li>打开Excel软件,然后在左上角有一个开始按钮,点击开始按钮,打开开始菜单</li>
+</ul>
+<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/35e940df8db1cb131c9c221bdc54564e93584b85.jpg" alt="如何去掉excel保存文件时提示隐私问题警告" title="如何去掉excel保存文件时提示隐私问题警告">
+<ul>
+<li>在开始菜单的右下角有一个Excel选项，打开Excel选项</li>
+</ul>
+<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/8cf0d513495409238af57d769358d109b2de49de.jpg" alt="如何去掉excel保存文件时提示隐私问题警告" title="如何去掉excel保存文件时提示隐私问题警告">
+<ul>
+<li>打开了Excel选项，切换到信任中心，在信任中心找到【信任中心设置】按钮，打开它</li>
+</ul>
+<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/8c511fe93901213f8be850d455e736d12e2e959b.jpg" alt="如何去掉excel保存文件时提示隐私问题警告" title="如何去掉excel保存文件时提示隐私问题警告">
+<ul>
+<li>在设置对话框中，找到最下面的个人信息选项，你会看到这里有一个文件检测器，下面有一个选项“保存时从属性中删除个人信息”，我们取消勾选这个选项，然后点击保存</li>
+</ul>
+<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/5d212aa85edf8db19ff5626c0823dd54574e749b.jpg" alt="如何去掉excel保存文件时提示隐私问题警告" title="如何去掉excel保存文件时提示隐私问题警告">
+<ul>
+<li>如果你是从网上下载下来的文档，你还可以对文档进行检测，这样在你保存文档前就可以确定他的安全性。点击文档检测器</li>
+</ul>
+<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/0ef2112442a7d9335727fa7bac4bd11372f001ef.jpg" alt="如何去掉excel保存文件时提示隐私问题警告" title="如何去掉excel保存文件时提示隐私问题警告">
+<ul>
+<li>这里也有一个文档属性和个人信息的选项，如果你勾选这个选项还是会提示安全警告</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/17/spss中如何检验残差的相互独立性/">
+                spss中如何检验残差的相互独立性
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在做线性回归的时候要检验残差的独立性，这里交给大家一个方法可以在做回归的时候用到的，可以方便的看出残差之间是否独立，下面是具体的方法：<br>工具/原料</p>
+<ul>
+<li>spss20.0<br>方法/步骤</li>
+</ul>
+<ul>
+<li>首先要早spss中准备好数据，如图所示，每一列数据作为一个变量</li>
+</ul>
+<img src="/2015/05/17/spss中如何检验残差的相互独立性/962bd40735fae6cdf93affa50fb30f2443a70f63.jpg" alt="spss中如何检验残差的相互独立性" title="spss中如何检验残差的相互独立性">
+<ul>
+<li>在菜单栏上执行：analyse–regression–linear，打开线性回归对话框</li>
+</ul>
+<img src="/2015/05/17/spss中如何检验残差的相互独立性/83025aafa40f4bfb6bdac990034f78f0f63618ef.jpg" alt="spss中如何检验残差的相互独立性" title="spss中如何检验残差的相互独立性">
+<ul>
+<li>在对话框中，将因变量和自变量放入各自的框中，如图所示上面的是因变量，注意因变量和自变量都是连续性变量，点击statistic按钮，设置输出的参数</li>
+</ul>
+<img src="/2015/05/17/spss中如何检验残差的相互独立性/29381f30e924b89913a02efc6e061d950b7bf652.jpg" alt="spss中如何检验残差的相互独立性" title="spss中如何检验残差的相互独立性">
+<img src="/2015/05/17/spss中如何检验残差的相互独立性/7aec54e736d12f2e9993f9a44fc2d5628435685b.jpg" alt="spss中如何检验残差的相互独立性" title="spss中如何检验残差的相互独立性">
+<ul>
+<li>勾选独立性检验的参数DW，如图所示，然后点击continue按钮，返回到主菜单</li>
+</ul>
+<img src="/2015/05/17/spss中如何检验残差的相互独立性/2934349b033b5bb53d44773a36d3d539b700bc67.jpg" alt="spss中如何检验残差的相互独立性" title="spss中如何检验残差的相互独立性">
+<ul>
+<li><p>点击ok开始输出数据，在下面第二幅图的表格中显示了DW值，如图所示，</p>
+</li>
+<li><p>–当DW值愈接近2时，残差项间愈无相关</p>
+</li>
+<li><p>–当DW值愈接近0时，残差项间正相关愈强</p>
+</li>
+</ul>
+<img src="/2015/05/17/spss中如何检验残差的相互独立性/9a504fc2d5628535c06e85e590ef76c6a6ef6363.jpg" alt="spss中如何检验残差的相互独立性" title="spss中如何检验残差的相互独立性">
+<img src="/2015/05/17/spss中如何检验残差的相互独立性/4d086e061d950a7bbd9419000ad162d9f3d3c955.jpg" alt="spss中如何检验残差的相互独立性" title="spss中如何检验残差的相互独立性">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/15/pandas教程：[9]MultiIndex用法/">
+                pandas教程：[9]MultiIndex用法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在pandas的DataFrame中经常使用多个索引，在pandas中成为MultiIndex对象，这篇文章介绍一下MultiIndex创建和使用方法：</p>
+<ul>
+<li>引入所有需要的模块</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/1f569482b9014a90cb5cd5a8aa773912b31bee02.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>创建两个<type 'numpy.ndarray'="">对象，分别为colors和foods</type></li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/2cb4fefe9925bc318f3c928d5ddf8db1cb137007.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>打印出这两个数组来查看一下，注意tm.choice创建的数组是随机的，你利用同样的代码创建的数组和我的可能不一样</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/207ea60e7bec54e78f92890bba389b504fc26a6e.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>创建MultiIndex对象，然后创建DataFrame对象（其中使用index=index参数）</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/55a628d12f2eb9382713e9e7d6628535e5dd6f6e.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>打印一下df看看里面的数据：有两个索引color和food</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/570f8c58d109b3de43de777dcfbf6c81800a4c07.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>如何利用索引来筛选数据：使用query（）<br>结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/ae10eddeb48f8c5458ad563a39292df5e0fe7f6e.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/b29f8282d158ccbf8edd262f1ad8bc3eb1354107.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>还可以在分组中使用索引，使用了level参数<br>打印结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/1899a23eb13533fa6ad7003babd3fd1f41345b07.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/4075890a304e251f659677eda486c9177f3e5307.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>删除或者更改索引的名称：如果删除了名称，我们只能使用ilevel_0表示第一个索引<br>打印结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/b29f8282d158ccbf8ec2262f1ad8bc3eb135416e.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/7e7f7909c93d70cfc39b3918fbdcd100baa12b07.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<ul>
+<li>分组中也是一样，删除掉索引名称以后，只能使用数字1表示第二个索引<br>打印结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/73ca5910b912c8fcc19365d8ff039245d6882107.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/b853d6fcc3cec3fdf85e3460d588d43f87942707.jpg" alt="pandas教程：[9]MultiIndex用法" title="pandas教程：[9]MultiIndex用法">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/15/wxpython教程：[6]简单布局管理/">
+                wxpython教程：[6]简单布局管理
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>一个软件的界面又很多控件，这些控件是如何布局的？今天我们先来看一下简单的布局方式，之后我们再来看看一些复杂的布局（利用sizer）实现的布局。</p>
+<ul>
+<li><p>接着用之前写的代码，我们看一下代码：<br>很多内容都是之前的文章里介绍的，这里只是添加了两行代码：</p>
+</li>
+<li><p>panel=wx.Panel(self,-1)#创建一个面板对象</p>
+</li>
+<li><p>wx.TextCtrl(panel,pos=(3,3),size=(250,250))#添加一个文本框，并设置它的位置和大小</p>
+</li>
+</ul>
+<img src="/2015/05/15/wxpython教程：[6]简单布局管理/3a86813df8dcd100a92c4274718b4710b8122ff7.jpg" alt="wxpython教程：[6]简单布局管理" title="wxpython教程：[6]简单布局管理">
+<ul>
+<li><p>Panel是窗口的容器，通常其大小与Frame一样，在其上放置各种控件，比如放置按钮、文本框等。</p>
+</li>
+<li><p>创建文本框的时候，我们传入pos和size参数，顾名思义，就是位置和大小，这段代码：wx.TextCtrl(panel,pos=(3,3),size=(250,250))就是设置文本框的位置是x=3，y=3；大小是长宽都是250的正方形。</p>
+</li>
+<li><p>这就是我们看到的界面：<br>改变界面大小，文本框控件的位置和大小是不变的</p>
+</li>
+</ul>
+<img src="/2015/05/15/wxpython教程：[6]简单布局管理/3bb22487e950352a687e805d5043fbf2b2118b0d.jpg" alt="wxpython教程：[6]简单布局管理" title="wxpython教程：[6]简单布局管理">
+<img src="/2015/05/15/wxpython教程：[6]简单布局管理/346bd85c103853434ad022749013b07eca80880d.jpg" alt="wxpython教程：[6]简单布局管理" title="wxpython教程：[6]简单布局管理">
+<ul>
+<li>我们一眼就能看出这种方式布局的局限性，于是，也许下面这种方式更加简便与灵活：我们直接将文本框嫁接到Frame上，而不是利用Panel：</li>
+</ul>
+<img src="/2015/05/15/wxpython教程：[6]简单布局管理/4e83cb628535e5dd30b3008a75c6a7efcf1b628d.jpg" alt="wxpython教程：[6]简单布局管理" title="wxpython教程：[6]简单布局管理">
+<ul>
+<li>如此一来，文本框铺满整个Frame，大小与Fram相同，改变Frame大小，文本框也跟着变化：</li>
+</ul>
+<img src="/2015/05/15/wxpython教程：[6]简单布局管理/0862c354564e9258228323bb9f82d158cdbf4ef5.jpg" alt="wxpython教程：[6]简单布局管理" title="wxpython教程：[6]简单布局管理">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
+        </div>
+    
+
+</div>
+            
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/15/pandas教程：[25]插值法填补缺失值/">
+                pandas教程：[25]插值法填补缺失值
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>使用插值法可以计算缺失值的估计值，所谓的插值法就是通过两点（x0，y0），（x1，y1）估计中间点的值，假设y=f(x)是一条直线，通过已知的两点来计算函数f(x),然后只要知道x就能求出y，以此方法来估计缺失值。当然我们也可以假设f（x)不是直线，二是其他函数。</p>
+<ul>
+<li>引入相关模块并创建一个数据框<br>数据框的内容为：<br>‘</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/62667cd0f703918f03ed62cd523d269759eec4be.jpg" alt="pandas教程：[25]插值法填补缺失值" title="pandas教程：[25]插值法填补缺失值">
+<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/0865b518972bd40763af8cfa78899e510fb30909.jpg" alt="pandas教程：[25]插值法填补缺失值" title="pandas教程：[25]插值法填补缺失值">
+<ul>
+<li>使用插值法估计缺失值<br>输出结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/b13fd48065380cd74f81fdeaa244ad34588281df.jpg" alt="pandas教程：[25]插值法填补缺失值" title="pandas教程：[25]插值法填补缺失值">
+<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/99636c0e0cf3d7cacdca6071f11fbe096b63a9be.jpg" alt="pandas教程：[25]插值法填补缺失值" title="pandas教程：[25]插值法填补缺失值">
+<ul>
+<li><p>我们可以计算一下缺失值实际上上前一个值和后一个值得平均数，因为interpolate（）假设函数是直线形式</p>
+</li>
+<li><p>假如index是数字，我们还可以根据数字来进行插值，用到参数method=’values’<br>比较一下插值的结果与上一个结果的不同之处这时候索引的数值实际上就是用于估计y的x值</p>
+</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/dc854fda81cb39dbf9a83851d3160924ab183009.jpg" alt="pandas教程：[25]插值法填补缺失值" title="pandas教程：[25]插值法填补缺失值">
+<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/7a8a1446f21fbe09d1629c1368600c338744adbe.jpg" alt="pandas教程：[25]插值法填补缺失值" title="pandas教程：[25]插值法填补缺失值">
+<ul>
+<li>同样道理，如果index是时间，我们可以用method=time来达到同样的效果<br>输出结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/54baacfb43166d22e24b4a93452309f79052d2be.jpg" alt="pandas教程：[25]插值法填补缺失值" title="pandas教程：[25]插值法填补缺失值">
+<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/f35ea0096b63f624d76166048444ebf81a4ca3be.jpg" alt="pandas教程：[25]插值法填补缺失值" title="pandas教程：[25]插值法填补缺失值">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>邮箱: 675495787@qq.com </p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
             
                 
 <div class="post">
@@ -351,687 +815,6 @@
 
 </div>
             
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/05/Excel2013：[50]powerview报告怎么做/">
-                Excel2013：[50]powerview报告怎么做
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>Poverview报告是Excel2013的新功能，很多人可能还没见过，我用powerview的主要目的就是查看和筛选数据，其实这些功能在没有powerview之前也可以实现，现在有了它，我们就更方便了。下面来看看我们是如何使用powerview报告的。</p>
-<ul>
-<li>我们来看一下表格中的数据，有三列，分别是地区、销售额、成绩</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/8474fbdde71190efb7cb0e81cc1b9d16fdfa6079.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>选中表格中的所有数据，然后在菜单栏上执行：插入–powerview报告</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/f29faa8f8c5494ee3b1293472ff5e0fe99257e79.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>你可能会看到一个启动提示，点击启用</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/b5ce925494eef01ff624849be2fe9925bc317d79.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>如果你第一次使用，可能还没有安装silverlight，点击这个链接，然后浏览器会自动下载silverlight，之后你安装上它，然后点击【重新加载】（如下图）就可以了</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/ca5257540923dd548f433b36d309b3de9c824879.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>这就是插入的powerview报告，乍看起来没什么，我们接着往下看</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/9dc3cf58ccbf6c816107b0b6be3eb13533fa4079.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>将成绩拖入到【筛选器】</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/1899a23eb13533fa64860f70aad3fd1f41345b79.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>假如我们只勾选成绩为合格和不及格的数据，左侧的数据就会只显示这两个的数据</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/027a45b5c9ea15ceb9a67c57b4003af33b87b2e1.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/5f9e93b1cb134954dee4743a544e9258d0094ab3.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>接着，我们插入一个柱状图，选择【簇状柱形图】</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/8605f5f81a4c510f5c117f446259252dd52aa55c.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>原先的表格就变成了柱形图，同样可以进行筛选</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/948bcfc8a786c9178d33ce67cb3d70cf3bc75779.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>假如我们还想使用表格，还可以在菜单栏中选择【表】</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[50]powerview报告怎么做/29752a9b033b5bb54702bda034d3d539b700bc5c.jpg" alt="Excel2013：[50]powerview报告怎么做" title="Excel2013：[50]powerview报告怎么做">
-<ul>
-<li>好了，教程就到这里了，想学习Excel数据分析的，请关注我的百度经验，每天都会有新教程。</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/">
-                SPSS因素分析中如何旋转因子与分析结果
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>因子分析要求提取出的公因子有实际意义，但是大部分因子分析的结果中，各因子和原始变量之间额关系并不明显，为了使因子载荷矩阵中系数更加显著，可以对初始因子载荷矩阵进行旋转，使因子和原始变量间的关系进行重新分配，相关系数向0–1分化。<br>工具/原料</p>
-<ul>
-<li>spss20.0<br>方法/步骤</li>
-</ul>
-<ul>
-<li>如图所示，先要打开因素分析的主对话框，在菜单栏上执行：analyse–dimension reduction–factor</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/86d6277f9e2f0708fbee5ad4e924b899a801f27f.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<ul>
-<li>打开因素分析对话框以后，我们先将要进行因素分析的6个变量放入到variables框中</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/902397dda144ad347e9cf453d0a20cf430ad85c6.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<ul>
-<li>点击rotation按钮，打开因素旋转对话框</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/42166d224f4a20a4b21c4f1390529822730ed0e0.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<ul>
-<li>在这里，首先要设置因素旋转的方法，这里有5种方法，一般蕞常用的是最大方差旋转，也就是varimax方法；其他方法在【注意事项】里介绍。点击continue按钮返回</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/0e2442a7d933c8957500ebafd11373f0830200e3.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<ul>
-<li>回到了主对话框，点击ok按钮开始处理数据并输出结果</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/314e251f95cad1c8d4d48ff37f3e6709c83d51f2.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<ul>
-<li>我们看到的第一个结果是communalities，叫做变量共同度，extraction列表显示的是我们提取的因素能够解释多少自变量，值越接近1越好（最大值是1）。</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/63d0f703918fa0ece1af17d9269759ee3c6ddbfe.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<ul>
-<li>我们看到这这个表格指的是因子载荷矩阵，他显示出三个因子再原始变量上的载荷，根据这个表格我们能够求得各个变量的标准分数的表达式，不是因子的表达式啊哦！！</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/8ad4b31c8701a18b4ac6609b9e2f07082838fe31.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<ul>
-<li>这个表格是最重要的表格，显示了在旋转因子以后 三个因子再原始变量上的载荷，根据这个表格我们能够求得各个变量的标准分数的表达式，不是因子的表达式啊哦！！</li>
-</ul>
-<img src="/2015/05/05/SPSS因素分析中如何旋转因子与分析结果/9a504fc2d5628535a543a0f590ef76c6a6ef6346.jpg" alt="SPSS因素分析中如何旋转因子与分析结果" title="SPSS因素分析中如何旋转因子与分析结果">
-<p>注意事项</p>
-<ul>
-<li><p>介绍一下因子旋转的方法：</p>
-</li>
-<li><p>varimax方法：方差最大正交旋转，是最常用的方法，如果你不懂各种方法的原理，你只要用这个方法就不会有太大的误差。</p>
-</li>
-<li><p>quartimax是四次方最大正交旋转，该方法倾向于减少和每个变量有关联的因子数，从而简化对原变量的解释</p>
-</li>
-<li><p>equamax是平方最大正交旋转，该方法介于上面两种方法之间。</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/05/Excel2013：[57]文本日期互转/">
-                Excel2013：[57]文本日期互转
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>Excel中日期格式是一个非常头疼的问题，很多时候我们都搞不清楚自己的数据是日期格式还是文本格式，更别提两者的相互转化了。今天我们详细讲解一下这个问题，以及这两种格式如何互转。</p>
-<ul>
-<li>如何判断自己的数据是日期格式还是文本格式？大部分人都回答错误！因为大部分人都知道查看单元格格式可以知道！这是及其错误的，比如，有一个单元格，里面填写了一个字符“a”，通过设置单元格格式，你将这个单元格设置为数字格式，试试看。一个字母竟然可以成为一个数字格式。这就是说虽然我们可以任意设置单元格的格式，但是当Excel无法转换格式的时候，就保留了原先的格式。</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/246cca2a2834349bf3261892caea15ce36d3be42.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>所以，当我们想知道一个单元格是文本还是日期时，看单元格格式是不保险的。比如这一列日期，你可以在自己的电脑上录入这一列数据。我们将A列设置为日期格式，但是这一列数据仍然是文本，Excel并没有转换格式。因为Excel并不认识这种日期格式，所以就无法将其转换为日期，仍然保留了文本格式，虽然Excel显示的是日期格式。</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/58af236d55fbb2fb91162e054c4a20a44623dcad.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>除了Excel不识别的日期格式外，还有一种情况可以造成Excel无法将文本转换为日期：在下面这种情况下，我们先设置c列为文本，然后设置d列默认格式为常规。在两列都输入同样的“2013-1-1”，你会发现他们的不同：C列数据保持了你输入的内容不变；D列内容自动转换格式为Excel默认的日期格式。这说明你预先设置了c列的格式为文本，导致后面再输入数据都按照文本来保存数据了。</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/f6428f8fa0ec08fa9d3d65b05aee3d6d55fbdaad.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>如何鉴别到底是日期格式还是文本格式？很简单。当单元格为日期时，你在格式设置下啦菜单中，可以看到短日期和长日期格式不同，短日期下面显示2013/1/1，长日期下显示2013年1月1日。</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/b3ba5d166d224f4af29200040af790529822d15b.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>如果单元格为文本格式，你会发现，短日期和长日期显示相同的格式，说明Excel并没有正确的识别日期。</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/9252ae7eca8065380e22d40494dda144ac348299.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>现在我们有一列文本格式的日期，想要转换为日期格式</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/0db2c9ca7bcb0a462d1ffd2e6863f6246b60afad.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>先将这一列设置为日期格式</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/bf487563f6246b60e833c463e8f81a4c510fa2ad.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>按下ctrl+F，利用替换，将“.”替换为“-”,这样可以将Excel不认识的格式转换为它认识的格式</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/3c2c4bfbb2fb4316be3f0c6d23a4462309f7d342.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>结果就是这样了：显然Excel自动识别了日期。</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/29752a9b033b5bb53bea56e935d3d539b600bcad.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>但是有时候单元格内不是2013.1.1这种形式，而是2013-1-1，也很简单</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/1899a23eb13533fac4e4ee39abd3fd1f41345b13.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>还是用这个方法，先将该列设置为日期格式，然后将“-”替换为“/”即可</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/9c57e3faaf51f3de9cfec47397eef01f3a29791d.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>反过来，有些时候我们必须将日期格式转换为文本格式，还是这一列数据，它现在是日期格式</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/29752a9b033b5bb53bea56e935d3d539b600bcad.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>在B2单元格输入公式：=TEXT(A2,”yyyy-m-d”)，按下回车看一下结果</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/c9bdddcec3fdfc03f4c493afd73f8794a4c2262d.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<ul>
-<li>向下拖动单元格右下角，可以快速填充以下的单元格，完成日期向文本的转换。</li>
-</ul>
-<img src="/2015/05/05/Excel2013：[57]文本日期互转/c2bce2039245d688bcbec2b3a7c27d1ed21b242d.jpg" alt="Excel2013：[57]文本日期互转" title="Excel2013：[57]文本日期互转">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/03/SPSS实例：[12]回归模型中如何增加交互项/">
-                SPSS实例：[12]回归模型中如何增加交互项
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>通常我们在回归分析中需要用到两个自变量之间的交互项来检验两个变量之间的交互效应，那么这个交互项是从哪里来的呢？其实就是两个变量的乘积，具体方式是：</p>
-<ul>
-<li>打开数据，在菜单栏上执行：转换–计算变量</li>
-</ul>
-<img src="/2015/05/03/SPSS实例：[12]回归模型中如何增加交互项/9304c888d43f879438af693dd01b0ef41bd53a15.jpg" alt="SPSS实例：[12]回归模型中如何增加交互项" title="SPSS实例：[12]回归模型中如何增加交互项">
-<ul>
-<li>打开计算变量的对话框，我们设置目标变量名称，你随便起一个英文的名字，然后设置这个变量的标签，为了以后处理数据方便，你一定要添加一个自己看得懂的标签，点击继续。</li>
-</ul>
-<img src="/2015/05/03/SPSS实例：[12]回归模型中如何增加交互项/1a94b36eddc451da25a62df8b4fd5266d0163215.jpg" alt="SPSS实例：[12]回归模型中如何增加交互项" title="SPSS实例：[12]回归模型中如何增加交互项">
-<ul>
-<li>然后在这里输入两个变量相乘的公式，如图所示就是变量P1Q01和P1Q02的乘积</li>
-</ul>
-<img src="/2015/05/03/SPSS实例：[12]回归模型中如何增加交互项/b7bc4c66d016092401758308d60735fae6cd3415.jpg" alt="SPSS实例：[12]回归模型中如何增加交互项" title="SPSS实例：[12]回归模型中如何增加交互项">
-<ul>
-<li>点击ok就可以运行程序，得到一个新的变量，也就是交互项</li>
-</ul>
-<img src="/2015/05/03/SPSS实例：[12]回归模型中如何增加交互项/7ac880510fb30f24f1cacd10ca95d143ad4b0315.jpg" alt="SPSS实例：[12]回归模型中如何增加交互项" title="SPSS实例：[12]回归模型中如何增加交互项">
-<ul>
-<li>用syntax的话更简单，下面的代码可以实现同样的效果。</li>
-</ul>
-<img src="/2015/05/03/SPSS实例：[12]回归模型中如何增加交互项/cf5a8316fdfaaf51af44a0ac8e5494eef01f7a3a.jpg" alt="SPSS实例：[12]回归模型中如何增加交互项" title="SPSS实例：[12]回归模型中如何增加交互项">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/">
-                Excel2013：[1]两类数据绘制在同一张图上
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>假如我有两个曲线要画在同一张图上，而且不能同时绘制出两条曲线，只能一条一条的绘制，如果你想要将两条曲线放到一张图上，你可以先绘制一条，然后再添加数据源。我们看看下面的案例吧。</p>
-<ul>
-<li>我们看下面的表格，有三列数据，自变量X和两个因变量y1和y2，我们要用散点图表示x和y1的关系，同时要用散点图表示x和y2的关系，如何将两个散点图绘制在一个图上呢？</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/d66b7e59252dd42a0a3624b8013b5bb5c9eab8a2.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>先绘制第一条曲线，选中x和y1两列数据，然后选择一个散点图，如图所示</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/d478a8003af33a87c44c2509c45c10385343b544.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>在图表上右键单击，点击【选择数据】</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/e8112b2ac65c1038625febd1b0119313b07e8944.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>我们看到打开了【数据源】对话框。点击【添加】按钮</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/5202e5f2b21193138562daa367380cd791238d44.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>编辑数据系列，你可以看到我用不同颜色表示出了不同的数据源，你按照箭头来操作就可以了</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/647912d7912397dd9a58bd175b82b2b7d0a28744.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>这是我设计好的数据系列，点击确定</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/cbc17b380cd79123addfb167af345982b2b780a2.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>回到了数据源对话框，我们点击确定按钮</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/58c3acb7d0a20cf470b1dbcc74094b36acaf9944.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>这时候已经出现了两条曲线，我们点击【添加】按钮，如图所示</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/ac754782b2b7d0a24cf6218ec9ef76094b369aa2.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<ul>
-<li>选择添加【图例】，这样你就可以知道这两条曲线分别代表的是谁了。</li>
-</ul>
-<img src="/2015/05/03/Excel2013：[1]两类数据绘制在同一张图上/0db52fadcbef76090f34bc8c2cdda3cc7cd99ea2.jpg" alt="Excel2013：[1]两类数据绘制在同一张图上" title="Excel2013：[1]两类数据绘制在同一张图上">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/03/python 线性代数：[10]求方阵的特征值特征向量/">
-                python 线性代数：[10]求方阵的特征值特征向量
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>求方阵（矩阵）的特征值和特征向量用的是python中的numpy.linagl.eig方法，它需要一个二维数组作为参数，输出一个一位数组（元素为特征值）和一个二维数组（特征向量组），我们还是在例子中学习一哈：</p>
-<ul>
-<li>先引入numpy模块</li>
-</ul>
-<img src="/2015/05/03/python%20线性代数：[10]求方阵的特征值特征向量/a1ad16fa513d2697caee42aa57fbb2fb4216d8cd.jpg" alt="python 线性代数：[10]求方阵的特征值特征向量" title="python 线性代数：[10]求方阵的特征值特征向量">
-<ul>
-<li>创建一个对角矩阵，关于diag的用法可以看我前几篇文章</li>
-</ul>
-<img src="/2015/05/03/python%20线性代数：[10]求方阵的特征值特征向量/29752a9b033b5bb57ea46a0934d3d539b700bc93.jpg" alt="python 线性代数：[10]求方阵的特征值特征向量" title="python 线性代数：[10]求方阵的特征值特征向量">
-<ul>
-<li>求矩阵x的特征值和特征向量，特征值保存在a中，特征向量保存在b中</li>
-</ul>
-<img src="/2015/05/03/python%20线性代数：[10]求方阵的特征值特征向量/b3ba5d166d224f4abaa439e40bf790529922d1cd.jpg" alt="python 线性代数：[10]求方阵的特征值特征向量" title="python 线性代数：[10]求方阵的特征值特征向量">
-<ul>
-<li><p>使用循环的方法，我们来验证一下特征值和特征向量，验证的方法是特征值和特征向量的定义法：</p>
-</li>
-<li><p>设A为n阶矩阵，若存在常数λ及非零的n维向量x，使得</p>
-</li>
-<li><p>Ax=λx，</p>
-</li>
-<li><p>则称λ是矩阵A的特征值，x是A属于特征值λ的特征向量。</p>
-</li>
-</ul>
-<img src="/2015/05/03/python%20线性代数：[10]求方阵的特征值特征向量/5202e5f2b21193137630b54767380cd790238d93.jpg" alt="python 线性代数：[10]求方阵的特征值特征向量" title="python 线性代数：[10]求方阵的特征值特征向量">
-<ul>
-<li>这是我今天犯的错误：</li>
-</ul>
-<img src="/2015/05/03/python%20线性代数：[10]求方阵的特征值特征向量/6a22e8246b600c332d44943f184c510fd8f9a1cd.jpg" alt="python 线性代数：[10]求方阵的特征值特征向量" title="python 线性代数：[10]求方阵的特征值特征向量">
-<ul>
-<li><p>这是今天用到的所有代码：</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>import numpy</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>x=numpy.diag((1,2,3))</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>x</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 0, 0],</p>
-</li>
-<li><p>[0, 2, 0],</p>
-</li>
-<li><p>[0, 0, 3]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a,b=numpy.linalg.eig(x)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([ 1.,  2.,  3.])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>b</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1.,  0.,  0.],</p>
-</li>
-<li><p>[ 0.,  1.,  0.],</p>
-</li>
-<li><p>[ 0.,  0.,  1.]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>for i in range(3):</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>if numpy.dot(x,b[:][i])==a[i]*b[:][i]:</p>
-</li>
-<li><p>print ‘正确’</p>
-</li>
-<li><p>else:print ‘错误‘</p>
-</li>
-<li><p>SyntaxError: EOL while scanning string literal</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>for i in range(3):</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>if numpy.dot(x,b[:][i])==a[i]*b[:][i]:</p>
-</li>
-<li><p>print ‘正确’</p>
-</li>
-<li><p>else:print ‘错误’</p>
-</li>
-<li><p>Traceback (most recent call last):</p>
-</li>
-<li><p>File “<pyshell#38>“, line 2, in <module></module></pyshell#38></p>
-</li>
-<li><p>if numpy.dot(x,b[:][i])==a[i]*b[:][i]:</p>
-</li>
-<li><p>ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>for i in range(3):</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>if (numpy.dot(x,b[:][i])==a[i]*b[:][i]).all():</p>
-</li>
-<li><p>print ‘正确’</p>
-</li>
-<li><p>else:print ‘错误’</p>
-</li>
-<li><p>正确</p>
-</li>
-<li><p>正确</p>
-</li>
-<li><p>正确</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/03/pandas教程：[11]aggregate分组计算/">
-                pandas教程：[11]aggregate分组计算
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>一旦对数据分组，接下来一定是对各组数据进行计算，这是通过groupby.aggregate()实现的，我们来看一下今天的例子：</p>
-<ul>
-<li>先引入必要的模块，然后创建一个DataFrame对象，如果你看了前几篇文章，应该已经知道这个DataFrame了。<br>这是内部数据：</li>
-</ul>
-<img src="/2015/05/03/pandas教程：[11]aggregate分组计算/bf487563f6246b602a038662e8f81a4c510fa253.jpg" alt="pandas教程：[11]aggregate分组计算" title="pandas教程：[11]aggregate分组计算">
-<img src="/2015/05/03/pandas教程：[11]aggregate分组计算/9e7ce6dcd100baa16f0973ad4410b912c8fc2ebb.jpg" alt="pandas教程：[11]aggregate分组计算" title="pandas教程：[11]aggregate分组计算">
-<ul>
-<li>根据两个索引color、food进行分组</li>
-</ul>
-<img src="/2015/05/03/pandas教程：[11]aggregate分组计算/f76575600c338744c3c81b6a520fd9f9d72aa053.jpg" alt="pandas教程：[11]aggregate分组计算" title="pandas教程：[11]aggregate分组计算">
-<ul>
-<li>计算各组总和：<br>计算结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas教程：[11]aggregate分组计算/310f3b1f95cad1c8309ec8317c3e6709c93d51bb.jpg" alt="pandas教程：[11]aggregate分组计算" title="pandas教程：[11]aggregate分组计算">
-<img src="/2015/05/03/pandas教程：[11]aggregate分组计算/b853d6fcc3cec3fd551b9363d588d43f879427bb.jpg" alt="pandas教程：[11]aggregate分组计算" title="pandas教程：[11]aggregate分组计算">
-<ul>
-<li>计算结果默认使用了两个分组索引color和food作为新的DataFrame的索引（注意计算结果为一个DataFrame对象），可以使用reset_index()来将两个索引转化为列变量<br>结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas教程：[11]aggregate分组计算/d66b7e59252dd42a180435bd003b5bb5c9eab853.jpg" alt="pandas教程：[11]aggregate分组计算" title="pandas教程：[11]aggregate分组计算">
-<img src="/2015/05/03/pandas教程：[11]aggregate分组计算/3bb22487e950352afb6c111e5043fbf2b2118b53.jpg" alt="pandas教程：[11]aggregate分组计算" title="pandas教程：[11]aggregate分组计算">
-<ul>
-<li>在分组是也可以使用as_index参数达到reset_index()的效果：<br>计算结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas教程：[11]aggregate分组计算/fd428c45d688d43f2a8ca5e47e1ed21b0ef43bbb.jpg" alt="pandas教程：[11]aggregate分组计算" title="pandas教程：[11]aggregate分组计算">
-<img src="/2015/05/03/pandas教程：[11]aggregate分组计算/1a94b36eddc451da37d338fdb5fd5266d01632bb.jpg" alt="pandas教程：[11]aggregate分组计算" title="pandas教程：[11]aggregate分组计算">
-<ul>
-<li>另外我们经常用到的一个方法为size()返回各组数据量<br>结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas教程：[11]aggregate分组计算/dc854fda81cb39db0ee55340d3160924ab1830bb.jpg" alt="pandas教程：[11]aggregate分组计算" title="pandas教程：[11]aggregate分组计算">
-<img src="/2015/05/03/pandas教程：[11]aggregate分组计算/aa59892bd40735fa26d57aaf9d510fb30f2408bb.jpg" alt="pandas教程：[11]aggregate分组计算" title="pandas教程：[11]aggregate分组计算">
-<ul>
-<li>最后，还有一个经常用到的方法为describe()，对各组数据进行描述性统计：<br>计算结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas教程：[11]aggregate分组计算/34bbf8cd7b899e51ccab0e0241a7d933c8950dbb.jpg" alt="pandas教程：[11]aggregate分组计算" title="pandas教程：[11]aggregate分组计算">
-<img src="/2015/05/03/pandas教程：[11]aggregate分组计算/d872d695d143ad4b1b0b72d681025aafa40f06bb.jpg" alt="pandas教程：[11]aggregate分组计算" title="pandas教程：[11]aggregate分组计算">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-<p>邮箱: 675495787@qq.com </p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-            
         </section>
     </div>
 </div>
@@ -1084,19 +867,19 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         <ul>
             
             <li>
-                <a class="footer-post" href="/2017/10/29/python数据采集服务/">python数据采集服务</a>
+                <a class="footer-post" href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">JavaScript做的表格卡方检验-一键在线测试</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/10/26/python时间序列分析-纯随机性检验/">python时间序列分析-纯随机性检验</a>
+                <a class="footer-post" href="/2017/11/19/eprime-e-prime的logging数据指标详解/">eprime/e-prime的logging数据指</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/10/25/psychopy实验设计技术/">psychopy实验设计技术</a>
+                <a class="footer-post" href="/2017/11/15/python计算卡方统计值及其矫正值/">python计算四格表卡方统计值及其矫正值</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2017/10/16/心理学大数据研究工作坊/">心理学大数据研究工作坊</a>
+                <a class="footer-post" href="/2017/11/14/eprime2-0试用版过期咋办如何破解详细过程/">eprime2.0试用版过期咋办如何破解详细过程</a>
             </li>
             
         </ul>
