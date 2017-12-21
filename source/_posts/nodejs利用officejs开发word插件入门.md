@@ -7,6 +7,8 @@ author: mlln.cn
 
 officejs是微软公司推出的开发office插件的javascript框架。下面我过通过例子来实践一下如何开始用nodejs来开发word插件。
 
+<!--more-->
+
 ### 安装nodejs
 
 此处略去一百字。

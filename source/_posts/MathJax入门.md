@@ -4,7 +4,6 @@ date: 2017-06-02 18:02:32
 tags: [MathJax, Latex]
 categories: [数学分析] 
 mathjax: true
-comments: true
 ---
 
 ## MathJax简介

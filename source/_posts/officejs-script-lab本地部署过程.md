@@ -1,3 +1,10 @@
+---
+title: office.js script-lab 本地部署过程
+date: 2017-12-20
+tags: [officejs, nodejs]
+author: mlln.cn
+---
+
 
 微软开发了一个帮助开发者学习officejs的代码编辑器， 它是一个office task pane插件， 可以在Excel、word等offic软件中加载。但是该插件的服务器在国外，国内访问很慢， 怎么办？我的第一想法是将这个插件的服务器部署到本地，下面是我的部署过程。
 

@@ -110,11 +110,15 @@ def write_fromfile(from_filename, md_filename=None, source_link=None):
 	writer.write(output, resources, resource_dir, md_filename, source_link)
 
 if __name__=='__main__':
+	# notebook文件名, 必须为绝对路径
 	from_filename = sys.argv[1]
+	# 输出文件名, 可选, 如果没有设置, 默认使用notebook文件名
 	if len(sys.argv)>2:
 		md_filename = sys.argv[2]
 	else:
 		md_filename=None
+	# source_link 是文章附带的资源文件夹路径
+	# 如果不设定会使用文章的同名文件夹
 	if len(sys.argv)>3:
 		source_link = sys.argv[3]
 	else:
