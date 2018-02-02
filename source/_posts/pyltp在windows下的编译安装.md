@@ -281,6 +281,8 @@ print(json.dumps(rdata, indent=4, ensure_ascii=False))
 
 ### 下载wheels
 
+下面两个文件针对不同的python版本下载一个即可， 这是我在自己的电脑（win10）上编译的，不知道你的系统是否能用，64bit的windows应该都可以，有问题在下面留言。
+
 - {% asset_link pyltp-0.2.1-cp35-cp35m-win_amd64.whl %}
 - {% asset_link pyltp-0.2.1-cp36-cp36m-win_amd64.whl %}
 
