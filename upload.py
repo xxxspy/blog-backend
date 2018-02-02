@@ -33,6 +33,7 @@ class Updater:
     def _init_ftp(self):
         ftp=ftplib.FTP(self.address)
         ftp.login(self.username, self.password)
+        ftp.encoding='utf8'
         self.ftp=ftp
 
     def remove_ftp_folder(self, path:Path):
@@ -57,9 +58,7 @@ class Updater:
         root2=Path(self.myfolder.parts[0],self.myfolder.parts[1])
         if len(parent.parts)>=2 and (parent != root1) and (parent != root2):
             self.create_ftp_folder(parent)
-
         folders=self.ftp.nlst(parent.as_posix())
-
         if path.as_posix() not in folders:
             self.ftp.mkd(path.as_posix())
             self.cached_folders.append(path)

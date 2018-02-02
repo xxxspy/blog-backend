@@ -300,8 +300,12 @@ sents = SentenceSplitter.split('元芳你怎么看？我就趴窗口上看呗！
 print('\n'.join(sents))
 ```
 
+### 下载models数据
+
+- 下载models链接：https://pan.baidu.com/s/1o9vytmU 密码：5ntf
+- 放到任意方便调用的地方即可， 因为程序里需要你自己主动调用的
+
 ## 第三种方案: 直接调用编译好的ltp的可执行文件
 ---
 
 可以参考这篇[文章](http://blog.csdn.net/churximi/article/details/51174182), 但是我在3.4版本中测试不成功, 加载srl资源失败. 但是在3.3.1版本上测试是成功的.
-
