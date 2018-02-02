@@ -4,9 +4,9 @@ date: 2018-01-08 05:41:49
 tags: [electron, python]
 ---
 
+electron是node开发桌面应用的, 比如git for windows就是electron开发的, 桌面应用可以比网页还漂亮. 而python开发的界面真的很丑, 很多做python web开发的人也比较抵触做python桌面应用, 但是我们又没钱顾一个专门做桌面应用GUI的程序员, 所以electron就比较合适了. 我们可以用web前端的技术来做GUI.
 
-
-<-- more -->
+<!-- more -->
 
 
 ### 安装全局依赖

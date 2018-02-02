@@ -4,11 +4,15 @@ date: 2018-01-31 08:32:30
 tags: [python, 文本挖掘]
 ---
 
-ltp是哈工大出品的自然语言处理工具箱, pyltp是python下对ltp(c++)的封装. 在linux下我们很容易的安装pyltp, 因为各种编译工具比较方便. 但是在windows下需要安装vs并且还得做一些配置, 因为我服务的人都是在windows下办公, 需要让他们能够在windows下使用ltp, 所以才有了这篇笔记.我的方案是在win10 的bash下安装ltp, 然后启动ltp的server, 通过http协议来实现在windows下python调用ltp的方法.
+ltp是哈工大出品的自然语言处理工具箱, pyltp是python下对ltp(c++)的封装. 在linux下我们很容易的安装pyltp, 因为各种编译工具比较方便. 但是在windows下需要安装vs并且还得做一些配置, 因为我服务的人都是在windows下办公, 需要让他们能够在windows下使用ltp, 所以才有了这篇笔记. 我的方案有两个:
 
-另外我在文章最下面还整理了一种方法, 就是使用官方已经编译好的可执行文件, 直接在命令行(如cmd)下调用.
+- 在win10 的bash下安装ltp, 然后启动ltp的server, 通过http协议来实现在windows下python调用ltp的方法.
+- 安装编译好的wheel(目前只有python3.6/3.5 amd64)(我推荐这种方案)
+- 我在文章最下面还引用了一种方法, 就是使用官方已经编译好的可执行exe文件, 直接在命令行(如cmd)下调用.
 
 <!-- more -->
+## 第一种方案: bash下安装
+---
 
 ### 基本环境
 
@@ -272,7 +276,32 @@ print(json.dumps(rdata, indent=4, ensure_ascii=False))
 ]
 ```
 
-### 直接调用编译好的ltp
+## 第二种方案: 安装wheel
+---
+
+### 下载wheels
+
+- {% asset_link pyltp-0.2.1-cp35-cp35m-win_amd64.whl %}
+- {% asset_link pyltp-0.2.1-cp36-cp36m-win_amd64.whl %}
+
+> 注意: 这两个文件的区别是python版本号
+
+### 安装文件
+
+下载好了以后, 在命令行下, cd到wheel文件所在的目录, 然后使用命令`pip install wheel文件名`安装.
+
+### 测试
+
+安装好了以后, 打开python shell, 试用一下.
+
+```python
+from pyltp import SentenceSplitter
+sents = SentenceSplitter.split('元芳你怎么看？我就趴窗口上看呗！')  # 分句
+print('\n'.join(sents))
+```
+
+## 第三种方案: 直接调用编译好的ltp的可执行文件
+---
 
 可以参考这篇[文章](http://blog.csdn.net/churximi/article/details/51174182), 但是我在3.4版本中测试不成功, 加载srl资源失败. 但是在3.3.1版本上测试是成功的.
 
