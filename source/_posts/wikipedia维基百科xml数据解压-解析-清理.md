@@ -92,3 +92,9 @@ bunzip2 -k zhwiki-latest-pages-articles.xml.bz2
 ### 清理
 
 未完待续
+
+
+### 总结
+
+类别数: 276645
+总Page数: 3092774
