@@ -45,5 +45,5 @@ _converting
 
 ftp
 
-*.json
+package-lock.json
 
