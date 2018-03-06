@@ -28,6 +28,9 @@ i18n_dir: :lang
 skip_render:
 - '*.json'
 - '*.vender'
+- 'skip_render/**'
+- '_posts/**/skip_render/**'
+
 
 # Writing
 new_post_name: :title.md # File name of new posts
