@@ -1,0 +1,12 @@
+<% if (site.tags.length){ %>
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 footer-tags">
+    <h2><%- __('tags') %></h2>
+    <ul>
+        <% site.tags.sort('date').limit(100).each(function(cat){ %>
+        <span>
+            <a class="footer-post" href="<%- url_for(cat.path) %>"><%= cat.name.substring(0, 25) %></a>
+        </span>
+        <% }) %>
+    </ul>
+</div>
+<% } %>
