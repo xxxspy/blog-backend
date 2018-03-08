@@ -95,3 +95,8 @@ kramed:
   breaks: true
   smartLists: true
   smartypants: true
+
+
+# copy files
+copy_src: "_psychopy/"
+copy_dst: "psychopy/"
