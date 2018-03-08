@@ -98,5 +98,4 @@ kramed:
 
 
 # copy files
-copy_src: "_psychopy/"
-copy_dst: "psychopy/"
+static_dir: siteMirrors
