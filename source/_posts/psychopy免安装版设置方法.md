@@ -8,7 +8,8 @@ tags: [psychopy]
 
 <!--more-->
 
-从这篇文章中下载psychopy免安装版, 下载以后解压得`psychopy2`文件夹. 注意这个文件夹有一个文件是`pythonw`或者`pythonw.exe`, 记下它的绝对路径, 例如我的绝对路径就是:`e:\PsychoPy2\pythonw.exe`, 下面会用到.
+
+从这篇文章中下载psychopy免安装版:{% post_link psychopy绿色免安装版下载 %}, 下载以后解压得`psychopy2`文件夹. 注意这个文件夹有一个文件是`pythonw`或者`pythonw.exe`, 记下它的绝对路径, 例如我的绝对路径就是:`e:\PsychoPy2\pythonw.exe`, 下面会用到.
 
 {% asset_img trees.png %}
 
