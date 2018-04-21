@@ -98,6 +98,25 @@
     color: #d7ecff;
     font-size: 110%;
     }
+    pre > code {
+        -webkit-border-before: black;
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        color: #f9f4f4;
+        word-break: break-all;
+        word-wrap: break-word;
+        background-color: #f5f5f500;
+        border: 1px solid #eff3f521;
+        border-radius: 0;
+    }
+    pre > code::before {
+        content:"- ";
+        z-index: -1;
+        left:-2px;
+    }
     </style>
 
     <% if(page.mathjax){ %>
@@ -111,6 +130,10 @@
     <% if(page.synaptic){ %>
         <!-- synaptic -->
         <%- partial('synaptic') %>
+    <% } %>
+    <% if(page.requirejs){ %>
+        <!-- requirejs -->
+        <%- partial('requirejs') %>
     <% } %>
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
 </head>

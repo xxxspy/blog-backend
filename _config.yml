@@ -30,6 +30,8 @@ skip_render:
 - '*.vender'
 - 'skip_render/**'
 - '_posts/**/skip_render/**'
+- 'siteMirrors/**'
+- '*.js'
 
 
 # Writing

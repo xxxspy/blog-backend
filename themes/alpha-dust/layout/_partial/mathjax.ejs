@@ -1,9 +1,32 @@
-<script type="text/x-mathjax-config">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        var maths = document.getElementsByTagName("code");
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+    </script>
+
+<!-- <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
     menuSettings: {
       zoom: "None"
     },
-    showMathMenu: false,
+    showMathMenu: true,
     jax: ["input/TeX","output/CommonHTML"],
     extensions: ["tex2jax.js"],
     TeX: {
@@ -13,18 +36,18 @@
       }
     },
     tex2jax: {
-      inlineMath: [["\\(", "\\)"]],
-      displayMath: [["\\[", "\\]"]],
+      inlineMath: [["\\(", "\\)"],["$","$"]],
+      displayMath: [["\\[", "\\]"],["$$", "$$"]],
       skipTags: ['^(?!code).*$']
     }
   });
   var maths = document.getElementsByTagName("code");
   MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
-</script>
+</script> -->
 
 <!-- <script type="text/x-mathjax-config">
   MathJax.Hub.Config({tex2jax: {inlineMath: [ ['\\(','\\)']]} });
 </script> -->
 
-<script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script>
+<!-- <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
 <!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script> -->

@@ -43,8 +43,8 @@ jspm_packages
 
 _converting
 
-ftp
+/ftp
 
-package-lock.json
-db.json
-package.json
+/package-lock.json
+/db.json
+/package.json
