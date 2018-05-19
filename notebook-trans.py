@@ -178,6 +178,15 @@ class HexoExporter(MarkdownExporter):
         return super().template_path + [str(here)]
 
 
+def _add_infos(body, notebook_link, qq='675495787'):
+    info = (f'\n\n> **注意**\n'
+            f'> 本文由jupyter notebook转换而来, 您可以在这里下载[notebook]({notebook_link})\n'
+            f'> 有问题可以直接在下方留言\n'
+            f'> 或者给我发邮件{qq}[at]qq.com\n'
+            f'> 请记住我的网址: mlln.cn 或者 jupyter.cn\n')
+    body += info
+    return body
+
 def to_hexo(notebook_file, with_images=True, with_assets=False):
     nb_path = Path(notebook_file)
     nb = nbf.read(notebook_file, nbf.NO_CONVERT)
@@ -219,6 +228,7 @@ def to_hexo(notebook_file, with_images=True, with_assets=False):
                 shutil.copy(src, des)
     
     # 生成markdown
+    body = _add_infos(body, nb_path.name)
     fpath = _posts / (name + '.md')
     fpath.write_text(body, encoding='utf8')
 
