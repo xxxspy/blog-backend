@@ -12,7 +12,7 @@ public = here / 'public'
 def _push_page(type, pages):
     token = os.getenv('XIONGZHANGHAO_TOKEN')
     url = f'http://data.zz.baidu.com/urls?appid=1600845001263316&token={token}&type={type}'
-    pages = [f'{mysite}/{p}' for p in pages]
+    pages = [f'{mysite}/{p}/index.html' for p in pages]
     print(pages)
     pages = '\n'.join(pages)
     pages = pages.encode('utf8')
@@ -25,6 +25,8 @@ def _push_page(type, pages):
 
 
 def push(action='today', newest_num=1, type='realtime'):
+    # realtime: 当天更新的文章
+    # batch: 过期的文章
     assert type in ('realtime', 'batch')
     assert action in ('newest', 'today')
     now = datetime.datetime.now()
@@ -62,4 +64,4 @@ def push(action='today', newest_num=1, type='realtime'):
 
 
 if __name__ == '__main__':
-    push(action='newest', newest_num=40, type='batch')
+    push(action='today')
