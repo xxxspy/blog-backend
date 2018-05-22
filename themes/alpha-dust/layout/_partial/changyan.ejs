@@ -1,5 +1,12 @@
 <!--PC版畅言-->
-<div class="container"><div id="<%- page.url || config.url %>"></div>
+<% if(page){
+    var cid = page.path;
+}else{
+    var cid = config.root;
+}
+
+%>
+<div class="container"><div id="<%- cid %>"></div>
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
 window.changyan.api.config({
