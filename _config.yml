@@ -101,3 +101,6 @@ kramed:
 
 # copy files
 static_dir: siteMirrors
+
+# 熊掌号
+xiongzhang_default_image: '/xiongzhang.png'

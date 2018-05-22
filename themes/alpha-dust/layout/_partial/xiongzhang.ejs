@@ -1,0 +1,24 @@
+<!-- xiongzhang -->
+<script type="application/ld+json">
+<%  var images = [] %>
+<%
+    if(page.xiongzhang_images){
+        page.xiongzhang_images.forEach(
+            function(img_name){
+                images.push( '"'+page.permalink + img_name + '"');
+        })
+    }else{
+        images.push('"' + config.url + config.xiongzhang_default_image + '"')
+    }
+%>
+{
+    "@context": "https://ziyuan.baidu.com/contexts/cambrian.jsonld",
+    "@id": "<%= page.permalink %>index.html",
+    "appid": "1600845001263316",
+    "title": "<%= page.title %>",
+    "images": [
+        <%- images.join(',\n') %>
+    ], 
+    "pubDate": "<%= page.date.format('YYYY-MM-DDThh:mm:ss') %>" 
+}
+</script>

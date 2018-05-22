@@ -234,5 +234,5 @@ def to_hexo(notebook_file, with_images=True, with_assets=False):
 
 
 if __name__ == '__main__':
-    notebook_file = r'D:/mysites/notebooks/python3 f-string格式化字符串的高级用法.ipynb'
+    notebook_file = r'D:/mysites/notebooks/python-selenium如何在点击后等待页面刷新.ipynb'
     to_hexo(notebook_file)
