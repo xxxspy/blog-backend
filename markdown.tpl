@@ -34,7 +34,12 @@
 {% endblock execute_result %}
 
 {% block stream %}
+{{ '{%' }} raw {{ '%}' }}
+<div class="output">
+输出:
 {{ output.text | indent }}
+</div>
+{{ '{%' }} endraw {{ '%}' }}
 {% endblock stream %}
 
 {% block data_svg %}
@@ -50,11 +55,21 @@
 {% endblock data_jpg %}
 
 {% block data_latex %}
+{{ '{%' }} raw {{ '%}' }}
+<div class="output">
+输出:
 {{ output.data['text/latex'] }}
+</div>
+{{ '{%' }} endraw {{ '%}' }}
 {% endblock data_latex %}
 
 {% block data_html scoped %}
+{{ '{%' }} raw {{ '%}' }}
+<div class="output">
+输出:
 {{ output.data['text/html'] }}
+</div>
+{{ '{%' }} endraw {{ '%}' }}
 {% endblock data_html %}
 
 {% block data_markdown scoped %}
@@ -62,7 +77,12 @@
 {% endblock data_markdown %}
 
 {% block data_text scoped %}
+{{ '{%' }} raw {{ '%}' }}
+<div class="output">
+输出:
 {{ output.data['text/plain'] | indent }}
+</div>
+{{ '{%' }} endraw {{ '%}' }}
 {% endblock data_text %}
 
 {% block markdowncell scoped %}
