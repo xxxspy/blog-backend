@@ -142,6 +142,7 @@ def to_hexo(notebook_file, with_images=True, with_assets=False):
         for img in extract_images(body):
             src = nb_dir / img
             des = asset_dir / img
+            des.parent.mkdir(exist_ok=True, parents=True)
             if src.exists():
                 print(f'copy file to {des}')
                 shutil.copy(src, des)
@@ -153,5 +154,5 @@ def to_hexo(notebook_file, with_images=True, with_assets=False):
 
 
 if __name__ == '__main__':
-    notebook_file = r'D:/mysites/notebooks/pandas-Dataframe增加行删除行.ipynb'
+    notebook_file = r'D:/mysites/notebooks/中文语料库构建过程详细教程.ipynb'
     to_hexo(notebook_file)
