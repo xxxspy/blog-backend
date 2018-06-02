@@ -154,5 +154,5 @@ def to_hexo(notebook_file, with_images=True, with_assets=False):
 
 
 if __name__ == '__main__':
-    notebook_file = r'D:/mysites/notebooks/中文语料库构建过程详细教程.ipynb'
+    notebook_file = r'D:\mysites\notebooks\[转]吊炸天的中文自然语言处理工具和语料库介绍.ipynb'
     to_hexo(notebook_file)
