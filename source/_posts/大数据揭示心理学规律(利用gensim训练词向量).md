@@ -543,6 +543,10 @@ model.most_similar(positive=['完美主义', '失败'], negative=[], topn=20)
 
 
 
+### 视频演示
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/xJ-N8PrhaJY" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 
 > **注意**
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](大数据揭示心理学规律(利用gensim训练词向量).ipynb)
