@@ -31,7 +31,7 @@ skip_render:
 - 'skip_render/**'
 - '_posts/**/skip_render/**'
 - 'siteMirrors/**'
-- '*.js'
+- 'skip_me_*'
 
 
 # Writing

@@ -27,6 +27,15 @@
         
 <div class="row">
     <%- partial('_partial/header.ejs', {logoIcon: '', headerTitle: ''}) %>
+    
+    <div class="col-md-9 col-sm-12">
+        <!--Title and Logo-->
+        <section class="main">
+            <%- partial('_partial/article-long', {item: page}) %>
+        </section>
+    </div>
+
+    <!-- sidebar -->
     <div class="col-md-3 col-sm-12 sidebar">
         <div>
             <h3>相关文章</h3>
@@ -35,27 +44,19 @@
                     <i class="fa fa-tags" aria-hidden="true"></i>
                     <%- tags.join(' ') %>
                 </div>
-            <% } %>
+                <% } %>
         </div>
         <div class="page_list">
-             <% if(default_tag != null){ %>
+            <% if(default_tag != null){ %>
                 <% default_tag.posts.sort('date', -1).limit(100).each(function(post){ %>
                     <div class="archive-post">
-                        <a href="<%- url_for(post.path) %>"><%= post.title %></a>
+                        <a href="<%- url_for(post.path) %>">
+                            <%= post.title %>
+                        </a>
                     </div>
-                <% }) %>
-            <% } %>
+                    <% }) %>
+                        <% } %>
         </div>
-    </div>
-    <div class="col-md-9 col-sm-12">
-
-        <!--Title and Logo-->
-        
-
-        <section class="main">
-            <%- partial('_partial/article-long', {item: page}) %>
-        </section>
-
     </div>
 </div>
 <style>
