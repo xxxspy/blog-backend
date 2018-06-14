@@ -1,16 +1,75 @@
 
+<%
+    var tags = [];
+    var related_posts = [];
+     var default_tag = null;
+     console.log(page.tags)
+    if(page.tags && page.tags.length) {
+        
+        page.tags.forEach(function(tag){
+            if(default_tag == null){
+                 default_tag = tag;
+            }
+            tags.push('<a href="' + config.root + tag.path + '">' + tag.name + '</a>');
+        });
+    }
+    if(default_tag != null){
+        default_tag.posts.forEach(function(post) { 
+            related_posts.push({
+                title: post.title,
+                url: (post.path)
+            }) })
+    }
+     
+
+%>
+    
+        
 <div class="row">
-    <div class="col-sm-12">
-
+    
+    <div class="col-md-9 col-sm-12">
         <!--Title and Logo-->
-        <%- partial('_partial/header.ejs', {logoIcon: '', headerTitle: ''}) %>
-
         <section class="main">
             <%- partial('_partial/article-long', {item: page}) %>
         </section>
+    </div>
 
+    <!-- sidebar -->
+    <div class="col-md-3 col-sm-12 sidebar">
+        <div>
+            <h3>相关文章</h3>
+            <% if(tags.length) { %>
+                <div class="post-tags">
+                    <i class="fa fa-tags" aria-hidden="true"></i>
+                    <%- tags.join(' ') %>
+                </div>
+                <% } %>
+        </div>
+        <div class="page_list">
+            <% if(default_tag != null){ %>
+                <% default_tag.posts.sort('date', -1).limit(100).each(function(post){ %>
+                    <div class="archive-post">
+                        <a href="<%- url_for(post.path) %>">
+                            <%= post.title %>
+                        </a>
+                    </div>
+                    <% }) %>
+                        <% } %>
+        </div>
     </div>
 </div>
-
+<style>
+    .sidebar{
+    transition: none!important;
+    top: 0;
+    bottom: 0;
+    z-index: 1;
+    overflow-y: auto;
+    color: #d7ecff;
+    border-right: 1px solid rgba(0,0,0,.07);
+    background-color: #17303721;
+    }
+    
+</style>
 <!-- nav-box -->
 

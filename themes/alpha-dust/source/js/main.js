@@ -77,3 +77,15 @@ $(document).ready(function () {
     alphaDust.initMenu();
     alphaDust.displayArchives();
 });
+
+
+$(document).ready(function () {
+    let navToggler = $('#toggle-nav');
+    navToggler.click(function () {
+        if (navToggler.text() == '收起菜单') {
+            navToggler.text('展开菜单')
+        } else {
+            navToggler.text('收起菜单')
+        }
+    })
+})
