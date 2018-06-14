@@ -154,5 +154,5 @@ def to_hexo(notebook_file, with_images=True, with_assets=False):
 
 
 if __name__ == '__main__':
-    notebook_file = r'D:\mysites\notebooks\大数据揭示心理学规律(利用gensim训练词向量).ipynb'
+    notebook_file = r'D:\mysites\notebooks\tensorflow实现SOM案例教程.ipynb'
     to_hexo(notebook_file)
