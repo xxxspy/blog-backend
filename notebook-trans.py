@@ -154,5 +154,14 @@ def to_hexo(notebook_file, with_images=True, with_assets=False):
 
 
 if __name__ == '__main__':
-    notebook_file = r'D:\mysites\notebooks\tensorflow实现SOM案例教程.ipynb'
-    to_hexo(notebook_file)
+    import argparse
+    parser = argparse.ArgumentParser()
+    parser.add_argument('-d', '--directory', help='notebook文件夹',
+                        type=str, default=r'D:\mysites\notebooks')
+    parser.add_argument('name', help='notebook文件名, 无后缀, 后缀默认是.ipynb', type=str)
+    args = parser.parse_args()
+    
+    nb_path = Path(args.directory) / (args.name + '.ipynb')
+    if not nb_path.exists():
+        raise ValueError(f'File not exists: {nb_path}')
+    to_hexo(str(nb_path))
