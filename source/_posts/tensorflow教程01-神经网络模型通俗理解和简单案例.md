@@ -2,9 +2,10 @@
 ---
 title: tensorflow教程01-神经网络模型通俗理解和简单案例
 date: 2018-06-20 20:17:55
-tags: [tensorflow教程, python, 深度学习]
+tags: [tensorflow教程, 深度学习]
 toc: true
 xiongzhang: true
+mathjax: true
 
 ---
 <span></span>
@@ -102,86 +103,45 @@ optimizer = tf.train.GradientDescentOptimizer(0.025).minimize(loss)
 
 
 ```python
+%matplotlib inline
 sess.run(tf.global_variables_initializer())
+losses = []
+outputs = []
 for i in range(200):
-    if i % 10 ==0:
-        print('step: ', i)
-        print('output: ', output.eval())
-        print('loss:', loss.eval())
+    losses.append(loss.eval())
+    outputs.append(output.eval())
     sess.run(optimizer)
 
 print('最后的预测值:', output.eval())
 print('最后的loss:', loss.eval())
+
+
+
 ```
 
 {% raw %}
 <div class="output">
 输出:
-    step:  0
-    output:  0.5
-    loss: 0.25
-    step:  10
-    output:  0.44090095
-    loss: 0.19439365
-    step:  20
-    output:  0.3887873
-    loss: 0.15115556
-    step:  30
-    output:  0.3428334
-    loss: 0.11753474
-    step:  40
-    output:  0.30231112
-    loss: 0.09139202
-    step:  50
-    output:  0.26657856
-    loss: 0.07106413
-    step:  60
-    output:  0.23506948
-    loss: 0.055257663
-    step:  70
-    output:  0.20728472
-    loss: 0.042966954
-    step:  80
-    output:  0.18278405
-    loss: 0.03341001
-    step:  90
-    output:  0.16117933
-    loss: 0.025978778
-    step:  100
-    output:  0.14212826
-    loss: 0.020200443
-    step:  110
-    output:  0.12532897
-    loss: 0.015707351
-    step:  120
-    output:  0.11051533
-    loss: 0.012213639
-    step:  130
-    output:  0.09745263
-    loss: 0.009497016
-    step:  140
-    output:  0.08593392
-    loss: 0.0073846392
-    step:  150
-    output:  0.0757767
-    loss: 0.005742109
-    step:  160
-    output:  0.06682004
-    loss: 0.004464918
-    step:  170
-    output:  0.058922045
-    loss: 0.0034718073
-    step:  180
-    output:  0.05195757
-    loss: 0.0026995891
-    step:  190
-    output:  0.045816287
-    loss: 0.0020991322
     最后的预测值: 0.04040089
     最后的loss: 0.0016322319
     
 </div>
 {% endraw %}
+
+可视化训练过程:
+
+
+```python
+import matplotlib.pyplot as plt
+plt.plot(outputs, label='output')
+plt.plot(losses, label='loss')
+leg = plt.legend(loc='best', ncol=2, mode="expand", shadow=True, fancybox=True)
+plt.show()
+```
+
+
+![png](output_14_0.png)
+
 
 ### 总结
 
