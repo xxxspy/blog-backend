@@ -46,7 +46,7 @@
         </div>
         <div class="page_list">
             <% if(default_tag != null){ %>
-                <% default_tag.posts.sort('date', -1).limit(100).each(function(post){ %>
+                <% default_tag.posts.sort('date', -1).limit(50).each(function(post){ %>
                     <div class="archive-post">
                         <a href="<%- url_for(post.path) %>">
                             <%= post.title %>
