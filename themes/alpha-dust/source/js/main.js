@@ -89,3 +89,11 @@ $(document).ready(function () {
         }
     })
 })
+
+// 隐藏畅言广告
+$(document).ready(function(){
+    $('.list-block-gw.list-newest-w').hide()
+    window.setInterval(function () {
+        $('.list-block-gw.list-newest-w').hide()
+    }, 500);
+})
