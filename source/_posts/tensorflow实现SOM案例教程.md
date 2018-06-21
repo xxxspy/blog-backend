@@ -1,6 +1,6 @@
 ---
 title: tensorflow实现som案例教程
-date: 2018-06-15 8:17:55
+date: 2018-06-21 8:17:55
 tags: [tensorflow教程, python, som]
 toc: true
 mathjax: true

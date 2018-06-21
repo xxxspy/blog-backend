@@ -1,7 +1,7 @@
 
 ---
 title: tensorflow教程01-神经网络模型通俗理解和简单案例
-date: 2018-06-20 20:17:55
+date: 2018-06-21 20:17:55
 tags: [tensorflow教程, 深度学习]
 toc: true
 xiongzhang: true

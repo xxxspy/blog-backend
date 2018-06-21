@@ -1,7 +1,7 @@
 
 ---
 title: 大数据揭示心理学规律(利用gensim训练词向量)
-date: 2018-06-2 22:17:55
+date: 2018-06-21 12:17:55
 tags: [python, 心理学, gensim, pyltp, 词向量]
 toc: true
 xiongzhang: true
