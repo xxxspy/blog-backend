@@ -13,11 +13,14 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.common.keys import Keys
 import json
 import os
+import yaml
 
 driver_path = 'geckodriver.exe'
 here = Path(__file__).parent.absolute()
-img_dir = here/ 'source' / 'comments' / 'images'
+comment_dir = here / 'source' / 'comments'
+img_dir = comment_dir / 'images'
 data_path = here / 'source' / '_data' / 'comments.json'
+config_path = here / '_config.yml'
 browser = webdriver.Firefox(executable_path=driver_path)
 login_url = 'http://changyan.kuaizhan.com/'
 browser.get(login_url)
@@ -107,13 +110,44 @@ def download(browser: webdriver.Firefox):
             break
     # 按照时间顺序排序
     rtn.sort(key=lambda x: x['date'], reverse=True)
-    rtn = json.dumps(rtn)
-    data_path.write_text(rtn, encoding='utf8')
+    data = json.dumps(rtn)
+    data_path.write_text(data, encoding='utf8')
     return rtn
+
+
+def page_content(page, title='最新评论', type='comments'):
+    r = (f'---\n'
+         f'title: {title}\n'
+         f'type: {type}\n'
+         f'page: {page}\n'
+         f'---\n')
+    return r
+
+
+def generate_page(comments):
+    from math import ceil
+    with open(config_path, 'r', encoding='utf8') as stream:
+        config = yaml.load(stream)
+    per_page = int(config['comment_per_page'])
+    N = len(comments)
+    n_page = ceil(N / per_page)
+    for i in range(n_page):
+        fname = f'index.{i}.md.'
+        content = page_content(i)
+        fpath = comment_dir / fname
+        fpath.write_text(content, encoding='utf8')
+        print(f'Writing to {fpath}')
+    # 默认首页
+    fname = 'index.md'
+    content = page_content(0)
+    fpath = comment_dir / fname
+    fpath.write_text(content, encoding='utf8')
+    print(f'Writing to {fpath}')
+
 
 
 if __name__ == '__main__':
     email, password = get_login_info()
     login(browser, email, password)
     comments = download(browser)
-    print(comments)
+    generate_page(comments)
