@@ -1,0 +1,15 @@
+<div class="container changyan-comments">
+    <div class="cmt-list-type">
+        <ul class="clear-g type-lists">
+            <li class="type-list active">评论</li>
+            <!-- <li class="type-list">热门</li> -->
+        </ul>
+        <div class="cmt-list-border"></div>
+        <div class="cmt-list-number">
+            <span class="comment-number">
+                <span class="cy-number"><%= comments.length %></span>人参与,
+                <span class="cy-number"><%= comments.length %></span>条评论</span>
+        </div>
+    </div>
+    <%- partial('_partial/changyan-com-list', {comments: comments, simple:false}) %>
+</div>

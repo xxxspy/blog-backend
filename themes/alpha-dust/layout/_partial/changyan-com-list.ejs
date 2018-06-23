@@ -1,0 +1,45 @@
+<div class="cmt-list-content">
+    <% 
+        let h_class = simple ? 'hidden':'' 
+    %> 
+    <% comments.forEach(function(comment){ %>
+        <div class="user-head">
+            <div class="head-img-gw">
+                <a href="javascript:;" title="<%= comment.name %>">
+                    <div class="img-corner"></div>
+                    <img src="/comments/images/<%- comment.id %>.png" width="42" height="42" alt="">
+                </a>
+            </div>
+        </div>
+        <div class="cont-msg-gw">
+            <div class="msg-wrap-gw">
+                <div class="wrap-user-gw global-clear-spacing <%- h_class %>">
+                    <span class="user-time-gw">
+                        <%= comment.date %>
+                    </span>
+                    <span class="user-name-gw">
+                        <a href="javascript:void(0)">
+                            <%= comment.name %>
+                        </a>
+                    </span>
+                    <span class="user-address-gw">北京</span>
+                </div>
+                <div class="wrap-issue-gw">
+                    <p class="issue-wrap-gw">
+                        <a href="/<%- comment.href %>">
+                            <span class="wrap-word-gw">
+                                <%= comment.content.slice(0, 300) %>
+                            </span>
+                        </a>
+
+
+                    </p>
+
+                </div>
+                <a class="<%- h_class %>" href="/<%- comment.href %>">
+                    <span class="read-more">查看回复</span>
+                </a>
+            </div>
+        </div>
+        <% }) %>
+</div>

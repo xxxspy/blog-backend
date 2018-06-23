@@ -1,0 +1,29 @@
+<% item.tags.forEach(function(tag){ %>
+<div class="related-posts">
+    <h3>
+        <a href="<%- config.root + tag.path %>">
+            <%= tag.name %>
+        </a>
+    </h3>
+    <div class="page_list">
+        <% tag.posts.sort('date', -1).limit(15).each(function(post){ %>
+            <div class="archive-post">
+                <a href="<%- url_for(post.path) %>">
+                    <%= post.title %>
+                </a>
+            </div>
+            <% }) %>
+    </div>
+</div>
+<% }) %>
+
+<div class="related-posts hidden-sm-down">
+    <h3>
+        <a href="/comments/index.0.html">
+            最新评论
+        </a>
+    </h3>
+    <div class="page_list">
+        <%- partial('_partial/changyan-com-list', {simple: true, comments: site.data.comments.slice(0, 10)}) %>
+    </div>
+</div>
