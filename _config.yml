@@ -105,3 +105,18 @@ static_dir: siteMirrors
 
 # 熊掌号
 xiongzhang_default_image: '/xiongzhang.png'
+
+
+archive_generator:
+  per_page: 10
+  yearly: true
+  monthly: true
+  daily: false
+  order_by: -date
+
+
+alias:
+  /2018/index.html: /archives/2018/index.html
+  /2017/index.html: /archives/2017/index.html
+  /2016/index.html: /archives/2016/index.html
+  /2015/index.html: /archives/2015/index.html
