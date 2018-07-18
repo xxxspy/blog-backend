@@ -36,8 +36,8 @@
 {% block stream %}
 {{ '{%' }} raw {{ '%}' }}
 <div class="output">
-输出:
-{{ output.text | indent }}
+输出(stream):<br>
+{{ output.text   | replace('\n', '<br />') | indent }}
 </div>
 {{ '{%' }} endraw {{ '%}' }}
 {% endblock stream %}
@@ -57,8 +57,8 @@
 {% block data_latex %}
 {{ '{%' }} raw {{ '%}' }}
 <div class="output">
-输出:
-{{ output.data['text/latex'] }}
+输出(text):<br>
+{{ output.data['text/latex']   | replace('\n', '<br />') | indent}}
 </div>
 {{ '{%' }} endraw {{ '%}' }}
 {% endblock data_latex %}
@@ -66,7 +66,7 @@
 {% block data_html scoped %}
 {{ '{%' }} raw {{ '%}' }}
 <div class="output">
-输出:
+输出(html):<br>
 {{ output.data['text/html'] }}
 </div>
 {{ '{%' }} endraw {{ '%}' }}
@@ -79,12 +79,13 @@
 {% block data_text scoped %}
 {{ '{%' }} raw {{ '%}' }}
 <div class="output">
-输出:
-{{ output.data['text/plain'] | indent }}
+输出(plain):<br/>
+{% autoescape false %}
+{{ output.data['text/plain']  | replace('\n', '<br />') | indent }}
+{% endautoescape %}
 </div>
 {{ '{%' }} endraw {{ '%}' }}
 {% endblock data_text %}
-
 {% block markdowncell scoped %}
 {{ cell.source | mathjax }}
 {% endblock markdowncell %}
