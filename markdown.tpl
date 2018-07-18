@@ -37,7 +37,7 @@
 {{ '{%' }} raw {{ '%}' }}
 <div class="output">
 输出(stream):<br>
-{{ output.text   | replace('\n', '<br />') | indent }}
+{{ output.text   | replace('\n', '\n<br />') | indent }}
 </div>
 {{ '{%' }} endraw {{ '%}' }}
 {% endblock stream %}
@@ -58,7 +58,7 @@
 {{ '{%' }} raw {{ '%}' }}
 <div class="output">
 输出(text):<br>
-{{ output.data['text/latex']   | replace('\n', '<br />') | indent}}
+{{ output.data['text/latex']   | replace('\n', '\n<br />') | indent}}
 </div>
 {{ '{%' }} endraw {{ '%}' }}
 {% endblock data_latex %}
@@ -81,7 +81,7 @@
 <div class="output">
 输出(plain):<br/>
 {% autoescape false %}
-{{ output.data['text/plain']  | replace('\n', '<br />') | indent }}
+{{ output.data['text/plain']  | replace('\n', '\n<br />') | indent }}
 {% endautoescape %}
 </div>
 {{ '{%' }} endraw {{ '%}' }}
