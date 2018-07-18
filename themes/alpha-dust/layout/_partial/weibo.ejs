@@ -1,0 +1,15 @@
+
+<button class="btn btn-block btn-large" id="weibo-open-btn" > >>>点击查看评论/咨询问题<<< </button>
+<div id="weibo-container">
+    <div>
+        请 <span style="color:red">@该用户已经被封</span> 我才能回复你!
+    </div>
+    <script src="//tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+    <wb:topic column="n" border="n" width="560" height="1190" tags="<%= item.title %>" 
+        language="zh_cn" version="base"
+        appkey="4ljXPc" footbar="y" url="http://mlln.cn<%- url_for(item.path) %>" filter="y" 
+        color="000000%2Cffffff%2C0078b6%2Ccccccc%2C333333%2Cfafeff%2C0078b6%2Ccccccc%2Ccccccc%2Ce9f4fb00">
+    </wb:topic>
+</div>
+
+
