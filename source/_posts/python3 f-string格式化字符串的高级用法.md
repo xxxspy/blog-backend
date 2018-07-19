@@ -1,7 +1,7 @@
 
 ---
 title: python3 f-string格式化字符串的高级用法
-date: 2018-07-19 18:17:55
+date: 2018-05-19 18:17:55
 tags: [python, 格式化字符串]
 toc: true
 
@@ -10,7 +10,7 @@ toc: true
 <!-- more -->
 
 
-> 如果你刚入门python, 可以先看这篇字符串格式化的最佳实践, 它更适合入门:[python3字符串format最佳实践](/2018/07/01/python3字符串format最佳实践/)
+> 如果你刚入门python, 可以先看这篇字符串格式化的最佳实践, 它更适合入门:[python3字符串format最佳实践](/2018/07/19/python3字符串format最佳实践/)
 
 主要内容
 ------
