@@ -1,7 +1,7 @@
 
 ---
 title: python3 f-string格式化字符串的高级用法
-date: 2018-05-19 18:17:55
+date: 2018-07-19 18:17:55
 tags: [python, 格式化字符串]
 toc: true
 
@@ -9,6 +9,8 @@ toc: true
 <span></span>
 <!-- more -->
 
+
+> 如果你刚入门python, 可以先看这篇字符串格式化的最佳实践, 它更适合入门:[python3字符串format最佳实践](/2018/07/01/python3字符串format最佳实践/)
 
 主要内容
 ------
@@ -46,7 +48,14 @@ name = "Eric"
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Hello, Eric.'
+
+</div>
+{% endraw %}
 
 
 
@@ -62,7 +71,14 @@ age = 74
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Hello, Eric. You are 74.'
+
+</div>
+{% endraw %}
 
 
 
@@ -84,7 +100,14 @@ affiliation = "Monty Python"
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Hello, Eric Idle. You are 74. You are a comedian. You were a member of Monty Python.'
+
+</div>
+{% endraw %}
 
 
 
@@ -109,7 +132,14 @@ affiliation = "Monty Python"
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Hello, Eric. You are 74.'
+
+</div>
+{% endraw %}
 
 
 
@@ -123,7 +153,14 @@ affiliation = "Monty Python"
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Hello, Eric. You are 74-74.'
+
+</div>
+{% endraw %}
 
 
 
@@ -138,7 +175,14 @@ person = {'name': 'Eric', 'age': 74}
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Hello, Eric. You are 74.'
+
+</div>
+{% endraw %}
 
 
 
@@ -152,7 +196,14 @@ person = {'name': 'Eric', 'age': 74}
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Hello, Eric. You are 74.'
+
+</div>
+{% endraw %}
 
 
 
@@ -176,8 +227,13 @@ print(("Hello, {first_name} {last_name}. You are {age}. " +
                profession=profession, affiliation=affiliation))
 ```
 
+{% raw %}
+<div class="output">
+输出(stream):<br>
     Hello, Eric Idle. You are 74. You are a comedian. You were a member of Monty Python.
-    
+    <br />
+</div>
+{% endraw %}
 
 
 如果你有想要传递给字典中的`.format()`的变量，那么你可以用`.format（** some_dict）`解压缩它，并通过字符串中的键引用这些值，但是必须有更好的的方法
@@ -204,7 +260,14 @@ f"Hello, {name}. You are {age}."
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Hello, Eric. You are 74.'
+
+</div>
+{% endraw %}
 
 
 
@@ -218,7 +281,14 @@ F"Hello, {name}. You are {age}."
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Hello, Eric. You are 74.'
+
+</div>
+{% endraw %}
 
 
 
@@ -238,7 +308,14 @@ f"{2 * 37}"
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     '74'
+
+</div>
+{% endraw %}
 
 
 
@@ -252,7 +329,14 @@ f"{name.lower()} is funny."
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'eric is funny.'
+
+</div>
+{% endraw %}
 
 
 
@@ -282,7 +366,14 @@ f"{new_comedian}"
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Eric Idle is 74.'
+
+</div>
+{% endraw %}
 
 
 
@@ -300,7 +391,14 @@ f"{new_comedian}"
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Eric Idle is 74.'
+
+</div>
+{% endraw %}
 
 
 
@@ -312,7 +410,14 @@ f"{new_comedian!r}"
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Eric Idle is 74. Surprise!'
+
+</div>
+{% endraw %}
 
 
 
@@ -331,7 +436,14 @@ message
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Hi Eric. You are a comedian. You were in Monty Python.'
+
+</div>
+{% endraw %}
 
 
 
@@ -348,7 +460,14 @@ message
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Hi Eric. You are a {profession}. You were in {affiliation}.'
+
+</div>
+{% endraw %}
 
 
 
@@ -368,7 +487,14 @@ message
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     '\n    Hi Eric. \n    You are a comedian. \n    You were in Monty Python.\n '
+
+</div>
+{% endraw %}
 
 
 
@@ -392,8 +518,13 @@ age = 74
 '%s is %s.' % (name, age)
 ```
 
+{% raw %}
+<div class="output">
+输出(stream):<br>
     202 ns ± 2.05 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
-    
+    <br />
+</div>
+{% endraw %}
 
 
 ```python
@@ -403,8 +534,13 @@ age = 74
 '{} is {}.'.format(name, age)
 ```
 
+{% raw %}
+<div class="output">
+输出(stream):<br>
     244 ns ± 5.52 ns per loop (mean ± std. dev. of 7 runs, 1000000 loops each)
-    
+    <br />
+</div>
+{% endraw %}
 
 
 ```python
@@ -414,8 +550,13 @@ age = 74
 '{name} is {age}.'
 ```
 
+{% raw %}
+<div class="output">
+输出(stream):<br>
     14.4 ns ± 0.0121 ns per loop (mean ± std. dev. of 7 runs, 100000000 loops each)
-    
+    <br />
+</div>
+{% endraw %}
 
 你可以看到, 速度最快的就是f字符串.
 
@@ -437,7 +578,14 @@ f"{'Eric Idle'}"
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Eric Idle'
+
+</div>
+{% endraw %}
 
 
 
@@ -449,7 +597,14 @@ f'{"Eric Idle"}'
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Eric Idle'
+
+</div>
+{% endraw %}
 
 
 
@@ -461,7 +616,14 @@ f"""Eric Idle"""
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Eric Idle'
+
+</div>
+{% endraw %}
 
 
 
@@ -473,7 +635,14 @@ f'''Eric Idle'''
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'Eric Idle'
+
+</div>
+{% endraw %}
 
 
 
@@ -485,7 +654,14 @@ f"The \"comedian\" is {name}, aged {age}."
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'The "comedian" is Eric, aged 74.'
+
+</div>
+{% endraw %}
 
 
 
@@ -504,7 +680,14 @@ f"The comedian is {comedian['name']}, aged {comedian['age']}."
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     'The comedian is Eric Idle, aged 74.'
+
+</div>
+{% endraw %}
 
 
 
@@ -537,7 +720,14 @@ f"{{74}}"
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     '{74}'
+
+</div>
+{% endraw %}
 
 
 
@@ -551,7 +741,14 @@ f"{{{{74}}}}"
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     '{{74}}'
+
+</div>
+{% endraw %}
 
 
 
@@ -602,7 +799,14 @@ f"{(lambda x: x * 37) (2)}"
 
 
 
+{% raw %}
+<div class="output">
+输出(plain):<br/>
+
     '74'
+
+</div>
+{% endraw %}
 
 
 
