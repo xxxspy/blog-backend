@@ -1,8 +1,7 @@
 
 ---
 title: python3字符串format最佳实践
-date: 2018-07-19
-20:17:55
+date: 2018-07-19 20:17:55
 tags: [python, 格式化字符串]
 toc: true
 xiongzhang: true

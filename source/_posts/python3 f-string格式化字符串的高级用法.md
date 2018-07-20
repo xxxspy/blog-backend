@@ -2,7 +2,7 @@
 ---
 title: python3 f-string格式化字符串的高级用法
 date: 2018-05-19 18:17:55
-tags: [python, 格式化字符串]
+tags: [python,格式化字符串]
 toc: true
 
 ---
