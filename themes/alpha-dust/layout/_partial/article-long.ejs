@@ -6,8 +6,12 @@
             <a href="<%- url_for(item.path) %>">
                 <%- item.title || theme.default_post_title || __('default_post_title') %>
             </a>
+
         </h1>
-        
+        <div class="weibo-share">
+            <p>分享时@该用户已经被封, 我就能回答你的问题奥!</p>
+            <wb:share-button appkey="2694758202" addition="number" type="button" ralateUid="1312359657" default_text="<%- item.title || theme.default_post_title || __('default_post_title') %>"></wb:share-button>
+        </div>
         <div class="post-info">
             <% if(item.date) { %>
                 <span class="date"><%= item.date.format(config.date_format) %></span>
