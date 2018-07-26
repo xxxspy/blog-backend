@@ -1,15 +1,11 @@
 
-<button class="btn btn-block btn-large" id="weibo-open-btn" > >>>点击查看评论/咨询问题<<< </button>
-<div id="weibo-container">
-    <div>
-        请 <span style="color:red">@该用户已经被封</span> 我才能回复你!
-    </div>
-    <script src="//tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
-    <wb:topic column="n" border="n" width="560" height="1190" tags="<%= item.title %>" 
-        language="zh_cn" version="base"
-        appkey="4ljXPc" footbar="y" url="http://mlln.cn<%- url_for(item.path) %>" filter="y" 
-        color="000000%2Cffffff%2C0078b6%2Ccccccc%2C333333%2Cfafeff%2C0078b6%2Ccccccc%2Ccccccc%2Ce9f4fb00">
-    </wb:topic>
-</div>
+<script type="text/javascript">
+    (function () {
+        var url = "http://widget.weibo.com/distribution/comments.php?width=0&url=http%3A%2F%2Fmlln.cn<%= url_for(item.path) %>&skin=10&ralateuid=1312359657&appkey=2694758202&iframskin=10&dpc=1";
+        document.write('<iframe id="WBCommentFrame" src="' + url + '" scrolling="no" frameborder="0" style="width:100%"></iframe>');
+    })();
+</script>
+<script src="http://tjs.sjs.sinajs.cn/open/widget/js/widget/comment.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript"></script>
 
 
