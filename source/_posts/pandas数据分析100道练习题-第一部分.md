@@ -2,7 +2,7 @@
 ---
 title: pandas数据分析100道练习题-第一部分
 date: 2018-08-13 18:17:55
-tags: [python]
+tags: [python, pandas]
 toc: true
 xiongzhang: true
 xiongzhang_images: [main.jpg]
