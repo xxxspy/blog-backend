@@ -23,6 +23,9 @@
 	<%- partial('baidu_static') %>
 <% } %>
 
-<!-- repl -->
-<script src="/js/repl.it.js"></script>
 
+<% if(page.repl){ %>
+	<!-- repl -->
+	<script src="/js/repl.it.js"></script>
+	<a id="repl-url" href="<%= page.repl %>"></a>
+<% } %>

@@ -17,7 +17,9 @@ $(document).ready(function(){
         open:false,
         full:false,
     }
-    let iframe = `<iframe height="${Height}" width="100%" src="https://repl.it/@xxxspy/FoolishTechnologicalIntegers?lite=true" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>`
+    let repl_url = $('#repl-url').attr('href')
+    console.log(repl_url)
+    let iframe = `<iframe height="${Height}" width="100%" src="${repl_url}" scrolling="no" frameborder="no" allowtransparency="true" allowfullscreen="true" sandbox="allow-forms allow-pointer-lock allow-popups allow-same-origin allow-scripts allow-modals"></iframe>`
     iframe = $(iframe)
     let codes = $('figure.highlight')
     let firstCode = null
