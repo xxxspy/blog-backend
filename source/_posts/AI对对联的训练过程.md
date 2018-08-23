@@ -1,5 +1,5 @@
 ---
-title: DataScience博客重大更新-在线运行示例代码
+title: Ai对对联训练过程-好多精彩对联不舍得删
 date: 2018-08-23 22:54:31
 tags: [深度学习, ]
 toc: true
