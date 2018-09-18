@@ -9,6 +9,8 @@ xiongzhang: true
 
 DataCamp Light 是DataCamp公司提供的网页代码高亮和运行的前端插件, 目前只支持R和python, 下面我们用示例来说明如何把博客改造成可以实时运行代码的REPL。
 
+> 注意: 我近日发现DataCamp被-墙， 所以你们可能看不到代码编辑器和结果输出， 我在学校是可以看到的， 不明白好东西为什么总是被-墙。
+
 <!-- more -->
 
 ### DataCamp Light特点
