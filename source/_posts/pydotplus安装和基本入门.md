@@ -186,6 +186,7 @@ Image(graph.create_png())
 
 下面是可以在shape属性中使用的:
 
+{% raw %}
 <table align="CENTER">
   <tbody><tr align="CENTER">
     <td><img src="https://graphviz.gitlab.io/_pages/doc/info/box.gif">
@@ -367,10 +368,13 @@ Image(graph.create_png())
   </td></tr>
 </tbody></table>
 
+{% endraw %}
+
 #### 可用颜色
 
 下面是可以在属性color中使用的:
 
+{% raw %}
 <table border="1" align="center">
 <tbody><tr align="center">
 <td bgcolor="#f0f8ff"><a title="#f0f8ff">aliceblue</a></td>
@@ -1291,10 +1295,14 @@ Image(graph.create_png())
 </tr>
 </tbody></table>
 
+{% endraw %}
+
+
 #### 箭头类型
 
 通常可以这样指定箭头形状: `[arrowhead=dot]`
 
+{% raw %}
 <table>
   <tbody><tr>
     <td>"box"</td><td><img src="https://graphviz.gitlab.io/_pages/doc/info/a_box.gif">
@@ -1318,6 +1326,7 @@ Image(graph.create_png())
     </td><td>"vee"</td><td><img src="https://graphviz.gitlab.io/_pages/doc/info/a_open.gif">
   </td></tr>
 </tbody></table>
+{% endraw %}
 
 下面是一个案例:
 
