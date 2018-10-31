@@ -21,14 +21,14 @@ xiongzhang: false
 
 这必须是最酷的机器学习实现之一。如果你不知道什么是`neural style transfer`，它的大概意思就是将一个图片的内容和两个图片的风格融合构成一个新的图片。
 
-例如:
+例如, 左边的图片提供内容, 中间的图片提供风格, 最后融合成右边的图片:
 
 <img src="images/style-trans.png" />
 
 
 在本教程中，我们将学习如何使用深度学习将图片的风格进行转换。这被称为`neural style transfer`！这是Leon A. Gatys的论文“A Neural Algorithm of Artistic Style,”中概述的一种技术，这个论很好，你一定要看看它:https://arxiv.org/abs/1508.06576
 
-Neural style transfer is an optimization technique used to take three images, a content image, a style reference image (such as an artwork by a famous painter), and the input image you want to style — and blend them together such that the input image is transformed to look like the content image, but “painted” in the style of the style image.
+Neural style transfer 是一种优化方法, 它需要三张图片, 一张是内容图片, 一张是风格图片, 第三张是生成图片(初始值使用内容图片), 通过迭代优化, 最终使得第三张图片结合了第一张图片的内容和第二张图片的风格。 
 
 Neural style transfer的原理是定义两个距离函数，一个描述两个图像的内容有多么不同，`$L_{content}$`，一个描述两个图像之间的风格`$L_{style}$`
 
