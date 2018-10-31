@@ -11,7 +11,7 @@ tags: [numpy, matplotlib, 数据可视化]
 ### 视频教程
 
 {% raw %}
-<embed src='http://player.youku.com/player.php/sid/XMzg5MTYwMTMyOA==/v.swf' allowFullScreen='true' quality='high' width='100%' height='500' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+<embed src='//player.youku.com/player.php/sid/XMzg5MTYwMTMyOA==/v.swf' allowFullScreen='true' quality='high' width='100%' height='500' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
 
 {% endraw %}
 
