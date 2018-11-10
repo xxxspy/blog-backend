@@ -1,7 +1,7 @@
 ---
 title: Q-learning人工智能玩推箱子小游戏
 date: 2018-03-10 10:37:22
-tags: [人工智能, Q-learning, 机器学习, 深度学习]
+tags: [人工智能, Q-learning, 机器学习, 深度学习, 游戏]
 ---
 
 
