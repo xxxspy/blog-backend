@@ -1,0 +1,19 @@
+<%  tags.forEach(function(tag){ %>
+<div class="col-md-4">
+    <h3>
+        <a href="<%- config.root + tag.path %>">
+            <%= tag.name %>
+        </a>
+    </h3>
+    <div class="page_list archive-container">
+        <% tag.posts.sort('date', -1).limit(5).each(function(post){ %>
+            <div class="archive-post">
+                <a href="<%- url_for(post.path) %>">
+                    <%= post.title %>
+                </a>
+            </div>
+            <% }) %>
+    </div>
+</div>
+
+<% }) %>
