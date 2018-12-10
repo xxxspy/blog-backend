@@ -4,6 +4,7 @@ title: python模拟数据的生成
 date: 2018-12-09 18:17:55
 tags: [python]
 toc: true
+mathjax: true
 
 ---
 
