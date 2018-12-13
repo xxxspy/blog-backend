@@ -35,9 +35,9 @@
 
 {% block stream %}
 {{ '{%' }} raw {{ '%}' }}
-<div class="output">
+<div class="output" contenteditable="true">
 输出(stream):<br>
-{{ output.text   | replace('\n', '\n<br />') | indent }}
+{{ output.text }}
 </div>
 {{ '{%' }} endraw {{ '%}' }}
 {% endblock stream %}
@@ -56,7 +56,7 @@
 
 {% block data_latex %}
 {{ '{%' }} raw {{ '%}' }}
-<div class="output">
+<div class="output" contenteditable="true">
 输出(text):<br>
 {{ output.data['text/latex']   | replace('\n', '\n<br />') | indent}}
 </div>
@@ -65,7 +65,7 @@
 
 {% block data_html scoped %}
 {{ '{%' }} raw {{ '%}' }}
-<div class="output">
+<div class="output" contenteditable="true">
 输出(html):<br>
 {{ output.data['text/html'] }}
 </div>
