@@ -28,6 +28,7 @@ i18n_dir: :lang
 skip_render:
 - '*.json'
 - '*.vender'
+- '*.html'
 - 'skip_render/**'
 - '_posts/**/skip_render/**'
 - '_posts/**/**.html'  # 这是用于 p5js教程
