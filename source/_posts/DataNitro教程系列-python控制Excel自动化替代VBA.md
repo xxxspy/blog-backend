@@ -34,7 +34,7 @@ DataNitro是excel的一个插件, 它整合了python解释器, 因此你可以�
 图文教程:  https://mlln.cn/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/
 
 
-<embed src='http://player.youku.com/player.php/sid/XMzk5OTQ1NTg4MA==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+<embed src='//player.youku.com/player.php/sid/XMzk5OTQ1NTg4MA==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600' align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
 
 
 #### DataNitro Python入门
@@ -42,7 +42,7 @@ DataNitro是excel的一个插件, 它整合了python解释器, 因此你可以�
 
 图文教程:  https://mlln.cn/2015/10/01/DataNitro：[2]调用Python的方法/
 
-<embed src='http://player.youku.com/player.php/sid/XMzk5OTQ1Nzk3Ng==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600'  align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+<embed src='//player.youku.com/player.php/sid/XMzk5OTQ1Nzk3Ng==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600'  align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
 
 
 #### DataNitro CellRange对象
@@ -51,7 +51,7 @@ DataNitro是excel的一个插件, 它整合了python解释器, 因此你可以�
 图文教程:  https://mlln.cn/2016/07/01/DataNitro：[4]CellRange对象/
 图文教程:  https://mlln.cn/2016/01/01/DataNitro：[5]Cell对象方法/
 
-<embed src='http://player.youku.com/player.php/sid/XMzk5OTQ1OTY2MA==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600'  align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+<embed src='//player.youku.com/player.php/sid/XMzk5OTQ1OTY2MA==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600'  align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
 
 
 #### DataNitro sheet操作
@@ -59,31 +59,31 @@ DataNitro是excel的一个插件, 它整合了python解释器, 因此你可以�
 图文教程:  https://mlln.cn/2016/09/19/DataNitro：[6]sheet操作(A)/
 图文教程:  https://mlln.cn/2016/06/01/DataNitro：[7]sheet操作(B)/
 
-<embed src='http://player.youku.com/player.php/sid/XMzk5OTQ2MTAyMA==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600'  align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+<embed src='//player.youku.com/player.php/sid/XMzk5OTQ2MTAyMA==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600'  align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
 
 #### DataNitro workbook对象
 
 图文教程:  https://mlln.cn/2015/09/17/DataNitro：[8]workbook对象/
 
-<embed src='http://player.youku.com/player.php/sid/XMzk5OTQ2NDI4NA==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600'  align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+<embed src='//player.youku.com/player.php/sid/XMzk5OTQ2NDI4NA==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600'  align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
 
 
 #### DataNitro 自定义函数
 
 图文教程:  https://mlln.cn/2015/06/11/DataNitro：[9]自定义函数/
 
-<embed src='http://player.youku.com/player.php/sid/XMzk5OTQ2NjEwNA==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600'  align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+<embed src='//player.youku.com/player.php/sid/XMzk5OTQ2NjEwNA==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600'  align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
 
 #### DataNitro Image对象
 
 
 图文教程:  https://mlln.cn/2016/03/19/DataNitro：[10]Image对象/
 
-<embed src='http://player.youku.com/player.php/sid/XMzk5OTQ2NzQzNg==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600'  align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+<embed src='//player.youku.com/player.php/sid/XMzk5OTQ2NzQzNg==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600'  align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
 
 
 #### DataNitro 自动换行
 
 图文教程:  https://mlln.cn/2015/01/11/DataNitro：[11]自动换行/
 
-<embed src='http://player.youku.com/player.php/sid/XMzk5OTQ2ODkzNg==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600'  align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
+<embed src='//player.youku.com/player.php/sid/XMzk5OTQ2ODkzNg==/v.swf' allowFullScreen='true' quality='high' width='100%' height='600'  align='middle' allowScriptAccess='always' type='application/x-shockwave-flash'></embed>
