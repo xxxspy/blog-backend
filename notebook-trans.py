@@ -157,7 +157,7 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('-d', '--directory', help='notebook文件夹',
-                        type=str, default=r'D:\mysites\notebooks')
+                        type=str, default=r'D:\notebooks')
     parser.add_argument('name', help='notebook文件名, 无后缀, 后缀默认是.ipynb', type=str)
     args = parser.parse_args()
     
