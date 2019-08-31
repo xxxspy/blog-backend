@@ -4,6 +4,7 @@
 title: SPSS的Process插件下载和安装
 date: 2019-08-21 12:44:03
 tags: [spss, process]
+---
 
 
 SPSS的Process插件由 Andrew F. Hayes, Ph.D 开发, 大家可以免费使用。Process的主要用途就是进行一些路径分析, 比如中介效应/调节效应的检验, 不过, 其实没有这个插件, 我们也能进行这些分析, 有了Process插件的好处就是我们不必重复劳动, 而且提高了工作效率。
@@ -12,7 +13,6 @@ SPSS的Process插件由 Andrew F. Hayes, Ph.D 开发, 大家可以免费使用�
 
 <!-- more -->
 
----
 
 ### Process有两种使用方法
 
