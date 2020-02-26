@@ -1,6 +1,5 @@
 /.deploy_git
 /node_modules
-/public
 __pycache__
 
 
