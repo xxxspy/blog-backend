@@ -98,6 +98,7 @@ console.log('hello')
 {% endraw %}
 
 
+
 > **注意**
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](spss计算平均方差提取量AVE和组合信度CR的方法.ipynb)
 > 有问题可以直接在下方留言
