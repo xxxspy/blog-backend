@@ -291,7 +291,10 @@
 <p><img src="imgs/factor-analysis-dialog.png"></p>
 <p>运行命令以后, 可以输出旋转后因子成分矩阵, 下图中, 红色方框中的因子载荷就是第一个因子的因子载荷, 利用这些数据就可以计算第一个因子的平均提取方差值(AVE)和组合信度(CR):</p>
 <p><img src="imgs/rotated-component-matrix.png"></p>
-<h3 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h3><p>假设<code>$\lambda$</code>代表题目的因子载荷, 那么平均方差提取量(Average Variance Extracted)<code>$l_{AVE}$</code></p>
+<h3 id="计算公式"><a href="#计算公式" class="headerlink" title="计算公式"></a>计算公式</h3><p>假设<code>$\lambda$</code>代表题目的因子载荷, 那么平均方差提取量(Average Variance Extracted)<code>$l_{AVE}$</code>的计算步骤是:</p>
+<p><code>$$
+$l_{AVE}$ = {( \sum \lambda^2) \over N}
+$$</code></p>
 <p>那么组合信度( Composite Reliability)的计算公式是:</p>
 <p><code>$$
 l_{CR} = {( \sum \lambda)^2 \over {( \sum \lambda)^2 + \sum \varepsilon}}

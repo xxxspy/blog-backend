@@ -31,7 +31,11 @@ tags: [spss, ]
 
 ### 计算公式
 
-假设`$\lambda$`代表题目的因子载荷, 那么平均方差提取量(Average Variance Extracted)`$l_{AVE}$`
+假设`$\lambda$`代表题目的因子载荷, 那么平均方差提取量(Average Variance Extracted)`$l_{AVE}$`的计算步骤是:
+
+`$$
+$l_{AVE}$ = {( \sum \lambda^2) \over N}
+$$`
 
 那么组合信度( Composite Reliability)的计算公式是:
 
