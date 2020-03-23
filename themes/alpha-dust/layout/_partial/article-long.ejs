@@ -9,8 +9,7 @@
 
         </h1>
         <div class="weibo-share">
-            <p>分享时@该用户已经被封, 我就能回答你的问题奥!</p>
-            <wb:share-button appkey="2694758202" addition="number" type="button" ralateUid="1312359657" default_text="<%- item.title || theme.default_post_title || __('default_post_title') %>"></wb:share-button>
+            <p>微博@mlln-cn, 并附上文章url链接, 我就能回答你的问题奥!</p>
         </div>
         <div class="post-info">
             <% if(item.date) { %>
@@ -60,7 +59,6 @@
         </div>
     <% } %>
 
-    <!-- Comments -->
-    <%- partial('weibo', {item:item}) %>
+
 
 </div>
