@@ -240,7 +240,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#基本用法"><span class="toc-number">2.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#多个占位符"><span class="toc-number">3.</span> <span class="toc-text">多个占位符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#设定格式"><span class="toc-number">4.</span> <span class="toc-text">设定格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字符串补齐"><span class="toc-number">5.</span> <span class="toc-text">字符串补齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用变量"><span class="toc-number">6.</span> <span class="toc-text">使用变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">基本用法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">多个占位符</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">设定格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">字符串补齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">使用变量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">总结</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -257,9 +257,9 @@
 <li>python3.6</li>
 <li>jupyter notebook</li>
 </ul>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>之前写了一篇文章广受欢迎:<a href="http://www.mlln.cn/2018/05/19/python3%20f-string%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/" target="_blank" rel="noopener">f-string格式化字符串的高级用法</a>, 但是, 这篇文章针对的是有经验的python程序员, 下面这篇文章更多的是针对刚入门python的新人。</p>
+<h3><span id="简介">简介</span></h3><p>之前写了一篇文章广受欢迎:<a href="http://www.mlln.cn/2018/05/19/python3%20f-string%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/" target="_blank" rel="noopener">f-string格式化字符串的高级用法</a>, 但是, 这篇文章针对的是有经验的python程序员, 下面这篇文章更多的是针对刚入门python的新人。</p>
 <p>Python的字符串类的<code>str.format()</code>方法允许您进行变量替换和值格式化。本教程将指导您完成Python中格式化程序的一些常见用法，这有助于使您的代码和程序更具可读性和用户友好性。</p>
-<h3 id="基本用法"><a href="#基本用法" class="headerlink" title="基本用法"></a>基本用法</h3><p>格式化通过将一个或多个占位符（由一对花括号<code>{}</code>定义）放入字符串, 并调用str.format方法填充这些占位符。说一万句话不如一个例子, 看例子:</p>
+<h3><span id="基本用法">基本用法</span></h3><p>格式化通过将一个或多个占位符（由一对花括号<code>{}</code>定义）放入字符串, 并调用str.format方法填充这些占位符。说一万句话不如一个例子, 看例子:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"我有&#123;&#125;个气球"</span>.format(<span class="number">5</span>))</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -294,7 +294,7 @@
     <br>
 </div>
 
-<h3 id="多个占位符"><a href="#多个占位符" class="headerlink" title="多个占位符"></a>多个占位符</h3><p>使用格式化字符串时，可以使用多对花括号。如果我们想在上面的句子中添加另一个占位符，我们可以通过添加第二对花括号并将第二个值传递给方法来实现：</p>
+<h3><span id="多个占位符">多个占位符</span></h3><p>使用格式化字符串时，可以使用多对花括号。如果我们想在上面的句子中添加另一个占位符，我们可以通过添加第二对花括号并将第二个值传递给方法来实现：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"我有&#123;&#125;个气球和&#123;&#125;个棒棒糖"</span>.format(<span class="number">5</span>, <span class="number">6</span>))</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -341,7 +341,7 @@
     <br>
 </div>
 
-<h3 id="设定格式"><a href="#设定格式" class="headerlink" title="设定格式"></a>设定格式</h3><p>我们可以在语法的花括号中包含更多参数。我们将使用格式代码语法{field_name：conversion}，其中field_name指str.format方法的参数的索引号或关键字，conversion是指数据要转换成的类型。</p>
+<h3><span id="设定格式">设定格式</span></h3><p>我们可以在语法的花括号中包含更多参数。我们将使用格式代码语法{field_name：conversion}，其中field_name指str.format方法的参数的索引号或关键字，conversion是指数据要转换成的类型。</p>
 <p>转换类型是指Python使用的单字符类型代码。<code>s</code>代表字符串，<code>d</code>代表十进制整数（10-base），以及<code>f</code>代表带小数位的浮点数。您可以通过Python3的官方文档阅读有关<a href="https://docs.python.org/3.6/library/string.html#format-specification-mini-language" target="_blank" rel="noopener">Format-Specification Mini-Language</a>的更多信息。</p>
 <p>我们看一个例子:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"我吃了&#123;0:f&#125;个&#123;1&#125;!"</span>.format(<span class="number">75</span>, <span class="string">"pizza"</span>))</span><br></pre></td></tr></table></figure>
@@ -390,7 +390,7 @@ ValueError: Unknown format code &apos;d&apos; for object of type &apos;float&apo
     <br>
 </div>
 
-<h3 id="字符串补齐"><a href="#字符串补齐" class="headerlink" title="字符串补齐"></a>字符串补齐</h3><p>您可以通过其他参数填充或创建元素周围的空间。当我们需要呈现大量数据时，这非常有用。只需要在冒号后面指定一个数字:</p>
+<h3><span id="字符串补齐">字符串补齐</span></h3><p>您可以通过其他参数填充或创建元素周围的空间。当我们需要呈现大量数据时，这非常有用。只需要在冒号后面指定一个数字:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">"我有&#123;0:4&#125;红色的&#123;1:16&#125;!"</span>.format(<span class="number">5</span>, <span class="string">"苹果"</span>))</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -447,7 +447,7 @@ ValueError: Unknown format code &apos;d&apos; for object of type &apos;float&apo
     <br>
 </div>
 
-<h3 id="使用变量"><a href="#使用变量" class="headerlink" title="使用变量"></a>使用变量</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n_app = <span class="number">5</span></span><br><span class="line">print(<span class="string">'我吃了&#123;&#125;个苹果'</span>.format(n_app))</span><br><span class="line">print(<span class="string">'我吃了&#123;n_app&#125;个苹果'</span>.format(n_app=n_app))</span><br></pre></td></tr></table></figure>
+<h3><span id="使用变量">使用变量</span></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">n_app = <span class="number">5</span></span><br><span class="line">print(<span class="string">'我吃了&#123;&#125;个苹果'</span>.format(n_app))</span><br><span class="line">print(<span class="string">'我吃了&#123;n_app&#125;个苹果'</span>.format(n_app=n_app))</span><br></pre></td></tr></table></figure>
 
 <div class="output">
 输出(stream):<br>
@@ -465,7 +465,7 @@ ValueError: Unknown format code &apos;d&apos; for object of type &apos;float&apo
     <br>
 </div>
 
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>使用format进行变量替换是连接字符串和组织值和数据的有效方法。 format方法对于确保输出可读且用户友好非常有用。另外, 在python3.6以后, f-string开始流行, 也就是在字符串前面加f, 表明时一个可以被格式化的字符串, 关于如何使用f字符串, 请移步我之前的一篇文章:<a href="http://www.mlln.cn/2018/05/19/python3%20f-string%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/" target="_blank" rel="noopener">f-string格式化字符串的高级用法</a></p>
+<h3><span id="总结">总结</span></h3><p>使用format进行变量替换是连接字符串和组织值和数据的有效方法。 format方法对于确保输出可读且用户友好非常有用。另外, 在python3.6以后, f-string开始流行, 也就是在字符串前面加f, 表明时一个可以被格式化的字符串, 关于如何使用f字符串, 请移步我之前的一篇文章:<a href="http://www.mlln.cn/2018/05/19/python3%20f-string%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9A%84%E9%AB%98%E7%BA%A7%E7%94%A8%E6%B3%95/" target="_blank" rel="noopener">f-string格式化字符串的高级用法</a></p>
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="python3字符串format最佳实践.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>

@@ -223,7 +223,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#textgenrnn-Demo"><span class="toc-number">1.</span> <span class="toc-text">textgenrnn Demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">2.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#生成文本"><span class="toc-number">3.</span> <span class="toc-text">生成文本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#使用新的文本训练"><span class="toc-number">4.</span> <span class="toc-text">使用新的文本训练</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#保存和加载模型"><span class="toc-number">5.</span> <span class="toc-text">保存和加载模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#训练全新模型-生成中文文本"><span class="toc-number">6.</span> <span class="toc-text">训练全新模型(生成中文文本)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#在大型文本文件上训练"><span class="toc-number">7.</span> <span class="toc-text">在大型文本文件上训练</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">textgenrnn Demo</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">生成文本</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">使用新的文本训练</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">保存和加载模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">训练全新模型(生成中文文本)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">在大型文本文件上训练</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -237,8 +237,8 @@
 <li>python3.6</li>
 <li>jupyter notebook</li>
 </ul>
-<h2 id="textgenrnn-Demo"><a href="#textgenrnn-Demo" class="headerlink" title="textgenrnn Demo"></a>textgenrnn Demo</h2><p>改编by <a href="http://mlln.cn">DataScience</a></p>
-<h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><p><code>textgenrnn</code>是一个python库, 用于生成文本, 后端使用tesorflow和keras。下面我们引入用到的库:</p>
+<h2><span id="textgenrnn-demo">textgenrnn Demo</span></h2><p>改编by <a href="http://mlln.cn">DataScience</a></p>
+<h2><span id="简介">简介</span></h2><p><code>textgenrnn</code>是一个python库, 用于生成文本, 后端使用tesorflow和keras。下面我们引入用到的库:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> textgenrnn <span class="keyword">import</span> textgenrnn</span><br><span class="line"></span><br><span class="line">textgen = textgenrnn()</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -247,7 +247,7 @@
     <br>
 </div>
 
-<h2 id="生成文本"><a href="#生成文本" class="headerlink" title="生成文本"></a>生成文本</h2><p>使用<code>generate</code> 函数生成n个短文:</p>
+<h2><span id="生成文本">生成文本</span></h2><p>使用<code>generate</code> 函数生成n个短文:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textgen.generate(<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -311,7 +311,7 @@
 
 <p>你也可以<code>generate_to_file（）</code>使生成的文本更容易复制/粘贴到其他来源（例如博客/社交媒体）：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">textgen.generate_to_file(<span class="string">'textgenrnn_texts.txt'</span>, n=<span class="number">5</span>)</span><br></pre></td></tr></table></figure>
-<h2 id="使用新的文本训练"><a href="#使用新的文本训练" class="headerlink" title="使用新的文本训练"></a>使用新的文本训练</h2><p>如上所示，预训练模型的结果差别很大，因为它是以小形式压缩的大量数据。 <code>train_on_texts</code>函数可以在新数据集上对模型进行微调。</p>
+<h2><span id="使用新的文本训练">使用新的文本训练</span></h2><p>如上所示，预训练模型的结果差别很大，因为它是以小形式压缩的大量数据。 <code>train_on_texts</code>函数可以在新数据集上对模型进行微调。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">texts = [<span class="string">'Never gonna give you up, never gonna let you down'</span>,</span><br><span class="line">            <span class="string">'Never gonna run around and desert you'</span>,</span><br><span class="line">            <span class="string">'Never gonna make you cry, never gonna say goodbye'</span>,</span><br><span class="line">            <span class="string">'Never gonna tell a lie and hurt you'</span>]</span><br><span class="line"></span><br><span class="line">textgen.train_on_texts(texts, num_epochs=<span class="number">2</span>,  gen_epochs=<span class="number">2</span>)</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -421,7 +421,7 @@
 <li>*<code>dropout</code>：保留的序列激活比例。适合控制过度拟合/提高对打字错误的抵抗力，但设置过高会导致网络过早收敛。 （默认值：0.0）</li>
 <li>*<code>is_csv</code>：如果源文件是单列CSV（例如从BigQuery或Google表格中导出），则使用<code>train_from_file</code>以获得正确的换行符。</li>
 </ul>
-<h2 id="保存和加载模型"><a href="#保存和加载模型" class="headerlink" title="保存和加载模型"></a>保存和加载模型</h2><p>模型在每个epoch后自动保存权重，或者您可以调用<code>save（）</code>并给出HDF5文件名。然后，通过指定构造中权重的路径，可以将这些权重加载到新的textgenrnn模型中。 （或者对现有的textgenrnn对象使用<code>load（）</code>）。</p>
+<h2><span id="保存和加载模型">保存和加载模型</span></h2><p>模型在每个epoch后自动保存权重，或者您可以调用<code>save（）</code>并给出HDF5文件名。然后，通过指定构造中权重的路径，可以将这些权重加载到新的textgenrnn模型中。 （或者对现有的textgenrnn对象使用<code>load（）</code>）。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">textgen_2 = textgenrnn(<span class="string">'textgenrnn_weights.hdf5'</span>)</span><br><span class="line">textgen_2.generate_samples()</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -525,7 +525,7 @@
     <br>
 </div>
 
-<h2 id="训练全新模型-生成中文文本"><a href="#训练全新模型-生成中文文本" class="headerlink" title="训练全新模型(生成中文文本)"></a>训练全新模型(生成中文文本)</h2><p>您可以使用任何现代RNN架构训练新模型，如果提供文本，则调用“train_new_model”，或者如果从文件训练，则添加“new_model = True”参数。如果你这样做，除了权重之外，模型将保存一个<code>config</code>文件和一个<code>vocab</code>文件，这些文件也必须加载到<code>textgenrnn</code>实例中。</p>
+<h2><span id="训练全新模型生成中文文本">训练全新模型(生成中文文本)</span></h2><p>您可以使用任何现代RNN架构训练新模型，如果提供文本，则调用“train_new_model”，或者如果从文件训练，则添加“new_model = True”参数。如果你这样做，除了权重之外，模型将保存一个<code>config</code>文件和一个<code>vocab</code>文件，这些文件也必须加载到<code>textgenrnn</code>实例中。</p>
 <p>可用的配置参数是：</p>
 <ul>
 <li>*<code>word_level</code>：是否在单词级别训练模型（默认值：False）</li>
@@ -1187,7 +1187,7 @@
     <br>
 </div>
 
-<h2 id="在大型文本文件上训练"><a href="#在大型文本文件上训练" class="headerlink" title="在大型文本文件上训练"></a>在大型文本文件上训练</h2><p>尽管textgenrnn旨在对文本文档进行训练，但您可以使用<code>train_from_largetext_file</code>（加载整个文件并将其处理为单个文档）在大文本块上训练它，它应该可以正常工作。这类似于更传统的char-rnn教程。</p>
+<h2><span id="在大型文本文件上训练">在大型文本文件上训练</span></h2><p>尽管textgenrnn旨在对文本文档进行训练，但您可以使用<code>train_from_largetext_file</code>（加载整个文件并将其处理为单个文档）在大文本块上训练它，它应该可以正常工作。这类似于更传统的char-rnn教程。</p>
 <p>建议训练新模型（默认情况下）。当调用<code>generate</code>时，你可能想要增加<code>max_gen_length</code>的值。</p>
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="textgenrnn-demo.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>

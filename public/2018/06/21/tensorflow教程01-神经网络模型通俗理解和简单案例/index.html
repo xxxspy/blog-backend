@@ -296,7 +296,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是人工神经网络"><span class="toc-number">1.</span> <span class="toc-text">什么是人工神经网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#神经网络如何进行学习"><span class="toc-number">2.</span> <span class="toc-text">神经网络如何进行学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#世界上最简单的一个神经网络"><span class="toc-number">3.</span> <span class="toc-text">世界上最简单的一个神经网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">什么是人工神经网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">神经网络如何进行学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">世界上最简单的一个神经网络</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">总结</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -314,7 +314,7 @@
 <li>jupyter notebook</li>
 <li>tensorflow 1.x</li>
 </ul>
-<h3 id="什么是人工神经网络"><a href="#什么是人工神经网络" class="headerlink" title="什么是人工神经网络"></a>什么是人工神经网络</h3><p>首先必须澄清, 人工神经网络和生物神经网络没有必然关系, 只是人类为了通俗理解而作的一个比喻. 这不是我的观点, 是吴恩达在他的深度学习课程中多次重申的.</p>
+<h3><span id="什么是人工神经网络">什么是人工神经网络</span></h3><p>首先必须澄清, 人工神经网络和生物神经网络没有必然关系, 只是人类为了通俗理解而作的一个比喻. 这不是我的观点, 是吴恩达在他的深度学习课程中多次重申的.</p>
 <p>人工神经网络(后文简称神经网络)由很多神经元相互链接构成一个网络, 而所谓的链接其实就是计算路径, 所以, 神经网络可以看成是一个计算图, 神经元就是一个计算, 链接神经元的边就是数据流通的路径. 下图是一个经典的神经网络. 圆圈代表神经元, 边代表计算路径.</p>
 <p><img src="images/nn.png"></p>
 <p>通常我们把一个神经网络分为三层: 输入层, 隐藏层和输出层. 输入层其实就是你的输入的数据, 比如, 我们现在有个向量<code>X=[1,2,3]</code>, X的每个元素可以当作输入层神经元的激活值, 比如第一个神经元的激活值是1, 第二个神经元的激活值是2. </p>
@@ -330,9 +330,9 @@ $$</code></p>
 <p><code>$$
 \hat Y = sigmoid(W_2 A_1)
 $$</code></p>
-<h3 id="神经网络如何进行学习"><a href="#神经网络如何进行学习" class="headerlink" title="神经网络如何进行学习"></a>神经网络如何进行学习</h3><p>神经网络中可变的量就是上面提到的权重<code>$W_1$</code>和<code>$W_2$</code>, 后面我们统称为<code>$W$</code>, 当然不同的神经网络架构还会有不同的参数, 但是为了简便起见, 我们暂时只使用权重. 有过小学经验的你应该可以知道, 通过改变<code>$W$</code>的值就能改变输出层的激活量Y. 神经网络科学家的任务就是通过让机器学习已经准备好的训练数据, 找到最佳的W值, 让神经网络的计算结果<code>$\hat Y$</code>尽量接近训练数据<code>$Y$</code>. </p>
+<h3><span id="神经网络如何进行学习">神经网络如何进行学习</span></h3><p>神经网络中可变的量就是上面提到的权重<code>$W_1$</code>和<code>$W_2$</code>, 后面我们统称为<code>$W$</code>, 当然不同的神经网络架构还会有不同的参数, 但是为了简便起见, 我们暂时只使用权重. 有过小学经验的你应该可以知道, 通过改变<code>$W$</code>的值就能改变输出层的激活量Y. 神经网络科学家的任务就是通过让机器学习已经准备好的训练数据, 找到最佳的W值, 让神经网络的计算结果<code>$\hat Y$</code>尽量接近训练数据<code>$Y$</code>. </p>
 <p>所以所谓的学习, 就指的是调整W的数值, 以便降低<code>$\hat Y$</code></p>
-<h3 id="世界上最简单的一个神经网络"><a href="#世界上最简单的一个神经网络" class="headerlink" title="世界上最简单的一个神经网络"></a>世界上最简单的一个神经网络</h3><p>下面我们就用代码来实现一个简单的神经网络, 它只有两层(输入和输出), 一个神经元.</p>
+<h3><span id="世界上最简单的一个神经网络">世界上最简单的一个神经网络</span></h3><p>下面我们就用代码来实现一个简单的神经网络, 它只有两层(输入和输出), 一个神经元.</p>
 <p><img src="images/single-nn.png"></p>
 <p>引入用到的库</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line">sess = tf.InteractiveSession()</span><br></pre></td></tr></table></figure>
@@ -354,7 +354,7 @@ $$</code></p>
 <p>可视化训练过程:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.plot(outputs, label=<span class="string">'output'</span>)</span><br><span class="line">plt.plot(losses, label=<span class="string">'loss'</span>)</span><br><span class="line">leg = plt.legend(loc=<span class="string">'best'</span>, ncol=<span class="number">2</span>, mode=<span class="string">"expand"</span>, shadow=<span class="literal">True</span>, fancybox=<span class="literal">True</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p><img src="output_14_0.png" alt="png"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>通过上面的例子你应该可以知道机器学习的本质–调整权重(参数)以便于让输出结果靠近我们的期望结果. 而且你也看到了, 机器是能够调整参数的.</p>
+<h3><span id="总结">总结</span></h3><p>通过上面的例子你应该可以知道机器学习的本质–调整权重(参数)以便于让输出结果靠近我们的期望结果. 而且你也看到了, 机器是能够调整参数的.</p>
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="tensorflow教程01-神经网络模型通俗理解和简单案例.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>

@@ -296,7 +296,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#计算图概念"><span class="toc-number">1.</span> <span class="toc-text">计算图概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#为什么使用计算图"><span class="toc-number">2.</span> <span class="toc-text">为什么使用计算图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#代码实现简单的计算图"><span class="toc-number">3.</span> <span class="toc-text">代码实现简单的计算图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#定义计算图"><span class="toc-number">3.1.</span> <span class="toc-text">定义计算图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#计算"><span class="toc-number">3.2.</span> <span class="toc-text">计算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#神经网络可以看作是计算图"><span class="toc-number">4.</span> <span class="toc-text">神经网络可以看作是计算图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#代码实现神经网络的计算图"><span class="toc-number">4.1.</span> <span class="toc-text">代码实现神经网络的计算图</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#定义计算图-1"><span class="toc-number">4.1.1.</span> <span class="toc-text">定义计算图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#执行计算"><span class="toc-number">4.1.2.</span> <span class="toc-text">执行计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">计算图概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">为什么使用计算图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">代码实现简单的计算图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">定义计算图</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text">计算</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">神经网络可以看作是计算图</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">4.1.</span> <span class="toc-text">代码实现神经网络的计算图</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">4.1.1.</span> <span class="toc-text">定义计算图</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#undefined"><span class="toc-number">4.1.2.</span> <span class="toc-text">执行计算</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -314,7 +314,7 @@
 <li>jupyter notebook</li>
 <li>tensorflow 1.x</li>
 </ul>
-<h3 id="计算图概念"><a href="#计算图概念" class="headerlink" title="计算图概念"></a>计算图概念</h3><p>在执行计算，例如训练一个神经网络或计算两个整数的总和，TensorFlow在内部使用数据流图（或计算图）来表示整个计算流程。这是一个由以成分下组成的有向图：</p>
+<h3><span id="计算图概念">计算图概念</span></h3><p>在执行计算，例如训练一个神经网络或计算两个整数的总和，TensorFlow在内部使用数据流图（或计算图）来表示整个计算流程。这是一个由以成分下组成的有向图：</p>
 <p><img src="images/computational-graph.png"></p>
 <ul>
 <li>一组节点，每一个节点代表一个操作</li>
@@ -327,10 +327,10 @@
 <li><p>特殊：这个边缘不传递值。它表示两个节点A和B之间的控制依赖性。这意味着节点B只有在A中的操作将在数据操作之间的关系之前结束时才会被执行。</p>
 </li>
 </ul>
-<h3 id="为什么使用计算图"><a href="#为什么使用计算图" class="headerlink" title="为什么使用计算图"></a>为什么使用计算图</h3><p>TensorFlow中的一个关键思想是延迟执行，在计算图的构建阶段，您可以编写非常复杂的表达式（我们说它是高度复杂的），但是这些代码只是定义了计算过程, 但是并没有真正的计算。当您想计算他们时，TensorFlow会以最有效的方式进行计算（例如，使用GPU并行执行代码的独立部分）。这样，如果必须处理包含大量节点和图层的复杂模型，图形有助于分配计算负载。同时, 计算过程可以方便的可视化, 并且便于我们理解.</p>
-<h3 id="代码实现简单的计算图"><a href="#代码实现简单的计算图" class="headerlink" title="代码实现简单的计算图"></a>代码实现简单的计算图</h3><p>如上图所示, 我们可以使用tensorflow实现一个这样的计算图。新手使用tensorflow时, 一定要分清楚两个阶段: 图定义阶段和计算阶段。在图定义阶段, 只是定义了计算图, 但并不进行计算; 在计算阶段才会进行计算。</p>
-<h4 id="定义计算图"><a href="#定义计算图" class="headerlink" title="定义计算图"></a>定义计算图</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">a = tf.placeholder(tf.float32, name=<span class="string">'a'</span>)</span><br><span class="line">b = tf.placeholder(tf.float32, name=<span class="string">'b'</span>)</span><br><span class="line">c = a + b</span><br><span class="line">d = b + <span class="number">1</span></span><br><span class="line">e = c * d</span><br></pre></td></tr></table></figure>
-<h4 id="计算"><a href="#计算" class="headerlink" title="计算"></a>计算</h4><p>计算阶段只有两行代码, 我们需要创建一个会话, 并执行计算图。因为这是在Jupyter notebook环境中, 我们使用tf.InteractiveSession更方便。</p>
+<h3><span id="为什么使用计算图">为什么使用计算图</span></h3><p>TensorFlow中的一个关键思想是延迟执行，在计算图的构建阶段，您可以编写非常复杂的表达式（我们说它是高度复杂的），但是这些代码只是定义了计算过程, 但是并没有真正的计算。当您想计算他们时，TensorFlow会以最有效的方式进行计算（例如，使用GPU并行执行代码的独立部分）。这样，如果必须处理包含大量节点和图层的复杂模型，图形有助于分配计算负载。同时, 计算过程可以方便的可视化, 并且便于我们理解.</p>
+<h3><span id="代码实现简单的计算图">代码实现简单的计算图</span></h3><p>如上图所示, 我们可以使用tensorflow实现一个这样的计算图。新手使用tensorflow时, 一定要分清楚两个阶段: 图定义阶段和计算阶段。在图定义阶段, 只是定义了计算图, 但并不进行计算; 在计算阶段才会进行计算。</p>
+<h4><span id="定义计算图">定义计算图</span></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"></span><br><span class="line">a = tf.placeholder(tf.float32, name=<span class="string">'a'</span>)</span><br><span class="line">b = tf.placeholder(tf.float32, name=<span class="string">'b'</span>)</span><br><span class="line">c = a + b</span><br><span class="line">d = b + <span class="number">1</span></span><br><span class="line">e = c * d</span><br></pre></td></tr></table></figure>
+<h4><span id="计算">计算</span></h4><p>计算阶段只有两行代码, 我们需要创建一个会话, 并执行计算图。因为这是在Jupyter notebook环境中, 我们使用tf.InteractiveSession更方便。</p>
 <p><code>eval</code>方法就是用来执行计算并返回计算结果的。注意因为我们的计算图中定义了两个占位符(placeholder), 顾名思义, 他们并没有值, 需要我们在计算的时候传入值, 所以我们使用feed_dict参数来传入值。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sess = tf.InteractiveSession()</span><br><span class="line">e.eval(feed_dict=&#123;a:<span class="number">1</span>, b:<span class="number">2</span>&#125;)</span><br></pre></td></tr></table></figure>
 
@@ -339,15 +339,15 @@
     9.0
 </div>
 
-<h3 id="神经网络可以看作是计算图"><a href="#神经网络可以看作是计算图" class="headerlink" title="神经网络可以看作是计算图"></a>神经网络可以看作是计算图</h3><p>我们先来看下之前文章中用到的一个神经网络图:</p>
+<h3><span id="神经网络可以看作是计算图">神经网络可以看作是计算图</span></h3><p>我们先来看下之前文章中用到的一个神经网络图:</p>
 <p><img src="images/nn.png"></p>
 <p>我们可以用计算图的形式来表示它, 就是这样:</p>
 <p><img src="images/nn-graph.png"></p>
 <p>这里L3表示输出层，L2表示隐藏层，L1表示输入层。类似地，θ2表示层2与层3之间的权重矢量; θ1表示层1和层2之间的权向量.σ表示在这些节点内发生的激活函数（这些节点的输出将使用L表示来表示，即L1，L2 ，和L3）。在这种表示中，每个节点不代表单个神经元，而代表一个操作，而箭头不是连接，而是代表沿网络的信息流。这个计算图向我们显示了每一步的操作，以及这些操作运行的输入和输出。L2层在两个输入上运行：输出L1层（向量）和权重θ1，而L3在L2和θ2上运行，并且是我们的最终输出。</p>
-<h4 id="代码实现神经网络的计算图"><a href="#代码实现神经网络的计算图" class="headerlink" title="代码实现神经网络的计算图"></a>代码实现神经网络的计算图</h4><p>你会看到, 由于计算图的引用, 我们更容易用代码实现这个神经网络结构。</p>
-<h5 id="定义计算图-1"><a href="#定义计算图-1" class="headerlink" title="定义计算图"></a>定义计算图</h5><p>你可能还不清楚<code>tf.Variable</code>和<code>tf.placeholder</code>的用法, 前者用于代表可变量, 一般就是函数的参数, 后者用于代表数据, 比如训练数据。后面我们会详细解释这些函数的用法。</p>
+<h4><span id="代码实现神经网络的计算图">代码实现神经网络的计算图</span></h4><p>你会看到, 由于计算图的引用, 我们更容易用代码实现这个神经网络结构。</p>
+<h5><span id="定义计算图">定义计算图</span></h5><p>你可能还不清楚<code>tf.Variable</code>和<code>tf.placeholder</code>的用法, 前者用于代表可变量, 一般就是函数的参数, 后者用于代表数据, 比如训练数据。后面我们会详细解释这些函数的用法。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">X = tf.placeholder(tf.float64, shape=[<span class="number">3</span>, <span class="number">1</span>], name= <span class="string">"X"</span>)</span><br><span class="line">theta1 = tf.Variable(np.random.normal(size=(<span class="number">4</span>,<span class="number">3</span>)), name=<span class="string">"theta1"</span>)</span><br><span class="line">L2 = tf.sigmoid(tf.matmul(theta1, X))</span><br><span class="line">theta2 = tf.Variable(np.random.normal(size=(<span class="number">2</span>,<span class="number">4</span>)), name=<span class="string">"theta1"</span>)</span><br><span class="line">L3 = tf.sigmoid(tf.matmul(theta2, L2))</span><br></pre></td></tr></table></figure>
-<h5 id="执行计算"><a href="#执行计算" class="headerlink" title="执行计算"></a>执行计算</h5><ul>
+<h5><span id="执行计算">执行计算</span></h5><ul>
 <li>首先因为我们定义了一些Variable, 所以需要先初始化他们, 调用<code>init.run()</code></li>
 <li>然后因为定义了一个placeholder, 所以需要在eval的时候, 传入feed_dict参数</li>
 </ul>
@@ -359,7 +359,7 @@
            [0.73291792]])
 </div>
 
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这篇教程主要目的是让大家对tensorflow的计算图有一个感性认识, 并理解定义计算图和执行计算图这两个过程。同时, 通多第二个例子, 我们可以看出用计算图来表示神经网络的计算过程也是很方便的。</p>
+<h3><span id="总结">总结</span></h3><p>这篇教程主要目的是让大家对tensorflow的计算图有一个感性认识, 并理解定义计算图和执行计算图这两个过程。同时, 通多第二个例子, 我们可以看出用计算图来表示神经网络的计算过程也是很方便的。</p>
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="tensorflow教程02-计算图及其实践.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>

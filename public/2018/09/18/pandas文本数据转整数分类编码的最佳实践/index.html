@@ -240,7 +240,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据集"><span class="toc-number">2.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方案Ⅰ-替换字符串"><span class="toc-number">3.</span> <span class="toc-text">方案Ⅰ:替换字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方案Ⅱ-标签编码"><span class="toc-number">4.</span> <span class="toc-text">方案Ⅱ:标签编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方案三-转换成哑变量-或者叫one-hot编码"><span class="toc-number">5.</span> <span class="toc-text">方案三: 转换成哑变量, 或者叫one-hot编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#方案四-自定义二分类"><span class="toc-number">6.</span> <span class="toc-text">方案四: 自定义二分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Scikit-Learn"><span class="toc-number">7.</span> <span class="toc-text">Scikit-Learn</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">方案Ⅰ:替换字符串</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">方案Ⅱ:标签编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">方案三: 转换成哑变量, 或者叫one-hot编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">方案四: 自定义二分类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">Scikit-Learn</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -248,9 +248,9 @@
 
         <!-- Post Content -->
         <p><span></span><br><a id="more"></a></p>
-<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>在许多实际的数据处理工作中，数据集通常包含分类变量。这些变量通常存储为表示各种特征的文本值。一些示例包括颜色（“红色”，“黄色”，“蓝色”），尺寸（“小”，“中”，“大”）或地理名称（州或国家）。无论使用何种值，挑战在于确定如何在分析中使用此数据。许多机器学习算法可以支持分类值而无需进一步操作，但还有许多算法不支持。因此，分析师面临的挑战是如何将这些文本属性转换为数值以便进一步处理。</p>
+<h3><span id="问题描述">问题描述</span></h3><p>在许多实际的数据处理工作中，数据集通常包含分类变量。这些变量通常存储为表示各种特征的文本值。一些示例包括颜色（“红色”，“黄色”，“蓝色”），尺寸（“小”，“中”，“大”）或地理名称（州或国家）。无论使用何种值，挑战在于确定如何在分析中使用此数据。许多机器学习算法可以支持分类值而无需进一步操作，但还有许多算法不支持。因此，分析师面临的挑战是如何将这些文本属性转换为数值以便进一步处理。</p>
 <p>与数据科学世界的许多其他方面一样，关于如何解决这个问题没有单一的答案。每种方法都需要权衡，并对分析结果产生潜在影响。幸运的是，pandas和scikit-learn的python工具提供了几种方法，可用于将分类数据转换为合适的数值。本文将对一些常见的（以及一些更复杂的）方法进行汇总，希望它能帮助其他人将这些技术应用于他们的现实世界问题。</p>
-<h3 id="数据集"><a href="#数据集" class="headerlink" title="数据集"></a>数据集</h3><p>在本文中，我在UCI机器学习库中找到一个好的数据集。这个特定的汽车数据集包括分类值和连续值的组合，并且作为相对容易理解的有用示例。由于在决定如何编码各种分类值时，领域知识是一个重要方面 - 这个数据集是一个很好的个案研究。</p>
+<h3><span id="数据集">数据集</span></h3><p>在本文中，我在UCI机器学习库中找到一个好的数据集。这个特定的汽车数据集包括分类值和连续值的组合，并且作为相对容易理解的有用示例。由于在决定如何编码各种分类值时，领域知识是一个重要方面 - 这个数据集是一个很好的个案研究。</p>
 <p>在我们开始编码各种值之前，我们需要载入数据并进行一些小的清理。幸运的是，pandas使这简单明了：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="comment"># 定义数据的列名称, 因为这个数据集没有包含列名称</span></span><br><span class="line">headers = [<span class="string">"symboling"</span>, <span class="string">"normalized_losses"</span>, <span class="string">"make"</span>, <span class="string">"fuel_type"</span>, <span class="string">"aspiration"</span>,</span><br><span class="line">           <span class="string">"num_doors"</span>, <span class="string">"body_style"</span>, <span class="string">"drive_wheels"</span>, <span class="string">"engine_location"</span>,</span><br><span class="line">           <span class="string">"wheel_base"</span>, <span class="string">"length"</span>, <span class="string">"width"</span>, <span class="string">"height"</span>, <span class="string">"curb_weight"</span>,</span><br><span class="line">           <span class="string">"engine_type"</span>, <span class="string">"num_cylinders"</span>, <span class="string">"engine_size"</span>, <span class="string">"fuel_system"</span>,</span><br><span class="line">           <span class="string">"bore"</span>, <span class="string">"stroke"</span>, <span class="string">"compression_ratio"</span>, <span class="string">"horsepower"</span>, <span class="string">"peak_rpm"</span>,</span><br><span class="line">           <span class="string">"city_mpg"</span>, <span class="string">"highway_mpg"</span>, <span class="string">"price"</span>]</span><br><span class="line"></span><br><span class="line"><span class="comment"># 读取在线的数据集, 并将?转换为缺失NaN</span></span><br><span class="line">df = pd.read_csv(<span class="string">"http://mlr.cs.umass.edu/ml/machine-learning-databases/autos/imports-85.data"</span>,</span><br><span class="line">                  header=<span class="literal">None</span>, names=headers, na_values=<span class="string">"?"</span> )</span><br><span class="line">df.head()[df.columns[:<span class="number">10</span>]]</span><br></pre></td></tr></table></figure>
 
@@ -501,7 +501,7 @@
 
 <p>因为数据集种包括缺失数据, 这会增加后续处理的难度, 我们为了简单起见, 将缺失值删除即可:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.dropna(inplace=<span class="literal">True</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="方案Ⅰ-替换字符串"><a href="#方案Ⅰ-替换字符串" class="headerlink" title="方案Ⅰ:替换字符串"></a>方案Ⅰ:替换字符串</h3><p>最简单的方式就是, 查找列中所有的字符串, 然后给不同的字符串一个编号, 然后用编号替换字符串:</p>
+<h3><span id="方案i替换字符串">方案Ⅰ:替换字符串</span></h3><p>最简单的方式就是, 查找列中所有的字符串, 然后给不同的字符串一个编号, 然后用编号替换字符串:</p>
 <ul>
 <li>使用<code>vlaue_counts</code>获取所有的字符串:</li>
 </ul>
@@ -549,7 +549,7 @@
 </div>
 
 <p>你会看到, 不仅仅字符串被替换, 而且series的数据类型变成了int64</p>
-<h3 id="方案Ⅱ-标签编码"><a href="#方案Ⅱ-标签编码" class="headerlink" title="方案Ⅱ:标签编码"></a>方案Ⅱ:标签编码</h3><p>编码分类值的另一种方法是使用称为标签编码的技术。标签编码只是将列中的每个值转换为数字。例如，body_style列包含5个不同的值。我们可以选择像这样编码：</p>
+<h3><span id="方案ii标签编码">方案Ⅱ:标签编码</span></h3><p>编码分类值的另一种方法是使用称为标签编码的技术。标签编码只是将列中的每个值转换为数字。例如，body_style列包含5个不同的值。我们可以选择像这样编码：</p>
 <ul>
 <li>convertible -&gt; 0</li>
 <li>hardtop -&gt; 1</li>
@@ -592,7 +592,7 @@
 
 </div>
 
-<h3 id="方案三-转换成哑变量-或者叫one-hot编码"><a href="#方案三-转换成哑变量-或者叫one-hot编码" class="headerlink" title="方案三: 转换成哑变量, 或者叫one-hot编码"></a>方案三: 转换成哑变量, 或者叫one-hot编码</h3><p>标签编码的优点是它很简单，但它的缺点是数值可能被算法“误解”。例如，0的值显然小于4的值，但这是否真的与现实生活中的数据集相对应？在我们的计算中，旅行车的重量是否比敞篷车重4倍？在这个例子中，我不这么认为。所以我们需要将数据转换为哑变量(onehot), 在pandas中, 这个转变只需要一行代码:</p>
+<h3><span id="方案三-转换成哑变量-或者叫one-hot编码">方案三: 转换成哑变量, 或者叫one-hot编码</span></h3><p>标签编码的优点是它很简单，但它的缺点是数值可能被算法“误解”。例如，0的值显然小于4的值，但这是否真的与现实生活中的数据集相对应？在我们的计算中，旅行车的重量是否比敞篷车重4倍？在这个例子中，我不这么认为。所以我们需要将数据转换为哑变量(onehot), 在pandas中, 这个转变只需要一行代码:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pd.get_dummies(df[[<span class="string">'drive_wheels'</span>, <span class="string">'body_style'</span>]]).head()</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -686,7 +686,7 @@
 </div>
 </div>
 
-<h3 id="方案四-自定义二分类"><a href="#方案四-自定义二分类" class="headerlink" title="方案四: 自定义二分类"></a>方案四: 自定义二分类</h3><p>根据数据集，您可以使用标签编码和one-hot来创建满足进一步分析需求的二分类列</p>
+<h3><span id="方案四-自定义二分类">方案四: 自定义二分类</span></h3><p>根据数据集，您可以使用标签编码和one-hot来创建满足进一步分析需求的二分类列</p>
 <p>在此特定数据集中，有一个名为engine_type的列包含几个不同的值：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2[<span class="string">'engine_type'</span>].value_counts()</span><br></pre></td></tr></table></figure>
 
@@ -716,7 +716,7 @@
 
 </div>
 
-<h3 id="Scikit-Learn"><a href="#Scikit-Learn" class="headerlink" title="Scikit-Learn"></a>Scikit-Learn</h3><p>除了pandas方法，scikit-learn还提供类似的功能。就个人而言，我发现使用pandas有点简单，但我认为重要的是要知道如何在scikit-learn中执行这些过程。</p>
+<h3><span id="scikit-learn">Scikit-Learn</span></h3><p>除了pandas方法，scikit-learn还提供类似的功能。就个人而言，我发现使用pandas有点简单，但我认为重要的是要知道如何在scikit-learn中执行这些过程。</p>
 <p>例如，如果我们想对汽车的品牌进行标签编码，我们需要实例化LabelEncoder对象并fit_transform数据：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> LabelBinarizer</span><br><span class="line"></span><br><span class="line">lb_style = LabelBinarizer()</span><br><span class="line">lb_results = lb_style.fit_transform(df2[<span class="string">"body_style"</span>])</span><br><span class="line">pd.DataFrame(lb_results, columns=lb_style.classes_).head()</span><br></pre></td></tr></table></figure>
 

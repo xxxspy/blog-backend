@@ -279,7 +279,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#生成特定分布的连续数据"><span class="toc-number">1.</span> <span class="toc-text">生成特定分布的连续数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#正态分布"><span class="toc-number">1.1.</span> <span class="toc-text">正态分布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#二项分布"><span class="toc-number">1.2.</span> <span class="toc-text">二项分布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#其他分布"><span class="toc-number">1.3.</span> <span class="toc-text">其他分布</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成独立的双变量数据"><span class="toc-number">2.</span> <span class="toc-text">生成独立的双变量数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成相关为0-5的双变量数据"><span class="toc-number">3.</span> <span class="toc-text">生成相关为0.5的双变量数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#挑战-按照因子载荷生成数据"><span class="toc-number">4.</span> <span class="toc-text">挑战: 按照因子载荷生成数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#因子分析"><span class="toc-number">5.</span> <span class="toc-text">因子分析</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">生成特定分布的连续数据</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.1.</span> <span class="toc-text">正态分布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.2.</span> <span class="toc-text">二项分布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">1.3.</span> <span class="toc-text">其他分布</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">生成独立的双变量数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">生成相关为0.5的双变量数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">挑战: 按照因子载荷生成数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">因子分析</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -288,7 +288,7 @@
         <!-- Post Content -->
         <p>这篇文章的目的是使用python生成一些具有某些统计特征的随机变量。<br><span></span><br><a id="more"></a></p>
 <p>生成模拟数据是一个非常有用的功能, 因为我们有时候很难拿到真实世界的数据, 所以需要一些人工生成的数据以便完成我们的实验或证明一些理论。下面我们介绍一些我经常用到的一些生成数据的方法, 有类似需求你们可以找到我。</p>
-<h3 id="生成特定分布的连续数据"><a href="#生成特定分布的连续数据" class="headerlink" title="生成特定分布的连续数据"></a>生成特定分布的连续数据</h3><h4 id="正态分布"><a href="#正态分布" class="headerlink" title="正态分布"></a>正态分布</h4><p>连续数据就是数据是连续的, 比如0-1的小数, 而离散数据一般是指分类数据或者分等级数据, 我们先从最简单的做起, 生成连续的数据, 并确保它是正态分布。</p>
+<h3><span id="生成特定分布的连续数据">生成特定分布的连续数据</span></h3><h4><span id="正态分布">正态分布</span></h4><p>连续数据就是数据是连续的, 比如0-1的小数, 而离散数据一般是指分类数据或者分等级数据, 我们先从最简单的做起, 生成连续的数据, 并确保它是正态分布。</p>
 <p>先引入用到的库:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br></pre></td></tr></table></figure>
 <p>生成均值为0, 标准差为1的正太分布数据, 样本量为100, 然后将数据可视化:</p>
@@ -304,7 +304,7 @@
 </a></div>
 
 <p><img src="output_8_1.png" alt="png"></p>
-<h4 id="二项分布"><a href="#二项分布" class="headerlink" title="二项分布"></a>二项分布</h4><p>二项分布（伯努利分布）是n个独立的是/非试验中成功的次数的概率分布，其中每次试验的成功概率为p。这是一个离散分布。</p>
+<h4><span id="二项分布">二项分布</span></h4><p>二项分布（伯努利分布）是n个独立的是/非试验中成功的次数的概率分布，其中每次试验的成功概率为p。这是一个离散分布。</p>
 <p>比如, 我们实验100次, 每次试验成功的概率是0.4, 求成功次数的概率分布。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">x = np.random.binomial(<span class="number">100</span>, <span class="number">0.4</span>, size=<span class="number">10000</span>)</span><br><span class="line"></span><br><span class="line">plt.hist(x, bins=<span class="number">100</span>, histtype=<span class="string">'step'</span>)[<span class="number">-1</span>]</span><br></pre></td></tr></table></figure>
 
@@ -316,8 +316,8 @@
 </a></div>
 
 <p><img src="output_10_1.png" alt="png"></p>
-<h4 id="其他分布"><a href="#其他分布" class="headerlink" title="其他分布"></a>其他分布</h4><p>当然你还可以按照上面的方法生成所有常用的分布的数据, 但是我们不在这里一一举例了, 我们还有更重要的事情要做。</p>
-<h3 id="生成独立的双变量数据"><a href="#生成独立的双变量数据" class="headerlink" title="生成独立的双变量数据"></a>生成独立的双变量数据</h3><p>这个例子很简单, 但是很有必要, 我们其实只需要分别生成两个变量即可:</p>
+<h4><span id="其他分布">其他分布</span></h4><p>当然你还可以按照上面的方法生成所有常用的分布的数据, 但是我们不在这里一一举例了, 我们还有更重要的事情要做。</p>
+<h3><span id="生成独立的双变量数据">生成独立的双变量数据</span></h3><p>这个例子很简单, 但是很有必要, 我们其实只需要分别生成两个变量即可:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">x1 = np.random.normal(<span class="number">0</span>, <span class="number">1</span>, <span class="number">1000</span>)</span><br><span class="line">x2 = np.random.normal(<span class="number">0</span>, <span class="number">1</span>, <span class="number">1000</span>)</span><br></pre></td></tr></table></figure>
 <p>我们可以计算一下两个变量的相关, 你可以看到他俩相关几乎为0:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">np.corrcoef(x1, x2)</span><br></pre></td></tr></table></figure>
@@ -330,7 +330,7 @@
 
 </div>
 
-<h3 id="生成相关为0-5的双变量数据"><a href="#生成相关为0-5的双变量数据" class="headerlink" title="生成相关为0.5的双变量数据"></a>生成相关为0.5的双变量数据</h3><p>现在有些难度, 我们怎么控制变量之间的相关呢? 其实在numpy中有一个函数叫做<code>multivariate_normal</code>, 就是多元正太分布, 用于生成多元正太分布数据, 并且可以指定随机变量的协方差矩阵, 我们都知道, 协方差和相关系数之间的关系是:</p>
+<h3><span id="生成相关为05的双变量数据">生成相关为0.5的双变量数据</span></h3><p>现在有些难度, 我们怎么控制变量之间的相关呢? 其实在numpy中有一个函数叫做<code>multivariate_normal</code>, 就是多元正太分布, 用于生成多元正太分布数据, 并且可以指定随机变量的协方差矩阵, 我们都知道, 协方差和相关系数之间的关系是:</p>
 <p><code>$$
 Corr(X, Y) = {Cov(X, Y) \over {(Var(X)Var(Y))^{0.5}}}
 $$</code></p>
@@ -353,7 +353,7 @@ $$</code></p>
 <p>当然, 我们看一下相关更大的一些数据, 比如相关为0.9:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">X = np.random.multivariate_normal([<span class="number">0</span>, <span class="number">0</span>], [[<span class="number">1</span>, <span class="number">0.9</span>], [<span class="number">0.9</span>, <span class="number">1</span>]], <span class="number">1000</span>)</span><br><span class="line">plt.plot(X[:, <span class="number">0</span>], X[:, <span class="number">1</span>], <span class="string">'x'</span>)</span><br><span class="line">plt.axis(<span class="string">'equal'</span>)</span><br><span class="line">plt.show()</span><br></pre></td></tr></table></figure>
 <p><img src="output_24_0.png" alt="png"></p>
-<h3 id="挑战-按照因子载荷生成数据"><a href="#挑战-按照因子载荷生成数据" class="headerlink" title="挑战: 按照因子载荷生成数据"></a>挑战: 按照因子载荷生成数据</h3><p>说实话再写这篇文章之前我完全不知道怎么完成这个挑战。所以我回去复习了因子分析的算法。根据上面的例子, 我们知道生成一组多元正态变量的关键在于设定这组变量的均值和协方差矩阵, 所以我们需要知道因子载荷和协方差矩阵的关系(因子载荷和均值没有关系, 因为我们预先假设所有变量均值为0)。</p>
+<h3><span id="挑战-按照因子载荷生成数据">挑战: 按照因子载荷生成数据</span></h3><p>说实话再写这篇文章之前我完全不知道怎么完成这个挑战。所以我回去复习了因子分析的算法。根据上面的例子, 我们知道生成一组多元正态变量的关键在于设定这组变量的均值和协方差矩阵, 所以我们需要知道因子载荷和协方差矩阵的关系(因子载荷和均值没有关系, 因为我们预先假设所有变量均值为0)。</p>
 <p>我不想说一些你们听不懂的东西, 但是有时候觉得这样就无话可说, 水平有限。我们知道, n个变量可以提取m个因子, 而m个因子的线性组合就可以得到n个变量, 假设<code>$L$</code></p>
 <p><code>$F$</code>就是因子矩阵, 通常我们称为m个潜变量, 潜变量之间是正交的, 也就是相关为0, <code>$\mu$</code> 是X的均值, 所以可以假设为0, 假设<code>$X = [X_1, X_2, X_3]$</code>, 则<code>$\mu = [0, 0, 0]$</code>, <code>$epsilon$</code>是特殊因子向量, 也就是不能被公共因子F所解释的, 并且与<code>$\epsilon$</code></p>
 <p>我们假设公共因子F满足多元正态分布, 包含3个潜变量,  且各个潜变量间相互正交, 并且潜变量和<code>$\epsilon$</code>的均值为0, 他们的方差均为1, 那么我们可以同时生成F和<code>$\epsilon$</code></p>
@@ -393,7 +393,7 @@ $$</code></p>
 </div>
 
 <p>我们虽然得到了X, 但是我们怎么验证结果对不对呢? 目前暂时没有好的方法, 现在只是通过反向求得因子载荷矩阵, 看看和初始的载荷矩阵有什么差别:</p>
-<h3 id="因子分析"><a href="#因子分析" class="headerlink" title="因子分析"></a>因子分析</h3><p>做因子分析的解释会比较少, 因为我们这篇文章的目的并不是这个。</p>
+<h3><span id="因子分析">因子分析</span></h3><p>做因子分析的解释会比较少, 因为我们这篇文章的目的并不是这个。</p>
 <p>先求相关矩阵:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">R = np.corrcoef(X.T)</span><br><span class="line">R</span><br></pre></td></tr></table></figure>
 

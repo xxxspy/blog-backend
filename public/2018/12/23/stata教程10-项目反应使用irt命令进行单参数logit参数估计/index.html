@@ -223,7 +223,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#加载数据"><span class="toc-number">1.</span> <span class="toc-text">加载数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#拟合模型"><span class="toc-number">2.</span> <span class="toc-text">拟合模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">加载数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">拟合模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -232,7 +232,7 @@
         <!-- Post Content -->
         <p><span></span><br><a id="more"></a></p>
 <p>上一篇文章我们介绍了如何使用clogit命令估计题目的难度参数, 从这篇文章开始我们主要是介绍一下stata进行项目反应分析的原理。下面我们开始使用stata本身就支持的irt命令, 用更好的工具进行项目特征的分析。</p>
-<h3 id="加载数据"><a href="#加载数据" class="headerlink" title="加载数据"></a>加载数据</h3><p>我们仍然使用上一篇的数据, 可以直接从网络中加载数据:</p>
+<h3><span id="加载数据">加载数据</span></h3><p>我们仍然使用上一篇的数据, 可以直接从网络中加载数据:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> http:<span class="comment">//www.stata.com/support/faqs/dta/raschfaq, clear</span></span><br></pre></td></tr></table></figure>
 <p>这个数据是有10题目, 120个学生作答，编码为1（正确）和0（不正确）。我们想知道10个题目的难度和120个学生的能力值。</p>
 <p>下面加载我们列出数据的前几行看看数据的结构:</p>
@@ -260,7 +260,7 @@
 </div>
 
 <p>变量math1-math10是10道题目的得分, 他们显示成了文本”incorrect”和”correct”, 这只是分数的标签, 实际上他们存储的是0和1。最后一列是被试的id。</p>
-<h3 id="拟合模型"><a href="#拟合模型" class="headerlink" title="拟合模型"></a>拟合模型</h3><p>我们使用irt 1pl命令进行单参数logit模型的拟合, 后的变量制定了10个math变量。</p>
+<h3><span id="拟合模型">拟合模型</span></h3><p>我们使用irt 1pl命令进行单参数logit模型的拟合, 后的变量制定了10个math变量。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">irt 1pl math1-math10</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
@@ -457,7 +457,7 @@ Theta                                                                           
 
 </div>
 
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>Stata官方支持的进行IRT分析的工具就这些了, 再多就是更多的模型了, 而缺少一些基本的模型拟合指标和其他一些高级的分析工具, 不过下一篇文章我们测试一下raschtest模块, 这是一个第三方模块, 可以补充一些缺失的功能。</p>
+<h3><span id="总结">总结</span></h3><p>Stata官方支持的进行IRT分析的工具就这些了, 再多就是更多的模型了, 而缺少一些基本的模型拟合指标和其他一些高级的分析工具, 不过下一篇文章我们测试一下raschtest模块, 这是一个第三方模块, 可以补充一些缺失的功能。</p>
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="stata教程10-项目反应使用irt命令进行单参数logit参数估计.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>

@@ -230,7 +230,7 @@
 <p>其实这两个方法只有一个区别, loging.error只是记录一个日志消息, 日志等级是error, 而exception在记录消息的同时, 默认会记录错误发生的traceback信息, 所以说, 如果你想记录更详细的错误信息, 你最好是使用exception, 但是error方法也可以输出traceback信息, 只需要你设置一个参数<code>exc_info</code>, 下面我们使用例子来看看具体的区别:</p>
 <p>先引入logging模块:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> logging</span><br><span class="line"></span><br><span class="line">log = logging.getLogger(__name__)</span><br></pre></td></tr></table></figure>
-<h3 id="使用error记录错误日志"><a href="#使用error记录错误日志" class="headerlink" title="使用error记录错误日志"></a>使用error记录错误日志</h3><p>你只能看到一个简单的信息:</p>
+<h3><span id="使用error记录错误日志">使用error记录错误日志</span></h3><p>你只能看到一个简单的信息:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">raise</span> ValueError(<span class="string">'A error happend !'</span>)</span><br><span class="line"><span class="keyword">except</span> ValueError <span class="keyword">as</span> e:</span><br><span class="line">    log.error(<span class="string">"值错误"</span>)</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
@@ -252,7 +252,7 @@ ValueError: A error happend !
 
 </module></ipython-input-9-7b3dde823828></div>
 
-<h3 id="使用exception"><a href="#使用exception" class="headerlink" title="使用exception"></a>使用exception</h3><p>exception默认就会输出traceback信息:</p>
+<h3><span id="使用exception">使用exception</span></h3><p>exception默认就会输出traceback信息:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">try</span>:</span><br><span class="line">    <span class="keyword">raise</span> ValueError(<span class="string">'A error happend !'</span>)</span><br><span class="line"><span class="keyword">except</span> ValueError <span class="keyword">as</span> e:</span><br><span class="line">    log.exception(<span class="string">'值错误'</span>)</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">

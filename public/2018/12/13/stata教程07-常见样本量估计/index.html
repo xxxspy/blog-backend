@@ -279,7 +279,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#理论知识"><span class="toc-number">1.</span> <span class="toc-text">理论知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#单样本均值检验"><span class="toc-number">2.</span> <span class="toc-text">单样本均值检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#对照组均值比较"><span class="toc-number">3.</span> <span class="toc-text">对照组均值比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#配对样本均值比较"><span class="toc-number">4.</span> <span class="toc-text">配对样本均值比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#群组随机化设计（CRD）"><span class="toc-number">5.</span> <span class="toc-text">群组随机化设计（CRD）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ANOVA"><span class="toc-number">6.</span> <span class="toc-text">ANOVA</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Oneway-ANOVA"><span class="toc-number">6.1.</span> <span class="toc-text">Oneway ANOVA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Twoway-ANOVA"><span class="toc-number">6.2.</span> <span class="toc-text">Twoway ANOVA</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#线性回归"><span class="toc-number">7.</span> <span class="toc-text">线性回归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#一元回归系数检验"><span class="toc-number">7.1.</span> <span class="toc-text">一元回归系数检验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#多元线性回归的R-2的显著性检验"><span class="toc-number">7.2.</span> <span class="toc-text">多元线性回归的R^2的显著性检验</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#其他分析方法"><span class="toc-number">8.</span> <span class="toc-text">其他分析方法</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">理论知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">单样本均值检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">对照组均值比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">配对样本均值比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">群组随机化设计（CRD）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">ANOVA</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">6.1.</span> <span class="toc-text">Oneway ANOVA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">6.2.</span> <span class="toc-text">Twoway ANOVA</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">线性回归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">7.1.</span> <span class="toc-text">一元回归系数检验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">7.2.</span> <span class="toc-text">多元线性回归的R^2的显著性检验</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">8.</span> <span class="toc-text">其他分析方法</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -287,13 +287,13 @@
 
         <!-- Post Content -->
         <p>我们常用PASS做样本量的计算, 不过本人更熟悉Stata, 所以我把常用的样本量计算情景都用stata实现了一遍, 希望对大家有用, 对自己也是一个备忘录。<br><span></span><br><a id="more"></a></p>
-<h3 id="理论知识"><a href="#理论知识" class="headerlink" title="理论知识"></a>理论知识</h3><p><img src="images/alpha-beta.png"></p>
+<h3><span id="理论知识">理论知识</span></h3><p><img src="images/alpha-beta.png"></p>
 <p>在估计样本量的时候, 我们通常需要知道自己预期的实验结果, 而有些统计指标需要在这里提前解释一下:</p>
 <ul>
 <li>α显著性水平: 犯Ⅰ型错误的概率, 即H0假设为真, 但是我们却没有接受H0, 导致错误的抛弃了H0, 通常α取值0.05(双侧检验)</li>
 <li>1-β统计效能: β是犯Ⅱ型错误的概率, 即H1假设为真, 但是我们却没有接受H1, 导致错误的抛弃了H1, 通常β取值0.2, 即统计效能power取值0.8</li>
 </ul>
-<h3 id="单样本均值检验"><a href="#单样本均值检验" class="headerlink" title="单样本均值检验"></a>单样本均值检验</h3><p>已知总体均值, 想要知道样本均值是否等于总体均值。</p>
+<h3><span id="单样本均值检验">单样本均值检验</span></h3><p>已知总体均值, 想要知道样本均值是否等于总体均值。</p>
 <p>案例:</p>
 <p>考虑Tamhane和Dunlop（2000,209）的一个例子，该例子讨论了有改善SAT成绩口语部分的辅导计划。以前的研究发现学生<br>在没有任何教练计划的情况下重新参加SAT考试，他们的得分平均提高了15分, 标准差约为40分。一项新的教练计划声称可以提高40分。假设分数的变化大致为正态分布。该示例中感兴趣的参数是测试分数的平均变化。为了测试索赔，调查人员希望进行另一项研究并计算样本量, 需要使用5％显著性的双侧检验，80％的统计效能。我们假设总体的分数变化的标准差未知, 使用40分的估计值。</p>
 <p>我们的stata命令是:</p>
@@ -408,7 +408,7 @@ Estimated sample size:
 </div>
 
 <p>更多案例, 请参考stata手册: <a href="https://www.stata.com/manuals/psspoweronemean.pdf" target="_blank" rel="noopener">https://www.stata.com/manuals/psspoweronemean.pdf</a></p>
-<h3 id="对照组均值比较"><a href="#对照组均值比较" class="headerlink" title="对照组均值比较"></a>对照组均值比较</h3><p>假如我们要检验两个均值之间的差异性是否显著, 原假设是H0: µ1 = µ2 , 备择假设是s Ha: µ1 != µ2, 从文献中得知两个样本均值大概为8和12, 标准差均为9, 统计检验力为0.8, 显著性水平设置为0.05, 我们可以这样计算样本量:</p>
+<h3><span id="对照组均值比较">对照组均值比较</span></h3><p>假如我们要检验两个均值之间的差异性是否显著, 原假设是H0: µ1 = µ2 , 备择假设是s Ha: µ1 != µ2, 从文献中得知两个样本均值大概为8和12, 标准差均为9, 统计检验力为0.8, 显著性水平设置为0.05, 我们可以这样计算样本量:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power twomeans 8 12, sd(9)</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
@@ -484,7 +484,7 @@ Ho: m2 = m1  versus  Ha: m2 > m1
 
 </div>
 
-<h3 id="配对样本均值比较"><a href="#配对样本均值比较" class="headerlink" title="配对样本均值比较"></a>配对样本均值比较</h3><p>配对样本T检验样本量的计算:</p>
+<h3><span id="配对样本均值比较">配对样本均值比较</span></h3><p>配对样本T检验样本量的计算:</p>
 <ul>
 <li>假设: H0: µ2 − µ1 = d = 0 versus H1: d != 0</li>
 <li>均值: ma1 = 73  ma2 = 57 </li>
@@ -573,7 +573,7 @@ Estimated sample size:
 </div>
 
 <p>更多案例请参考stata手册: <a href="https://www.stata.com/manuals/psspowerpairedmeans.pdf" target="_blank" rel="noopener">https://www.stata.com/manuals/psspowerpairedmeans.pdf</a></p>
-<h3 id="群组随机化设计（CRD）"><a href="#群组随机化设计（CRD）" class="headerlink" title="群组随机化设计（CRD）"></a>群组随机化设计（CRD）</h3><p>考虑一个来自Ahn，Heo和Zhang（2015,37）的群组随机化设计的例子<br>试验的目的是评估健康促进计划对提高运动水平的影响。在这个研究中，<br>教会是随机化的分组单位，个体参与者是被分析的对象。教会将被随机分配到实验组<br>和对照组。调查人员计划从每个教会招募20名被试，并希望检测实验组和对照组之间的平均差异为1.1千卡/千克/天<br>。从以前的研究来看，共同的标准偏差是<br>3.67千卡/千克/天。研究者假设组内相关系数为0.025。</p>
+<h3><span id="群组随机化设计crd">群组随机化设计（CRD）</span></h3><p>考虑一个来自Ahn，Heo和Zhang（2015,37）的群组随机化设计的例子<br>试验的目的是评估健康促进计划对提高运动水平的影响。在这个研究中，<br>教会是随机化的分组单位，个体参与者是被分析的对象。教会将被随机分配到实验组<br>和对照组。调查人员计划从每个教会招募20名被试，并希望检测实验组和对照组之间的平均差异为1.1千卡/千克/天<br>。从以前的研究来看，共同的标准偏差是<br>3.67千卡/千克/天。研究者假设组内相关系数为0.025。</p>
 <p>stata命令是:</p>
 <p>由于对照组的均值大小并不影响最终的结果, 所以我们让对照组的均值为0。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power twomeans 0 1.1, m1(20) m2(20) sd(3.67) rho(0.025)</span><br></pre></td></tr></table></figure>
@@ -612,7 +612,7 @@ Estimated numbers of clusters and sample sizes:
 </div>
 
 <p>关于群组随机化的更多例子, 可以参考stata手册: <a href="https://www.stata.com/manuals/psspowertwomeanscluster.pdf" target="_blank" rel="noopener">https://www.stata.com/manuals/psspowertwomeanscluster.pdf</a></p>
-<h3 id="ANOVA"><a href="#ANOVA" class="headerlink" title="ANOVA"></a>ANOVA</h3><h4 id="Oneway-ANOVA"><a href="#Oneway-ANOVA" class="headerlink" title="Oneway ANOVA"></a>Oneway ANOVA</h4><p>用于多组均值的比较, 举一个例子, 假设有三个分组:</p>
+<h3><span id="anova">ANOVA</span></h3><h4><span id="oneway-anova">Oneway ANOVA</span></h4><p>用于多组均值的比较, 举一个例子, 假设有三个分组:</p>
 <ul>
 <li>假设H0: µ1 = µ2 = µ3</li>
 <li>从以往研究中估计三组均值为: 21, 19, 18</li>
@@ -652,7 +652,7 @@ Estimated sample sizes:
 </div>
 
 <p>ANOVA的更多案例可以参考手册: <a href="https://www.stata.com/manuals/psspoweroneway.pdf" target="_blank" rel="noopener">https://www.stata.com/manuals/psspoweroneway.pdf</a></p>
-<h4 id="Twoway-ANOVA"><a href="#Twoway-ANOVA" class="headerlink" title="Twoway ANOVA"></a>Twoway ANOVA</h4><p>假设有一个2x3的分组设计, 各组的均值分别是: 19 18 32 \ 23 25 26, 组内方差为27,  我们可以这样计算样本量:</p>
+<h4><span id="twoway-anova">Twoway ANOVA</span></h4><p>假设有一个2x3的分组设计, 各组的均值分别是: 19 18 32 \ 23 25 26, 组内方差为27,  我们可以这样计算样本量:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">matrix</span> cm = (19, 18, 32 \ 23, 25, 26)</span><br><span class="line">power <span class="keyword">twoway</span> cm , varerror()</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
@@ -685,7 +685,7 @@ Estimated sample sizes:
 </matrix></div>
 
 <p>更多Twoway ANOVA的案例可以看手册: <a href="https://www.stata.com/manuals/psspowertwoway.pdf" target="_blank" rel="noopener">https://www.stata.com/manuals/psspowertwoway.pdf</a></p>
-<h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><h4 id="一元回归系数检验"><a href="#一元回归系数检验" class="headerlink" title="一元回归系数检验"></a>一元回归系数检验</h4><p>考虑一项假设性研究，其目标是调查每天锻炼时间对BMI的影响。<br>感兴趣的参数是斜率系数b。<br>我们的零假设是H0：b = 0,<br>我们希望计算BMI下降0.1 kg/m2所需的样本量<br>，使用5％级别的双侧检验，power为80％。我们假设锻炼时间的标准差为10<br>和BMI的标准差为4。</p>
+<h3><span id="线性回归">线性回归</span></h3><h4><span id="一元回归系数检验">一元回归系数检验</span></h4><p>考虑一项假设性研究，其目标是调查每天锻炼时间对BMI的影响。<br>感兴趣的参数是斜率系数b。<br>我们的零假设是H0：b = 0,<br>我们希望计算BMI下降0.1 kg/m2所需的样本量<br>，使用5％级别的双侧检验，power为80％。我们假设锻炼时间的标准差为10<br>和BMI的标准差为4。</p>
 <p>我们可以这样计算样本量:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power oneslope 0 -0.1, sdx(10) sdy(4)</span><br></pre></td></tr></table></figure>
 
@@ -715,7 +715,7 @@ Estimated sample size:
 
 </div>
 
-<h4 id="多元线性回归的R-2的显著性检验"><a href="#多元线性回归的R-2的显著性检验" class="headerlink" title="多元线性回归的R^2的显著性检验"></a>多元线性回归的R^2的显著性检验</h4><p>R^2显著可以证明回归方程中至少有一个回归系数不为零。</p>
+<h4><span id="多元线性回归的r2的显著性检验">多元线性回归的R^2的显著性检验</span></h4><p>R^2显著可以证明回归方程中至少有一个回归系数不为零。</p>
 <ul>
 <li>假设: H0: R2 = 0</li>
 <li>备择的R2取值是0.1</li>
@@ -750,7 +750,7 @@ Estimated sample size:
 </div>
 
 <p>参考手册: <a href="https://www.stata.com/manuals/psspowerrsquared.pdf" target="_blank" rel="noopener">https://www.stata.com/manuals/psspowerrsquared.pdf</a></p>
-<h3 id="其他分析方法"><a href="#其他分析方法" class="headerlink" title="其他分析方法"></a>其他分析方法</h3><p>在官方文档中有大量的案例, 包括均值比较/百分比比较/方差/相关分析/生存分析等, 大家都可以在这个页面找到: <a href="https://www.stata.com/features/power-and-sample-size/" target="_blank" rel="noopener">https://www.stata.com/features/power-and-sample-size/</a>  。</p>
+<h3><span id="其他分析方法">其他分析方法</span></h3><p>在官方文档中有大量的案例, 包括均值比较/百分比比较/方差/相关分析/生存分析等, 大家都可以在这个页面找到: <a href="https://www.stata.com/features/power-and-sample-size/" target="_blank" rel="noopener">https://www.stata.com/features/power-and-sample-size/</a>  。</p>
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="stata教程07-常见样本量估计.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>

@@ -567,12 +567,12 @@
         }
     </script>
 
-<h3 id="计算计算过程"><a href="#计算计算过程" class="headerlink" title="计算计算过程"></a>计算计算过程</h3><h4 id="输入和输出"><a href="#输入和输出" class="headerlink" title="输入和输出"></a>输入和输出</h4><p>假设网络中所有的参数已知，根据一个输入向量x，求输出向量y。</p>
+<h3><span id="计算计算过程">计算计算过程</span></h3><h4><span id="输入和输出">输入和输出</span></h4><p>假设网络中所有的参数已知，根据一个输入向量x，求输出向量y。</p>
 <p>首先输入是一个64维向量：</p>
 <p><code>\[ x=\left[ x_1, x_2,\dots x_d \right] \](d=64)</code></p>
 <p>而输出向量应该是一个10维的向量，用来表征10个数字的识别概率。</p>
 <p><code>\[ \hat y=\left [ \hat y_1, \hat y_2,\dots \hat y_l \right](l=10) \]</code></p>
-<h4 id="已知条件："><a href="#已知条件：" class="headerlink" title="已知条件："></a>已知条件：</h4><ul>
+<h4><span id="已知条件">已知条件：</span></h4><ul>
 <li>输入层到隐层神经元之间的链接权重<code>v</code>：</li>
 </ul>
 <p><code>\[ v=\left| { \begin{array}{c}
@@ -604,7 +604,7 @@ w_{l1} &amp; w_{l2} &amp; \dots &amp; w_{lq}
 <li>激活函数</li>
 </ul>
 <p><code>\[ f(x)={ 1 \over { 1 + e^{-x} } } \]</code></p>
-<h4 id="计算结果"><a href="#计算结果" class="headerlink" title="计算结果"></a>计算结果</h4><ul>
+<h4><span id="计算结果">计算结果</span></h4><ul>
 <li>隐层神经元的输入</li>
 </ul>
 <p><code>\[ \alpha = v · x^T + b  \]</code></p>
@@ -620,9 +620,9 @@ w_{l1} &amp; w_{l2} &amp; \dots &amp; w_{lq}
 <li>输出神经元的激活</li>
 </ul>
 <p><code>\[f(\gamma)\]</code></p>
-<h3 id="synaptic-js实现神经网络"><a href="#synaptic-js实现神经网络" class="headerlink" title="synaptic.js实现神经网络"></a>synaptic.js实现神经网络</h3><p>为了演示我们就用一个前端库来做一个神经网络。</p>
+<h3><span id="synapticjs实现神经网络">synaptic.js实现神经网络</span></h3><p>为了演示我们就用一个前端库来做一个神经网络。</p>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myNetwork = <span class="keyword">new</span> synaptic.Architect.Perceptron(<span class="number">64</span>, <span class="number">25</span>, <span class="number">10</span>)</span><br><span class="line"><span class="keyword">var</span> trainer = <span class="keyword">new</span> synaptic.Trainer(myNetwork)</span><br><span class="line">data=[</span><br><span class="line">    &#123;<span class="attr">input</span>: [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>], <span class="attr">output</span>: <span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">input</span>: [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>], <span class="attr">output</span>: <span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">input</span>: [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>], <span class="attr">output</span>: <span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">input</span>: [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>], <span class="attr">output</span>: <span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">input</span>: [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>], <span class="attr">output</span>: <span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">input</span>: [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>], <span class="attr">output</span>: <span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">input</span>: [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>], <span class="attr">output</span>: <span class="number">1</span>&#125;</span><br><span class="line">]</span><br><span class="line">trainer.train(data)</span><br><span class="line">new_input=[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>]</span><br><span class="line"><span class="keyword">var</span> output = network.activate(new_input)</span><br></pre></td></tr></table></figure>
-<p>### </p>
+<p>###</p>
 
     </div>
 

@@ -279,7 +279,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#第一步-所有样本构建回归方程"><span class="toc-number">1.</span> <span class="toc-text">第一步, 所有样本构建回归方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第二步-构建1992年之前的样本的回归模型"><span class="toc-number">2.</span> <span class="toc-text">第二步, 构建1992年之前的样本的回归模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第三步-构建1992年之后的样本的回归模型"><span class="toc-number">3.</span> <span class="toc-text">第三步, 构建1992年之后的样本的回归模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#第四步-计算F统计量"><span class="toc-number">4.</span> <span class="toc-text">第四步, 计算F统计量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#另外一种方法"><span class="toc-number">5.</span> <span class="toc-text">另外一种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#参考文献"><span class="toc-number">6.</span> <span class="toc-text">参考文献</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">第一步, 所有样本构建回归方程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">第二步, 构建1992年之前的样本的回归模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">第三步, 构建1992年之后的样本的回归模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">第四步, 计算F统计量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">另外一种方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">参考文献</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -326,7 +326,7 @@ $$</code></p>
 <p>绘制两个变量的时间趋势图, 我们的目的是想要检测一下在1992年是否存在经济的变动点:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">graph</span> <span class="keyword">twoway</span> connect c y <span class="built_in">year</span></span><br></pre></td></tr></table></figure>
 <p><img src="output_9_0.svg" alt="svg"></p>
-<h3 id="第一步-所有样本构建回归方程"><a href="#第一步-所有样本构建回归方程" class="headerlink" title="第一步, 所有样本构建回归方程"></a>第一步, 所有样本构建回归方程</h3><p>使用人均GDP预测人均消费:</p>
+<h3><span id="第一步-所有样本构建回归方程">第一步, 所有样本构建回归方程</span></h3><p>使用人均GDP预测人均消费:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> c <span class="built_in">y</span></span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
@@ -358,7 +358,7 @@ $$</code></p>
 
 </div>
 
-<h3 id="第二步-构建1992年之前的样本的回归模型"><a href="#第二步-构建1992年之前的样本的回归模型" class="headerlink" title="第二步, 构建1992年之前的样本的回归模型"></a>第二步, 构建1992年之前的样本的回归模型</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> c y <span class="keyword">if</span> year &lt; 1992</span><br></pre></td></tr></table></figure>
+<h3><span id="第二步-构建1992年之前的样本的回归模型">第二步, 构建1992年之前的样本的回归模型</span></h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> c y <span class="keyword">if</span> year &lt; 1992</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
 输出(stream):<br>
@@ -389,7 +389,7 @@ $$</code></p>
 
 </div>
 
-<h3 id="第三步-构建1992年之后的样本的回归模型"><a href="#第三步-构建1992年之后的样本的回归模型" class="headerlink" title="第三步, 构建1992年之后的样本的回归模型"></a>第三步, 构建1992年之后的样本的回归模型</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> c y <span class="keyword">if</span> year &gt;= 1992</span><br></pre></td></tr></table></figure>
+<h3><span id="第三步-构建1992年之后的样本的回归模型">第三步, 构建1992年之后的样本的回归模型</span></h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> c y <span class="keyword">if</span> year &gt;= 1992</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
 输出(stream):<br>
@@ -420,7 +420,7 @@ $$</code></p>
 
 </div>
 
-<h3 id="第四步-计算F统计量"><a href="#第四步-计算F统计量" class="headerlink" title="第四步, 计算F统计量"></a>第四步, 计算F统计量</h3><p>根据上面的公式, 我们可以计算F统计量:</p>
+<h3><span id="第四步-计算f统计量">第四步, 计算F统计量</span></h3><p>根据上面的公式, 我们可以计算F统计量:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">scalar</span> F = ((ssr-ssr1-ssr2)/2)/((ssr1+ssr2) / 25)</span><br></pre></td></tr></table></figure>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">dis</span> <span class="built_in">F</span></span><br></pre></td></tr></table></figure>
 
@@ -431,7 +431,7 @@ $$</code></p>
 </div>
 
 <p>得到F统计量, 我们查找F分布表就能知道假设是否成立了。</p>
-<h3 id="另外一种方法"><a href="#另外一种方法" class="headerlink" title="另外一种方法"></a>另外一种方法</h3><p>上面的方法有些繁琐, 我们还可以使用构建虚拟变量的方法, 思路是这样的:</p>
+<h3><span id="另外一种方法">另外一种方法</span></h3><p>上面的方法有些繁琐, 我们还可以使用构建虚拟变量的方法, 思路是这样的:</p>
 <ul>
 <li>构建虚拟变量d, 标志数据是否来自1992年之后, 是则取1, 否则取0</li>
 <li>计算d和自变量y的交互项: yd</li>
@@ -520,7 +520,7 @@ Linear regression                               Number of obs     =         29
 </div>
 
 <p>虽然F值不同, 但是最终的结论是一样的。</p>
-<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p>陈强[高级计量经济学]</p>
+<h3><span id="参考文献">参考文献</span></h3><p>陈强[高级计量经济学]</p>
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="stata教程15-回归变动的检验.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>

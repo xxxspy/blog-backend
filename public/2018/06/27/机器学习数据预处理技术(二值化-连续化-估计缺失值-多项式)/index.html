@@ -240,7 +240,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据预处理技术介绍"><span class="toc-number">2.</span> <span class="toc-text">数据预处理技术介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#二值化"><span class="toc-number">3.</span> <span class="toc-text">二值化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#特征二值化"><span class="toc-number">3.1.</span> <span class="toc-text">特征二值化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分类数据连续化"><span class="toc-number">4.</span> <span class="toc-text">分类数据连续化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#估算缺失的值"><span class="toc-number">5.</span> <span class="toc-text">估算缺失的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#生成多项式特征"><span class="toc-number">6.</span> <span class="toc-text">生成多项式特征</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">数据预处理技术介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">二值化</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">特征二值化</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">分类数据连续化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">估算缺失的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">生成多项式特征</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -249,12 +249,12 @@
         <!-- Post Content -->
         <p><span></span><br><a id="more"></a></p>
 <p>本篇文章继承上篇文章<a href="/2018/06/27/机器学习数据预处理技术(标准化-缩放-正则化)/" title="机器学习数据预处理技术(标准化-缩放-正则化)">机器学习数据预处理技术(标准化-缩放-正则化)</a></p>
-<h3 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h3><p>机器学习模型千变万化, 每种模型需要的数据形式都略有不同, 所以我们一般花在数据提取/清理/格式化等操作的时间可能会占项目总时间的百分之七十(甚至更多)。</p>
+<h3><span id="简介">简介</span></h3><p>机器学习模型千变万化, 每种模型需要的数据形式都略有不同, 所以我们一般花在数据提取/清理/格式化等操作的时间可能会占项目总时间的百分之七十(甚至更多)。</p>
 <p>不过, 借助别人已经写好的程序可以让我们的工作事半功倍。今天我们介绍的一个工具就是著名的python机器学习库sklearn, 它包含很多数据预处理技术, 下面我们就来列出常用的一些数据预处理技术, 以便大家提高效率, 也是给我自己的一个技术笔记。</p>
-<h3 id="数据预处理技术介绍"><a href="#数据预处理技术介绍" class="headerlink" title="数据预处理技术介绍"></a>数据预处理技术介绍</h3><p>数据集的标准化是scikit-learn中实现的许多机器学习估计器的通用要求;如果单个特征看起来不像标准正态分布数据那么它们可能会表现得很差：高斯分布的零均值和单位方差。</p>
+<h3><span id="数据预处理技术介绍">数据预处理技术介绍</span></h3><p>数据集的标准化是scikit-learn中实现的许多机器学习估计器的通用要求;如果单个特征看起来不像标准正态分布数据那么它们可能会表现得很差：高斯分布的零均值和单位方差。</p>
 <p>在实践中，我们经常忽略分布的形状，只是通过去除每个特征的平均值来将数据转化为中心，然后通过将特征向量除以它们的标准差来对其进行调整。</p>
 <p>例如，学习算法的目标函数（如支持向量机的RBF核或线性模型的l1和l2正则化）中使用的许多元素都假定所有特征都以零为中心并具有相同数量级的方差。如果一个特征的方差比其他特征要大几个数量级，那么它可能会影响目标函数，使得算法无法正确地按照预期正确地学习其他特征。</p>
-<h3 id="二值化"><a href="#二值化" class="headerlink" title="二值化"></a>二值化</h3><h4 id="特征二值化"><a href="#特征二值化" class="headerlink" title="特征二值化"></a>特征二值化</h4><p>根据阈值将数据二值化（将特征值设置为0或1）大于阈值的值映射到1，而小于或等于阈值的值映射到0.默认阈值为0时，只有正值映射到1。二值化是文本计数数据的常用操作，分析人员可以决定只考虑是否存在某个特征，而不是量化出现次数。它也可以用作考虑布尔随机变量的估计器的预处理步骤（例如，在贝叶斯设置中使用伯努利分布建模）。</p>
+<h3><span id="二值化">二值化</span></h3><h4><span id="特征二值化">特征二值化</span></h4><p>根据阈值将数据二值化（将特征值设置为0或1）大于阈值的值映射到1，而小于或等于阈值的值映射到0.默认阈值为0时，只有正值映射到1。二值化是文本计数数据的常用操作，分析人员可以决定只考虑是否存在某个特征，而不是量化出现次数。它也可以用作考虑布尔随机变量的估计器的预处理步骤（例如，在贝叶斯设置中使用伯努利分布建模）。</p>
 <p>特征二值化是对数值特征进行阈值处理以获得布尔值的过程。这对下游概率估计器非常有用，它可以假定输入数据是根据多变量伯努利分布分布的。例如，<code>sklearn.neural_network.BernoulliRBM</code>就是这种情况。</p>
 <p>即使归一化计数（也称为术语频率）或TF-IDF值的特征在实践中经常稍微好一点，在文本处理社区中也使用二进制特征值（可能简化概率推理）也是常见的。</p>
 <p>至于Normalizer，实用程序类Binarizer意味着在sklearn.pipeline.Pipeline的早期阶段使用。拟合方法不会做任何事情，因为每个样本都是独立处理的：</p>
@@ -285,7 +285,7 @@
            [0., 1., 1.]])
 </div>
 
-<h3 id="分类数据连续化"><a href="#分类数据连续化" class="headerlink" title="分类数据连续化"></a>分类数据连续化</h3><p>通常，特征不是作为连续值给出的，而是文本字符串或者数字编码的类别。比如性别数据通常是<code>[&quot;男&quot;, &quot;女&quot;]</code>这样的数据, 可以编码成<code>[1,2]</code>, 但是这种数据通常不是可以直接进入机器学习模型的。将这种分类数据进行连续化的方法最著名的就是<code>one-hot-encoding</code>。默认情况下，每个功能可以从数据集中自动推断出多少个值。可以使用参数<code>n_values</code>明确指定。在我们的数据集中有两种性别，三种可能的大陆和四种网页浏览器。然后我们拟合估计量，并转换数据点。结果是，前两个数字编码性别，下一组三个数字大洲和最后四个网络浏览器。</p>
+<h3><span id="分类数据连续化">分类数据连续化</span></h3><p>通常，特征不是作为连续值给出的，而是文本字符串或者数字编码的类别。比如性别数据通常是<code>[&quot;男&quot;, &quot;女&quot;]</code>这样的数据, 可以编码成<code>[1,2]</code>, 但是这种数据通常不是可以直接进入机器学习模型的。将这种分类数据进行连续化的方法最著名的就是<code>one-hot-encoding</code>。默认情况下，每个功能可以从数据集中自动推断出多少个值。可以使用参数<code>n_values</code>明确指定。在我们的数据集中有两种性别，三种可能的大陆和四种网页浏览器。然后我们拟合估计量，并转换数据点。结果是，前两个数字编码性别，下一组三个数字大洲和最后四个网络浏览器。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 这是三列分类数据</span></span><br><span class="line"><span class="comment"># 在我们的数据集中有两种性别，三种可能的大陆和四种网页浏览器。</span></span><br><span class="line">X = [[<span class="number">0</span>, <span class="number">0</span>, <span class="number">3</span>], </span><br><span class="line">     [<span class="number">1</span>, <span class="number">1</span>, <span class="number">0</span>], </span><br><span class="line">     [<span class="number">0</span>, <span class="number">2</span>, <span class="number">1</span>], </span><br><span class="line">     [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>]]</span><br><span class="line"></span><br><span class="line">enc = preprocessing.OneHotEncoder()</span><br><span class="line">enc.fit(X)</span><br><span class="line">enc.transform([[<span class="number">0</span>, <span class="number">1</span>, <span class="number">3</span>]]).toarray()</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -301,7 +301,7 @@
     array([[1., 0., 0., 0., 1., 0., 0., 0., 0., 1.]])
 </div>
 
-<h3 id="估算缺失的值"><a href="#估算缺失的值" class="headerlink" title="估算缺失的值"></a>估算缺失的值</h3><p>由于各种原因，许多真实世界的数据集包含缺失值，通常编码为空白，NaN或其他占位符。然而，这样的数据集与scikit-learn估计器不兼容，它们假定数组中的所有值都是数值的，并且都具有并保持含义。使用不完整数据集的基本策略是放弃包含缺失值的整个行和/或列。然而，这是以丢失可能有价值的数据为代价的（尽管不完整）。更好的策略是推算缺失值，即从数据的已知部分推断它们。</p>
+<h3><span id="估算缺失的值">估算缺失的值</span></h3><p>由于各种原因，许多真实世界的数据集包含缺失值，通常编码为空白，NaN或其他占位符。然而，这样的数据集与scikit-learn估计器不兼容，它们假定数组中的所有值都是数值的，并且都具有并保持含义。使用不完整数据集的基本策略是放弃包含缺失值的整个行和/或列。然而，这是以丢失可能有价值的数据为代价的（尽管不完整）。更好的策略是推算缺失值，即从数据的已知部分推断它们。</p>
 <p><code>Imputer</code>类提供了输入缺失值的基本策略，可以使用缺失值所在的行或列的均值，中位数或最频繁值。这个类还允许不同的缺失值编码。</p>
 <p>以下代码片段演示了如何使用包含缺失值的列（轴0）的平均值替换缺失值（编码为np.nan）：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> Imputer</span><br><span class="line">imp = Imputer(missing_values=<span class="string">'NaN'</span>, strategy=<span class="string">'mean'</span>, axis=<span class="number">0</span>)</span><br><span class="line">imp.fit([[<span class="number">1</span>, <span class="number">2</span>], [np.nan, <span class="number">3</span>], [<span class="number">7</span>, <span class="number">6</span>]])</span><br><span class="line"></span><br><span class="line">X = [[np.nan, <span class="number">2</span>], [<span class="number">6</span>, np.nan], [<span class="number">7</span>, <span class="number">6</span>]]</span><br><span class="line">print(imp.transform(X))</span><br></pre></td></tr></table></figure>
@@ -325,7 +325,7 @@
     
 </div>
 
-<h3 id="生成多项式特征"><a href="#生成多项式特征" class="headerlink" title="生成多项式特征"></a>生成多项式特征</h3><p>考虑到输入数据的非线性特征，往往会增加模型的复杂性。一种简单而常用的方法是多项式特征，它可以得到特征的高阶和交互项。它在PolynomialFeatures中实现：</p>
+<h3><span id="生成多项式特征">生成多项式特征</span></h3><p>考虑到输入数据的非线性特征，往往会增加模型的复杂性。一种简单而常用的方法是多项式特征，它可以得到特征的高阶和交互项。它在PolynomialFeatures中实现：</p>
 <p>将X的特征（X_1，X_2）变换为（1，X_1，X_2，X_1^2，X_1X_2，X_2^2）:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> PolynomialFeatures</span><br><span class="line">X = np.arange(<span class="number">6</span>).reshape(<span class="number">3</span>, <span class="number">2</span>)</span><br><span class="line">X</span><br></pre></td></tr></table></figure>
 

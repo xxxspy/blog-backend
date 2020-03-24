@@ -296,7 +296,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#估计参数"><span class="toc-number">1.</span> <span class="toc-text">估计参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#根据样本选择分布"><span class="toc-number">2.</span> <span class="toc-text">根据样本选择分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实战"><span class="toc-number">3.</span> <span class="toc-text">实战</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">估计参数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">根据样本选择分布</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">实战</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -307,7 +307,7 @@
 <p>我们需要从模型中估计一个参数。通常，我们选择一个模型 - 比如说线性回归 - 并使用观测数据X来估计模型的参数θ。</p>
 <p>那么模型参数到底是如何估计出来的呢?例如, 我们从均值为<code>mu</code>标准差为<code>sd</code>的总体中随机抽取样本<code>x</code>, 我们的目标就是估计mu和sd的值。</p>
 <p>设想你正在做一个线性回归, 并且你要估计出模型自变量x的系数:</p>
-<h3 id="估计参数"><a href="#估计参数" class="headerlink" title="估计参数"></a>估计参数</h3><p>我们从正态分布的概率密度函数(PDF)出发, 讲一些数学知识。</p>
+<h3><span id="估计参数">估计参数</span></h3><p>我们从正态分布的概率密度函数(PDF)出发, 讲一些数学知识。</p>
 <p><code>$$
 f(x) =
 \frac{1}{\sigma \sqrt{2\pi}} \exp\left(−\frac{(x−\mu)^2}{2\sigma^2}\right).
@@ -342,7 +342,7 @@ $$</code></p>
 
 </div>
 
-<h3 id="根据样本选择分布"><a href="#根据样本选择分布" class="headerlink" title="根据样本选择分布"></a>根据样本选择分布</h3><p>假如现在给你两个可能分布N(2, 1)和N(3, 2), 让你猜测, 样本x=[2, 7]来自哪个分布?</p>
+<h3><span id="根据样本选择分布">根据样本选择分布</span></h3><p>假如现在给你两个可能分布N(2, 1)和N(3, 2), 让你猜测, 样本x=[2, 7]来自哪个分布?</p>
 <p>我们很容易想到, 分别求出样本x来自两个总体的概率即可:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">p1 = norm.pdf(<span class="number">2</span>, <span class="number">2</span>, <span class="number">1</span>) * norm.pdf(<span class="number">7</span>, <span class="number">2</span>, <span class="number">1</span>)</span><br><span class="line">p2 = norm.pdf(<span class="number">2</span>, <span class="number">3</span>, <span class="number">2</span>) * norm.pdf(<span class="number">7</span>, <span class="number">3</span>, <span class="number">2</span>)</span><br><span class="line">print(<span class="string">'p1:'</span>, p1)</span><br><span class="line">print(<span class="string">'p2:'</span>, p2)</span><br></pre></td></tr></table></figure>
 
@@ -360,7 +360,7 @@ p2: 0.0047520868169464775
 f(x) =
 \frac{1}{\sigma \sqrt{2\pi}} \exp\left(−\frac{(x−\mu)^2}{2\sigma^2}\right).
 $$</code></p>
-<h3 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h3><p>根据高中知识, 求函数的最大值, 可以使用求导的方式, 让导数为0 ,就可以得到极值点。</p>
+<h3><span id="实战">实战</span></h3><p>根据高中知识, 求函数的最大值, 可以使用求导的方式, 让导数为0 ,就可以得到极值点。</p>
 <p>因为我比较懒, 不喜欢求导数, 所以我用了一个求导数的python模块sympy, 下面我们先写出上面的公式<code>$\log p$</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> sympy <span class="keyword">import</span> symbols, pi, exp, log</span><br><span class="line"><span class="keyword">from</span> sympy.stats <span class="keyword">import</span> Probability, Normal</span><br><span class="line"></span><br><span class="line"><span class="comment"># 样本</span></span><br><span class="line">X = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>, <span class="number">3</span>,<span class="number">4</span>,<span class="number">2</span>,<span class="number">5</span>,<span class="number">6</span>,]</span><br><span class="line">x = symbols(<span class="string">'x'</span>)</span><br><span class="line"><span class="comment"># 总体 mu 和 sigma</span></span><br><span class="line">m, s = symbols(<span class="string">'m s'</span>)</span><br><span class="line"><span class="comment"># pdf</span></span><br><span class="line">pdf = <span class="number">1</span>/ (s * (<span class="number">2</span>*pi)**<span class="number">0.5</span>)*exp( -(x-m)**<span class="number">2</span> / (<span class="number">2</span>*s**<span class="number">2</span>) )</span><br><span class="line">logpdf = log(pdf)</span><br><span class="line">logpdf</span><br></pre></td></tr></table></figure>
 

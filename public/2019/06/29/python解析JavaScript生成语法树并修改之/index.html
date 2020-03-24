@@ -227,10 +227,10 @@
         <!-- Post Content -->
         <p>本篇文章介绍了使用python解析JavaScript形成语法树(AST), 并且修改AST, 然后生成新js代码的过程。</p>
 <a id="more"></a>
-<h3 id="前提"><a href="#前提" class="headerlink" title="前提"></a>前提</h3><p>最近要做一个项目, 需要逆向破解前端的js代码, 但是js代码往往经过混淆而完全丧失可读性, 所以我想到一个办法就是通过解析js代码生成AST(抽象语法树), 然后通过简化AST来重新生成简化后的代码, 这样就在很大程度上降低了我们破解的难度, 但是并不是完全没有难度, 因为很多代码还是无法优化的。</p>
-<h3 id="内容简介"><a href="#内容简介" class="headerlink" title="内容简介"></a>内容简介</h3><p>Esprima是一个Javascript解析器，即它生成一个嵌套对象AST，以比以人为中心的代码更容易处理的方式表示代码结构。<br>Escodegen是一个代码生成器，可以获取Esprima生成的对象并将其转换回Javascript代码。</p>
+<h3><span id="前提">前提</span></h3><p>最近要做一个项目, 需要逆向破解前端的js代码, 但是js代码往往经过混淆而完全丧失可读性, 所以我想到一个办法就是通过解析js代码生成AST(抽象语法树), 然后通过简化AST来重新生成简化后的代码, 这样就在很大程度上降低了我们破解的难度, 但是并不是完全没有难度, 因为很多代码还是无法优化的。</p>
+<h3><span id="内容简介">内容简介</span></h3><p>Esprima是一个Javascript解析器，即它生成一个嵌套对象AST，以比以人为中心的代码更容易处理的方式表示代码结构。<br>Escodegen是一个代码生成器，可以获取Esprima生成的对象并将其转换回Javascript代码。</p>
 <p>这两个模块都是nodejs模块, 也就是你需要在node中使用他们。但是有人开发了js2py的python模块, 可以帮助我们在python中调用nodejs模块。所以, 我今天这篇文章就介绍一下python中使用Esprima生成js的语法树, 并通过修改语法树来修改js代码, 最后通过Escodegen生成js代码。</p>
-<h3 id="安装js2py模块"><a href="#安装js2py模块" class="headerlink" title="安装js2py模块"></a>安装js2py模块</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pip install js2py</span><br></pre></td></tr></table></figure>
+<h3><span id="安装js2py模块">安装js2py模块</span></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pip install js2py</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
 输出(stream):<br>
@@ -266,7 +266,7 @@ You should consider upgrading via the 'python -m pip install --upgrade pip' comm
 
 </div>
 
-<h3 id="快速入门"><a href="#快速入门" class="headerlink" title="快速入门"></a>快速入门</h3><p>js2py可以使用’require’方法加载所需的nodejs模块, 调用模块的时候, 就跟python模块的调用一样简单:</p>
+<h3><span id="快速入门">快速入门</span></h3><p>js2py可以使用’require’方法加载所需的nodejs模块, 调用模块的时候, 就跟python模块的调用一样简单:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> js2py</span><br><span class="line"></span><br><span class="line">esprima = js2py.require(<span class="string">'esprima'</span>)</span><br><span class="line">escodegen = js2py.require(<span class="string">'escodegen'</span>)</span><br><span class="line"></span><br><span class="line">print(esprima)</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
@@ -326,7 +326,7 @@ You should consider upgrading via the 'python -m pip install --upgrade pip' comm
 </div>
 
 <p>关于如何读懂AST, 你需要参考esprima的官方文档, 我这里就不多废话了, 直接上链接: <a href="https://esprima.readthedocs.io/en/3.1/index.html" target="_blank" rel="noopener">https://esprima.readthedocs.io/en/3.1/index.html</a></p>
-<h3 id="使用-Escodegen生成代码"><a href="#使用-Escodegen生成代码" class="headerlink" title="使用 Escodegen生成代码"></a>使用 Escodegen生成代码</h3><p>得到了AST, 可以根据AST生成js代码:</p>
+<h3><span id="使用-escodegen生成代码">使用 Escodegen生成代码</span></h3><p>得到了AST, 可以根据AST生成js代码:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">escodegen.generate(tree)</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -336,7 +336,7 @@ You should consider upgrading via the 'python -m pip install --upgrade pip' comm
 
 </div>
 
-<h3 id="注入代码"><a href="#注入代码" class="headerlink" title="注入代码"></a>注入代码</h3><p>要注入代码，我们在将AST传递给Escodegen之前修改它。</p>
+<h3><span id="注入代码">注入代码</span></h3><p>要注入代码，我们在将AST传递给Escodegen之前修改它。</p>
 <p>我们可以避免必须直接处理解析树，方法是将我们想要注入的代码传递给esprima.parse, 生成一个tree的片段，然后再将其添加到解析树中：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">parsed = esprima.parse(<span class="string">'console.log("Hello world!")'</span>)</span><br><span class="line">parsed.body.unshift(esprima.parse(<span class="string">'console.log("begin")'</span>))</span><br><span class="line">parsed.body.push(esprima.parse(<span class="string">'console.log("end")'</span>))</span><br><span class="line">newcode = escodegen.generate(parsed)</span><br><span class="line">print(newcode)</span><br></pre></td></tr></table></figure>
 
@@ -348,7 +348,7 @@ console.log('end');
 
 </div>
 
-<h3 id="JavaScript转换成Python代码"><a href="#JavaScript转换成Python代码" class="headerlink" title="JavaScript转换成Python代码"></a>JavaScript转换成Python代码</h3><p>当然作为js2py的功能之一, 它还可以将js代码转换成python代码, 但是生成的python代码可读性较差, 我感觉没有太大用处:</p>
+<h3><span id="javascript转换成python代码">JavaScript转换成Python代码</span></h3><p>当然作为js2py的功能之一, 它还可以将js代码转换成python代码, 但是生成的python代码可读性较差, 我感觉没有太大用处:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">print(js2py.translate_js(newcode))</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
@@ -368,7 +368,7 @@ pass
 
 </div>
 
-<h3 id="在python中js代码"><a href="#在python中js代码" class="headerlink" title="在python中js代码"></a>在python中js代码</h3><p>既然能将js转换成python, 就能在python中运行js, 而使用js2py就很简单:</p>
+<h3><span id="在python中js代码">在python中js代码</span></h3><p>既然能将js转换成python, 就能在python中运行js, 而使用js2py就很简单:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">js2py.eval_js(newcode)</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
@@ -379,7 +379,7 @@ pass
 
 </div>
 
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这篇文章比较简单, 就是介绍了js2py的一些简单功能, 后面的文章我会使用js2py进行JavaScript代码的精简, 也就是JavaScript的逆向开发, 以便读懂前端混淆的代码。</p>
+<h3><span id="总结">总结</span></h3><p>这篇文章比较简单, 就是介绍了js2py的一些简单功能, 后面的文章我会使用js2py进行JavaScript代码的精简, 也就是JavaScript的逆向开发, 以便读懂前端混淆的代码。</p>
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="python解析JavaScript生成语法树并修改之.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>

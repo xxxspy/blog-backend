@@ -223,7 +223,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#安装"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据加载"><span class="toc-number">2.</span> <span class="toc-text">数据加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#模型拟合"><span class="toc-number">3.</span> <span class="toc-text">模型拟合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘图"><span class="toc-number">4.</span> <span class="toc-text">绘图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">数据加载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">模型拟合</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">绘图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -233,7 +233,7 @@
         <p><span></span><br><a id="more"></a></p>
 <p>本篇文章中用到的很多代码来自这里: <a href="https://www.stata-journal.com/sjpdf.html?articlenum=st0119" target="_blank" rel="noopener">https://www.stata-journal.com/sjpdf.html?articlenum=st0119</a>  , 英文好的朋友可以直接看这个文章就行。</p>
 <p>另外, 这篇教程只是展示一下stata在IRT分析时能做什么, 并没有对IRT的相关知识进行介绍。 另外我们也没有对raschtest命令如何使用进行详细的结果, 所以这篇文章只需要花费10秒浏览一下即可。</p>
-<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ssc</span> install raschtest</span><br></pre></td></tr></table></figure>
+<h3><span id="安装">安装</span></h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">ssc</span> install raschtest</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
 输出(stream):<br>
@@ -243,7 +243,7 @@ installation complete.
 
 </div>
 
-<h3 id="数据加载"><a href="#数据加载" class="headerlink" title="数据加载"></a>数据加载</h3><p>前几篇文章都是用的这个数据, 不做介绍, 直接上命令:</p>
+<h3><span id="数据加载">数据加载</span></h3><p>前几篇文章都是用的这个数据, 不做介绍, 直接上命令:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> http:<span class="comment">//www.stata.com/support/faqs/dta/raschfaq, clear</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">list</span> <span class="keyword">in</span> 1/10</span><br></pre></td></tr></table></figure>
 
@@ -268,7 +268,7 @@ installation complete.
 
 </div>
 
-<h3 id="模型拟合"><a href="#模型拟合" class="headerlink" title="模型拟合"></a>模型拟合</h3><p>从输出结果中我们可以看到, 我们常用的拟合指标都已经列出, 包括infit/outfit, R1c 和 Andersen LR test等。</p>
+<h3><span id="模型拟合">模型拟合</span></h3><p>从输出结果中我们可以看到, 我们常用的拟合指标都已经列出, 包括infit/outfit, R1c 和 Andersen LR test等。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raschtest math*, method(cml) <span class="keyword">mean</span> id(subj_id) autogroup</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
@@ -324,7 +324,7 @@ The mean of the difficulty parameters is fixed to 0
 
 </div>
 
-<h3 id="绘图"><a href="#绘图" class="headerlink" title="绘图"></a>绘图</h3><p>如果你想要同时生成各种图, 你可以这么写:</p>
+<h3><span id="绘图">绘图</span></h3><p>如果你想要同时生成各种图, 你可以这么写:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">raschtest math*, method(cml) <span class="keyword">mean</span> autogroup icc information <span class="keyword">graph</span> fitgraph id(subj_id)</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
@@ -405,7 +405,7 @@ The mean of the difficulty parameters is fixed to 0
 <li>题目的infit和outfititem分布:</li>
 </ul>
 <p><img src="images/infititem.png"><br><img src="images/outfititem.png"></p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>这篇教程只是展示一下stata在IRT分析时能做什么, 并没有对IRT的相关知识进行介绍。目前来看, raschtest命令的功能还比较有限, 如果想要用到stata还需要自己对IRT理论模型有更深的理解才行, 相对于conquest/winsteps等软件, raschtest还不太适合小白用户的使用。</p>
+<h3><span id="总结">总结</span></h3><p>这篇教程只是展示一下stata在IRT分析时能做什么, 并没有对IRT的相关知识进行介绍。目前来看, raschtest命令的功能还比较有限, 如果想要用到stata还需要自己对IRT理论模型有更深的理解才行, 相对于conquest/winsteps等软件, raschtest还不太适合小白用户的使用。</p>
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="stata教程11-raschtest模块进行项目反应试题分析.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>

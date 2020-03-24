@@ -240,7 +240,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#案例和数据集"><span class="toc-number">1.</span> <span class="toc-text">案例和数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信息熵怎么算"><span class="toc-number">2.</span> <span class="toc-text">信息熵怎么算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#条件信息熵怎么算"><span class="toc-number">3.</span> <span class="toc-text">条件信息熵怎么算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信息增益"><span class="toc-number">4.</span> <span class="toc-text">信息增益</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#属性的信息增益与属性的类别数的关系"><span class="toc-number">5.</span> <span class="toc-text">属性的信息增益与属性的类别数的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#信息增益率"><span class="toc-number">6.</span> <span class="toc-text">信息增益率</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">案例和数据集</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">信息熵怎么算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">条件信息熵怎么算</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">信息增益</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">属性的信息增益与属性的类别数的关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">信息增益率</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -251,7 +251,7 @@
 <p>信息增益(Info Gain), 信息增益率(Info Gain Ratio)和 基尼指数(Gini Index)都是在做决策树时试用的分支选择策略, 下面我们试用numpy来实现这几个指标, 以便加深对这些指标的理解。</p>
 <p>下面我们来引入用到的库:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="comment"># 进行数据整理</span></span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="comment"># 数据</span></span><br><span class="line"><span class="keyword">import</span> io</span><br><span class="line"><span class="comment"># 验证结果</span></span><br><span class="line"><span class="keyword">from</span> scipy <span class="keyword">import</span> stats</span><br></pre></td></tr></table></figure>
-<h3 id="案例和数据集"><a href="#案例和数据集" class="headerlink" title="案例和数据集"></a>案例和数据集</h3><p>学习决策树常用的一个数据集就是”机器学习（周志华）》 西瓜数据集3.0”, 下面我把数据粘贴出来, 你们就不必下载了, 直接硬编码到python种使用:</p>
+<h3><span id="案例和数据集">案例和数据集</span></h3><p>学习决策树常用的一个数据集就是”机器学习（周志华）》 西瓜数据集3.0”, 下面我把数据粘贴出来, 你们就不必下载了, 直接硬编码到python种使用:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">data_str = output = io.StringIO(<span class="string">'''编号,色泽,根蒂,敲声,纹理,脐部,触感,密度,含糖率,好瓜</span></span><br><span class="line"><span class="string">1,青绿,蜷缩,浊响,清晰,凹陷,硬滑,0.697,0.46,是  </span></span><br><span class="line"><span class="string">2,乌黑,蜷缩,沉闷,清晰,凹陷,硬滑,0.774,0.376,是  </span></span><br><span class="line"><span class="string">3,乌黑,蜷缩,浊响,清晰,凹陷,硬滑,0.634,0.264,是  </span></span><br><span class="line"><span class="string">4,青绿,蜷缩,沉闷,清晰,凹陷,硬滑,0.608,0.318,是  </span></span><br><span class="line"><span class="string">5,浅白,蜷缩,浊响,清晰,凹陷,硬滑,0.556,0.215,是  </span></span><br><span class="line"><span class="string">6,青绿,稍蜷,浊响,清晰,稍凹,软粘,0.403,0.237,是  </span></span><br><span class="line"><span class="string">7,乌黑,稍蜷,浊响,稍糊,稍凹,软粘,0.481,0.149,是  </span></span><br><span class="line"><span class="string">8,乌黑,稍蜷,浊响,清晰,稍凹,硬滑,0.437,0.211,是  </span></span><br><span class="line"><span class="string">9,乌黑,稍蜷,沉闷,稍糊,稍凹,硬滑,0.666,0.091,否  </span></span><br><span class="line"><span class="string">10,青绿,硬挺,清脆,清晰,平坦,软粘,0.243,0.267,否  </span></span><br><span class="line"><span class="string">11,浅白,硬挺,清脆,模糊,平坦,硬滑,0.245,0.057,否  </span></span><br><span class="line"><span class="string">12,浅白,蜷缩,浊响,模糊,平坦,软粘,0.343,0.099,否  </span></span><br><span class="line"><span class="string">13,青绿,稍蜷,浊响,稍糊,凹陷,硬滑,0.639,0.161,否  </span></span><br><span class="line"><span class="string">14,浅白,稍蜷,沉闷,稍糊,凹陷,硬滑,0.657,0.198,否  </span></span><br><span class="line"><span class="string">15,乌黑,稍蜷,浊响,清晰,稍凹,软粘,0.36,0.37,否  </span></span><br><span class="line"><span class="string">16,浅白,蜷缩,浊响,模糊,平坦,硬滑,0.593,0.042,否  </span></span><br><span class="line"><span class="string">17,青绿,蜷缩,沉闷,稍糊,稍凹,硬滑,0.719,0.103,否'''</span>)</span><br><span class="line"></span><br><span class="line">data = pd.read_csv(data_str)</span><br><span class="line">data.set_index(<span class="string">'编号'</span>, inplace=<span class="literal">True</span>)</span><br><span class="line">data</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -508,7 +508,7 @@
 </div>
 
 <p>该数据集通常是使用前几个西瓜属性预测最后一个指标”好瓜”.</p>
-<h3 id="信息熵怎么算"><a href="#信息熵怎么算" class="headerlink" title="信息熵怎么算"></a>信息熵怎么算</h3><p>要计算信息增益的话, 首先要知道怎么算信息熵, 它的公式是:</p>
+<h3><span id="信息熵怎么算">信息熵怎么算</span></h3><p>要计算信息增益的话, 首先要知道怎么算信息熵, 它的公式是:</p>
 <p><code>$$
 H(X) = \sum_{i \in X} p_i log p_i
 $$</code></p>
@@ -530,7 +530,7 @@ $$</code></p>
 
 <p>使用scipy内置的<code>stats.entropy</code>验证我们的函数:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">entropy_scipy</span><span class="params">(data, att_name)</span>:</span></span><br><span class="line">    n = data.shape[<span class="number">0</span>]</span><br><span class="line">    values = data[att_name].value_counts()</span><br><span class="line">    <span class="keyword">return</span> stats.entropy(values/n)</span><br><span class="line"></span><br><span class="line"><span class="keyword">assert</span> entropy(data, <span class="string">'好瓜'</span>)==entropy_scipy(data, <span class="string">'好瓜'</span>)</span><br></pre></td></tr></table></figure>
-<h3 id="条件信息熵怎么算"><a href="#条件信息熵怎么算" class="headerlink" title="条件信息熵怎么算"></a>条件信息熵怎么算</h3><p>已知条件Y, 求X的概率就是P(X|Y), 知道的信息越多，随机事件的不确定性就越小。<br>书中定义：在Y条件X的条件熵：（二元模型）</p>
+<h3><span id="条件信息熵怎么算">条件信息熵怎么算</span></h3><p>已知条件Y, 求X的概率就是P(X|Y), 知道的信息越多，随机事件的不确定性就越小。<br>书中定义：在Y条件X的条件熵：（二元模型）</p>
 <p>引自维基百科:</p>
 <p><img src="imgs/conditional_entropy.png"></p>
 <p>因为我们已经有了交叉熵的公式, 所以我们其实可以直接算出<code>$H(Y|X=x)$</code></p>
@@ -550,7 +550,7 @@ $$</code></p>
 
 </div>
 
-<h3 id="信息增益"><a href="#信息增益" class="headerlink" title="信息增益"></a>信息增益</h3><p>理论上我们可以证明<code>$H(Y)&gt;=H(Y|X)$</code></p>
+<h3><span id="信息增益">信息增益</span></h3><p>理论上我们可以证明<code>$H(Y)&gt;=H(Y|X)$</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gain</span><span class="params">(data, xname, yname)</span>:</span></span><br><span class="line">    en = entropy(data, yname)</span><br><span class="line">    ce = conditional_entropy(data, xname, yname)</span><br><span class="line">    <span class="keyword">return</span> en - ce</span><br><span class="line"></span><br><span class="line">print(<span class="string">'触感的引入导致的信息增益:'</span>)</span><br><span class="line">gain(data, <span class="string">'触感'</span>, <span class="string">'好瓜'</span>)</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -567,7 +567,7 @@ $$</code></p>
 
 </div>
 
-<h3 id="属性的信息增益与属性的类别数的关系"><a href="#属性的信息增益与属性的类别数的关系" class="headerlink" title="属性的信息增益与属性的类别数的关系"></a>属性的信息增益与属性的类别数的关系</h3><p>属性的类别越多, 根据该属性就可以把数据切分的更细, 这样往往导致信息的混乱程度降低, 所以类别多的属性的信息增益较大, 我们可以用代码实验一下:</p>
+<h3><span id="属性的信息增益与属性的类别数的关系">属性的信息增益与属性的类别数的关系</span></h3><p>属性的类别越多, 根据该属性就可以把数据切分的更细, 这样往往导致信息的混乱程度降低, 所以类别多的属性的信息增益较大, 我们可以用代码实验一下:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">data[<span class="string">'testCol'</span>] = <span class="number">0</span></span><br><span class="line">data.iloc[<span class="number">10</span>:, <span class="number">-1</span>] = <span class="number">1</span></span><br><span class="line">print(gain(data, <span class="string">'testCol'</span>, <span class="string">'触感'</span>))</span><br><span class="line">data.iloc[<span class="number">14</span>:, <span class="number">-1</span>] = <span class="number">2</span></span><br><span class="line">print(gain(data, <span class="string">'testCol'</span>, <span class="string">'触感'</span>))</span><br><span class="line">print(gain(data, <span class="string">'密度'</span>, <span class="string">'触感'</span>))</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -578,7 +578,7 @@ $$</code></p>
     <br>
 </div>
 
-<h3 id="信息增益率"><a href="#信息增益率" class="headerlink" title="信息增益率"></a>信息增益率</h3><p>信息增益率的提出是为了规避信息增益种属性类别数目造成的影响, 它的计算公式是:</p>
+<h3><span id="信息增益率">信息增益率</span></h3><p>信息增益率的提出是为了规避信息增益种属性类别数目造成的影响, 它的计算公式是:</p>
 <p><code>$$
 GainRatio(Y, X) = {Gain(Y, X) \over SplitInfo(X)}
 $$</code></p>

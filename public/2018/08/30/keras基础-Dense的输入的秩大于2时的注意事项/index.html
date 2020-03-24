@@ -223,7 +223,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题描述"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Dense的算法就是dot"><span class="toc-number">2.</span> <span class="toc-text">Dense的算法就是dot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">问题描述</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">Dense的算法就是dot</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -239,7 +239,7 @@
 <li>tensorflow 1.x</li>
 <li>keras 2.x</li>
 </ul>
-<h3 id="问题描述"><a href="#问题描述" class="headerlink" title="问题描述"></a>问题描述</h3><p>keras的Dense层的输入通常是一个二维的矩阵(batch_size, n_input), 但其实, 你的输入的秩可以是大于2的, 比如下面的代码是正确的:</p>
+<h3><span id="问题描述">问题描述</span></h3><p>keras的Dense层的输入通常是一个二维的矩阵(batch_size, n_input), 但其实, 你的输入的秩可以是大于2的, 比如下面的代码是正确的:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras <span class="keyword">import</span> layers</span><br><span class="line"></span><br><span class="line"><span class="comment"># 注意keras中, batch size是省略的</span></span><br><span class="line">input1 = layers.Input((<span class="number">2</span>,<span class="number">3</span>))</span><br><span class="line">dense = layers.Dense(<span class="number">4</span>)</span><br><span class="line">output = dense(input1)</span><br><span class="line">output</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -279,7 +279,7 @@
 
 </tf.variable></div>
 
-<h3 id="Dense的算法就是dot"><a href="#Dense的算法就是dot" class="headerlink" title="Dense的算法就是dot"></a>Dense的算法就是<code>dot</code></h3><p>很显然, 文档说的有问题, 代码并不是这样的运行的。所以我查阅了Keras的源码, 我发现Dense前向传播的计算方法是在这里:</p>
+<h3><span id="dense的算法就是dot">Dense的算法就是<code>dot</code></span></h3><p>很显然, 文档说的有问题, 代码并不是这样的运行的。所以我查阅了Keras的源码, 我发现Dense前向传播的计算方法是在这里:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">call</span><span class="params">(self, inputs)</span>:</span></span><br><span class="line">    <span class="comment"># 理解内部发生了什么, 关键要看这一行</span></span><br><span class="line">    output = K.dot(inputs, self.kernel)</span><br><span class="line">    <span class="keyword">if</span> self.use_bias:</span><br><span class="line">        output = K.bias_add(output, self.bias, data_format=<span class="string">'channels_last'</span>)</span><br><span class="line">    <span class="keyword">if</span> self.activation <span class="keyword">is</span> <span class="keyword">not</span> <span class="literal">None</span>:</span><br><span class="line">        output = self.activation(output)</span><br><span class="line">    <span class="keyword">return</span> output</span><br></pre></td></tr></table></figure>
 <p>所以, 我们要看一下keras中<code>dot</code>的行为:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras <span class="keyword">import</span> backend <span class="keyword">as</span> K</span><br><span class="line"></span><br><span class="line">x = K.placeholder(shape=(<span class="number">2</span>, <span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">y = K.placeholder(shape=(<span class="number">3</span>, <span class="number">4</span>))</span><br><span class="line">xy = K.dot(x, y)</span><br><span class="line">xy</span><br></pre></td></tr></table></figure>
@@ -336,7 +336,7 @@
 
 </div>
 
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>其实两个tensor之间的点乘大家应该懂了, keras官方文档有问题导致对它的理解又产生了疑惑。如果三维的tensor不容易理解的话, 可以去掉batch_size这个维度来看:</p>
+<h3><span id="总结">总结</span></h3><p>其实两个tensor之间的点乘大家应该懂了, keras官方文档有问题导致对它的理解又产生了疑惑。如果三维的tensor不容易理解的话, 可以去掉batch_size这个维度来看:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">x=np.random.randint(<span class="number">1</span>,<span class="number">5</span>,(<span class="number">2</span>, <span class="number">3</span>))</span><br><span class="line">y=np.random.randint(<span class="number">1</span>,<span class="number">5</span>,(<span class="number">3</span>, <span class="number">3</span>))</span><br><span class="line">print(<span class="string">'正常情况下, x只是个向量:'</span>)</span><br><span class="line">np.dot(x[<span class="number">0</span>,:],y)</span><br></pre></td></tr></table></figure>
 
 <div class="output">

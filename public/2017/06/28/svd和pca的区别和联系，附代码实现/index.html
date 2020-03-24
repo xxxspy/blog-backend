@@ -285,7 +285,7 @@
 <p>svd=singular value decomposition<br>pca=principal component analysis</p>
 </blockquote>
 <p>在做潜在语义分析(lsa)的时候，我用的svd，感觉svd和pca非常像，但是又有区别。所以查了一些资料，在这里翻译一下，并在最后，贴上python代码比较了这两种方法。</p>
-<h2 id="PCA"><a href="#PCA" class="headerlink" title="PCA"></a>PCA</h2><p>假设<code>\( \mathbf X \)</code>是一个<code>\( n \times p \)</code>的矩阵，<code>n</code>是样本量, 而<code>p</code>是变量个数。那么，我们就可以计算得到协方差矩阵<code>\( \Singma \)</code>：</p>
+<h2><span id="pca">PCA</span></h2><p>假设<code>\( \mathbf X \)</code>是一个<code>\( n \times p \)</code>的矩阵，<code>n</code>是样本量, 而<code>p</code>是变量个数。那么，我们就可以计算得到协方差矩阵<code>\( \Singma \)</code>：</p>
 <p><code>\[ \Sigma=X^TX/(n-1) \]</code></p>
 <p>由于<code>\( \Sigma \)</code>是对称矩阵，那么它可以对角化:</p>
 <p><code>\[ \Sigma = \mathbf V \mathbf L \mathbf V^\top \]</code></p>
@@ -294,7 +294,7 @@
 <p><code>\[ y_i= \mathbf X v_i\]</code></p>
 <p>即：</p>
 <p><code>\[ Y= \mathbf X \mathbf V \]</code></p>
-<h2 id="SVD"><a href="#SVD" class="headerlink" title="SVD"></a>SVD</h2><p>接下来我们看看SVD的性质。对<code>\( \mathbf X \)</code>进行SVD分解：</p>
+<h2><span id="svd">SVD</span></h2><p>接下来我们看看SVD的性质。对<code>\( \mathbf X \)</code>进行SVD分解：</p>
 <p><code>\[ \mathbf X = \mathbf U \mathbf S \mathbf V^\top \]</code></p>
 <p><code>\( \mathbf V \)</code>和上面提到的<code>\( \mathbf V \)</code>是一样的，但是在SVD中叫做singular vector(奇异向量)，而<code>\( \mathbf S \)</code>叫做奇异值构成的对角矩阵, 它与特征向量是不同的，但是他们之间是成比例的。如此，我们很容易得到：</p>
 <p><code>\[ \mathbf X = \mathbf V \mathbf S \mathbf U^\top \mathbf U \mathbf S \mathbf V^\top /(n-1) = \mathbf V \frac{\mathbf S^2}{n-1}\mathbf V^\top \]</code></p>

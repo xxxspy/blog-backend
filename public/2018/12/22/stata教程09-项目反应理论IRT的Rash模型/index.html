@@ -279,7 +279,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#背景知识"><span class="toc-number">1.</span> <span class="toc-text">背景知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#使用-eta"><span class="toc-number">2.</span> <span class="toc-text">使用$\eta$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#案例"><span class="toc-number">3.</span> <span class="toc-text">案例</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">背景知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">使用$\eta$</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">案例</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -291,15 +291,15 @@
 <blockquote>
 <p>本篇文章部分来自于stata的官方文档, 英文好的建议读原文: <a href="https://www.stata.com/support/faqs/statistics/rasch-model/" target="_blank" rel="noopener">https://www.stata.com/support/faqs/statistics/rasch-model/</a></p>
 </blockquote>
-<h3 id="背景知识"><a href="#背景知识" class="headerlink" title="背景知识"></a>背景知识</h3><p>Rasch模型是心理测量学中二分类题目（例如，选择题只有正确和错误之分）的主要模型之一。设<code>$y_{ij}$</code>取值只有(0或者1)，其中<code>$i=1,...,n$</code>，n是被试人数，<code>$j = 1，...，m$</code>，m是题目的数量。 Rasch模型可以写为logit-linear模型：</p>
+<h3><span id="背景知识">背景知识</span></h3><p>Rasch模型是心理测量学中二分类题目（例如，选择题只有正确和错误之分）的主要模型之一。设<code>$y_{ij}$</code>取值只有(0或者1)，其中<code>$i=1,...,n$</code>，n是被试人数，<code>$j = 1，...，m$</code>，m是题目的数量。 Rasch模型可以写为logit-linear模型：</p>
 <p><code>$$
 logit P(y_{ij}=1 | \eta_i) = \eta_i − \theta_j
 $$</code></p>
 <p>当将<code>$\eta$</code>和<code>$\theta$</code>作为参数（固定效应）处理时，人们早就知道最大似然估计在标准的逼近过程中是不一致的（n→无穷大，m是固定的）。我们每多测试一个被试，我们就会多了m个观测数据, 就会有一个额外的<code>$\eta$</code></p>
 <p>在20世纪80年代，Andersen展示了<code>$\theta_j$</code>的条件极大似然（CML）估计(条件就是每个被试在所有题目上的得分<code>$y_{i+}$</code></p>
 <p>心理测量学家也研究了高斯随机效应估计器，这可能只是一个小小的惊喜。从Stata 14开始，使用irt 1pl可以拟合数学上等效的模型。从Stata 13开始，Rasch模型可以使用gsem;见[SEM]例子28g。在Stata 13之前，Rasch模型可以通过随机效果面板估算器拟合，由xtlogit，re命令计算。</p>
-<h3 id="使用-eta"><a href="#使用-eta" class="headerlink" title="使用$\eta$"></a>使用<code>$\eta$</code></h3><p>考虑最可能的情况;有一个数据集，每一行代表一个被试在所有题上的得分, 每一列代表同一个题目下所有被试的得分。你可以使用clogit中的条件logit固定效应估计器获得Rasch模型的θ参数的CLM估计值（xtlogit，fe相当于键入clogit）。该命令要求所有得分保存为一个变量，而“组”变量用于识别属于同一被试的分数。这可以使用reshape命令完成。最后，可以将Rasch模型描述为具有m个协变量<code>$x_{ijk}$</code>，<code>$k = 1，...，m$</code>的“clogit模型”，因此对于所有i，如果j = k，则<code>$x_{ijk}= -1$</code>(这是因为<code>$\theta$</code>的系数为负数), 否则为0。<code>$x_{ijk}$</code>的回归系数为<code>$\theta_k$</code></p>
-<h3 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h3><p>想象一下有10题目, 120个学生作答，编码为1（正确）和0（不正确）。我们想知道10个数学问题是否涉及一维尺度，以便无论受试者的能力如何，都可以根据难度对项目进行排序。</p>
+<h3><span id="使用eta">使用<code>$\eta$</code></span></h3><p>考虑最可能的情况;有一个数据集，每一行代表一个被试在所有题上的得分, 每一列代表同一个题目下所有被试的得分。你可以使用clogit中的条件logit固定效应估计器获得Rasch模型的θ参数的CLM估计值（xtlogit，fe相当于键入clogit）。该命令要求所有得分保存为一个变量，而“组”变量用于识别属于同一被试的分数。这可以使用reshape命令完成。最后，可以将Rasch模型描述为具有m个协变量<code>$x_{ijk}$</code>，<code>$k = 1，...，m$</code>的“clogit模型”，因此对于所有i，如果j = k，则<code>$x_{ijk}= -1$</code>(这是因为<code>$\theta$</code>的系数为负数), 否则为0。<code>$x_{ijk}$</code>的回归系数为<code>$\theta_k$</code></p>
+<h3><span id="案例">案例</span></h3><p>想象一下有10题目, 120个学生作答，编码为1（正确）和0（不正确）。我们想知道10个数学问题是否涉及一维尺度，以便无论受试者的能力如何，都可以根据难度对项目进行排序。</p>
 <p>加载数据:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> http:<span class="comment">//www.stata.com/support/faqs/dta/raschfaq, clear</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">describe</span></span><br></pre></td></tr></table></figure>

@@ -227,7 +227,7 @@
         <!-- Post Content -->
         <p>这篇文章主要介绍文件信息的获取和修改(主要是文件的访问和修改时间)</p>
 <a id="more"></a>
-<h3 id="文件信息的读取"><a href="#文件信息的读取" class="headerlink" title="文件信息的读取"></a>文件信息的读取</h3><p>文件系统本身可以显示有关文档的一些有趣信息。例如，它可以告诉你文档文件的大小，以及创建/修改或上次读取的时间。在某些平台上，你还可以找出拥有相关文件的人员。要在Python中获取此信息，您可以在跨平台的os模块中使用stat函数：</p>
+<h3><span id="文件信息的读取">文件信息的读取</span></h3><p>文件系统本身可以显示有关文档的一些有趣信息。例如，它可以告诉你文档文件的大小，以及创建/修改或上次读取的时间。在某些平台上，你还可以找出拥有相关文件的人员。要在Python中获取此信息，您可以在跨平台的os模块中使用stat函数：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"></span><br><span class="line">st = os.stat(<span class="string">"d:/test.html"</span>)</span><br><span class="line">print(<span class="string">'Type of st:'</span>, type(st))</span><br><span class="line">print(<span class="string">'st:'</span>, st)</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
@@ -275,7 +275,7 @@ os.stat_result(st_mode=33206, st_ino=10133099161596645, st_dev=3649960629, st_nl
 
 </div>
 
-<h3 id="修改”文件的修改时间”"><a href="#修改”文件的修改时间”" class="headerlink" title="修改”文件的修改时间”"></a>修改”文件的修改时间”</h3><p>语法是: <code>os.utime(path, time)</code></p>
+<h3><span id="修改文件的修改时间">修改”文件的修改时间”</span></h3><p>语法是: <code>os.utime(path, time)</code></p>
 <ul>
 <li><p>path – 文件路径</p>
 </li>

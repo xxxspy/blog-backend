@@ -3,7 +3,7 @@
 
 title: SPSS做简单调节效应分析Model-1-Of-Process(视频教程+可视化工具)
 date: 2020-03-22 12:44:03
-tags: [SPSS, 调节效应, process]
+tags: [spss, 调节效应, process]
 mathjax: true
 
 ---
@@ -123,10 +123,38 @@ $$`
 
 我们需要做如下两个回归:
 
-`$$
+$$
 𝑌=𝑖+𝑎𝑋+𝑏𝑍+𝑒
 𝑌=𝑖+𝑎𝑋+𝑏𝑍+𝑐𝑋𝑍+𝑒
-$$`
+$$
+
+他们的区别仅仅是第二个模型增加了交互项, 具体步骤如下:
+
+**Step1: 菜单**
+
+<img src="regression-menue.png" class="img-thumbnail">
+
+**Step2:第一个回归模型**
+
+<img src="regression-model1.png" class="img-thumbnail">
+
+**Step3:第二个回归模型**
+
+<img src="regression-model2.png" class="img-thumbnail">
+
+**Step4:配置选项**
+
+<img src="regression-options.png" class="img-thumbnail">
+
+**Step4:输出结果**
+
+首先看R方的改变量, 从Model1到Model2, R方改变量是显著的, 说明增加交互项可以提高回归模型的拟合度。
+
+<img src="regression-output1.png" class="img-thumbnail">
+
+再看交互项的系数是显著的, 证明调节作用显著。
+
+<img src="regression-output2.png" class="img-thumbnail">
 
 ### Process做简单交互效应
 
@@ -203,6 +231,7 @@ c = <input  onchange="onChange()" value="0.287" name="pc" type="number" style="w
 </div>
 
 <div id="line-chart" style="width: 100%;height:600px;"></div>
+<div id="d3-chart" style="width: 100%;height:600px;"></div>
 
 </div>
 
@@ -219,6 +248,7 @@ c = <input  onchange="onChange()" value="0.287" name="pc" type="number" style="w
 > 请记住我的网址: mlln.cn 或者 jupyter.cn
 
 <script src="https://cdn.bootcss.com/echarts/4.7.0/echarts.js"></script>
+<script src="/js/echarts-gl.min.js"></script>
 <script>
     function get_eles(){
         let eles = {
@@ -284,8 +314,11 @@ c = <input  onchange="onChange()" value="0.287" name="pc" type="number" style="w
         return {
             series: series,
             legend: names,
+            xname: values.xn,
+            mname: values.mn,
+            values: values,
             xaxis: [
-                `${values['mn']}(M-SD)`, `${values['mn']}(M)`, `${values['mn']}(M+SD)`
+                `${values['xn']}(M-SD)`, `${values['xn']}(M)`, `${values['xn']}(M+SD)`
             ],
         }
     }
@@ -367,11 +400,81 @@ c = <input  onchange="onChange()" value="0.287" name="pc" type="number" style="w
             option.legend.data = d.legend;
             console.log(option)
             myChart.setOption(option)
+            reset_3d(d.values)
         }
         
         // 侦听修改事件
         function onChange(){
             console.log('change')
             resetChart()
+        }
+</script>
+
+<script>
+    // 3D显示
+d3Option = {
+    tooltip: {
+        trigger: 'axis'
+    },
+    backgroundColor: '#fff',
+    visualMap: {
+        show: false,
+        dimension: 2,
+        min: -1,
+        max: 1,
+        inRange: {
+            color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+        }
+    },
+    xAxis3D: {
+        type: 'value',
+        name: '自变量',
+    },
+    yAxis3D: {
+        type: 'value',
+        name: '调节变量',
+    },
+    zAxis3D: {
+        type: 'value',
+        name: '因变量',
+    },
+    grid3D: {
+        viewControl: {
+            // projection: 'orthographic'
+        }
+    },
+    series: [{
+        type: 'surface',
+        wireframe: {
+            // show: false
+        },
+        equation: {
+            x: {
+                step: 0.05
+            },
+            y: {
+                step: 0.05
+            },
+            z: function (x, y) {
+                return 1 + x + y + x*y
+            }
+        }
+    }]
+}
+        var d3Chart = echarts.init(document.getElementById('d3-chart'));
+        d3Chart.setOption(d3Option);
+
+        function reset_3d(values){
+            d3Option.xAxis3D.name = values.xn,
+            d3Option.yAxis3D.name = values.mn,
+            d3Option.series[0].equation.x.max = values.xm + 2 * values.xs;
+            d3Option.series[0].equation.y.max = values.mm + 2 * values.ms;
+            d3Option.series[0].equation.x.min = values.xm - 2 * values.xs;
+            d3Option.series[0].equation.y.min = values.mm - 2 * values.ms;
+            d3Option.series[0].equation.z = function(x, y){
+                return values.pi + values.pa * x + values.pb * y + values.pc * x * y
+            }
+            d3Chart.setOption(d3Option);
+
         }
 </script>

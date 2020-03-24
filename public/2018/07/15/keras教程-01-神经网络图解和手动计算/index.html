@@ -296,7 +296,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是机器学习"><span class="toc-number">1.</span> <span class="toc-text">什么是机器学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#神经网络模型"><span class="toc-number">2.</span> <span class="toc-text">神经网络模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#前向传播算法"><span class="toc-number">3.</span> <span class="toc-text">前向传播算法</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">什么是机器学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">神经网络模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">前向传播算法</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -315,11 +315,11 @@
 <li>tensorflow 1.x</li>
 <li>keras 2.x</li>
 </ul>
-<h3 id="什么是机器学习"><a href="#什么是机器学习" class="headerlink" title="什么是机器学习"></a>什么是机器学习</h3><p>机器根据已有数据找到一个从X映射到Y的函数。 比如, 根据人的身高/体重/年龄三个指标来判断这个人的性别, 我们收集了很多人的身高/体重/年龄/性别数据, 注意前三个指标都是自变量, 我们希望机器能找到一个函数<code>$f$</code></p>
-<h3 id="神经网络模型"><a href="#神经网络模型" class="headerlink" title="神经网络模型"></a>神经网络模型</h3><p>下图是一个非常简单只有一个隐层的前馈神经网络, 也是一个最常用的神经网络模型。输入层有3个神经元, 隐藏层有4个神经元, 输出层有2个神经元。</p>
+<h3><span id="什么是机器学习">什么是机器学习</span></h3><p>机器根据已有数据找到一个从X映射到Y的函数。 比如, 根据人的身高/体重/年龄三个指标来判断这个人的性别, 我们收集了很多人的身高/体重/年龄/性别数据, 注意前三个指标都是自变量, 我们希望机器能找到一个函数<code>$f$</code></p>
+<h3><span id="神经网络模型">神经网络模型</span></h3><p>下图是一个非常简单只有一个隐层的前馈神经网络, 也是一个最常用的神经网络模型。输入层有3个神经元, 隐藏层有4个神经元, 输出层有2个神经元。</p>
 <p><img src="images/nn.png"></p>
 <p>我们可以用这个模型进行分类任务。比如, 根据人的身高/体重/年龄三个指标来判断这个人的性别。输入值(<code>$x_1, x_2, x_3$</code>)代表三个指标, 输出值<code>$y_1, y_2$</code>代表男生和女生的概率, 所以<code>$y_1和y_2$</code>都是介于0-1之间的数。</p>
-<h3 id="前向传播算法"><a href="#前向传播算法" class="headerlink" title="前向传播算法"></a>前向传播算法</h3><p>假设神经网络的参数已知, 给你三个数(身高体重和年龄), 如何计算性别的概率。这个计算输出<code>$y_1和y_2$</code></p>
+<h3><span id="前向传播算法">前向传播算法</span></h3><p>假设神经网络的参数已知, 给你三个数(身高体重和年龄), 如何计算性别的概率。这个计算输出<code>$y_1和y_2$</code></p>
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="keras教程-01-神经网络图解和手动计算.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>

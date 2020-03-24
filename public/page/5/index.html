@@ -713,9 +713,9 @@
     
         <div class="content">
             <p>在回归分析中, 解释变量的个数应当是越少越好, 因为模型越简洁应用范围越广, 也越容易被理解。但是, 为了模型拟合好, 我们又期望模型越复杂越好, 解释变量越多, 模型的拟合优度<code>$R^2$</code></p>
-<h3 id="数据介绍"><a href="#数据介绍" class="headerlink" title="数据介绍"></a>数据介绍</h3><p>使用上一篇教程用过的数据: icecream.dta, 具体内容可以参看上篇文章: <a href="/2018/12/12/stata教程05-自相关的检验和处理/index.html">stata教程05-自相关的检验和处理/</a></p>
+<h3><span id="数据介绍">数据介绍</span></h3><p>使用上一篇教程用过的数据: icecream.dta, 具体内容可以参看上篇文章: <a href="/2018/12/12/stata教程05-自相关的检验和处理/index.html">stata教程05-自相关的检验和处理/</a></p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> data/icecream.dta, <span class="keyword">clear</span></span><br></pre></td></tr></table></figure>
-<h3 id="进行回归分析"><a href="#进行回归分析" class="headerlink" title="进行回归分析"></a>进行回归分析</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> consumption temp price income</span><br></pre></td></tr></table></figure>
+<h3><span id="进行回归分析">进行回归分析</span></h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> consumption temp price income</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
 输出(stream):<br>
@@ -738,7 +738,7 @@
 
 </div>
 
-<h3 id="计算AIC-amp-BIC"><a href="#计算AIC-amp-BIC" class="headerlink" title="计算AIC&amp;BIC"></a>计算AIC&amp;BIC</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">estat</span> ic</span><br></pre></td></tr></table></figure>
+<h3><span id="计算aicampbic">计算AIC&amp;BIC</span></h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">estat</span> ic</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
 输出(stream):<br>
@@ -754,7 +754,7 @@ Akaike's information criterion and Bayesian information criterion
 
 </div>
 
-<h3 id="加入temp的1阶滞后项"><a href="#加入temp的1阶滞后项" class="headerlink" title="加入temp的1阶滞后项"></a>加入temp的1阶滞后项</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> consumption temp <span class="keyword">L</span>.temp price income</span><br></pre></td></tr></table></figure>
+<h3><span id="加入temp的1阶滞后项">加入temp的1阶滞后项</span></h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> consumption temp <span class="keyword">L</span>.temp price income</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
 输出(stream):<br>
@@ -780,7 +780,7 @@ Akaike's information criterion and Bayesian information criterion
 
 </div>
 
-<h3 id="再计算AIC-amp-BIC"><a href="#再计算AIC-amp-BIC" class="headerlink" title="再计算AIC&amp;BIC"></a>再计算AIC&amp;BIC</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">estat</span> ic</span><br></pre></td></tr></table></figure>
+<h3><span id="再计算aicampbic">再计算AIC&amp;BIC</span></h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">estat</span> ic</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
 输出(stream):<br>
@@ -797,7 +797,7 @@ Akaike's information criterion and Bayesian information criterion
 </div>
 
 <p>我们可以看到AIC和BIC都下降了。</p>
-<h3 id="再加入temp的2阶滞后项"><a href="#再加入temp的2阶滞后项" class="headerlink" title="再加入temp的2阶滞后项"></a>再加入temp的2阶滞后项</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> consumption temp <span class="keyword">L</span>.temp L2.temp price income</span><br></pre></td></tr></table></figure>
+<h3><span id="再加入temp的2阶滞后项">再加入temp的2阶滞后项</span></h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> consumption temp <span class="keyword">L</span>.temp L2.temp price income</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
 输出(stream):<br>
@@ -824,7 +824,7 @@ Akaike's information criterion and Bayesian information criterion
 
 </div>
 
-<h3 id="再计算AIC-amp-BIC-1"><a href="#再计算AIC-amp-BIC-1" class="headerlink" title="再计算AIC&amp;BIC"></a>再计算AIC&amp;BIC</h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">estat</span> ic</span><br></pre></td></tr></table></figure>
+<h3><span id="再计算aicampbic">再计算AIC&amp;BIC</span></h3><figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">estat</span> ic</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
 输出(stream):<br>
@@ -841,7 +841,7 @@ Akaike's information criterion and Bayesian information criterion
 </div>
 
 <p>我们可以看到, 在增加了L2项滞后, 我们的AIC和BIC反而上升, 说明增加二阶滞后项导致模型复杂度上升, 但并没有带来模型的拟合优度较大的上升, 也就是得不偿失。</p>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>AIC和BIC是两个常用的用户评估模型复杂性的指标, 但是他们略有不同, BIC是一致估计, 而AIC不是, 但现实样本不可能无限大, 而BIC可能导致模型过小, 所以我们通常是综合考虑两个指标。</p>
+<h3><span id="总结">总结</span></h3><p>AIC和BIC是两个常用的用户评估模型复杂性的指标, 但是他们略有不同, BIC是一致估计, 而AIC不是, 但现实样本不可能无限大, 而BIC可能导致模型过小, 所以我们通常是综合考虑两个指标。</p>
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="stata教程06-计算AIC和BIC决定变量个数.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>

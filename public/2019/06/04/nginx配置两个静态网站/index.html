@@ -227,13 +227,13 @@
         <!-- Post Content -->
         <p>略</p>
 <a id="more"></a>
-<h3 id="任务介绍"><a href="#任务介绍" class="headerlink" title="任务介绍"></a>任务介绍</h3><p>本来我有一个网站已经使用nginx配置好了, 现在我要增加一个网站, 直接使用nginx配置多个网站即可, 但是我有几个问题:</p>
+<h3><span id="任务介绍">任务介绍</span></h3><p>本来我有一个网站已经使用nginx配置好了, 现在我要增加一个网站, 直接使用nginx配置多个网站即可, 但是我有几个问题:</p>
 <ul>
 <li>我忘记nginx安装在哪里了</li>
 <li>我忘记配置文件放在哪里了</li>
 </ul>
 <p>所以我先解决这俩问题, 然后再配置多个网站。</p>
-<h3 id="nginx安装位置"><a href="#nginx安装位置" class="headerlink" title="nginx安装位置"></a>nginx安装位置</h3><p>首先我想到的方法是使用命令<code>rpm -ql nginx</code>, 这个命令按道理可以列出所有nginx安装的目录, 但是前提是你是使用”yum”包管理的方式安装的nginx , 可惜的是, 我不是这种方式。</p>
+<h3><span id="nginx安装位置">nginx安装位置</span></h3><p>首先我想到的方法是使用命令<code>rpm -ql nginx</code>, 这个命令按道理可以列出所有nginx安装的目录, 但是前提是你是使用”yum”包管理的方式安装的nginx , 可惜的是, 我不是这种方式。</p>
 <p>我知道我的nginx一直再运行状态, 所以我先看了看nginx的进程:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">netstat -tnlp|grep nginx</span><br></pre></td></tr></table></figure>
 <p>得到了下面的信息:</p>
@@ -242,14 +242,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ps -aux |grep 21196</span><br></pre></td></tr></table></figure>
 <p>得到的输出信息里就包含nginx的路径:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">root 21196 0.0 0.0 48044 924 ? Ss 23:40 0:00 nginx: master process /usr/sbin/nginx -c /etc/nginx/nginx.conf</span><br></pre></td></tr></table></figure>
-<h3 id="nginx配置文件"><a href="#nginx配置文件" class="headerlink" title="nginx配置文件"></a>nginx配置文件</h3><p>我们下面开始找nginx配置文件的路径, 因为nginx一直在运行, 所以我使用下面的命令就行:</p>
+<h3><span id="nginx配置文件">nginx配置文件</span></h3><p>我们下面开始找nginx配置文件的路径, 因为nginx一直在运行, 所以我使用下面的命令就行:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">nginx -t</span><br></pre></td></tr></table></figure>
 <p>你可以看到输出信息, 指明了配置文件的路径。</p>
 <p>这个配置文件中写明了一句:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">include /etc/nginx/sites-avalable/*;</span><br></pre></td></tr></table></figure>
 <p>这说明sites-enabled目录下的配置文件也被纳入到配置中。</p>
-<h3 id="复制配置文件"><a href="#复制配置文件" class="headerlink" title="复制配置文件"></a>复制配置文件</h3><p>因为我已经有一个网站在运行中, 所以在<code>/etc/nginx/sites-avalable/</code>目录下已经有了一个配置文件, 我直接复制已有的配置文件, 然后修改以下配置信息, 主要是配置”server_name”, 它一般指你的网站域名, (注意两个网站都监听80端口是可以的, 只要server_name不同即可)。 </p>
-<h3 id="具体配置内容"><a href="#具体配置内容" class="headerlink" title="具体配置内容"></a>具体配置内容</h3><p>具体配置内容很简单, 只要填写以下内容就可以了。</p>
+<h3><span id="复制配置文件">复制配置文件</span></h3><p>因为我已经有一个网站在运行中, 所以在<code>/etc/nginx/sites-avalable/</code>目录下已经有了一个配置文件, 我直接复制已有的配置文件, 然后修改以下配置信息, 主要是配置”server_name”, 它一般指你的网站域名, (注意两个网站都监听80端口是可以的, 只要server_name不同即可)。 </p>
+<h3><span id="具体配置内容">具体配置内容</span></h3><p>具体配置内容很简单, 只要填写以下内容就可以了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">    listen 80;</span><br><span class="line">    server_name file.52itstyle.com; # 域名</span><br><span class="line">    charset utf-8;</span><br><span class="line">    root /data/share; # html页面所在路径</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="nginx配置两个静态网站.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>

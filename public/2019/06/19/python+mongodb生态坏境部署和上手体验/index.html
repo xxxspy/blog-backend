@@ -230,11 +230,11 @@
 <p>这就是NoSQL，特别是MongoDB的用武之地。</p>
 <p>在这篇文章里, 我系统的介绍了mongodb的安装部署, 可视化管理, python相关库的安装和基本用法。</p>
 <a id="more"></a>
-<h3 id="系统环境"><a href="#系统环境" class="headerlink" title="系统环境"></a>系统环境</h3><ul>
+<h3><span id="系统环境">系统环境</span></h3><ul>
 <li>windows10</li>
 <li>python3.6</li>
 </ul>
-<h3 id="安装mongodb"><a href="#安装mongodb" class="headerlink" title="安装mongodb"></a>安装mongodb</h3><ul>
+<h3><span id="安装mongodb">安装mongodb</span></h3><ul>
 <li>下载地址: <a href="https://www.mongodb.com/download-center/community?jmp=docs" target="_blank" rel="noopener">https://www.mongodb.com/download-center/community?jmp=docs</a></li>
 <li>下载之后双击就能安装, 和安装qq一样简单</li>
 </ul>
@@ -243,7 +243,7 @@
 <li>mongodb安装完成以后, 你会得到一个compass, 它是用于可视化管理数据库的, 并且在桌面上已经为你创建好了一个compass快捷方式, 打开mongodb compass,<br>你会看到一个登录界面, 这个界面的默认参数都不要改, 直接点击connect就可以链接上你本地的数据库:</li>
 </ul>
 <p><img src="images/compass-logon.png" width="70%"></p>
-<h3 id="使用compass创建数据库和文档集"><a href="#使用compass创建数据库和文档集" class="headerlink" title="使用compass创建数据库和文档集"></a>使用compass创建数据库和文档集</h3><ul>
+<h3><span id="使用compass创建数据库和文档集">使用compass创建数据库和文档集</span></h3><ul>
 <li><p>使用compass创建一个名为ip_poll的数据库</p>
 </li>
 <li><p>点击创建</p>
@@ -258,7 +258,7 @@
 <li>创建完成以后, 你就可以看到, 界面的左侧是数据库列表, 列表展开就是文档集列表, 界面右侧可以看到具体信息:</li>
 </ul>
 <p><img src="images/compass-show-collections.png"></p>
-<h3 id="安装和使用PyMongo"><a href="#安装和使用PyMongo" class="headerlink" title="安装和使用PyMongo"></a>安装和使用PyMongo</h3><p>Pymongo是mongodb开发团队为python提供的sdk, 所以为了在python中使用mongo, 我们最好是从pymongo开始学习。</p>
+<h3><span id="安装和使用pymongo">安装和使用PyMongo</span></h3><p>Pymongo是mongodb开发团队为python提供的sdk, 所以为了在python中使用mongo, 我们最好是从pymongo开始学习。</p>
 <ul>
 <li>通过pip安装PyMongo</li>
 </ul>
@@ -416,10 +416,10 @@ inserted ips: [ObjectId('5d09952dc7080f39b801c1bb'), ObjectId('5d09952dc7080f39b
 
 </div>
 
-<h3 id="MongoEngine面向对象的数据库操作"><a href="#MongoEngine面向对象的数据库操作" class="headerlink" title="MongoEngine面向对象的数据库操作"></a>MongoEngine面向对象的数据库操作</h3><p>虽然PyMongo非常易于使用，并且总体上是一个很棒的库，但对于许多项目而言，它可能有点太低级了。换句话说，你必须编写很多自己的代码来实现保存/检索和删除对象。</p>
+<h3><span id="mongoengine面向对象的数据库操作">MongoEngine面向对象的数据库操作</span></h3><p>虽然PyMongo非常易于使用，并且总体上是一个很棒的库，但对于许多项目而言，它可能有点太低级了。换句话说，你必须编写很多自己的代码来实现保存/检索和删除对象。</p>
 <p>一个在PyMongo之上提供更高抽象的库是MongoEngine。 MongoEngine是一个对象文档映射器（ODM），它大致相当于基于SQL的对象关系映射器（ORM）。 MongoEngine提供的抽象是基于类的，因此你创建的所有模型都是类。</p>
 <p>虽然有很多Python库可以帮助你使用MongoDB，但MongoEngine是最好的之一，因为它具有很好的功能/灵活性和社区支持。</p>
-<h4 id="安装MongoEngine"><a href="#安装MongoEngine" class="headerlink" title="安装MongoEngine"></a>安装MongoEngine</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pip install mongoengine</span><br></pre></td></tr></table></figure>
+<h4><span id="安装mongoengine">安装MongoEngine</span></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">!pip install mongoengine</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
 输出(stream):<br>
@@ -445,7 +445,7 @@ You should consider upgrading via the 'python -m pip install --upgrade pip' comm
 
 </div>
 
-<h4 id="定义文档类"><a href="#定义文档类" class="headerlink" title="定义文档类"></a>定义文档类</h4><p>要设置我们的文档对象，我们需要定义文档对象所需的数据。与许多其他ORM类似，我们将通过继承Document类并提供我们想要的数据类型来实现：</p>
+<h4><span id="定义文档类">定义文档类</span></h4><p>要设置我们的文档对象，我们需要定义文档对象所需的数据。与许多其他ORM类似，我们将通过继承Document类并提供我们想要的数据类型来实现：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> mongoengine <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ip</span><span class="params">(Document)</span>:</span></span><br><span class="line">    address = StringField(required=<span class="literal">True</span>)</span><br><span class="line">    location = StringField(required=<span class="literal">False</span>, max_length=<span class="number">50</span>)</span><br></pre></td></tr></table></figure>
 <p>如果你直接去插入一个文档的话, 机会出现问题, 因为我们还没有与数据库建立连接:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ip = Ip(address=<span class="string">'23.4.5.6'</span>, location=<span class="string">'河北省'</span>)</span><br><span class="line">ip.save() <span class="comment"># 相当于insert_one操作</span></span><br></pre></td></tr></table></figure>
@@ -529,11 +529,11 @@ MongoEngineConnectionError: You have not defined a default connection
 
 <p>有关<code>save</code>方法的一些注意事项：</p>
 <p>调用.save（）时，PyMongo将执行验证。这意味着它将根据你在类中声明的数据格式检查要保存的数据。如果违反了数据格式（或约束），则抛出异常并且不保存数据。<br>由于Mongo不支持真正的transaction，因此无法像在SQL数据库中那样“回滚”.save（）。</p>
-<h4 id="在类中添加自己的方法"><a href="#在类中添加自己的方法" class="headerlink" title="在类中添加自己的方法"></a>在类中添加自己的方法</h4><p>面向对象的好处就是, 把各种方法聚合到不同的类上, 同样MongoEngine也支持这样做:</p>
+<h4><span id="在类中添加自己的方法">在类中添加自己的方法</span></h4><p>面向对象的好处就是, 把各种方法聚合到不同的类上, 同样MongoEngine也支持这样做:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ip</span><span class="params">(Document)</span>:</span></span><br><span class="line">    address = StringField(required=<span class="literal">True</span>)</span><br><span class="line">    location = StringField(required=<span class="literal">False</span>, max_length=<span class="number">50</span>)</span><br><span class="line">    </span><br><span class="line"><span class="meta">    @queryset_manager</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">beijing_ips</span><span class="params">(clazz, queryset)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> queryset.filter(location=<span class="string">'北京 西城区'</span>)</span><br></pre></td></tr></table></figure>
-<h4 id="文档的互相引用"><a href="#文档的互相引用" class="headerlink" title="文档的互相引用"></a>文档的互相引用</h4><p>类似于关系型数据库中的外键, 你可以使用ReferenceField来声明一个外键:</p>
+<h4><span id="文档的互相引用">文档的互相引用</span></h4><p>类似于关系型数据库中的外键, 你可以使用ReferenceField来声明一个外键:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Supplier</span><span class="params">(Document)</span>:</span></span><br><span class="line">    name = StringField()</span><br><span class="line">    </span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ip</span><span class="params">(Document)</span>:</span></span><br><span class="line">    address = StringField(required=<span class="literal">True</span>)</span><br><span class="line">    location = StringField(required=<span class="literal">False</span>, max_length=<span class="number">50</span>)</span><br><span class="line">    sup = ReferenceField(Supplier)</span><br></pre></td></tr></table></figure>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>由于Python是一种高级/高度可扩展的现代语言，它需要一个能够保持其潜力的数据库（和驱动程序），这就是为什么MongoDB非常适合的原因。</p>
+<h3><span id="总结">总结</span></h3><p>由于Python是一种高级/高度可扩展的现代语言，它需要一个能够保持其潜力的数据库（和驱动程序），这就是为什么MongoDB非常适合的原因。</p>
 <p>我们在本文中看到了如何利用MongoDB的优势来构建高度灵活且可扩展的应用程序。</p>
 <p>持续关注mlln.cn, 我会经常更新有关python+mongodb的技术点。</p>
 <blockquote>

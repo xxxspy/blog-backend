@@ -240,7 +240,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#使用切片-slicers"><span class="toc-number">1.</span> <span class="toc-text">使用切片(slicers)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#按索引聚合数据和数据对齐"><span class="toc-number">2.</span> <span class="toc-text">按索引聚合数据和数据对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#交换多层索引的层序"><span class="toc-number">3.</span> <span class="toc-text">交换多层索引的层序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#排序"><span class="toc-number">4.</span> <span class="toc-text">排序</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">使用切片(slicers)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">按索引聚合数据和数据对齐</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">交换多层索引的层序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">排序</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -248,7 +248,7 @@
 
         <!-- Post Content -->
         <p><span></span><br><a id="more"></a></p>
-<h3 id="使用切片-slicers"><a href="#使用切片-slicers" class="headerlink" title="使用切片(slicers)"></a>使用切片(slicers)</h3><p>你可以使用切片来选择MultiIndex, <code>slice</code>是python内置的函数(其实是一个类), 他的用法是这样的:</p>
+<h3><span id="使用切片slicers">使用切片(slicers)</span></h3><p>你可以使用切片来选择MultiIndex, <code>slice</code>是python内置的函数(其实是一个类), 他的用法是这样的:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">alist = list(<span class="string">'abcdefg'</span> * <span class="number">3</span>)</span><br><span class="line">selector = slice(<span class="number">1</span>, <span class="number">6</span>, <span class="number">2</span>)</span><br><span class="line">alist[selector]</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -1115,7 +1115,7 @@
 </div>
 </div>
 
-<h3 id="按索引聚合数据和数据对齐"><a href="#按索引聚合数据和数据对齐" class="headerlink" title="按索引聚合数据和数据对齐"></a>按索引聚合数据和数据对齐</h3><p>在多层索引中, 我们可以依据某一层进行数据聚合, 比如求和, 求均值, 下面我们先来创建一个dataframe:</p>
+<h3><span id="按索引聚合数据和数据对齐">按索引聚合数据和数据对齐</span></h3><p>在多层索引中, 我们可以依据某一层进行数据聚合, 比如求和, 求均值, 下面我们先来创建一个dataframe:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">midx = pd.MultiIndex(levels=[[<span class="string">'zero'</span>, <span class="string">'one'</span>], [<span class="string">'x'</span>,<span class="string">'y'</span>]],</span><br><span class="line">                      labels=[[<span class="number">1</span>,<span class="number">1</span>,<span class="number">0</span>,<span class="number">0</span>],[<span class="number">1</span>,<span class="number">0</span>,<span class="number">1</span>,<span class="number">0</span>]])</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(np.random.randn(<span class="number">4</span>,<span class="number">2</span>), index=midx)</span><br><span class="line"></span><br><span class="line">df</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
@@ -1383,7 +1383,7 @@
 </div>
 
 <p>需要注意的是, 上面的方法可能会更改df和df2, 所以有两个返回值。</p>
-<h3 id="交换多层索引的层序"><a href="#交换多层索引的层序" class="headerlink" title="交换多层索引的层序"></a>交换多层索引的层序</h3><p>直接看例子就好了, 对比交换前后的index:</p>
+<h3><span id="交换多层索引的层序">交换多层索引的层序</span></h3><p>直接看例子就好了, 对比交换前后的index:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df</span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">
@@ -1554,7 +1554,7 @@
 </div>
 </div>
 
-<h3 id="排序"><a href="#排序" class="headerlink" title="排序"></a>排序</h3><p>我们可以使用sort_index对索引进行排序。</p>
+<h3><span id="排序">排序</span></h3><p>我们可以使用sort_index对索引进行排序。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> random; </span><br><span class="line"></span><br><span class="line">arrays = [[<span class="string">'bar'</span>, <span class="string">'bar'</span>, <span class="string">'baz'</span>, <span class="string">'baz'</span>, <span class="string">'foo'</span>, <span class="string">'foo'</span>, <span class="string">'qux'</span>, <span class="string">'qux'</span>],</span><br><span class="line">          [<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'one'</span>, <span class="string">'two'</span>]]</span><br><span class="line"> </span><br><span class="line"></span><br><span class="line">tuples = list(zip(*arrays))</span><br><span class="line">random.shuffle(tuples)</span><br><span class="line">index = pd.MultiIndex.from_tuples(tuples, names=[<span class="string">'first'</span>, <span class="string">'second'</span>])</span><br><span class="line">s = pd.Series(np.random.randn(<span class="number">8</span>), index=pd.MultiIndex.from_tuples(tuples))</span><br><span class="line">s</span><br></pre></td></tr></table></figure>
 
 <div class="output">

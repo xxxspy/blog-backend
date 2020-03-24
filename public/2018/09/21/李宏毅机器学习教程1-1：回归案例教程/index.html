@@ -223,7 +223,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#视频"><span class="toc-number">1.</span> <span class="toc-text">视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实践代码"><span class="toc-number">2.</span> <span class="toc-text">实践代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#字幕转录"><span class="toc-number">3.</span> <span class="toc-text">字幕转录</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">视频</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">实践代码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">字幕转录</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -232,10 +232,10 @@
         <!-- Post Content -->
         <p>很多人联系我说是否能出一系列机器学习的视频教程, 我觉得目前市场上有很多大神的经典课程, 都讲的比我好, 我不想再创造很多轮子, 但是, 这些大神的作品都缺乏一定的配套资源, 比如练习和实验代码, 并且缺少系统的学习路线, 所以本站打算做一个整理, 把一些经典课程整理出来, 并配上相应的学习资料, 让大神的课程发挥更大的作用。 以下是本站整理的李宏毅老师的机器学习视频教程系列, 本站先放视频, 然后会逐步整理配套的代码/习题/笔记等, 只是希望这个系列教程能对大家有帮助。下面是《李宏毅机器学习教程1-1：回归案例教程》的视频内容:</p>
 <p><span></span><br><a id="more"></a></p>
-<h3 id="视频"><a href="#视频" class="headerlink" title="视频"></a>视频</h3><embed src="//player.youku.com/player.php/sid/XMzg3NjkyNjU4MA==/v.swf" allowfullscreen="true" quality="high" width="100%" height="500" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
+<h3><span id="视频">视频</span></h3><embed src="//player.youku.com/player.php/sid/XMzg3NjkyNjU4MA==/v.swf" allowfullscreen="true" quality="high" width="100%" height="500" align="middle" allowscriptaccess="always" type="application/x-shockwave-flash">
 
-<h3 id="实践代码"><a href="#实践代码" class="headerlink" title="实践代码"></a>实践代码</h3><p>代码正在整理中…</p>
-<h3 id="字幕转录"><a href="#字幕转录" class="headerlink" title="字幕转录"></a>字幕转录</h3><p>我们今天要讲的是regression。等一下我会举一个例子，来讲regression是怎么做的。顺便引出一些machinelearning里面常见的重要观念。那regression可以做甚么?除了我们作业里面要大家做的预测PM2.5这个任务以外，还有很多其他非常有用的task。</p>
+<h3><span id="实践代码">实践代码</span></h3><p>代码正在整理中…</p>
+<h3><span id="字幕转录">字幕转录</span></h3><p>我们今天要讲的是regression。等一下我会举一个例子，来讲regression是怎么做的。顺便引出一些machinelearning里面常见的重要观念。那regression可以做甚么?除了我们作业里面要大家做的预测PM2.5这个任务以外，还有很多其他非常有用的task。</p>
 <p>举例来说，如果你可以做一个股票预测的系统，你要做的事情就是:找一个function。这个function的input可能是，过去十年，各种股票起伏的资料。或者是，A公司併购B公司，B公司併购C公司等等的资料。你希望这个function在input这些资料以后，它的output是，明天的道琼工业指数的点数。</p>
 <p>如果你可以预测这个的话，你就发了还有别的task，比如说现在很热门的无人车，自动车。这个自动车也可以想成是一个regression的problem，在这个regression的problem里面，input就是，你的无人车所看到的各种sensor:它的红外线感测的sensor，它的影像的视讯的镜头所看到的马路上的东西等等。你的input就是这些information，output就是方向盘的角度。比如说，要左转50度，还是右转50度，右转50度你就当作左转负50度，所以output也是一个scalar。</p>
 <p>所以无人车驾驶就是一个regressionprobleminput一些information，output就是方向盘的角度，它是一个数值。或者是，你可以做推荐系统。我们都知道说，YouTube要推荐影片或者Amazon要推荐商品给你，那推荐系统它要做的事情，也可以想成是一个regression的问题。就是找一个function，它的input是，某一个使用者A和某一个商品B，它的output就是，使用者A购买商品B的可能性。</p>

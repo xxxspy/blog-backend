@@ -361,10 +361,21 @@ $$</code></p>
 <p>最后你计算一下各个变量的均值, 看是否如你所愿:</p>
 <p><img src="calculate-output.png" class="img-thumbnail"></p>
 <h4><span id="做回归">做回归</span></h4><p>我们需要做如下两个回归:</p>
-<p><code>$$
-𝑌=𝑖+𝑎𝑋+𝑏𝑍+𝑒
-𝑌=𝑖+𝑎𝑋+𝑏𝑍+𝑐𝑋𝑍+𝑒
-$$</code></p>
+<p>$$<br>𝑌=𝑖+𝑎𝑋+𝑏𝑍+𝑒<br>𝑌=𝑖+𝑎𝑋+𝑏𝑍+𝑐𝑋𝑍+𝑒<br>$$</p>
+<p>他们的区别仅仅是第二个模型增加了交互项, 具体步骤如下:</p>
+<p><strong>Step1: 菜单</strong></p>
+<p><img src="regression-menue.png" class="img-thumbnail"></p>
+<p><strong>Step2:第一个回归模型</strong></p>
+<p><img src="regression-model1.png" class="img-thumbnail"></p>
+<p><strong>Step3:第二个回归模型</strong></p>
+<p><img src="regression-model2.png" class="img-thumbnail"></p>
+<p><strong>Step4:配置选项</strong></p>
+<p><img src="regression-options.png" class="img-thumbnail"></p>
+<p><strong>Step4:输出结果</strong></p>
+<p>首先看R方的改变量, 从Model1到Model2, R方改变量是显著的, 说明增加交互项可以提高回归模型的拟合度。</p>
+<p><img src="regression-output1.png" class="img-thumbnail"></p>
+<p>再看交互项的系数是显著的, 证明调节作用显著。</p>
+<p><img src="regression-output2.png" class="img-thumbnail"></p>
 <h3><span id="process做简单交互效应">Process做简单交互效应</span></h3><p>Process能帮助你更快的检验交互效应, 因为它自动化处理了上面的过程, 下面我们来演示一下如何使用Process插件:</p>
 <h4><span id="操作方法">操作方法</span></h4><p>找到process菜单:</p>
 <p><img src="process-menue.png" class="img-thumbnail"></p>
@@ -390,7 +401,7 @@ $$</code></p>
 𝑌=𝑖+𝑎𝑋+𝑏𝑍+𝑐𝑋𝑍+𝑒 
 $$</code><br><div><br>i = <input onchange="onChange()" value="4.262" placeholder="常量" name="pi" type="number" style="width: 110px;background-color: transparent;text-align: left;"><br><br>a = <input onchange="onChange()" value="0.126" name="pa" type="number" style="width: 110px;background-color: transparent;text-align: left;"><br><br>b = <input onchange="onChange()" value="1.06" name="pb" type="number" style="width: 110px;background-color: transparent;text-align: left;"><br><br>c = <input onchange="onChange()" value="0.287" name="pc" type="number" style="width: 110px;background-color: transparent;text-align: left;"><br><br>自变量名称、均值和标准差 = <input onchange="onChange()" name="xn" placeholder="名称" value="X" type="text" style="width: 110px;background-color: transparent;text-align: left;"><input onchange="onChange()" value="0" name="xm" placeholder="均值" type="number" style="width: 110px;background-color: transparent;text-align: left;"><input onchange="onChange()" value="0.661" placeholder="标准差" name="xs" type="number" style="width: 110px;background-color: transparent;text-align: left;"><br><br><br>调节变量名称、均值和标准差 = <input onchange="onChange()" name="mn" placeholder="名称" value="M" type="text" style="width: 110px;background-color: transparent;text-align: left;"><input onchange="onChange()" value="0" name="mm" placeholder="均值" type="number" style="width: 110px;background-color: transparent;text-align: left;"><input onchange="onChange()" value="0.996" placeholder="标准差" name="ms" type="number" style="width: 110px;background-color: transparent;text-align: left;"><br><br></div>
 
-<div id="line-chart" style="width: 100%;height:600px;"></div>
+<div id="line-chart" style="width: 100%;height:600px;"></div><br><div id="d3-chart" style="width: 100%;height:600px;"></div>
 
 <p></p></div><p></p>
 <h3><span id="总结">总结</span></h3><ul>
@@ -401,6 +412,7 @@ $$</code><br><div><br>i = <input onchange="onChange()" value="4.262" placeholder
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="SPSS做简单调节效应分析Model-1-Of-Process.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>
 <script src="https://cdn.bootcss.com/echarts/4.7.0/echarts.js"></script>
+<script src="/js/echarts-gl.min.js"></script>
 <script>
     function get_eles(){
         let eles = {
@@ -466,8 +478,11 @@ $$</code><br><div><br>i = <input onchange="onChange()" value="4.262" placeholder
         return {
             series: series,
             legend: names,
+            xname: values.xn,
+            mname: values.mn,
+            values: values,
             xaxis: [
-                `${values['mn']}(M-SD)`, `${values['mn']}(M)`, `${values['mn']}(M+SD)`
+                `${values['xn']}(M-SD)`, `${values['xn']}(M)`, `${values['xn']}(M+SD)`
             ],
         }
     }
@@ -549,12 +564,82 @@ $$</code><br><div><br>i = <input onchange="onChange()" value="4.262" placeholder
             option.legend.data = d.legend;
             console.log(option)
             myChart.setOption(option)
+            reset_3d(d.values)
         }
 
         // 侦听修改事件
         function onChange(){
             console.log('change')
             resetChart()
+        }
+</script>
+
+<script>
+    // 3D显示
+d3Option = {
+    tooltip: {
+        trigger: 'axis'
+    },
+    backgroundColor: '#fff',
+    visualMap: {
+        show: false,
+        dimension: 2,
+        min: -1,
+        max: 1,
+        inRange: {
+            color: ['#313695', '#4575b4', '#74add1', '#abd9e9', '#e0f3f8', '#ffffbf', '#fee090', '#fdae61', '#f46d43', '#d73027', '#a50026']
+        }
+    },
+    xAxis3D: {
+        type: 'value',
+        name: '自变量',
+    },
+    yAxis3D: {
+        type: 'value',
+        name: '调节变量',
+    },
+    zAxis3D: {
+        type: 'value',
+        name: '因变量',
+    },
+    grid3D: {
+        viewControl: {
+            // projection: 'orthographic'
+        }
+    },
+    series: [{
+        type: 'surface',
+        wireframe: {
+            // show: false
+        },
+        equation: {
+            x: {
+                step: 0.05
+            },
+            y: {
+                step: 0.05
+            },
+            z: function (x, y) {
+                return 1 + x + y + x*y
+            }
+        }
+    }]
+}
+        var d3Chart = echarts.init(document.getElementById('d3-chart'));
+        d3Chart.setOption(d3Option);
+
+        function reset_3d(values){
+            d3Option.xAxis3D.name = values.xn,
+            d3Option.yAxis3D.name = values.mn,
+            d3Option.series[0].equation.x.max = values.xm + 2 * values.xs;
+            d3Option.series[0].equation.y.max = values.mm + 2 * values.ms;
+            d3Option.series[0].equation.x.min = values.xm - 2 * values.xs;
+            d3Option.series[0].equation.y.min = values.mm - 2 * values.ms;
+            d3Option.series[0].equation.z = function(x, y){
+                return values.pi + values.pa * x + values.pb * y + values.pc * x * y
+            }
+            d3Chart.setOption(d3Option);
+
         }
 </script>
 

@@ -279,7 +279,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#理论知识"><span class="toc-number">1.</span> <span class="toc-text">理论知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#stata实践"><span class="toc-number">2.</span> <span class="toc-text">stata实践</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">理论知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">stata实践</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -287,7 +287,7 @@
 
         <!-- Post Content -->
         <p><span></span><br><a id="more"></a></p>
-<h3 id="理论知识"><a href="#理论知识" class="headerlink" title="理论知识"></a>理论知识</h3><p>很多变量之间的关系是非线性的, 因此多元线性回归只能被看作非线性经济关系的一种一介近似。但是二阶甚至更高阶的函数关系也很重要, 那么当昨晚多元线性回归后, 我们可以检验是否存在多阶的函数关系, 具体来说就是我们可以做Ramsey’s RESET检验和连接检验。</p>
+<h3><span id="理论知识">理论知识</span></h3><p>很多变量之间的关系是非线性的, 因此多元线性回归只能被看作非线性经济关系的一种一介近似。但是二阶甚至更高阶的函数关系也很重要, 那么当昨晚多元线性回归后, 我们可以检验是否存在多阶的函数关系, 具体来说就是我们可以做Ramsey’s RESET检验和连接检验。</p>
 <p>考虑以下回归方程:</p>
 <p><code>$$
 y = x&#39;\beta + \xi
@@ -302,7 +302,7 @@ $$</code></p>
 <p><code>$$
 y = \delta_0 + \delta_1 \hat y + \delta_2 \hat y^2 + e
 $$</code></p>
-<h3 id="stata实践"><a href="#stata实践" class="headerlink" title="stata实践"></a>stata实践</h3><p>以<code>data/nerlove.dta</code>数据为例, 下面先加载数据:</p>
+<h3><span id="stata实践">stata实践</span></h3><p>以<code>data/nerlove.dta</code>数据为例, 下面先加载数据:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> data/nerlove.dta, <span class="keyword">clear</span></span><br></pre></td></tr></table></figure>
 
 <div class="output" contenteditable="true">

@@ -226,11 +226,11 @@
 
         <!-- Post Content -->
         <p>本篇文章开始正式进入psychopy的教程，先给大家介绍一下psychopy软件的两个基本视图，然后在不同的视图下实现同一个程序。如果你还没有安装psychopy，在<a href="http://mlln.cn/2017/09/27/psychopy%E4%B8%AD%E6%96%87%E7%89%88%E5%AE%89%E8%A3%85-%E9%99%84%E4%B8%8B%E8%BD%BD%E5%9C%B0%E5%9D%80/">这里</a>可以下载和安装。</p>
-<h3 id="两种视图"><a href="#两种视图" class="headerlink" title="两种视图"></a>两种视图</h3><p>Psychopy本质上是一个桌面软件，有两个视图：Builder视图和Coder视图，顾名思义，Builder视图基于一个友好的用户界面，用户不需要专业的编程知识，只需要鼠标点击和拖拽就能完成一个简单的实验程序；Coder视图只提供了一个代码编辑器，你需要编写代码来完成一个实验程序。两个视图各有优劣，因为我是开发软件的，所以我个人的建议是从一开始就使用Coder编写你的实验程序，一方面，编程能力是这个时代对每个人的基本要求，另一方面，Coder的工作效率非常高，尤其是当你需要经常编写实验程序的时候。如果你有编程经验，学习使用Builder和Coder的时间成本几乎是一样的。但是，如果你并没用编程经验，并且以后没有计划再次使用psychopy，Builder也许是你唯一的选择。</p>
+<h3><span id="两种视图">两种视图</span></h3><p>Psychopy本质上是一个桌面软件，有两个视图：Builder视图和Coder视图，顾名思义，Builder视图基于一个友好的用户界面，用户不需要专业的编程知识，只需要鼠标点击和拖拽就能完成一个简单的实验程序；Coder视图只提供了一个代码编辑器，你需要编写代码来完成一个实验程序。两个视图各有优劣，因为我是开发软件的，所以我个人的建议是从一开始就使用Coder编写你的实验程序，一方面，编程能力是这个时代对每个人的基本要求，另一方面，Coder的工作效率非常高，尤其是当你需要经常编写实验程序的时候。如果你有编程经验，学习使用Builder和Coder的时间成本几乎是一样的。但是，如果你并没用编程经验，并且以后没有计划再次使用psychopy，Builder也许是你唯一的选择。</p>
 <a id="more"></a>
-<h5 id="coder视图"><a href="#coder视图" class="headerlink" title="coder视图"></a>coder视图</h5><img src="/2017/09/29/psychopy教程1-入门认识psychopy/coder.jpg" title="coder视图">
-<h5 id="builder视图"><a href="#builder视图" class="headerlink" title="builder视图"></a>builder视图</h5><img src="/2017/09/29/psychopy教程1-入门认识psychopy/builder.jpg" title="builder视图">
-<h3 id="Builder-Hello-World"><a href="#Builder-Hello-World" class="headerlink" title="Builder, Hello World"></a>Builder, Hello World</h3><p>在学习一门编程语言的第一件事就是写一个程序打印出”Hello World”， 现在我们同样使用Builder来建立一个刺激呈现程序，程序很简单，就是呈现在屏幕上一个”Hello World”。</p>
+<h5><span id="coder视图">coder视图</span></h5><img src="/2017/09/29/psychopy教程1-入门认识psychopy/coder.jpg" title="coder视图">
+<h5><span id="builder视图">builder视图</span></h5><img src="/2017/09/29/psychopy教程1-入门认识psychopy/builder.jpg" title="builder视图">
+<h3><span id="builder-hello-world">Builder, Hello World</span></h3><p>在学习一门编程语言的第一件事就是写一个程序打印出”Hello World”， 现在我们同样使用Builder来建立一个刺激呈现程序，程序很简单，就是呈现在屏幕上一个”Hello World”。</p>
 <p>下面的教程中，你不必关心你不懂的按钮/选项等, 先做出来一个能运行的程序来给自己一点成就感。这才是”Hello World”的意义。</p>
 <ul>
 <li>首先点击文本控件，打开文本控件设置对话框</li>
@@ -252,7 +252,7 @@
 <li>你会在屏幕上看到这样的刺激</li>
 </ul>
 <img src="/2017/09/29/psychopy教程1-入门认识psychopy/builder05.jpg" title="builder视图">
-<h3 id="Coder-Hello-World"><a href="#Coder-Hello-World" class="headerlink" title="Coder, Hello World"></a>Coder, Hello World</h3><p>如果你没有Python的编程经验，建议你跳过这部分，除非你非常感兴趣。其实Python程序非常简单，是接触到的这么多编程语言里，最简单的。我几乎向所有从事科学研究的朋友推荐Python, 而实际他们也采纳了我的建议。</p>
+<h3><span id="coder-hello-world">Coder, Hello World</span></h3><p>如果你没有Python的编程经验，建议你跳过这部分，除非你非常感兴趣。其实Python程序非常简单，是接触到的这么多编程语言里，最简单的。我几乎向所有从事科学研究的朋友推荐Python, 而实际他们也采纳了我的建议。</p>
 <ul>
 <li>打开Coder视图，把以下代码粘贴到编辑框里。</li>
 </ul>
@@ -261,7 +261,7 @@
 <ul>
 <li>同样点击运行按钮，你会看到类似的刺激</li>
 </ul>
-<h3 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h3><p>好了，通过这篇文章，那你大概就了解了psychopy的基本界面和使用方法，接下来我会持续更新这个系列的教程，大家可以关注我的博客<a href="http://mlln.cn">DataScience</a>或者<a href="http://psychopy.com" target="_blank" rel="noopener">心理学技术博客</a>如果大家有什么问题可以直接评论留言，或者加入心理学技术群：475179613，申请信息注明psychopy。</p>
+<h3><span id="总结">总结</span></h3><p>好了，通过这篇文章，那你大概就了解了psychopy的基本界面和使用方法，接下来我会持续更新这个系列的教程，大家可以关注我的博客<a href="http://mlln.cn">DataScience</a>或者<a href="http://psychopy.com" target="_blank" rel="noopener">心理学技术博客</a>如果大家有什么问题可以直接评论留言，或者加入心理学技术群：475179613，申请信息注明psychopy。</p>
 
     </div>
 

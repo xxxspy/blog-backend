@@ -103,7 +103,7 @@ console.log('hello')
 
 ### 视频教程
 
-<iframe src="//player.bilibili.com/player.html?aid=95343967&cid=162769024&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+<iframe src="//player.bilibili.com/player.html?aid=95343967&cid=162769024&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width: 800px;height: 600px;"> </iframe>
 
 > **注意**
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](spss计算平均方差提取量AVE和组合信度CR的方法.ipynb)

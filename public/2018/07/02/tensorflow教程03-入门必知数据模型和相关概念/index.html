@@ -296,7 +296,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是张量的秩-Rank"><span class="toc-number">1.</span> <span class="toc-text">什么是张量的秩(Rank)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是张量的形状-Shape"><span class="toc-number">2.</span> <span class="toc-text">什么是张量的形状(Shape)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#tensorfloa常见哪些数据类型-Data-types"><span class="toc-number">3.</span> <span class="toc-text">tensorfloa常见哪些数据类型(Data types)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#什么是变量-Variable"><span class="toc-number">4.</span> <span class="toc-text">什么是变量(Variable)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#怎样获取计算图中张量的值"><span class="toc-number">5.</span> <span class="toc-text">怎样获取计算图中张量的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Feeds"><span class="toc-number">6.</span> <span class="toc-text">Feeds</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">什么是张量的秩(Rank)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">什么是张量的形状(Shape)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">tensorfloa常见哪些数据类型(Data types)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">什么是变量(Variable)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">怎样获取计算图中张量的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">Feeds</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -315,7 +315,7 @@
 <li>tensorflow 1.x</li>
 </ul>
 <p>在入门任何一门语言的时候我们都会首先介绍这个语言使用的数据模型, 数据模型相当于一门语言的基石, 所有的功能都是在对数据模型进行操作。TensorFlow中的数据模型由张量表示, 也就是tensor, 而名字”tensorflow”意义就是张量在图中的流动。为了避免复杂的数学定义，我们可以说一个张量（在TensorFlow中）标识了一个多维数值数组。该数据结构由三个参数 - 秩，形状和类型表征。下面我们一一介绍这三个概念, 并使用代码让你对这三个概念有一个感性认识。</p>
-<h3 id="什么是张量的秩-Rank"><a href="#什么是张量的秩-Rank" class="headerlink" title="什么是张量的秩(Rank)"></a>什么是张量的秩(Rank)</h3><p>每个张量由称为秩的维度单位描述。它标识张量的维数，因此，秩是已知的 - 作为张量的阶或维度。秩为零的张量是标量，秩为一的张量是向量，而秩为二的张量是矩阵。下面的代码定义了一个TensorFlow标量，一个向量，一个矩阵和一个三维张量(下面我们使用tf.constant创建一个张量, 但这并不表示张量只能由constant创建)：</p>
+<h3><span id="什么是张量的秩rank">什么是张量的秩(Rank)</span></h3><p>每个张量由称为秩的维度单位描述。它标识张量的维数，因此，秩是已知的 - 作为张量的阶或维度。秩为零的张量是标量，秩为一的张量是向量，而秩为二的张量是矩阵。下面的代码定义了一个TensorFlow标量，一个向量，一个矩阵和一个三维张量(下面我们使用tf.constant创建一个张量, 但这并不表示张量只能由constant创建)：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</span><br><span class="line"><span class="comment"># 你可以用constant创建一个张量</span></span><br><span class="line">scalar = tf.constant(<span class="number">100</span>)</span><br><span class="line"><span class="comment"># 向量</span></span><br><span class="line">vector = tf.constant([<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>])</span><br><span class="line"><span class="comment"># 矩阵</span></span><br><span class="line">matrix = tf.constant([[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], [<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>]])</span><br><span class="line"><span class="comment"># 立方</span></span><br><span class="line">cube_matrix = tf.constant([[[<span class="number">1</span>],[<span class="number">2</span>],[<span class="number">3</span>]],[[<span class="number">4</span>],[<span class="number">5</span>],[<span class="number">6</span>]],[[<span class="number">7</span>],[<span class="number">8</span>],[<span class="number">9</span>]]])</span><br><span class="line">print(<span class="string">'标量:'</span>, scalar.get_shape())</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -348,7 +348,7 @@
     
 </div>
 
-<h3 id="什么是张量的形状-Shape"><a href="#什么是张量的形状-Shape" class="headerlink" title="什么是张量的形状(Shape)"></a>什么是张量的形状(Shape)</h3><p>张量的形状是它所具有的行数和列数。现在我们看一下张量形状与张量秩的关系：</p>
+<h3><span id="什么是张量的形状shape">什么是张量的形状(Shape)</span></h3><p>张量的形状是它所具有的行数和列数。现在我们看一下张量形状与张量秩的关系：</p>
 <ul>
 <li>张量的形状用<code>TensorShape</code>类来定义, 它可以被看做一个list或者tuple, 形状内的每个元素表示每个维度上的长度。比如向量的形状:</li>
 </ul>
@@ -367,7 +367,7 @@
     TensorShape([Dimension(2), Dimension(3)])
 </div>
 
-<h3 id="tensorfloa常见哪些数据类型-Data-types"><a href="#tensorfloa常见哪些数据类型-Data-types" class="headerlink" title="tensorfloa常见哪些数据类型(Data types)"></a>tensorfloa常见哪些数据类型(Data types)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'32位浮点数:'</span>,tf.float32)</span><br><span class="line">print(<span class="string">'64位浮点数:'</span>,tf.float64)</span><br><span class="line">print(<span class="string">'8位整数:'</span>,tf.int8)</span><br><span class="line">print(<span class="string">'16位整数:'</span>,tf.int16)</span><br><span class="line">print(<span class="string">'32位整数:'</span>,tf.int32)</span><br><span class="line">print(<span class="string">'64位整数:'</span>,tf.int64)</span><br><span class="line">print(<span class="string">'8位无符号整数:'</span>,tf.uint8)</span><br><span class="line">print(<span class="string">'字符串:'</span>,tf.string)</span><br><span class="line">print(<span class="string">'布尔值:'</span>,tf.bool)</span><br><span class="line">print(<span class="string">'64位复数:'</span>,tf.complex64)</span><br><span class="line">print(<span class="string">'128位复数:'</span>,tf.complex128)</span><br></pre></td></tr></table></figure>
+<h3><span id="tensorfloa常见哪些数据类型data-types">tensorfloa常见哪些数据类型(Data types)</span></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">print(<span class="string">'32位浮点数:'</span>,tf.float32)</span><br><span class="line">print(<span class="string">'64位浮点数:'</span>,tf.float64)</span><br><span class="line">print(<span class="string">'8位整数:'</span>,tf.int8)</span><br><span class="line">print(<span class="string">'16位整数:'</span>,tf.int16)</span><br><span class="line">print(<span class="string">'32位整数:'</span>,tf.int32)</span><br><span class="line">print(<span class="string">'64位整数:'</span>,tf.int64)</span><br><span class="line">print(<span class="string">'8位无符号整数:'</span>,tf.uint8)</span><br><span class="line">print(<span class="string">'字符串:'</span>,tf.string)</span><br><span class="line">print(<span class="string">'布尔值:'</span>,tf.bool)</span><br><span class="line">print(<span class="string">'64位复数:'</span>,tf.complex64)</span><br><span class="line">print(<span class="string">'128位复数:'</span>,tf.complex128)</span><br></pre></td></tr></table></figure>
 
 <div class="output">
 输出:
@@ -394,7 +394,7 @@
     
 </dtype:></div>
 
-<h3 id="什么是变量-Variable"><a href="#什么是变量-Variable" class="headerlink" title="什么是变量(Variable)"></a>什么是变量(Variable)</h3><p>变量通常代表可更新的参数, 是TensorFlow中的对象。变量必须被初始化;你也可以保存并恢复它来分析你的代码。变量由tf.Variable（）语句创建。在下面的例子中，我们学习率逐渐降低的过程：</p>
+<h3><span id="什么是变量variable">什么是变量(Variable)</span></h3><p>变量通常代表可更新的参数, 是TensorFlow中的对象。变量必须被初始化;你也可以保存并恢复它来分析你的代码。变量由tf.Variable（）语句创建。在下面的例子中，我们学习率逐渐降低的过程：</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">learning_rate = tf.Variable(<span class="number">0.5</span>, name=<span class="string">'Learning-Rate'</span>, dtype=tf.float32)</span><br><span class="line">step = tf.constant(<span class="number">-0.1</span>, name=<span class="string">'Step'</span>, dtype=tf.float32)</span><br><span class="line">update = tf.add(learning_rate, step)</span><br><span class="line">update = tf.assign(learning_rate, update,  <span class="string">'Update-LR'</span>)</span><br><span class="line"><span class="comment"># 因为图中有变量, 所以需要初始化</span></span><br><span class="line">initialize_var = tf.global_variables_initializer()</span><br><span class="line"><span class="keyword">with</span> tf.Session() <span class="keyword">as</span> sess:</span><br><span class="line">    sess.run(initialize_var)</span><br><span class="line">    <span class="keyword">for</span> _ <span class="keyword">in</span> range(<span class="number">5</span>):</span><br><span class="line">        sess.run(update)</span><br><span class="line">        print(sess.run(learning_rate))</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -407,7 +407,7 @@
     
 </div>
 
-<h3 id="怎样获取计算图中张量的值"><a href="#怎样获取计算图中张量的值" class="headerlink" title="怎样获取计算图中张量的值"></a>怎样获取计算图中张量的值</h3><p>获取节点张量的输出，通过调用会话对象的run（）函数来执行计算图，并传入要检索的张量。除了取单个张量节点外，还可以取多个张量。</p>
+<h3><span id="怎样获取计算图中张量的值">怎样获取计算图中张量的值</span></h3><p>获取节点张量的输出，通过调用会话对象的run（）函数来执行计算图，并传入要检索的张量。除了取单个张量节点外，还可以取多个张量。</p>
 <p>在交互式环境中, 我们通常使用<code>InteractiveSession</code>, 关于这个类的说明引用官方说法:</p>
 <blockquote>
 <p>使用InteractiveSession一个主要的变化是：运行在没有指定会话对象的情况下运行变量。这是与Session（）最大的不同。</p>
@@ -433,7 +433,7 @@
     
 </div>
 
-<h3 id="Feeds"><a href="#Feeds" class="headerlink" title="Feeds"></a>Feeds</h3><p>Feed机制(我不知道怎么翻译)功能就是用于向计算图中提供数据。它用张量值暂时替换计算图中的<code>tf.placeholder</code>所代表的张量。 </p>
+<h3><span id="feeds">Feeds</span></h3><p>Feed机制(我不知道怎么翻译)功能就是用于向计算图中提供数据。它用张量值暂时替换计算图中的<code>tf.placeholder</code>所代表的张量。 </p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">data = [<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>,<span class="number">4</span>,<span class="number">5</span>]</span><br><span class="line">x = tf.placeholder(tf.float32, shape=())</span><br><span class="line">y = tf.square(x)</span><br><span class="line"><span class="keyword">for</span> d <span class="keyword">in</span> data:</span><br><span class="line">    print(y.eval(feed_dict=&#123;x: d&#125;))</span><br></pre></td></tr></table></figure>
 
 <div class="output">

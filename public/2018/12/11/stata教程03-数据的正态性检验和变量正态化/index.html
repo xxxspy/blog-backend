@@ -279,7 +279,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#数据介绍"><span class="toc-number">1.</span> <span class="toc-text">数据介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#绘制概率图"><span class="toc-number">2.</span> <span class="toc-text">绘制概率图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#进行正态性检验"><span class="toc-number">3.</span> <span class="toc-text">进行正态性检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#变量正态化"><span class="toc-number">4.</span> <span class="toc-text">变量正态化</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">数据介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">绘制概率图</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">进行正态性检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">变量正态化</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -287,7 +287,7 @@
 
         <!-- Post Content -->
         <p>变量是否符合正态分布? 怎么检验变量的正态分布假设? 如果变量不满足正太分布假设怎么办? 下面我们使用stata来回答以上问题。<br><span></span><br><a id="more"></a></p>
-<h3 id="数据介绍"><a href="#数据介绍" class="headerlink" title="数据介绍"></a>数据介绍</h3><p>使用stata系统自带的数据auto.dta来演示今天的例子。</p>
+<h3><span id="数据介绍">数据介绍</span></h3><p>使用stata系统自带的数据auto.dta来演示今天的例子。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">sysuse</span> auto</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -327,7 +327,7 @@
     <br>
 </div>
 
-<h3 id="绘制概率图"><a href="#绘制概率图" class="headerlink" title="绘制概率图"></a>绘制概率图</h3><p>绘制变量mpg, 查看变量是否和正太分布相似:</p>
+<h3><span id="绘制概率图">绘制概率图</span></h3><p>绘制变量mpg, 查看变量是否和正太分布相似:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">hist</span> mpg, <span class="built_in">normal</span></span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -368,7 +368,7 @@
     <br>
 </div>
 
-<h3 id="进行正态性检验"><a href="#进行正态性检验" class="headerlink" title="进行正态性检验"></a>进行正态性检验</h3><p>但是不管绘制哪种图形, 都有一个问题, 我们无法精确的检验数据是否满足正态分布的假设。所以, 我们可以进行JB检验:</p>
+<h3><span id="进行正态性检验">进行正态性检验</span></h3><p>但是不管绘制哪种图形, 都有一个问题, 我们无法精确的检验数据是否满足正态分布的假设。所以, 我们可以进行JB检验:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">su</span> mpg, detail</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -474,7 +474,7 @@
     <br>
 </div>
 
-<h3 id="变量正态化"><a href="#变量正态化" class="headerlink" title="变量正态化"></a>变量正态化</h3><p>我们可以对变量取log自然对数, 然后再检验它的正态性:</p>
+<h3><span id="变量正态化">变量正态化</span></h3><p>我们可以对变量取log自然对数, 然后再检验它的正态性:</p>
 <p>生成新变量: lnmpg</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">gen</span> lnmpg = <span class="built_in">log</span>(mpg)</span><br></pre></td></tr></table></figure>
 <p>绘制核密度图:</p>

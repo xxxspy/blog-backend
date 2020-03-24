@@ -240,7 +240,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#系列文章"><span class="toc-number">1.</span> <span class="toc-text">系列文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#概念"><span class="toc-number">2.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#word2vec"><span class="toc-number">3.</span> <span class="toc-text">word2vec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#训练流程"><span class="toc-number">4.</span> <span class="toc-text">训练流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#实战-使用word2vec训练词向量"><span class="toc-number">5.</span> <span class="toc-text">实战:使用word2vec训练词向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#语料库"><span class="toc-number">6.</span> <span class="toc-text">语料库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#读取数据"><span class="toc-number">6.1.</span> <span class="toc-text">读取数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#训练词向量"><span class="toc-number">6.2.</span> <span class="toc-text">训练词向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取词向量"><span class="toc-number">6.3.</span> <span class="toc-text">获取词向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#获取相近的词"><span class="toc-number">6.4.</span> <span class="toc-text">获取相近的词</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#词向量的可视化"><span class="toc-number">7.</span> <span class="toc-text">词向量的可视化</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">系列文章</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">word2vec</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">训练流程</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">实战:使用word2vec训练词向量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">语料库</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">6.1.</span> <span class="toc-text">读取数据</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">6.2.</span> <span class="toc-text">训练词向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">6.3.</span> <span class="toc-text">获取词向量</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#undefined"><span class="toc-number">6.4.</span> <span class="toc-text">获取相近的词</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">词向量的可视化</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -248,18 +248,18 @@
 
         <!-- Post Content -->
         <p><span></span><br><a id="more"></a></p>
-<h3 id="系列文章"><a href="#系列文章" class="headerlink" title="系列文章"></a>系列文章</h3><p>这个是系列博客, 所有文章链接都列在这里, 并持续更新中。</p>
+<h3><span id="系列文章">系列文章</span></h3><p>这个是系列博客, 所有文章链接都列在这里, 并持续更新中。</p>
 <ul><br><li><a href="http://mlln.cn/2018/08/17/文本向量化理论和实践教程/">文本向量化理论和实践教程</a></li><br><li><a href="http://mlln.cn/2018/08/17/文本向量系列-如何基于拼音构建字向量/">文本向量系列-如何基于拼音构建字向量</a></li><br><li><a href="http://mlln.cn/2018/08/18/文本向量系列-如何基于笔画+拼音构建字向量/">文本向量系列-如何基于笔画+拼音构建字向量/</a></li><br><li><a href="http://mlln.cn/2018/08/18/文本向量系列-如何基于词频矩阵和TF-IDF权重构建词向量/">文本向量系列-如何基于词频矩阵和TF-IDF权重构建词向量/</a></li><br> <li><a href="http://mlln.cn/2018/08/18/文本向量系列-基于潜在语义分析的词向量/">文本向量系列-基于潜在语义分析的词向量</a></li><br></ul>
 
-<h3 id="概念"><a href="#概念" class="headerlink" title="概念"></a>概念</h3><p>神经网络的词向量表示法是基于一个哲学: 词的上下文环境决定了词的意义, 所以在训练词向量的时候, 是通过词的上下文来计算词向量, 因而这样的词向量也具有了上下文的语义信息。</p>
+<h3><span id="概念">概念</span></h3><p>神经网络的词向量表示法是基于一个哲学: 词的上下文环境决定了词的意义, 所以在训练词向量的时候, 是通过词的上下文来计算词向量, 因而这样的词向量也具有了上下文的语义信息。</p>
 <p>基于神经网络生成的词表示一般称为词向量、词嵌入（wordembeding），狭义上，与分布表示（distributional representation）相对，也称为分布式表示（distributed representation）。该表示将每一单词映射到一个低维、稠密的实数向量上，向量的每一维代表单词的潜在特征，且该特征能够捕捉到有用的语法和语义属性。词向量的最大优势在于我们可以相对快速、有效地根据向量间的距离（比如余弦距离）判断单词的相似性，原因在于语义或语法相似的单词拥有相似的向量表示。词向量的构建主要依赖于神经网络模型，神经网络能够非常灵活地以线性组合方式表示任意n-gram词组，且参数以线性速度増长，相对于基于矩阵和聚类的分布表示，词向量能够捕捉到更多复杂、有用的语义信息。</p>
-<h3 id="word2vec"><a href="#word2vec" class="headerlink" title="word2vec"></a>word2vec</h3><p>深度学习word2vec是Google的一款将词表征为实数值向量的高效工具, 其利用深度学习的思想, 通过训练把对文本内容的处理简化为K维向量空间中的向量运算, 而向量空间上的相似度可以用来表示文本语义上的相似度。在实际应用场景中, word2vec可以用于计算词的相似度、文档的相似度等, 也可以用来对文档进行情感分析等。</p>
+<h3><span id="word2vec">word2vec</span></h3><p>深度学习word2vec是Google的一款将词表征为实数值向量的高效工具, 其利用深度学习的思想, 通过训练把对文本内容的处理简化为K维向量空间中的向量运算, 而向量空间上的相似度可以用来表示文本语义上的相似度。在实际应用场景中, word2vec可以用于计算词的相似度、文档的相似度等, 也可以用来对文档进行情感分析等。</p>
 <p>深度学习word2vec中有CBOW和Skip-gram两种神经网络框架可用于训练并得到参数, 参数迭代更新后得到的就是每个字的词向量。其中, CBOW模型是利用词w<sub>t</sub>上下文中的c个词去预测当前词;而Skip-gram模型恰好相反, 它是利用词w<sub>t</sub>去预测上下文中的c个词。本文采用CBOW架构训练模型, 其数学表达式为:</p>
 <p><img src="cbow.png"></p>
 <p>其中, w<sub>t</sub>为词典D中的一个词, 即通过和该词相邻的窗口T来预测w<sub>t</sub>出现的概率。p (w<sub>t</sub>/Context<sub>i</sub>) 代表前后c个词出现的概率。该框架可表示为下图所示模型。</p>
 <p><img src="cbow-pic.png"></p>
 <p>上述符号中, INPUT代表输入层, PROJECTION代表投影层, OUTPUT代表输出层, w<sub>t</sub>代表当前词语 (向量) , w<sub>t-2</sub>、w<sub>t-1</sub>、w<sub>t+1</sub>、w<sub>t+2</sub>代表当前词语的上下文, SUM代表上下文的累加和。输出层是以词典D中出现过的N个词作为叶节点, 并以词在语料库中出现的次数作为权值构造出的巨大二叉树, 该二叉树的构建算法为霍夫曼 (Huffman) 树。</p>
-<h3 id="训练流程"><a href="#训练流程" class="headerlink" title="训练流程"></a>训练流程</h3><ul>
+<h3><span id="训练流程">训练流程</span></h3><ul>
 <li>把word表示成one-hot向量</li>
 </ul>
 <p><img src="one-hot.png"></p>
@@ -281,8 +281,8 @@
 <li>最后的效果就是, 得到的词向量具有语义相关, 这些词向量其实都是嵌入在权重向矩阵W中的</li>
 </ul>
 <p><img src="word-embeding.png"></p>
-<h3 id="实战-使用word2vec训练词向量"><a href="#实战-使用word2vec训练词向量" class="headerlink" title="实战:使用word2vec训练词向量"></a>实战:使用word2vec训练词向量</h3><p>其实在这里有一篇文章已经非常详细的介绍了词向量的训练, 有兴趣的可以去看看:<a href="http://mlln.cn/2018/06/21/大数据揭示心理学规律(利用gensim训练词向量)">http://mlln.cn/2018/06/21/大数据揭示心理学规律(利用gensim训练词向量)</a> 。这里只是为了文章完整性, 再演示一遍如何使用word2vec训练词向量。</p>
-<h3 id="语料库"><a href="#语料库" class="headerlink" title="语料库"></a>语料库</h3><p>这次我们使用中英文语料库, 语料库可以从这里下载:<a href="http://mlln.cn/2018/08/26/机器翻译语料库大全(免费下">机器翻译语料库大全(免费下)</a>), 我这里用的是中英文翻译语料, 下面是一些语料的例子。</p>
+<h3><span id="实战使用word2vec训练词向量">实战:使用word2vec训练词向量</span></h3><p>其实在这里有一篇文章已经非常详细的介绍了词向量的训练, 有兴趣的可以去看看:<a href="http://mlln.cn/2018/06/21/大数据揭示心理学规律(利用gensim训练词向量)">http://mlln.cn/2018/06/21/大数据揭示心理学规律(利用gensim训练词向量)</a> 。这里只是为了文章完整性, 再演示一遍如何使用word2vec训练词向量。</p>
+<h3><span id="语料库">语料库</span></h3><p>这次我们使用中英文语料库, 语料库可以从这里下载:<a href="http://mlln.cn/2018/08/26/机器翻译语料库大全(免费下">机器翻译语料库大全(免费下)</a>), 我这里用的是中英文翻译语料, 下面是一些语料的例子。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">Hi.	嗨。</span><br><span class="line">Hi.	你好。</span><br><span class="line">Run.	你用跑的。</span><br><span class="line">Wait!	等等！</span><br><span class="line">Hello!	你好。</span><br><span class="line">I try.	让我来。</span><br><span class="line">I won!	我赢了。</span><br><span class="line">Oh no!	不会吧。</span><br><span class="line">Cheers!	乾杯!</span><br><span class="line">He ran.	他跑了。</span><br><span class="line">Hop in.	跳进来。</span><br><span class="line">I lost.	我迷失了。</span><br><span class="line">I quit.	我退出。</span><br><span class="line">I&apos;m OK.	我沒事。</span><br><span class="line">Listen.	听着。</span><br><span class="line">No way!	不可能！</span><br></pre></td></tr></table></figure>
 <p>这些语料需要经过一些处理才能进行训练:</p>
 <ul>
@@ -307,8 +307,8 @@
     <br>
 </div>
 
-<h4 id="读取数据"><a href="#读取数据" class="headerlink" title="读取数据"></a>读取数据</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fpath = <span class="string">'./data/cmn.txt'</span></span><br><span class="line">sentences = clean_data(fpath)</span><br></pre></td></tr></table></figure>
-<h4 id="训练词向量"><a href="#训练词向量" class="headerlink" title="训练词向量"></a>训练词向量</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model = Word2Vec(min_count=<span class="number">1</span>)</span><br><span class="line">model.build_vocab(sentences)  <span class="comment"># prepare the model vocabulary</span></span><br><span class="line">model.train(sentences, total_examples=model.corpus_count, epochs=model.iter)  <span class="comment"># train word vectors</span></span><br></pre></td></tr></table></figure>
+<h4><span id="读取数据">读取数据</span></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fpath = <span class="string">'./data/cmn.txt'</span></span><br><span class="line">sentences = clean_data(fpath)</span><br></pre></td></tr></table></figure>
+<h4><span id="训练词向量">训练词向量</span></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">model = Word2Vec(min_count=<span class="number">1</span>)</span><br><span class="line">model.build_vocab(sentences)  <span class="comment"># prepare the model vocabulary</span></span><br><span class="line">model.train(sentences, total_examples=model.corpus_count, epochs=model.iter)  <span class="comment"># train word vectors</span></span><br></pre></td></tr></table></figure>
 
 <div class="output">
 输出(stream):<br>
@@ -325,7 +325,7 @@
 
 </div>
 
-<h4 id="获取词向量"><a href="#获取词向量" class="headerlink" title="获取词向量"></a>获取词向量</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">model[<span class="string">'我'</span>]</span><br></pre></td></tr></table></figure>
+<h4><span id="获取词向量">获取词向量</span></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">model[<span class="string">'我'</span>]</span><br></pre></td></tr></table></figure>
 
 <div class="output">
 输出(stream):<br>
@@ -362,7 +362,7 @@
 
 </div>
 
-<h4 id="获取相近的词"><a href="#获取相近的词" class="headerlink" title="获取相近的词"></a>获取相近的词</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.wv.similar_by_word(<span class="string">'我'</span>, topn=<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
+<h4><span id="获取相近的词">获取相近的词</span></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">model.wv.similar_by_word(<span class="string">'我'</span>, topn=<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
 
 <div class="output">
 输出(plain):<br>
@@ -390,7 +390,7 @@
 
 </div>
 
-<h3 id="词向量的可视化"><a href="#词向量的可视化" class="headerlink" title="词向量的可视化"></a>词向量的可视化</h3><p>先把数据保存到文件中</p>
+<h3><span id="词向量的可视化">词向量的可视化</span></h3><p>先把数据保存到文件中</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line">data = np.zeros((len(model.wv.vocab), <span class="number">100</span>))</span><br><span class="line">i = <span class="number">-1</span></span><br><span class="line">words = []</span><br><span class="line"><span class="keyword">for</span> word <span class="keyword">in</span> model.wv.vocab:</span><br><span class="line">    i += <span class="number">1</span></span><br><span class="line">    data[i] = model[word]</span><br><span class="line">    words.append(word)</span><br><span class="line"></span><br><span class="line">tsv_path=<span class="string">'./data/wordvec.tsv'</span></span><br><span class="line">np.savetxt(tsv_path, data, delimiter=<span class="string">'\t'</span>)</span><br><span class="line">words = <span class="string">'\n'</span>.join(words)</span><br><span class="line"><span class="comment"># words = '词\n' + words</span></span><br><span class="line"><span class="keyword">with</span> open(<span class="string">'./data/words.tsv'</span>, <span class="string">'w'</span>, encoding=<span class="string">'utf8'</span>) <span class="keyword">as</span> f:</span><br><span class="line">    f.write(words)</span><br></pre></td></tr></table></figure>
 
 <div class="output">

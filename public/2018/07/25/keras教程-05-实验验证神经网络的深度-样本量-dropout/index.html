@@ -240,7 +240,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#神经网络有多少层比较合适"><span class="toc-number">1.</span> <span class="toc-text">神经网络有多少层比较合适</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#我们现在讨论1层和10的差别"><span class="toc-number">2.</span> <span class="toc-text">我们现在讨论1层和10的差别</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">神经网络有多少层比较合适</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">我们现在讨论1层和10的差别</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -256,14 +256,14 @@
 <li>tensorflow 1.x</li>
 <li>keras 2.x</li>
 </ul>
-<h3 id="神经网络有多少层比较合适"><a href="#神经网络有多少层比较合适" class="headerlink" title="神经网络有多少层比较合适"></a>神经网络有多少层比较合适</h3><p>沈向洋在专访中表示:</p>
+<h3><span id="神经网络有多少层比较合适">神经网络有多少层比较合适</span></h3><p>沈向洋在专访中表示:</p>
 <blockquote>
 <p>ResNet他们做了152层，然后后面又做了一个1001层的，孙剑他们做的。我一直对他们不太满意，所以他们做出了非常好的结果之后，我又问了他们一个非常基础的问题：你到底要多少层？这个问题一直没有得到回答。我觉得应该有人写这样一篇基础的论文（来回答这个问题），这肯定会是一篇获奖论文，这是毫无疑问的。 回到现在这个问题，到现在为止，大家肯定会觉得是越深越好。就是打仗要打刚仗，要上力度，GPU要多，数据要多。到现在为止，因为很多新的系统也不太一样，然后大家一般认为，更深更准还是一个趋势。就像AlphaGo他们讲出来就是做了50层，他也没讲为什么做50层，可能就是工程师弄了50层就差不多了。</p>
 </blockquote>
 <p>所以通常神经网络到底要用多少层?这是一个重要也不重要的问题。</p>
 <p>说重要是因为神经网络的深度的确影响它的性能。我们总是期望用最少的神经元最最多或者最好的事情。</p>
 <p>说它不重要是因为, 我们往往在实践中发现, 你用50层还是51层, 网络的预测效果差不多。</p>
-<h3 id="我们现在讨论1层和10的差别"><a href="#我们现在讨论1层和10的差别" class="headerlink" title="我们现在讨论1层和10的差别"></a>我们现在讨论1层和10的差别</h3><p>因为9层和10层的网络结构似乎没有太大差别, 但是如果层数差别太大, 可能效果就不一样了, 所以我们做一个实验, 比较一下神经网络的层数对神经网络的各方面指标的影响。</p>
+<h3><span id="我们现在讨论1层和10的差别">我们现在讨论1层和10的差别</span></h3><p>因为9层和10层的网络结构似乎没有太大差别, 但是如果层数差别太大, 可能效果就不一样了, 所以我们做一个实验, 比较一下神经网络的层数对神经网络的各方面指标的影响。</p>
 <p>我们采用上一篇教程中用到的案例:  <a href="/2018/07/20/keras教程-04-手写字体识别/" title="keras教程-04-手写字体识别">keras教程-04-手写字体识别</a></p>
 <p>引入用到的库:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line">plt.rcParams[<span class="string">'figure.figsize'</span>] = (<span class="number">7</span>,<span class="number">7</span>) <span class="comment"># Make the figures a bit bigger</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">from</span> keras.datasets <span class="keyword">import</span> mnist</span><br><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers.core <span class="keyword">import</span> Dense, Dropout, Activation</span><br><span class="line"><span class="keyword">from</span> keras.utils <span class="keyword">import</span> np_utils</span><br></pre></td></tr></table></figure>

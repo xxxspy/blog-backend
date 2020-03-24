@@ -279,7 +279,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#问题简介"><span class="toc-number">1.</span> <span class="toc-text">问题简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数据"><span class="toc-number">2.</span> <span class="toc-text">数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#查看变量关系"><span class="toc-number">3.</span> <span class="toc-text">查看变量关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#小样本OLS回归"><span class="toc-number">4.</span> <span class="toc-text">小样本OLS回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#检测系数值"><span class="toc-number">5.</span> <span class="toc-text">检测系数值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#约束回归"><span class="toc-number">6.</span> <span class="toc-text">约束回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#大样本OLS"><span class="toc-number">7.</span> <span class="toc-text">大样本OLS</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">问题简介</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">查看变量关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">小样本OLS回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">检测系数值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">6.</span> <span class="toc-text">约束回归</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">7.</span> <span class="toc-text">大样本OLS</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -287,7 +287,7 @@
 
         <!-- Post Content -->
         <p>介绍一下如何使用stata做线性回归。<br><span></span><br><a id="more"></a></p>
-<h3 id="问题简介"><a href="#问题简介" class="headerlink" title="问题简介"></a>问题简介</h3><p>Cobb-Douglas(柯布—道格拉斯)生产函数最初是美国数学家柯布(C.W.Cobb)和经济学家保罗·道格拉斯(PaulH.Douglas)共同探讨投入和产出的关系时创造的生产函数，是以美国数学家C．W．柯布和经济学家保罗．H．道格拉斯的名字命名的，是在生产函数的一般形式上作出的改进，引入了技术资源这一因素。用来预测国家和地区的工业系统或大企业的生产和分析发展生产的途径的一种经济数学模型，简称生产函数。</p>
+<h3><span id="问题简介">问题简介</span></h3><p>Cobb-Douglas(柯布—道格拉斯)生产函数最初是美国数学家柯布(C.W.Cobb)和经济学家保罗·道格拉斯(PaulH.Douglas)共同探讨投入和产出的关系时创造的生产函数，是以美国数学家C．W．柯布和经济学家保罗．H．道格拉斯的名字命名的，是在生产函数的一般形式上作出的改进，引入了技术资源这一因素。用来预测国家和地区的工业系统或大企业的生产和分析发展生产的途径的一种经济数学模型，简称生产函数。</p>
 <p><code>$$
 Y = AK^{\alpha_1}L^{\alpha_2}F^{\alpha_3}
 $$</code></p>
@@ -299,7 +299,7 @@ $$</code></p>
 <p><code>$$
 \ln Y = \ln(AK^{\alpha_1}L^{\alpha_2}F^{\alpha_3})
 $$</code></p>
-<h3 id="数据"><a href="#数据" class="headerlink" title="数据"></a>数据</h3><p>现在我们使用Nerlove对电力行业规模报酬的经典研究来介绍Stata的操作。从这里可以下载数据: 链接：<a href="https://pan.baidu.com/s/11x_UMqclrrWbFpZjq8dVxA" target="_blank" rel="noopener">https://pan.baidu.com/s/11x_UMqclrrWbFpZjq8dVxA</a> 提取码：eb6u 。首先我们加载数据, 使用这个命令:</p>
+<h3><span id="数据">数据</span></h3><p>现在我们使用Nerlove对电力行业规模报酬的经典研究来介绍Stata的操作。从这里可以下载数据: 链接：<a href="https://pan.baidu.com/s/11x_UMqclrrWbFpZjq8dVxA" target="_blank" rel="noopener">https://pan.baidu.com/s/11x_UMqclrrWbFpZjq8dVxA</a> 提取码：eb6u 。首先我们加载数据, 使用这个命令:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> ./data/nerlove.dta, <span class="keyword">clear</span></span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -338,7 +338,7 @@ $$</code></p>
 </div>
 
 <p>数据中有很多变量, 其中我们要用到的就是tc, q, pl, pf, pk, 他们的意义分别是: total cost, total output, price of labor, price of fuel user cost of capital. 我们还看到这几个变量 lntc lnq lnpf lnpk lnpl 这几个变量, 分别是上面变量的对数值, 这样我们就可以进行线性的多元回归分析了。</p>
-<h3 id="查看变量关系"><a href="#查看变量关系" class="headerlink" title="查看变量关系"></a>查看变量关系</h3><p>使用散点图查看预测变量和被预测变量的关系:</p>
+<h3><span id="查看变量关系">查看变量关系</span></h3><p>使用散点图查看预测变量和被预测变量的关系:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">scatter</span> lntc lnq</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -375,7 +375,7 @@ $$</code></p>
     <br>
 </div>
 
-<h3 id="小样本OLS回归"><a href="#小样本OLS回归" class="headerlink" title="小样本OLS回归"></a>小样本OLS回归</h3><p>我们使用regress命令进行多元线性回归, 其中第一个变量代表被预测变量。</p>
+<h3><span id="小样本ols回归">小样本OLS回归</span></h3><p>我们使用regress命令进行多元线性回归, 其中第一个变量代表被预测变量。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">regress</span> lntc lnq lnpl lnpk lnpf</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -495,7 +495,7 @@ $$</code></p>
     <br>
 </div>
 
-<h3 id="检测系数值"><a href="#检测系数值" class="headerlink" title="检测系数值"></a>检测系数值</h3><p>我们还可以对系数值进行检验, 比如假设lnq的系数为1, 然后检验这个假设是否显著:</p>
+<h3><span id="检测系数值">检测系数值</span></h3><p>我们还可以对系数值进行检验, 比如假设lnq的系数为1, 然后检验这个假设是否显著:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">test</span> lnq=1</span><br></pre></td></tr></table></figure>
 
 <div class="output">
@@ -538,7 +538,7 @@ $$</code></p>
 </div>
 
 <p>这个假设也没有被拒绝。</p>
-<h3 id="约束回归"><a href="#约束回归" class="headerlink" title="约束回归"></a>约束回归</h3><p>Stata可以进行约束回归, 我们的经济理论要求lnpl, lnpk, lnpl的系数之和为1, 所以在这个约束下, 我们重新估计方程:</p>
+<h3><span id="约束回归">约束回归</span></h3><p>Stata可以进行约束回归, 我们的经济理论要求lnpl, lnpk, lnpl的系数之和为1, 所以在这个约束下, 我们重新估计方程:</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">constraint</span> def 1 lnpl+lnpk+lnpf = 1</span><br></pre></td></tr></table></figure>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">cnsreg</span> lntc lnq lnpl lnpk lnpf, c(1)</span><br></pre></td></tr></table></figure>
 
@@ -562,7 +562,7 @@ $$</code></p>
 </div>
 
 <p>我们得到的系数中, 只有lnpl的系数是不显著的。</p>
-<h3 id="大样本OLS"><a href="#大样本OLS" class="headerlink" title="大样本OLS"></a>大样本OLS</h3><p>数据中可能存在异方差等问题, 小样本的OLS估计可能是不准确的, 所以我们使用稳健的标准误进行系数显著性的检验。</p>
+<h3><span id="大样本ols">大样本OLS</span></h3><p>数据中可能存在异方差等问题, 小样本的OLS估计可能是不准确的, 所以我们使用稳健的标准误进行系数显著性的检验。</p>
 <figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">reg</span> lntc lnq lnpl lnpk lnpf, <span class="built_in">r</span></span><br></pre></td></tr></table></figure>
 
 <div class="output">

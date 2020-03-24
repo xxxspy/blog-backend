@@ -228,31 +228,31 @@
         <p>SPSS的Process插件由 Andrew F. Hayes, Ph.D 开发, 大家可以免费使用。Process的主要用途就是进行一些路径分析, 比如中介效应/调节效应的检验, 不过, 其实没有这个插件, 我们也能进行这些分析, 有了Process插件的好处就是我们不必重复劳动, 而且提高了工作效率。</p>
 <p>今天这篇文章我主要介绍一下Process的下载和安装方法。</p>
 <a id="more"></a>
-<h3 id="Process有两种使用方法"><a href="#Process有两种使用方法" class="headerlink" title="Process有两种使用方法"></a>Process有两种使用方法</h3><p>第一种方法是使用作者提供的界面, 你需要安装这个插件才能使用界面; 第二种方法并不需要安装, 只要在syntax中引用process的源码即可, 但是你只能自己写syntax, 下面我们分别介绍两种方法。</p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p>从下面的网址中下载插件的压缩包:</p>
+<h3><span id="process有两种使用方法">Process有两种使用方法</span></h3><p>第一种方法是使用作者提供的界面, 你需要安装这个插件才能使用界面; 第二种方法并不需要安装, 只要在syntax中引用process的源码即可, 但是你只能自己写syntax, 下面我们分别介绍两种方法。</p>
+<h3><span id="下载">下载</span></h3><p>从下面的网址中下载插件的压缩包:</p>
 <p>下载地址:  <a href="http://www.afhayes.com/public/processv34.zip" target="_blank" rel="noopener">http://www.afhayes.com/public/processv34.zip</a></p>
 <p>你会得到一个压缩包, 解压以后得到如下文件:</p>
 <p><img src="imgs/01.png"></p>
 <p>打开这个文件夹, 我们看到这些文件:</p>
 <p><img src="imgs/02.png"></p>
-<h3 id="第一种方法-安装界面"><a href="#第一种方法-安装界面" class="headerlink" title="第一种方法: 安装界面"></a>第一种方法: 安装界面</h3><p>打开spss软件, 然后来到这个菜单(中文版的spss可以按照菜单位置来定位):</p>
+<h3><span id="第一种方法-安装界面">第一种方法: 安装界面</span></h3><p>打开spss软件, 然后来到这个菜单(中文版的spss可以按照菜单位置来定位):</p>
 <p><img src="imgs/04.png"></p>
 <p>在打开的对话框中选择文件夹<code>custom dialog builder file</code>下面的这个文件<code>process.spd</code>:</p>
 <p><img src="imgs/05.png"></p>
 <p>在打开的这个界面中, 选择install, 然后点”yes”:</p>
 <p><img src="imgs/06.png"></p>
 <p>接下来基本结束了, 安装成功!</p>
-<h3 id="无需安装-直接引用process源码"><a href="#无需安装-直接引用process源码" class="headerlink" title="无需安装, 直接引用process源码"></a>无需安装, 直接引用process源码</h3><p>其实, 如果你熟悉spss的syntax, 你可以直接使用process这个命令, 方法是:</p>
+<h3><span id="无需安装-直接引用process源码">无需安装, 直接引用process源码</span></h3><p>其实, 如果你熟悉spss的syntax, 你可以直接使用process这个命令, 方法是:</p>
 <p>首先你需要新建一个syntax文件, 然后再文件中写入这样一行代码, 它就是引用了<code>process.sps</code>, 注意后缀名是sps。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">INCLUDE &apos;D:\PROCESS v3.4 for SPSS\process.sps&apos;.</span><br></pre></td></tr></table></figure>
 <p>然后, 你可以使用process命令来进行数据分析, 比如下面的代码就是做了一个简单的中介效应分析:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">PROCESS </span><br><span class="line">  y=Q16_2</span><br><span class="line">  /x=Q18_1</span><br><span class="line">  /m=Q20_1</span><br><span class="line">  /plot=1</span><br><span class="line">  /covcoeff=1</span><br><span class="line">  /decimals=F10.4</span><br><span class="line">  /boot=5000</span><br><span class="line">  /conf=95</span><br><span class="line">  /model=4.</span><br></pre></td></tr></table></figure>
-<h3 id="怎么打开Process对话框"><a href="#怎么打开Process对话框" class="headerlink" title="怎么打开Process对话框"></a>怎么打开Process对话框</h3><p>当你安装好了process的界面到spss以后, 你可以在这里找到process的入口:</p>
+<h3><span id="怎么打开process对话框">怎么打开Process对话框</span></h3><p>当你安装好了process的界面到spss以后, 你可以在这里找到process的入口:</p>
 <p><img src="imgs/07.png"></p>
-<h3 id="两种方法的联系"><a href="#两种方法的联系" class="headerlink" title="两种方法的联系"></a>两种方法的联系</h3><p>其实使用Process的对话框和使用Process的syntax命令本质都是在调用process命令, 所以我们可以对比一下界面和命令的联系在那里, 也就是界面上的各种配置都决定了命令的什么参数, 这样可以帮助我们使用syntax, 因为syntax的效率更高!</p>
+<h3><span id="两种方法的联系">两种方法的联系</span></h3><p>其实使用Process的对话框和使用Process的syntax命令本质都是在调用process命令, 所以我们可以对比一下界面和命令的联系在那里, 也就是界面上的各种配置都决定了命令的什么参数, 这样可以帮助我们使用syntax, 因为syntax的效率更高!</p>
 <p><img src="imgs/08.png"></p>
 <p><img src="imgs/09.png"></p>
-<h3 id="关于Process插件如何进行分析"><a href="#关于Process插件如何进行分析" class="headerlink" title="关于Process插件如何进行分析"></a>关于Process插件如何进行分析</h3><p>我会在之后的文章中以案例的方式给大家分享。</p>
+<h3><span id="关于process插件如何进行分析">关于Process插件如何进行分析</span></h3><p>我会在之后的文章中以案例的方式给大家分享。</p>
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="SPSS的Process插件下载和安装.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>

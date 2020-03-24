@@ -240,7 +240,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#用到的资源和基本配置"><span class="toc-number">1.</span> <span class="toc-text">用到的资源和基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#问题介绍"><span class="toc-number">2.</span> <span class="toc-text">问题介绍</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">用到的资源和基本配置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">问题介绍</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -257,9 +257,9 @@
 <li>python3.6</li>
 <li>jupyter notebook</li>
 </ul>
-<h3 id="用到的资源和基本配置"><a href="#用到的资源和基本配置" class="headerlink" title="用到的资源和基本配置"></a>用到的资源和基本配置</h3><p>在教程开始之前了解一下我们将用到的工具, 可以让你们评估一下教程的难度, 并且了解教程的大概内容。我们的教程和本站的大部分内容类似, 都运行在jupyter notebook中, 并且在后续可能会增加在线运行代码的功能。</p>
+<h3><span id="用到的资源和基本配置">用到的资源和基本配置</span></h3><p>在教程开始之前了解一下我们将用到的工具, 可以让你们评估一下教程的难度, 并且了解教程的大概内容。我们的教程和本站的大部分内容类似, 都运行在jupyter notebook中, 并且在后续可能会增加在线运行代码的功能。</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">%matplotlib inline</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</span><br><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br></pre></td></tr></table></figure>
-<h3 id="问题介绍"><a href="#问题介绍" class="headerlink" title="问题介绍"></a>问题介绍</h3><p>这个例子来自书 Computer Age Statistical Inference By Efron和Hastie。假设我们的数据采自正太双变量:</p>
+<h3><span id="问题介绍">问题介绍</span></h3><p>这个例子来自书 Computer Age Statistical Inference By Efron和Hastie。假设我们的数据采自正太双变量:</p>
 <p><img src="images/bi-variate-normal.png"></p>
 <p>用代码来说明就是这样:</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 标准差</span></span><br><span class="line">sig1=<span class="number">1</span></span><br><span class="line">sig2=<span class="number">0.75</span></span><br><span class="line"><span class="comment"># 均值</span></span><br><span class="line">mu1=<span class="number">1.85</span></span><br><span class="line">mu2=<span class="number">1</span></span><br><span class="line">rho=<span class="number">0.82</span></span><br><span class="line"><span class="comment"># 均值</span></span><br><span class="line">means=np.array([mu1, mu2])</span><br><span class="line"><span class="comment">#协方差矩阵</span></span><br><span class="line">cov = np.array([</span><br><span class="line">    [sig1**<span class="number">2</span>, sig1*sig2*rho],</span><br><span class="line">    [sig2*sig1*rho, sig2**<span class="number">2</span>]</span><br><span class="line">])</span><br><span class="line">print(<span class="string">'均值:'</span>, means)</span><br><span class="line">print(<span class="string">'协方差矩阵:'</span>, cov)</span><br></pre></td></tr></table></figure>

@@ -287,7 +287,7 @@
 \min_{x\in\mathbb{R}^2}f(x)=100(x_1^2-x_2)^2+(x_1-1)^2
 \]</code></p>
 <a id="more"></a>
-<h3 id="思路"><a href="#思路" class="headerlink" title="思路"></a>思路</h3><p>梯度下降法是求函数最小值的常用方法, 思路是, 求函数<code>f(x)</code>的梯度<code>g(x)</code>, 梯度的作用是, 可以指明求解<code>x</code>的方向, 因为梯度的反方向就是函数值下降的方向. 所以, 我们任意设置一个初始值<code>\(x_0\)</code>, 然后让<code>\(x_0\)</code>做如下迭代:</p>
+<h3><span id="思路">思路</span></h3><p>梯度下降法是求函数最小值的常用方法, 思路是, 求函数<code>f(x)</code>的梯度<code>g(x)</code>, 梯度的作用是, 可以指明求解<code>x</code>的方向, 因为梯度的反方向就是函数值下降的方向. 所以, 我们任意设置一个初始值<code>\(x_0\)</code>, 然后让<code>\(x_0\)</code>做如下迭代:</p>
 <p><code>\[
 x_1 = \alpha g(x_0) + x_0
 x_2 = \alpha g(x_1) + x_1
@@ -295,7 +295,7 @@ x_2 = \alpha g(x_1) + x_1
 x_(k+1) = \alpha g(x_k) + x_k
 \]</code></p>
 <p>经过这个过程, 函数<code>f(x)</code>的值会逐渐降低. 这个过程有两个未知的变量<code>\(\alpha\)</code>和<code>\(g(x)\)</code>, 前者被称为步长, 它越大, 迭代过程x的变化越快, 但是可能步子太大跨过最优点; 后者是梯度, 也就是自变量的偏导数构成的向量. 一步一步来, 不用多想, 先求得<code>f(x)</code>的梯度<code>g(x)</code>.</p>
-<h3 id="梯度"><a href="#梯度" class="headerlink" title="梯度"></a>梯度</h3><p>函数<code>f(x)</code>的梯度如下所示:</p>
+<h3><span id="梯度">梯度</span></h3><p>函数<code>f(x)</code>的梯度如下所示:</p>
 <p><code>\[
  g(x)=\begin{pmatrix} 400x_1(x_1^2-x_2)+2(x_1-1) \\ -200(x_1^2-x_2)  \end{pmatrix}
 \]</code></p>
@@ -312,12 +312,12 @@ x_(k+1) = \alpha g(x_k) + x_k
 <blockquote>
 <p>不过, 对于比较复杂的函数, sympy可能会卡死, 所以不要指望sympy能帮你跨过数学这道门槛.</p>
 </blockquote>
-<h3 id="求α"><a href="#求α" class="headerlink" title="求α"></a>求α</h3><p>我们可以很任性, 设置α为一个固定常量, 比如 0.1. 后面再讲选择α的高级方法.</p>
-<h3 id="设置任意的初始-x-1-x-2"><a href="#设置任意的初始-x-1-x-2" class="headerlink" title="设置任意的初始\(x_1, x_2\)"></a>设置任意的初始<code>\(x_1, x_2\)</code></h3><p>就是这么任性, 将两个自变量的初始值设置为(7, 7)</p>
-<h3 id="迭代"><a href="#迭代" class="headerlink" title="迭代"></a>迭代</h3><p>根据上面的<a href="#思路">思路</a>, 我写了下面的python代码:</p>
+<h3><span id="求α">求α</span></h3><p>我们可以很任性, 设置α为一个固定常量, 比如 0.1. 后面再讲选择α的高级方法.</p>
+<h3><span id="设置任意的初始x_1-x_2">设置任意的初始<code>\(x_1, x_2\)</code></span></h3><p>就是这么任性, 将两个自变量的初始值设置为(7, 7)</p>
+<h3><span id="迭代">迭代</span></h3><p>根据上面的<a href="#思路">思路</a>, 我写了下面的python代码:</p>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 目标函数</span></span><br><span class="line">f = <span class="keyword">lambda</span> x:<span class="number">100</span>*(x[<span class="number">0</span>]**<span class="number">2</span>-x[<span class="number">1</span>])**<span class="number">2</span> + (x[<span class="number">0</span>]<span class="number">-1</span>)**<span class="number">2</span></span><br><span class="line"><span class="comment"># 梯度函数</span></span><br><span class="line">g = <span class="keyword">lambda</span> x:([<span class="number">400</span>*x[<span class="number">0</span>]*(x[<span class="number">0</span>]**<span class="number">2</span>-x[<span class="number">1</span>])+<span class="number">2</span>*(x[<span class="number">0</span>]<span class="number">-1</span>), <span class="number">-200</span>*(x[<span class="number">0</span>]**<span class="number">2</span>-x[<span class="number">1</span>])])</span><br><span class="line"><span class="comment"># 初始x0</span></span><br><span class="line">x0 = [<span class="number">7</span>, <span class="number">7</span>]</span><br><span class="line"><span class="comment"># 最大迭代次数, 防止不收敛, 进入死循环</span></span><br><span class="line">max_loop = <span class="number">5000</span></span><br><span class="line"><span class="comment"># 迭代终止条件</span></span><br><span class="line">epsilon = <span class="number">1e-5</span></span><br><span class="line"><span class="comment"># 步长</span></span><br><span class="line">alpha = (<span class="number">0.1</span>, <span class="number">0.1</span>)</span><br><span class="line"><span class="comment"># 迭代计数器</span></span><br><span class="line">k = <span class="number">0</span></span><br><span class="line"><span class="comment"># 第一个自变量x1 的偏导数</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 迭代的x</span></span><br><span class="line">x = x0[:]</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> k &lt; max_loop:</span><br><span class="line">    delta = g(x)</span><br><span class="line">    value = f(x)</span><br><span class="line">    print(delta)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>):</span><br><span class="line">        x[i]=alpha[i]*delta[i] + x[i]</span><br><span class="line">    print(<span class="string">'new x:'</span>, x)</span><br><span class="line">    <span class="keyword">if</span> abs(f(x)-value) &lt; epsilon:</span><br><span class="line">        <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">print(<span class="string">'Loop:'</span>, k)</span><br><span class="line">print(<span class="string">'x:'</span>, x)</span><br></pre></td></tr></table></figure>
 <p>### </p>
-<h3 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h3><ul>
+<h3><span id="参考资料">参考资料</span></h3><ul>
 <li><a href="http://blog.csdn.net/golden1314521/article/details/46225289" target="_blank" rel="noopener">http://blog.csdn.net/golden1314521/article/details/46225289</a></li>
 </ul>
 

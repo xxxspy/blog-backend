@@ -296,7 +296,7 @@
     
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#游戏"><span class="toc-number">1.</span> <span class="toc-text">游戏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#技术架构"><span class="toc-number">2.</span> <span class="toc-text">技术架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#神经网络结构"><span class="toc-number">3.</span> <span class="toc-text">神经网络结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#训练方法"><span class="toc-number">4.</span> <span class="toc-text">训练方法</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">游戏</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">技术架构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">神经网络结构</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">训练方法</span></a></li></ol>
     </div>
     
         <!-- Gallery -->
@@ -307,21 +307,21 @@
 <p>按下方向键”←↑→”来控制移动, 防止排球落在你所在一侧, 尽量让排球落在你的AI对手所在一侧。</p>
 <p>如果你不按键, 将由两个AI开始对战。</p>
 <a id="more"></a>
-<h3 id="游戏"><a href="#游戏" class="headerlink" title="游戏"></a>游戏</h3><p><iframe width="100%" src="/demos/volley/index.html" height="500px"></iframe></p>
+<h3><span id="游戏">游戏</span></h3><p><iframe width="100%" src="/demos/volley/index.html" height="500px"></iframe></p>
 <button class="btn btn-block" onclick="javascript:window.open('/demos/volley/')">点此全屏玩游戏</button>
 
 <p>游戏有两个玩家, 分别是两个半圆, 不同的颜色。你可以控制其中的一个玩家, 而另一个玩家就会由事先训练好的AI进行控制。</p>
 <p>这个游戏做起来非常简单但很有创意。人玩起来还是有点难的, 感兴趣的人可以自己玩一下, 跟我训练的AI比一下, 看看你能不能击败它。如果你比较懒, 你就在旁边观战就行了, 看看两个AI的对战。也许我比较无聊, 我能坐着看他们玩一天!</p>
-<h3 id="技术架构"><a href="#技术架构" class="headerlink" title="技术架构"></a>技术架构</h3><p>第一步是编写一个简单的物理引擎，让球从地面反弹，与围栏碰撞，与球员碰撞。我们使用javascript中的p5.js库完这个任务, 图形和一些简单的物理仿真都是p5.js完成的。如果你想知道p5.js的用法, 可以看我写过的<a href="http://mlln.cn/tags/p5-js/">p5.js的系列教程</a>。我不得复习数学以使球弹跳功能正常工作。完成所有操作后，下一步是添加键盘和触摸动作，这样即使使用智能手机/平板电脑，玩家也可以移动和跳转。完成所有操作后，下一步是添加键盘/触摸板，这样即使使用智能手机/平板电脑，玩家也可以移动和跳转。</p>
+<h3><span id="技术架构">技术架构</span></h3><p>第一步是编写一个简单的物理引擎，让球从地面反弹，与围栏碰撞，与球员碰撞。我们使用javascript中的p5.js库完这个任务, 图形和一些简单的物理仿真都是p5.js完成的。如果你想知道p5.js的用法, 可以看我写过的<a href="http://mlln.cn/tags/p5-js/">p5.js的系列教程</a>。我不得复习数学以使球弹跳功能正常工作。完成所有操作后，下一步是添加键盘和触摸动作，这样即使使用智能手机/平板电脑，玩家也可以移动和跳转。完成所有操作后，下一步是添加键盘/触摸板，这样即使使用智能手机/平板电脑，玩家也可以移动和跳转。</p>
 <p>有趣和令人兴奋的部分是创建AI模块来控制机器人，并看看它是否能够学会玩这个排球游戏。我最后使用先前实现的CNE方法来训练标准的循环神经网络，使用convnet.js库作为辅助。下面是我们用的神经网络结构图：</p>
 <p><img src="slime_rnn.png" title="循环神经网络结构图"></p>
-<h3 id="神经网络结构"><a href="#神经网络结构" class="headerlink" title="神经网络结构"></a>神经网络结构</h3><p>网络的输入是玩家的位置和速度，球的位置和速度，以及对手的位置和速度。输出是三中操作的的概率，它们将触发“前进”，“后退”和“跳跃”的动作。此外，额外的4个隐藏神经元将充当隐藏状态并反馈到输入，这样它本质上是一个无限深度的前馈神经网络，并且可能自动记住先前的事件和状态，希望这样能够学习到复杂的游戏策略。需要注意的一点是，只有当信号概率高于某个阈值（0.75）时，相应的动作才能触发。</p>
+<h3><span id="神经网络结构">神经网络结构</span></h3><p>网络的输入是玩家的位置和速度，球的位置和速度，以及对手的位置和速度。输出是三中操作的的概率，它们将触发“前进”，“后退”和“跳跃”的动作。此外，额外的4个隐藏神经元将充当隐藏状态并反馈到输入，这样它本质上是一个无限深度的前馈神经网络，并且可能自动记住先前的事件和状态，希望这样能够学习到复杂的游戏策略。需要注意的一点是，只有当信号概率高于某个阈值（0.75）时，相应的动作才能触发。</p>
 <p>我还两个玩家的的状态相同，无论玩家是在围栏的左侧还是右侧进行比赛，他们的坐标都是相对于中间的围栏而言的，这样受过训练的玩家可以使用相同的神经网络在围栏的任何一侧进行游戏。</p>
 <p>我没有使用sigmoid函数，而是使用双曲正切（tanh）函数来控制convnet.js的激活。</p>
 <p><img src="tanh.png" title="tanh函数"></p>
 <p>用这个函数是很合理的, 因为我的玩家的坐标和球的坐标都是±1之间的, 而tanh函数的值域正好是这个范围, 下面是函数图像:</p>
 <p><img src="tanh-figure.png" title="tanh图像"></p>
-<h3 id="训练方法"><a href="#训练方法" class="headerlink" title="训练方法"></a>训练方法</h3><p>训练这样一个循环神经网络涉及到我之前制作的遗传算法训练器，因为实际上没有适应性函数可以返回得分。我最终做的是编写一个类似的训练函数，创建很多玩家(进化中的种群), 让种群中的每个玩家人与其他玩家对战。如果玩家获胜，则其分数增加1，如果丢失则减1。在一些对局中（游戏持续20秒以上）中，不添加或扣除任何分数。每个玩家将在训练中从10个玩家中随机挑选对手。在进化中保留了前20％的玩家，其余的被丢弃，并且为下一代繁殖设置了交配和突变。</p>
+<h3><span id="训练方法">训练方法</span></h3><p>训练这样一个循环神经网络涉及到我之前制作的遗传算法训练器，因为实际上没有适应性函数可以返回得分。我最终做的是编写一个类似的训练函数，创建很多玩家(进化中的种群), 让种群中的每个玩家人与其他玩家对战。如果玩家获胜，则其分数增加1，如果丢失则减1。在一些对局中（游戏持续20秒以上）中，不添加或扣除任何分数。每个玩家将在训练中从10个玩家中随机挑选对手。在进化中保留了前20％的玩家，其余的被丢弃，并且为下一代繁殖设置了交配和突变。</p>
 <p>通过使用这种方法，我不需要手动编写任何启发式和游戏规则，而只需要玩家机器人自己探索游戏并找出如何获胜。最终的结果表明，经过几百次进化，它们已经很擅长玩真个游戏了！在这个页面的上方看到的游戏, 就是已经训练好的机器, 你只要观察一会就能知道, 它们真的很厉害!</p>
 <p>下一步可以采用更高级的方法，例如NEAT，或者用于AI的ESP，但对于简单的乒乓球游戏来说这可能是多此一举的, 但是如果目的是学习, 就另当别论了。它也可以使用convnetjs中的Deep Q-Learner，因为游戏策略非常简单。目前我认为我已经创造了一个相当强大的排球运动员，几乎不可能被人类球员击败。</p>
 <p>如果你不服, 你可以跟它一较高下。</p>
