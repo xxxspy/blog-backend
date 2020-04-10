@@ -235,6 +235,15 @@ c = <input  onchange="onChange()" value="0.287" name="pc" type="number" style="w
 
 </div>
 
+### Process快捷可视化
+
+我们将process生成的可视化代码, 粘贴到下面的文本框, 就可以自动可视化:
+
+<textarea id="visual-codes" onchange="onCodeChange()" style="width:100%;color:black;" rows="15"></textarea>
+<div id="line-chart-codes" style="width: 100%;height:600px;"></div>
+
+
+
 ### 总结
 
 - 我们这篇文章介绍了两种方法来检验调节效应, 两种方法本质上都是做了两次回归, 结果也是一样的。
@@ -311,6 +320,8 @@ c = <input  onchange="onChange()" value="0.287" name="pc" type="number" style="w
             })
             series.push(line)
         })
+        console.log('==================')
+        console.log(series)
         return {
             series: series,
             legend: names,
@@ -476,5 +487,146 @@ d3Option = {
             }
             d3Chart.setOption(d3Option);
 
+        }
+</script>
+
+<script>
+        var myCodeChart = echarts.init(document.getElementById('line-chart-codes'));
+        var codeOption = {
+            backgroundColor: 'rgb(255, 255, 255)',
+            title: {
+                text: ''
+            },
+            tooltip: {
+                trigger: 'axis'
+            },
+            legend: {
+                data: ['M-SD', 'M', 'M+SD', ],
+                show: true,
+            },
+            grid: {
+                left: '13%',
+                right: '14%',
+                bottom: '13%',
+                containLabel: true
+            },
+            toolbox: {
+                feature: {
+                    saveAsImage: {}
+                }
+            },
+            xAxis: {
+                type: 'category',
+                boundaryGap: true,
+                data: ['XL','XM','XH']
+            },
+            yAxis: {
+                type: 'value'
+            },
+            series: [
+                {
+                    name: 'M-SD',
+                    type: 'line',
+                    data: [3.6246,
+                            4.1366,
+                            4.6486,
+                            ]
+                },
+                {
+                    name: 'M',
+                    type: 'line',
+                    data: [3.5607,
+                            4.262,
+                            4.9632,
+                            ]
+                },
+                {
+                    name: 'M+SD',
+                    type: 'line',
+                    data: [3.4969,
+                        4.3874,
+                        5.2778,
+                        ]
+                },
+                
+            ]
+        };
+
+
+        // 使用刚指定的配置项和数据显示图表。
+        myCodeChart.setOption(codeOption);
+
+        function parseData(){
+            let text = $('#visual-codes').val()
+            let cols = [];
+            let rows = []
+            text.split('\n').forEach((line, i)=>{
+                console.log(line)
+                line = line.trim()
+                if(line == 'BEGIN DATA.'){
+                    return
+                }
+
+                line = line.split(/\s+/)
+                if(cols.length==0 && line.length==4){
+                    cols = [line[0], line[1], line[2]]
+                    console.log(cols);
+                    return cols
+                }
+                let row = []
+                line.forEach((val, j)=>{
+                    row.push(parseFloat(val))
+                })
+                rows.push(row)
+                
+            })
+            return {
+                'cols': cols,
+                'rows': rows,
+            }
+        }
+
+        
+        
+        // 侦听修改事件
+        function onCodeChange(){
+            console.log('change')
+            let d = parseData()
+            console.log('dddddddddddddddddd:')
+            console.log(d)
+            let xn = d.cols[0]
+            let mn = d.cols[1];
+            let yn = d.cols[2]
+            let legend = [
+                `${mn}(M-SD)`,
+                `${mn}(M)`,
+                `${mn}(M+SD)`,
+            ]
+            let xaxis= [
+                `${xn}(M-SD)`, `${xn}(M)`, `${xn}(M+SD)`
+            ]
+            let series = [
+                {
+                    name: legend[0],
+                    type: 'line',
+                    data: [d.rows[0][2], d.rows[1][2], d.rows[2][2], ],
+                },
+                {
+                    name: legend[1],
+                    type: 'line',
+                    data: [d.rows[3][2], d.rows[4][2], d.rows[5][2], ],
+                },
+                {
+                    name: legend[2],
+                    type: 'line',
+                    data: [d.rows[6][2], d.rows[7][2], d.rows[8][2], ],
+                },
+            ]
+            codeOption.xAxis.data = xaxis;
+            codeOption.series = series;
+            codeOption.legend.data = legend;
+            myCodeChart.setOption(codeOption)
+            console.log(series)
+            
         }
 </script>
