@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="DataSense|DataScience">
+        <meta property="og:title" content="DataSense">
     
 
     <!--Open Graph Description-->
@@ -32,7 +32,7 @@
     
 
     <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="DataSense|DataScience">
+    <meta property="og:site_name" content="DataSense">
 
     <!--Type page-->
     
@@ -47,7 +47,7 @@
 
     <!-- Title -->
     
-    <title>page - DataSense|DataScience</title>
+    <title>page - DataSense</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -171,7 +171,7 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i>
         
-            <p id="main-title" class="title">DataSense|DataScience</p>
+            <p id="main-title" class="title">DataSense</p>
         
         </a>
     </div>
@@ -444,6 +444,354 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/03/23/Python教程：[52]win32com调用constants/">
+                Python教程：[52]win32com调用constants
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天使用python的win32com组间操作Excel的时候发现一个问题，想要使用常数constants.xlUp，但是却总是提示错误：</p>
+<ul>
+<li><p>Traceback (most recent call last):</p>
+</li>
+<li><p>File “&lt;pyshell#1&gt;”, line 1, in <module></module></p>
+</li>
+<li><p>c.xlUp</p>
+</li>
+<li><p>File “D:\Python27\lib\site-packages\win32com\client__init__.py”, line 170, in <strong>getattr</strong></p>
+</li>
+<li><p>raise AttributeError(a)</p>
+</li>
+<li><p>AttributeError: xlUp</p>
+</li>
+<li><p>我来介绍一下自己的代码吧，先来引入常量constants</p>
+</li>
+</ul>
+<img src="/2015/03/23/Python教程：[52]win32com调用constants/906289dda144ad34b56cd31dd2a20cf430ad851e.jpg" title="Python教程：[52]win32com调用constants">
+<ul>
+<li>接着，我们引入client，这都是操作Excel的时候用到的基本模块</li>
+</ul>
+<img src="/2015/03/23/Python教程：[52]win32com调用constants/38403f3fb80e7beca9a4547b2d2eb9389a506beb.jpg" title="Python教程：[52]win32com调用constants">
+<ul>
+<li>现在我们启动一下Excel，句柄存在xl中</li>
+</ul>
+<img src="/2015/03/23/Python教程：[52]win32com调用constants/2e6fa7389b504fc2d626e79fe7dde71191ef6deb.jpg" title="Python教程：[52]win32com调用constants">
+<ul>
+<li>我们尝试调用一下c.xlUp,看到了吧，提示错误</li>
+</ul>
+<img src="/2015/03/23/Python教程：[52]win32com调用constants/b94f65ec54e736d12fc1d89299504fc2d462691e.jpg" title="Python教程：[52]win32com调用constants">
+<ul>
+<li>假如，我现在用另一个方式启动Excel</li>
+</ul>
+<img src="/2015/03/23/Python教程：[52]win32com调用constants/b87985504fc2d56280da8477e51190ef77c66c1e.jpg" title="Python教程：[52]win32com调用constants">
+<ul>
+<li>现在就可以正确读取了</li>
+</ul>
+<img src="/2015/03/23/Python教程：[52]win32com调用constants/e49cf91190ef76c6ad00afb19f16fdfaae51671e.jpg" title="Python教程：[52]win32com调用constants">
+<ul>
+<li>我现在还不知道这两种方式到底有什么区别，只能先写到这里，如果哪位朋友知道为什么，可以在下面留言。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/03/19/SPSS python教程：[3]怎样python代码/">
+                SPSS python教程：[3]怎样python代码
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>还是接着来介绍python在spss中的运用，今天我们具体的看看python在spss中是怎样运行的，每一种方法都有截图为证，大家先从感官上了解一下。</p>
+<ul>
+<li>首先，我们可以从【实用程序】下的【运行脚本】来运行python代码<br>打开这个【运行脚本】对话框以后，我们会看到下面这界面，假如我们已经编辑好了一个python脚本文件（*.py），可以在这里直接打开并运行</li>
+</ul>
+<img src="/2015/03/19/SPSS%20python教程：[3]怎样python代码/507c389759ee3d6d62fc6f5d41166d224f4ade2b.jpg" title="SPSS python教程：[3]怎样python代码">
+<img src="/2015/03/19/SPSS%20python教程：[3]怎样python代码/647912d7912397ddcead71925b82b2b7d1a28715.jpg" title="SPSS python教程：[3]怎样python代码">
+<ul>
+<li><p>或者，我们可以先打开这个脚本文件，然后再在python编辑器里运行，我们可以在开始菜单中【打开】-【脚本】中打开python文件</p>
+</li>
+<li><p>打开脚本文件以后，你会看到这个界面</p>
+</li>
+</ul>
+<img src="/2015/03/19/SPSS%20python教程：[3]怎样python代码/ac754782b2b7d0a2781ded0bc9ef76094a369a15.jpg" title="SPSS python教程：[3]怎样python代码">
+<img src="/2015/03/19/SPSS%20python教程：[3]怎样python代码/58c3acb7d0a20cf44444174974094b36adaf9915.jpg" title="SPSS python教程：[3]怎样python代码">
+<ul>
+<li>或者，我们可以在spss的syntax编辑界面中插入python代码，我们新建一个syntax文件<br>将python代码插入到begin program–end program之间，然后选中所有的代码以后，点击工具栏上面的绿色三角形，就可以运行了！注意，python对格式要求很严格，大小写是不同的；而spss的syntax是大小写不敏感的，大小写都一样。</li>
+</ul>
+<img src="/2015/03/19/SPSS%20python教程：[3]怎样python代码/08b68e529822720e4ef40a6c79cb0a46f21fab2b.jpg" title="SPSS python教程：[3]怎样python代码">
+<img src="/2015/03/19/SPSS%20python教程：[3]怎样python代码/2cb4fefe9925bc31c289e80e5cdf8db1ca137015.jpg" title="SPSS python教程：[3]怎样python代码">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/03/17/sublime教程[3]选择查找替换/">
+                sublime教程[3]选择查找替换
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>使用sublime进行查找替换是非常方便的，下面我们分别介绍一些快速查找和替换的方法，可以大大提高我们的代码编辑效率。</p>
+<ul>
+<li>“Ctrl + D”可以选中光标所在的词，然后按下“F3”可以逐个选中下一个同样的词：</li>
+</ul>
+<img src="/2015/03/17/sublime教程[3]选择查找替换/1e71f724b899a901f17c560a17950a7b0208f506.jpg" title="sublime教程[3]选择查找替换">
+<ul>
+<li>“F3”是选择下一个词，那么选择上一个词自然就是“Shift + F3”，两个搭配使用就可以自由选择了。</li>
+</ul>
+<img src="/2015/03/17/sublime教程[3]选择查找替换/f35ea0096b63f6248ccb343f8d44ebf81a4ca33d.jpg" title="sublime教程[3]选择查找替换">
+<ul>
+<li>在选中一个词的情况下，可以按“Ctrl + D”增加选择下一个同样的词，这样你就可以同时编辑多个词了。</li>
+</ul>
+<img src="/2015/03/17/sublime教程[3]选择查找替换/99636c0e0cf3d7ca9a60324af81fbe096b63a93d.jpg" title="sublime教程[3]选择查找替换">
+<ul>
+<li>“Ctrl + F”可以查找你输入的词语，然后按回车可以选择下一个，多次按回车可以继续选择下一个。</li>
+</ul>
+<img src="/2015/03/17/sublime教程[3]选择查找替换/ac2fc3c451da81cb4eee8cf15866d01609243146.jpg" title="sublime教程[3]选择查找替换">
+<ul>
+<li>“Ctrl + F”搜索到需要的词以后，可以按回车选择下一个，还可以按“Shift + Enter”选择上一个，或者“Alt + Enter”选择全部。</li>
+</ul>
+<img src="/2015/03/17/sublime教程[3]选择查找替换/8605f5f81a4c510f3328ec266a59252dd52aa5db.jpg" title="sublime教程[3]选择查找替换">
+<ul>
+<li>“Ctrl + H”可以调出替换工具栏，输入要替换的词，按“replace all”即可替换所有的词。使用“Ctrl + Shift + H”替换当前关键字，“Ctrl + Alt + Enter”替换所有匹配关键字。</li>
+</ul>
+<img src="/2015/03/17/sublime教程[3]选择查找替换/4651a712c8fcc3cea5dac00f9845d688d43f20b0.jpg" title="sublime教程[3]选择查找替换">
+<ul>
+<li>默认情况下，sublime查找字符串是大小写敏感的，“Alt + C”可以切换大小写是否敏感。“Alt + W”切换整字匹配（Whole matching）模式。</li>
+</ul>
+<img src="/2015/03/17/sublime教程[3]选择查找替换/cc506c8b4710b912a996fcc2c9fdfc0392452273.jpg" title="sublime教程[3]选择查找替换">
+<ul>
+<li>正则表达式是非常强大的文本查找&amp;替换工具，Sublime Text中使用Alt + R切换正则匹配模式的开启/关闭。Sublime Text的使用Boost里的Perl正则表达式风格。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/sublime/">#sublime</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/03/15/Python教程：[53]matplotlib安装错误/">
+                Python教程：[53]matplotlib安装错误
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>引用matplotlib包的时候出现一个问题，百度一下才知道问题再哪里，我们先来看看问题是什么。错误提示为：ImportError: matplotlib requires dateutil</p>
+<ul>
+<li>我使用二进制安装文件来安装这个包，安装过程没有出现任何问题</li>
+</ul>
+<img src="/2015/03/15/Python教程：[53]matplotlib安装错误/310f3b1f95cad1c855686ebd7d3e6709c83d511e.jpg" title="Python教程：[53]matplotlib安装错误">
+<ul>
+<li><p>在我使用【import matplotlib】引入该模块的时候，出现了这个错误：</p>
+</li>
+<li><p>Traceback (most recent call last):</p>
+</li>
+<li><p>File “&lt;pyshell#0&gt;”, line 1, in <module></module></p>
+</li>
+<li><p>import matplotlib</p>
+</li>
+<li><p>File “D:\Python27\lib\site-packages\matplotlib__init__.py”, line 111, in <module></module></p>
+</li>
+<li><p>raise ImportError(“matplotlib requires dateutil”)</p>
+</li>
+<li><p>ImportError: matplotlib requires dateutil</p>
+</li>
+<li><p>其实就是引入matplotlib模块需要用到dateutil模块，那么我们可以通过easy_install命令来安装：假如你没用过easy_install ，你可以看这篇文章<a href="http://jingyan.baidu.com/article/2a1383284db4e2074a134f2c.html假如你没有安装setuptools,我们可以看这篇文章进行安装：http://jingyan.baidu.com/article/b907e627dd80df46e7891c2c.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/2a1383284db4e2074a134f2c.html假如你没有安装setuptools,我们可以看这篇文章进行安装：http://jingyan.baidu.com/article/b907e627dd80df46e7891c2c.html</a></p>
+</li>
+<li><p>打开cmd窗口</p>
+</li>
+</ul>
+<img src="/2015/03/15/Python教程：[53]matplotlib安装错误/b8405490f603738d947290b8b11bb051f819ec35.jpg" title="Python教程：[53]matplotlib安装错误">
+<ul>
+<li>输入这个，找不到这个模块</li>
+</ul>
+<img src="/2015/03/15/Python教程：[53]matplotlib安装错误/b25aae51f8198618728e721e48ed2e738ad4e624.jpg" title="Python教程：[53]matplotlib安装错误">
+<ul>
+<li>我们得用：easy_install python-dateutil</li>
+</ul>
+<img src="/2015/03/15/Python教程：[53]matplotlib安装错误/8759287adab44aed6876227eb11c8701a18bfb35.jpg" title="Python教程：[53]matplotlib安装错误">
+<img src="/2015/03/15/Python教程：[53]matplotlib安装错误/8a95ad1c8701a18bccd38ed59c2f07082838fe35.jpg" title="Python教程：[53]matplotlib安装错误">
+<ul>
+<li>安装好了以后，我们就可以正确引用matplotlib</li>
+</ul>
+<img src="/2015/03/15/Python教程：[53]matplotlib安装错误/fc5e5f34970a304ec85d3c60d3c8a786c8175cea.jpg" title="Python教程：[53]matplotlib安装错误">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/03/15/numpy函数：[15]以数组为下标读取数组/">
+                numpy函数：[15]以数组为下标读取数组
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>除了使用列表最为下标读取数组外，我们还可以使用数组作为下标。我们还是用例子看一下如何使用数组为下标读取数组吧。</p>
+<ul>
+<li>先从Numpy中引入所有</li>
+</ul>
+<img src="/2015/03/15/numpy函数：[15]以数组为下标读取数组/d041a4a1cd11728bbb0713bdcafcc3cec2fd2ccc.jpg" title="numpy函数：[15]以数组为下标读取数组">
+<ul>
+<li>我们先创建一个二维数组，作为下标数组</li>
+</ul>
+<img src="/2015/03/15/numpy函数：[15]以数组为下标读取数组/35da1d3b5bb5c9ea9b179f7cd739b6003bf3b30e.jpg" title="numpy函数：[15]以数组为下标读取数组">
+<ul>
+<li>创建一个数组a，作为要读取的数组</li>
+</ul>
+<img src="/2015/03/15/numpy函数：[15]以数组为下标读取数组/c9bdddcec3fdfc03905d7c27d63f8794a5c226cc.jpg" title="numpy函数：[15]以数组为下标读取数组">
+<ul>
+<li>我们直接使用e作为下标即可，得到一个数组f，f的形状和下标数组e是相同的。</li>
+</ul>
+<img src="/2015/03/15/numpy函数：[15]以数组为下标读取数组/346bd85c10385343622b1bbe9113b07ecb80880e.jpg" title="numpy函数：[15]以数组为下标读取数组">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -828,315 +1176,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/03/01/Django教程：[5]URLpattern的语法 - 副本/">
-                Django教程：[5]URLpattern的语法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年03月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>前一篇文章我们使用Django制作了第一个网页，针对其中的一些问题，我们补充一点知识，这是关于urls.py文件中的URLpattern的，</p>
-<ul>
-<li>我们在写url的时候实际上写的是正则表达式，尖号（^）和美元符号（$）都是正则表达式符号，分别表示字符串的开头和结尾。上面添加的url（’^hello/$’）表示url以hello/开头，也以hello/结尾，只有满足这两个条件的url才可以调用hello函数。</li>
-</ul>
-
-<ul>
-<li><p>假如我们写成 ^hello/ ，没有$结尾，表示任何以hello/开头的url都是可以调用hello方法的，比如浏览器中访问<a href="http://127.0.0.1:8001/hello/dfdf也可以调用hello方法。" target="_blank" rel="noopener">http://127.0.0.1:8001/hello/dfdf也可以调用hello方法。</a></p>
-</li>
-<li><p>假如我们写成 hello/$，没有尖号（^）开头，那么任何以hello/结尾的url都可以调用hello方法。比如<a href="http://127.0.0.1:8001/dfdfdf/hello/" target="_blank" rel="noopener">http://127.0.0.1:8001/dfdfdf/hello/</a></p>
-</li>
-<li><p>那么，只写 hello/ ，没有尖号和美元符号，那么只要url中包含字符 hello/都可以调用方法 hello 。</p>
-</li>
-<li><p>学习python的正则表达式可以帮助你更好的理解这些内容，下面的参考资料里有python的正则表达式的学习教程。</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/django/">#django</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/03/01/Django教程：[5]URLpattern的语法/">
-                Django教程：[5]URLpattern的语法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年03月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>前一篇文章我们使用Django制作了第一个网页，针对其中的一些问题，我们补充一点知识，这是关于urls.py文件中的URLpattern的，</p>
-<ul>
-<li>我们在写url的时候实际上写的是正则表达式，尖号（^）和美元符号（$）都是正则表达式符号，分别表示字符串的开头和结尾。上面添加的url（’^hello/$’）表示url以hello/开头，也以hello/结尾，只有满足这两个条件的url才可以调用hello函数。</li>
-</ul>
-<img src="/2015/03/01/Django教程：[5]URLpattern的语法/fab3ac119313b07ef63b6f720ed7912396dd8c82.jpg" title="Django教程：[5]URLpattern的语法">
-<ul>
-<li><p>假如我们写成 ^hello/ ，没有$结尾，表示任何以hello/开头的url都是可以调用hello方法的，比如浏览器中访问<a href="http://127.0.0.1:8001/hello/dfdf也可以调用hello方法。" target="_blank" rel="noopener">http://127.0.0.1:8001/hello/dfdf也可以调用hello方法。</a></p>
-</li>
-<li><p>假如我们写成 hello/$，没有尖号（^）开头，那么任何以hello/结尾的url都可以调用hello方法。比如<a href="http://127.0.0.1:8001/dfdfdf/hello/" target="_blank" rel="noopener">http://127.0.0.1:8001/dfdfdf/hello/</a></p>
-</li>
-<li><p>那么，只写 hello/ ，没有尖号和美元符号，那么只要url中包含字符 hello/都可以调用方法 hello 。</p>
-</li>
-<li><p>学习python的正则表达式可以帮助你更好的理解这些内容，下面的参考资料里有python的正则表达式的学习教程。</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/django/">#django</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/03/01/SPSS实例：[26]如何使用注册码安装spss22.0/">
-                SPSS实例：[26]如何使用注册码安装spss22.0
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年03月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>spss如何使用序列号进行安装呢，其实很简单，就是不知道在哪里输入序列号，我们来看看我的安装演示吧。</p>
-<ul>
-<li>首先，我们打开下载得到的文件夹，找到【破解教程】这个压缩包</li>
-</ul>
-<img src="/2015/03/01/SPSS实例：[26]如何使用注册码安装spss22.0/9dc3cf58ccbf6c81a70f7ab7be3eb13533fa4071.jpg" title="SPSS实例：[26]如何使用注册码安装spss22.0">
-<ul>
-<li>接着，在这个压缩包里，你会看到有一个readme文件，我们双击打开它</li>
-</ul>
-<img src="/2015/03/01/SPSS实例：[26]如何使用注册码安装spss22.0/c87c6ecf3bc79f3dc6d9b26fb8a1cd11728b2971.jpg" title="SPSS实例：[26]如何使用注册码安装spss22.0">
-<ul>
-<li>接着，我们会看到有一列乱码，这就是序列码，将其复制下来</li>
-</ul>
-<img src="/2015/03/01/SPSS实例：[26]如何使用注册码安装spss22.0/c9d4cf43ad4bd113199ae16d58afa40f4afb05de.jpg" title="SPSS实例：[26]如何使用注册码安装spss22.0">
-<ul>
-<li>打开spss22.0的安装文件，然后一直点击下一步即可</li>
-</ul>
-<img src="/2015/03/01/SPSS实例：[26]如何使用注册码安装spss22.0/d35a10f41bd5ad6e8ec132b583cb39dbb6fd3c71.jpg" title="SPSS实例：[26]如何使用注册码安装spss22.0">
-<ul>
-<li>直到我们看到输入序列码的提示，输入刚才复制的代码，然后点击下一步，你就完成了！</li>
-</ul>
-<img src="/2015/03/01/SPSS实例：[26]如何使用注册码安装spss22.0/7e7f7909c93d70cf0631fd52fadcd100bba12b62.jpg" title="SPSS实例：[26]如何使用注册码安装spss22.0">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/03/01/python教程：[79]赋值运算中的条件语句/">
-                python教程：[79]赋值运算中的条件语句
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年03月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>在python中，我们经常用一些逻辑运算来实现复杂的赋值运算。在一些赋值语句，也就是包含等号的python语句中，通常附带一些条件语句，以便用更少的代码写更复杂的命令，并且增加了代码的可读性，因为这些语句往往看起来就像一个英文句子，读起来还朗朗上口，下面是一个简单的赋值，后面的代码都用到了这些值。</p>
-<ul>
-<li>在赋值中使用if语句，如果b等于c，返回a，否则返回c</li>
-</ul>
-<img src="/2015/03/01/python教程：[79]赋值运算中的条件语句/2e6fa7389b504fc2a6947426e6dde71191ef6d8f.jpg" title="python教程：[79]赋值运算中的条件语句">
-<ul>
-<li>and符号表示如果a为零则返回a，否则返回b，也就是and总是返回第一个为零的数，当然，如果都不为零，则返回最后一个数</li>
-</ul>
-<img src="/2015/03/01/python教程：[79]赋值运算中的条件语句/9f1011b30f2442a70ffc3986d243ad4bd01302e0.jpg" title="python教程：[79]赋值运算中的条件语句">
-<ul>
-<li>如果我们交换ab，返回的仍然是d=0</li>
-</ul>
-<img src="/2015/03/01/python教程：[79]赋值运算中的条件语句/8474fbdde71190ef0e3056fccd1b9d16fcfa608f.jpg" title="python教程：[79]赋值运算中的条件语句">
-<ul>
-<li>如果换成两个不为零的数，总是返回后者</li>
-</ul>
-<img src="/2015/03/01/python教程：[79]赋值运算中的条件语句/e6508eef76c6a7efb4ed6c05fefaaf51f2de668f.jpg" title="python教程：[79]赋值运算中的条件语句">
-<ul>
-<li>返回后者</li>
-</ul>
-<img src="/2015/03/01/python教程：[79]赋值运算中的条件语句/d002b34bd11373f05ecdabbca70f4bfbfaed04e0.jpg" title="python教程：[79]赋值运算中的条件语句">
-<ul>
-<li>or语句总是返回第一个不为零的数，下面返回的是a</li>
-</ul>
-<img src="/2015/03/01/python教程：[79]赋值运算中的条件语句/d0526df082025aaf7ac0bae8f8edab64024f1ae0.jpg" title="python教程：[79]赋值运算中的条件语句">
-<ul>
-<li>下面返回的还是a（两个不为零的数）</li>
-</ul>
-<img src="/2015/03/01/python教程：[79]赋值运算中的条件语句/7787b9efce1b9d16810c5e42f0deb48f8d54648f.jpg" title="python教程：[79]赋值运算中的条件语句">
-<ul>
-<li>如果交换这两个数，则返回c</li>
-</ul>
-<img src="/2015/03/01/python教程：[79]赋值运算中的条件语句/ae10eddeb48f8c541518010c39292df5e1fe7f8f.jpg" title="python教程：[79]赋值运算中的条件语句">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/03/01/amos21.0教程：[1]amos介绍以及下载方法/">
-                amos21.0教程：[1]amos介绍以及下载方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年03月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>amos是analyse of moment structures，也就是对矩结构的分析，主要是用于对结构方程模型（SEM）的建立和检验，不过也有使用liserl和mplus做SEM的，而amos的主要优势在于它是spss的兄弟，都是IBM公司旗下产品，具有spss一样的图形界面，使用者仅仅使用鼠标点击的方法就可以建立和检验结构方程模型，mplus必须要学习一些代码，使用编程的方法来做统计。作为amos使用教程的第一篇教程，我们先来了解一下amos的一些基本特点和基本原理，然后教给大家下载安装amos的方法。</p>
-<ul>
-<li>了解结构方程模型：结构方程模型英文简称SEM，其实就是spss中的路径分析+因素分析。我的amos教程默认你已经懂得使用spss，如果你不会，可以去我前面的文章中找spss的全部教程来学习。我们看下面的这个结构方程，六个椭圆形构成的就是一个回归模型，而圆形以及和它直接相连的矩形构成了一个因素分析模型。</li>
-</ul>
-<img src="/2015/03/01/amos21.0教程：[1]amos介绍以及下载方法/b8405490f603738d386b6fa0b21bb051f919ecd4.jpg" title="amos21.0教程：[1]amos介绍以及下载方法">
-<ul>
-<li>了解amos建立模型的步骤：很多人用惯了spss就认为amos也是和spss一样可以自己导出模型。但是amos的模型建立是依据你的理论知识的，比如上图中，我们看忠诚度由三个指标：重复购买，交叉购买，推荐情况。这三个指标是我们在构建模型之前就已经知道的，所以将这三个指标放入到模型当中。所以在验证模型之前，我们要在amos中绘制出这个模型，这需要你的理论知识作为支撑。当你把模型绘制好了以后就可以使用数据验证模型了。</li>
-</ul>
-<img src="/2015/03/01/amos21.0教程：[1]amos介绍以及下载方法/adee30dda3cc7cd97bcf655b3801213fb90e9117.jpg" title="amos21.0教程：[1]amos介绍以及下载方法">
-<ul>
-<li>学习amos需要什么数学知识：如果你不是统计学专业的学生，我并不建议你去学习amos的数学知识，一是非常浪费时间，你要对矩阵运算了如指掌才可以；而是完全没有必要掌握数学基础，这么说有些偏颇，掌握数学基础对你理解amos的操作非常有帮助，但是如果你不理解数学基础你仍然可以理解amos的操作以及结果，我们的教程不涉及任何数学基础，只是有时候告诉你一些简单的统计知识，所以你不必畏惧，我们鼓励你学好自己的专业知识，而不要在数学软件上浪费太多时间。</li>
-</ul>
-<img src="/2015/03/01/amos21.0教程：[1]amos介绍以及下载方法/0b907cd9f2d3572cb2b1cc5e8b13632763d0c3a6.jpg" title="amos21.0教程：[1]amos介绍以及下载方法">
-<ul>
-<li>都有谁在用amos：心理学可能是使用amos最多的领域，不过现在最热的应该是mplus；还有一些搞问卷设计的人他们也会用amos分析问卷的信效度；经济学人士也有amos的使用者；社会学也可以使用。其他领域我个人就不是很了解了。</li>
-</ul>
-<img src="/2015/03/01/amos21.0教程：[1]amos介绍以及下载方法/f15e24292df5e0fe8d53d9835d6034a85fdf72ad.jpg" title="amos21.0教程：[1]amos介绍以及下载方法">
-<ul>
-<li>多长时间学会amos：其实amos是非常小的软件，其功能还不如spss多，所以如果你又spss的学习基础，看我写的教程一个月可以精通amos，如果没有学过spss也不怕，两个月搞定它。学习的关键是要经常使用，经常提问，所以有问题大家都可以去问我。</li>
-</ul>
-<img src="/2015/03/01/amos21.0教程：[1]amos介绍以及下载方法/f6428f8fa0ec08fafdbd432558ee3d6d54fbdab0.jpg" title="amos21.0教程：[1]amos介绍以及下载方法">
-<ul>
-<li>去哪里下载amos：我这里提供一个amos21.0的下载地址，已经上传到百度网盘，你们自己下载，如果想要破解也可以自己去找教程，网上有很多，不过我还是鼓励大家使用正版，在下面的参考资料里有我提供的下载链接。</li>
-</ul>
-<img src="/2015/03/01/amos21.0教程：[1]amos介绍以及下载方法/3792cb39b6003af3e33b8de2342ac65c1138b674.jpg" title="amos21.0教程：[1]amos介绍以及下载方法">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/amos/">#amos</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1178,6 +1217,30 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/09/10/附录03-统计咨询服务/">统计咨询服务</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/04-多重共线性的诊断/">多重共线性的诊断</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/03-正态性检验/">正态性检验</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/02-多变量离群值的处理/">多变量离群值的处理</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/01-单变量离群值的判断/">单变量离群值的判断</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/08/12/使用Jupyter notebook创建ppt/">如何使用jupyter notebook来写PPT</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/03/26/如何在jupyter-notebook中运行javascript和HTML代码/">如何在jupyter notebook中运行jav</a>
             </li>
             
@@ -1191,30 +1254,6 @@
             
             <li>
                 <a class="footer-post" href="/2020/03/11/pandas1.0有哪些新功能/">pandas1.0新功能试用</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/12/28/为什么正态性检验的时候偏度和峰度的标准误都是一样的/">为什么正态性检验的时候偏度和峰度的标准误都是一样的</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/12/26/2020年大学生毕业论文问卷互填群推荐/">2020年大学生毕业论文问卷互填群推荐</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/10/31/JSON Schema介绍和入门/">JSON-Schema介绍和入门</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/10/python3中给函数缓存结果-让程序加速/">python3中给函数缓存结果-让程序加速</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">spss计算平均方差提取量AVE和组合信度CR的方</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/05/SEM结构方程模型分析的数据需要至少多少样本量/">SEM结构方程模型分析的数据需要至少多少样本量</a>
             </li>
             
         </ul>

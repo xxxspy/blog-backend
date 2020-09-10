@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="python数据采集服务">
+        <meta property="og:title" content="多变量离群值的处理">
     
 
     <!--Open Graph Description-->
@@ -32,7 +32,7 @@
     
 
     <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="DataSense|DataScience">
+    <meta property="og:site_name" content="DataSense">
 
     <!--Type page-->
     
@@ -47,7 +47,7 @@
 
     <!-- Title -->
     
-    <title>python数据采集服务 - DataSense|DataScience</title>
+    <title>多变量离群值的处理 - DataSense</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -98,6 +98,62 @@
     #pop_ad{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
 
     </style>
+
+    
+        <!-- mathjax -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        var maths = document.getElementsByTagName("code");
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+    </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: true,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"],["$","$"]],
+      displayMath: [["\\[", "\\]"],["$$", "$$"]],
+      skipTags: ['^(?!code).*$']
+    }
+  });
+  var maths = document.getElementsByTagName("code");
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+</script>
+
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [ ['\\(','\\)']]} });
+</script> -->
+
+<!-- <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script> -->
 
     
     
@@ -171,7 +227,7 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i>
         
-            <p id="main-title" class="title">DataSense|DataScience</p>
+            <p id="main-title" class="title">DataSense</p>
         
         </a>
     </div>
@@ -201,8 +257,8 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/2017/10/29/python数据采集服务/">
-                python数据采集服务
+            <a href="/2020/09/10/02-多变量离群值的处理/">
+                多变量离群值的处理
             </a>
 
         </h1>
@@ -211,7 +267,7 @@
         </div>
         <div class="post-info">
             
-                <span class="date">2017年10月29日</span>
+                <span class="date">2020年09月10日</span>
             
             
             
@@ -225,31 +281,45 @@
         
 
         <!-- Post Content -->
-        <p>我们致力于向科研工作者提供数据采集的技术支持, 主要编程语言是python. 团队成员来自人大/中科院/北师大三个高校计算机专业的硕士博士, 有多年编程经验, 能采集任何网页数据. 我们的口号是, 你能看到的数据都是我们可以采集到的数据.</p>
+        <p>本篇文章介绍了如何使用马氏距离Mahalanobis Distance来判断离群值, 并介绍了SPSS的操作方法以及对离群值的处理方法。</p>
 <a id="more"></a>
-<h3><span id="服务内容">服务内容</span></h3><p>我们服务于学生/教师/科研人员, 他们有很多idea, 但是受制于技术问题, 没法实现. 所以我们组建了技术团队, 专门解决研究人员的技术问题.</p>
-<p>数据采集项目的主要服务内容是, 将网页数据采集下来, 整理成客户需要的数据格式. 我们采集的数据都是小数据, 通常是几十万的量级, 如果您的数据超过这个量级, 我们可能不是最合适的人选.</p>
-<h3><span id="项目经验">项目经验</span></h3><p>目前团队主要做过以下网站的数据采集:</p>
+<!-- toc -->
 <ul>
-<li>新浪微博</li>
-<li>淘宝竞品数据</li>
-<li>淘宝评论</li>
-<li>新浪/腾讯新闻采集</li>
-<li>途牛网</li>
-<li>京东评论</li>
-<li>托福报名网站的考位监控</li>
-<li>more</li>
+<li><a href="#定义">定义</a></li>
+<li><a href="#步骤">步骤</a></li>
+<li><a href="#计算马氏距离mahalanobis-distance">计算马氏距离Mahalanobis Distance</a></li>
+<li><a href="#spss操作">SPSS操作</a></li>
+<li><a href="#参考文献">参考文献</a></li>
 </ul>
-<h3><span id="我们优势">我们优势</span></h3><p>我们都是学生, 有大量时间来帮客户完成项目. 另外我们有多年爬虫编程经验的技术指导, 不怕技术瓶颈, 就怕你没有想法.</p>
-<h3><span id="技术路线">技术路线</span></h3><p>针对不同的项目需要使用不同的技术, 这就是为什么要有爬虫工程师这个职业. 下面是我们使用的主要技术架构:</p>
-<img src="/2017/10/29/python数据采集服务/数据采集架构图.jpg">
-<h3><span id="定价方式">定价方式</span></h3><p>服务的价格主要依据数据采集的难度和量级来确定, 但难度占主要因素. 通常我们会根据客户的要求来评估价格, 一般价格范围100-600元之间, 这只是大多数的项目, 不排除超过这个范围的项目.</p>
-<h3><span id="服务流程">服务流程</span></h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">客户提供需求文档</span><br><span class="line">|</span><br><span class="line">技术人员评估价格</span><br><span class="line">|</span><br><span class="line">客户拍下商品</span><br><span class="line">|</span><br><span class="line">技术开始开发</span><br><span class="line">|</span><br><span class="line">数据交付</span><br><span class="line">|</span><br><span class="line">如果需要修改, 退回给技术</span><br><span class="line">|</span><br><span class="line">客户确认收货</span><br><span class="line">|</span><br><span class="line">售后(客户不满意, 全额退款)</span><br></pre></td></tr></table></figure>
-<h3><span id="联系我们">联系我们</span></h3><h4><span id="手机扫描店铺二维码即可">手机扫描店铺二维码即可:</span></h4><img src="/2017/10/29/python数据采集服务/淘宝店二维码.png">
-<h4><span id="目前淘宝是我们的主要交易平台-我们的店铺网址是-httpsshop68313372taobaocom">目前淘宝是我们的主要交易平台, 我们的<em>店铺网址</em>是: </span></h4><h4><span id="不过你可以直接联系我们的技术客服-qq1497369272">不过你可以直接联系我们的技术客服: QQ1497369272</span></h4><p>(<em>每天加的人太多, 加好友请注明<code>mlln</code></em>).</p>
-<h4><span id="或者直接扫她的二维码">或者直接扫她的二维码:</span></h4><img src="/2017/10/29/python数据采集服务/客服qq二维码.jpg">
-<p>如果你是数据分析师, python程序员, 或者有一腔热血, 有兴趣加入我们的团队QQ群: 680552969(<em>申请加入请注明<code>mlln</code></em>).<br>我们的官网: mlln.cn, 很好记, 就是一个竖起来的中指.</p>
-<p>或者你可以直接扫码加入:<br><img src="/2017/10/29/python数据采集服务/群二维码.jpg"></p>
+<!-- tocstop -->
+<h3><span id="定义">定义</span></h3><p>多变量离群值与单变量离群值有很大的差别, 因为多变量要考虑多个变量的联合分布, 比如说, 体重和身高是两个变量, 身高120cm的人不多但是也不算离群值, 体重120KG的人不多, 但也不算离群值, 但是有个人是身高120cm体重120KG, 这种人就很可能是离群值了, 所以在这种联合分布的情况下, 我们怎么判断一个值是否是离群值呢?</p>
+<h3><span id="步骤">步骤</span></h3><p>排除多变量离群值的步骤分两步:</p>
+<ul>
+<li>先排除每个单变量的离群值</li>
+<li>再根据马氏距离(Mahalanobis Distance)排除离群值</li>
+</ul>
+<p>单个变量的离群值在之前的视频里讲过了, 现在就是要讲一下如何根据马氏距离拍排除离群值</p>
+<h3><span id="计算马氏距离mahalanobis-distance">计算马氏距离Mahalanobis Distance</span></h3><p>马氏距离就是两点间的空间距离, 如果是两个变量, 那就是二维平面内的两点距离, 它与欧氏距离不同的是, 欧式距离假设维度之间是无关的, 也就是直角坐标系, 但是马氏距离不需要假定维度之间无关。</p>
+<p>在SPSS计算的马氏距离就是每个数据点离均值所在的数据点之间的距离, 如果马氏距离的显著性达到0.001, 那么我们将其判定为离群值</p>
+<h3><span id="spss操作">SPSS操作</span></h3><p>打开”回归”对话框, 如图</p>
+<p><img src="imgs/02-01.png"></p>
+<p>这里注意, 我们的因变量可以是任意变量, 这不重要, 因为计算马氏距离实际上是用自变量, 而跟因变量无关</p>
+<p><img src="imgs/02-02.png"></p>
+<p>在”保存”对话框下, 勾选”马氏距离”<br><img src="imgs/02-03.png"></p>
+<p>这样, 点击”确定”以后,我们就可以看到数据中多了一个变量”MAH_1”, 这就是我们得到的每个数据点到均值点的马氏距离, 但是我们如何判断哪个数据是离群值呢? 我们需要根据马氏距离计算P值, p值低于0.001, 我们就认为这是个离群值<br><img src="imgs/02-04.png"></p>
+<p>打开”计算变量”对话框</p>
+<p><img src="imgs/02-05.png"></p>
+<p>p值的计算公式就是<code>1-CDF.CHISQ(MAH_1,2)</code>, 注意2代表自由度是2, 也就是我们使用了2个自变量, 这里如果你用到了3个自变量就得写3</p>
+<p><img src="imgs/02-06.png"></p>
+<p>上面的公式计算以后, 就可以得到p值<br><img src="imgs/02-07.png"></p>
+<p>为了更精确的看到p值, 我们设置pvalue的小数位数是4<br><img src="imgs/02-08.png"></p>
+<p>在数据界面对pvalue进行升序排序, 这样我们就可以将最小p值的找出来, 显然没有找到pvalue小于0.001的数据, 因此没有找到利群数据<br><img src="imgs/02-09.png"></p>
+<h3><span id="参考文献">参考文献</span></h3><ul>
+<li>马氏距离: <a href="https://www.statisticshowto.com/mahalanobis-distance#:~:text=The%20Mahalanobis%20distance%20(MD)%20is,be%20measured%20with%20a%20ruler" target="_blank" rel="noopener">https://www.statisticshowto.com/mahalanobis-distance#:~:text=The%20Mahalanobis%20distance%20(MD)%20is,be%20measured%20with%20a%20ruler</a>.</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="02-多变量离群值的处理.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
+</blockquote>
 
     </div>
 
@@ -258,7 +328,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/数据采集/">#数据采集</a> <a href="/tags/淘宝/">#淘宝</a>
+            <a href="/tags/spss/">#spss</a> <a href="/tags/问卷数据分析/">#问卷数据分析</a>
         </div>
     
 
@@ -277,7 +347,7 @@
         <section class="main">
             <!--PC版畅言-->
 
-<div class="container"><div id="SOHUCS" sid="2017/10/29/python数据采集服务/"></div>
+<div class="container"><div id="SOHUCS" sid="2020/09/10/02-多变量离群值的处理/"></div>
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
 <script type="text/javascript">
 window.changyan.api.config({
@@ -348,99 +418,99 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
 </div>
 <div class="related-posts">
     <h3>
-        <a href="/tags/python/">
-            python
+        <a href="/tags/spss/">
+            spss
         </a>
     </h3>
     <div class="page_list">
         
             <div class="archive-post">
-                <a href="/2019/09/10/python3中给函数缓存结果-让程序加速/">
-                    python3中给函数缓存结果-让程序加速
+                <a href="/2020/09/10/附录03-统计咨询服务/">
+                    统计咨询服务
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2019/08/18/python深入理解print函数/">
-                    python深入理解print函数
+                <a href="/2020/09/10/04-多重共线性的诊断/">
+                    多重共线性的诊断
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2019/08/04/python中logging模块的error和exception的区别和最佳实践/">
-                    python中logging模块的error和exception的区别和最佳实践
+                <a href="/2020/09/10/03-正态性检验/">
+                    正态性检验
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2019/07/21/python3的logging模块的最佳实践/">
-                    python3的logging模块的最佳实践
+                <a href="/2020/09/10/02-多变量离群值的处理/">
+                    多变量离群值的处理
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2019/07/13/python自带GUI根据url显示网络图片/">
-                    python自带GUI根据url显示网络图片
+                <a href="/2020/09/10/01-单变量离群值的判断/">
+                    单变量离群值的判断
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2019/07/10/pychrome安装和入门/">
-                    pychrome安装和入门
+                <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">
+                    SPSS做简单调节效应分析Model-1-Of-Process(视频教程+可视化工具)
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2019/06/29/python解析JavaScript生成语法树并修改之/">
-                    python解析JavaScript生成语法树并修改之
+                <a href="/2019/12/28/为什么正态性检验的时候偏度和峰度的标准误都是一样的/">
+                    为什么正态性检验的时候偏度和峰度的标准误都是一样的
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2019/06/26/requests(python)怎样持久化cookies以便复用/">
-                    mongodb解决textsearch搜索中文的问题
+                <a href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">
+                    spss计算平均方差提取量AVE和组合信度CR的方法
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2019/06/25/python文件信息查看和修改/">
-                    python文件信息查看和修改
+                <a href="/2019/09/05/SEM结构方程模型分析的数据需要至少多少样本量/">
+                    SEM结构方程模型分析的数据需要至少多少样本量
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2019/06/21/mongodb解决textsearch搜索中文的问题/">
-                    mongodb解决textsearch搜索中文的问题
+                <a href="/2019/08/21/SPSS的Process插件下载和安装/">
+                    SPSS的Process插件下载和安装
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2019/06/19/python+mongodb生态坏境部署和上手体验/">
-                    python+mongodb生态坏境部署和上手体验
+                <a href="/2019/02/14/招聘兼职数据分析师/">
+                    招聘兼职数据分析师
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2019/01/06/DataNitro教程系列-python控制Excel自动化替代VBA/">
-                    DataNitro教程系列(python控制Excel自动化替代VBA) 
+                <a href="/2017/10/10/sobel检验原理和一键计算器/">
+                    sobel检验原理和一键计算器
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2018/12/09/python模拟数据的生成/">
-                    python模拟数据的生成
+                <a href="/2016/10/23/SPSS实例：[2]卡方检验百分比差异/">
+                    SPSS实例：[2]卡方检验百分比差异
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2018/11/12/python3的__new__和__init__方法的比较和使用/">
-                    python3的__new__和__init__方法的比较和使用
+                <a href="/2016/10/19/SPSS实例：[23]如何对数据进行排序/">
+                    SPSS实例：[23]如何对数据进行排序
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2018/11/11/python做双十一抢券神器/">
-                    python做双十一抢券神器
+                <a href="/2016/10/15/SPSS实例：[17]进行sobel检验(小白教程)/">
+                    SPSS实例：[17]进行sobel检验(小白教程)
                 </a>
             </div>
             
@@ -502,91 +572,39 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
 </div>
 <div class="related-posts">
     <h3>
-        <a href="/tags/数据采集/">
-            数据采集
+        <a href="/tags/问卷数据分析/">
+            问卷数据分析
         </a>
     </h3>
     <div class="page_list">
         
             <div class="archive-post">
-                <a href="/2017/10/29/python数据采集服务/">
-                    python数据采集服务
+                <a href="/2020/09/10/附录03-统计咨询服务/">
+                    统计咨询服务
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2017/06/10/selenim数据采集入门-for-psychologist/">
-                    selenium数据采集入门(for psychologist)
+                <a href="/2020/09/10/04-多重共线性的诊断/">
+                    多重共线性的诊断
                 </a>
             </div>
             
-    </div>
-</div>
-
-<div class="related-posts">
-    <h3>
-        常用工具
-    </h3>
-    <div class="page_list">
-        <div class="archive-post">
-            <a href="/drawio/">绘图软件</a>
-        </div>
-        <div class="archive-post">
-            <a href="/2018/09/26/在线绘制中介效应图/">
-                在线绘制中介效应图
-            </a>
-        </div>
-        <div class="archive-post">
-            <a href="/neural/">神经网络可视化</a>
-        </div>
-        <div class="archive-post">
-            <a href="/psychopy/">psychopy教程</a>
-        </div>
-        <div class="archive-post">
-            <a href="/vector/">[词向量]高维向量可视化</a>
-        </div>
-        <div class="archive-post">
-            <a href="/demos/evolutionSimulator/">[tensorflow.js案例]进化算法演示</a>
-        </div>
-        <div class="archive-post">
-            <a href="/guideToPython/">[书]Python最佳实践</a>
-        </div>
-        <div class="archive-post">
-            <a href="/2017/10/10/sobel检验原理和一键计算器/">Sobel检验计算器</a>
-        </div>
-        <div class="archive-post">
-            <a href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">平均方差提取量AVE和组合信度CR计算器</a>
-        </div>
-        <div class="archive-post">
-            <a href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">卡方检验计算器</a>
-        </div>
-        <div class="archive-post">
-            <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">简单交互效应可视化工具</a>
-        </div>
-    </div>
-</div>
-<div class="related-posts">
-    <div class="archive-post">
-        <a href="#">Python数据科学技术交流QQ群:116384132</a>
-    </div>
-    <div class="archive-post">
-        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
-    </div>
-    <div class="archive-post">
-        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
-    </div>
-</div>
-<div class="related-posts">
-    <h3>
-        <a href="/tags/淘宝/">
-            淘宝
-        </a>
-    </h3>
-    <div class="page_list">
-        
             <div class="archive-post">
-                <a href="/2017/10/29/python数据采集服务/">
-                    python数据采集服务
+                <a href="/2020/09/10/02-多变量离群值的处理/">
+                    多变量离群值的处理
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2020/09/10/03-正态性检验/">
+                    正态性检验
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2020/09/10/01-单变量离群值的判断/">
+                    单变量离群值的判断
                 </a>
             </div>
             
@@ -635,6 +653,30 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/09/10/附录03-统计咨询服务/">统计咨询服务</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/04-多重共线性的诊断/">多重共线性的诊断</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/03-正态性检验/">正态性检验</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/02-多变量离群值的处理/">多变量离群值的处理</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/01-单变量离群值的判断/">单变量离群值的判断</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/08/12/使用Jupyter notebook创建ppt/">如何使用jupyter notebook来写PPT</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/03/26/如何在jupyter-notebook中运行javascript和HTML代码/">如何在jupyter notebook中运行jav</a>
             </li>
             
@@ -648,30 +690,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
             
             <li>
                 <a class="footer-post" href="/2020/03/11/pandas1.0有哪些新功能/">pandas1.0新功能试用</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/12/28/为什么正态性检验的时候偏度和峰度的标准误都是一样的/">为什么正态性检验的时候偏度和峰度的标准误都是一样的</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/12/26/2020年大学生毕业论文问卷互填群推荐/">2020年大学生毕业论文问卷互填群推荐</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/10/31/JSON Schema介绍和入门/">JSON-Schema介绍和入门</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/10/python3中给函数缓存结果-让程序加速/">python3中给函数缓存结果-让程序加速</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">spss计算平均方差提取量AVE和组合信度CR的方</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/05/SEM结构方程模型分析的数据需要至少多少样本量/">SEM结构方程模型分析的数据需要至少多少样本量</a>
             </li>
             
         </ul>

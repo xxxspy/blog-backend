@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="DataSense|DataScience">
+        <meta property="og:title" content="DataSense">
     
 
     <!--Open Graph Description-->
@@ -32,7 +32,7 @@
     
 
     <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="DataSense|DataScience">
+    <meta property="og:site_name" content="DataSense">
 
     <!--Type page-->
     
@@ -47,7 +47,7 @@
 
     <!-- Title -->
     
-    <title>page - DataSense|DataScience</title>
+    <title>page - DataSense</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -171,7 +171,7 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i>
         
-            <p id="main-title" class="title">DataSense|DataScience</p>
+            <p id="main-title" class="title">DataSense</p>
         
         </a>
     </div>
@@ -444,6 +444,513 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/10/01/Excel2013：[47]瀑布图的做法/">
+                Excel2013：[47]瀑布图的做法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年10月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>瀑布图就是看起来像瀑布（我也不知道谁给的名字），总之看起来也不是很像。看下面这个图吧，它可以直观的看到在总计中，各个部分的的组成成分和大小，有点饼图的功能，不多说了，看看我们怎么在Excel 2013中绘制一个瀑布图吧！</p>
+<ul>
+<li>先来看看数据，包含项目、销量，然后我们自己增加一个【站位】，功能就是占位</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/ea85a94543a9822660db2e488882b9014a90eb0c.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>在c2单元格输入0，然后在c3单元格输入公式，然后向下拖动，快速填充公式；公式的目的就是计算累加和</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/1899a23eb13533fadd069641aad3fd1f40345be9.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>这就是填充好的数据了</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/5202e5f2b2119313a564fadf67380cd791238d7e.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>接着选中数据，然后插入直方图，选择如图所示的直方图类型</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/cebd00178a82b901f9b7c65c718da9773912ef0c.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>看到了吧，目前就是酱紫</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/f7426d8da97739120b3c800efa198618367ae20c.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>我们设置一下不同部分显示不同的数据，右键单击直方图，然后选择【选择数据】</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/a8362712b31bb051423eb647347adab44aede00c.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>在这里，我们将【站位】移动到上一层，点击确定</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/30ecd5ef76094b3689b51e82a1cc7cd98d109d7e.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>有一点瀑布图的效果了</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/b110e6198618367a67937ab22c738bd4b31ce50c.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>接着，我们设置数据系列格式，吧站位的直方图都设置为透明的</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/7d98931001e939010d25885179ec54e736d1967e.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>在填充选项中，设置为无填充</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/38403f3fb80e7bec7bfd068e2d2eb9389b506b7e.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>瀑布图已经做出来了，但是，我们还需要设置数据标签，删掉图中多余的内容</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/2e6fa7389b504fc2e078b56ae7dde71190ef6d7e.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>这才是最后的效果，瀑布图制作完毕!</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/91ae68c6a7efce1ba00ccda5ad51f3deb48f657e.jpg" title="Excel2013：[47]瀑布图的做法">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/23/python 线性代数：[6]逆矩阵 伴随矩阵/">
+                python 线性代数：[6]逆矩阵 伴随矩阵
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>设A是数域上的一个n阶方阵，若在相同数域上存在另一个n阶矩阵B，使得： AB=BA=E。 则我们称B是A的逆矩阵，而A则被称为可逆矩阵。当矩阵A的行列式|A|不等于0时才存在可逆矩阵。而伴随矩阵的定义我 从网上找到了一个：</p>
+<ul>
+<li>先来求一下矩阵的逆，先引入numpy</li>
+</ul>
+<img src="/2016/09/23/python%20线性代数：[6]逆矩阵%20伴随矩阵/72ccb7773912b31bea8677db8418367adbb4e11f.jpg" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+<ul>
+<li>然后创建一个方阵A</li>
+</ul>
+<img src="/2016/09/23/python%20线性代数：[6]逆矩阵%20伴随矩阵/f6428f8fa0ec08fad0a9a9555bee3d6d54fbda5c.jpg" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+<ul>
+<li>使用linalg.det求得方阵的行列式</li>
+</ul>
+<img src="/2016/09/23/python%20线性代数：[6]逆矩阵%20伴随矩阵/09bb4f3d269759eeb9f9da39b0fb43166c22df5c.jpg" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+<ul>
+<li>使用linalg.inv求得方阵A的逆矩阵</li>
+</ul>
+<img src="/2016/09/23/python%20线性代数：[6]逆矩阵%20伴随矩阵/b25aae51f81986186bad557648ed2e738ad4e61f.jpg" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+<ul>
+<li>接着我们利用公式：<br>numpy的计算方法：</li>
+</ul>
+<img src="/2016/09/23/python%20线性代数：[6]逆矩阵%20伴随矩阵/08b68e529822720e9c16580879cb0a46f31fab2d.jpg" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+<img src="/2016/09/23/python%20线性代数：[6]逆矩阵%20伴随矩阵/f9589818367adab4153aa1b189d4b31c8601e41f.jpg" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+<ul>
+<li><p>以下是今天用到的所有代码</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>import numpy as np</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A=np.array([[1,-2,1],[0,2,-1],[1,1,-2]])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[ 1, -2,  1],</p>
+</li>
+<li><p>[ 0,  2, -1],</p>
+</li>
+<li><p>[ 1,  1, -2]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_abs=np.linalg.det(A)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_abs</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>-3.0000000000000004</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>B=np.linalg.inv(A)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>B</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[ 1.        ,  1.        ,  0.        ],</p>
+</li>
+<li><p>[ 0.33333333,  1.        , -0.33333333],</p>
+</li>
+<li><p>[ 0.66666667,  1.        , -0.66666667]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_ni=B*A_abs</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_ni</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[-3., -3., -0.],</p>
+</li>
+<li><p>[-1., -3.,  1.],</p>
+</li>
+<li><p>[-2., -3.,  2.]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_bansui=B*A_abs</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_bansui</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[-3., -3., -0.],</p>
+</li>
+<li><p>[-1., -3.,  1.],</p>
+</li>
+<li><p>[-2., -3.,  2.]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/23/Python教程：[59]读取txt内容/">
+                Python教程：[59]读取txt内容
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>前三篇文章主要将写入txt，今天我们讲读取txt，读取txt其实就是以r模式打开txt文件，然后读取其内容，下面看一下代码吧：</p>
+<ul>
+<li>以可读模式打开txt文件：</li>
+</ul>
+<img src="/2016/09/23/Python教程：[59]读取txt内容/55a628d12f2eb9387f1b3072d7628535e4dd6ff9.jpg" title="Python教程：[59]读取txt内容">
+<ul>
+<li>读取第一行内容，保存在line中，然后打印出line</li>
+</ul>
+<img src="/2016/09/23/Python教程：[59]读取txt内容/8474fbdde71190ef9dffd85fcc1b9d16fcfa60ef.jpg" title="Python教程：[59]读取txt内容">
+<ul>
+<li>通过循环就能读出所有行：注意readine每调用一次就会读取下一行</li>
+</ul>
+<img src="/2016/09/23/Python教程：[59]读取txt内容/9c57e3faaf51f3de46b6f3e496eef01f3b2979ef.jpg" title="Python教程：[59]读取txt内容">
+<ul>
+<li>还可以使用这个方法读取所有的行</li>
+</ul>
+<img src="/2016/09/23/Python教程：[59]读取txt内容/ae10eddeb48f8c5460d78faf38292df5e1fe7fef.jpg" title="Python教程：[59]读取txt内容">
+<ul>
+<li>速度更快的方法是直接使用多行读取的方法：readlines，参数5表示读取5行</li>
+</ul>
+<img src="/2016/09/23/Python教程：[59]读取txt内容/8d158aeef01f3a29dacc9f4e9b25bc315d607cef.jpg" title="Python教程：[59]读取txt内容">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/23/Mysql教程：[4]查看数据库信息/">
+                Mysql教程：[4]查看数据库信息
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>怎么查看数据库的用户名？怎么查看mysql数据库的端口号？怎么查看数据库的表？怎么查看数据库名称？等等，这些问题就会在这篇文章里解决，我们看看下面具体的过程吧：</p>
+<ul>
+<li>首先是查看mysql数据库的端口号，使用命令show：</li>
+</ul>
+<img src="/2016/09/23/Mysql教程：[4]查看数据库信息/1899a23eb13533fad8d49360aad3fd1f40345bda.jpg" title="Mysql教程：[4]查看数据库信息">
+<ul>
+<li>查看有哪些数据库：</li>
+</ul>
+<img src="/2016/09/23/Mysql教程：[4]查看数据库信息/b0742dfa828ba61ef48cc8614334970a314e59da.jpg" title="Mysql教程：[4]查看数据库信息">
+<ul>
+<li>查看mysql数据库所有用户：</li>
+</ul>
+<img src="/2016/09/23/Mysql教程：[4]查看数据库信息/b3ba5d166d224f4ac491735d0bf790529822d131.jpg" title="Mysql教程：[4]查看数据库信息">
+<ul>
+<li>查看某个数据库中所有的表：</li>
+</ul>
+<img src="/2016/09/23/Mysql教程：[4]查看数据库信息/cbc17b380cd791238296943aaf345982b3b780ce.jpg" title="Mysql教程：[4]查看数据库信息">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/mysql/">#mysql</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/23/Python统计分析：[7]混合设计的方差分析/">
+                Python统计分析：[7]混合设计的方差分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>混合设计的方差分析就是既有组内变量又有组间变量的方差分析。想要进行这样的方差分析，如果还是用python.statsmodels就不太方便了，因此用到了Python的另一个还比较年轻的统计包pyvttbl,它对anova的支持更全面，使用也更方便，这里我们就看看如何用pyvttbl来实现混合设计的方差分析。</p>
+<ul>
+<li>引入DataFrame对象，注意此Dataframe不是pandas.DataFrame</li>
+</ul>
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/cebd00178a82b90162ea4c4f708da9773812efcc.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<ul>
+<li>读取数据</li>
+</ul>
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/b8405490f603738d820d835eb01bb051f919eccc.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<ul>
+<li>我们看一下pyvttbl.DataFrame的结构，有一个变量是必须的——SUBJECT，也就是被试编号，同一个被试有相同的编号，这是我们必须提供的，否则在后面的分析中会出错。</li>
+</ul>
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/373bc4b44aed2e73beae09508401a18b86d6facc.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<ul>
+<li>我们用anova方法进行混合设计的方差分析，需要制定因变量score，组间变量group，组内变量test</li>
+</ul>
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/2f3295d4b31c870199f13d9a247f9e2f0608ffcc.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<ul>
+<li>打印出来的结果有很多，首先看组间效应的检验，group的F和sig值<br>与此相对应，我们输出spss中的结果</li>
+</ul>
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/9f6e190828381f30d65e02d5aa014c086f06f0cc.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/5beeba0f4bfbfbedb3cbb9037bf0f736aec31ff8.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<ul>
+<li>接着是组间效应的检验，包括交互效应<br>以下是spss中的输出结果</li>
+</ul>
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/8367d1fc1e178a829eaef0dcf503738da877e8f9.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/4bd1e803738da97715bd0957b351f8198718e3f9.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<ul>
+<li>最后是边际均值</li>
+</ul>
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/8759287adab44aed1adc3198b01c8701a08bfbf9.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -809,449 +1316,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/15/Excel怎样移动列[4]Excel2013教程/">
-                Excel怎样移动列[4]Excel2013教程
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们通常要在Excel中进行的一个操作就是移动列，比如将E列移动到B列的位置，其他的列保持不变，其实在Excel中可以使用鼠标加键盘的方法实现移动列的效果，非常的方便，现在我就跟大家来分享这个方法：</p>
-<ul>
-<li>首先我们看这个图，我想把F列的数据整体移动到D列，如果不让你是用复制粘贴，你怎么办？</li>
-</ul>
-<img src="/2016/09/15/Excel怎样移动列[4]Excel2013教程/0e655ca7d933c8954f358012d01373f0830200d4.jpg" title="Excel怎样移动列[4]Excel2013教程">
-<ul>
-<li>先点击F列标题，选中整个列</li>
-</ul>
-<img src="/2016/09/15/Excel怎样移动列[4]Excel2013教程/a54e55fbfbedab64ab3955a9f636afc378311ed4.jpg" title="Excel怎样移动列[4]Excel2013教程">
-<ul>
-<li>先按下shift键不要松手，然后用鼠标拖动F列的左边框，看到图中的圆圈位置，向左拖动可以移动这个列</li>
-</ul>
-<img src="/2016/09/15/Excel怎样移动列[4]Excel2013教程/f677b1c379310a551d6fc69db64543a9832610d4.jpg" title="Excel怎样移动列[4]Excel2013教程">
-<ul>
-<li>拖动过程中，你会看到绿色的边框示意你这列数据将会移动到哪里</li>
-</ul>
-<img src="/2016/09/15/Excel怎样移动列[4]Excel2013教程/b258f5c4b74543a93050e2a51f178a82b80114d4.jpg" title="Excel怎样移动列[4]Excel2013教程">
-<ul>
-<li>我们看看这就是移动之后的效果了：</li>
-</ul>
-<img src="/2016/09/15/Excel怎样移动列[4]Excel2013教程/aa59892bd40735fa709656d09f510fb30f240831.jpg" title="Excel怎样移动列[4]Excel2013教程">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/15/Excel2013：[13]如何设置数据有效性/">
-                Excel2013：[13]如何设置数据有效性
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>Excel2013与其他版本有很大改变，其中数据有效性改名为了数据验证，所以很多人在网上问“数据有效性”在哪里。我现在用例子跟大家演示一下如何设置数据有效性。</p>
-<ul>
-<li>选中一列数据作为数据源，不要选中第一个行的标题</li>
-</ul>
-<img src="/2016/09/15/Excel2013：[13]如何设置数据有效性/fc5e5f34970a304e5623b6e1d3c8a786c9175c6c.jpg" title="Excel2013：[13]如何设置数据有效性">
-<ul>
-<li>在数据标签下找到【数据验证】</li>
-</ul>
-<img src="/2016/09/15/Excel2013：[13]如何设置数据有效性/964b2e4e251f95caa4f484adcb177f3e6709526c.jpg" title="Excel2013：[13]如何设置数据有效性">
-<ul>
-<li>选择设置选项下的【序列】</li>
-</ul>
-<img src="/2016/09/15/Excel2013：[13]如何设置数据有效性/245e8bcad1c8a786be2b5c156509c93d70cf506c.jpg" title="Excel2013：[13]如何设置数据有效性">
-<ul>
-<li>来源设置成刚才设置好的区域，点击确定</li>
-</ul>
-<img src="/2016/09/15/Excel2013：[13]如何设置数据有效性/8697397f9e2f0708fd6b3c1beb24b899a901f204.jpg" title="Excel2013：[13]如何设置数据有效性">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/15/spss如何分组求平均值/">
-                spss如何分组求平均值
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>分组求均值，举个俩字来说就是，一个数据分为男生和女生，那么分别求男生和女生的平均值就是分组均值，要求分组均值就要确定总共有多少分组，比如我们要求不同性别的人不同的学历的人他们每周花费在报纸上的钱有多少，这样有性别和学历两个变量进行分组了。<br>方法/步骤</p>
-<ul>
-<li>打开数据文件以后，打开平均数对话框，在菜单栏上执行：analyze–compare means –means</li>
-</ul>
-<img src="/2016/09/15/spss如何分组求平均值/622762d0f703918fc8e5ce44513d269759eec40c.jpg" title="spss如何分组求平均值">
-<ul>
-<li>将每周买报纸花费的钱作为因变量，将性别作为自变量，如图所示，然后点击next，我们来设置第二层自变量</li>
-</ul>
-<img src="/2016/09/15/spss如何分组求平均值/6159252dd42a2834b9bfc5855bb5c9ea15cebf27.jpg" title="spss如何分组求平均值">
-<ul>
-<li>将最好学历作为第二层自变量，放到independent list，如果你还有要求分组均值的自变量，你可以继续点击next，不过我这里已经不用了</li>
-</ul>
-<img src="/2016/09/15/spss如何分组求平均值/359b033b5bb5c9ea84eaf06dd539b6003af3b327.jpg" title="spss如何分组求平均值">
-<ul>
-<li>点击options来设置要输出的参数</li>
-</ul>
-<img src="/2016/09/15/spss如何分组求平均值/37d3d539b6003af3aca32fee352ac65c1038b627.jpg" title="spss如何分组求平均值">
-<ul>
-<li>系统给出的默认值有：平均数、数据记录数、标准差。如果你需要其他的参数，还可以从左侧的列表里选择，然后点击continue</li>
-</ul>
-<img src="/2016/09/15/spss如何分组求平均值/3bf33a87e950352a5f78d6865343fbf2b2118b27.jpg" title="spss如何分组求平均值">
-<ul>
-<li>回到了平均数对话框，点击ok即可输出不同分组的平均数。</li>
-</ul>
-<img src="/2016/09/15/spss如何分组求平均值/472309f7905298220a07ca4dd7ca7bcb0a46d40c.jpg" title="spss如何分组求平均值">
-<ul>
-<li><p>这就是输出的结果：</p>
-</li>
-<li></li>
-</ul>
-<img src="/2016/09/15/spss如何分组求平均值/9213b07eca806538aef3579d97dda144ad348227.jpg" title="spss如何分组求平均值">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/11/python 线性代数：[5]方阵的行列式计算方法/">
-                python 线性代数：[5]方阵的行列式计算方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>如何计算方阵的行列式，用到的是numpy模块的linalg.det方法，关于行列式的定义你应该懂，但是其实也不用记住，以后直接用numpy计算就可以了。下面我们看看如何使用numpy计算矩阵的行列式吧：</p>
-<ul>
-<li>行列式的算法：这是二阶方阵行列式</li>
-</ul>
-<img src="/2016/09/11/python%20线性代数：[5]方阵的行列式计算方法/a992e31f4134970ab41e34dd97cad1c8a6865d97.jpg" title="python 线性代数：[5]方阵的行列式计算方法">
-<ul>
-<li>行列式的算法：这是三阶行列式</li>
-</ul>
-<img src="/2016/09/11/python%20线性代数：[5]方阵的行列式计算方法/0db52fadcbef76090899bd6d2cdda3cc7dd99e76.jpg" title="python 线性代数：[5]方阵的行列式计算方法">
-<ul>
-<li>先引入numpy模块</li>
-</ul>
-<img src="/2016/09/11/python%20线性代数：[5]方阵的行列式计算方法/b3f6cea20cf431ad986a89c84936acaf2fdd984c.jpg" title="python 线性代数：[5]方阵的行列式计算方法">
-<ul>
-<li>创建两个方阵</li>
-</ul>
-<img src="/2016/09/11/python%20线性代数：[5]方阵的行列式计算方法/1f569482b9014a9013248c4cab773912b21beeef.jpg" title="python 线性代数：[5]方阵的行列式计算方法">
-<ul>
-<li>使用det方法求得方阵E和方阵F的行列式</li>
-</ul>
-<img src="/2016/09/11/python%20线性代数：[5]方阵的行列式计算方法/3853ad1bb051f8196a3fc9bbd8b44aed2f73e7ef.jpg" title="python 线性代数：[5]方阵的行列式计算方法">
-<img src="/2016/09/11/python%20线性代数：[5]方阵的行列式计算方法/373bc4b44aed2e737af34cdd8501a18b86d6faef.jpg" title="python 线性代数：[5]方阵的行列式计算方法">
-<ul>
-<li><p>这是今天用到的所有代码</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>E</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 2, 3],</p>
-</li>
-<li><p>[4, 5, 6],</p>
-</li>
-<li><p>[7, 8, 9]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>F</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[-1,  0,  1],</p>
-</li>
-<li><p>[ 2,  3,  4],</p>
-</li>
-<li><p>[ 5,  6,  7]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>np.linalg.det(E)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>6.6613381477509402e-16</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>np.linalg.det(F)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>2.664535259100367e-15</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>C</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 2],</p>
-</li>
-<li><p>[1, 3]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>np.linalg.det(C)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>1.0</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/11/wxpython教程：[3]菜单栏/">
-                wxpython教程：[3]菜单栏
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>窗口中通常有菜单栏，菜单栏中包括很多菜单，每一个菜单中包括很多选项，比如一个简单的记事本：里面菜单有：文件、编辑、格式等等。下面我们就来亲手制作一个菜单栏——以便让我们退出程序。</p>
-<ul>
-<li>先看一下我们所有的代码</li>
-</ul>
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/9319cf09b3de9c82072a7ce06f81800a18d843d7.jpg" title="wxpython教程：[3]菜单栏">
-<ul>
-<li>重点要说的首先是这句：创建菜单栏<br>这就是菜单栏：</li>
-</ul>
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/9dc3cf58ccbf6c815978a987bf3eb13532fa40d7.jpg" title="wxpython教程：[3]菜单栏">
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/a75fb6d3fd1f413474788011261f95cad0c85ed7.jpg" title="wxpython教程：[3]菜单栏">
-<ul>
-<li>创建一个菜单<br>这是一个菜单：</li>
-</ul>
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/dbf554ed2e738bd4f348375ea28b87d6277ff931.jpg" title="wxpython教程：[3]菜单栏">
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/948bcfc8a786c917954cd756ca3d70cf3ac757d7.jpg" title="wxpython教程：[3]菜单栏">
-<ul>
-<li>向菜单中添加一个选项：<br>也就是这个选项：</li>
-</ul>
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/1e71f724b899a901005cde591e950a7b0208f531.jpg" title="wxpython教程：[3]菜单栏">
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/72ccb7773912b31b880548468518367adab4e131.jpg" title="wxpython教程：[3]菜单栏">
-<ul>
-<li>现在我们将创建好的菜单添加到菜单栏</li>
-</ul>
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/d57e9994a4c27d1ed368beab18d5ad6edcc438d7.jpg" title="wxpython教程：[3]菜单栏">
-<ul>
-<li>最后，我们将设置好的菜单栏添加到窗口：<br>将菜单中的选项与命令绑定，这样才能在点击选项的时候执行某个动作：<br>到此我们的菜单栏就做好了，运行程序可以看到效果</li>
-</ul>
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/0fb505d5ad6eddc457a931943adbb6fd536633d7.jpg" title="wxpython教程：[3]菜单栏">
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/dc854fda81cb39dbbf8ee239d3160924aa1830d7.jpg" title="wxpython教程：[3]菜单栏">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1293,6 +1357,30 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/09/10/附录03-统计咨询服务/">统计咨询服务</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/04-多重共线性的诊断/">多重共线性的诊断</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/03-正态性检验/">正态性检验</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/02-多变量离群值的处理/">多变量离群值的处理</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/01-单变量离群值的判断/">单变量离群值的判断</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/08/12/使用Jupyter notebook创建ppt/">如何使用jupyter notebook来写PPT</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/03/26/如何在jupyter-notebook中运行javascript和HTML代码/">如何在jupyter notebook中运行jav</a>
             </li>
             
@@ -1306,30 +1394,6 @@
             
             <li>
                 <a class="footer-post" href="/2020/03/11/pandas1.0有哪些新功能/">pandas1.0新功能试用</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/12/28/为什么正态性检验的时候偏度和峰度的标准误都是一样的/">为什么正态性检验的时候偏度和峰度的标准误都是一样的</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/12/26/2020年大学生毕业论文问卷互填群推荐/">2020年大学生毕业论文问卷互填群推荐</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/10/31/JSON Schema介绍和入门/">JSON-Schema介绍和入门</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/10/python3中给函数缓存结果-让程序加速/">python3中给函数缓存结果-让程序加速</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">spss计算平均方差提取量AVE和组合信度CR的方</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/05/SEM结构方程模型分析的数据需要至少多少样本量/">SEM结构方程模型分析的数据需要至少多少样本量</a>
             </li>
             
         </ul>

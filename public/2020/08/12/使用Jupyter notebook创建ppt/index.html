@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="DataSense|DataScience">
+        <meta property="og:title" content="如何使用jupyter notebook来写PPT">
     
 
     <!--Open Graph Description-->
@@ -32,11 +32,11 @@
     
 
     <!--Open Graph Site Name-->
-    <meta property="og:site_name" content="DataSense|DataScience">
+    <meta property="og:site_name" content="DataSense">
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -47,7 +47,7 @@
 
     <!-- Title -->
     
-    <title>淘宝 - DataSense|DataScience</title>
+    <title>如何使用jupyter notebook来写PPT - DataSense</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -171,7 +171,7 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i>
         
-            <p id="main-title" class="title">DataSense|DataScience</p>
+            <p id="main-title" class="title">DataSense</p>
         
         </a>
     </div>
@@ -189,43 +189,280 @@
     <!-- Main Content -->
     
 
-<div class="row">
-    <div class="col-sm-12">
-
-        <!--Title and Logo-->
-        <header>
-    <div class="logo">
-        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i>
-        
-            <p id="main-title" class="title">#淘宝</p>
-        
-        </a>
-    </div>
-</header>
-<div class="page_list archive-container">
-        
-    <div class="archive-post" style="opacity: 1;">
-        <a href="/guideToPython/">
-            推荐书: Python开发最佳实践
-        </a>
-    </div>
     
+        
+<div class="row">
+    
+    <div class="col-md-9 col-sm-12">
+        <!--Title and Logo-->
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2020/08/12/使用Jupyter notebook创建ppt/">
+                如何使用jupyter notebook来写PPT
+            </a>
+
+        </h1>
+        <div class="weibo-share">
+            <p>微博@mlln-cn, 并附上文章url链接, 我就能回答你的问题奥!</p>
+        </div>
+        <div class="post-info">
+            
+                <span class="date">2020年08月12日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+    <!-- Table of Contents -->
+    
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>我们用jupyter可以方便的记录一些笔记, 而使用reveal.js可以创建网页版PPT, RISE插件就是将jupyter的notebook快速转换成网页PPT的工具。</p>
+<a id="more"></a>
+<h1><span id="如何使用jupyter-notebook来写ppt">如何使用jupyter notebook来写PPT</span></h1><p>我们用jupyter可以方便的记录一些笔记, 而使用<code>reveal.js</code>可以创建网页版PPT, RISE插件就是将jupyter的notebook快速转换成网页PPT的工具。</p>
+<h3><span id="安装rise插件">安装RISE插件</span></h3><p>使用pip可以方便的安装:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install RISE</span><br></pre></td></tr></table></figure>
+<p>安装成功以后, 我们可以在notebook界面看到这个按钮:</p>
+<p><img class="image" src="imgs/rise-btn.png"></p>
+<h3><span id="使用方法">使用方法</span></h3><h4><span id="幻灯片工具栏">幻灯片工具栏</span></h4><p>假如你已经创建好了一个notebook, 那么我们可以点击 <code>View -&gt; Cell Toolbar -&gt; 幻灯片</code>来调出幻灯片工具栏:</p>
+<p>这样在每一个Cell右上角都会出现一个下拉菜单, 这个菜单可以定义我们的cell会被转换成幻灯片的哪一个部分:</p>
+<h4><span id="预览ppt">预览PPT</span></h4><p>当我们设置好每一个cell以后, 就可以点击PPT预览按钮查看结果:</p>
+<p><img class="image" src="imgs/rise-btn.png"></p>
+<h4><span id="预览翻页">预览翻页</span></h4><p>强烈建议主要使用SpaceBar前进，而使用Shift+SpaceBar退后（或幻灯片右下角的可视控制器）。无论具体显示的是什么（幻灯片，子幻灯片，片段……），都将按照演示过程进行。</p>
+<p>相反，关于这3个结构实体，向右箭头和向左箭头可能会产生令人困惑的行为。此外，向上和向下箭头保留用于与notebook cell交互，不能用于浏览幻灯片，而是可以使用pgup和pgdown。</p>
+<h4><span id="导出ppt">导出PPT</span></h4><p>当我们自认为PPT已经做好, 可以导出来, 方便以后使用, 可以依次点击”File -&gt; Download as -&gt; reveal.js”, 最后我们的PPT将作为一个html文件下载下来。</p>
+<h3><span id="自定义rise">自定义RISE</span></h3><p>有很多种方法可以配置RISE, 但是我推荐使用metadata的配置方法, 我们可以在这里打开metadata的编辑器:</p>
+<p><img src="imgs/edit-notebook-metadata.png"></p>
+<p>然后增加如下的json代码:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">"rise": &#123;</span><br><span class="line">  "theme": "black",</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="可选主题">可选主题</span></h4><p>我们可以更改PPT的主题, 选择自己喜欢的样式, reveal.js支持很多主题, 比如:</p>
+<ul>
+<li><strong>black</strong>    Black background, white text, blue links (default)</li>
+<li><strong>white</strong>    White background, black text, blue links</li>
+<li><strong>league</strong>    Gray background, white text, blue links</li>
+<li><strong>beige</strong>    Beige background, dark text, brown links</li>
+<li><strong>sky</strong>    Blue background, thin dark text, blue links</li>
+<li><strong>night</strong>    Black background, thick white text, orange links</li>
+<li><strong>serif</strong>    Cappuccino background, gray text, brown links</li>
+<li><strong>simple</strong>    White background, black text, blue links</li>
+<li><strong>solarized</strong>    Cream-colored background, dark green text, blue links</li>
+<li><strong>blood</strong>    Dark background, thick white text, red links</li>
+<li><strong>moon</strong>    Dark blue background, thick grey text, blue links</li>
+</ul>
+<h4><span id="可选转场效果">可选转场效果</span></h4><ul>
+<li><strong>none</strong>    Switch backgrounds instantly</li>
+<li><strong>fade</strong>    Cross fade — default for background transitions</li>
+<li><strong>slide</strong>    Slide between backgrounds — default for slide transitions</li>
+<li><strong>convex</strong>    Slide at a convex angle</li>
+<li><strong>concave</strong>    Slide at a concave angle</li>
+<li><strong>zoom</strong>    Scale the incoming slide up so it grows in from the center of the screen</li>
+</ul>
+<h4><span id="修改每一张幻灯片的大小">修改每一张幻灯片的大小</span></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">"rise": &#123;</span><br><span class="line">  "theme": "black",</span><br><span class="line">  "transition": "zoom",</span><br><span class="line">  "width": "80%",</span><br><span class="line">  "height": "80%"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="设定每一张幻灯片的页眉页脚和背景图片">设定每一张幻灯片的页眉/页脚和背景图片</span></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">"rise": &#123;</span><br><span class="line">  "theme": "black",</span><br><span class="line">  "transition": "zoom",</span><br><span class="line">  "width": "80%",</span><br><span class="line">  "height": "80%",</span><br><span class="line">  "backimage": "mybackimage.png",</span><br><span class="line"> "header": "&lt;h1&gt;header&lt;/h1&gt;",</span><br><span class="line"> "footer": "&lt;h3&gt;footer&lt;/h3&gt;"</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="允许滚动条和黑板功能">允许滚动条和黑板功能</span></h4><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">"rise": &#123;</span><br><span class="line">    "theme": "black",</span><br><span class="line">    "transition": "zoom",</span><br><span class="line">    "width": "80%",</span><br><span class="line">    "height": "80%",</span><br><span class="line">    "backimage": "mybackimage.png",</span><br><span class="line">     "header": "&lt;h1&gt;header&lt;/h1&gt;",</span><br><span class="line">     "footer": "&lt;h3&gt;footer&lt;/h3&gt;",</span><br><span class="line">    "scroll": true, // 滚动条</span><br><span class="line">    "enable_chalkboard": true // 涂鸦功能 </span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+<p>如果需要更多配置功能, 你可以直接查看reveal.js的官方文档:</p>
+<p><a href="https://github.com/hakimel/reveal.js" target="_blank" rel="noopener">https://github.com/hakimel/reveal.js</a></p>
+<h3><span id="自定义样式">自定义样式</span></h3><p>说实话, RISE提供的一些自定义选项还是不够用, 比如我感觉我想自主决定一些html元素的样式, 那么我们可以使用<code>rise.css</code>这个文件, 在notebook所在的文件夹中创建这个文件, 然后自己写一些css样式, 比如我常用的一些样式如下:</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.present</span>&#123;</span><br><span class="line">    <span class="attribute">padding-top</span>: <span class="number">50px</span><span class="meta">!important</span>;</span><br><span class="line">    <span class="attribute">padding-bottom</span>: <span class="number">100px</span><span class="meta">!important</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="使用Jupyter notebook创建ppt.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
+</blockquote>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/notebook/">#notebook</a>
+        </div>
+    
+
+
+
+</div>
+        </section>
+        <section>
+            <div class="content" style="color: #d7ecff">
+                <h3 id="赞助"><a href="#赞助" class="headerlink" title="赞助"></a>赞助</h3>
+                <p>运营本站花费了很多时间和精力, 并且本站坚持不放广告, 如果你觉得本站对你有帮助, 请资助我一杯咖啡:</p>
+                <p><img src="/img/收款二维码.png" class="img-thumbnail"></p>
+            </div>
+        </section>
+        <!-- changyan comments -->
+        <section class="main">
+            <!--PC版畅言-->
+
+<div class="container"><div id="SOHUCS" sid="2020/08/12/使用Jupyter notebook创建ppt/"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cysqnjGqk',
+conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
+});
+</script>
 </div>
 
-        <section class="main archive-container">
-            
-                <div class="archive-post">
-    <a href="/2017/10/29/python数据采集服务/">
-        <span class="archive-date">
-            Oct 2017
-        </span>
-        python数据采集服务
-    </a>
-</div>
-            
         </section>
     </div>
+
+    <!-- rightside -->
+    <div class="col-md-3 col-sm-12 rightside">
+        
+<div class="related-posts">
+    <h3>
+        常用工具
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a href="/drawio/">绘图软件</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2018/09/26/在线绘制中介效应图/">
+                在线绘制中介效应图
+            </a>
+        </div>
+        <div class="archive-post">
+            <a href="/neural/">神经网络可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/psychopy/">psychopy教程</a>
+        </div>
+        <div class="archive-post">
+            <a href="/vector/">[词向量]高维向量可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/demos/evolutionSimulator/">[tensorflow.js案例]进化算法演示</a>
+        </div>
+        <div class="archive-post">
+            <a href="/guideToPython/">[书]Python最佳实践</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/10/10/sobel检验原理和一键计算器/">Sobel检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">平均方差提取量AVE和组合信度CR计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">卡方检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">简单交互效应可视化工具</a>
+        </div>
+    </div>
 </div>
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/notebook/">
+            notebook
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2020/08/12/使用Jupyter notebook创建ppt/">
+                    如何使用jupyter notebook来写PPT
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2020/03/26/如何在jupyter-notebook中运行javascript和HTML代码/">
+                    如何在jupyter notebook中运行javascript和HTML代码
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/03/31/jupyter notebook 扩展开发之 Custom bundler extensions/">
+                    jupyter notebook 扩展开发之 Custom bundler extensions
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/03/31/jupyter notebook 扩展开发之 将Jupyter扩展作为Python包分发/">
+                    jupyter notebook 扩展开发之 将Jupyter扩展作为Python包分发
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/03/31/jupyter notebook 扩展开发之  文件保存钩子/">
+                    jupyter notebook 扩展开发之  文件保存钩子
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/03/31/jupyter notebook 扩展开发之自定义请求处理程序/">
+                    jupyter notebook 扩展开发之自定义请求处理程序
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/03/31/jupyter notebook扩展开发之前端插件开发/">
+                    jupyter notebook扩展开发之前端插件开发
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/03/31/jupyter notebook 扩展开发之内容API/">
+                    jupyter notebook 扩展开发之内容API
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2017/12/18/python3静态类型编程入门/">
+                    python3静态类型编程入门
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2017/10/31/链家爬虫数据分析附带源码/">
+                    链家爬虫数据抓取数据分析附带源码
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts hidden-sm-down">
+    <h3>
+        <a href="#">
+            友商赞助
+        </a>
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a href="http://jupyter.cn">
+                  问卷大全问卷案例下载
+            </a>
+            <a href="http://mlln.cn/2019/05/09/2019%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/">
+                大学生互填问卷群推荐
+            </a>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
 
 </div>
 
@@ -247,6 +484,30 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/09/10/附录03-统计咨询服务/">统计咨询服务</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/04-多重共线性的诊断/">多重共线性的诊断</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/03-正态性检验/">正态性检验</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/02-多变量离群值的处理/">多变量离群值的处理</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/10/01-单变量离群值的判断/">单变量离群值的判断</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/08/12/使用Jupyter notebook创建ppt/">如何使用jupyter notebook来写PPT</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/03/26/如何在jupyter-notebook中运行javascript和HTML代码/">如何在jupyter notebook中运行jav</a>
             </li>
             
@@ -260,30 +521,6 @@
             
             <li>
                 <a class="footer-post" href="/2020/03/11/pandas1.0有哪些新功能/">pandas1.0新功能试用</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/12/28/为什么正态性检验的时候偏度和峰度的标准误都是一样的/">为什么正态性检验的时候偏度和峰度的标准误都是一样的</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/12/26/2020年大学生毕业论文问卷互填群推荐/">2020年大学生毕业论文问卷互填群推荐</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/10/31/JSON Schema介绍和入门/">JSON-Schema介绍和入门</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/10/python3中给函数缓存结果-让程序加速/">python3中给函数缓存结果-让程序加速</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">spss计算平均方差提取量AVE和组合信度CR的方</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2019/09/05/SEM结构方程模型分析的数据需要至少多少样本量/">SEM结构方程模型分析的数据需要至少多少样本量</a>
             </li>
             
         </ul>
