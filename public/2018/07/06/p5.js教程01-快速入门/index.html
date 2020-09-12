@@ -296,7 +296,7 @@
 
 <p><code>createCanvas（）</code>将创建一个指定大小的绘图画布，并将其附加到你正在使用的html页面。如果您的html页面正文中有其他内容，那么它将在此之后添加到页面，因此你可能无法在窗口顶部看到它。</p>
 <p>画布也会受到页面上任何现有css（样式）的影响，包括浏览器设置的默认值。例如，许多浏览器在页面末尾都有一个默认填充。如果您注意到窗口左上角的画布并非一直存在，这可能就是原因。要解决这个问题，你可以在你的html文件的<code>&lt;head&gt;</code>中添加一行来覆盖默认的填充，如下所示：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"> <span class="selector-tag">body</span>&#123;<span class="attribute">padding</span>:<span class="number">0</span>; <span class="attribute">margin</span>:<span class="number">0</span>;&#125; </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"> body&#123;padding:0; margin:0;&#125; </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>如果要为画布指定位置，而不是直接附加到末尾，则可以使用<code>parent</code>方法。在你的html文件的<code>&lt;body&gt;</code>中，创建一个你想要插入画布的容器，其中包含你选择的ID：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'myContainer'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>然后在<code>setup()</code>函数中调用<code>parent</code>方法:</p>
@@ -507,6 +507,12 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
             </div>
             
             <div class="archive-post">
+                <a href="/2018/06/06/p5.js教程03-动作响应/">
+                    p5.js教程03-动作响应
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2018/06/06/p5.js教程04-平移-旋转-缩放/">
                     p5.js教程04-平移-旋转-缩放
                 </a>
@@ -519,32 +525,26 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
             </div>
             
             <div class="archive-post">
-                <a href="/2018/06/06/p5.js教程06-显示文字/">
-                    p5.js教程06-显示文字
-                </a>
-            </div>
-            
-            <div class="archive-post">
                 <a href="/2018/06/06/p5.js教程07-让图动起来/">
                     p5.js教程07-让图动起来
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2018/06/06/p5.js教程03-动作响应/">
-                    p5.js教程03-动作响应
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2018/06/06/p5.js案例01-行走的人/">
-                    p5.js案例01-行走的人
+                <a href="/2018/06/06/p5.js教程06-显示文字/">
+                    p5.js教程06-显示文字
                 </a>
             </div>
             
             <div class="archive-post">
                 <a href="/2018/06/06/p5.js教程02-绘制简单图形/">
                     p5.js教程02-绘制简单图形
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/06/06/p5.js案例01-行走的人/">
+                    p5.js案例01-行走的人
                 </a>
             </div>
             
@@ -593,6 +593,10 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/09/11/f02-多重共线性理论解释+危害+解决方法/">f02-多重共线性理论解释+危害+解决方法</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/09/10/附录03-统计咨询服务/">统计咨询服务</a>
             </li>
             
@@ -628,10 +632,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
                 <a class="footer-post" href="/2020/03/20/spss-process-model4-简单中介效应分析/">spss process model4 简单中介效</a>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2020/03/11/pandas1.0有哪些新功能/">pandas1.0新功能试用</a>
-            </li>
-            
         </ul>
     </div>
 
@@ -643,11 +643,19 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/os/">os</a>
+            <a class="footer-post" href="/tags/lru-cache/">lru_cache</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/spss/">spss</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/问卷数据分析/">问卷数据分析</a>
         </span>
         
         <span>
@@ -671,6 +679,14 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/amos/">amos</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mplus/">mplus</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/python/">python</a>
         </span>
         
@@ -684,14 +700,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         
         <span>
             <a class="footer-post" href="/tags/VBA/">VBA</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/amos/">amos</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/mplus/">mplus</a>
         </span>
         
         <span>
@@ -748,10 +756,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         
         <span>
             <a class="footer-post" href="/tags/游戏/">游戏</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/spss/">spss</a>
         </span>
         
         <span>
@@ -843,6 +847,38 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/electron/">electron</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gui/">gui</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/selenium/">selenium</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/格式化字符串/">格式化字符串</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/EM/">EM</a>
         </span>
         
@@ -871,14 +907,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/electron/">electron</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/gui/">gui</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/networkx/">networkx</a>
         </span>
         
@@ -891,39 +919,15 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/flexx/">flexx</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/格式化字符串/">格式化字符串</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/selenium/">selenium</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/logging/">logging</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/数据采集/">数据采集</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/淘宝/">淘宝</a>
+            <a class="footer-post" href="/tags/graphviz/">graphviz</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/报告系统/">报告系统</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/os/">os</a>
         </span>
         
         <span>
@@ -952,6 +956,14 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         
         <span>
             <a class="footer-post" href="/tags/情感分析/">情感分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
         </span>
         
         <span>
@@ -999,10 +1011,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/区块链/">区块链</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/chrome/">chrome</a>
         </span>
         
@@ -1015,31 +1023,23 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/区块链/">区块链</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/心理学/">心理学</a>
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/可视化/">可视化</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/visjs/">visjs</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/“python/">“python&quot;</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/lsa/">lsa</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/潜在语义分析/">潜在语义分析</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/招聘/">招聘</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/eprime代做/">eprime代做</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/测量心理学/">测量心理学</a>
         </span>
         
     </ul>

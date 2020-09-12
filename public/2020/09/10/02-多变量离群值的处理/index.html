@@ -290,6 +290,7 @@
 <li><a href="#计算马氏距离mahalanobis-distance">计算马氏距离Mahalanobis Distance</a></li>
 <li><a href="#spss操作">SPSS操作</a></li>
 <li><a href="#参考文献">参考文献</a></li>
+<li><a href="#视频教程">视频教程</a></li>
 </ul>
 <!-- tocstop -->
 <h3><span id="定义">定义</span></h3><p>多变量离群值与单变量离群值有很大的差别, 因为多变量要考虑多个变量的联合分布, 比如说, 体重和身高是两个变量, 身高120cm的人不多但是也不算离群值, 体重120KG的人不多, 但也不算离群值, 但是有个人是身高120cm体重120KG, 这种人就很可能是离群值了, 所以在这种联合分布的情况下, 我们怎么判断一个值是否是离群值呢?</p>
@@ -317,6 +318,8 @@
 <h3><span id="参考文献">参考文献</span></h3><ul>
 <li>马氏距离: <a href="https://www.statisticshowto.com/mahalanobis-distance#:~:text=The%20Mahalanobis%20distance%20(MD)%20is,be%20measured%20with%20a%20ruler" target="_blank" rel="noopener">https://www.statisticshowto.com/mahalanobis-distance#:~:text=The%20Mahalanobis%20distance%20(MD)%20is,be%20measured%20with%20a%20ruler</a>.</li>
 </ul>
+<h3><span id="视频教程">视频教程</span></h3><iframe src="//player.bilibili.com/player.html?aid=414574527&bvid=BV1jV411m7VQ&cid=234255578&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
+
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="02-多变量离群值的处理.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>
@@ -425,6 +428,12 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
     <div class="page_list">
         
             <div class="archive-post">
+                <a href="/2020/09/11/f02-多重共线性理论解释+危害+解决方法/">
+                    f02-多重共线性理论解释+危害+解决方法
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2020/09/10/附录03-统计咨询服务/">
                     统计咨询服务
                 </a>
@@ -437,14 +446,14 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
             </div>
             
             <div class="archive-post">
-                <a href="/2020/09/10/03-正态性检验/">
-                    正态性检验
+                <a href="/2020/09/10/02-多变量离群值的处理/">
+                    多变量离群值的处理
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2020/09/10/02-多变量离群值的处理/">
-                    多变量离群值的处理
+                <a href="/2020/09/10/03-正态性检验/">
+                    正态性检验
                 </a>
             </div>
             
@@ -505,12 +514,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
             <div class="archive-post">
                 <a href="/2016/10/19/SPSS实例：[23]如何对数据进行排序/">
                     SPSS实例：[23]如何对数据进行排序
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2016/10/15/SPSS实例：[17]进行sobel检验(小白教程)/">
-                    SPSS实例：[17]进行sobel检验(小白教程)
                 </a>
             </div>
             
@@ -578,6 +581,12 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
     </h3>
     <div class="page_list">
         
+            <div class="archive-post">
+                <a href="/2020/09/11/f02-多重共线性理论解释+危害+解决方法/">
+                    f02-多重共线性理论解释+危害+解决方法
+                </a>
+            </div>
+            
             <div class="archive-post">
                 <a href="/2020/09/10/附录03-统计咨询服务/">
                     统计咨询服务
@@ -653,6 +662,10 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/09/11/f02-多重共线性理论解释+危害+解决方法/">f02-多重共线性理论解释+危害+解决方法</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/09/10/附录03-统计咨询服务/">统计咨询服务</a>
             </li>
             
@@ -688,10 +701,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
                 <a class="footer-post" href="/2020/03/20/spss-process-model4-简单中介效应分析/">spss process model4 简单中介效</a>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2020/03/11/pandas1.0有哪些新功能/">pandas1.0新功能试用</a>
-            </li>
-            
         </ul>
     </div>
 
@@ -703,11 +712,19 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/os/">os</a>
+            <a class="footer-post" href="/tags/lru-cache/">lru_cache</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/spss/">spss</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/问卷数据分析/">问卷数据分析</a>
         </span>
         
         <span>
@@ -731,6 +748,14 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/amos/">amos</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mplus/">mplus</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/python/">python</a>
         </span>
         
@@ -744,14 +769,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         
         <span>
             <a class="footer-post" href="/tags/VBA/">VBA</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/amos/">amos</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/mplus/">mplus</a>
         </span>
         
         <span>
@@ -808,10 +825,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         
         <span>
             <a class="footer-post" href="/tags/游戏/">游戏</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/spss/">spss</a>
         </span>
         
         <span>
@@ -903,6 +916,38 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/electron/">electron</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gui/">gui</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/selenium/">selenium</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/格式化字符串/">格式化字符串</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/EM/">EM</a>
         </span>
         
@@ -931,14 +976,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/electron/">electron</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/gui/">gui</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/networkx/">networkx</a>
         </span>
         
@@ -951,39 +988,15 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/flexx/">flexx</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/格式化字符串/">格式化字符串</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/selenium/">selenium</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/logging/">logging</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/数据采集/">数据采集</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/淘宝/">淘宝</a>
+            <a class="footer-post" href="/tags/graphviz/">graphviz</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/报告系统/">报告系统</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/os/">os</a>
         </span>
         
         <span>
@@ -1012,6 +1025,14 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         
         <span>
             <a class="footer-post" href="/tags/情感分析/">情感分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
         </span>
         
         <span>
@@ -1059,10 +1080,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/区块链/">区块链</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/chrome/">chrome</a>
         </span>
         
@@ -1075,31 +1092,23 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/区块链/">区块链</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/心理学/">心理学</a>
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/可视化/">可视化</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/visjs/">visjs</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/“python/">“python&quot;</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/lsa/">lsa</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/潜在语义分析/">潜在语义分析</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/招聘/">招聘</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/eprime代做/">eprime代做</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/测量心理学/">测量心理学</a>
         </span>
         
     </ul>
