@@ -24,6 +24,9 @@ SPSS的Process插件由 Andrew F. Hayes, Ph.D 开发, 大家可以免费使用�
 
 下载地址:  http://www.afhayes.com/public/processv34.zip
 
+或者从网盘下载: https://pan.baidu.com/s/1SgkgeDq8p_ybeNcLhJQrUw 
+(提取码：apx1)
+
 你会得到一个压缩包, 解压以后得到如下文件:
 
 <img src="imgs/01.png">

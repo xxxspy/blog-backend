@@ -288,14 +288,8 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程23-1：强化学习/">
-                    李宏毅机器学习教程23-1：强化学习
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程14：无监督学习-词嵌入模型/">
-                    李宏毅机器学习教程14：无监督学习-词嵌入模型
+                <a href="/2018/09/21/李宏毅机器学习教程2：误差来自哪里/">
+                    李宏毅机器学习教程2：误差来自哪里
                 </a>
             </div>
             
@@ -306,8 +300,14 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程15：无监督学习-neighbor-embeding/">
-                    李宏毅机器学习教程15：无监督学习-neighbor-embeding
+                <a href="/2018/09/21/李宏毅机器学习教程16：无监督学习-自编码器/">
+                    李宏毅机器学习教程16：无监督学习-自编码器
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程14：无监督学习-词嵌入模型/">
+                    李宏毅机器学习教程14：无监督学习-词嵌入模型
                 </a>
             </div>
             
@@ -381,8 +381,8 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程23-2：Policy-Gradient/">
-                    李宏毅机器学习教程23-2：Policy-Gradient
+                <a href="/2018/09/21/李宏毅机器学习教程23-3：强化学习(包括Qlearning)/">
+                    李宏毅机器学习教程23-3：强化学习(包括Qlearning)
                 </a>
             </div>
             
@@ -444,6 +444,141 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/05/01/Python统计分析：[4]多因素方差分析/">
+                Python统计分析：[4]多因素方差分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年05月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>上一篇文章介绍了Python做统计中如何实现单因素方差分析，这篇文章介绍一下如何做多因素方差分析以及当主效应显著时如何做多重比较。</p>
+<ul>
+<li>引入相关模块</li>
+</ul>
+<img src="/2016/05/01/Python统计分析：[4]多因素方差分析/509b9fcb39dbb6fdbb2901510a24ab18972b371c.jpg" title="Python统计分析：[4]多因素方差分析">
+<ul>
+<li>读取数据（如果你需要我案例中的数据，可以联系我索要）</li>
+</ul>
+<img src="/2016/05/01/Python统计分析：[4]多因素方差分析/d1571724ab18972b3a48e4bde5cd7b899e510a1c.jpg" title="Python统计分析：[4]多因素方差分析">
+<ul>
+<li>删除空值并打印数据<br>我们可以看到数据是酱紫的：</li>
+</ul>
+<img src="/2016/05/01/Python统计分析：[4]多因素方差分析/c9d4cf43ad4bd1138f0e524559afa40f4afb0543.jpg" title="Python统计分析：[4]多因素方差分析">
+<img src="/2016/05/01/Python统计分析：[4]多因素方差分析/43e6c733c895d1435404005470f082025aaf071c.jpg" title="Python统计分析：[4]多因素方差分析">
+<ul>
+<li>用statsmodels中的anova_lm，注意公式formula的写法<br>这是随即设计的两因素方差分析的结果：结果显示fetus的主效应显著</li>
+</ul>
+<img src="/2016/05/01/Python统计分析：[4]多因素方差分析/734f12f3d7ca7bcb5a362358bd096b63f624a83d.jpg" title="Python统计分析：[4]多因素方差分析">
+<img src="/2016/05/01/Python统计分析：[4]多因素方差分析/d0526df082025aaf5a409abcf8edab64034f1a1c.jpg" title="Python统计分析：[4]多因素方差分析">
+<ul>
+<li>阴虚fetus的主效应显著，所以有必要进行事后简单，使用tukey方法进行多重比较的方法及结果：<br>输出的结果显示，三个水平均均值均呈现显著差异（reject==Ture）</li>
+</ul>
+<img src="/2016/05/01/Python统计分析：[4]多因素方差分析/f35ea0096b63f6243e10dd748444ebf81a4ca33d.jpg" title="Python统计分析：[4]多因素方差分析">
+<img src="/2016/05/01/Python统计分析：[4]多因素方差分析/834344afa40f4bfbfbbd7a23004f78f0f736181c.jpg" title="Python统计分析：[4]多因素方差分析">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/04/23/scipy教程：[1]64位下载安装/">
+                scipy教程：[1]64位下载安装
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年04月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>如何在windows 64位下安装scipy，我在Google和百度上搜了一星期，也没找到合适的方法，后来找到一个python大牛，帮我看了看问题，然后发给我两个Excel安装包，他号称是自己做的，后来果然安装成功，下面我写下自己的安装过程，其实很简单。我们需要的就是numpy-MKL-1.8.1.win-amd64-py2.7.exe和scipy-0.14.0.win-amd64-py2.7.exe这两个安装包，然后就是一路点击下一步。</p>
+<ul>
+<li><p>numpy-MKL-1.8.1.win-amd64-py2.7.exe这个是python用于科学计算的基础包，下面的参考链接里第一个链接就是下载方法。</p>
+</li>
+<li><p>scipy-0.14.0.win-amd64-py2.7.exe这个是pytbon的scipy包的二进制安装包，将这两个文件都下载下来</p>
+</li>
+<li><p>先安装numpy-MKL-1.8.1.win-amd64-py2.7.exe，双击打开</p>
+</li>
+</ul>
+<img src="/2016/04/23/scipy教程：[1]64位下载安装/a84052086e061d95ce8b3ecf79f40ad163d9ca3d.jpg" title="scipy教程：[1]64位下载安装">
+<ul>
+<li>点击下一步</li>
+</ul>
+<img src="/2016/04/23/scipy教程：[1]64位下载安装/78701455b319ebc417b57f6e8026cffc1f17163c.jpg" title="scipy教程：[1]64位下载安装">
+<ul>
+<li>设置Python的安装文件夹，我这里是在D盘</li>
+</ul>
+<img src="/2016/04/23/scipy教程：[1]64位下载安装/caae68094b36acaf34289f0b7ed98d1000e99c39.jpg" title="scipy教程：[1]64位下载安装">
+<ul>
+<li>接着一路点击下一步即可。</li>
+</ul>
+<img src="/2016/04/23/scipy教程：[1]64位下载安装/adee30dda3cc7cd990e53d2e3b01213fb90e9139.jpg" title="scipy教程：[1]64位下载安装">
+<ul>
+<li>安装scipy的过程也一样，设置好了安装路径以后，一路点击下一步</li>
+</ul>
+<img src="/2016/04/23/scipy教程：[1]64位下载安装/7aad4ae736d12f2e9fcda7974dc2d56284356839.jpg" title="scipy教程：[1]64位下载安装">
+<img src="/2016/04/23/scipy教程：[1]64位下载安装/dbf554ed2e738bd406ecbbc6a38b87d6267ff93d.jpg" title="scipy教程：[1]64位下载安装">
+<ul>
+<li>最后，我们引入一下scipy，可以看到我已经安装成功了。</li>
+</ul>
+<img src="/2016/04/23/scipy教程：[1]64位下载安装/f76575600c33874406fb278b530fd9f9d62aa0c8.jpg" title="scipy教程：[1]64位下载安装">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/scipy/">#scipy</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -1002,135 +1137,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/04/05/SPSS自动化：[1]应用对象的属性及其用法/">
-                SPSS自动化：[1]应用对象的属性及其用法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年04月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>在上一篇经验《vba控制spss处理数据》中，我们介绍了vba使用spss对象来控制spss，下面我们接着来讲如何使用spss对象的属性，因为spss对象的属性有十几个（见下图），下面的列表呈现了spss对象所具有的属性，可能不全，希望指正。我们来一一介绍这些属性的用法和功能。</p>
-<ul>
-<li>alerts属性：语法格式为spss.alerts=boolean。boolean值可以是1或者0，如果值为1，则spss程序允许弹出警告窗口，如果值为0，则spss程序不会弹出警告窗口。该属性可读可写，下面是我在vba中调用alerts属性的方法。</li>
-</ul>
-<img src="/2016/04/05/SPSS自动化：[1]应用对象的属性及其用法/b9d8b7014c086e06f3031b7e00087bf40ad1cb19.jpg" title="SPSS自动化：[1]应用对象的属性及其用法">
-<ul>
-<li>currentdirectory属性：设置文件存放目录。该属性可读可写，下面是在vba中读取当前目录的代码。当然你可以使用该属性来设置当前目录。</li>
-</ul>
-<img src="/2016/04/05/SPSS自动化：[1]应用对象的属性及其用法/7e7f7909c93d70cfb61c8d38fadcd100bba12be5.jpg" title="SPSS自动化：[1]应用对象的属性及其用法">
-<ul>
-<li>options属性：利用该属性可以获取options对象，它提供了与spss选项设置的链接，选项设置我们并不陌生，以后我们会详细的介绍使用options对spss进行设置，现在你只要知道读取options属性的方法，下面是代码实例：首先要把变量opt声明为选项对象，然后在读取选项对象。</li>
-</ul>
-<img src="/2016/04/05/SPSS自动化：[1]应用对象的属性及其用法/9252ae7eca8065383c2f892695dda144ac3482fa.jpg" title="SPSS自动化：[1]应用对象的属性及其用法">
-<ul>
-<li>spssifo属性：这个属性可以获得当前spss打开的数据文件中的变量信息。示例代码如下：</li>
-</ul>
-<img src="/2016/04/05/SPSS自动化：[1]应用对象的属性及其用法/8a95ad1c8701a18b5dc43d7a9c2f07082838fe9d.jpg" title="SPSS自动化：[1]应用对象的属性及其用法">
-<ul>
-<li>还有很多属性，未完待续。</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/04/03/Excel2013：[30]subtotal函数按照字体颜色求和/">
-                Excel2013：[30]subtotal函数按照字体颜色求和
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年04月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>给别人做数据，别人的数据经常是五颜六色的，为了突出某些数据，我们经常使用各种字体颜色，那么我们突然想要知道某种颜色的数字之和，怎么办？或者想知道他们的平均数怎么办？下面介绍一下SUBTOTAL函数的用法，看完你就知道如何根据字体颜色来求各种数。</p>
-<ul>
-<li>这里有一列数据，你可以看到红色字体，我现在想要知道红色字体的和，选中数据如图所示</li>
-</ul>
-<img src="/2016/04/03/Excel2013：[30]subtotal函数按照字体颜色求和/d019d2bf6c81800a44429275b33533fa838b47e2.jpg" title="Excel2013：[30]subtotal函数按照字体颜色求和">
-<ul>
-<li>在【数据】菜单下，我们点击【筛选】</li>
-</ul>
-<img src="/2016/04/03/Excel2013：[30]subtotal函数按照字体颜色求和/6dc09e0a19d8bc3eeeaf1db1808ba61ea9d345e2.jpg" title="Excel2013：[30]subtotal函数按照字体颜色求和">
-<ul>
-<li>你可以看到这个下拉箭头，我们打开它的下拉菜单</li>
-</ul>
-<img src="/2016/04/03/Excel2013：[30]subtotal函数按照字体颜色求和/373bc4b44aed2e7349259d578501a18b86d6faba.jpg" title="Excel2013：[30]subtotal函数按照字体颜色求和">
-<ul>
-<li>菜单中有一个选项是【按颜色筛选】，好的，选择它，然后在次级菜单中选择红色</li>
-</ul>
-<img src="/2016/04/03/Excel2013：[30]subtotal函数按照字体颜色求和/4075890a304e251ffc50ff83a586c9177e3e53e2.jpg" title="Excel2013：[30]subtotal函数按照字体颜色求和">
-<ul>
-<li>接着，我们随便找一个存放总数的单元格，我们输入公式=SUBTOTAL(，这时候你会看到一个下拉菜单提示你可选参数，因为我们要求和，所以我们使用第九个参数9，然后输入一个逗号，再选择求和的区域</li>
-</ul>
-<img src="/2016/04/03/Excel2013：[30]subtotal函数按照字体颜色求和/263e802f07082838d4c1c76fba99a9014d08f1ba.jpg" title="Excel2013：[30]subtotal函数按照字体颜色求和">
-<ul>
-<li>最后输入的公式是这样的：</li>
-</ul>
-<img src="/2016/04/03/Excel2013：[30]subtotal函数按照字体颜色求和/38403f3fb80e7bec650e189a2d2eb9389a506bb1.jpg" title="Excel2013：[30]subtotal函数按照字体颜色求和">
-<ul>
-<li>最后看到了吧，总数是不是正确呀。</li>
-</ul>
-<img src="/2016/04/03/Excel2013：[30]subtotal函数按照字体颜色求和/1e71f724b899a90183f9404d1f950a7b0308f5ba.jpg" title="Excel2013：[30]subtotal函数按照字体颜色求和">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1172,6 +1178,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/09/17/卡方差值的显著性检验/tfstats/">Untitled</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/09/17/卡方差值的显著性检验/">卡方差值的显著性检验</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/09/11/f02-多重共线性理论解释+危害+解决方法/">f02-多重共线性理论解释+危害+解决方法</a>
             </li>
             
@@ -1203,14 +1217,6 @@
                 <a class="footer-post" href="/2020/03/26/如何在jupyter-notebook中运行javascript和HTML代码/">如何在jupyter notebook中运行jav</a>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">SPSS做简单调节效应分析Model-1-Of-P</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/03/20/spss-process-model4-简单中介效应分析/">spss process model4 简单中介效</a>
-            </li>
-            
         </ul>
     </div>
 
@@ -1222,7 +1228,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/lru-cache/">lru_cache</a>
+            <a class="footer-post" href="/tags/pil/">pil</a>
         </span>
         
         <span>
@@ -1358,11 +1364,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/gensim/">gensim</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/摘要生成/">摘要生成</a>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
         </span>
         
         <span>
@@ -1370,7 +1372,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+            <a class="footer-post" href="/tags/gensim/">gensim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/摘要生成/">摘要生成</a>
         </span>
         
         <span>
@@ -1426,38 +1432,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/electron/">electron</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/flexx/">flexx</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/gui/">gui</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/selenium/">selenium</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/格式化字符串/">格式化字符串</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/logging/">logging</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/EM/">EM</a>
         </span>
         
@@ -1486,6 +1460,14 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/electron/">electron</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gui/">gui</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/networkx/">networkx</a>
         </span>
         
@@ -1498,11 +1480,27 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/graphviz/">graphviz</a>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
+            <a class="footer-post" href="/tags/selenium/">selenium</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/格式化字符串/">格式化字符串</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
         </span>
         
         <span>
@@ -1514,7 +1512,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/pil/">pil</a>
+            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
         </span>
         
         <span>
@@ -1554,15 +1552,15 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/tensorflow教程/">tensorflow教程</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/svd/">svd</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/pca/">pca</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/tensorflow教程/">tensorflow教程</a>
         </span>
         
         <span>
@@ -1590,6 +1588,14 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/卡方/">卡方</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/显著性/">显著性</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/chrome/">chrome</a>
         </span>
         
@@ -1606,15 +1612,15 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/心理学/">心理学</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/可视化/">可视化</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/visjs/">visjs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/心理学/">心理学</a>
         </span>
         
         <span>
