@@ -29,11 +29,13 @@ skip_render:
 - '*.json'
 - '*.vender'
 - '*.html'
+- '*.js'
 - 'skip_render/**'
 - '_posts/**/skip_render/**'
 - '_posts/**/**.html'  # 这是用于 p5js教程
 - 'siteMirrors/**'
 - 'skip_me_*'
+- '**/*.js'
 
 
 # Writing
