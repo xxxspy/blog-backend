@@ -249,6 +249,15 @@ c = <input  onchange="onChange()" value="0.287" name="pc" type="number" style="w
 - 我们这篇文章介绍了两种方法来检验调节效应, 两种方法本质上都是做了两次回归, 结果也是一样的。
 - Process的好处是大大简化了我们的操作步骤
 
+### 视频教程
+
+<iframe src="//player.bilibili.com/player.html?aid=98695678&bvid=BV1C7411m7V3&cid=168474391&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  style="width:800px;height:600px"> </iframe>
+
+<iframe src="//player.bilibili.com/player.html?aid=98695678&bvid=BV1C7411m7V3&cid=168474418&page=2" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
+
+<iframe src="//player.bilibili.com/player.html?aid=98695678&bvid=BV1C7411m7V3&cid=168474513&page=3" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
+
+<iframe src="//player.bilibili.com/player.html?aid=98695678&bvid=BV1C7411m7V3&cid=168474555&page=4" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
 
 > **注意**
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](SPSS做简单调节效应分析Model-1-Of-Process.ipynb)
