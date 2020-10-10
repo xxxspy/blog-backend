@@ -2,7 +2,7 @@
      "name": "draw.io",
      "description": "Draw.io add-on for JIRA",
      "key": "com.mxgraph.jira.plugins.drawio",
-     "baseUrl": "https://www.draw.io",
+     "baseUrl": "https://www.mlln.cn/drawio",
      "enableLicensing": true,
      "vendor": {
          "name": "JGraph Ltd.",
