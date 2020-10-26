@@ -288,8 +288,14 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程23-3：强化学习(包括Qlearning)/">
-                    李宏毅机器学习教程23-3：强化学习(包括Qlearning)
+                <a href="/2018/09/21/李宏毅机器学习教程2：误差来自哪里/">
+                    李宏毅机器学习教程2：误差来自哪里
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程12：半监督学习/">
+                    李宏毅机器学习教程12：半监督学习
                 </a>
             </div>
             
@@ -300,14 +306,8 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程13：无监督学习/">
-                    李宏毅机器学习教程13：无监督学习
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程12：半监督学习/">
-                    李宏毅机器学习教程12：半监督学习
+                <a href="/2018/09/21/李宏毅机器学习教程15：无监督学习-neighbor-embeding/">
+                    李宏毅机器学习教程15：无监督学习-neighbor-embeding
                 </a>
             </div>
             
@@ -381,8 +381,8 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程2：误差来自哪里/">
-                    李宏毅机器学习教程2：误差来自哪里
+                <a href="/2018/09/21/李宏毅机器学习教程23-3：强化学习(包括Qlearning)/">
+                    李宏毅机器学习教程23-3：强化学习(包括Qlearning)
                 </a>
             </div>
             
@@ -444,6 +444,66 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/09/23/python高级教程：[3]yield生成器/">
+                python高级教程：[3]yield生成器
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年09月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>基于yield这个指令，Python可以挂起一个程序并返回中间结果，被挂起的程序会保持自己的执行环境，在必要的时候再重启它。</p>
+<ul>
+<li>先看看yield的简单用法：yield_example表示一个2的n次方的无穷数列，我们想要它输出前10项，就用[ye.next() for a in range(10)]</li>
+</ul>
+<img src="/2015/09/23/python高级教程：[3]yield生成器/9864a2315c6034a8fd2d583fcd13495408237606.jpg" title="python高级教程：[3]yield生成器">
+<ul>
+<li><p>一个生成器的next()方法可以让程序运行，并输出yield的值，然后再次被挂起，直到下一个next被调用。这句I是一个生成器。我们经常使用生成器来表示一个无穷数列，下面看一个复杂的例子。</p>
+</li>
+<li><p>用yield写一个分组数列，分组数列的定义是：</p>
+</li>
+</ul>
+<img src="/2015/09/23/python高级教程：[3]yield生成器/034965f40ad162d9db928fa217dfa9ec8b13cdd5.jpg" title="python高级教程：[3]yield生成器">
+<img src="/2015/09/23/python高级教程：[3]yield生成器/43e6c733c895d1435df9069d75f082025baf0746.jpg" title="python高级教程：[3]yield生成器">
+<ul>
+<li>实现分组数列的代码：</li>
+</ul>
+<img src="/2015/09/23/python高级教程：[3]yield生成器/570f8c58d109b3de377306d6cabf6c81810a4c05.jpg" title="python高级教程：[3]yield生成器">
+<ul>
+<li>为什么使用字典作为sublist函数的参数，这是因为在传参的时候，如果参数是字典，那么传递的是一个指针，而不是字典的数据，因此当sublist改变了字典的数据的时候，位于fenqunlist函数中的kwargs字典的数据也会发生改变，这是我所希望的。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -1090,79 +1150,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/">
-                SPSS实例：[34]二分类变量关联程度的度量
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年09月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>现在有一个食物中毒的问题，我们想要知道吃了某种食物的人是否更容易中毒呢？看一下现在的数据。看food变量，我用数字0代表没吃食物，用数字1代表吃了某种食物；看posion变量，我使用0表示没中毒，用1表示中毒了。频率就不解释了，你懂。</p>
-<ul>
-<li>使用频率对case进行加权。这个说过很多遍了，不懂的人去看这里的加权部分：<a href="http://jingyan.baidu.com/article/9113f81b2e988c2b3214c70f.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/9113f81b2e988c2b3214c70f.html</a></li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/a84052086e061d959af7728f79f40ad163d9ca91.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<ul>
-<li>加权ok以后，我们找到交叉表分析</li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/1e71f724b899a901c1501e811f950a7b0308f5e5.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<ul>
-<li>把两个变量分别放入不同的框中</li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/6391e903918fa0ec977621ba249759ee3c6ddb91.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<ul>
-<li>点击统计量按钮，我们来设置一下输出的统计量</li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/507c389759ee3d6df1a3c27c41166d224e4adee5.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<ul>
-<li>我们选择Risk指数，也就是风险评估，当然你也得选择卡方</li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/08b68e529822720ea37fa74d79cb0a46f31fab91.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<ul>
-<li>回到主界面，点击ok按钮，开始处理数据</li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/bf487563f6246b60b4bff7c3e9f81a4c500fa291.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<ul>
-<li>先看卡方检验结果，卡方显示显著，表示是否吃某种食物与中毒与否是相关的。</li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/1b0d4f0fd9f9d72adfd555aad62a2834359bbb91.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<ul>
-<li>接着看风险评估，OR值如图所示，它表示吃了某种食物的人比没有吃该事物的人中毒的概率高出24倍</li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/f76575600c33874451a06acb530fd9f9d62aa0e5.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1204,6 +1191,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/10/13/大学生婚恋观影响因素的调查研究-问卷数据分享/">大学生婚恋观影响因素的调查研究-问卷数据分享</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
             </li>
             
@@ -1239,10 +1230,6 @@
                 <a class="footer-post" href="/2020/09/10/03-正态性检验/">正态性检验</a>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2020/09/10/01-单变量离群值的判断/">单变量离群值的判断</a>
-            </li>
-            
         </ul>
     </div>
 
@@ -1254,7 +1241,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1278,10 +1265,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/numpy/">numpy</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/问卷互填/">问卷互填</a>
         </span>
         
@@ -1294,6 +1277,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/问卷网/">问卷网</a>
         </span>
         
@@ -1302,15 +1289,15 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/python/">python</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
         </span>
         
         <span>
@@ -1326,6 +1313,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/卡方检验/">卡方检验</a>
         </span>
         
@@ -1334,19 +1325,15 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/MathJax/">MathJax</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/Latex/">Latex</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
         </span>
         
         <span>
@@ -1446,11 +1433,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/officejs/">officejs</a>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
         </span>
         
         <span>
@@ -1486,6 +1473,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
         </span>
         
@@ -1494,15 +1485,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/logging/">logging</a>
+            <a class="footer-post" href="/tags/os/">os</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/时间序列/">时间序列</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/scipy/">scipy</a>
         </span>
         
         <span>
@@ -1514,15 +1501,15 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/scipy/">scipy</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/requests/">requests</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/cookies/">cookies</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/os/">os</a>
         </span>
         
         <span>
@@ -1538,11 +1525,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>
@@ -1555,6 +1542,10 @@
         
         <span>
             <a class="footer-post" href="/tags/tensorflow教程/">tensorflow教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/cron/">cron</a>
         </span>
         
         <span>
@@ -1571,10 +1562,6 @@
         
         <span>
             <a class="footer-post" href="/tags/wxpython/">wxpython</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/cron/">cron</a>
         </span>
         
         <span>
@@ -1598,6 +1585,22 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/爬虫/">爬虫</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/卡方/">卡方</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/区块链/">区块链</a>
         </span>
         
@@ -1614,15 +1617,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/chrome/">chrome</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/爬虫/">爬虫</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
+            <a class="footer-post" href="/tags/数据分享/">数据分享</a>
         </span>
         
         <span>
@@ -1638,19 +1633,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/测量心理学/">测量心理学</a>
+            <a class="footer-post" href="/tags/招聘/">招聘</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/PISA/">PISA</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/ETS/">ETS</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/卡方/">卡方</a>
+            <a class="footer-post" href="/tags/eprime代做/">eprime代做</a>
         </span>
         
     </ul>

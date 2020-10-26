@@ -288,8 +288,14 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程23-3：强化学习(包括Qlearning)/">
-                    李宏毅机器学习教程23-3：强化学习(包括Qlearning)
+                <a href="/2018/09/21/李宏毅机器学习教程2：误差来自哪里/">
+                    李宏毅机器学习教程2：误差来自哪里
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程12：半监督学习/">
+                    李宏毅机器学习教程12：半监督学习
                 </a>
             </div>
             
@@ -300,14 +306,8 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程13：无监督学习/">
-                    李宏毅机器学习教程13：无监督学习
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程12：半监督学习/">
-                    李宏毅机器学习教程12：半监督学习
+                <a href="/2018/09/21/李宏毅机器学习教程15：无监督学习-neighbor-embeding/">
+                    李宏毅机器学习教程15：无监督学习-neighbor-embeding
                 </a>
             </div>
             
@@ -381,8 +381,8 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程2：误差来自哪里/">
-                    李宏毅机器学习教程2：误差来自哪里
+                <a href="/2018/09/21/李宏毅机器学习教程23-3：强化学习(包括Qlearning)/">
+                    李宏毅机器学习教程23-3：强化学习(包括Qlearning)
                 </a>
             </div>
             
@@ -444,6 +444,43 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2017/09/28/EPrime中如使何呈现时间随机/">
+                EPrime中如使何呈现时间随机
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017年09月28日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h3 id="问题：EPrime中如使何呈现时间随机"><a href="#问题：EPrime中如使何呈现时间随机" class="headerlink" title="问题：EPrime中如使何呈现时间随机"></a>问题：EPrime中如使何呈现时间随机</h3><h3 id="问题内容"><a href="#问题内容" class="headerlink" title="问题内容"></a>问题内容</h3><p>想使trial之间插入的空屏的呈现时间在一定范围内随机，请问该如何实现？<br><em>就是一个trial结束之后随机空屏500-1000ms
+</em>之前在别的回答里看到有说用list实现…现在的实验设计已经是两层嵌套了，感觉再用list就= =…虽然也可以啦就是有点复杂…</p>
+<p>谢谢回答诶~</p>
+        </div>
+        <a href="/2017/09/28/EPrime中如使何呈现时间随机/" class="read-more">Read More</a>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/eprime/">#eprime</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -924,60 +961,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2017/06/13/神经网络python库keras在windows下部署过程，带下载链接/">
-                神经网络python库keras在windows下部署过程，带下载链接
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2017年06月13日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h3><span id="环境">环境</span></h3><ul>
-<li>64位win10</li>
-<li>python 3.5 64 bit</li>
-</ul>
-<p>keras的官方文档说，他们只支持python2.7-python3.5。</p>
-<h3><span id="下载wheels">下载wheels</span></h3><p>因为numpy和scipy在windows平台上安装会出现编译问题，因为他们依赖一些c库会找不到，所以我们就安装wheel格式的库，他们是预先编译好的。</p>
-<p>下载链接：<a href="http://pan.baidu.com/s/1dETxbwd" target="_blank" rel="noopener">http://pan.baidu.com/s/1dETxbwd</a> 密码：5jwl</p>
-<p>在这里你能看到有很多<code>.whl</code>格式的文件，如果你跟我的python版本一样，你可以下载，否则你需要下载适合你自己版本的安装文件。</p>
-<img src="/2017/06/13/神经网络python库keras在windows下部署过程，带下载链接/baiduyun.jpg">
-<h3><span id="安装numpy和scipy">安装numpy和scipy</span></h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> wheel文件所在的文件夹</span><br><span class="line">pip install "numpy-<span class="number">1</span>.<span class="number">11</span>.<span class="number">3</span>+mkl-cp35-cp35m-win_amd64.whl"</span><br><span class="line">pip install "scipy-<span class="number">0</span>.<span class="number">19</span>.<span class="number">0</span>-cp35-cp35m-win_amd64.whl"</span><br></pre></td></tr></table></figure>
-<h3><span id="安装tensorflow">安装tensorflow</span></h3><p>tensorflow是keras的神经网络计算引擎，但是安装keras的时候，不会自动安装它，因为这是一个可选包，所以你的自己安装。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow</span><br></pre></td></tr></table></figure>
-<h3><span id="安装keras">安装keras</span></h3><p>因为在安装麻烦的库已经安装好了，现在可以安装keras了。keras还依赖一些其他的库，比如six/tensorflow/pyyaml等，不过他们可以在安装keras的时候，自动被安装，所以不需要你手动安装。</p>
-<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install keras</span><br></pre></td></tr></table></figure>
-<h3><span id="hello-keras">hello keras</span></h3><p>打开python shell，可以在cmd中输入python来打开。</p>
-<p>首先来构建一个网络结构</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense, Activation</span><br><span class="line">model.add(Dense(units=<span class="number">25</span>, input_dim=<span class="number">64</span>))</span><br><span class="line">model=Sequential()   <span class="comment">#网络基本结构</span></span><br><span class="line">model.add(Dense(units=<span class="number">25</span>, input_dim=<span class="number">8</span>*<span class="number">8</span>))  <span class="comment">#添加一个隐层，有25个节点，64个输入</span></span><br><span class="line">model.add(Activation(<span class="string">"sigmoid"</span>))  <span class="comment">#设置激活函数logistic</span></span><br><span class="line">model.add(Dense(units=<span class="number">10</span>))  <span class="comment">#增加一个输出层</span></span><br><span class="line">model.add(Activation(<span class="string">'sigmoid'</span>))  <span class="comment"># 设置激活函数</span></span><br></pre></td></tr></table></figure>
-<p>准备数据，我们要得到输入和输出矩阵，输入矩阵每一行是一个64维的向量，输出矩阵每一行是一个10维矩阵</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">data=open(<span class="string">'orc-data.csv'</span>,<span class="string">'r'</span>).readlines()</span><br><span class="line">data=[line.strip().split(<span class="string">','</span>) <span class="keyword">for</span> line <span class="keyword">in</span> data]</span><br><span class="line">data=[list(map(row, int)) <span class="keyword">for</span> row <span class="keyword">in</span> data]</span><br><span class="line">data=[list(map(int, row)) <span class="keyword">for</span> row <span class="keyword">in</span> data]</span><br><span class="line">X=[row[<span class="number">1</span>:] <span class="keyword">for</span> row <span class="keyword">in</span> data]</span><br><span class="line">temp_Y=[row[<span class="number">0</span>] <span class="keyword">for</span> row <span class="keyword">in</span> data]</span><br><span class="line">Y=[]</span><br><span class="line"><span class="keyword">for</span> y <span class="keyword">in</span> temp_Y:</span><br><span class="line">	v=[<span class="number">0</span>]*<span class="number">10</span></span><br><span class="line">	v[y]=<span class="number">1</span></span><br><span class="line">	Y.append(v)</span><br></pre></td></tr></table></figure>
-<p>现在我们得到了两个矩阵X和Y。网络结构已经建好，我们可以训练这个模型了</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>,</span><br><span class="line">				optimizer=<span class="string">'adam'</span>,</span><br><span class="line">				metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line">model.fid(X, Y, batch_size=<span class="number">100</span>, nb_epoch=<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/机器学习/">#机器学习</a> <a href="/tags/keras/">#keras</a> <a href="/tags/神经网络/">#神经网络</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1019,6 +1002,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/10/13/大学生婚恋观影响因素的调查研究-问卷数据分享/">大学生婚恋观影响因素的调查研究-问卷数据分享</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
             </li>
             
@@ -1054,10 +1041,6 @@
                 <a class="footer-post" href="/2020/09/10/03-正态性检验/">正态性检验</a>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2020/09/10/01-单变量离群值的判断/">单变量离群值的判断</a>
-            </li>
-            
         </ul>
     </div>
 
@@ -1069,7 +1052,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1093,10 +1076,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/numpy/">numpy</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/问卷互填/">问卷互填</a>
         </span>
         
@@ -1109,6 +1088,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/问卷网/">问卷网</a>
         </span>
         
@@ -1117,15 +1100,15 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/python/">python</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
         </span>
         
         <span>
@@ -1141,6 +1124,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/卡方检验/">卡方检验</a>
         </span>
         
@@ -1149,19 +1136,15 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/MathJax/">MathJax</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/Latex/">Latex</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
         </span>
         
         <span>
@@ -1261,11 +1244,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/officejs/">officejs</a>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
         </span>
         
         <span>
@@ -1301,6 +1284,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
         </span>
         
@@ -1309,15 +1296,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/logging/">logging</a>
+            <a class="footer-post" href="/tags/os/">os</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/时间序列/">时间序列</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/scipy/">scipy</a>
         </span>
         
         <span>
@@ -1329,15 +1312,15 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/scipy/">scipy</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/requests/">requests</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/cookies/">cookies</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/os/">os</a>
         </span>
         
         <span>
@@ -1353,11 +1336,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>
@@ -1370,6 +1353,10 @@
         
         <span>
             <a class="footer-post" href="/tags/tensorflow教程/">tensorflow教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/cron/">cron</a>
         </span>
         
         <span>
@@ -1386,10 +1373,6 @@
         
         <span>
             <a class="footer-post" href="/tags/wxpython/">wxpython</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/cron/">cron</a>
         </span>
         
         <span>
@@ -1413,6 +1396,22 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/爬虫/">爬虫</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/卡方/">卡方</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/区块链/">区块链</a>
         </span>
         
@@ -1429,15 +1428,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/chrome/">chrome</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/爬虫/">爬虫</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
+            <a class="footer-post" href="/tags/数据分享/">数据分享</a>
         </span>
         
         <span>
@@ -1453,19 +1444,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/测量心理学/">测量心理学</a>
+            <a class="footer-post" href="/tags/招聘/">招聘</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/PISA/">PISA</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/ETS/">ETS</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/卡方/">卡方</a>
+            <a class="footer-post" href="/tags/eprime代做/">eprime代做</a>
         </span>
         
     </ul>

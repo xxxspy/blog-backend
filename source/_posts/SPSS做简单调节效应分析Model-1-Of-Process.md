@@ -530,7 +530,7 @@ d3Option = {
                 data: ['XL','XM','XH']
             },
             yAxis: {
-                type: 'value'
+                type: 'value',
             },
             series: [
                 {
@@ -569,10 +569,13 @@ d3Option = {
             let text = $('#visual-codes').val()
             let cols = [];
             let rows = []
+            // y值
+            let ys = []
+
             text.split('\n').forEach((line, i)=>{
-                console.log(line)
+                console.log('line: '+line)
                 line = line.trim()
-                if(line == 'BEGIN DATA.'){
+                if(line == 'BEGIN DATA.' || line.length==0){
                     return
                 }
 
@@ -584,15 +587,26 @@ d3Option = {
                 }
                 let row = []
                 line.forEach((val, j)=>{
-                    row.push(parseFloat(val))
+                    val = parseFloat(val)
+                    if(!isNaN(val)){
+                        row.push(val)
+                    }
                 })
-                rows.push(row)
+                if(row.length>0){
+                    console.log('row:')
+                    console.log(row)
+                    rows.push(row)
+                    ys.push(row[2])
+                }
                 
             })
-            return {
+            let rtn = {
                 'cols': cols,
                 'rows': rows,
+                'ymin': Math.min(...ys),
+                'ymax': Math.max(...ys),
             }
+            return rtn
         }
 
         
@@ -632,6 +646,9 @@ d3Option = {
                 },
             ]
             codeOption.xAxis.data = xaxis;
+            let ystep = d.ymax - d.ymin
+            codeOption.yAxis.min = d.ymin - ystep*0.3
+            codeOption.yAxis.max = d.ymax + ystep*0.3
             codeOption.series = series;
             codeOption.legend.data = legend;
             myCodeChart.setOption(codeOption)

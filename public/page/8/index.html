@@ -288,8 +288,14 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程23-3：强化学习(包括Qlearning)/">
-                    李宏毅机器学习教程23-3：强化学习(包括Qlearning)
+                <a href="/2018/09/21/李宏毅机器学习教程2：误差来自哪里/">
+                    李宏毅机器学习教程2：误差来自哪里
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程12：半监督学习/">
+                    李宏毅机器学习教程12：半监督学习
                 </a>
             </div>
             
@@ -300,14 +306,8 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程13：无监督学习/">
-                    李宏毅机器学习教程13：无监督学习
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程12：半监督学习/">
-                    李宏毅机器学习教程12：半监督学习
+                <a href="/2018/09/21/李宏毅机器学习教程15：无监督学习-neighbor-embeding/">
+                    李宏毅机器学习教程15：无监督学习-neighbor-embeding
                 </a>
             </div>
             
@@ -381,8 +381,8 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程2：误差来自哪里/">
-                    李宏毅机器学习教程2：误差来自哪里
+                <a href="/2018/09/21/李宏毅机器学习教程23-3：强化学习(包括Qlearning)/">
+                    李宏毅机器学习教程23-3：强化学习(包括Qlearning)
                 </a>
             </div>
             
@@ -444,6 +444,47 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2018/11/01/安装stata并在jupyter-notebook中调用/">
+                安装stata并在jupyter notebook中调用
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018年11月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>Stata是做生物统计/计量经济学的重要统计工具, 而python是做数据科学的利器, ipystata将stata和python结合在一起, 并能够在jupyter notebook中使用, 使得我们的工作效率大大提升。下面我们介绍一下, 如何安装stata, 如何在python中使用stata, 并进行stata的一些自动化操作。</p>
+<p>目前来看, 在jupyternotebook中使用stata有两种方案:</p>
+<ul>
+<li>方案一: 使用ipystata模块, 这个模块提供了<code>%%stata</code>魔法函数, 可以把notebook的cell可以执行stata语句</li>
+<li>方案二: 使用stata_kernel, 它实际上是一个notebook kernel, 使用stata kernel创建的notebook, 只能执行stata语句</li>
+</ul>
+<p>下面我们分别介绍两种方案。</p>
+        </div>
+        <a href="/2018/11/01/安装stata并在jupyter-notebook中调用/" class="read-more">Read More</a>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/jupyter/">#jupyter</a> <a href="/tags/stata/">#stata</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -695,41 +736,6 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2018/10/16/textgenrnn-demo/">
-                使用textgenrnn生成文本(最后生成中文)
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2018年10月16日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p><span></span><br>
-        </p></div>
-        <a href="/2018/10/16/textgenrnn-demo/" class="read-more">Read More</a>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/tensorflow/">#tensorflow</a> <a href="/tags/keras/">#keras</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
             <a href="/2018/10/16/keras教程-08-Dropout的原理和实现/">
                 keras教程-08-Dropout的原理和实现
             </a>
@@ -765,13 +771,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2018/10/14/sentimentpy模块进行中文文本情感分类/">
-                sentimentpy模块进行中文文本情感分类
+            <a href="/2018/10/16/textgenrnn-demo/">
+                使用textgenrnn生成文本(最后生成中文)
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2018年10月14日</span>
+                <span class="date">2018年10月16日</span>
             
             
             
@@ -780,33 +786,16 @@
 
     
         <div class="content">
-            <p>sentimentpy是我根据R语言的一个文本情感分析包<code>sentiment</code>进行开发的, 开发的初衷有:</p>
-<ul>
-<li>R的sentiment已经被弃坑, 没人维护</li>
-<li>Python比R更擅长文本处理</li>
-<li>sentiment包不支持中文</li>
-</ul>
-<p>而sentimentpy包有如下特点:</p>
-<ul>
-<li>使用朴素贝叶斯分类算法</li>
-<li>利用了情感词典</li>
-<li>支持中英文</li>
-<li>支持情绪分类(喜怒哀乐恶惊)</li>
-<li>支持极性分类(positive/negtive/both)</li>
-</ul>
-<p>正在开发的功能:</p>
-<ul>
-<li>利用语料库训练神经网络进行分类</li>
-</ul>
-        </div>
-        <a href="/2018/10/14/sentimentpy模块进行中文文本情感分类/" class="read-more">Read More</a>
+            <p><span></span><br>
+        </p></div>
+        <a href="/2018/10/16/textgenrnn-demo/" class="read-more">Read More</a>
     
 
     
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/文本挖掘/">#文本挖掘</a> <a href="/tags/情感分析/">#情感分析</a>
+            <a href="/tags/tensorflow/">#tensorflow</a> <a href="/tags/keras/">#keras</a>
         </div>
     
 
@@ -853,6 +842,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/10/13/大学生婚恋观影响因素的调查研究-问卷数据分享/">大学生婚恋观影响因素的调查研究-问卷数据分享</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
             </li>
             
@@ -888,10 +881,6 @@
                 <a class="footer-post" href="/2020/09/10/03-正态性检验/">正态性检验</a>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2020/09/10/01-单变量离群值的判断/">单变量离群值的判断</a>
-            </li>
-            
         </ul>
     </div>
 
@@ -903,7 +892,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -927,10 +916,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/numpy/">numpy</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/问卷互填/">问卷互填</a>
         </span>
         
@@ -943,6 +928,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/问卷网/">问卷网</a>
         </span>
         
@@ -951,15 +940,15 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/python/">python</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
         </span>
         
         <span>
@@ -975,6 +964,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/卡方检验/">卡方检验</a>
         </span>
         
@@ -983,19 +976,15 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/MathJax/">MathJax</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/Latex/">Latex</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
         </span>
         
         <span>
@@ -1095,11 +1084,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/officejs/">officejs</a>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
         </span>
         
         <span>
@@ -1135,6 +1124,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
         </span>
         
@@ -1143,15 +1136,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/logging/">logging</a>
+            <a class="footer-post" href="/tags/os/">os</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/时间序列/">时间序列</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/scipy/">scipy</a>
         </span>
         
         <span>
@@ -1163,15 +1152,15 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/scipy/">scipy</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/requests/">requests</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/cookies/">cookies</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/os/">os</a>
         </span>
         
         <span>
@@ -1187,11 +1176,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>
@@ -1204,6 +1193,10 @@
         
         <span>
             <a class="footer-post" href="/tags/tensorflow教程/">tensorflow教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/cron/">cron</a>
         </span>
         
         <span>
@@ -1220,10 +1213,6 @@
         
         <span>
             <a class="footer-post" href="/tags/wxpython/">wxpython</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/cron/">cron</a>
         </span>
         
         <span>
@@ -1247,6 +1236,22 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/爬虫/">爬虫</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/卡方/">卡方</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/区块链/">区块链</a>
         </span>
         
@@ -1263,15 +1268,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/chrome/">chrome</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/爬虫/">爬虫</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
+            <a class="footer-post" href="/tags/数据分享/">数据分享</a>
         </span>
         
         <span>
@@ -1287,19 +1284,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/测量心理学/">测量心理学</a>
+            <a class="footer-post" href="/tags/招聘/">招聘</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/PISA/">PISA</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/ETS/">ETS</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/卡方/">卡方</a>
+            <a class="footer-post" href="/tags/eprime代做/">eprime代做</a>
         </span>
         
     </ul>
