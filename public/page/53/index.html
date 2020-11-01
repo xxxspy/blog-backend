@@ -104,9 +104,8 @@
     
     
     
-    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <script data-ad-client="ca-pub-9377487079883038" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 
@@ -179,8 +178,8 @@
 <div class="page_list archive-container">
         
     <div class="archive-post" style="opacity: 1;">
-        <a href="/guideToPython/">
-            推荐书: Python开发最佳实践
+        <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+            SPSS视频教程内容目录和跳转链接
         </a>
     </div>
     
@@ -294,20 +293,20 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程12：半监督学习/">
-                    李宏毅机器学习教程12：半监督学习
-                </a>
-            </div>
-            
-            <div class="archive-post">
                 <a href="/2018/09/21/李宏毅机器学习教程14：无监督学习-词嵌入模型/">
                     李宏毅机器学习教程14：无监督学习-词嵌入模型
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程15：无监督学习-neighbor-embeding/">
-                    李宏毅机器学习教程15：无监督学习-neighbor-embeding
+                <a href="/2018/09/21/李宏毅机器学习教程13：无监督学习/">
+                    李宏毅机器学习教程13：无监督学习
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程16：无监督学习-自编码器/">
+                    李宏毅机器学习教程16：无监督学习-自编码器
                 </a>
             </div>
             
@@ -444,6 +443,343 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/">
+                SPSS二因素完全随机设计的简单效应检验方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>spss在做简单效应的时候没有现成的菜单选项，需要你自己编写syntax，所以比较麻烦，在这个教程了，我交给大家一个办法，不用学太多的syntax就能自己做简单效应，下面是具体的方法：<br>工具/原料</p>
+<ul>
+<li>spss20.0<br>方法/步骤</li>
+</ul>
+<ul>
+<li>在菜单栏上执行：analyse–GLM–univariate，打开方差分析对话框</li>
+</ul>
+<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/6a600c338744ebf8b74dcffdd9f9d72a6059a730.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
+<ul>
+<li>将自变量、因变量放入各自的框中，如图所示，B和Z是两个自变量，他们是完全随机设计，点击ok按钮，开始运行数据</li>
+</ul>
+<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/a08b87d6277f9e2f7e17b6ca1f30e924b999f3d6.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
+<ul>
+<li>我们看到数据的处理效果，交互作用显著，所以我们需要进一步做简单效益的检验</li>
+</ul>
+<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/4d086e061d950a7b8140e5060ad162d9f3d3c9ff.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
+<ul>
+<li>如图所示，点击菜单栏上的按钮，打开刚才用过的univariate对话框</li>
+</ul>
+<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/4ec2d5628535e5dd0d5d0e1d76c6a7efcf1b62fb.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
+<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/203fb80e7bec54e7d481b1dcb9389b504ec26a87.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
+<ul>
+<li>点击下面的paste按钮，来到syntax的编辑窗口</li>
+</ul>
+<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/f3d3572c11dfa9ec016afdd562d0f703908fc1a8.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
+<ul>
+<li><p>在如图所示的位置，添加一个命令：/EMMEANS=TABLES(B*Z)COMPARE(B)ADJ(SIDAK)</p>
+</li>
+<li><p>其中：EMMEANSE是estimated marginal means subcommand的缩写，意思是估计边际平均数  </p>
+</li>
+<li><p>ADJ是比较的方法，还可以用lsd ，bonferroni和sidak这三种方法。</p>
+</li>
+<li><p>单击运行按钮，开始处理数据并输出结果</p>
+</li>
+</ul>
+<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/8694a4c27d1ed21b3fe6b927ad6eddc450da3fc0.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
+<ul>
+<li>我们看到，简单主效应的分析已经出来，通过这个表格我们就能对自变量B各个水平进行精细比较</li>
+</ul>
+<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/1ad5ad6eddc451dab7dd9b29b6fd5266d11632cc.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/07/01/wxpython教程：[2]窗口风格/">
+                wxpython教程：[2]窗口风格
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>这篇文章接着介绍wxpython.Frame，我们需要设置一下窗口的大小、位置等。下面看一下今天要写的所有代码。</p>
+<ul>
+<li>代码的前两行就不说了，引入了相关模块并创建了一个app</li>
+</ul>
+<img src="/2015/07/01/wxpython教程：[2]窗口风格/0d968f2397dda1440ba4fcddb1b7d0a20df486f5.jpg" title="wxpython教程：[2]窗口风格">
+<ul>
+<li>接着是Frame的设置，我们先来看看style，他有很多可以设置的属性，不同的属性用竖线“|”连接，比如我们想要窗口上有最大化按钮，就设置wx.MAXIMIZE_BOX，如果想要增加最小化按钮，就写成style=wx.MAXIMIZE_BOX|wx.MINIMIZE_BOX ，写一连串属性很麻烦，我们可以用wx.DEFAULT_FRAME_STYLE默认设置，它等于wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX | wx.RESIZE_BORDER | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN<br>其他属性的意义我们直接从官网上看就可以，如下图：</li>
+</ul>
+<img src="/2015/07/01/wxpython教程：[2]窗口风格/4abae5edab64034f575f5269acc379310b551d8b.jpg" title="wxpython教程：[2]窗口风格">
+<img src="/2015/07/01/wxpython教程：[2]窗口风格/109eb7ec8a136327064f515c928fa0ec09fac784.jpg" title="wxpython教程：[2]窗口风格">
+<ul>
+<li><p>接着我们想要设置窗口的大小，用size参数，Frame（…size=(200,250))，这样就将窗口大小设置为200长，250高。</p>
+</li>
+<li><p>使用Move方法可以设置窗口的位置，比如（它表示窗口的左上角在屏幕上的位置）</p>
+</li>
+</ul>
+<img src="/2015/07/01/wxpython教程：[2]窗口风格/ac754782b2b7d0a2a66494f2c8ef76094a369af5.jpg" title="wxpython教程：[2]窗口风格">
+<ul>
+<li>如果我们需要将窗口置于屏幕中央，可以使用Center方法</li>
+</ul>
+<img src="/2015/07/01/wxpython教程：[2]窗口风格/b6045da98226cffc24b82fddba014a90f703ea94.jpg" title="wxpython教程：[2]窗口风格">
+<ul>
+<li>还有其他很多方法设置窗口位置，这里就不演示了：</li>
+</ul>
+<img src="/2015/07/01/wxpython教程：[2]窗口风格/4e83cb628535e5dd279737b075c6a7efcf1b62e3.jpg" title="wxpython教程：[2]窗口风格">
+<ul>
+<li>最后就不用解释了，可以看看你创建的一个窗口</li>
+</ul>
+<img src="/2015/07/01/wxpython教程：[2]窗口风格/8bc3a7014a90f6034c220c283a12b31bb151ed94.jpg" title="wxpython教程：[2]窗口风格">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/06/23/Excel2013：[43]如何打印批注/">
+                Excel2013：[43]如何打印批注
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>怎样打印批注？我在Excel的某个单元格里插入了一个批注，但是打印的时候不显示，那么我改怎么办？怎样才能把批注打印出来？好吧，废话少说，看看下面的教程：如何打印Excel的批注：</p>
+<ul>
+<li>默认插入的批注是隐藏的，你的鼠标离开批注所在的单元格就是隐藏批注，所以要想打印批注，先要显示批注，右键单击该单元格，选择【显示/隐藏批注】</li>
+</ul>
+<img src="/2015/06/23/Excel2013：[43]如何打印批注/bd70426034a85edf860eb9444b540923dc547593.jpg" title="Excel2013：[43]如何打印批注">
+<ul>
+<li>现在你的鼠标随便放，批注都会是显示的</li>
+</ul>
+<img src="/2015/06/23/Excel2013：[43]如何打印批注/6f4703950a7b0208eb56788660d9f2d3562cc8ff.jpg" title="Excel2013：[43]如何打印批注">
+<ul>
+<li>切换到【页面布局】下，找到【打印标题】，点击它</li>
+</ul>
+<img src="/2015/06/23/Excel2013：[43]如何打印批注/570f8c58d109b3de883da30fcebf6c81810a4c93.jpg" title="Excel2013：[43]如何打印批注">
+<ul>
+<li>在打开的对话框中，我们切换到【工作表】标签，找到【批注】选项，我们设置为【如同工作表中的显示】，当然你也可以设置成【工作表末尾】，as you like，点击确定按钮</li>
+</ul>
+<img src="/2015/06/23/Excel2013：[43]如何打印批注/cdfe7281800a19d8a681c36231fa828ba71e4693.jpg" title="Excel2013：[43]如何打印批注">
+<ul>
+<li>在开始菜单中，点击【打印】可以预览一下打印效果</li>
+</ul>
+<img src="/2015/06/23/Excel2013：[43]如何打印批注/6dc09e0a19d8bc3eaa8a41ad808ba61ea9d34593.jpg" title="Excel2013：[43]如何打印批注">
+<ul>
+<li>至此我们看到了，这是打印的效果图，显然批注已经被打印出来了。</li>
+</ul>
+<img src="/2015/06/23/Excel2013：[43]如何打印批注/99636c0e0cf3d7cad4697811f01fbe096a63a9ff.jpg" title="Excel2013：[43]如何打印批注">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/06/19/numpy函数：[3]数组对象/">
+                numpy函数：[3]数组对象
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>数组是numpy中最重要的对象，我们通常使用array()方法来创建对象，他的参数是一个list对象，我们来看看具体的方法：</p>
+<ul>
+<li>首先强调一点，我们将numpy引入，名称为np</li>
+</ul>
+<img src="/2015/06/19/numpy函数：[3]数组对象/ac0acf1373f0820220f9f19849fbfbedaa641bea.jpg" title="numpy函数：[3]数组对象">
+<ul>
+<li>我们使用一个列表作为array的参数，然后看一下这个array输出的结果，就是一个数组对象，而且是一维的</li>
+</ul>
+<img src="/2015/06/19/numpy函数：[3]数组对象/0db2c9ca7bcb0a463c27eb9e6963f6246a60afd5.jpg" title="numpy函数：[3]数组对象">
+<ul>
+<li>假如我们要创建一个二维数组，我们就要用到一个列表的嵌套，看下面的ab列表就是一个嵌套。</li>
+</ul>
+<img src="/2015/06/19/numpy函数：[3]数组对象/0b14ad19ebc4b745cbffd7b1cdfc1e178b8215ea.jpg" title="numpy函数：[3]数组对象">
+<ul>
+<li>通过array()将ab列表转换成一个二维数组。</li>
+</ul>
+<img src="/2015/06/19/numpy函数：[3]数组对象/d66b7e59252dd42af50c610c013b5bb5c8eab8d5.jpg" title="numpy函数：[3]数组对象">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/06/19/python教程：[78]type()创建类/">
+                python教程：[78]type()创建类
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天我算是长知识了，我是一个python菜鸟，以前一直认为type（A）可以返回A的类型，但是不知道type还可以用于创建class，这篇经验就是介绍一下如何用type（）创建一个类，以及如何设置该类的属性。</p>
+<ul>
+<li>我们使用type创建一个空类：只有一个名字，其他什么都没有，它的参数格式是：type(class_name,bases,dic)</li>
+</ul>
+<img src="/2015/06/19/python教程：[78]type()创建类/c8ab0bce36d3d53974894de33987e950352ab01f.jpg" title="python教程：[78]type()创建类">
+<ul>
+<li>我们用type来查看一下我们创建的cls的类型：</li>
+</ul>
+<img src="/2015/06/19/python教程：[78]type()创建类/906289dda144ad348c25c5a7d3a20cf431ad853d.jpg" title="python教程：[78]type()创建类">
+<ul>
+<li>查看cls的名称</li>
+</ul>
+<img src="/2015/06/19/python教程：[78]type()创建类/0db52fadcbef76099791dbbf2ddda3cc7cd99e3d.jpg" title="python教程：[78]type()创建类">
+<ul>
+<li>假如我们用比较熟悉的继承的方式来创建一个类，它跟cls是一样的：</li>
+</ul>
+<img src="/2015/06/19/python教程：[78]type()创建类/7d98931001e93901c598cf1e78ec54e736d1963d.jpg" title="python教程：[78]type()创建类">
+<ul>
+<li>当然，我们可以通过参数dic来设置其他任何类的属性，比如：</li>
+</ul>
+<img src="/2015/06/19/python教程：[78]type()创建类/207ea60e7bec54e7de76583eba389b504fc26a3d.jpg" title="python教程：[78]type()创建类">
+<ul>
+<li>现在cls2比cls多了属性<strong>doc</strong>,<strong>module</strong></li>
+</ul>
+<img src="/2015/06/19/python教程：[78]type()创建类/2e6fa7389b504fc238c5f225e6dde71190ef6d3d.jpg" title="python教程：[78]type()创建类">
+<img src="/2015/06/19/python教程：[78]type()创建类/d4239b35e5dde711614801d6a4efce1b9d16613d.jpg" title="python教程：[78]type()创建类">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -806,574 +1142,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/15/Python教程：[17]UDP客户端程序/">
-                Python教程：[17]UDP客户端程序
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>python可以快速的写成一个udp客户端程序，前面的文章中我们介绍了如何写udp服务器，服务器其实和客户端的程序时非常类似的，你看了下面的代码就知道了。</p>
-<ul>
-<li>先引入socket模块</li>
-</ul>
-<img src="/2015/06/15/Python教程：[17]UDP客户端程序/9e7ce6dcd100baa195843e974510b912c8fc2e36.jpg" title="Python教程：[17]UDP客户端程序">
-<ul>
-<li>设置几个参数：host主机地址，Port端口，bufsiz缓存大小</li>
-</ul>
-<img src="/2015/06/15/Python教程：[17]UDP客户端程序/e1bf8725bc315c601b4e12c38fb1cb1348547787.jpg" title="Python教程：[17]UDP客户端程序">
-<ul>
-<li>创建一个udp套接字类型，如图所示，关键参数是第二个SOCK_DGRAM</li>
-</ul>
-<img src="/2015/06/15/Python教程：[17]UDP客户端程序/c28fddfdfc039245b71d98238594a4c27d1e2536.jpg" title="Python教程：[17]UDP客户端程序">
-<ul>
-<li>下面的代码用于向服务器发送数据，并接受服务器传来的数据</li>
-</ul>
-<img src="/2015/06/15/Python教程：[17]UDP客户端程序/9319cf09b3de9c82eabe80a36e81800a18d84387.jpg" title="Python教程：[17]UDP客户端程序">
-<ul>
-<li><p>下面是完整的代码。</p>
-</li>
-<li><p>from socket import *</p>
-</li>
-<li><p>host=’localhost’  #本地服务器地址</p>
-</li>
-<li><p>port=12345  #客户端端口(确保和服务器的端口一致</p>
-</li>
-<li><p>bufsiz=2048 #缓存大小</p>
-</li>
-<li><p>addc=(host, port) #地址+端口</p>
-</li>
-<li><p>udpclisock=socket(AF_INET,SOCK_DGRAM)  #创建UDP的套接字类型。</p>
-</li>
-<li><p>while True:</p>
-</li>
-<li><p>udpclisock.sendto(b’hello’, addc)</p>
-</li>
-<li><p>data,adds=udpclisock.recvfrom(bufsiz)</p>
-</li>
-<li><p>if not data:</p>
-</li>
-<li><p>break</p>
-</li>
-<li><p>print(data)</p>
-</li>
-<li><p>udpclisock.close()</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/15/pandas教程：[5]读取csv数据/">
-                pandas教程：[5]读取csv数据
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>很多数据是从网上下载而来，数据的格式可能是csv，那么pandas可以很容易的从csv格式的文件中读取数据，下面我们来看看具体的过程：</p>
-<ul>
-<li>引入pandas</li>
-</ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/7787b9efce1b9d161dd32272f0deb48f8c54644a.jpg" title="pandas教程：[5]读取csv数据">
-<ul>
-<li>使用pandas下的read_csv方法，读取csv文件，参数是文件的路径，这是一个相对路径，是相对于当前工作目录的，那么如何知道当前的工作目录呢？</li>
-</ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/bd7faf3533fa828ba41825f0fe1f4134970a5aae.jpg" title="pandas教程：[5]读取csv数据">
-<ul>
-<li>使用os.getcwd()方法获取当前工作目录</li>
-</ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/1cd4147b02087bf47fe5effaf1d3572c11dfcf5d.jpg" title="pandas教程：[5]读取csv数据">
-<ul>
-<li>读取前三后数据，查看一下是否读取正确，显然都是乱码，这是什么问题呢？</li>
-</ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/95afee1f3a292df509d71406bf315c6034a8734a.jpg" title="pandas教程：[5]读取csv数据">
-<ul>
-<li>我们需要设定参数encoding，也就是编码方式，如果你不设定编码方式，默认是utf8，现在csv文件是gbk编码的，所以需要使用encoding=’gbk’</li>
-</ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/2cb4fefe9925bc31b049b98b5ddf8db1cb13704a.jpg" title="pandas教程：[5]读取csv数据">
-<ul>
-<li>我用的编辑器是eric4，注意，eric4默认是不支持中文的，如果你想要显示中文，前提是设置正确的编码，在preferences中</li>
-</ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/c87c6ecf3bc79f3debda5c23b9a1cd11728b29ae.jpg" title="pandas教程：[5]读取csv数据">
-<ul>
-<li>设置成utf8即可</li>
-</ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/d041a4a1cd11728b5f163431cbfcc3cec3fd2cae.jpg" title="pandas教程：[5]读取csv数据">
-<ul>
-<li>回到pandas，我们可以有更多选项来设置打开数据时的操作：</li>
-</ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/808a27dbb6fd5266fd228707a818972bd407365c.jpg" title="pandas教程：[5]读取csv数据">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/15/python 线性代数：[8]计算矩阵距离/">
-                python 线性代数：[8]计算矩阵距离
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>矩阵的距离，这里是的是欧几里得距离，其他距离表示方法我们以后再谈，今天进说一下如何计算两个形状相同矩阵之间的距离。</p>
-<ul>
-<li>创建一个矩阵a和b</li>
-</ul>
-<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/bd70426034a85edfa4889fd44b540923dc547585.jpg" title="python 线性代数：[8]计算矩阵距离">
-<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/35e940df8db1cb13626d5de4df54564e93584b85.jpg" title="python 线性代数：[8]计算矩阵距离">
-<ul>
-<li>先计算得到他俩的距离矩阵c</li>
-</ul>
-<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/0862c354564e9258e130e7199e82d158cdbf4e85.jpg" title="python 线性代数：[8]计算矩阵距离">
-<ul>
-<li>距离矩阵的平方，得到矩阵d</li>
-</ul>
-<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/e8112b2ac65c1038be14af35b0119313b17e89a4.jpg" title="python 线性代数：[8]计算矩阵距离">
-<ul>
-<li>计算矩阵d的迹</li>
-</ul>
-<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/6dc09e0a19d8bc3e880c673d808ba61ea9d34585.jpg" title="python 线性代数：[8]计算矩阵距离">
-<ul>
-<li>然后将得到的e进行开方得到距离：你可以手动算一下是不是正确。</li>
-</ul>
-<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/814b07d8bc3eb13509c3d64ca41ea8d3fc1f4485.jpg" title="python 线性代数：[8]计算矩阵距离">
-<ul>
-<li><p>我们用到的原理就是矩阵的迹的性质，在numpy或者scipy中还有计算距离的函数，我们以后再说</p>
-</li>
-<li><p>今天用到的所有代码如下：</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a=[[0,1],[1,0]]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a=np.array(a)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[0, 1],</p>
-</li>
-<li><p>[1, 0]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>b=[[1,1],[1,1]]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>b=np.array(b)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>b</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 1],</p>
-</li>
-<li><p>[1, 1]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>c=a-b</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>c</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[-1,  0],</p>
-</li>
-<li><p>[ 0, -1]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>d=np.dot(c,c)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>d</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 0],</p>
-</li>
-<li><p>[0, 1]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>e=np.trace(d)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>e</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>2</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>e**0.5</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>1.4142135623730951</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/">
-                SPSS绘图教程：[3]条形图绘制方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>和上一篇文章一样，开始先打开【图表构建程序】，通常会弹出变量属性校验窗口，不用管它，因为我们在上一篇文章中介绍了如何使用它<br>可以直接点击确定即可。</p>
-<ul>
-<li>首先在库中找到条形图，然后用鼠标将你想要的样式拖拽到预览区域</li>
-</ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/207ea60e7bec54e79a3a9ba6bb389b504ec26a71.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
-<ul>
-<li>然后将变量拖拽到相应的坐标轴，比如年龄组为横轴，干扰与否为纵轴</li>
-</ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/d4239b35e5dde7112504c24ea5efce1b9c166171.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
-<ul>
-<li>在窗口右侧，有一个属性窗口，我们设置统计量，也就是条形图中显示的统计量，用的最多的就是均值。</li>
-</ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/ae10eddeb48f8c542b05449738292df5e1fe7f71.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
-<ul>
-<li>接着，我们可以添加一个误差项，你不知道啥叫误差项？好吧，接着往下看。我们设置误差条形图的显示95%的区间</li>
-</ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/48151723dd54564e5d976581b1de9c82d0584f5d.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
-<ul>
-<li>在条形统的上面就会出现两一条横线，表示95%的区间</li>
-</ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/1899a23eb13533fa59441296aad3fd1f40345b5d.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
-<ul>
-<li>当然，我们还可以设置n个标准差或者标准误作为条形图的误差项</li>
-</ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/cdfe7281800a19d864d505bd31fa828ba71e4671.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
-<ul>
-<li>假如你没有看到属性窗口，或者不小心关闭了，你可以右键单击这个图，选择【属性窗口】，这样就打开它了。</li>
-</ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/c28fddfdfc0392452f4760b78594a4c27c1e255d.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
-<ul>
-<li>点击确定，你就可以看到你绘制好的条形图了。</li>
-</ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/a6c7d7177f3e670920d6c44739c79f3df9dc5571.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
-<ul>
-<li>OH！！不小心出现了错误，你应该能猜到为什么会出错。</li>
-</ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/9e7ce6dcd100baa13dfac6034510b912c9fc2e71.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
-<ul>
-<li>我们把变量名从中文改成英文就好了！就是对中文支持不够好。其实spss22.0已经能够支持中文变量名了。我现在还是spss20.0，该升级了。</li>
-</ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/9f1011b30f2442a7cde37c1dd343ad4bd013025d.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/11/Python教程：[62]读取路径 目录【1】/">
-                Python教程：[62]读取路径 目录【1】
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>已知一个路径，我们怎么知道文件的类型，文件存放的文件夹，根目录呢？今天这篇文章主要就是解决这个问题——根据路径提取有用信息：</p>
-<ul>
-<li>引用path模块，然后我们创建一个路径filepath</li>
-</ul>
-<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/8697397f9e2f07085a0c9980eb24b899a801f2e2.jpg" title="Python教程：[62]读取路径 目录【1】">
-<ul>
-<li>用dirname提取文件夹的路径：</li>
-</ul>
-<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/29790130e924b899df35cab86c061d950b7bf6e2.jpg" title="Python教程：[62]读取路径 目录【1】">
-<ul>
-<li>用basename提取文件名称：</li>
-</ul>
-<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/91138622720e0cf34da7fd7b0846f21fbf09aa9b.jpg" title="Python教程：[62]读取路径 目录【1】">
-<ul>
-<li>用splitdrive分割根目录和其他目录</li>
-</ul>
-<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/29790130e924b899df77cab86c061d950b7bf6ac.jpg" title="Python教程：[62]读取路径 目录【1】">
-<ul>
-<li>用split方法分割文件名及其目录</li>
-</ul>
-<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/6a2112338744ebf8bf78d7bfdbf9d72a6159a7e2.jpg" title="Python教程：[62]读取路径 目录【1】">
-<ul>
-<li>用splitext，注意它的拼写，用于分割后缀名和其他路径：</li>
-</ul>
-<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/a005b3345982b2b719e58a4433adcbef77099bfd.jpg" title="Python教程：[62]读取路径 目录【1】">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1415,6 +1183,26 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/06-效度分析/">SPSS问卷效度分析教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/10/13/大学生婚恋观影响因素的调查研究-问卷数据分享/">大学生婚恋观影响因素的调查研究-问卷数据分享</a>
             </li>
             
@@ -1423,7 +1211,7 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/09/28/psychopyz3下载地址-安装过程/">psychopyz3下载地址+安装过程</a>
+                <a class="footer-post" href="/2020/09/28/psychopyz3下载地址-安装过程/">psychopy3下载地址+安装过程</a>
             </li>
             
             <li>
@@ -1432,26 +1220,6 @@
             
             <li>
                 <a class="footer-post" href="/2020/09/17/05-共同方法偏差的诊断/">SPSS+Amos共同方法偏差的诊断</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/11/f02-多重共线性理论解释+危害+解决方法/">f02-多重共线性理论解释+危害+解决方法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/附录03-统计咨询服务/">统计咨询服务</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/04-多重共线性的诊断/">多重共线性的诊断</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/02-多变量离群值的处理/">多变量离群值的处理</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/03-正态性检验/">正态性检验</a>
             </li>
             
         </ul>
@@ -1465,11 +1233,11 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>
@@ -1478,6 +1246,18 @@
         
         <span>
             <a class="footer-post" href="/tags/问卷数据分析/">问卷数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/数据分析/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/教程/">教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/信度分析/">信度分析</a>
         </span>
         
         <span>
@@ -1501,11 +1281,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/numpy/">numpy</a>
+            <a class="footer-post" href="/tags/问卷网/">问卷网</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/问卷网/">问卷网</a>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
         </span>
         
         <span>
@@ -1537,6 +1317,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
         </span>
         
@@ -1546,10 +1330,6 @@
         
         <span>
             <a class="footer-post" href="/tags/javascript/">javascript</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
         </span>
         
         <span>
@@ -1593,11 +1373,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
+            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
         </span>
         
         <span>
@@ -1617,11 +1397,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/git/">git</a>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+            <a class="footer-post" href="/tags/git/">git</a>
         </span>
         
         <span>
@@ -1669,11 +1449,35 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+            <a class="footer-post" href="/tags/效度分析/">效度分析</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+            <a class="footer-post" href="/tags/EM/">EM</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/作文评分/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow-js/">tensorflow.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/自然语言处理/">自然语言处理</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/NLP/">NLP</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/语料库/">语料库</a>
         </span>
         
         <span>
@@ -1681,11 +1485,35 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/flexx/">flexx</a>
+            <a class="footer-post" href="/tags/gui/">gui</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/gui/">gui</a>
+            <a class="footer-post" href="/tags/networkx/">networkx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/dataframe/">dataframe</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/下载/">下载</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/网盘/">网盘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
         </span>
         
         <span>
@@ -1701,7 +1529,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
         </span>
         
         <span>
@@ -1753,7 +1581,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1777,27 +1605,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/自然语言处理/">自然语言处理</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/win32com/">win32com</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/wxpython/">wxpython</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/语料库/">语料库</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/作文评分/">作文评分</a>
         </span>
         
         <span>
@@ -1820,50 +1632,6 @@
             <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
         </span>
         
-        <span>
-            <a class="footer-post" href="/tags/卡方/">卡方</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/区块链/">区块链</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/心理学/">心理学</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/可视化/">可视化</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/visjs/">visjs</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/数据分享/">数据分享</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/“python/">“python&quot;</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/lsa/">lsa</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/潜在语义分析/">潜在语义分析</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/招聘/">招聘</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/eprime代做/">eprime代做</a>
-        </span>
-        
     </ul>
 </div>
 
@@ -1876,13 +1644,9 @@
         <h2>Links</h2>
         <ul>
             
-                <span> | </span><a class="footer-post" href="http://www.17bigdata.com/" target="_blank">一起大数据</a><span> | </span>
-            
                 <span> | </span><a class="footer-post" href="http://mlln.cn/baidusitemap.xml" target="_blank">网站地图</a><span> | </span>
             
                 <span> | </span><a class="footer-post" href="http://mlln.cn/sitemap.xml" target="_blank">DataScience</a><span> | </span>
-            
-                <span> | </span><a class="footer-post" href="http://www.superli.tech/" target="_blank">Superli&#39;sBlog</a><span> | </span>
             
         </ul>
     </div>

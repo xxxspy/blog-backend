@@ -104,9 +104,8 @@
     
     
     
-    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <script data-ad-client="ca-pub-9377487079883038" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 
@@ -179,8 +178,8 @@
 <div class="page_list archive-container">
         
     <div class="archive-post" style="opacity: 1;">
-        <a href="/guideToPython/">
-            推荐书: Python开发最佳实践
+        <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+            SPSS视频教程内容目录和跳转链接
         </a>
     </div>
     
@@ -294,20 +293,20 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程12：半监督学习/">
-                    李宏毅机器学习教程12：半监督学习
-                </a>
-            </div>
-            
-            <div class="archive-post">
                 <a href="/2018/09/21/李宏毅机器学习教程14：无监督学习-词嵌入模型/">
                     李宏毅机器学习教程14：无监督学习-词嵌入模型
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程15：无监督学习-neighbor-embeding/">
-                    李宏毅机器学习教程15：无监督学习-neighbor-embeding
+                <a href="/2018/09/21/李宏毅机器学习教程13：无监督学习/">
+                    李宏毅机器学习教程13：无监督学习
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程16：无监督学习-自编码器/">
+                    李宏毅机器学习教程16：无监督学习-自编码器
                 </a>
             </div>
             
@@ -444,6 +443,769 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/10/11/numpy函数：[18]all()和any()比较矩阵/">
+                numpy函数：[18]all()和any()比较矩阵
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>假如我们想要知道矩阵a和矩阵b中所有对应元素是否相等，我们需要使用all方法，假如我们想要知道矩阵a和矩阵b中对应元素是否有一个相等，我们需要使用any方法。下面看几个例子：</p>
+<ul>
+<li>先引入numpy模块</li>
+</ul>
+<img src="/2015/10/11/numpy函数：[18]all()和any()比较矩阵/8640bf8b87d6277fe7f17acf2a381f30e824fc23.jpg" title="numpy函数：[18]all()和any()比较矩阵">
+<ul>
+<li>创建两个数组，当然，在这里，我通常把数组教程矩阵或者向量，这无关紧要</li>
+</ul>
+<img src="/2015/10/11/numpy函数：[18]all()和any()比较矩阵/9dc3cf58ccbf6c818daf641fbe3eb13532fa4069.jpg" title="numpy函数：[18]all()和any()比较矩阵">
+<ul>
+<li>检测一下是否a和b中所有对应元素均相等，如果均相等，返回true，只要有一个不相等，返回false</li>
+</ul>
+<img src="/2015/10/11/numpy函数：[18]all()和any()比较矩阵/b0742dfa828ba61ebc7680d84334970a314e5969.jpg" title="numpy函数：[18]all()和any()比较矩阵">
+<ul>
+<li>创建一个数组c</li>
+</ul>
+<img src="/2015/10/11/numpy函数：[18]all()和any()比较矩阵/0b3a1c087bf40ad1e5078f14552c11dfa8ecce23.jpg" title="numpy函数：[18]all()和any()比较矩阵">
+<ul>
+<li>检测一下是否a和c中所有对应元素均相等，如果均相等，返回true，只要有一个不相等，返回false</li>
+</ul>
+<img src="/2015/10/11/numpy函数：[18]all()和any()比较矩阵/245e8bcad1c8a786d4b202f96509c93d71cf5069.jpg" title="numpy函数：[18]all()和any()比较矩阵">
+<ul>
+<li>但是any相反，只要有一个元素相等就可以返回true</li>
+</ul>
+<img src="/2015/10/11/numpy函数：[18]all()和any()比较矩阵/62667cd0f703918f3132753d533d269758eec423.jpg" title="numpy函数：[18]all()和any()比较矩阵">
+<ul>
+<li>再尝试一次：</li>
+</ul>
+<img src="/2015/10/11/numpy函数：[18]all()和any()比较矩阵/7e7f7909c93d70cf1962e2fafadcd100bba12b69.jpg" title="numpy函数：[18]all()和any()比较矩阵">
+<img src="/2015/10/11/numpy函数：[18]all()和any()比较矩阵/cc506c8b4710b912e359be09c1fdfc0393452269.jpg" title="numpy函数：[18]all()和any()比较矩阵">
+<ul>
+<li><p>本篇教程用到的所有代码都呈现在下方：</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>import numpy</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>a=numpy.array([1,2,3])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>b=a.copy</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>a</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([1, 2, 3])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>b</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p><built-in method copy of numpy.ndarray object at 0x0000000002ea41d0></built-in></p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>b=a.copy()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>b</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([1, 2, 3])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>(a==b).all()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>True</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>c=b.copy()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>c[0]=0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>c</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([0, 2, 3])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>a</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([1, 2, 3])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>(a==c).all()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>False</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>(a==c).any()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>True</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>c[1]=0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>c</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([0, 0, 3])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>a</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([1, 2, 3])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>(c==a).any()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>True</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/10/11/pandas教程：[10]groupby选择列和迭代/">
+                pandas教程：[10]groupby选择列和迭代
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>groupby对象可以按照列选择数据，这种做法可以减少运算量，提高运算速度。而这里讲的迭代就是对各个组进行迭代以便对各个组进行不同的操作，因为进行相同的操作不必使用迭代。</p>
+<ul>
+<li>引入相关模块</li>
+</ul>
+<img src="/2015/10/11/pandas教程：[10]groupby选择列和迭代/263e802f070828381bc51d01bb99a9014d08f198.jpg" title="pandas教程：[10]groupby选择列和迭代">
+<ul>
+<li>创建一个DataFrame对象，有两个index和两个column</li>
+</ul>
+<img src="/2015/10/11/pandas教程：[10]groupby选择列和迭代/064936381f30e924be6c5d244f086e061c95f798.jpg" title="pandas教程：[10]groupby选择列和迭代">
+<ul>
+<li>打印一下，看看DataFrame到底有哪些内容</li>
+</ul>
+<img src="/2015/10/11/pandas教程：[10]groupby选择列和迭代/29790130e924b899aef4b82d6d061d950b7bf698.jpg" title="pandas教程：[10]groupby选择列和迭代">
+<ul>
+<li>以color index进行分类，然后选择a列数据，分组计算a列数据的总数<br>计算结果为：</li>
+</ul>
+<img src="/2015/10/11/pandas教程：[10]groupby选择列和迭代/a84052086e061d95018ef62d78f40ad163d9ca98.jpg" title="pandas教程：[10]groupby选择列和迭代">
+<img src="/2015/10/11/pandas教程：[10]groupby选择列和迭代/7ab514d162d9f2d346d9e5faaaec8a136227cc98.jpg" title="pandas教程：[10]groupby选择列和迭代">
+<ul>
+<li>假如我们不选择a列，直接计算总数，可以得到。如果我们不需要b列的数据，那么显然事先选择a列进行计算可以减少无效的运算</li>
+</ul>
+<img src="/2015/10/11/pandas教程：[10]groupby选择列和迭代/90cebeec08fa513d3db7accb3e6d55fbb2fbd943.jpg" title="pandas教程：[10]groupby选择列和迭代">
+<img src="/2015/10/11/pandas教程：[10]groupby选择列和迭代/f392492c11dfa9ec9ee6970261d0f703908fc198.jpg" title="pandas教程：[10]groupby选择列和迭代">
+<ul>
+<li>迭代输出各个组的数据：<br>输出结果：</li>
+</ul>
+<img src="/2015/10/11/pandas教程：[10]groupby选择列和迭代/62667cd0f703918fb919fcdf523d269758eec498.jpg" title="pandas教程：[10]groupby选择列和迭代">
+<img src="/2015/10/11/pandas教程：[10]groupby选择列和迭代/54baacfb43166d226d6ad581452309f79052d243.jpg" title="pandas教程：[10]groupby选择列和迭代">
+<ul>
+<li>假如分类索引有两个，分别是color和food<br>这时候迭代的结果显示，名称变为一个元组：</li>
+</ul>
+<img src="/2015/10/11/pandas教程：[10]groupby选择列和迭代/27d647ee3d6d55fbaddbb6336e224f4a20a4dd43.jpg" title="pandas教程：[10]groupby选择列和迭代">
+<img src="/2015/10/11/pandas教程：[10]groupby选择列和迭代/3c2c4bfbb2fb43164fd7bb6f23a4462308f7d398.jpg" title="pandas教程：[10]groupby选择列和迭代">
+<ul>
+<li>致力于数据分析的同行，欢迎与我联系交流</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/10/05/Python教程：[24]connect MySQL 10060错误/">
+                Python教程：[24]connect MySQL 10060错误
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天使用python链接mysql数据的时候发现总是提示错误“Can’t connect to MySQL server (10060)”经过我反复尝试，发现错误在于python链接数据库的时间过长，链接失效了，所以需要重新连接。我们可以判断返回的错误自动进行连接。不过并不是所有的10060错误都是这个原因。我也罗列了各种问题和解决的方法。</p>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/mysql/">#mysql</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/10/05/python 线性代数：[7]解多元一次方程/">
+                python 线性代数：[7]解多元一次方程
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>用python的numpy包中的linalg.solve()方法解多元一次方程，如果你对矩阵解方程非常熟悉，那么现在只是学习一下这个函数就好了。如果你不是很熟悉用矩阵解方程，你需要看一下线性代数的课本。</p>
+<ul>
+<li>首先看一下我们要解的方程，将这个方程格式调整好，按照x-y-z-常数项的顺序排列</li>
+</ul>
+<img src="/2015/10/05/python%20线性代数：[7]解多元一次方程/b8405490f603738d0d597bd5b11bb051f919ecf3.jpg" title="python 线性代数：[7]解多元一次方程">
+<ul>
+<li>将未知数的系数写下来，排列成一个矩阵a，如下</li>
+</ul>
+<img src="/2015/10/05/python%20线性代数：[7]解多元一次方程/f7426d8da97739121535f296fa198618377ae2f3.jpg" title="python 线性代数：[7]解多元一次方程">
+<ul>
+<li>常数项构成一个一维数组（向量）</li>
+</ul>
+<img src="/2015/10/05/python%20线性代数：[7]解多元一次方程/8759287adab44aed835dc913b11c8701a08bfbf3.jpg" title="python 线性代数：[7]解多元一次方程">
+<ul>
+<li>使用linalg.solve方法解方程，参数a指的是系数矩阵，参数b指的是常数项矩阵</li>
+</ul>
+<img src="/2015/10/05/python%20线性代数：[7]解多元一次方程/d1571724ab18972baa6d773de4cd7b899f510ab6.jpg" title="python 线性代数：[7]解多元一次方程">
+<ul>
+<li>我们得到的解对不对呢？使用点乘的方法可以验证一下，系数乘以未知数可以得到常数项</li>
+</ul>
+<img src="/2015/10/05/python%20线性代数：[7]解多元一次方程/8640bf8b87d6277f2a0145cf2a381f30e824fcf3.jpg" title="python 线性代数：[7]解多元一次方程">
+<ul>
+<li><p>今天用到的所有代码如下</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>a=[[1,2,1],[2,-1,3],[3,1,2]]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>a=np.array(a)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>a</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[ 1,  2,  1],</p>
+</li>
+<li><p>[ 2, -1,  3],</p>
+</li>
+<li><p>[ 3,  1,  2]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>b=[7,7,18]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>b=np.array(b)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>b</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([ 7,  7, 18])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>x=np.solve(a,b)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>Traceback (most recent call last):</p>
+</li>
+<li><p>File “&lt;pyshell#31&gt;”, line 1, in <module></module></p>
+</li>
+<li><p>x=np.solve(a,b)</p>
+</li>
+<li><p>AttributeError: ‘module’ object has no attribute ‘solve’</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>x=np.linalg.solve(a,b)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>x</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([ 7.,  1., -2.])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>np.dot(a,x)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([  7.,   7.,  18.])</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/10/03/spss按照3个标准差筛选数据的方法/">
+                spss按照3个标准差筛选数据的方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在数据处理的时候，一般来说数据都是正态分布的，按照正态分布的性质，三个标准差以外的数据都，可以被看作是错误的数据从而排除掉，现在跟大家分享一下如何根据标准差来筛选数据。<br>方法/步骤</p>
+<ul>
+<li>要想按照标准差筛选数据，必须先要求出每个数据的Z分数，如图所示，在菜单栏上执行analyze–descriptive statistic–descriptive，打开描述统计对话框</li>
+</ul>
+<img src="/2015/10/03/spss按照3个标准差筛选数据的方法/a1ec08fa513d26976bba3d8c55fbb2fb4216d8f1.jpg" title="spss按照3个标准差筛选数据的方法">
+<ul>
+<li>将我们要筛选的数据放入到变量对话框中，勾选save standardized values as variables，这样就能输出Z分数了，点击ok按钮，输出结果</li>
+</ul>
+<img src="/2015/10/03/spss按照3个标准差筛选数据的方法/cc11728b4710b9120051c32fc3fdfc039345224a.jpg" title="spss按照3个标准差筛选数据的方法">
+<ul>
+<li>我们看到，在数据窗口中多了一列数据，这就是我们求得的z分数，接下来要根据这组数据。来筛选数据</li>
+</ul>
+<img src="/2015/10/03/spss按照3个标准差筛选数据的方法/a08b87d6277f9e2f10d528d91f30e924b999f37a.jpg" title="spss按照3个标准差筛选数据的方法">
+<ul>
+<li>在菜单栏上执行data—select cases，打开数据筛选对话框</li>
+</ul>
+<img src="/2015/10/03/spss按照3个标准差筛选数据的方法/43a7d933c895d1434761d0f273f082025baf07cf.jpg" title="spss按照3个标准差筛选数据的方法">
+<ul>
+<li>我们对case按照标准差进行选择，需要根据条件来选择，所以选择if conditions is satisfied，点击if来设置条件</li>
+</ul>
+<img src="/2015/10/03/spss按照3个标准差筛选数据的方法/cb8065380cd79123fe93a0a5ad345982b3b780eb.jpg" title="spss按照3个标准差筛选数据的方法">
+<ul>
+<li>在这里我们输入公式Zx2  &lt;= 3 &amp; Zx2  &gt;=  -3 ，这个条件的意思就是选择数值在3和-3之间。点击continue按钮，返回到主对话框</li>
+</ul>
+<img src="/2015/10/03/spss按照3个标准差筛选数据的方法/b2de9c82d158ccbfcba582eb19d8bc3eb03541c1.jpg" title="spss按照3个标准差筛选数据的方法">
+<ul>
+<li>在主对话框中，点击ok按钮，开始处理数据</li>
+</ul>
+<img src="/2015/10/03/spss按照3个标准差筛选数据的方法/5ab5c9ea15ce36d38268b4e13af33a87e850b1f6.jpg" title="spss按照3个标准差筛选数据的方法">
+<ul>
+<li>最后我们看一下处理的效果，超过三个标准差的数据在前面都有一个斜杠表示删除了。以后处理数据的时候他们就不参与了</li>
+</ul>
+<img src="/2015/10/03/spss按照3个标准差筛选数据的方法/b8389b504fc2d562010ce73ce71190ef77c66cde.jpg" title="spss按照3个标准差筛选数据的方法">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -1068,411 +1830,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/10/01/DataNitro：[2]调用Python的方法/">
-                DataNitro：[2]调用Python的方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年10月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>作为入门的第二篇文章，我们还是要讲一些基础的东西，这篇文章我们介绍一下如何在datanitro下使用Python来操作excel。</p>
-<ul>
-<li>第一种方式，我们可以在Python shell里面运行Python代码，点击它打开</li>
-</ul>
-<img src="/2015/10/01/DataNitro：[2]调用Python的方法/5327ce160924ab1887e97a6636fae6cd7a890ba0.jpg" title="DataNitro：[2]调用Python的方法">
-<ul>
-<li>一开始我们会看到这个界面，出现了欢迎信息，说明你的datanitro Python shell是可以工作的。</li>
-</ul>
-<img src="/2015/10/01/DataNitro：[2]调用Python的方法/b3f6cea20cf431ad6860d8684836acaf2fdd98f6.jpg" title="DataNitro：[2]调用Python的方法">
-<ul>
-<li>输入一个简单的命令：Cell(1,1).value=’hello world’（注意大小写）；按回车就可以执行</li>
-</ul>
-<img src="/2015/10/01/DataNitro：[2]调用Python的方法/adee30dda3cc7cd9279faf883a01213fb90e91f6.jpg" title="DataNitro：[2]调用Python的方法">
-<ul>
-<li>这段代码的效果就是单元格A1赋值为hello world</li>
-</ul>
-<img src="/2015/10/01/DataNitro：[2]调用Python的方法/d002b34bd11373f09dc0f4cea70f4bfbfaed04a0.jpg" title="DataNitro：[2]调用Python的方法">
-<ul>
-<li>我们可以使用Python中已经安装的包：</li>
-</ul>
-<img src="/2015/10/01/DataNitro：[2]调用Python的方法/7aad4ae736d12f2e0ab735314cc2d562843568f6.jpg" title="DataNitro：[2]调用Python的方法">
-<ul>
-<li>我们可以先建立一个Python的脚本文件**.py，然后引入该文件：点击import</li>
-</ul>
-<img src="/2015/10/01/DataNitro：[2]调用Python的方法/e49cf91190ef76c61b60607a9e16fdfaae5167f6.jpg" title="DataNitro：[2]调用Python的方法">
-<ul>
-<li>找到该Python文件并打开</li>
-</ul>
-<img src="/2015/10/01/DataNitro：[2]调用Python的方法/42e89c26cffc1e17b84017604990f603728de9a1.jpg" title="DataNitro：[2]调用Python的方法">
-<ul>
-<li>你会看到这个文件已经被引入，点击editor就可以编辑该文件</li>
-</ul>
-<img src="/2015/10/01/DataNitro：[2]调用Python的方法/8bc3a7014a90f603454f07163a12b31bb151eda1.jpg" title="DataNitro：[2]调用Python的方法">
-<ul>
-<li>编辑器也是够难看的！但是我们可以先输入以下代码试试：注意#号表示注释，没有任何作用，实质上只有一句话有用：Cell(1,3).value=u’中文’</li>
-</ul>
-<img src="/2015/10/01/DataNitro：[2]调用Python的方法/8cf0d513495409230fdbf82f9158d109b2de49f6.jpg" title="DataNitro：[2]调用Python的方法">
-<ul>
-<li>然后回到excel，点击run，就可以执行命令</li>
-</ul>
-<img src="/2015/10/01/DataNitro：[2]调用Python的方法/570f8c58d109b3de4b0d7f39cfbf6c81810a4cf6.jpg" title="DataNitro：[2]调用Python的方法">
-<ul>
-<li>用过excel函数的都知道它有多么强大，现在我们有机会写自己的函数了，我们需要先建立一个名字为functions.py的文件</li>
-</ul>
-<img src="/2015/10/01/DataNitro：[2]调用Python的方法/d048adde9c82d1581530c2e0830a19d8bd3e42f6.jpg" title="DataNitro：[2]调用Python的方法">
-<ul>
-<li>在里面写入一个function并保存</li>
-</ul>
-<img src="/2015/10/01/DataNitro：[2]调用Python的方法/a84052086e061d955bb9ac6978f40ad163d9caa1.jpg" title="DataNitro：[2]调用Python的方法">
-<ul>
-<li>记得检查在设置里面是否有允许使用Python自定义函数，如果你没有选，你需要选上他，然后重启excel</li>
-</ul>
-<img src="/2015/10/01/DataNitro：[2]调用Python的方法/4075890a304e251f7d457fa9a486c9177e3e53f6.jpg" title="DataNitro：[2]调用Python的方法">
-<ul>
-<li>现在在单元格里使用一下该函数，你可以看到效果：</li>
-</ul>
-<img src="/2015/10/01/DataNitro：[2]调用Python的方法/964b2e4e251f95ca384709e7ca177f3e660952f6.jpg" title="DataNitro：[2]调用Python的方法">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/datanitro/">#datanitro</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/10/01/excel2007如何设置访问权限/">
-                excel2007如何设置访问权限
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年10月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>设置访问权限就是允许有限的几个用户进行查看和修改excel，我们通过填写用户的ID即可 允许他们查看工作表，而他们的ID也就是在微软免费注册的账号，相信很多人都有这个账号的，如果没有，安装office的时候会提示你申请账号的。<br>方法/步骤</p>
-<ul>
-<li>新建一个excel工作簿：右键单击空白位置，然后选择新建–excel</li>
-</ul>
-<img src="/2015/10/01/excel2007如何设置访问权限/0df431adcbef7609123bb7012edda3cc7cd99e7f.jpg" title="excel2007如何设置访问权限">
-<ul>
-<li>打开excel，在工具栏上执行：审阅—保护工作簿</li>
-</ul>
-<img src="/2015/10/01/excel2007如何设置访问权限/adaf2edda3cc7cd9d31d1a473901213fb80e917f.jpg" title="excel2007如何设置访问权限">
-<ul>
-<li>打开一个下拉列表，在这个列表里选择【限制访问】</li>
-</ul>
-<img src="/2015/10/01/excel2007如何设置访问权限/203fb80e7bec54e753dc3480b9389b504fc26a7f.jpg" title="excel2007如何设置访问权限">
-<ul>
-<li>弹出权限对话框，在这个对话框里，我们勾选【限制对此工作簿的权限】，然后你就能对下面的内容进行更改。</li>
-</ul>
-<img src="/2015/10/01/excel2007如何设置访问权限/7aec54e736d12f2ede3580fe4fc2d5628535687f.jpg" title="excel2007如何设置访问权限">
-<ul>
-<li>在这里输入允许查看和更改该工作簿的用户的ID，有人问这个ID是什么，这是在微软里注册的账号，如果你没有微软的账号是不允许设置权限的，你根本看不到该页面。它会提示你注册账号。</li>
-</ul>
-<img src="/2015/10/01/excel2007如何设置访问权限/8435e5dde71190ef19cbbc41ce1b9d16fdfa607f.jpg" title="excel2007如何设置访问权限">
-<ul>
-<li>点击【其他选项】进行更高级的设置</li>
-</ul>
-<img src="/2015/10/01/excel2007如何设置访问权限/cb8065380cd79123d8c2baeaad345982b2b78009.jpg" title="excel2007如何设置访问权限">
-<ul>
-<li>打开高级设置对话框，这里可以设置文件的有效期，过了有效期加密文件就会失效。点击下拉列表可以选择到期时间。</li>
-</ul>
-<img src="/2015/10/01/excel2007如何设置访问权限/a044ad345982b2b784bd175a31adcbef76099b09.jpg" title="excel2007如何设置访问权限">
-<ul>
-<li>下面三个选项是用户可选的三个具体权限，你想要允许他人进行哪些操作：打印，复制，还是编程</li>
-</ul>
-<img src="/2015/10/01/excel2007如何设置访问权限/f11f3a292df5e0fee428a79f5c6034a85edf727f.jpg" title="excel2007如何设置访问权限">
-<ul>
-<li>最后填写一下索取权限的邮件地址，也就是你的邮件的地址，当用户想要更改自己的权限的时候，就可以给你发送邮件。</li>
-</ul>
-<img src="/2015/10/01/excel2007如何设置访问权限/5d6034a85edf8db1481e52fa0923dd54564e747f.jpg" title="excel2007如何设置访问权限">
-<ul>
-<li><p>设置完成后，保存文档即可。</p>
-</li>
-<li></li>
-</ul>
-<img src="/2015/10/01/excel2007如何设置访问权限/7dd98d1001e939014020a3a07bec54e736d19609.jpg" title="excel2007如何设置访问权限">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/09/23/spss怎样将两批数据合并/">
-                spss怎样将两批数据合并
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年09月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们看到下图中有两个sav文件，也就是两批数据，这两批数据的变量都是一样的，只是不同时间收集的两批数据，现在我们要合并者两个文件，得到一批总的数据，怎么办？下面是具体的步骤奥。<br>工具/原料</p>
-<ul>
-<li>spss 20.0<br>方法/步骤</li>
-</ul>
-<ul>
-<li>打开spss，先打开一个sav文件，然后在菜单栏上执行：data—merge files–add cases，打开合并文件的窗口</li>
-</ul>
-<img src="/2015/09/23/spss怎样将两批数据合并/9358d109b3de9c8289ac83626c81800a18d84315.jpg" title="spss怎样将两批数据合并">
-<ul>
-<li>接下来你看到的这个窗口可能有两种情况，一个情况是你只打开了一个要合并的sav文件，另一个文件没有打开，那么你要选择第二个选项，如图所示，然后点击浏览按钮</li>
-</ul>
-<img src="/2015/09/23/spss怎样将两批数据合并/42166d224f4a20a4ac51592a90529822730ed094.jpg" title="spss怎样将两批数据合并">
-<ul>
-<li>打开浏览窗口，找到你的第二个数据，然后选中它，点击打开，这样就完成了基本的合并文件的操作</li>
-</ul>
-<img src="/2015/09/23/spss怎样将两批数据合并/838ba61ea8d3fd1f2250c7d7304e251f94ca5f85.jpg" title="spss怎样将两批数据合并">
-<ul>
-<li>回到了合并文件的主对话框，点击continue按钮，进入合并数据向导。</li>
-</ul>
-<img src="/2015/09/23/spss怎样将两批数据合并/023b5bb5c9ea15ce3ebd85e4b6003af33b87b28f.jpg" title="spss怎样将两批数据合并">
-<ul>
-<li>如果我们同时打开了两个数据文件，那么在合并文件对话框中，你会看到第一个选项中有第二个文件，如图所示，这时候你直接在这里选择该文件即可，同样是点击continue即可合并数据</li>
-</ul>
-<img src="/2015/09/23/spss怎样将两批数据合并/503d269759ee3d6db110e22643166d224e4ade0d.jpg" title="spss怎样将两批数据合并">
-<ul>
-<li>在该向导里，你会遇到两种情况，第一个情况是在upaired variables列表里有有量，如图所示，这时候你要决定这个变量有没有用，如果没用就不用管他，在新的数据里他就不会出现。如果这个变量是有用的，选中这个变量，点击下面的rename</li>
-</ul>
-<img src="/2015/09/23/spss怎样将两批数据合并/aec379310a55b31941c0e69843a98226cffc1725.jpg" title="spss怎样将两批数据合并">
-<ul>
-<li>打开一个rename对话框，输入新的名称，然后点击continue，回到上面的对话框</li>
-</ul>
-<img src="/2015/09/23/spss怎样将两批数据合并/37d12f2eb9389b507c3684bf8535e5dde6116e15.jpg" title="spss怎样将两批数据合并">
-<ul>
-<li>点击添加按钮，即可完成变量的添加，注意，因为该变量只存在于一个sav文件中，所以合并数据以后，有部分case在该变量上是没有值得。</li>
-</ul>
-<img src="/2015/09/23/spss怎样将两批数据合并/9358d109b3de9c8287859d626c81800a18d8437e.jpg" title="spss怎样将两批数据合并">
-<ul>
-<li>点击ok按钮，数据合并完成。</li>
-</ul>
-<img src="/2015/09/23/spss怎样将两批数据合并/d833c895d143ad4b4b7e212d82025aafa50f068e.jpg" title="spss怎样将两批数据合并">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/09/23/spss中拉丁方设计如何进行方差分析/">
-                spss中拉丁方设计如何进行方差分析
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年09月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>工具/原料</p>
-<ul>
-<li>spss<br>方法/步骤</li>
-</ul>
-<ul>
-<li>首先打开spss，以如图所示的方式录入数据，week和day是两个需要控制的变量，music是自变量，score是因变量</li>
-</ul>
-<img src="/2015/09/23/spss中拉丁方设计如何进行方差分析/242dd42a2834349b2b1d7744c9ea15ce37d3bed3.jpg" title="spss中拉丁方设计如何进行方差分析">
-<ul>
-<li>数据准备好以后，在菜单栏上执行：analyse–GLM–univariate，打开方差分析对话框</li>
-</ul>
-<img src="/2015/09/23/spss中拉丁方设计如何进行方差分析/63d9f2d3572c11df55bba6e2632762d0f603c28d.jpg" title="spss中拉丁方设计如何进行方差分析">
-<ul>
-<li>打开对话框以后，先将自变量和因变量放入各自的位置，如图所示</li>
-</ul>
-<img src="/2015/09/23/spss中拉丁方设计如何进行方差分析/6a600c338744ebf805d87dfed9f9d72a6159a741.jpg" title="spss中拉丁方设计如何进行方差分析">
-<ul>
-<li>点击model按钮，设置一下模型</li>
-</ul>
-<img src="/2015/09/23/spss中拉丁方设计如何进行方差分析/b151f8198618367a3b2e661c2e738bd4b21ce548.jpg" title="spss中拉丁方设计如何进行方差分析">
-<ul>
-<li>系统默认的是full factorial，我们要勾选custom</li>
-</ul>
-<img src="/2015/09/23/spss中拉丁方设计如何进行方差分析/c2cec3fdfc0392457688f9ce8794a4c27d1e2535.jpg" title="spss中拉丁方设计如何进行方差分析">
-<ul>
-<li>将三个自变量放入右侧的model框中</li>
-</ul>
-<img src="/2015/09/23/spss中拉丁方设计如何进行方差分析/cdbf6c81800a19d8c3399cc433fa828ba61e463c.jpg" title="spss中拉丁方设计如何进行方差分析">
-<ul>
-<li>将type设置为main effect ，因为我们默认这三个变量是没有交互作用的</li>
-</ul>
-<img src="/2015/09/23/spss中拉丁方设计如何进行方差分析/a044ad345982b2b792a9210531adcbef76099b38.jpg" title="spss中拉丁方设计如何进行方差分析">
-<ul>
-<li>返回到主菜单，点击ok开始运行数据处理，并输出结果</li>
-</ul>
-<img src="/2015/09/23/spss中拉丁方设计如何进行方差分析/a8014c086e061d95f9622ff97bf40ad163d9cacf.jpg" title="spss中拉丁方设计如何进行方差分析">
-<ul>
-<li>我们看方差检验的结果，三个变量中，music和day对应的sig值小于0.05，说明这两个变量的效应是显著的。</li>
-</ul>
-<img src="/2015/09/23/spss中拉丁方设计如何进行方差分析/63d0f703918fa0ec0a9e7ccc269759ee3c6ddb91.jpg" title="spss中拉丁方设计如何进行方差分析">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/09/23/Python教程：[40]列表与字符串相互转换/">
-                Python教程：[40]列表与字符串相互转换
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年09月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>以前玩vb没有体会到python这么强大的功能，列表与字符串可以直接的相互转换，非常方便，我们就好好的来享受一把吧！</p>
-<ul>
-<li>首先我们来初始化一个list（列表）</li>
-</ul>
-<img src="/2015/09/23/Python教程：[40]列表与字符串相互转换/11794d43fbf2b211f7135056c88065380cd78eae.jpg" title="Python教程：[40]列表与字符串相互转换">
-<ul>
-<li>使用join方法来转换列表，将列表转换成字符串，注意join是字符串的方法，前面必须是字符串，我用的是“;”,也就是分号，然后连接成的字符串就是用分号来进行元素的分割的。</li>
-</ul>
-<img src="/2015/09/23/Python教程：[40]列表与字符串相互转换/9252ae7eca80653864d7710b95dda144ad3482ae.jpg" title="Python教程：[40]列表与字符串相互转换">
-<ul>
-<li>我们再试试其他的字符串，你感受一下</li>
-</ul>
-<img src="/2015/09/23/Python教程：[40]列表与字符串相互转换/4bd1e803738da97731d76c33b251f8198718e3eb.jpg" title="Python教程：[40]列表与字符串相互转换">
-<ul>
-<li>当然，我们还有能力将字符串转换回去，看下面，设置叹号为分隔符，然后对字符串进行切割，得到列表</li>
-</ul>
-<img src="/2015/09/23/Python教程：[40]列表与字符串相互转换/a8362712b31bb051f3dc5930347adab44bede0eb.jpg" title="Python教程：[40]列表与字符串相互转换">
-<ul>
-<li>split函数还有第二个参数，你猜猜这是干什么用的，对了，它指的是分割的次数</li>
-</ul>
-<img src="/2015/09/23/Python教程：[40]列表与字符串相互转换/b110e6198618367ad47195c52c738bd4b21ce5eb.jpg" title="Python教程：[40]列表与字符串相互转换">
-<ul>
-<li>假如我们分割两次呢，你看看效果。</li>
-</ul>
-<img src="/2015/09/23/Python教程：[40]列表与字符串相互转换/30ecd5ef76094b36d9afcef5a1cc7cd98d109dae.jpg" title="Python教程：[40]列表与字符串相互转换">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1514,6 +1871,26 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/06-效度分析/">SPSS问卷效度分析教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/10/13/大学生婚恋观影响因素的调查研究-问卷数据分享/">大学生婚恋观影响因素的调查研究-问卷数据分享</a>
             </li>
             
@@ -1522,7 +1899,7 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/09/28/psychopyz3下载地址-安装过程/">psychopyz3下载地址+安装过程</a>
+                <a class="footer-post" href="/2020/09/28/psychopyz3下载地址-安装过程/">psychopy3下载地址+安装过程</a>
             </li>
             
             <li>
@@ -1531,26 +1908,6 @@
             
             <li>
                 <a class="footer-post" href="/2020/09/17/05-共同方法偏差的诊断/">SPSS+Amos共同方法偏差的诊断</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/11/f02-多重共线性理论解释+危害+解决方法/">f02-多重共线性理论解释+危害+解决方法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/附录03-统计咨询服务/">统计咨询服务</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/04-多重共线性的诊断/">多重共线性的诊断</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/02-多变量离群值的处理/">多变量离群值的处理</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/03-正态性检验/">正态性检验</a>
             </li>
             
         </ul>
@@ -1564,11 +1921,11 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>
@@ -1577,6 +1934,18 @@
         
         <span>
             <a class="footer-post" href="/tags/问卷数据分析/">问卷数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/数据分析/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/教程/">教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/信度分析/">信度分析</a>
         </span>
         
         <span>
@@ -1600,11 +1969,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/numpy/">numpy</a>
+            <a class="footer-post" href="/tags/问卷网/">问卷网</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/问卷网/">问卷网</a>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
         </span>
         
         <span>
@@ -1636,6 +2005,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
         </span>
         
@@ -1645,10 +2018,6 @@
         
         <span>
             <a class="footer-post" href="/tags/javascript/">javascript</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
         </span>
         
         <span>
@@ -1692,11 +2061,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
+            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
         </span>
         
         <span>
@@ -1716,11 +2085,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/git/">git</a>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+            <a class="footer-post" href="/tags/git/">git</a>
         </span>
         
         <span>
@@ -1768,11 +2137,35 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+            <a class="footer-post" href="/tags/效度分析/">效度分析</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+            <a class="footer-post" href="/tags/EM/">EM</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/作文评分/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow-js/">tensorflow.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/自然语言处理/">自然语言处理</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/NLP/">NLP</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/语料库/">语料库</a>
         </span>
         
         <span>
@@ -1780,11 +2173,35 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/flexx/">flexx</a>
+            <a class="footer-post" href="/tags/gui/">gui</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/gui/">gui</a>
+            <a class="footer-post" href="/tags/networkx/">networkx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/dataframe/">dataframe</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/下载/">下载</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/网盘/">网盘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
         </span>
         
         <span>
@@ -1800,7 +2217,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
         </span>
         
         <span>
@@ -1852,7 +2269,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1876,27 +2293,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/自然语言处理/">自然语言处理</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/win32com/">win32com</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/wxpython/">wxpython</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/语料库/">语料库</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/作文评分/">作文评分</a>
         </span>
         
         <span>
@@ -1919,50 +2320,6 @@
             <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
         </span>
         
-        <span>
-            <a class="footer-post" href="/tags/卡方/">卡方</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/区块链/">区块链</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/心理学/">心理学</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/可视化/">可视化</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/visjs/">visjs</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/数据分享/">数据分享</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/“python/">“python&quot;</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/lsa/">lsa</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/潜在语义分析/">潜在语义分析</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/招聘/">招聘</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/eprime代做/">eprime代做</a>
-        </span>
-        
     </ul>
 </div>
 
@@ -1975,13 +2332,9 @@
         <h2>Links</h2>
         <ul>
             
-                <span> | </span><a class="footer-post" href="http://www.17bigdata.com/" target="_blank">一起大数据</a><span> | </span>
-            
                 <span> | </span><a class="footer-post" href="http://mlln.cn/baidusitemap.xml" target="_blank">网站地图</a><span> | </span>
             
                 <span> | </span><a class="footer-post" href="http://mlln.cn/sitemap.xml" target="_blank">DataScience</a><span> | </span>
-            
-                <span> | </span><a class="footer-post" href="http://www.superli.tech/" target="_blank">Superli&#39;sBlog</a><span> | </span>
             
         </ul>
     </div>

@@ -104,9 +104,8 @@
     
     
     
-    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <script data-ad-client="ca-pub-9377487079883038" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 
@@ -179,8 +178,8 @@
 <div class="page_list archive-container">
         
     <div class="archive-post" style="opacity: 1;">
-        <a href="/guideToPython/">
-            推荐书: Python开发最佳实践
+        <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+            SPSS视频教程内容目录和跳转链接
         </a>
     </div>
     
@@ -294,20 +293,20 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程12：半监督学习/">
-                    李宏毅机器学习教程12：半监督学习
-                </a>
-            </div>
-            
-            <div class="archive-post">
                 <a href="/2018/09/21/李宏毅机器学习教程14：无监督学习-词嵌入模型/">
                     李宏毅机器学习教程14：无监督学习-词嵌入模型
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程15：无监督学习-neighbor-embeding/">
-                    李宏毅机器学习教程15：无监督学习-neighbor-embeding
+                <a href="/2018/09/21/李宏毅机器学习教程13：无监督学习/">
+                    李宏毅机器学习教程13：无监督学习
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程16：无监督学习-自编码器/">
+                    李宏毅机器学习教程16：无监督学习-自编码器
                 </a>
             </div>
             
@@ -444,6 +443,286 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2017/06/28/svd和pca的区别和联系，附代码实现/">
+                svd和pca的区别和联系，附代码实现
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017年06月28日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <blockquote>
+<p>svd=singular value decomposition<br>pca=principal component analysis</p>
+</blockquote>
+<p>在做潜在语义分析(lsa)的时候，我用的svd，感觉svd和pca非常像，但是又有区别。所以查了一些资料，在这里翻译一下，并在最后，贴上python代码比较了这两种方法。</p>
+<h2><span id="pca">PCA</span></h2><p>假设<code>\( \mathbf X \)</code>是一个<code>\( n \times p \)</code>的矩阵，<code>n</code>是样本量, 而<code>p</code>是变量个数。那么，我们就可以计算得到协方差矩阵<code>\( \Singma \)</code>：</p>
+<p><code>\[ \Sigma=X^TX/(n-1) \]</code></p>
+<p>由于<code>\( \Sigma \)</code>是对称矩阵，那么它可以对角化:</p>
+<p><code>\[ \Sigma = \mathbf V \mathbf L \mathbf V^\top \]</code></p>
+<p><code>\( \mathbf V \)</code>就是<code>\( \mathbf X \)</code>的特征向量构成的矩阵，而<code>\( \mathbf L \)</code>是一个对角矩阵，对角元素就是特征向量对应的特征值。</p>
+<p>用<code>\( \mathbf Y \)</code>表示主成分矩阵，<code>\( y_i \)</code>表示第i个主成分向量。用<code>\( v_i \)</code>表示第i个特征向量。那么有关系式：</p>
+<p><code>\[ y_i= \mathbf X v_i\]</code></p>
+<p>即：</p>
+<p><code>\[ Y= \mathbf X \mathbf V \]</code></p>
+<h2><span id="svd">SVD</span></h2><p>接下来我们看看SVD的性质。对<code>\( \mathbf X \)</code>进行SVD分解：</p>
+<p><code>\[ \mathbf X = \mathbf U \mathbf S \mathbf V^\top \]</code></p>
+<p><code>\( \mathbf V \)</code>和上面提到的<code>\( \mathbf V \)</code>是一样的，但是在SVD中叫做singular vector(奇异向量)，而<code>\( \mathbf S \)</code>叫做奇异值构成的对角矩阵, 它与特征向量是不同的，但是他们之间是成比例的。如此，我们很容易得到：</p>
+<p><code>\[ \mathbf X = \mathbf V \mathbf S \mathbf U^\top \mathbf U \mathbf S \mathbf V^\top /(n-1) = \mathbf V \frac{\mathbf S^2}{n-1}\mathbf V^\top \]</code></p>
+<p>所以，特征值与奇异值之间的关系就是：</p>
+<p><code>\[ \lambda_i = s_i^2/(n-1) \]</code></p>
+<p>主成分也可以得到：</p>
+<p><code>\[ \mathbf X \mathbf V = \mathbf U \mathbf S \mathbf V^\top \mathbf V = \mathbf U \mathbf S \]</code></p>
+<p>下面我们通过python代码来探索svd和pca之间的关系</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> linalg <span class="keyword">as</span> la</span><br><span class="line">np.random.seed(<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">flip_signs</span><span class="params">(A, B)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    utility function for resolving the sign ambiguity in SVD</span></span><br><span class="line"><span class="string">    http://stats.stackexchange.com/q/34396/115202</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    signs = np.sign(A) * np.sign(B)</span><br><span class="line">    <span class="keyword">return</span> A, B * signs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Let the data matrix X be of n x p size,</span></span><br><span class="line"><span class="comment"># where n is the number of samples and p is the number of variables</span></span><br><span class="line">n, p = <span class="number">5</span>, <span class="number">3</span></span><br><span class="line">X = np.random.rand(n, p)</span><br><span class="line"><span class="comment"># Let us assume that it is centered</span></span><br><span class="line">X -= np.mean(X, axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># the p x p covariance matrix</span></span><br><span class="line">C = np.cov(X, rowvar=<span class="literal">False</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"C = \n"</span>, C)</span><br><span class="line"><span class="comment"># C is a symmetric matrix and so it can be diagonalized:</span></span><br><span class="line">l, principal_axes = la.eig(C)</span><br><span class="line"><span class="comment"># sort results wrt. eigenvalues</span></span><br><span class="line">idx = l.argsort()[::<span class="number">-1</span>]</span><br><span class="line">l, principal_axes = l[idx], principal_axes[:, idx]</span><br><span class="line"><span class="comment"># the eigenvalues in decreasing order</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"l = \n"</span>, l)</span><br><span class="line"><span class="comment"># a matrix of eigenvectors (each column is an eigenvector)</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"V = \n"</span>, principal_axes)</span><br><span class="line"><span class="comment"># projections of X on the principal axes are called principal components</span></span><br><span class="line">principal_components = X.dot(principal_axes)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Y = \n"</span>, principal_components)</span><br><span class="line"></span><br><span class="line"><span class="comment"># we now perform singular value decomposition of X</span></span><br><span class="line"><span class="comment"># "economy size" (or "thin") SVD</span></span><br><span class="line">U, s, Vt = la.svd(X, full_matrices=<span class="literal">False</span>)</span><br><span class="line">V = Vt.T</span><br><span class="line">S = np.diag(s)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"V2 = \n"</span>, V )</span><br><span class="line"><span class="comment"># 1) then columns of V are principal directions/axes.</span></span><br><span class="line"><span class="keyword">assert</span> np.allclose(*flip_signs(V, principal_axes))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2) columns of US are principal components</span></span><br><span class="line"><span class="keyword">assert</span> np.allclose(*flip_signs(U.dot(S), principal_components))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3) singular values are related to the eigenvalues of covariance matrix</span></span><br><span class="line"><span class="keyword">assert</span> np.allclose((s ** <span class="number">2</span>) / (n - <span class="number">1</span>), l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 8) dimensionality reduction</span></span><br><span class="line">k = <span class="number">2</span></span><br><span class="line">PC_k = principal_components[:, <span class="number">0</span>:k]</span><br><span class="line">US_k = U[:, <span class="number">0</span>:k].dot(S[<span class="number">0</span>:k, <span class="number">0</span>:k])</span><br><span class="line"><span class="keyword">assert</span> np.allclose(*flip_signs(PC_k, US_k))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 10) we used "economy size" (or "thin") SVD</span></span><br><span class="line"><span class="keyword">assert</span> U.shape == (n, p)</span><br><span class="line"><span class="keyword">assert</span> S.shape == (p, p)</span><br><span class="line"><span class="keyword">assert</span> V.shape == (p, p)</span><br></pre></td></tr></table></figure>
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/svd/">#svd</a> <a href="/tags/pca/">#pca</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2017/06/26/gitlab配置和基本使用方法/">
+                gitlab配置和基本使用方法(写给测试用)
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017年06月26日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h2><span id="注册账号">注册账号</span></h2><p>打开<a href="http://123.56.79.214:10080/users/sign_in" target="_blank" rel="noopener">gitlab</a>，注册一个账户。</p>
+<p>记住账号，并把账号发送给管理员，让管理员给你设置权限。</p>
+<p>打开网址查看项目<code>http://123.56.79.214:10080/ydsun/auto_report_client</code>，如果你看不到，说明你还没有权限。</p>
+<h2><span id="下载代码">下载代码</span></h2><p>在项目<a href="http://123.56.79.214:10080/ydsun/auto_report_client" target="_blank" rel="noopener">主页</a>，找到下载按钮，下载源码。下载得到一个zip压缩包，把压缩包解压到你想要放置源码的地方。</p>
+<h2><span id="安装">安装</span></h2><p>打开项目<a href="http://123.56.79.214:10080/ydsun/auto_report_client" target="_blank" rel="noopener">主页</a>，在主页上可以看安装的过程。</p>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/gitlab/">#gitlab</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2017/06/22/报告模板书写规范培训/">
+                报告文字模板书写规范培训
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017年06月22日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <blockquote>
+<p>注意，文章中所有 <code>{ {     } }</code> <code>{ %     % }</code> 中间没有空格</p>
+</blockquote>
+<h2><span id="变量">变量</span></h2><p>用<code>{ {     } }</code>来修饰变量，内部的值会被渲染成文本。比如 <code>我有{ { 1 + 1 } }个苹果</code>会被渲染成 <code>我有2个苹果</code>。</p>
+<p>通常我们会提前设置好一些变量，比如，我们在写模板的时候，为了方便起见，可以先设<code>pro_code=44</code>，即广东省的省代码，这些变量的设置可以在word的常量表里。那么我们在需要用到省代码的地方，可以写成<code>{ { pro_code } }</code>，如此便能在不同的省报告中使用不同的省代码了。</p>
+<h2><span id="计算">计算</span></h2><p>我们除了可以设置一些常量(如<code>pro_code</code>)之外，我们还可以计算一些临时变量。比如<code>a = 500*600</code>，这样，我们就得到一个变量2，他的值为500和600的乘积。除此以外，我们更常用的是如下这种形式的计算：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a2=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(2)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br></pre></td></tr></table></figure>
+<p>我们分别来说一下其中用到的一些方法。</p>
+<h3><span id="variable-和-table">Variable 和 table</span></h3><p>表示变量的符号。上面的例子中，等号后面的式子，开头一个V表示<code>variable</code>，这是为了识别数据库中的变量。后面的参数就是变量名。<code>Variabel</code> 后面的 <code>table</code> 指明变量来自于哪一个表。为了方便起见，这两种写法是等价的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V(&quot;maths_level&quot;)|table(&quot;4stu&quot;) &lt;==&gt; V(&quot;maths_level&quot;, &quot;4stu&quot;)</span><br></pre></td></tr></table></figure>
+<h3><span id="select">select</span></h3><p><code>select</code>是对数据的选择。上面的例子指明了我们的数据限定在一个省。如果要计算全国数据，直接去掉select及其参数即可。如果需要使用多个筛选条件，比如要选择广东省的男生数据，那么可以用逗号隔开两个条件，写成如下形式：(province 和 gender都是数据库中的变量，他们都需要用引号包裹起来)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select(&#123;&quot;province&quot;:pro_code, &quot;gender&quot;:1&#125;)</span><br></pre></td></tr></table></figure>
+<h3><span id="which">which</span></h3><p><code>which</code>只有在计算百分比的时候有用，因为他指的是计算谁的百分比。上例中计算的是<code>maths_level</code>为2的百分比。</p>
+<h3><span id="percent-amp-mean">percent &amp; mean</span></h3><p>这两个函数都是指明计算方法，顾名思义，前者计算百分比，后者计算平均值。</p>
+<h3><span id="format">format</span></h3><p>顾名思义，<code>format</code>是用来描述数据格式的。参数<code>decimal</code>表明小数位数，<code>multi</code>表明乘数，按照上例来说，percent方法的计算结果都在(0,1)之间，所以我们让结果乘以100，保留1位小数, 另外再加上一个百分号。写法就是：(decimal、multi和suffix的前后顺序不影响结果)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100,&quot;suffix&quot;:&quot;%&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<p>其实你可以省略format，这时候系统会使用默认的配置，保留一位小数。百分比的结果会乘以100以后再保留一位小数。</p>
+<p>有一个问题需要指出，就是你在计算一个变量的时候，什么时候保留小数位数你得自己设置。例如，如下两种写法是不同的：</p>
+<h4><span id="第一种写法先保留一位小数再相加">第一种写法：先保留一位小数，再相加</span></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a2=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(2)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line">a3=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(3)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line">aa=a2+a3</span><br></pre></td></tr></table></figure>
+<h4><span id="第二种写法先相加再保留1位小数">第二种写法：先相加再保留1位小数</span></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a2=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(2)|percent</span><br><span class="line">a3=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(3)|percent</span><br><span class="line">aa= (a2+a3)|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br></pre></td></tr></table></figure>
+<h3><span id="groupby">groupby</span></h3><p><code>groupby</code>是将数据分组，分组后再计算，这样每个组都会得到一个结果。比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V(&quot;maths&quot;,&quot;4stu&quot;)|groupby(&quot;gender&quot;)|mean</span><br></pre></td></tr></table></figure>
+<p>这是计算两种性别下maths的平均值。</p>
+<h3><span id="mi-amp-ma">mi &amp; ma</span></h3><p>经常配合groupby使用，求最小值和最大值。因为groupby可以计算得到多个值，在多个值里面选择最大值和最小值就用<code>ma</code>和<code>mi</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V(&quot;maths&quot;,&quot;4stu&quot;)|groupby(&quot;gender&quot;)|mean|mi</span><br></pre></td></tr></table></figure>
+<h2><span id="逻辑判断">逻辑判断</span></h2><p>逻辑判断语句的基本写法是:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123; % if a==b % &#125;</span><br><span class="line">a等于b</span><br><span class="line">&#123; % elif a&gt;b % &#125;</span><br><span class="line">a比b大&#123; &#123; a - b &#125; &#125;</span><br><span class="line">&#123; % else % &#125;</span><br><span class="line">a比b小&#123; &#123; b-a &#125; &#125;</span><br><span class="line">&#123; % end % &#125;</span><br></pre></td></tr></table></figure>
+<p>注意，逻辑判断语句用到的符号是<code>{ % ... % }</code>。其中 if 和 end 标明语句的开始和结尾，中间可以用elif增加判断语句，它是可选的，你可以不使用它，只用<code>if ... else ... end</code>, 你也可以用多个elif。还有就是，虽然我们写了很多行，但是最终渲染得到的内容是没有换行的，也就是任何换行符都会被删除。</p>
+<h2><span id="实战">实战</span></h2><p>在报告中，经常用到非常复杂的计算。例如看下面在报告模板中的真实写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">======Variables=======</span><br><span class="line"></span><br><span class="line">a2=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(2)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line"></span><br><span class="line">a3=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(3)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line"></span><br><span class="line">a4=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(4)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line"></span><br><span class="line">pa=a2+a3+a4</span><br><span class="line"></span><br><span class="line">a2=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|which(2)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line"></span><br><span class="line">a3=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|which(3)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line"></span><br><span class="line">a4=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|which(4)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line"></span><br><span class="line">qga=a2+a3+a4</span><br><span class="line">=======Content========</span><br><span class="line"></span><br><span class="line">&#123; % if pa &gt; qga % &#125;</span><br><span class="line">高于全国均值&#123; &#123; pa - qga &#125; &#125;</span><br><span class="line">&#123; % elif pa == qga % &#125;</span><br><span class="line">等于全国均值</span><br><span class="line">&#123; % else % &#125;</span><br><span class="line">低于全国均值&#123; &#123; qga - pa &#125; &#125;</span><br><span class="line">&#123; % end % &#125;</span><br></pre></td></tr></table></figure>
+<p>其中有两个特殊的行<code>======Variables=======</code>和<code>=======Content========</code>，他们是分隔符，在两行中间可以定义各种用到的变量，这些变量不会被渲染。而content下面的内容是真正会被渲染的部分，但是这部分又用到了上面定义的变量。</p>
+<hr>
+<h1><span id="图表">图表</span></h1><hr>
+<h2><span id="序列">序列</span></h2><p>word中的图表都是由数据序列构成的，数据序列可以看成是一列数值，比如<code>(1, 2, 3, 4)</code>就是一个数据序列，我们的系统中，用如下方法表达一个序列：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br></pre></td></tr></table></figure>
+<p>以上代码中，我们只使用选择了某个省的数据，指明了变量maths_level，并没有指明which，这样就会返回maths_level的所有水平的百分比。百分比会按照水平值从小到大排列，最终的结果就类似于<code>(1.2, 3.4, 90.0, 5.2)</code></p>
+<p>还有一种方法是使用groupby, 它的作用是将数据分组。例如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|groupby(&quot;gender_new&quot;)|which(1)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br></pre></td></tr></table></figure>
+<p>以上代码中，groupby指明数据按照性别分组，这样计算结果会得到类似这样的结果<code>(90.0, 5.2)</code>，两个数分别表示男生和女生的maths_level为1的百分比。</p>
+<p>另有一种特殊的情况是，一个数据序列由多用算法计算得到，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(1)|groupby(&quot;school_loc_new&quot;)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)| merge |v(&quot;maths_level&quot;)|table(&quot;8stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(1)|groupby(&quot;school_loc_new&quot;)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br></pre></td></tr></table></figure>
+<p>以上代码使用了merge算法，将前后两种计算结果合并在一起构成一个序列。merge之前计算结果为四年级的数据，如<code>(4.5, 6.5, 2.4)</code>，之后计算的是八年级的数据，结果为<code>(55.4, 34.2, 42.3)</code>，合并之后为<code>(4.5, 6.5, 2.4, 55.4, 34.2, 42.3)</code></p>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/报告系统/">#报告系统</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2017/06/14/远程数据库下载和查询教程/">
+                远程数据库下载和查询教程
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017年06月14日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h2><span id="使用ssh登录linux">使用ssh登录Linux</span></h2><ul>
+<li>新建链接，输入以下信息</li>
+</ul>
+<img src="/2017/06/14/远程数据库下载和查询教程/enter-host-user.jpg">
+<ul>
+<li>输入密码</li>
+</ul>
+<img src="/2017/06/14/远程数据库下载和查询教程/enter-password.jpg">
+<ul>
+<li>点击文件管理按钮</li>
+</ul>
+<img src="/2017/06/14/远程数据库下载和查询教程/open-download-dialog.jpg">
+<ul>
+<li>找到你要下载的文件，双击下载</li>
+</ul>
+<img src="/2017/06/14/远程数据库下载和查询教程/download.jpg">
+<h2><span id="在mysql中做查询">在mysql中做查询</span></h2><p>在mysql中做查询需要进入muysql的交互环境。</p>
+<ul>
+<li>进入mysql</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h[ip地址] -u[用户名] -p[密码]</span><br></pre></td></tr></table></figure>
+<p>以下命令都是在mysql交互环境中运行</p>
+<ul>
+<li>查询有哪些数据库</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>选择一个数据库</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> name_of_databse;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>查询数据库</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> basic_child_info;</span><br></pre></td></tr></table></figure>
+<h2><span id="下载数据库表">下载数据库表</span></h2><ul>
+<li>把表下载到当前目录</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -h[ip地址] -u[username] -p[password] [databse name] [table name] &gt; [filename].sql;</span><br></pre></td></tr></table></figure>
+<ul>
+<li>导出表到本地</li>
+</ul>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/mysql/">#mysql</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2017/06/13/作文自动分类方案设计/">
+                作文自动分类方案设计
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017年06月13日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h3><span id="语义空间的构建">语义空间的构建</span></h3><h4><span id="数据采集">数据采集</span></h4><h4><span id="分词和词性标注">分词和词性标注</span></h4><h4><span id="心理特征标注">心理特征标注</span></h4><h4><span id="构建语义空间">构建语义空间</span></h4><h4><span id="基于语义空间">基于语义空间</span></h4><h3><span id="学生作文人工标注">学生作文人工标注</span></h3><h4><span id="数据提取">数据提取</span></h4><h4><span id="开发标注页面">开发标注页面</span></h4><h4><span id="保存标注后数据">保存标注后数据</span></h4><h3><span id="预测">预测</span></h3><h4><span id="作文映射到语义空间">作文映射到语义空间</span></h4><h4><span id="构建语义向量向测量指标的网络">构建语义向量向测量指标的网络</span></h4>
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/文本挖掘/">#文本挖掘</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -1176,679 +1455,6 @@ V&#39;_i = \sum_{j=0}^n w&#39;_j
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2017/06/02/MathJax入门/">
-                MathJax入门
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2017年06月02日</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/数学分析/">数学分析</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2><span id="mathjax简介">MathJax简介</span></h2><p>MathJax是一款展示数学符号、数学公式的JavaScript库，可以解析Latex、MathML和ASCIIMathML等标记语言，将其渲染成人类可读的公式。今天我在这里总结一点入门的知识点，主要是给自己学习用。</p>
-<h2><span id="公式标记">公式标记</span></h2><p>用符号<code>$</code>作为公的开头和结尾，比如<code>$a \neq b$</code>可以渲染成<code>\(a \neq b\)</code></p>
-<h2><span id="首先是希腊字母的写法">首先是希腊字母的写法</span></h2><p>不同的数学符号都有大小写，都列在下表中。</p>
-<table>
-<thead>
-<tr>
-<th>名称</th>
-<th>大写</th>
-<th>Tex</th>
-<th>小写</th>
-<th>Tex</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>alpha</td>
-<td><code>$A$</code></td>
-<td><code>\(A\)</code></td>
-<td><code>$\alpha$</code></td>
-<td><code>\(\alpha\)</code></td>
-</tr>
-<tr>
-<td>beta</td>
-<td><code>$B$</code></td>
-<td><code>\(B\)</code></td>
-<td><code>$\beta$</code></td>
-<td><code>\(\beta\)</code></td>
-</tr>
-<tr>
-<td>gamma</td>
-<td>$\Gamma$</td>
-<td><code>\(\Gamma\)</code></td>
-<td>$\gamma$</td>
-<td><code>\(\gamma\)</code></td>
-</tr>
-<tr>
-<td>delta</td>
-<td>$\Delta$</td>
-<td><code>\(\Delta\)</code></td>
-<td>$\delta$</td>
-<td><code>\(\delta\)</code></td>
-</tr>
-<tr>
-<td>epsilon</td>
-<td>$E$</td>
-<td><code>\(E\)</code></td>
-<td>$\epsilon$</td>
-<td><code>\(\epsilon\)</code></td>
-</tr>
-<tr>
-<td>zeta</td>
-<td>$Z$</td>
-<td><code>\(Z\)</code></td>
-<td>$\zeta$</td>
-<td><code>\(\zeta\)</code></td>
-</tr>
-<tr>
-<td>eta</td>
-<td>$H$</td>
-<td><code>\(H\)</code></td>
-<td>$\eta$</td>
-<td><code>\(\eta\)</code></td>
-</tr>
-<tr>
-<td>theta</td>
-<td>$\Theta$</td>
-<td><code>\(\Theta\)</code></td>
-<td>$\theta$</td>
-<td><code>\(\theta\)</code></td>
-</tr>
-<tr>
-<td>iota</td>
-<td>$I$</td>
-<td><code>\(I\)</code></td>
-<td>$\iota$</td>
-<td><code>\(\iota\)</code></td>
-</tr>
-<tr>
-<td>kappa</td>
-<td>$K$</td>
-<td><code>\(K\)</code></td>
-<td>$\kappa$</td>
-<td><code>\(\kappa\)</code></td>
-</tr>
-<tr>
-<td>lambda</td>
-<td>$\Lambda$</td>
-<td><code>\(\Lambda\)</code></td>
-<td>$\lambda$</td>
-<td><code>\(\lambda\)</code></td>
-</tr>
-<tr>
-<td>mu</td>
-<td>$M$</td>
-<td><code>\(M\)</code></td>
-<td>$\mu$</td>
-<td><code>\(\mu\)</code></td>
-</tr>
-<tr>
-<td>nu</td>
-<td>$N$</td>
-<td><code>\(N\)</code></td>
-<td>$\nu$</td>
-<td><code>\(\nu\)</code></td>
-</tr>
-<tr>
-<td>xi</td>
-<td>$\Xi$</td>
-<td><code>\(\Xi\)</code></td>
-<td>$\xi$</td>
-<td><code>\(\xi\)</code></td>
-</tr>
-<tr>
-<td>omicron</td>
-<td>$O$</td>
-<td><code>\(O\)</code></td>
-<td>$\omicron$</td>
-<td><code>\(\omicron\)</code></td>
-</tr>
-<tr>
-<td>pi</td>
-<td>$\Pi$</td>
-<td><code>\(\Pi\)</code></td>
-<td>$\pi$</td>
-<td><code>\(\pi\)</code></td>
-</tr>
-<tr>
-<td>rho</td>
-<td>$P$</td>
-<td><code>\(P\)</code></td>
-<td>$\rho$</td>
-<td><code>\(\rho\)</code></td>
-</tr>
-<tr>
-<td>sigma</td>
-<td>$\Sigma$</td>
-<td><code>\(\Sigma\)</code></td>
-<td>$\sigma$</td>
-<td><code>\(\sigma\)</code></td>
-</tr>
-<tr>
-<td>tau</td>
-<td>$T$</td>
-<td><code>\(T\)</code></td>
-<td>$\tau$</td>
-<td><code>\(\tau\)</code></td>
-</tr>
-<tr>
-<td>upsilon</td>
-<td>$\Upsilon$</td>
-<td><code>\(\Upsilon\)</code></td>
-<td>$\upsilon$</td>
-<td><code>\(\upsilon\)</code></td>
-</tr>
-<tr>
-<td>phi</td>
-<td>$\Phi$</td>
-<td><code>\(\Phi\)</code></td>
-<td>$\phi$</td>
-<td><code>\(\phi\)</code></td>
-</tr>
-<tr>
-<td>chi</td>
-<td>$X$</td>
-<td><code>\(X\)</code></td>
-<td>$\chi$</td>
-<td><code>\(\chi\)</code></td>
-</tr>
-<tr>
-<td>psi</td>
-<td>$\Psi$</td>
-<td><code>\(\Psi\)</code></td>
-<td>$\psi$</td>
-<td><code>\(\psi\)</code></td>
-</tr>
-<tr>
-<td>omega</td>
-<td>$\Omega $</td>
-<td><code>\(\Omega\)</code></td>
-<td>$\omega$</td>
-<td><code>\(\omega\)</code></td>
-</tr>
-</tbody>
-</table>
-<h2><span id="上标与下标">上标与下标</span></h2><p>上标和下标分别使用^与_，例如<code>\(x_i^2\)</code>显示为<code>\(x_i^2\)</code>。默认情况下，上下标符号仅仅对下一个组起作用。一个组即单个字符或者使用<code>{..}</code>包裹起来的内容。也就是说，如果使用<code>10^10</code>，会得到<code>\(10^10\)</code>，而<code>10^{10}</code>才是<code>\(10^{10}\)</code>。同时，大括号还能消除二义性，如<code>x^5^6</code>将得到一个错误<code>\(x^5^6\)</code>，必须使用大括号来界定<code>^</code>的结合性，如<code>{x^5}^6</code>：<code>\({x^5}^6\)</code> 或者 <code>x^{5^6}</code>：<code>\(x^{5^6}\)</code>。</p>
-<h2><span id="括号">括号</span></h2><ul>
-<li>小括号与方括号：使用原始的( )，[ ]即可，如(2+3)[4+4]：<code>\((2+3)[4+4]\)</code></li>
-<li>大括号：时由于大括号<code>{}</code>被用来分组，因此需要使用<code>{</code>和<code>}</code>表示大括号，也可以使用<code>\lbrace</code> 和<code>\rbrace</code>来表示。<br>如<code>\{ a*b \}</code>:  <code>\(\{a*b\}\)</code>，<code>\lbrace a\*b \rbrace</code>：<code>\(\lbrace a*b \rbrace\)</code>。</li>
-<li>尖括号：使用<code>\langle</code> 和 <code>\rangle</code>表示左尖括号和右尖括号。如<code>\langle x \rangle</code>：<code>\(\langle x \rangle\)</code>。</li>
-<li>上取整：使用<code>\lceil</code> 和 <code>\rceil</code> 表示。 如，<code>\lceil x \rceil</code>：<code>\(\lceil x \rceil\)</code>。</li>
-<li>下取整：使用\lfloor 和 \rfloor 表示。如，\lfloor x \rfloor：<code>\(\lfloor x \rfloor\)</code>。</li>
-</ul>
-<h2><span id="常见函数">常见函数</span></h2><ul>
-<li>三角函数：\sin x –&gt; <code>\(\sin x\)</code> ; \cos a –&gt; <code>\(\cos a\)</code> ; \arctan x –&gt; <code>\(\arctan x\)</code></li>
-<li>极限符号: <code>\lim_{1\to\infty}</code> –&gt; <code>\(\lim_{1\to\infty}\)</code></li>
-</ul>
-<h2><span id="常见符号">常见符号</span></h2><ul>
-<li>比较运算符：<code>\lt \gt \le \ge \neq</code> –&gt; <code>\(\lt \gt \le \ge \neq\)</code></li>
-<li>箭头符号：<code>\to \rightarrow \leftarrow \Rightarrow \Leftarrow \mapsto</code> –&gt; <code>\(\to \rightarrow \leftarrow \Rightarrow \Leftarrow \mapsto\)</code></li>
-<li>四则运算：<code>+ - \times \div</code> –&gt; <code>\(+ - \times \div\)</code></li>
-</ul>
-<h2><span id="顶部符号">顶部符号</span></h2><p>我们有时候需要在字母上方书写符号，用<code>{}</code>来表示组合，例如:</p>
-<ul>
-<li>单字母<code>\hat xy</code>–&gt; <code>\(\hat x\)</code></li>
-<li>多字母<code>\widehat {xy}</code> –&gt; <code>\(\widehat {xy} \)</code></li>
-<li>横线<code>\overline x</code> –&gt; <code>\(\overline x\)</code></li>
-<li>向量<code>\vec {xy}</code> –&gt; <code>\(\vec {xy}\)</code></li>
-<li>点 <code>\dot x</code> –&gt; <code>\(\dot x\)</code></li>
-<li>箭头<code>\overrightarrow {xy}</code> –&gt; <code>\(\overrightarrow {xy}\)</code></li>
-<li>两点 <code>\ddot x</code> –&gt; <code>\(\ddot x\)</code></li>
-</ul>
-<h2><span id="求和">求和</span></h2><p><code>\sum</code> 用来表示求和符号<code>\(\sum\)</code>, 有很多不同的写法：</p>
-<ul>
-<li>下标表示下限：<code>\sum_1</code> –&gt; <code>\(\sum_1\)</code></li>
-<li>上标表示上限：<code>\sum^n</code> –&gt; <code>\(\sum^n\)</code></li>
-<li>上下结合，可以写为：<code>\sum_1^n</code> –&gt; <code>\(\sum_1^n\)</code></li>
-</ul>
-<h2><span id="积分">积分</span></h2><p><code>\int</code> 表示积分符号 <code>\(\int\)</code>, 和求和符号类似：</p>
-<ul>
-<li>积分上下限：\int_1^n –&gt; <code>\(\int_1^n\)</code></li>
-</ul>
-<h4><span id="和积分类似的符号还有以下这些">和积分类似的符号还有以下这些</span></h4><ul>
-<li>累积 \prod –&gt; <code>\(\prod\)</code></li>
-<li>并集 \bigcup –&gt; <code>\(\bigcup\)</code></li>
-<li>交集 \bigcap –&gt; <code>\(\bigcap\)</code></li>
-<li>二重积分 \iint –&gt; <code>\(\iint\)</code></li>
-</ul>
-<h2><span id="分数和根号">分数和根号</span></h2><p>分数用\frac 表示，例如<code>\frac ab</code> –&gt; <code>\(\frac ab\)</code>, <code>{}</code>可以帮助你分组，例如<code>\frac a{b*c}</code> –&gt; <code>\(\frac a{b*c}\)</code>，带括号的分数<code>(\frac ab)^2</code> –&gt; <code>\((\frac ab)^2\)</code> 。 还有一种写法是使用\over，例如<code>1+2 \over 3+4</code> –&gt; <code>\(1+2 \over 3+4\)</code>。</p>
-<p>使用\sqrt表示根号，例如 \sqrt[4] x –&gt; <code>\(\sqrt[4] x\)</code>。</p>
-<h2><span id="矩阵和表格">矩阵和表格</span></h2><p>使用<code>\begin{array}{列样式}…\end{array}</code>这样的形式来创建表格，列样式可以是<code>clr</code>表示居中，左，右对齐，还可以使用<code>|</code>表示一条竖线。表格中 各行使用<code>\\</code>分隔，各列使用<code>&amp;</code>分隔。使用<code>\hline</code>在本行前加入一条直线。 例如，</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">\begin&#123;array&#125;&#123;c|lcr&#125;</span><br><span class="line">n &amp; \text&#123;Left&#125; &amp; \text&#123;Center&#125; &amp; \text&#123;Right&#125; \\</span><br><span class="line">\hline</span><br><span class="line">1 &amp; 0.24 &amp; 1 &amp; 125 \\</span><br><span class="line">\hline</span><br><span class="line">2 &amp; -1 &amp; 189 &amp; -8 \\</span><br><span class="line">3 &amp; -20 &amp; 2000 &amp; 1+10i \\</span><br><span class="line">\end&#123;array&#125;</span><br></pre></td></tr></table></figure>
-<p><code>\[
-\begin{array}{c|lcr}
-n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
-\hline
-1 &amp; 0.24 &amp; 1 &amp; 125 \\
-\hline
-2 &amp; -1 &amp; 189 &amp; -8 \\
-3 &amp; -20 &amp; 2000 &amp; 1+10i \\
-\end{array}
-\]</code></p>
-<p>`<br>[J_\alpha(x) = \sum_{m=0}^\infty \frac{(-1)^m}{m! \Gamma (m + \alpha + 1)} {\left({ \frac{x}{2} }\right)}^{2m + \alpha}]</p>
-<p>`</p>
-<h2><span id="一些常用公式">一些常用公式</span></h2><ul>
-<li>二项式定理</li>
-</ul>
-<p><code>\[ (a + b)^n = /sum{r=0}^n C_n^ra^{n-r}b^r \]</code></p>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/MathJax/">#MathJax</a> <a href="/tags/Latex/">#Latex</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2017/01/08/探索过程数据在全球大规模机器考试中的应用/">
-                探索过程数据在全球大规模机器考试中的应用
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2017年01月08日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            
-
-	<div class="row">
-    <embed src="/pdfs/探索过程数据在全球大规模机器考试中的应用.pdf" width="100%" height="550" type="application/pdf">
-	</div>
-
-
-
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/测量心理学/">#测量心理学</a> <a href="/tags/PISA/">#PISA</a> <a href="/tags/ETS/">#ETS</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/10/23/SPSS实例：[2]卡方检验百分比差异/">
-                SPSS实例：[2]卡方检验百分比差异
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年10月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>今天讲的卡方检验只是多种卡方检验中的一种，你还看一去看我最新的几篇文章讲分层卡方、相关样本卡方、kappa一致性系数等，这里【<a href="http://jingyan.baidu.com/season/33651?pn=26】" target="_blank" rel="noopener">http://jingyan.baidu.com/season/33651?pn=26】</a></p>
-<ul>
-<li>第一步是录入数据，我们录入数据的方式如下图：class是分组变量，0值代表A组，1代表B组，effect是是否敏感变量，0代表不敏感，1代表敏感，num是频次，也就是各个组的个案数目。你可以比对上面的交叉表来看看spss数据结构</li>
-</ul>
-<img src="/2016/10/23/SPSS实例：[2]卡方检验百分比差异/5beeba0f4bfbfbed4aedf0be79f0f736aec31f78.jpg" title="SPSS实例：[2]卡方检验百分比差异">
-<ul>
-<li>接着，我们要对数据进行加权，很多人问为什么要加权，实际上我们采用上图所示的数据结构就决定了我们必须用频次进行加权，这样可以让上面的那种数据结构表示呈交叉表。如果没有加权的话，会出现错误，我们待会会看到一个错误的结果，就是没有加权的结果。加权的方法是data–weight cases</li>
-</ul>
-<img src="/2016/10/23/SPSS实例：[2]卡方检验百分比差异/2f9cbdcc7cd98d10692ecaf0203fb80e7aec903e.jpg" title="SPSS实例：[2]卡方检验百分比差异">
-<ul>
-<li>将频次放入变量框，然后点击ok按钮，加权成成功</li>
-</ul>
-<img src="/2016/10/23/SPSS实例：[2]卡方检验百分比差异/3790312eb9389b503d0526938435e5dde6116e3e.jpg" title="SPSS实例：[2]卡方检验百分比差异">
-<ul>
-<li>接着在菜单栏上执行：analyse–descriptive statistics–crosstabs，打开交叉表对话框</li>
-</ul>
-<img src="/2016/10/23/SPSS实例：[2]卡方检验百分比差异/08b68e529822720e2134243b7acb0a46f31fab3e.jpg" title="SPSS实例：[2]卡方检验百分比差异">
-<ul>
-<li>在这个对话框中，我们需要将行和列变量放入各自的框中，注意看行和列变量不要弄颠倒了，回顾上面的数据结构，你自己对比一下，哪一个是行变量</li>
-</ul>
-<img src="/2016/10/23/SPSS实例：[2]卡方检验百分比差异/8759287adab44aedd3fa7825b21c8701a08bfb79.jpg" title="SPSS实例：[2]卡方检验百分比差异">
-<img src="/2016/10/23/SPSS实例：[2]卡方检验百分比差异/263e802f0708283818ba1ad5b999a9014d08f179.jpg" title="SPSS实例：[2]卡方检验百分比差异">
-<ul>
-<li>点击statistic按钮，设置卡方统计量</li>
-</ul>
-<img src="/2016/10/23/SPSS实例：[2]卡方检验百分比差异/246cca2a2834349b41fca844c8ea15ce37d3be3e.jpg" title="SPSS实例：[2]卡方检验百分比差异">
-<img src="/2016/10/23/SPSS实例：[2]卡方检验百分比差异/b74124f33a87e95079ed35ad11385343faf2b43e.jpg" title="SPSS实例：[2]卡方检验百分比差异">
-<ul>
-<li>点击cells按钮，选择输出的参数</li>
-</ul>
-<img src="/2016/10/23/SPSS实例：[2]卡方检验百分比差异/62667cd0f703918fbc66fb0b503d269758eec479.jpg" title="SPSS实例：[2]卡方检验百分比差异">
-<img src="/2016/10/23/SPSS实例：[2]卡方检验百分比差异/3c2c4bfbb2fb431648a8bcbb21a4462308f7d379.jpg" title="SPSS实例：[2]卡方检验百分比差异">
-<ul>
-<li>最后出现的是卡方检验的结果了，第一个表格是交叉表，显示了期望值和实际值</li>
-</ul>
-<img src="/2016/10/23/SPSS实例：[2]卡方检验百分比差异/246cca2a2834349b41b1a844c8ea15ce37d3be79.jpg" title="SPSS实例：[2]卡方检验百分比差异">
-<ul>
-<li><p>接着是卡方检验表，这是最关键的结果。我们根据样本量的大小来决定看哪一行的指标</p>
-</li>
-<li><p>假如我们的总样本数N》40且交叉表中每一个cells中频数均大于5，卡方检验的结果是精确的，可以参考第一行的指标，也就是pearson-chi-square（显然我们的案例满足这个条件）sig值小于.05，说明差异显著，说明两组病人对药物的反应是不同的；假如样本总量N&lt;40，或者cells中有一个频数小于5，我们只能看校正后的卡方值，也就是第二行数据，或者我们看fisher精确概率法获得的值，也就是第四行，这两行都得到了显著的结果；</p>
-</li>
-</ul>
-<img src="/2016/10/23/SPSS实例：[2]卡方检验百分比差异/3bb22487e950352a8bd6e3c95243fbf2b3118b79.jpg" title="SPSS实例：[2]卡方检验百分比差异">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/10/23/Django教程：[4]制作第一个网页/">
-                Django教程：[4]制作第一个网页
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年10月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>通过前面的三篇文章，我们现在已经有能力创建一个网页了。Django就是那么的有效率。我们创建第一个页面的目的是让你理解Django是如何工作的。不信往下看。进行下面的教程之前，如果你没有看我以前写的文章，可能会有疑惑。我前面的文章创建了一个站点djangoweb文件夹，下面要用到</p>
-<ul>
-<li>第一步要在我们创建的站点文件夹下面新建一个view.py文件，如图所示。当然你创建文件的名称是任意的，你可以叫别的名字。但是要跟后面要写的代码一致，后面还会用到view.py，如果你的文件名不是view，后面你需要做出相应的调整</li>
-</ul>
-<img src="/2016/10/23/Django教程：[4]制作第一个网页/b3508d13b07eca80277f099d932397dda1448316.jpg" title="Django教程：[4]制作第一个网页">
-<ul>
-<li>我们将该文件写入代码：如图所示。代码的意义是，首先引入HttpResponse类，后面我们会详细介绍这个类，现在我们只知道它用于返回网页中显示的代码。接着我们定义了一个名为hello的函数，它有一个参数为req，这个参数是django.http.HttpRequest的一个实例，我们暂时用不到这个参数，但是它却是一个必须的参数，参数的名称可以任意。hello函数它仅仅返回一个HttpResponse对象，这个对象包含了文本“Hello world”</li>
-</ul>
-<img src="/2016/10/23/Django教程：[4]制作第一个网页/d8b8c92a6059252df86d2d7e369b033b5bb5b916.jpg" title="Django教程：[4]制作第一个网页">
-<ul>
-<li>现在保存好这个view文件</li>
-</ul>
-<img src="/2016/10/23/Django教程：[4]制作第一个网页/148f28d3d539b6000cb43fcdeb50352ac65cb716.jpg" title="Django教程：[4]制作第一个网页">
-<ul>
-<li>接下来我们需要修改urls.py文件，这个文件可以将url和调用的函数对应起来。比如，我想当我在浏览器地址栏输入<a href="http://127.0.0.1:8001/hello/的时候就能调用view.hello方法，那么我们必须在urls.py中进行添加" target="_blank" rel="noopener">http://127.0.0.1:8001/hello/的时候就能调用view.hello方法，那么我们必须在urls.py中进行添加</a></li>
-</ul>
-<img src="/2016/10/23/Django教程：[4]制作第一个网页/8b527d2762d0f7039674a6a60afa513d2797c542.jpg" title="Django教程：[4]制作第一个网页">
-<ul>
-<li>首先要引用我们企图调用的方法，然后在urlpatterns中添加url(r’^hello/$’,hello),；注意最后面的逗号不能省略。这个代码就是将url同调用的函数联系起来。</li>
-</ul>
-<img src="/2016/10/23/Django教程：[4]制作第一个网页/0db2c9ca7bcb0a46efc6b8436963f6246a60afa0.jpg" title="Django教程：[4]制作第一个网页">
-<ul>
-<li>最后，我们在dos下开启开发服务器，如果你还不知道如何开启开发服务器，你需要看下面的参考资料里的传送门。</li>
-</ul>
-<img src="/2016/10/23/Django教程：[4]制作第一个网页/08b68e529822720e1677d28079cb0a46f31fabcb.jpg" title="Django教程：[4]制作第一个网页">
-<ul>
-<li>打开浏览器，地址栏输入地址：127.0.0.1:8001/hello/，你就会看到我们制作的第一个页面了。你学会了吗？</li>
-</ul>
-<img src="/2016/10/23/Django教程：[4]制作第一个网页/21e5582309f7905280a677440ef3d7ca7acbd5cb.jpg" title="Django教程：[4]制作第一个网页">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/django/">#django</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/10/23/Python教程：[14]快速创建TCP服务器/">
-                Python教程：[14]快速创建TCP服务器
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年10月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>这里我不跟大家讲什么是TCP，什么是服务器，相信大家都懂，不懂的话我也没有能力让你懂，所以我就直接上代码了，在代码中解释，然后把所有的代码呈现出现，以后你只要在这个简单的代码上进行修改就可以了。</p>
-<ul>
-<li>首先我们引入socket的所有属性，引入时间戳函数ctime，后面要用到时间戳</li>
-</ul>
-<img src="/2016/10/23/Python教程：[14]快速创建TCP服务器/bf487563f6246b6025f2785fe9f81a4c500fa2da.jpg" title="Python教程：[14]快速创建TCP服务器">
-<ul>
-<li>设置主机地址，主机地址为空说明我们可以使用任意可以使用的地址；端口号是我随意写的，只要不超过一定的范围就可以了，你可以搜索一下端口号的范围；ADDR连接地址包括主机地址和端口号。</li>
-</ul>
-<img src="/2016/10/23/Python教程：[14]快速创建TCP服务器/4651a712c8fcc3ce685903189045d688d53f20c5.jpg" title="Python教程：[14]快速创建TCP服务器">
-<ul>
-<li>我们使用socket方法来创建一个套接字；使用bind方法绑定到地址上；使用listen设定最多可以连接5个客户端。</li>
-</ul>
-<img src="/2016/10/23/Python教程：[14]快速创建TCP服务器/504ec7f9d72a605914ec2b312a34349b023bbada.jpg" title="Python教程：[14]快速创建TCP服务器">
-<ul>
-<li>下面是最重要的部分，我们使用无限循环来保证随时接受链接请求，accept方法可以接受请求，并返回客户端tcpclisock和客户端地址。使用recv方法来接受数据，send方法发送数据。如果一开始接受到了数据，后来数据为空，则跳出循环。</li>
-</ul>
-<img src="/2016/10/23/Python教程：[14]快速创建TCP服务器/d66b7e59252dd42a1bf5cb80013b5bb5c8eab8da.jpg" title="Python教程：[14]快速创建TCP服务器">
-<ul>
-<li><p>下面是所有的代码：</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>from socket import *   #引入socket的所有</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>from time import ctime  #时间戳函数，用于实现服务器的功能</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>HOST=’’   #主机地址</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>PORT=23345   #端口号</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>BUFSIZ=2048   #缓存区大小，单位是字节，这里设定了2K的缓冲区</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>ADDR=(HOST,PORT)   #链接地址</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>tcpSerSock=socket(AF_INET,SOCK_STREAM)   #创建一个TCP套接字</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>tcpSerSock.bind(ADDR)    #绑定地址</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>tcpSerSock.listen(5)    #最大连接数为5</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>while True:   #无限循环</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>print(‘客户端连接。。。’)   #显示文字信息</p>
-</li>
-<li><p>tcpCliSock,addr=tcpSerSock.accept()          #等待接受连接</p>
-</li>
-<li><p>print( ‘链接成功，客户端地址为：’,addr)</p>
-</li>
-<li><p>while True:</p>
-</li>
-<li><p>data=tcpCliSock.recv(BUFSIZ)    #接收数据,BUFSIZ是缓存区大小</p>
-</li>
-<li><p>if not data:   #如果data为空</p>
-</li>
-<li><p>break  #则跳出循环</p>
-</li>
-<li><p>tcpCliSock.send(‘[%s] %s’% (ctime(),data))</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<pre><code>tcpCliSock.close()   #关闭连接
-</code></pre></blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>tcpSerSock.close()   #关闭服务器</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1890,6 +1496,26 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/06-效度分析/">SPSS问卷效度分析教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/10/13/大学生婚恋观影响因素的调查研究-问卷数据分享/">大学生婚恋观影响因素的调查研究-问卷数据分享</a>
             </li>
             
@@ -1898,7 +1524,7 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/09/28/psychopyz3下载地址-安装过程/">psychopyz3下载地址+安装过程</a>
+                <a class="footer-post" href="/2020/09/28/psychopyz3下载地址-安装过程/">psychopy3下载地址+安装过程</a>
             </li>
             
             <li>
@@ -1907,26 +1533,6 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
             
             <li>
                 <a class="footer-post" href="/2020/09/17/05-共同方法偏差的诊断/">SPSS+Amos共同方法偏差的诊断</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/11/f02-多重共线性理论解释+危害+解决方法/">f02-多重共线性理论解释+危害+解决方法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/附录03-统计咨询服务/">统计咨询服务</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/04-多重共线性的诊断/">多重共线性的诊断</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/02-多变量离群值的处理/">多变量离群值的处理</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/03-正态性检验/">正态性检验</a>
             </li>
             
         </ul>
@@ -1940,11 +1546,11 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>
@@ -1953,6 +1559,18 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
         
         <span>
             <a class="footer-post" href="/tags/问卷数据分析/">问卷数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/数据分析/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/教程/">教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/信度分析/">信度分析</a>
         </span>
         
         <span>
@@ -1976,11 +1594,11 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/numpy/">numpy</a>
+            <a class="footer-post" href="/tags/问卷网/">问卷网</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/问卷网/">问卷网</a>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
         </span>
         
         <span>
@@ -2012,6 +1630,10 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
         </span>
         
@@ -2021,10 +1643,6 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
         
         <span>
             <a class="footer-post" href="/tags/javascript/">javascript</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
         </span>
         
         <span>
@@ -2068,11 +1686,11 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
+            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
         </span>
         
         <span>
@@ -2092,11 +1710,11 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/git/">git</a>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+            <a class="footer-post" href="/tags/git/">git</a>
         </span>
         
         <span>
@@ -2144,11 +1762,35 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+            <a class="footer-post" href="/tags/效度分析/">效度分析</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+            <a class="footer-post" href="/tags/EM/">EM</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/作文评分/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow-js/">tensorflow.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/自然语言处理/">自然语言处理</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/NLP/">NLP</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/语料库/">语料库</a>
         </span>
         
         <span>
@@ -2156,11 +1798,35 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/flexx/">flexx</a>
+            <a class="footer-post" href="/tags/gui/">gui</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/gui/">gui</a>
+            <a class="footer-post" href="/tags/networkx/">networkx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/dataframe/">dataframe</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/下载/">下载</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/网盘/">网盘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
         </span>
         
         <span>
@@ -2176,7 +1842,7 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
         </span>
         
         <span>
@@ -2228,7 +1894,7 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -2252,27 +1918,11 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/自然语言处理/">自然语言处理</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/win32com/">win32com</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/wxpython/">wxpython</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/语料库/">语料库</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/作文评分/">作文评分</a>
         </span>
         
         <span>
@@ -2295,50 +1945,6 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
             <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
         </span>
         
-        <span>
-            <a class="footer-post" href="/tags/卡方/">卡方</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/区块链/">区块链</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/心理学/">心理学</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/可视化/">可视化</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/visjs/">visjs</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/数据分享/">数据分享</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/“python/">“python&quot;</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/lsa/">lsa</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/潜在语义分析/">潜在语义分析</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/招聘/">招聘</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/eprime代做/">eprime代做</a>
-        </span>
-        
     </ul>
 </div>
 
@@ -2351,13 +1957,9 @@ n &amp; \text{左} &amp; \text{中} &amp; \text{右} \\
         <h2>Links</h2>
         <ul>
             
-                <span> | </span><a class="footer-post" href="http://www.17bigdata.com/" target="_blank">一起大数据</a><span> | </span>
-            
                 <span> | </span><a class="footer-post" href="http://mlln.cn/baidusitemap.xml" target="_blank">网站地图</a><span> | </span>
             
                 <span> | </span><a class="footer-post" href="http://mlln.cn/sitemap.xml" target="_blank">DataScience</a><span> | </span>
-            
-                <span> | </span><a class="footer-post" href="http://www.superli.tech/" target="_blank">Superli&#39;sBlog</a><span> | </span>
             
         </ul>
     </div>

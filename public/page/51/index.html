@@ -104,9 +104,8 @@
     
     
     
-    <script src="http://tjs.sjs.sinajs.cn/open/api/js/wb.js" type="text/javascript" charset="utf-8"></script>
+
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
-    <script data-ad-client="ca-pub-9377487079883038" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 </head>
 
 
@@ -179,8 +178,8 @@
 <div class="page_list archive-container">
         
     <div class="archive-post" style="opacity: 1;">
-        <a href="/guideToPython/">
-            推荐书: Python开发最佳实践
+        <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+            SPSS视频教程内容目录和跳转链接
         </a>
     </div>
     
@@ -294,20 +293,20 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程12：半监督学习/">
-                    李宏毅机器学习教程12：半监督学习
-                </a>
-            </div>
-            
-            <div class="archive-post">
                 <a href="/2018/09/21/李宏毅机器学习教程14：无监督学习-词嵌入模型/">
                     李宏毅机器学习教程14：无监督学习-词嵌入模型
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程15：无监督学习-neighbor-embeding/">
-                    李宏毅机器学习教程15：无监督学习-neighbor-embeding
+                <a href="/2018/09/21/李宏毅机器学习教程13：无监督学习/">
+                    李宏毅机器学习教程13：无监督学习
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程16：无监督学习-自编码器/">
+                    李宏毅机器学习教程16：无监督学习-自编码器
                 </a>
             </div>
             
@@ -444,6 +443,369 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/11/SPSS python教程：[1]安装Python Essentials/">
+                SPSS python教程：[1]安装Python Essentials
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>这个系列教程是用来教大家如何使用python脚本来操作spss，使用脚本的好处是可以批量处理，如果你有很多数据要处理，他们的处理方法类似，那就需要用到脚本，可以自动化、智能化处理数据，大大减少数据分析的工作量，关于更多好处，你们可以参考spss的官方文档，这里不多少，开始介绍如何设置spss中的python插件：SPSS Python Essentials。</p>
+<ul>
+<li><p>我用的spss版本是22.0，也是最近为了使用SPSS Python Essentials才安装的这个版本，大家可以参考这篇文章，以便正确安装spss 22.0。【<a href="http://jingyan.baidu.com/article/3d69c55187d5faf0cf02d73f.html】" target="_blank" rel="noopener">http://jingyan.baidu.com/article/3d69c55187d5faf0cf02d73f.html】</a></p>
+</li>
+<li><p>安装好了spss22.0以后，如果你按照上面的安装教程进行的安装，SPSS Python Essentials就自动的安装在了你的spss22.0的安装目录下。接下来我们要进行必要的设置。</p>
+</li>
+<li><p>打开spss22的界面，打开编辑菜单下的【选项】</p>
+</li>
+</ul>
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/ea85a94543a982266fc821b18882b9014b90ebd8.jpg" title="SPSS python教程：[1]安装Python Essentials">
+<ul>
+<li>切换到脚本选项下，我们设置一下缺省脚本语言为python，点击【应用】</li>
+</ul>
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/f9589818367adab4e5d911d589d4b31c8601e4d8.jpg" title="SPSS python教程：[1]安装Python Essentials">
+<ul>
+<li>切换到【文件位置】选项下，设置python的位置，我们有两个选项，一个是随IBM SPSS安装的位置，这就是说，spss22在安装的时候自动安装了python2.7，如果我们想要使用这个python，就选择第一个选项；但是我现在有一个更好的建议，使用我们自己安装的python，也就是说在安装spss之前就有一个python安装好了，我现在想使用这个python，我们可以设置python的其他安装，然后找到这个python安装的目录，最后点击确定就可以了。为什么我建议使用第二种选择呢？因为我的python下有很多安装好的扩展包，需要在处理数据的时候调用，以后安装新的扩展包也很方便。如果使用是、随spss安装的python，还需要另行安装这些扩展包</li>
+</ul>
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/8a95ad1c8701a18b32e218d99c2f07082938fed8.jpg" title="SPSS python教程：[1]安装Python Essentials">
+<ul>
+<li>设置完成以后，我们想要启动python的编辑窗口，需要在开始菜单中启动，如图所示。不能直接从python的安装目录里启动。</li>
+</ul>
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/d35a10f41bd5ad6eaacc6e7c83cb39dbb6fd3c2b.jpg" title="SPSS python教程：[1]安装Python Essentials">
+<ul>
+<li>另外，spss22还有一个bug，我们虽然设置了Python的主目录，但是在新建脚本的时候，还是用的随spss安装的python的shell。所以想要使用python脚本，你就从上面那个方面里启动python shell</li>
+</ul>
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/90cebeec08fa513df4a366483f6d55fbb3fbd9d8.jpg" title="SPSS python教程：[1]安装Python Essentials">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a> <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/05/numpy函数：[13]切片数组共享内存/">
+                numpy函数：[13]切片数组共享内存
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>使用切片的方法获取数组的一部分，并没有创建新的数组，而切片只是原始数组的一种视图，所以改变切片中的数值，也会改变原始数组的元素值，具体通过例子来看一下：</p>
+<ul>
+<li>先从Numpy中引用所有</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/8cf0d513495409233eb9c8e19058d109b2de491a.jpg" title="numpy函数：[13]切片数组共享内存">
+<ul>
+<li>创建一个一位数组a</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/6dc09e0a19d8bc3e5f2aac55808ba61ea9d345d4.jpg" title="numpy函数：[13]切片数组共享内存">
+<ul>
+<li>通过切片获取数组b</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/bd7faf3533fa828b54f3367cff1f4134960a5a1a.jpg" title="numpy函数：[13]切片数组共享内存">
+<ul>
+<li>假如改变数组b中的元素的值</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/948bcfc8a786c9178321f8a6cb3d70cf3ac757d4.jpg" title="numpy函数：[13]切片数组共享内存">
+<ul>
+<li>数组a相应的值也会发生变化</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/948bcfc8a786c91782d3f9a6cb3d70cf3ac7571a.jpg" title="numpy函数：[13]切片数组共享内存">
+<ul>
+<li>假如把a全部赋值给c，也是一样的效果，还是改变了原数组的值</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/a28d62d98d1001e984ecbf90ba0e7bec55e7971a.jpg" title="numpy函数：[13]切片数组共享内存">
+<ul>
+<li>想要保证原始数组的值不发生变化，我们最好使用copy方法获取数组c</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/fcbbb151f3deb48f58b90a41f21f3a292cf5781a.jpg" title="numpy函数：[13]切片数组共享内存">
+<ul>
+<li>现在改变数组c的元素的值，数组a将不放生变化。</li>
+</ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/48151723dd54564e76474ea6b1de9c82d0584fd4.jpg" title="numpy函数：[13]切片数组共享内存">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/05/Python教程：[48]集合对象用法/">
+                Python教程：[48]集合对象用法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>集合也就是set对象，关于什么是集合，你自己百度去，如果你知道什么是集合，我们下面就来看看如何在python中使用集合。这是介绍python集合的第一篇文章，下一篇还有更多内容，下一篇的链接：<a href="http://jingyan.baidu.com/article/63acb44afa8f2a61fdc17e50.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/63acb44afa8f2a61fdc17e50.html</a></p>
+<ul>
+<li>创建一个集合我们使用set，下面创建了一个空集合</li>
+</ul>
+<img src="/2015/08/05/Python教程：[48]集合对象用法/5202e5f2b21193135cdc931e67380cd790238d46.jpg" title="Python教程：[48]集合对象用法">
+<ul>
+<li>当然，你也可以创建一个已经包含了元素1,2,3的非空集合<br>再创建一个集合以备后用</li>
+</ul>
+<img src="/2015/08/05/Python教程：[48]集合对象用法/a1ad16fa513d2697e0b164f357fbb2fb4216d8fb.jpg" title="Python教程：[48]集合对象用法">
+<img src="/2015/08/05/Python教程：[48]集合对象用法/d1e312f431adcbef8cab12a8aeaf2edda2cc9f46.jpg" title="Python教程：[48]集合对象用法">
+<ul>
+<li>我们求一下两个集合的交集吧</li>
+</ul>
+<img src="/2015/08/05/Python教程：[48]集合对象用法/3c2c4bfbb2fb4316d37d16d422a4462308f7d3fb.jpg" title="Python教程：[48]集合对象用法">
+<ul>
+<li>求一下两个集合的合集吧</li>
+</ul>
+<img src="/2015/08/05/Python教程：[48]集合对象用法/b94f65ec54e736d1278de0a699504fc2d4626946.jpg" title="Python教程：[48]集合对象用法">
+<ul>
+<li>我们还可以用两个集合相减</li>
+</ul>
+<img src="/2015/08/05/Python教程：[48]集合对象用法/734f12f3d7ca7bcbc319ab81bc096b63f724a8fb.jpg" title="Python教程：[48]集合对象用法">
+<ul>
+<li>两个集合相减其实相当于这个</li>
+</ul>
+<img src="/2015/08/05/Python教程：[48]集合对象用法/e49cf91190ef76c6b54c97859f16fdfaae516746.jpg" title="Python教程：[48]集合对象用法">
+<ul>
+<li>当然，我们可以这样创建一个集合，单词中的每一个字母被当作了一个元素，进入集合。注意集合中只有一个l</li>
+</ul>
+<img src="/2015/08/05/Python教程：[48]集合对象用法/0d729944ebf81a4c82508067d52a6059242da6fb.jpg" title="Python教程：[48]集合对象用法">
+<ul>
+<li>下一篇接着介绍，今天先到这里</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/03/spss协方差分析如何进行事后两两比较/">
+                spss协方差分析如何进行事后两两比较
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在进行两两比较之前，我们最后先做一个协方差分析，在前面的文章讲了如何进行协方差分析，如果写反差分析显示出来了显著的结果，然后再进行两两的事后检验，下面是具体的过程：<br>方法/步骤</p>
+<ul>
+<li>先进行协方差分析，结果如果达到了显著水平，在进行两两比较，在菜单栏上执行analyze–general linear model–univariate</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/377adab44aed2e73568980d58701a18b86d6fae3.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>将自变量、因变量、斜变量都放到相应的位置，这里评定得分是因变量，培训方式是自变量、家庭指数是斜变量</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/37d12f2eb9389b501ecbe6ab8535e5dde7116e16.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>点击options按钮，进入子对话框</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/f2deb48f8c5494ee911609e02df5e0fe99257e16.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>将培训方式，也就是自变量放到右侧的列表里，勾选下面的描述统计和方差齐性检验，点击继续按钮</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/dc54564e9258d109c1d7af4bd158ccbf6c814d16.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>点击model按钮，选择模型</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/a71ea8d3fd1f413416030387251f95cad1c85e16.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>选择full factorial，然后点击continue按钮，返回主对话框</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/c83d70cf3bc79f3d76d5e2c9baa1cd11728b2916.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>点击paste按钮，进入命令编辑窗口</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/b3119313b07eca8051663f1e912397dda04483e3.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>在这里你会看到很多代码，我们留下前三行，如图所示，然后删除其他的行</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/b7fd5266d01609240011a4e2d40735fae6cd3416.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>编辑下面的六行代码，使用的是lmatrix命令，我们知道培训方式有三个水平，所以要进行三次两两比较才能将所有的水平进行比较。</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/d50735fae6cd7b892f583c7a0f2442a7d9330e16.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>点击运行按钮，开始处理数据</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/9a504fc2d5628535b183d4d890ef76c6a6ef63e3.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li><p>在出来的结果中，我们主要看的是定制假设检验，因为上面的命令中用了三次LMATRIX，所以会有三个定制假设检验，我们主要看下面的sig值，如图所示，这个值小于0.05就可以认为是有差异的</p>
+</li>
+<li></li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/5bafa40f4bfbfbed6b6d308678f0f736afc31f16.jpg" title="spss协方差分析如何进行事后两两比较">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/03/Excel2013：[58]文本日期如何改变样式/">
+                Excel2013：[58]文本日期如何改变样式
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>关于Excel的文本和日期格式的问题都很头疼，在开始今天这个实例之前建议你看看我之前写的一篇文章，主要讲了如何识别文本和日期格式、以及文本和日期的互转：<a href="http://jingyan.baidu.com/article/8cdccae965815c315413cdfc.html。今天我们用一个实例来说明上一篇文章讲到的知识点。" target="_blank" rel="noopener">http://jingyan.baidu.com/article/8cdccae965815c315413cdfc.html。今天我们用一个实例来说明上一篇文章讲到的知识点。</a></p>
+<ul>
+<li>根据上一篇文章我们知道，D列虽然显示的是日期格式，但是实际上它是文本，Excel并没有把它当日期，因为Excel无法识别这样的日期格式，只能当文本了。</li>
+</ul>
+<img src="/2015/08/03/Excel2013：[58]文本日期如何改变样式/245e8bcad1c8a78699a836196409c93d71cf50e3.jpg" title="Excel2013：[58]文本日期如何改变样式">
+<ul>
+<li>为了转换为日期，那就需要让Excel识别它，使用替换的方法将其转换为2013-1-1的格式。也就是用“-”替换“-”。</li>
+</ul>
+<img src="/2015/08/03/Excel2013：[58]文本日期如何改变样式/e8112b2ac65c1038a52ab1d5b1119313b07e8916.jpg" title="Excel2013：[58]文本日期如何改变样式">
+<ul>
+<li>你会发现它变成了这个样子</li>
+</ul>
+<img src="/2015/08/03/Excel2013：[58]文本日期如何改变样式/6398ecd3572c11df14a9c034602762d0f703c26a.jpg" title="Excel2013：[58]文本日期如何改变样式">
+<ul>
+<li>现在，我们想要这个样式变一下，变成我们想要的2013-1-1的样式，同时单元格格式转换为文本。那我们用到了一个公式TEXT，在E2单元格输入公式=TEXT(D2,”yyyy-m-d”)，回车看一下结果。</li>
+</ul>
+<img src="/2015/08/03/Excel2013：[58]文本日期如何改变样式/fc5e5f34970a304e6eb7dfedd2c8a786c8175cd4.jpg" title="Excel2013：[58]文本日期如何改变样式">
+<ul>
+<li>快速填充下面的单元格，这样就完成了所有的样式转换</li>
+</ul>
+<img src="/2015/08/03/Excel2013：[58]文本日期如何改变样式/11794d43fbf2b2116b31fb59c98065380cd78e4f.jpg" title="Excel2013：[58]文本日期如何改变样式">
+<ul>
+<li>整个过程其实就是从文本到日期再到文本的过程。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -764,762 +1126,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/17/gitignore配置详解/">
-                gitignore配置详解
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>如果你使用git来管理代码版本，你必须懂得如何使用.gitignore文件，该文件可以指定git忽略哪些文件，在git中的作用非常重要。在理解gitignore的配置之前，我们要先看看这些规则都可以来自哪里。通常git可以从多个地方获取忽略规则，优先级从上到下依次为：</p>
-<ul>
-<li><p>.gitignore文件适合写于项目有关的规则，并且这些规则需要与合作者分享。</p>
-</li>
-<li><p><code>$GIT_DIR/info/exclude</code>适用于与项目有关，但是你不想分享给其他作者，这些规则可能只适用于你自己。</p>
-</li>
-<li><p><code>core.excludesFile</code>适用于你在任何情况下都需要忽略的规则。这种情况不常用。</p>
-</li>
-<li><p>空行不匹配任何文件，所以空行通常是规则分组的分隔符，只是在视觉上将不同的规则分组。</p>
-</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/21e5582309f790527c5640f005f3d7ca7acbd570.jpg" title="gitignore配置详解">
-<ul>
-<li>以<code>#</code>开始的行代表注释，所以也不匹配任何文件。</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/73ca5910b912c8fcb345f103f5039245d788210e.jpg" title="gitignore配置详解">
-<ul>
-<li><p>末尾的空格没有任何意义，如果你想匹配空格，你需要在空格前加转义字符<code></code>。</p>
-</li>
-<li><p>例如：<code>a</code>这种写法可以匹配<code>a</code></p>
-</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/d7c9ca3f8794a4c20583e0e507f41bd5ac6e3918.jpg" title="gitignore配置详解">
-<ul>
-<li><p>感叹号<code>!</code>的作用是从已有的忽略规则里排除一部分文件。注意想要让感叹号起作用，必须在前规则中使用通配符<code>*</code>。例如：</p>
-</li>
-<li><p>前规则写成：<code>.env/*</code></p>
-</li>
-<li><p>想要追踪<code>.env</code>文件夹下的<code>data.txt</code>，需要追加一个规则：<code>!.env/data.txt</code></p>
-</li>
-<li><p>如果前规则写成<code>.env</code>，则<code>!.env/data.txt</code>不起作用。</p>
-</li>
-<li><p>如果规则以<code>/</code>结尾，则表示匹配文件夹, 类似的文件和链接都不会匹配。</p>
-</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/4bd1e803738da977974181e5b951f8198718e357.jpg" title="gitignore配置详解">
-<ul>
-<li>如果规则中不包含<code>/</code>，则规则即可匹配文件夹也可以匹配文件和链接，类似于linux shell中的通配符，可以匹配任何可以与通配符匹配的路径。</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/ae8267310a55b31949fc85bb4aa98226cefc17b3.jpg" title="gitignore配置详解">
-<ul>
-<li>通配符无法匹配符号<code>/</code>，所以类似这样的规则<code>foo/*.html</code>不能匹配<code>foo/bar/test.html</code>。</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/61183b2dd42a2834ceef31c552b5c9ea14cebf70.jpg" title="gitignore配置详解">
-<ul>
-<li>规则以<code>/</code>开头表示匹配<code>.gitignore</code>文件所在的目录。也就是说规则<code>/*.txt</code>只能匹配.gitignore所在目录下的所有txt文件，不能匹配其他目录下的txt文件。</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/dc854fda81cb39db37766098d9160924aa18300e.jpg" title="gitignore配置详解">
-<ul>
-<li><p>以<code>**/</code>开头的规则表示匹配所有文件夹，规则<code>**/a/b</code>能匹配<code>foo/a/b</code>也能匹配<code>foo/bar/a/b</code></p>
-</li>
-<li><p>以<code>/**</code>结尾的规则表示匹配目录下所有文件和文件夹，规则<code>a/b/**</code>能匹配<code>/a/b/c</code>也能匹配<code>a/b/c/d/e</code></p>
-</li>
-<li><p>规则中间包含<code>/**/</code>表示匹配任意路径，比如规则<code>a/**/b</code>可以匹配<code>a/foo/bar/b</code>和<code>a/e/m/c/b</code>。</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/15/python 线性代数：[3]矩阵转置/">
-                python 线性代数：[3]矩阵转置
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>矩阵的转置很简单，就是将矩阵的行变为列，将列变为行，我们先通过例子看一下矩阵转置是怎么做的。然后验证几个规律。</p>
-<ul>
-<li>先创建一个矩阵A</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/faacb564034f78f014b75c027b310a55b2191c40.jpg" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>我们使用属性T来得到矩阵A的转置矩阵</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/5327ce160924ab185b0727c637fae6cd7a890beb.jpg" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>我们验证第一个性质：(A’)’=A</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/d019d2bf6c81800a81044fffb33533fa838b471b.jpg" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>再创建两个尺寸相同的矩阵</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/1899a23eb13533fa1e5755dfaad3fd1f40345b1b.jpg" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>验证矩阵转置的第二个性质：(A±B)’=A’±B’</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/dbf554ed2e738bd44d9c74c0a38b87d6267ff940.jpg" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>验证矩阵转置的第三个性质：(KA)’=KA’</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/2f3295d4b31c8701a10a7417257f9e2f0608ff40.jpg" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>验证矩阵转置的第四个性质：(A×B)’= B’×A’</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/c87c6ecf3bc79f3d560022c1b8a1cd11738b291b.jpg" title="python 线性代数：[3]矩阵转置">
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/6648d73d70cf3bc733560c1dd300baa1cc112aaa.jpg" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li><p>本文用到的所有代码如下：</p>
-</li>
-<li></li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 2, 3],</p>
-</li>
-<li><p>[4, 5, 6]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A.T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 4],</p>
-</li>
-<li><p>[2, 5],</p>
-</li>
-<li><p>[3, 6]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A.T.T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 2, 3],</p>
-</li>
-<li><p>[4, 5, 6]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>B</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 4],</p>
-</li>
-<li><p>[2, 5],</p>
-</li>
-<li><p>[3, 6]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>D</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[0, 3],</p>
-</li>
-<li><p>[1, 4],</p>
-</li>
-<li><p>[2, 5]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>(B+D).T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1,  3,  5],</p>
-</li>
-<li><p>[ 7,  9, 11]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>B.T+D.T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1,  3,  5],</p>
-</li>
-<li><p>[ 7,  9, 11]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>10*A.T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[10, 40],</p>
-</li>
-<li><p>[20, 50],</p>
-</li>
-<li><p>[30, 60]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>(10*A).T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[10, 40],</p>
-</li>
-<li><p>[20, 50],</p>
-</li>
-<li><p>[30, 60]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>np.dot(A,B).T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[14, 32],</p>
-</li>
-<li><p>[32, 77]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>np.dot(A.T,B.T)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[17, 22, 27],</p>
-</li>
-<li><p>[22, 29, 36],</p>
-</li>
-<li><p>[27, 36, 45]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>np.dot(B.T,A.T)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[14, 32],</p>
-</li>
-<li><p>[32, 77]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/15/Python教程：[11]正则表达式match()函数/">
-                Python教程：[11]正则表达式match()函数
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>如果不创建pattern对象，我们使用match函数可以直接进行正则表达式的匹配，在我看来这种方式更简洁，不过不适合大型程序的编写，后期维护可能会产生困难，不过编写一些小脚本完全可以胜任。</p>
-<ul>
-<li>先引入re模块</li>
-</ul>
-<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/b3ba5d166d224f4a5decda380bf790529822d161.jpg" title="Python教程：[11]正则表达式match()函数">
-<ul>
-<li>使用match函数返回一个match对象</li>
-</ul>
-<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/7d98931001e93901e15e241579ec54e736d1967a.jpg" title="Python教程：[11]正则表达式match()函数">
-<ul>
-<li>使用group方法输出所有匹配的字符串</li>
-</ul>
-<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/99636c0e0cf3d7cafe83965df01fbe096b63a961.jpg" title="Python教程：[11]正则表达式match()函数">
-<ul>
-<li>我们看一下m的数据类型。</li>
-</ul>
-<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/9a1151c2d56285352ebc7b0a92ef76c6a7ef637a.jpg" title="Python教程：[11]正则表达式match()函数">
-<ul>
-<li>我们还可以用简单的写法来获得所有匹配的字符串。</li>
-</ul>
-<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/e49cf91190ef76c6686a52009f16fdfaaf516726.jpg" title="Python教程：[11]正则表达式match()函数">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/">
-                pandas教程：[2]DataFrame选择数据-1
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>上一篇文章介绍了如何创建和查看DataFrame数据，这篇文章讲一下如何选择DataFrame中的数据，还是用例子来说明问题。</p>
-<ul>
-<li>先来看一下今天用到的数据框的内容</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/509b9fcb39dbb6fdd256ea120a24ab18972b37b1.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>假如我们要选择A列的数据进行操作：df[‘a’]</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/966aca0735fae6cdf3b9a4550cb30f2442a70fb1.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>还可以使用数组的切片操作，但是注意了，切片得到的是行数据</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/d872d695d143ad4b402349f481025aafa40f06b1.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>如果你想使用这个方法得到列，那就会出现错误</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/38403f3fb80e7bec70840cd52c2eb9389b506b6c.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>我们还可以使用行标签来指定输出的行</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/4e83cb628535e5ddca72aaeb75c6a7efce1b626c.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>DataFrame的loc方法是帮助选择数据的，比如选择索引位置为0的一行数据（注意我们是用dates作为索引的）</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/ae10eddeb48f8c54ac8dca1b39292df5e0fe7f6c.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>选择多列数据的写法</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/8640bf8b87d6277f251f3d0c2b381f30e924fcb2.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>假如我们要选择的是一个局部数据，是行和列的交叉区域</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/507c389759ee3d6d8ccb88ff40166d224f4adeb2.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>假如我们只选择某一个数据，可以指定行和列：</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/08b68e529822720ee8c3edce78cb0a46f21fabb2.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>当然，at方法是专门用于获取某个值的：</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/3a86813df8dcd100d2c2f715718b4710b9122f6c.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>选择数据就是用到了切片和loc、at方法，下一篇文章介绍一下iloc方法选择数据，它使你像操作array一样操作DataFrame</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/05/numpy函数：[9]zeros创建0矩阵/">
-                numpy函数：[9]zeros创建0矩阵
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>经常用到一些0数组，就是元素均为0的数组。那么怎么在python中创建0数组呢？我们用到了zeros函数，下面看看这个函数的用法：</p>
-<ul>
-<li>首先要引入一下numpy这个包</li>
-</ul>
-<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/9e7ce6dcd100baa19c4a21244510b912c9fc2e8f.jpg" title="numpy函数：[9]zeros创建0矩阵">
-<ul>
-<li>试着创建一个一维数组，只使用一个参数就可以了</li>
-</ul>
-<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/73ca5910b912c8fc95959052fe039245d788218f.jpg" title="numpy函数：[9]zeros创建0矩阵">
-<ul>
-<li>默认情况下，zeros创建的数组是浮点型的，假如使用其他类型，可以设置dtype参数</li>
-</ul>
-<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/d57e9994a4c27d1e8d6d5d5b19d5ad6edcc438a2.jpg" title="numpy函数：[9]zeros创建0矩阵">
-<ul>
-<li>假如我们想要创建一个二维数组，我一开始以为是用下面这个方法，但是会返回错误</li>
-</ul>
-<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/a583631ed21b0ef47aa3fec1dfc451da80cb3ea2.jpg" title="numpy函数：[9]zeros创建0矩阵">
-<ul>
-<li>其实是使用一个列表作为参数，这样就返回一个二维数组</li>
-</ul>
-<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/ac2fc3c451da81cb5f80e5525066d0160824318f.jpg" title="numpy函数：[9]zeros创建0矩阵">
-<ul>
-<li>同样我们使用第二个参数设置数组的类型</li>
-</ul>
-<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/0865b518972bd4075b8cb56279899e510eb309a2.jpg" title="numpy函数：[9]zeros创建0矩阵">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/numpy/">#numpy</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1561,6 +1167,26 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/06-效度分析/">SPSS问卷效度分析教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/10/13/大学生婚恋观影响因素的调查研究-问卷数据分享/">大学生婚恋观影响因素的调查研究-问卷数据分享</a>
             </li>
             
@@ -1569,7 +1195,7 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/09/28/psychopyz3下载地址-安装过程/">psychopyz3下载地址+安装过程</a>
+                <a class="footer-post" href="/2020/09/28/psychopyz3下载地址-安装过程/">psychopy3下载地址+安装过程</a>
             </li>
             
             <li>
@@ -1578,26 +1204,6 @@
             
             <li>
                 <a class="footer-post" href="/2020/09/17/05-共同方法偏差的诊断/">SPSS+Amos共同方法偏差的诊断</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/11/f02-多重共线性理论解释+危害+解决方法/">f02-多重共线性理论解释+危害+解决方法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/附录03-统计咨询服务/">统计咨询服务</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/04-多重共线性的诊断/">多重共线性的诊断</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/02-多变量离群值的处理/">多变量离群值的处理</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/10/03-正态性检验/">正态性检验</a>
             </li>
             
         </ul>
@@ -1611,11 +1217,11 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>
@@ -1624,6 +1230,18 @@
         
         <span>
             <a class="footer-post" href="/tags/问卷数据分析/">问卷数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/数据分析/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/教程/">教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/信度分析/">信度分析</a>
         </span>
         
         <span>
@@ -1647,11 +1265,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/numpy/">numpy</a>
+            <a class="footer-post" href="/tags/问卷网/">问卷网</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/问卷网/">问卷网</a>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
         </span>
         
         <span>
@@ -1683,6 +1301,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
         </span>
         
@@ -1692,10 +1314,6 @@
         
         <span>
             <a class="footer-post" href="/tags/javascript/">javascript</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
         </span>
         
         <span>
@@ -1739,11 +1357,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
+            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
         </span>
         
         <span>
@@ -1763,11 +1381,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/git/">git</a>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+            <a class="footer-post" href="/tags/git/">git</a>
         </span>
         
         <span>
@@ -1815,11 +1433,35 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+            <a class="footer-post" href="/tags/效度分析/">效度分析</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+            <a class="footer-post" href="/tags/EM/">EM</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/作文评分/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow-js/">tensorflow.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/自然语言处理/">自然语言处理</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/NLP/">NLP</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/语料库/">语料库</a>
         </span>
         
         <span>
@@ -1827,11 +1469,35 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/flexx/">flexx</a>
+            <a class="footer-post" href="/tags/gui/">gui</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/gui/">gui</a>
+            <a class="footer-post" href="/tags/networkx/">networkx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/dataframe/">dataframe</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/下载/">下载</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/网盘/">网盘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
         </span>
         
         <span>
@@ -1847,7 +1513,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
         </span>
         
         <span>
@@ -1899,7 +1565,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1923,27 +1589,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/自然语言处理/">自然语言处理</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/win32com/">win32com</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/wxpython/">wxpython</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/语料库/">语料库</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/作文评分/">作文评分</a>
         </span>
         
         <span>
@@ -1966,50 +1616,6 @@
             <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
         </span>
         
-        <span>
-            <a class="footer-post" href="/tags/卡方/">卡方</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/区块链/">区块链</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/心理学/">心理学</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/可视化/">可视化</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/visjs/">visjs</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/数据分享/">数据分享</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/“python/">“python&quot;</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/lsa/">lsa</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/潜在语义分析/">潜在语义分析</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/招聘/">招聘</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/eprime代做/">eprime代做</a>
-        </span>
-        
     </ul>
 </div>
 
@@ -2022,13 +1628,9 @@
         <h2>Links</h2>
         <ul>
             
-                <span> | </span><a class="footer-post" href="http://www.17bigdata.com/" target="_blank">一起大数据</a><span> | </span>
-            
                 <span> | </span><a class="footer-post" href="http://mlln.cn/baidusitemap.xml" target="_blank">网站地图</a><span> | </span>
             
                 <span> | </span><a class="footer-post" href="http://mlln.cn/sitemap.xml" target="_blank">DataScience</a><span> | </span>
-            
-                <span> | </span><a class="footer-post" href="http://www.superli.tech/" target="_blank">Superli&#39;sBlog</a><span> | </span>
             
         </ul>
     </div>
