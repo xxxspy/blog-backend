@@ -287,26 +287,26 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程2：误差来自哪里/">
-                    李宏毅机器学习教程2：误差来自哪里
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程13：无监督学习/">
-                    李宏毅机器学习教程13：无监督学习
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程14：无监督学习-词嵌入模型/">
-                    李宏毅机器学习教程14：无监督学习-词嵌入模型
-                </a>
-            </div>
-            
-            <div class="archive-post">
                 <a href="/2018/09/21/李宏毅机器学习教程15：无监督学习-neighbor-embeding/">
                     李宏毅机器学习教程15：无监督学习-neighbor-embeding
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程16：无监督学习-自编码器/">
+                    李宏毅机器学习教程16：无监督学习-自编码器
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程17：深度生成模型/">
+                    李宏毅机器学习教程17：深度生成模型
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程18：无监督生成模型/">
+                    李宏毅机器学习教程18：无监督生成模型
                 </a>
             </div>
             
@@ -326,14 +326,14 @@
     <div class="page_list archive-container">
         
             <div class="archive-post">
-                <a href="/2018/07/02/tensorflow教程03-入门必知数据模型和相关概念/">
-                    tensorflow教程03-入门必知数据模型和相关概念
+                <a href="/2018/07/02/tensorflow教程02-计算图及其实践/">
+                    tensorflow教程02-计算图及其实践
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2018/07/02/tensorflow教程02-计算图及其实践/">
-                    tensorflow教程02-计算图及其实践
+                <a href="/2018/07/02/tensorflow教程03-入门必知数据模型和相关概念/">
+                    tensorflow教程03-入门必知数据模型和相关概念
                 </a>
             </div>
             
@@ -380,8 +380,8 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程23-2：Policy-Gradient/">
-                    李宏毅机器学习教程23-2：Policy-Gradient
+                <a href="/2018/09/21/李宏毅机器学习教程23-3：强化学习(包括Qlearning)/">
+                    李宏毅机器学习教程23-3：强化学习(包括Qlearning)
                 </a>
             </div>
             
@@ -443,6 +443,73 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/04/05/SPSS python教程：[9]getValuesFromXml/">
+                SPSS python教程：[9]getValuesFromXml
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年04月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>前两篇文章介绍了如何获取透视表中的平均数，现在更深入的探讨一下其中用到的spssaux.GetValuesFromXMLWorkspace方法。在这篇文章中【<a href="http://jingyan.baidu.com/article/c275f6bac03a22e33c75674c.html】，可以看到我使用该方法。现在我们具体探讨一下：" target="_blank" rel="noopener">http://jingyan.baidu.com/article/c275f6bac03a22e33c75674c.html】，可以看到我使用该方法。现在我们具体探讨一下：</a></p>
+<ul>
+<li>先看一个数据透视表，想办法获取IAI的平均数</li>
+</ul>
+<img src="/2016/04/05/SPSS%20python教程：[9]getValuesFromXml/9304c888d43f8794096a7eafd01b0ef41ad53a5e.jpg" title="SPSS python教程：[9]getValuesFromXml">
+<ul>
+<li>我们使用spssaux.GetValuesFromXMLWorkspace，如下图那样写一段代码就能得到IAI的平均数。其中用到了很多参数，下面我们分析一下这些参数都是什么：</li>
+</ul>
+<img src="/2016/04/05/SPSS%20python教程：[9]getValuesFromXml/99636c0e0cf3d7ca66ea0ef7f01fbe096a63a9d7.jpg" title="SPSS python教程：[9]getValuesFromXml">
+<ul>
+<li><p>首先是handle参数，它是结果项目的句柄，也就是上面的透视表的句柄。你要从中获取数据。而你怎么知道它的句柄的？是在创建该透视表的时候得到的，具体请看上篇文章【<a href="http://jingyan.baidu.com/article/cb5d6105088fe2005d2fe04d.html】" target="_blank" rel="noopener">http://jingyan.baidu.com/article/cb5d6105088fe2005d2fe04d.html】</a></p>
+</li>
+<li><p>其次是tablesubtype参数，我们可以在这里看到透视表的subtype</p>
+</li>
+</ul>
+<img src="/2016/04/05/SPSS%20python教程：[9]getValuesFromXml/cc506c8b4710b9126b11c67fc1fdfc039345221b.jpg" title="SPSS python教程：[9]getValuesFromXml">
+<ul>
+<li>rowcategory参数：行类别，它标识出行坐标，rowcategory=”IAI”就表示成下图</li>
+</ul>
+<img src="/2016/04/05/SPSS%20python教程：[9]getValuesFromXml/9e7ce6dcd100baa15390743a4510b912c9fc2eb7.jpg" title="SPSS python教程：[9]getValuesFromXml">
+<ul>
+<li>columncategory参数：列类别，标志出列坐标，colCategory=’Mean’可以表示为下图</li>
+</ul>
+<img src="/2016/04/05/SPSS%20python教程：[9]getValuesFromXml/bf487563f6246b602ece81f5e9f81a4c500fa22b.jpg" title="SPSS python教程：[9]getValuesFromXml">
+<ul>
+<li>cellAttrib单元格属性：任何一个单元格都有text和number两个属性，我们想要获得text的值就用cellAttrib=’text’</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a> <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -1149,71 +1216,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/03/17/spss协方差分析中如何进行交互作用的检验/">
-                spss协方差分析中如何进行交互作用的检验
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年03月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>协方差分析前必须进行交互作用的检验，为的是满足协方差分析的平行性假设，存在交互作用就无法进行协方差分析了。下面是具体的过程：<br>工具/原料</p>
-<ul>
-<li>spss20.0<br>方法/步骤</li>
-</ul>
-<ul>
-<li>打开数据，在菜单栏上点击analyse–GML–univariate，打开协方差的对话框</li>
-</ul>
-<img src="/2016/03/17/spss协方差分析中如何进行交互作用的检验/d31b0ef41bd5ad6e9d14c72981cb39dbb7fd3c07.jpg" title="spss协方差分析中如何进行交互作用的检验">
-<ul>
-<li>在打开的这个对话框中，我们要将因变量、固定因素、斜变量放入各自的框中，点击model按钮，设置模型</li>
-</ul>
-<img src="/2016/03/17/spss协方差分析中如何进行交互作用的检验/e824b899a9014c08e9518a660a7b02087af4f48f.jpg" title="spss协方差分析中如何进行交互作用的检验">
-<img src="/2016/03/17/spss协方差分析中如何进行交互作用的检验/d439b6003af33a872fcea2d9c65c10385243b556.jpg" title="spss协方差分析中如何进行交互作用的检验">
-<ul>
-<li>在这，需要将两个自变量和他们的交互项放入到模型框中，点击continue按钮</li>
-</ul>
-<img src="/2016/03/17/spss协方差分析中如何进行交互作用的检验/f636afc379310a55d0bc7c37b74543a98326105c.jpg" title="spss协方差分析中如何进行交互作用的检验">
-<ul>
-<li>回到主对话框，点击ok按钮开始处理数据，等待几分钟才能出现图，因为绘图需要一些时间</li>
-</ul>
-<img src="/2016/03/17/spss协方差分析中如何进行交互作用的检验/91529822720e0cf37e00ec380a46f21fbf09aa7a.jpg" title="spss协方差分析中如何进行交互作用的检验">
-<ul>
-<li>我们看到这两个变量的交互作用并不显著，这说明协方差分析是可行的</li>
-</ul>
-<img src="/2016/03/17/spss协方差分析中如何进行交互作用的检验/4ec2d5628535e5dd16df071c76c6a7efcf1b6206.jpg" title="spss协方差分析中如何进行交互作用的检验">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1255,6 +1257,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/11/27/文旅特色小镇的具身体验质量-数据分享/">文旅特色小镇的具身体验质量-数据分享</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/11/12/问卷代填-大学生的论文用的-有靠谱的调研商家/">问卷代填(大学生的论文用的)怎么快速收集高质量问卷</a>
             </li>
             
@@ -1275,11 +1281,11 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
             </li>
             
             <li>
@@ -1288,10 +1294,6 @@
             
             <li>
                 <a class="footer-post" href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2020/09/28/psychopyz3下载地址-安装过程/">psychopy3下载地址+安装过程</a>
             </li>
             
         </ul>
@@ -1309,7 +1311,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
         </span>
         
         <span>
@@ -1365,15 +1367,15 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/python/">python</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/excel/">excel</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
         </span>
         
         <span>
@@ -1389,7 +1391,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Latex/">Latex</a>
         </span>
         
         <span>
@@ -1401,19 +1407,23 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/mysql/">mysql</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
+            <a class="footer-post" href="/tags/机器学习/">机器学习</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/Latex/">Latex</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/mysql/">mysql</a>
+            <a class="footer-post" href="/tags/游戏/">游戏</a>
         </span>
         
         <span>
@@ -1429,15 +1439,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/机器学习/">机器学习</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/深度学习/">深度学习</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/游戏/">游戏</a>
         </span>
         
         <span>
@@ -1469,11 +1471,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+            <a class="footer-post" href="/tags/git/">git</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/git/">git</a>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
         </span>
         
         <span>
@@ -1493,6 +1495,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/nginx/">nginx</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/mongodb/">mongodb</a>
         </span>
         
@@ -1505,15 +1511,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/nginx/">nginx</a>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/p5-js/">p5.js</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/officejs/">officejs</a>
         </span>
         
         <span>
@@ -1557,10 +1559,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/logging/">logging</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
         </span>
         
@@ -1569,11 +1567,19 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/os/">os</a>
+            <a class="footer-post" href="/tags/logging/">logging</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/时间序列/">时间序列</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/os/">os</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/scipy/">scipy</a>
         </span>
         
         <span>
@@ -1585,7 +1591,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/scipy/">scipy</a>
+            <a class="footer-post" href="/tags/情感分析/">情感分析</a>
         </span>
         
         <span>
@@ -1597,11 +1603,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/情感分析/">情感分析</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>
@@ -1629,11 +1631,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/cron/">cron</a>
+            <a class="footer-post" href="/tags/vscode/">vscode</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/vscode/">vscode</a>
+            <a class="footer-post" href="/tags/cron/">cron</a>
         </span>
         
         <span>
@@ -1669,19 +1671,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/chrome/">chrome</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/爬虫/">爬虫</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/卡方/">卡方</a>
+            <a class="footer-post" href="/tags/区块链/">区块链</a>
         </span>
         
         <span>
@@ -1693,11 +1683,23 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/区块链/">区块链</a>
+            <a class="footer-post" href="/tags/卡方/">卡方</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/心理学/">心理学</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/爬虫/">爬虫</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
         </span>
         
         <span>
