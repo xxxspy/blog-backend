@@ -287,26 +287,26 @@
             </div>
             
             <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程2：误差来自哪里/">
+                    李宏毅机器学习教程2：误差来自哪里
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2018/09/21/李宏毅机器学习教程15：无监督学习-neighbor-embeding/">
                     李宏毅机器学习教程15：无监督学习-neighbor-embeding
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程16：无监督学习-自编码器/">
-                    李宏毅机器学习教程16：无监督学习-自编码器
+                <a href="/2018/09/21/李宏毅机器学习教程13：无监督学习/">
+                    李宏毅机器学习教程13：无监督学习
                 </a>
             </div>
             
             <div class="archive-post">
                 <a href="/2018/09/21/李宏毅机器学习教程17：深度生成模型/">
                     李宏毅机器学习教程17：深度生成模型
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程18：无监督生成模型/">
-                    李宏毅机器学习教程18：无监督生成模型
                 </a>
             </div>
             
@@ -380,8 +380,8 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程23-3：强化学习(包括Qlearning)/">
-                    李宏毅机器学习教程23-3：强化学习(包括Qlearning)
+                <a href="/2018/09/21/李宏毅机器学习教程23-2：Policy-Gradient/">
+                    李宏毅机器学习教程23-2：Policy-Gradient
                 </a>
             </div>
             
@@ -443,6 +443,109 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/11/SPSS自动化：[4]/">
+                SPSS自动化：[4]
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>syntax是spss中的命令，在spss有syntax文档对象，这个对象有哪些属性呢？</p>
+<ul>
+<li><p>1&gt;designated属性：为当前输出文档、语法文档或草稿文档返回或设置指定的窗口状态。指定的窗口（designatedwindow）是spss传送输出、粘贴或运行语法命令的窗口。当一个新的输出窗口打开以后它就成为了指定窗口。</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>Intcount=objdocuments.outputdoccount</p>
+</li>
+<li><p>Set objoutputdoc=objdocuments.getoutputdoc(intcount-1)</p>
+</li>
+<li><p>Objoutputdoc.designated=true</p>
+</li>
+<li><p>‘本实例将最后一个输出文档设置成指定文档接收新的输出。</p>
+</li>
+<li><p>2&gt;height和width属性、left和top属性、modified属性在前面其他对象中有介绍，这里省略。</p>
+</li>
+<li><p>3&gt;papersource属性：设置打印时候纸张的来源，它有四个值：</p>
+</li>
+<li><p>1    Upper</p>
+</li>
+<li><p>2    Lower</p>
+</li>
+<li><p>3    Middle</p>
+</li>
+<li><p>4    envelop</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>Setobjprintoptions=objoutputdoc.printoptions</p>
+</li>
+<li><p>‘设置打印选项</p>
+</li>
+<li><p>Printoptions.papersource-2</p>
+</li>
+<li><p>4&gt;rtftext属性：返回或设置语法窗口中的格式化文本，或rich文本框中的rtf文本编辑器。</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>String=objsyntaxdoc.text</p>
+</li>
+<li><p>Objsyntaxdoc.rtftext=string</p>
+</li>
+<li><p>Objsyntaxdoc.run</p>
+</li>
+<li><p>5&gt;text属性：在语法窗口或者激活的rtf文本编辑器中返回或设置文本，可以使用该属性写成或接收未格式化的文本。</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>Dim syntaxcommands as string</p>
+</li>
+<li><p>Syntaxcommands=objdatadoc.invokedialogandreturnsyntax(“analyze&gt;compare means&gt;paired-samples t test”,1)</p>
+</li>
+<li><p>‘获取了syntax命令</p>
+</li>
+<li><p>Dim objsyntaxdoc as ispsssyntaxdoc</p>
+</li>
+<li><p>Set objsyntaxdoc=objspssapp.newsyntaxdoc</p>
+</li>
+<li><p>Objsyntaxdoc.text=syntaxcommands</p>
+</li>
+<li><p>6&gt;toolbarvisible属性、visible属性、windowstate属性略去。</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -1079,67 +1182,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/23/wxpython教程：[4]菜单中的图标/">
-                wxpython教程：[4]菜单中的图标
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们看到的菜单中多半是有一个图标的，那么今天我们就来做一个菜单，菜单选项左侧有一个图标。要达到这个目的我们必须手动创建一个选项。下面是今天代码的全部：由于这些大部分代码在之前的文章中有讲解，所以这篇文章就着重讲不同的部分。</p>
-<ul>
-<li>先创建一个选项：注意第二个参数设定了该选项的id，以后绑定方法的时候可以用id来表示该选项</li>
-</ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/0e655ca7d933c895c3031a14d21373f082020024.jpg" title="wxpython教程：[4]菜单中的图标">
-<ul>
-<li>设置选项的图标用到了方法：SetBitmap，该方法需要传入一个Bitmap对象：exit.jpg是我自己做的一个图片</li>
-</ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/c9d4cf43ad4bd11366b0355d59afa40f4bfb0524.jpg" title="wxpython教程：[4]菜单中的图标">
-<ul>
-<li>将创建好的选项添加到菜单</li>
-</ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/72b19c025aafa40f52bb4cb2a864034f78f01924.jpg" title="wxpython教程：[4]菜单中的图标">
-<ul>
-<li>将选项与方法绑定，这样点击该菜单选项就能执行OnQuit动作。注意现在用id来表示跟哪个选项进行的绑定，因为我们在</li>
-</ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/55a628d12f2eb9383071f89dd6628535e5dd6f06.jpg" title="wxpython教程：[4]菜单中的图标">
-<ul>
-<li>这是最后做出来的效果图</li>
-</ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/b25d9901a18b87d61b3c2670040828381f30fd20.jpg" title="wxpython教程：[4]菜单中的图标">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1181,6 +1223,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/11/27/文旅特色小镇的具身体验质量-数据分享/">文旅特色小镇的具身体验质量-数据分享</a>
             </li>
             
@@ -1197,11 +1243,11 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
             </li>
             
             <li>
@@ -1216,10 +1262,6 @@
                 <a class="footer-post" href="/2020/10/13/大学生婚恋观影响因素的调查研究-问卷数据分享/">大学生婚恋观影响因素的调查研究-问卷数据分享</a>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
-            </li>
-            
         </ul>
     </div>
 
@@ -1231,7 +1273,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
         </span>
         
         <span>
@@ -1287,11 +1329,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/mplus/">mplus</a>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
+            <a class="footer-post" href="/tags/mplus/">mplus</a>
         </span>
         
         <span>
@@ -1315,14 +1357,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/Latex/">Latex</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/卡方检验/">卡方检验</a>
         </span>
         
@@ -1331,27 +1365,23 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/mysql/">mysql</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/推荐书/">推荐书</a>
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Latex/">Latex</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mysql/">mysql</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/机器学习/">机器学习</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/游戏/">游戏</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/显著性/">显著性</a>
         </span>
         
         <span>
@@ -1363,7 +1393,19 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/机器学习/">机器学习</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/深度学习/">深度学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/游戏/">游戏</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/显著性/">显著性</a>
         </span>
         
         <span>
@@ -1435,11 +1477,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/officejs/">officejs</a>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
         </span>
         
         <span>
@@ -1499,14 +1541,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/os/">os</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/scipy/">scipy</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/pil/">pil</a>
         </span>
         
@@ -1515,7 +1549,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/情感分析/">情感分析</a>
+            <a class="footer-post" href="/tags/scipy/">scipy</a>
         </span>
         
         <span>
@@ -1527,11 +1561,19 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/os/">os</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
+            <a class="footer-post" href="/tags/情感分析/">情感分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>
@@ -1559,10 +1601,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/cron/">cron</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/自然语言处理/">自然语言处理</a>
         </span>
         
@@ -1575,7 +1613,19 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/cron/">cron</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/语料库/">语料库</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/CCA/">CCA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/典型相关分析/">典型相关分析</a>
         </span>
         
         <span>
@@ -1587,11 +1637,15 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/CCA/">CCA</a>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/典型相关分析/">典型相关分析</a>
+            <a class="footer-post" href="/tags/爬虫/">爬虫</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
         </span>
         
         <span>
@@ -1607,23 +1661,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/卡方/">卡方</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/心理学/">心理学</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/chrome/">chrome</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/爬虫/">爬虫</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
+            <a class="footer-post" href="/tags/卡方/">卡方</a>
         </span>
         
         <span>

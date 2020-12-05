@@ -287,26 +287,26 @@
             </div>
             
             <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程2：误差来自哪里/">
+                    李宏毅机器学习教程2：误差来自哪里
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2018/09/21/李宏毅机器学习教程15：无监督学习-neighbor-embeding/">
                     李宏毅机器学习教程15：无监督学习-neighbor-embeding
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程16：无监督学习-自编码器/">
-                    李宏毅机器学习教程16：无监督学习-自编码器
+                <a href="/2018/09/21/李宏毅机器学习教程13：无监督学习/">
+                    李宏毅机器学习教程13：无监督学习
                 </a>
             </div>
             
             <div class="archive-post">
                 <a href="/2018/09/21/李宏毅机器学习教程17：深度生成模型/">
                     李宏毅机器学习教程17：深度生成模型
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程18：无监督生成模型/">
-                    李宏毅机器学习教程18：无监督生成模型
                 </a>
             </div>
             
@@ -380,8 +380,8 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程23-3：强化学习(包括Qlearning)/">
-                    李宏毅机器学习教程23-3：强化学习(包括Qlearning)
+                <a href="/2018/09/21/李宏毅机器学习教程23-2：Policy-Gradient/">
+                    李宏毅机器学习教程23-2：Policy-Gradient
                 </a>
             </div>
             
@@ -443,6 +443,91 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/01/11/Python教程：[18]urlparse模块/">
+                Python教程：[18]urlparse模块
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>使用urlparse模块可以对url进行分析，最主要的操作就是拆分和合并url的各个部件，那么url有哪些部件呢？下图列出了所有的部件。你可能不太理解，不要着急，我们在例子中看看每个部分都代表着什么。</p>
+<ul>
+<li>引入urlparse模块，这里只引入了urlparse方法，如果你想要用所有的方法，你需要import urlparse</li>
+</ul>
+<img src="/2015/01/11/Python教程：[18]urlparse模块/d7c9ca3f8794a4c23abdb8070cf41bd5ac6e39c4.jpg" title="Python教程：[18]urlparse模块">
+<ul>
+<li>我们将下面的url地址进行拆解，将拆解的结果存放到parsed中</li>
+</ul>
+<img src="/2015/01/11/Python教程：[18]urlparse模块/f7426d8da9773912cd4fda4dfa198618367ae276.jpg" title="Python教程：[18]urlparse模块">
+<ul>
+<li>之后，我们通过parsed的各个属性来访问不同的部分</li>
+</ul>
+<img src="/2015/01/11/Python教程：[18]urlparse模块/d5462bfae6cd7b89c4f265af0d2442a7d8330ec4.jpg" title="Python教程：[18]urlparse模块">
+<ul>
+<li>我们看最后输出的结果：通过这样的方法我们可以快速的对url进行操作</li>
+</ul>
+<img src="/2015/01/11/Python教程：[18]urlparse模块/834344afa40f4bfb934ec178014f78f0f63618c4.jpg" title="Python教程：[18]urlparse模块">
+<ul>
+<li><p>所有的源码都写在下面：</p>
+</li>
+<li><p>from urlparse import urlparse</p>
+</li>
+<li><p>parsed = urlparse(‘url地址’)</p>
+</li>
+<li><p>print ‘scheme  :’+ parsed.scheme   #网络协议</p>
+</li>
+<li><p>print ‘netloc  :’+ parsed.netloc   #服务器位置（也可呢能有用户信息）</p>
+</li>
+<li><p>print ‘path    :’+ parsed.path     #网页文件在服务器中存放的位置</p>
+</li>
+<li><p>print ‘params  :’+ parsed.params   #可选参数</p>
+</li>
+<li><p>print ‘query   :’+ parsed.query    #连接符（&amp;）连接键值对</p>
+</li>
+<li><p>print ‘fragment:’+ parsed.fragment #拆分文档中的特殊猫</p>
+</li>
+<li><p>print ‘username:’+ parsed.username #用户名</p>
+</li>
+<li><p>print ‘password:’+ parsed.password #密码</p>
+</li>
+<li><p>print ‘hostname:’+ parsed.hostname #服务器名称或者地址</p>
+</li>
+<li><p>print ‘port    :’, parsed.port     #端口（默认是80</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -1030,6 +1115,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/11/27/文旅特色小镇的具身体验质量-数据分享/">文旅特色小镇的具身体验质量-数据分享</a>
             </li>
             
@@ -1046,11 +1135,11 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
             </li>
             
             <li>
@@ -1065,10 +1154,6 @@
                 <a class="footer-post" href="/2020/10/13/大学生婚恋观影响因素的调查研究-问卷数据分享/">大学生婚恋观影响因素的调查研究-问卷数据分享</a>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
-            </li>
-            
         </ul>
     </div>
 
@@ -1080,7 +1165,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
         </span>
         
         <span>
@@ -1136,11 +1221,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/mplus/">mplus</a>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
+            <a class="footer-post" href="/tags/mplus/">mplus</a>
         </span>
         
         <span>
@@ -1164,14 +1249,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/Latex/">Latex</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/卡方检验/">卡方检验</a>
         </span>
         
@@ -1180,27 +1257,23 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/mysql/">mysql</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/推荐书/">推荐书</a>
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Latex/">Latex</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mysql/">mysql</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/机器学习/">机器学习</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/游戏/">游戏</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/显著性/">显著性</a>
         </span>
         
         <span>
@@ -1212,7 +1285,19 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/机器学习/">机器学习</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/深度学习/">深度学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/游戏/">游戏</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/显著性/">显著性</a>
         </span>
         
         <span>
@@ -1284,11 +1369,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/officejs/">officejs</a>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
         </span>
         
         <span>
@@ -1348,14 +1433,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/os/">os</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/scipy/">scipy</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/pil/">pil</a>
         </span>
         
@@ -1364,7 +1441,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/情感分析/">情感分析</a>
+            <a class="footer-post" href="/tags/scipy/">scipy</a>
         </span>
         
         <span>
@@ -1376,11 +1453,19 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/os/">os</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
+            <a class="footer-post" href="/tags/情感分析/">情感分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>
@@ -1408,10 +1493,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/cron/">cron</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/自然语言处理/">自然语言处理</a>
         </span>
         
@@ -1424,7 +1505,19 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/cron/">cron</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/语料库/">语料库</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/CCA/">CCA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/典型相关分析/">典型相关分析</a>
         </span>
         
         <span>
@@ -1436,11 +1529,15 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/CCA/">CCA</a>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/典型相关分析/">典型相关分析</a>
+            <a class="footer-post" href="/tags/爬虫/">爬虫</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
         </span>
         
         <span>
@@ -1456,23 +1553,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/卡方/">卡方</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/心理学/">心理学</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/chrome/">chrome</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/爬虫/">爬虫</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
+            <a class="footer-post" href="/tags/卡方/">卡方</a>
         </span>
         
         <span>
