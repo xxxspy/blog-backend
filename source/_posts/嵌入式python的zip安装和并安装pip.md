@@ -61,10 +61,32 @@ python解压文件夹路径/Scripts/pip.exe install 库名称
 ```
 
 
+### 设置pip源
+
+很多时候国内使用pip网络太慢导致安装错误, 通常我们都会设置pip源为国内的网址, 比如阿里的, 所以我们可以这样做:
+
+- 在python所在的文件夹新建文件`pip.ini`
+- 文件中写入如下内容:
+
+```
+[global]
+ 
+index-url=http://mirrors.aliyun.com/pypi/simple/
+ 
+[install]
+ 
+trusted-host=mirrors.aliyun.com
+```
 
 ### 修改系统环境变量
 
 如果你不想要每次执行pip的时候都输入绝对路径, 你可以将`python解压文件夹路径/Scripts`这个路径添加到电脑的path变量中。
+
+### FAQ
+
+#### 安装第三方库的时候提示错误:` ModuleNotFoundError: No module named '_pyrsistent_version'`
+
+参考这里:  https://stackoverflow.com/questions/60135484/cannot-install-jupyter-on-windows-no-module-named-pyrsistent-version
 
 
 > **注意**

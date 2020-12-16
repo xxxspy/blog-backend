@@ -240,7 +240,14 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python解压文件夹/Scripts/pip.exe</span><br></pre></td></tr></table></figure>
 <p>你需要在命令行执行下面的命令来安装文件:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python解压文件夹路径/Scripts/pip.exe install 库名称</span><br></pre></td></tr></table></figure>
+<h3><span id="设置pip源">设置pip源</span></h3><p>很多时候国内使用pip网络太慢导致安装错误, 通常我们都会设置pip源为国内的网址, 比如阿里的, 所以我们可以这样做:</p>
+<ul>
+<li>在python所在的文件夹新建文件<code>pip.ini</code></li>
+<li>文件中写入如下内容:</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">[global]</span><br><span class="line"> </span><br><span class="line">index-url=http://mirrors.aliyun.com/pypi/simple/</span><br><span class="line"> </span><br><span class="line">[install]</span><br><span class="line"> </span><br><span class="line">trusted-host=mirrors.aliyun.com</span><br></pre></td></tr></table></figure>
 <h3><span id="修改系统环境变量">修改系统环境变量</span></h3><p>如果你不想要每次执行pip的时候都输入绝对路径, 你可以将<code>python解压文件夹路径/Scripts</code>这个路径添加到电脑的path变量中。</p>
+<h3><span id="faq">FAQ</span></h3><h4><span id="安装第三方库的时候提示错误modulenotfounderror-no-module-named-39_pyrsistent_version39">安装第三方库的时候提示错误:<code>ModuleNotFoundError: No module named &#39;_pyrsistent_version&#39;</code></span></h4><p>参考这里:  <a href="https://stackoverflow.com/questions/60135484/cannot-install-jupyter-on-windows-no-module-named-pyrsistent-version" target="_blank" rel="noopener">https://stackoverflow.com/questions/60135484/cannot-install-jupyter-on-windows-no-module-named-pyrsistent-version</a></p>
 <blockquote>
 <p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="嵌入式python的zip安装和并安装pip.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>
