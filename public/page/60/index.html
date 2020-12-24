@@ -448,6 +448,80 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/04/03/spss中如何处理极端值、错误值/">
+                spss中如何处理极端值、错误值
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年04月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>spss中录入数据以后，第一步不是去分析数据，而是要检验数据是不是有录入错误的，是不是有不合常理的数据，今天我们要做一个描述性统计，进而查看哪些数据是不合理的。下面是具体的步骤：<br>工具/原料</p>
+<ul>
+<li>spss20.0<br>方法/步骤</li>
+</ul>
+<ul>
+<li>先准备好数据，然后打开描述性统计对话框，如图所示，执行菜单：analyse–descriptive statistic–descriptive</li>
+</ul>
+<img src="/2015/04/03/spss中如何处理极端值、错误值/0d338744ebf81a4c30cf3219d72a6059242da665.jpg" title="spss中如何处理极端值、错误值">
+<ul>
+<li>将你要检验的变量放入variables对话框，点击箭头可以添加或者删除变量</li>
+</ul>
+<img src="/2015/04/03/spss中如何处理极端值、错误值/d0c8a786c9177f3eb73025dd70cf3bc79e3d56de.jpg" title="spss中如何处理极端值、错误值">
+<ul>
+<li>勾选如图所示的选项，他的意思是输出Z分数，并作为一个变量列出来。因为检查数据有效性的时候会用到Z分数</li>
+</ul>
+<img src="/2015/04/03/spss中如何处理极端值、错误值/8644ebf81a4c510fb8ab3bca6059252dd52aa5f7.jpg" title="spss中如何处理极端值、错误值">
+<img src="/2015/04/03/spss中如何处理极端值、错误值/42166d224f4a20a408aee51790529822730ed0aa.jpg" title="spss中如何处理极端值、错误值">
+<ul>
+<li>点击options按钮，设置需要输出的描述性统计量，我们需要的统计量主要是最大值和最小值，所以，你看到下面第二幅图，勾选最大值和最小值</li>
+</ul>
+<img src="/2015/04/03/spss中如何处理极端值、错误值/fcfaaf51f3deb48f2a8c780ef01f3a292cf5787d.jpg" title="spss中如何处理极端值、错误值">
+<img src="/2015/04/03/spss中如何处理极端值、错误值/902397dda144ad34d9c15f57d0a20cf430ad85e0.jpg" title="spss中如何处理极端值、错误值">
+<ul>
+<li>点击continue按钮，点击ok，开始处理数据，并输出处理结果</li>
+</ul>
+<img src="/2015/04/03/spss中如何处理极端值、错误值/09fa513d269759ee7b2ab81bb2fb43166c22dfec.jpg" title="spss中如何处理极端值、错误值">
+<ul>
+<li>我们看到有一个表格，输出了最大值和最小值，根据这个值我们可以判断，这个变量中的数据是不是超出了合理的范围，比如，这个变量的意思是身高，你的数据的最大值为5米，这时侯你就可以想到，有数据录入错误了。</li>
+</ul>
+<img src="/2015/04/03/spss中如何处理极端值、错误值/b151f8198618367afaf8a70d2e738bd4b21ce5e9.jpg" title="spss中如何处理极端值、错误值">
+<ul>
+<li>接下来切换到数据视图中，我们看到生成了一个新的变量，他是x8这个变量的Z分数，我们知道，如果数据是正太分布的，那么数据应当分布在正负三个标准差之内，因此，从图中我们看到，Z分数大于3或小于-3的数据就是错误的数据</li>
+</ul>
+<img src="/2015/04/03/spss中如何处理极端值、错误值/7dd98d1001e93901ae0155ee7bec54e737d196db.jpg" title="spss中如何处理极端值、错误值">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/04/03/spss如何合并两个数据文件/">
                 spss如何合并两个数据文件
             </a>
@@ -1092,63 +1166,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/03/15/numpy函数：[15]以数组为下标读取数组/">
-                numpy函数：[15]以数组为下标读取数组
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年03月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>除了使用列表最为下标读取数组外，我们还可以使用数组作为下标。我们还是用例子看一下如何使用数组为下标读取数组吧。</p>
-<ul>
-<li>先从Numpy中引入所有</li>
-</ul>
-<img src="/2015/03/15/numpy函数：[15]以数组为下标读取数组/d041a4a1cd11728bbb0713bdcafcc3cec2fd2ccc.jpg" title="numpy函数：[15]以数组为下标读取数组">
-<ul>
-<li>我们先创建一个二维数组，作为下标数组</li>
-</ul>
-<img src="/2015/03/15/numpy函数：[15]以数组为下标读取数组/35da1d3b5bb5c9ea9b179f7cd739b6003bf3b30e.jpg" title="numpy函数：[15]以数组为下标读取数组">
-<ul>
-<li>创建一个数组a，作为要读取的数组</li>
-</ul>
-<img src="/2015/03/15/numpy函数：[15]以数组为下标读取数组/c9bdddcec3fdfc03905d7c27d63f8794a5c226cc.jpg" title="numpy函数：[15]以数组为下标读取数组">
-<ul>
-<li>我们直接使用e作为下标即可，得到一个数组f，f的形状和下标数组e是相同的。</li>
-</ul>
-<img src="/2015/03/15/numpy函数：[15]以数组为下标读取数组/346bd85c10385343622b1bbe9113b07ecb80880e.jpg" title="numpy函数：[15]以数组为下标读取数组">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/numpy/">#numpy</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1190,6 +1207,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/12/23/均值差异的效应量在线计算器/">均值差异的效应量在线计算器</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
             </li>
             
@@ -1214,19 +1235,15 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
-            </li>
-            
-            <li>
                 <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/13/大学生婚恋观影响因素的调查研究-问卷数据分享/">大学生婚恋观影响因素的调查研究-问卷数据分享</a>
+                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
             </li>
             
         </ul>
@@ -1240,7 +1257,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
@@ -1540,11 +1557,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>

@@ -448,6 +448,69 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/01/23/spss20.0多重线型回归模型的操作方法和结果分析/">
+                spss20.0多重线型回归模型的操作方法和结果分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年01月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>为了能够简要的说明操作方法，我们这里只用两个自变量和一个因变量，使用进入的方法进行多重线性回归分析，下面有操作的方法和对结果的分析方法。<br>方法/步骤</p>
+<ul>
+<li>在确定你的数据已经进行了线性关系的验证以后，再进行回归分析，因为前面的文章有讲如何验证线型关系，所以这里就不说了，直接进行回归分析，在菜单栏上执行：分析–回归</li>
+</ul>
+<img src="/2016/01/23/spss20.0多重线型回归模型的操作方法和结果分析/d1a20cf431adcbefd5879bf9acaf2edda2cc9f9a.jpg" title="spss20.0多重线型回归模型的操作方法和结果分析">
+<ul>
+<li>打开线性回归对话框，将因变量和自变量都放到各自的位置，如图所示</li>
+</ul>
+<img src="/2016/01/23/spss20.0多重线型回归模型的操作方法和结果分析/3b87e950352ac65c8069838cfbf2b21192138ae5.jpg" title="spss20.0多重线型回归模型的操作方法和结果分析">
+<ul>
+<li>记得选择方法为进入，因为你的自变量只有两个，在自变量较少的时候使用进入这个方法是最常用的，点击确定，去看结果输出窗口</li>
+</ul>
+<img src="/2016/01/23/spss20.0多重线型回归模型的操作方法和结果分析/8435e5dde71190efcc487720ce1b9d16fcfa609a.jpg" title="spss20.0多重线型回归模型的操作方法和结果分析">
+<ul>
+<li>要分析的结果主要有两个，一个是方差分析，如图所示，我们要看sig值是否显著，如果值小于0.01我们就认为它是显著的，这就证明我们建立的模型是可行的，至少一个自变量的回归系数不为零</li>
+</ul>
+<img src="/2016/01/23/spss20.0多重线型回归模型的操作方法和结果分析/fcfaaf51f3deb48f4eda4421f01f3a292cf5789a.jpg" title="spss20.0多重线型回归模型的操作方法和结果分析">
+<ul>
+<li><p>接着看系数的检验，这个主要是看回归系数是否达到了显著水平，结果显示系数是显著的</p>
+</li>
+<li></li>
+</ul>
+<img src="/2016/01/23/spss20.0多重线型回归模型的操作方法和结果分析/0dd7912397dda1443165894db2b7d0a20df486e5.jpg" title="spss20.0多重线型回归模型的操作方法和结果分析">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/01/23/SPSS实例：[30]kappa系数怎么计算/">
                 SPSS实例：[30]kappa系数怎么计算
             </a>
@@ -1129,76 +1192,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/01/11/pandas教程：[4]Dataframe筛选数据/">
-                pandas教程：[4]Dataframe筛选数据
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年01月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>今天还是用到了DataFrame，如果你用一下它的筛选数据的功能，你会大吃一惊，它非常擅长筛选数据，可以极大提高你的工作效率，废话不多说，下面看看几个进行复杂数据筛选的例子。</p>
-<ul>
-<li>首先我们创建一个DataFrame，该DataFrame包含的数据如下</li>
-</ul>
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/814b07d8bc3eb13550c4a88da51ea8d3fd1f4441.jpg" title="pandas教程：[4]Dataframe筛选数据">
-<ul>
-<li>假如我们想要筛选D列数据中大于0的行</li>
-</ul>
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/32bb9c8ba61ea8d39a216b32940a304e251f5841.jpg" title="pandas教程：[4]Dataframe筛选数据">
-<ul>
-<li>使用&amp;符号可以实现多条件筛选，当然是用”|”符号也可以实现多条件，只不过他是或的关系。</li>
-</ul>
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/346bd85c10385343eceb98179013b07eca8088a4.jpg" title="pandas教程：[4]Dataframe筛选数据">
-<ul>
-<li>假如我们只需要A和B列数据，而D和C列数据都是用于筛选的，可以这样写：只返回了AB两列数据<br>‘</li>
-</ul>
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/d041a4a1cd11728b3c2e9314cbfcc3cec3fd2c41.jpg" title="pandas教程：[4]Dataframe筛选数据">
-<ul>
-<li>我们以上用到的方法都是通过一个布尔索引完成的，我们看一下这样的运算返回的值是什么</li>
-</ul>
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/4a77b2af2edda3cc51c0a71602e93901213f92a4.jpg" title="pandas教程：[4]Dataframe筛选数据">
-<ul>
-<li>我们还可以使用insin方法来筛选特定的值，把要筛选的值写到一个列表里，如alist</li>
-</ul>
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/38403f3fb80e7bec60fe1cd72c2eb9389b506ba4.jpg" title="pandas教程：[4]Dataframe筛选数据">
-<ul>
-<li>假如选择D列数据中，有alist中的值的行</li>
-</ul>
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/2e6fa7389b504fc2ef7baf33e6dde71190ef6da4.jpg" title="pandas教程：[4]Dataframe筛选数据">
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/b7bc4c66d01609243982bc2dd70735fae6cd3425.jpg" title="pandas教程：[4]Dataframe筛选数据">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1240,6 +1233,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/12/23/均值差异的效应量在线计算器/">均值差异的效应量在线计算器</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
             </li>
             
@@ -1264,19 +1261,15 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
-            </li>
-            
-            <li>
                 <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/13/大学生婚恋观影响因素的调查研究-问卷数据分享/">大学生婚恋观影响因素的调查研究-问卷数据分享</a>
+                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
             </li>
             
         </ul>
@@ -1290,7 +1283,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
@@ -1590,11 +1583,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>

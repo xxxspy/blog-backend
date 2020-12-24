@@ -448,6 +448,79 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/05/01/SPSS实例：[33]混合设计的方差分析/">
+                SPSS实例：[33]混合设计的方差分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>假如我的实验设计师混合设计的两因素设计，即一个变量是组间变量，一个变量是组内变量，我们怎么样统计这种实验的结果呢？今天就来看看我怎么做混合设计的方差分析，下面是具体的方法：</p>
+<ul>
+<li>首先我们打开重复测量方差分析的对话框</li>
+</ul>
+<img src="/2015/05/01/SPSS实例：[33]混合设计的方差分析/cf5a8316fdfaaf511304240f8e5494eef11f7a58.jpg" title="SPSS实例：[33]混合设计的方差分析">
+<ul>
+<li>我们添加一个组内因素，假如组内因素有三个水平，点击add按钮</li>
+</ul>
+<img src="/2015/05/01/SPSS实例：[33]混合设计的方差分析/fcbbb151f3deb48f6e8e046ef21f3a292cf57858.jpg" title="SPSS实例：[33]混合设计的方差分析">
+<ul>
+<li>我们选中factor1(3)，然后点击【define】</li>
+</ul>
+<img src="/2015/05/01/SPSS实例：[33]混合设计的方差分析/b5ce925494eef01fdff3bd75e2fe9925bd317d58.jpg" title="SPSS实例：[33]混合设计的方差分析">
+<ul>
+<li>将ghj这三个组内变量放入到组内变量框汇总</li>
+</ul>
+<img src="/2015/05/01/SPSS实例：[33]混合设计的方差分析/95afee1f3a292df5072409a5be315c6035a87358.jpg" title="SPSS实例：[33]混合设计的方差分析">
+<ul>
+<li>将组间变量放入到组间变量框中</li>
+</ul>
+<img src="/2015/05/01/SPSS实例：[33]混合设计的方差分析/48151723dd54564e61824189b1de9c82d0584f58.jpg" title="SPSS实例：[33]混合设计的方差分析">
+<ul>
+<li>点击【option】按钮，设置输出的统计量</li>
+</ul>
+<img src="/2015/05/01/SPSS实例：[33]混合设计的方差分析/3b6833f5e0fe992555ebcce036a85edf8cb17158.jpg" title="SPSS实例：[33]混合设计的方差分析">
+<ul>
+<li>选择这三个选项，他们是描述性统计、效应量、方差齐性检验</li>
+</ul>
+<img src="/2015/05/01/SPSS实例：[33]混合设计的方差分析/35e940df8db1cb13a68e99a3df54564e93584b58.jpg" title="SPSS实例：[33]混合设计的方差分析">
+<ul>
+<li>点击ok按钮，开始统计分析。下一篇我们将会讲混合设计方差分析的结果解读。</li>
+</ul>
+<img src="/2015/05/01/SPSS实例：[33]混合设计的方差分析/570f8c58d109b3de6a5841d8cebf6c81810a4c58.jpg" title="SPSS实例：[33]混合设计的方差分析">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/05/01/Python操作Word：[1]常用对象介绍/">
                 Python操作Word：[1]常用对象介绍
             </a>
@@ -1199,228 +1272,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/04/19/python 线性代数：[12]求协方差矩阵/">
-                python 线性代数：[12]求协方差矩阵
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年04月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>先搞懂协方差矩阵是什么东西：这篇文章有助于你的理解：<br>搞懂协方差以后，我们以一个通俗易懂的例子来说明怎样在python中求协方差矩阵，已经求它是为了干嘛。</p>
-<ul>
-<li>假如我们现在想要知道身高和体重的关系，我们测量了三个人的身高和体重，身高用s表示，体重用t表示：</li>
-</ul>
-<img src="/2015/04/19/python%20线性代数：[12]求协方差矩阵/d66b7e59252dd42a8b52bb5c013b5bb5c8eab8ab.jpg" title="python 线性代数：[12]求协方差矩阵">
-<ul>
-<li>两个向量构成一个向量组：y</li>
-</ul>
-<img src="/2015/04/19/python%20线性代数：[12]求协方差矩阵/2f3295d4b31c8701c5e40811257f9e2f0608ffbc.jpg" title="python 线性代数：[12]求协方差矩阵">
-<ul>
-<li>使用numpy.cov方法来求协方差矩阵：</li>
-</ul>
-<img src="/2015/04/19/python%20线性代数：[12]求协方差矩阵/6c63514a20a4462385461f959a22720e0df3d77e.jpg" title="python 线性代数：[12]求协方差矩阵">
-<ul>
-<li>怎样读懂协方差矩阵呢？400是s和s的协方差（也就是方差）；右上角200是s与t的协方差；100是t与t的协方差（也就是方差）；可见协方差矩阵是一个对称阵</li>
-</ul>
-<img src="/2015/04/19/python%20线性代数：[12]求协方差矩阵/7e7f7909c93d70cf34900ffafadcd100bba12b9b.jpg" title="python 线性代数：[12]求协方差矩阵">
-<ul>
-<li>假如我们再增加一个变量，我们还知道这些人的性别，于是性别就是：</li>
-</ul>
-<img src="/2015/04/19/python%20线性代数：[12]求协方差矩阵/21e5582309f790521595e2c90ef3d7ca7acbd504.jpg" title="python 线性代数：[12]求协方差矩阵">
-<ul>
-<li>结果也是这样的：</li>
-</ul>
-<img src="/2015/04/19/python%20线性代数：[12]求协方差矩阵/38403f3fb80e7bec9b1aa6162d2eb93899506bc2.jpg" title="python 线性代数：[12]求协方差矩阵">
-<ul>
-<li><p>这是今天用到的所有代码：</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>import numpy</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>s=[100,120,140]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>t=[50,60,70]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>y=s+t</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>y</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>[100, 120, 140, 50, 60, 70]</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>y=[s,t]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>y</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>[[100, 120, 140], [50, 60, 70]]</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a=numpy.cov(y)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 400.,  200.],</p>
-</li>
-<li><p>[ 200.,  100.]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>x=[1,0,1]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>y=[s,t,x]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a=numpy.cov(y)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[  4.00000000e+02,   2.00000000e+02,   0.00000000e+00],</p>
-</li>
-<li><p>[  2.00000000e+02,   1.00000000e+02,   0.00000000e+00],</p>
-</li>
-<li><p>[  0.00000000e+00,   0.00000000e+00,   3.33333333e-01]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1462,6 +1313,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/12/23/均值差异的效应量在线计算器/">均值差异的效应量在线计算器</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
             </li>
             
@@ -1486,19 +1341,15 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
-            </li>
-            
-            <li>
                 <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/13/大学生婚恋观影响因素的调查研究-问卷数据分享/">大学生婚恋观影响因素的调查研究-问卷数据分享</a>
+                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
             </li>
             
         </ul>
@@ -1512,7 +1363,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
@@ -1812,11 +1663,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>

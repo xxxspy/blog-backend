@@ -448,6 +448,66 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/09/23/python高级教程：[3]yield生成器/">
+                python高级教程：[3]yield生成器
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年09月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>基于yield这个指令，Python可以挂起一个程序并返回中间结果，被挂起的程序会保持自己的执行环境，在必要的时候再重启它。</p>
+<ul>
+<li>先看看yield的简单用法：yield_example表示一个2的n次方的无穷数列，我们想要它输出前10项，就用[ye.next() for a in range(10)]</li>
+</ul>
+<img src="/2015/09/23/python高级教程：[3]yield生成器/9864a2315c6034a8fd2d583fcd13495408237606.jpg" title="python高级教程：[3]yield生成器">
+<ul>
+<li><p>一个生成器的next()方法可以让程序运行，并输出yield的值，然后再次被挂起，直到下一个next被调用。这句I是一个生成器。我们经常使用生成器来表示一个无穷数列，下面看一个复杂的例子。</p>
+</li>
+<li><p>用yield写一个分组数列，分组数列的定义是：</p>
+</li>
+</ul>
+<img src="/2015/09/23/python高级教程：[3]yield生成器/034965f40ad162d9db928fa217dfa9ec8b13cdd5.jpg" title="python高级教程：[3]yield生成器">
+<img src="/2015/09/23/python高级教程：[3]yield生成器/43e6c733c895d1435df9069d75f082025baf0746.jpg" title="python高级教程：[3]yield生成器">
+<ul>
+<li>实现分组数列的代码：</li>
+</ul>
+<img src="/2015/09/23/python高级教程：[3]yield生成器/570f8c58d109b3de377306d6cabf6c81810a4c05.jpg" title="python高级教程：[3]yield生成器">
+<ul>
+<li>为什么使用字典作为sublist函数的参数，这是因为在传参的时候，如果参数是字典，那么传递的是一个指针，而不是字典的数据，因此当sublist改变了字典的数据的时候，位于fenqunlist函数中的kwargs字典的数据也会发生改变，这是我所希望的。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/09/23/amos21.0教程：[7]如何启动amos/">
                 amos21.0教程：[7]如何启动amos
             </a>
@@ -1089,79 +1149,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/">
-                SPSS实例：[34]二分类变量关联程度的度量
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年09月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>现在有一个食物中毒的问题，我们想要知道吃了某种食物的人是否更容易中毒呢？看一下现在的数据。看food变量，我用数字0代表没吃食物，用数字1代表吃了某种食物；看posion变量，我使用0表示没中毒，用1表示中毒了。频率就不解释了，你懂。</p>
-<ul>
-<li>使用频率对case进行加权。这个说过很多遍了，不懂的人去看这里的加权部分：<a href="http://jingyan.baidu.com/article/9113f81b2e988c2b3214c70f.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/9113f81b2e988c2b3214c70f.html</a></li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/a84052086e061d959af7728f79f40ad163d9ca91.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<ul>
-<li>加权ok以后，我们找到交叉表分析</li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/1e71f724b899a901c1501e811f950a7b0308f5e5.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<ul>
-<li>把两个变量分别放入不同的框中</li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/6391e903918fa0ec977621ba249759ee3c6ddb91.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<ul>
-<li>点击统计量按钮，我们来设置一下输出的统计量</li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/507c389759ee3d6df1a3c27c41166d224e4adee5.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<ul>
-<li>我们选择Risk指数，也就是风险评估，当然你也得选择卡方</li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/08b68e529822720ea37fa74d79cb0a46f31fab91.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<ul>
-<li>回到主界面，点击ok按钮，开始处理数据</li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/bf487563f6246b60b4bff7c3e9f81a4c500fa291.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<ul>
-<li>先看卡方检验结果，卡方显示显著，表示是否吃某种食物与中毒与否是相关的。</li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/1b0d4f0fd9f9d72adfd555aad62a2834359bbb91.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<ul>
-<li>接着看风险评估，OR值如图所示，它表示吃了某种食物的人比没有吃该事物的人中毒的概率高出24倍</li>
-</ul>
-<img src="/2015/09/11/SPSS实例：[34]二分类变量关联程度的度量/f76575600c33874451a06acb530fd9f9d62aa0e5.jpg" title="SPSS实例：[34]二分类变量关联程度的度量">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1203,6 +1190,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2020/12/23/均值差异的效应量在线计算器/">均值差异的效应量在线计算器</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
             </li>
             
@@ -1227,19 +1218,15 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
-            </li>
-            
-            <li>
                 <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/13/大学生婚恋观影响因素的调查研究-问卷数据分享/">大学生婚恋观影响因素的调查研究-问卷数据分享</a>
+                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
             </li>
             
         </ul>
@@ -1253,7 +1240,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
@@ -1553,11 +1540,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>

@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://mlln.cn/2020/12/23/%E5%9D%87%E5%80%BC%E5%B7%AE%E5%BC%82%E7%9A%84%E6%95%88%E5%BA%94%E9%87%8F%E5%9C%A8%E7%BA%BF%E8%AE%A1%E7%AE%97%E5%99%A8/</loc>
+    
+    <lastmod>2020-12-23T09:25:24.754Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://mlln.cn/2020/11/04/%E5%B5%8C%E5%85%A5%E5%BC%8Fpython%E7%9A%84zip%E5%AE%89%E8%A3%85%E5%92%8C%E5%B9%B6%E5%AE%89%E8%A3%85pip/</loc>
     
     <lastmod>2020-12-16T02:21:07.931Z</lastmod>
@@ -1710,14 +1717,14 @@
   </url>
   
   <url>
-    <loc>http://mlln.cn/2017/09/27/selenium%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/</loc>
+    <loc>http://mlln.cn/2018/10/14/sentimentpy%E6%A8%A1%E5%9D%97%E8%BF%9B%E8%A1%8C%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E6%83%85%E6%84%9F%E5%88%86%E7%B1%BB/</loc>
     
     <lastmod>2019-03-06T00:47:40.973Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://mlln.cn/2018/10/14/sentimentpy%E6%A8%A1%E5%9D%97%E8%BF%9B%E8%A1%8C%E4%B8%AD%E6%96%87%E6%96%87%E6%9C%AC%E6%83%85%E6%84%9F%E5%88%86%E7%B1%BB/</loc>
+    <loc>http://mlln.cn/2017/09/27/selenium%E8%BF%9B%E9%98%B6%E6%95%99%E7%A8%8B/</loc>
     
     <lastmod>2019-03-06T00:47:40.973Z</lastmod>
     
@@ -2809,14 +2816,14 @@
   </url>
   
   <url>
-    <loc>http://mlln.cn/2017/06/26/gitlab%E9%85%8D%E7%BD%AE%E5%92%8C%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</loc>
+    <loc>http://mlln.cn/2017/09/07/gitlab%E5%92%8Cgit%E5%85%A5%E9%97%A8/</loc>
     
     <lastmod>2019-03-06T00:47:39.478Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://mlln.cn/2017/09/07/gitlab%E5%92%8Cgit%E5%85%A5%E9%97%A8/</loc>
+    <loc>http://mlln.cn/2017/06/26/gitlab%E9%85%8D%E7%BD%AE%E5%92%8C%E5%9F%BA%E6%9C%AC%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/</loc>
     
     <lastmod>2019-03-06T00:47:39.478Z</lastmod>
     
