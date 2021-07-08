@@ -224,9 +224,21 @@
         
 
         <!-- Post Content -->
-        <h3><span id="方差齐性">方差齐性</span></h3><p>方差齐性英文叫做”Homogeneity”, 这个词可以拆分为:homo+geneity, 意思是:相同的特性, 而方差是数据分布的一种特性, 表示分布的集中-离散趋势,<br>均值固定的情况下方差越大, 分布越离散。当然, 方差齐性并不要求方差严格相等, 而是要求近似相等, 也就是说差异只要没有达到显著水平就认为方差齐。</p>
-<p>方差齐性是经常用到的数据检验方法, 因为很多统计方法都要求数据满足方差齐性假设, 比如方差分析。</p>
+        <p>方差齐性检验的spss操作和结果解读!</p>
 <a id="more"></a>
+<!-- toc -->
+<ul>
+<li><a href="#方差齐性">方差齐性</a></li>
+<li><a href="#levenes-test-of-equality-of-variance-方差齐性检验">Levene’s Test of equality of variance 方差齐性检验</a></li>
+<li><a href="#spss操作">SPSS操作</a></li>
+<li><a href="#结果解读">结果解读</a></li>
+<li><a href="#结果汇报">结果汇报</a></li>
+<li><a href="#参考文献">参考文献</a></li>
+<li><a href="#视频教程">视频教程</a></li>
+</ul>
+<!-- tocstop -->
+<h3><span id="方差齐性">方差齐性</span></h3><p>方差齐性英文叫做”Homogeneity”, 这个词可以拆分为:homo+geneity, 意思是:相同的特性, 而方差是数据分布的一种特性, 表示分布的集中-离散趋势,<br>均值固定的情况下方差越大, 分布越离散。当然, 方差齐性并不要求方差严格相等, 而是要求近似相等, 也就是说差异只要没有达到显著水平就认为方差齐。</p>
+<p>方差齐性是经常用到的数据检验方法, 因为很多统计方法都要求数据满足方差齐性假设, 比如方差分析。</p>
 <h3><span id="levenes-test-of-equality-of-variance-方差齐性检验">Levene’s Test of equality of variance 方差齐性检验</span></h3><p>比较两组或两组以上数据的方差是否相等。结果显著, 就认为方差不齐。</p>
 <h3><span id="spss操作">SPSS操作</span></h3><p>我们的想要查看不同性别的人的情感品牌是否满足方差齐性假设, 也就是比较男生与女生的品牌情感的方差是否相等。</p>
 <p><img src="imgs/06-01.png"></p>
@@ -240,7 +252,7 @@
 <h3><span id="结果汇报">结果汇报</span></h3><p>基于中位数的方差齐性检验显示L(1, 103)=0.250, p&gt;0.05, 因此数据满足方差齐性假设。</p>
 <h3><span id="参考文献">参考文献</span></h3><p>Brown, M. B. and Forsythe, Robust Tests for the Equality of Variances. A. B. (1974), Journal of the American Statistical Association, 69, pp. 364-367.</p>
 <blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="06-方差齐性检验.ipynb">notebook</a><br>有问题可以直接在下方留言<br>或者给我发邮件675495787[at]qq.com<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
+<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="06-方差齐性检验.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>
 <h3><span id="视频教程">视频教程</span></h3><iframe src="//player.bilibili.com/player.html?bvid=BV14y4y1k7AS&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
     </div>
@@ -353,14 +365,14 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
     <div class="page_list">
         
             <div class="archive-post">
-                <a href="/2020/10/31/06-效度分析/">
-                    SPSS问卷效度分析教程
+                <a href="/2020/12/24/01-认识调查问卷/">
+                    01-认识调查问卷
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
-                    SPSS视频教程内容目录和跳转链接
+                <a href="/2020/10/31/06-效度分析/">
+                    SPSS问卷效度分析教程
                 </a>
             </div>
             
@@ -371,14 +383,20 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
             </div>
             
             <div class="archive-post">
+                <a href="/2020/10/31/模型14有调节的中介spss-process教程/">
+                    SPSS+process做model14有调节的中介效应分析(图文+视频教程)
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2020/10/31/05-信度分析/">
                     SPSS问卷信度分析教程(视频在最后)
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2020/10/31/模型14有调节的中介spss-process教程/">
-                    SPSS+process做model14有调节的中介效应分析(图文+视频教程)
+                <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+                    SPSS视频教程内容目录和跳转链接
                 </a>
             </div>
             
@@ -433,12 +451,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
             <div class="archive-post">
                 <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">
                     SPSS做简单调节效应分析Model-1-Of-Process(视频教程+可视化工具)
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2019/12/28/为什么正态性检验的时候偏度和峰度的标准误都是一样的/">
-                    为什么正态性检验的时候偏度和峰度的标准误都是一样的
                 </a>
             </div>
             
@@ -687,43 +699,43 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         <ul>
             
             <li>
-                <a class="footer-post" href="/2020/12/23/均值差异的效应量在线计算器/">均值差异的效应量在线计算器</a>
+                <a class="footer-post" href="/2021/07/08/方差分析08-单因素多元方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
+                <a class="footer-post" href="/2021/07/08/方差分析07-单变量协方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/27/文旅特色小镇的具身体验质量-数据分享/">文旅特色小镇的具身体验质量-数据分享</a>
+                <a class="footer-post" href="/2021/07/08/方差分析06-2因素混合设计方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/12/问卷代填-大学生的论文用的-有靠谱的调研商家/">问卷代填(大学生的论文用的)怎么快速收集高质量问卷</a>
+                <a class="footer-post" href="/2021/07/08/方差分析05-重复测量单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/04/嵌入式python的zip安装和并安装pip/">嵌入式python的zip安装和并安装pip</a>
+                <a class="footer-post" href="/2021/07/08/方差分析04-三因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-效度分析/">SPSS问卷效度分析教程</a>
+                <a class="footer-post" href="/2021/07/08/方差分析03-双因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+                <a class="footer-post" href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+                <a class="footer-post" href="/2021/07/08/方差分析01-单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+                <a class="footer-post" href="/2021/07/08/11-2XN卡方检验/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2021/07/08/10-2x2卡方检验/">Untitled</a>
             </li>
             
         </ul>
@@ -737,7 +749,7 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1041,11 +1053,11 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>

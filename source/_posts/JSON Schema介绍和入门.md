@@ -238,6 +238,6 @@ schema是一个json对象, 它有很多属性, 也叫做关键词, 例如:
 
 > **注意**
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](JSON Schema介绍和入门.ipynb)
-> 有问题可以直接在下方留言
-> 或者给我发邮件675495787[at]qq.com
+> 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的
+> 微博上@mlln-cn可以向我免费题问
 > 请记住我的网址: mlln.cn 或者 jupyter.cn

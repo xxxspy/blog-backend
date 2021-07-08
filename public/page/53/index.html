@@ -197,6 +197,12 @@
     <div class="page_list archive-container">
         
             <div class="archive-post">
+                <a href="/2021/01/04/01 安装manimlib/">
+                    manim系列教程01-windows平台安装manim
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2020/11/04/嵌入式python的zip安装和并安装pip/">
                     嵌入式python的zip安装和并安装pip
                 </a>
@@ -217,12 +223,6 @@
             <div class="archive-post">
                 <a href="/2019/08/04/python中logging模块的error和exception的区别和最佳实践/">
                     python中logging模块的error和exception的区别和最佳实践
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2019/07/21/python3的logging模块的最佳实践/">
-                    python3的logging模块的最佳实践
                 </a>
             </div>
             
@@ -448,13 +448,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/07/05/python高级教程：[3]生成器方法send throw clos/">
-                python高级教程：[3]生成器方法send throw clos
+            <a href="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/">
+                Excel2013：[6]为不同的区域设置不同密码
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年07月05日</span>
+                <span class="date">2015年08月11日</span>
             
             
             
@@ -463,24 +463,104 @@
 
     
         <div class="content">
-            <p>这一篇接着讲Python的生成器，生成器总共有四个方法你可以看一下：next方法已经说过了，接下来说一下其余的三个方法。</p>
+            <p>有时候，我们给客户开发的Excel报表需要设置密码，防止他们随便编辑，把表格弄乱。为了让不同的人编辑表格的不同部分，我们就是用不同区域设置不同密码，下面是具体的方法：</p>
 <ul>
-<li>send：用于传递参数，实现与生成器的交互，我们举一个例子，下面的函数dog代表一只狗。当程序运行到food=(yield)的时候就会被挂起，等待生成器调用send方法，这时候我调用d.send(u’骨头’)，骨头就会被传递到food这个变量中，然后程序就说”我吃饱了”。仔细看一下下面的输出内容你就会明白。所以，send实际上是把yield变成了一个输入入口。</li>
+<li>我们先取消所有单元格的锁定和隐藏状态，按下快捷键ctr+a，选中所有单元格；然后按下ctr+1，打开【设置单元格格式】对话框。在保护选项下，取消勾选锁定和隐藏</li>
 </ul>
-<img src="/2015/07/05/python高级教程：[3]生成器方法send%20throw%20clos/2e6fa7389b504fc2fc62bdbae3dde71190ef6d14.jpg" title="python高级教程：[3]生成器方法send throw clos">
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/9a1151c2d5628535a14ac43792ef76c6a7ef633a.jpg" title="Excel2013：[6]为不同的区域设置不同密码">
 <ul>
-<li>stop用于停止生成器，如果再stop之后调用next，就会引发StopIteration错误。</li>
+<li>然后我们选中要保护的单元格，记得是要保护的，也就是要设置密码的，同样是在这个对话框，我们勾选锁定和隐藏</li>
 </ul>
-<img src="/2015/07/05/python高级教程：[3]生成器方法send%20throw%20clos/b29f8282d158ccbf2069b9851fd8bc3eb035417c.jpg" title="python高级教程：[3]生成器方法send throw clos">
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/9864a2315c6034a8076eae97c9134954082376dc.jpg" title="Excel2013：[6]为不同的区域设置不同密码">
 <ul>
-<li>throw用于给生成器传递一个error，结合stop，我们可以做一些有意思的事情：</li>
+<li>在审阅标签下，选择【允许用户编辑区域】</li>
 </ul>
-<img src="/2015/07/05/python高级教程：[3]生成器方法send%20throw%20clos/346bd85c10385343ffbf889e9513b07ecb8088d9.jpg" title="python高级教程：[3]生成器方法send throw clos">
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/064936381f30e92460c68a274e086e061d95f703.jpg" title="Excel2013：[6]为不同的区域设置不同密码">
 <ul>
-<li><p>根据上面的例子我们可以知道，实际上stop可以在生成器内部引发一个GeneratorExit错误，我们可以使用try…except GeneratorExit句型捕获该错误，然后做一些善后的事情。</p>
-</li>
-<li><p>注意，在捕获GeneratorExit错误以后，你需要raise StopIteration错误，否则程序就没有终止的时候了。</p>
-</li>
+<li>打开这个对话框，我们点击【新建】</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/4d4970061d950a7bdc5758d208d162d9f2d3c903.jpg" title="Excel2013：[6]为不同的区域设置不同密码">
+<ul>
+<li>设置你要保护的单元格的区域，然后设置一个密码，点击确定</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/fc5e5f34970a304e5652b6ecd3c8a786c9175c70.jpg" title="Excel2013：[6]为不同的区域设置不同密码">
+<ul>
+<li>再新建一个保护区域，同样设置一个不同的密码</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/f392492c11dfa9ec6c4c400160d0f703918fc103.jpg" title="Excel2013：[6]为不同的区域设置不同密码">
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/7e7f7909c93d70cf478abc1bfadcd100baa12b70.jpg" title="Excel2013：[6]为不同的区域设置不同密码">
+<ul>
+<li>点击左下角【保护工作表】</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/bbe0d311728b47103d5febdac1cec3fdfc032370.jpg" title="Excel2013：[6]为不同的区域设置不同密码">
+<ul>
+<li>我们在这里输入总密码，这个密码一旦泄露，他们就可以对所有的单元格进行编辑</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/4651a712c8fcc3ce44b0df259045d688d43f2070.jpg" title="Excel2013：[6]为不同的区域设置不同密码">
+<ul>
+<li>返回表单，你编辑一个区域试试，如果是没有设置密码的区域，它提示你不可以更改；如果是有密码的区域，你必须先输入密码才能修改</li>
+</ul>
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/c28fddfdfc0392455cc5f7198594a4c27d1e2570.jpg" title="Excel2013：[6]为不同的区域设置不同密码">
+<img src="/2015/08/11/Excel2013：[6]为不同的区域设置不同密码/4e0b3ea4462309f7690dbb04700e0cf3d7cad603.jpg" title="Excel2013：[6]为不同的区域设置不同密码">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/11/python教程：[76]mro()解析/">
+                python教程：[76]mro()解析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天在看django-xadmin源码的时候看到的一个mro方法，我这种小白还不太懂python里比较深入的内容，所以百度了很多文章来看，现在总结一下。</p>
+<ul>
+<li>这个方法用于返回某个类的基类以及基类的基类，我们举一个简单的例子：创建一个类A，然后调用mro，它返回了一个列表，列表元素是类A本身和它的基类</li>
+</ul>
+<img src="/2015/08/11/python教程：[76]mro()解析/d002b34bd11373f04c42a5a4a70f4bfbfbed0449.jpg" title="python教程：[76]mro()解析">
+<ul>
+<li>假如我们再创建一个类B，继承于A，然后调用mro，现在列表里多了内容，看到了吧，mro总是返回类本身和其基类的列表</li>
+</ul>
+<img src="/2015/08/11/python教程：[76]mro()解析/ac2fc3c451da81cb80aa49f65166d0160924317a.jpg" title="python教程：[76]mro()解析">
+<ul>
+<li>假如把类的继承关系弄的复杂一些，类C和类B都继承自A，D继承B和C，这时候调用D.mro，我们看到这时候列表的顺序为：D-B-C-A</li>
+</ul>
+<img src="/2015/08/11/python教程：[76]mro()解析/d048adde9c82d158444d938a830a19d8bd3e42fb.jpg" title="python教程：[76]mro()解析">
+<ul>
+<li>在负责一些，增加类E继承类A，F继承自E和D，然后调用F.mro，这时候你就可以看到类A总是列表的最后一个元素，列表的顺序是：F-E-D-B-C-A</li>
+</ul>
+<img src="/2015/08/11/python教程：[76]mro()解析/814b07d8bc3eb135be7d8287a51ea8d3fd1f4410.jpg" title="python教程：[76]mro()解析">
+<ul>
+<li>记住这个列表的顺序很有用，因为以后再复制的类调用的时候，可能会考虑到初始化类的顺序，它们遵循的就是mro的顺序</li>
 </ul>
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
@@ -507,13 +587,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/">
-                Excel2013：[17]数据透视表有两个汇总项
+            <a href="/2015/08/11/SPSS python教程：[1]安装Python Essentials/">
+                SPSS python教程：[1]安装Python Essentials
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年07月05日</span>
+                <span class="date">2015年08月11日</span>
             
             
             
@@ -522,178 +602,32 @@
 
     
         <div class="content">
-            <p>现在我想要在分类汇总的时候出现两个汇总项，看下面的数据，假如我要在一个数据透视表里看到两个汇总项，也就是重量和中转费。我们的目的是统计上一站和目的网点之间中转费和重量的总计，下面看看如何具体来做。</p>
+            <p>这个系列教程是用来教大家如何使用python脚本来操作spss，使用脚本的好处是可以批量处理，如果你有很多数据要处理，他们的处理方法类似，那就需要用到脚本，可以自动化、智能化处理数据，大大减少数据分析的工作量，关于更多好处，你们可以参考spss的官方文档，这里不多少，开始介绍如何设置spss中的python插件：SPSS Python Essentials。</p>
 <ul>
-<li>先插入一个数据透视表，如图所示</li>
-</ul>
-<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/027a45b5c9ea15ce702a270eb4003af33b87b2b6.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
-<ul>
-<li>打开一个对话框，我们默认在新的工作表放置数据透视表，点击确定按钮</li>
-</ul>
-<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/e8112b2ac65c10381cba09c5b0119313b17e89b6.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
-<ul>
-<li>看到界面的右侧出现了一个数据透视表字段，将行和列字段拖动到对应的位置</li>
-</ul>
-<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/b13fd48065380cd7c6da65eaa344ad34588281b6.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
-<ul>
-<li>接着讲想要统计的字段拖动到下面的值字段</li>
-</ul>
-<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/b3ba5d166d224f4a06feb5140bf790529822d117.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
-<ul>
-<li>设置值字段，我们点击【计数项：重量】，在打开的菜单中选择：值字段设置</li>
-</ul>
-<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/caae68094b36acaf4a2451fb7ed98d1000e99cb6.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
-<ul>
-<li>在打开的对话框中，我们选择【求和】，点击确定按钮</li>
-</ul>
-<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/d68b65cb0a46f21f8f539854f4246b600c33ae17.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
-<ul>
-<li>同样，设置第二个字段</li>
-</ul>
-<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/b94f65ec54e736d140d74b0f99504fc2d46269b6.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
-<ul>
-<li>至此，我们就完成了任务。</li>
-</ul>
-<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/389aa8fd5266d016ccc8532f952bd40734fa35a1.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/05/pandas教程：[18]匹配字符串/">
-                pandas教程：[18]匹配字符串
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>pandas可以检测字符串是否包含某字符模式或者匹配它，这在处理一些字符串数据的时候非常有用，下面我们来用几个例子说明一下。</p>
-<ul>
-<li>首先，我们创建一个数据序列<br>查看数据序列：</li>
-</ul>
-<img src="/2015/07/05/pandas教程：[18]匹配字符串/5202e5f2b21193133c3f72b466380cd791238d73.jpg" title="pandas教程：[18]匹配字符串">
-<img src="/2015/07/05/pandas教程：[18]匹配字符串/1e71f724b899a90109ecd9321e950a7b0308f59e.jpg" title="pandas教程：[18]匹配字符串">
-<ul>
-<li>检测数据序列中哪些元素包含一个字母和一个数字的字符模式<br>匹配结果为：</li>
-</ul>
-<img src="/2015/07/05/pandas教程：[18]匹配字符串/b13fd48065380cd701622fe9a244ad3459828173.jpg" title="pandas教程：[18]匹配字符串">
-<img src="/2015/07/05/pandas教程：[18]匹配字符串/7d98931001e93901827e003a78ec54e736d19673.jpg" title="pandas教程：[18]匹配字符串">
-<ul>
-<li>我们可以使用na参数来规定出现NaN数据的时候匹配成True还是False<br>结果为：</li>
-</ul>
-<img src="/2015/07/05/pandas教程：[18]匹配字符串/0d968f2397dda1443e75e1b6b1b7d0a20cf48673.jpg" title="pandas教程：[18]匹配字符串">
-<img src="/2015/07/05/pandas教程：[18]匹配字符串/0b3a1c087bf40ad12e3d45e7542c11dfa8ecce9e.jpg" title="pandas教程：[18]匹配字符串">
-<ul>
-<li>match方法可以严格匹配字符串：<br>输出结果为：</li>
-</ul>
-<img src="/2015/07/05/pandas教程：[18]匹配字符串/8640bf8b87d6277fa0cbb03c2b381f30e824fc9e.jpg" title="pandas教程：[18]匹配字符串">
-<img src="/2015/07/05/pandas教程：[18]匹配字符串/55a628d12f2eb9383111f7f6d6628535e5dd6f73.jpg" title="pandas教程：[18]匹配字符串">
-<ul>
-<li><p>还有，我们可以检查字符串开始字符，假设我们想要查找以字母a开头的数据，可以用startswith或者contains，注意contains中第一个参数，不懂得童鞋可以去看Python的正则表达式</p>
+<li><p>我用的spss版本是22.0，也是最近为了使用SPSS Python Essentials才安装的这个版本，大家可以参考这篇文章，以便正确安装spss 22.0。【<a href="http://jingyan.baidu.com/article/3d69c55187d5faf0cf02d73f.html】" target="_blank" rel="noopener">http://jingyan.baidu.com/article/3d69c55187d5faf0cf02d73f.html】</a></p>
 </li>
-<li><p>输出结果：</p>
+<li><p>安装好了spss22.0以后，如果你按照上面的安装教程进行的安装，SPSS Python Essentials就自动的安装在了你的spss22.0的安装目录下。接下来我们要进行必要的设置。</p>
+</li>
+<li><p>打开spss22的界面，打开编辑菜单下的【选项】</p>
 </li>
 </ul>
-<img src="/2015/07/05/pandas教程：[18]匹配字符串/caae68094b36acafb39c1bf87fd98d1001e99c73.jpg" title="pandas教程：[18]匹配字符串">
-<img src="/2015/07/05/pandas教程：[18]匹配字符串/4e83cb628535e5dd485028db75c6a7efce1b6273.jpg" title="pandas教程：[18]匹配字符串">
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/ea85a94543a982266fc821b18882b9014b90ebd8.jpg" title="SPSS python教程：[1]安装Python Essentials">
 <ul>
-<li>同样道理，可以检查结束字符串<br>输出结果为：</li>
+<li>切换到脚本选项下，我们设置一下缺省脚本语言为python，点击【应用】</li>
 </ul>
-<img src="/2015/07/05/pandas教程：[18]匹配字符串/9f6e190828381f30abc00fadaa014c086f06f09e.jpg" title="pandas教程：[18]匹配字符串">
-<img src="/2015/07/05/pandas教程：[18]匹配字符串/a8ad9413632762d0a3e726bba3ec08fa503dc69e.jpg" title="pandas教程：[18]匹配字符串">
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/f9589818367adab4e5d911d589d4b31c8601e4d8.jpg" title="SPSS python教程：[1]安装Python Essentials">
 <ul>
-<li>还有很多字符串方法，这里不一一距离，你看一下简介用到的时候再去学</li>
+<li>切换到【文件位置】选项下，设置python的位置，我们有两个选项，一个是随IBM SPSS安装的位置，这就是说，spss22在安装的时候自动安装了python2.7，如果我们想要使用这个python，就选择第一个选项；但是我现在有一个更好的建议，使用我们自己安装的python，也就是说在安装spss之前就有一个python安装好了，我现在想使用这个python，我们可以设置python的其他安装，然后找到这个python安装的目录，最后点击确定就可以了。为什么我建议使用第二种选择呢？因为我的python下有很多安装好的扩展包，需要在处理数据的时候调用，以后安装新的扩展包也很方便。如果使用是、随spss安装的python，还需要另行安装这些扩展包</li>
 </ul>
-<img src="/2015/07/05/pandas教程：[18]匹配字符串/54baacfb43166d222fae9790452309f79152d29e.jpg" title="pandas教程：[18]匹配字符串">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/03/SPSS python教程：[4]startclient/">
-                SPSS python教程：[4]startclient
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>使用python控制spss的时候，我们必须在使用spss的任何功能前，先启动spss，这就是用到了StartClient方法。假如我们完成了所有spss的工作，这时候我们就可以使用StopClient方法来结束spss进程。下面看一个例子。</p>
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/8a95ad1c8701a18b32e218d99c2f07082938fed8.jpg" title="SPSS python教程：[1]安装Python Essentials">
 <ul>
-<li>首先我们在syntax编辑窗口中运行python，首先应该想到使用BEGIN PROGRAM.和END PROGRAM.来将python代码包括起来。</li>
+<li>设置完成以后，我们想要启动python的编辑窗口，需要在开始菜单中启动，如图所示。不能直接从python的安装目录里启动。</li>
 </ul>
-<img src="/2015/07/03/SPSS%20python教程：[4]startclient/42e89c26cffc1e178d6963a64890f603728de910.jpg" title="SPSS python教程：[4]startclient">
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/d35a10f41bd5ad6eaacc6e7c83cb39dbb6fd3c2b.jpg" title="SPSS python教程：[1]安装Python Essentials">
 <ul>
-<li>然后引入SpssClient模块，这样才能使用它的StartClient方法</li>
+<li>另外，spss22还有一个bug，我们虽然设置了Python的主目录，但是在新建脚本的时候，还是用的随spss安装的python的shell。所以想要使用python脚本，你就从上面那个方面里启动python shell</li>
 </ul>
-<img src="/2015/07/03/SPSS%20python教程：[4]startclient/ac754782b2b7d0a2786eed0ac9ef76094a369a47.jpg" title="SPSS python教程：[4]startclient">
-<ul>
-<li>我们启动spss客户端的方法就是这样了，记住，通常使用完spss以后，要通过StopClient方法来关闭它。</li>
-</ul>
-<img src="/2015/07/03/SPSS%20python教程：[4]startclient/e78c65899e510fb3e5bb9e00db33c895d0430c4c.jpg" title="SPSS python教程：[4]startclient">
-<ul>
-<li>真正实现功能的是这两句代码，先不用管它什么意思</li>
-</ul>
-<img src="/2015/07/03/SPSS%20python教程：[4]startclient/73ca5910b912c8fc0e641f5afe039245d7882157.jpg" title="SPSS python教程：[4]startclient">
-<ul>
-<li>运行结果是输出了当前的工作文件夹：</li>
-</ul>
-<img src="/2015/07/03/SPSS%20python教程：[4]startclient/c28fddfdfc039245073608988594a4c27c1e2563.jpg" title="SPSS python教程：[4]startclient">
+<img src="/2015/08/11/SPSS%20python教程：[1]安装Python%20Essentials/90cebeec08fa513df4a366483f6d55fbb3fbd9d8.jpg" title="SPSS python教程：[1]安装Python Essentials">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -719,13 +653,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/07/01/SPSS实例：[37]最优尺度回归/">
-                SPSS实例：[37]最优尺度回归
+            <a href="/2015/08/05/numpy函数：[13]切片数组共享内存/">
+                numpy函数：[13]切片数组共享内存
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年07月01日</span>
+                <span class="date">2015年08月05日</span>
             
             
             
@@ -734,306 +668,39 @@
 
     
         <div class="content">
-            <p>怎样进行最优尺度回归？分类变量或者等级变量如何做回归？数据不连续如何做回归？变量不是正太分布怎样做回归？这些问题我们都可以使用最优尺度回归的方法来解决。我们拿一个分类变量来说，最优尺度就是将不同的类别给一个评分，将评分带入到回归方程中进行估计，进而可以估计出回归系数，我们拿一个例子来说明一下：</p>
+            <p>使用切片的方法获取数组的一部分，并没有创建新的数组，而切片只是原始数组的一种视图，所以改变切片中的数值，也会改变原始数组的元素值，具体通过例子来看一下：</p>
 <ul>
-<li><p>学校进行课程改革，6个班级采用6种不同的教学模式，我们想看看不同的教学模式是否对学生的期末数学成绩产生影响，自变量有教学模式和高考数学成绩，因变量是期末数学成绩。6个班级就构成了一个分类变量，分类变量需要进行最优尺度估计</p>
-</li>
-<li><p>我们先打开最优尺度回归的对话框，如图所示</p>
-</li>
+<li>先从Numpy中引用所有</li>
 </ul>
-<img src="/2015/07/01/SPSS实例：[37]最优尺度回归/814b07d8bc3eb1350c32cd1fa41ea8d3fc1f4459.jpg" title="SPSS实例：[37]最优尺度回归">
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/8cf0d513495409233eb9c8e19058d109b2de491a.jpg" title="numpy函数：[13]切片数组共享内存">
 <ul>
-<li>将自变量和因变量都分别放入不同的框中，如图嗾使</li>
+<li>创建一个一位数组a</li>
 </ul>
-<img src="/2015/07/01/SPSS实例：[37]最优尺度回归/b0742dfa828ba61eea1bb28b4334970a314e5959.jpg" title="SPSS实例：[37]最优尺度回归">
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/6dc09e0a19d8bc3e5f2aac55808ba61ea9d345d4.jpg" title="numpy函数：[13]切片数组共享内存">
 <ul>
-<li>课程类别是分类变量，我们选中它，然后点【define scale】</li>
+<li>通过切片获取数组b</li>
 </ul>
-<img src="/2015/07/01/SPSS实例：[37]最优尺度回归/3b6833f5e0fe9925969e13f436a85edf8cb17140.jpg" title="SPSS实例：[37]最优尺度回归">
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/bd7faf3533fa828b54f3367cff1f4134960a5a1a.jpg" title="numpy函数：[13]切片数组共享内存">
 <ul>
-<li>在打开的对话框中，我们选择【nominal】，点击【continue】</li>
+<li>假如改变数组b中的元素的值</li>
 </ul>
-<img src="/2015/07/01/SPSS实例：[37]最优尺度回归/9864a2315c6034a87370c225c913495408237640.jpg" title="SPSS实例：[37]最优尺度回归">
-<img src="/2015/07/01/SPSS实例：[37]最优尺度回归/d089b986c9177f3e2ac186a972cf3bc79e3d5659.jpg" title="SPSS实例：[37]最优尺度回归">
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/948bcfc8a786c9178321f8a6cb3d70cf3ac757d4.jpg" title="numpy函数：[13]切片数组共享内存">
 <ul>
-<li>回到主对话框，点击【ok】就开始进行估计</li>
+<li>数组a相应的值也会发生变化</li>
 </ul>
-<img src="/2015/07/01/SPSS实例：[37]最优尺度回归/0862c354564e9258e4a6fc4a9e82d158cdbf4e40.jpg" title="SPSS实例：[37]最优尺度回归">
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/948bcfc8a786c91782d3f9a6cb3d70cf3ac7571a.jpg" title="numpy函数：[13]切片数组共享内存">
 <ul>
-<li>结果输出基本上都是和其他回归方法没有太大差别，我们主要看对不同课程的评分，这个评分实际上是进入回归的分数，我们是用这个分数代表了不同的类别。</li>
+<li>假如把a全部赋值给c，也是一样的效果，还是改变了原数组的值</li>
 </ul>
-<img src="/2015/07/01/SPSS实例：[37]最优尺度回归/9e7ce6dcd100baa198d93d1f4510b912c9fc2e59.jpg" title="SPSS实例：[37]最优尺度回归">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/">
-                SPSS二因素完全随机设计的简单效应检验方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>spss在做简单效应的时候没有现成的菜单选项，需要你自己编写syntax，所以比较麻烦，在这个教程了，我交给大家一个办法，不用学太多的syntax就能自己做简单效应，下面是具体的方法：<br>工具/原料</p>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/a28d62d98d1001e984ecbf90ba0e7bec55e7971a.jpg" title="numpy函数：[13]切片数组共享内存">
 <ul>
-<li>spss20.0<br>方法/步骤</li>
+<li>想要保证原始数组的值不发生变化，我们最好使用copy方法获取数组c</li>
 </ul>
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/fcbbb151f3deb48f58b90a41f21f3a292cf5781a.jpg" title="numpy函数：[13]切片数组共享内存">
 <ul>
-<li>在菜单栏上执行：analyse–GLM–univariate，打开方差分析对话框</li>
+<li>现在改变数组c的元素的值，数组a将不放生变化。</li>
 </ul>
-<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/6a600c338744ebf8b74dcffdd9f9d72a6059a730.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
-<ul>
-<li>将自变量、因变量放入各自的框中，如图所示，B和Z是两个自变量，他们是完全随机设计，点击ok按钮，开始运行数据</li>
-</ul>
-<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/a08b87d6277f9e2f7e17b6ca1f30e924b999f3d6.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
-<ul>
-<li>我们看到数据的处理效果，交互作用显著，所以我们需要进一步做简单效益的检验</li>
-</ul>
-<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/4d086e061d950a7b8140e5060ad162d9f3d3c9ff.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
-<ul>
-<li>如图所示，点击菜单栏上的按钮，打开刚才用过的univariate对话框</li>
-</ul>
-<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/4ec2d5628535e5dd0d5d0e1d76c6a7efcf1b62fb.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
-<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/203fb80e7bec54e7d481b1dcb9389b504ec26a87.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
-<ul>
-<li>点击下面的paste按钮，来到syntax的编辑窗口</li>
-</ul>
-<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/f3d3572c11dfa9ec016afdd562d0f703908fc1a8.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
-<ul>
-<li><p>在如图所示的位置，添加一个命令：/EMMEANS=TABLES(B*Z)COMPARE(B)ADJ(SIDAK)</p>
-</li>
-<li><p>其中：EMMEANSE是estimated marginal means subcommand的缩写，意思是估计边际平均数  </p>
-</li>
-<li><p>ADJ是比较的方法，还可以用lsd ，bonferroni和sidak这三种方法。</p>
-</li>
-<li><p>单击运行按钮，开始处理数据并输出结果</p>
-</li>
-</ul>
-<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/8694a4c27d1ed21b3fe6b927ad6eddc450da3fc0.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
-<ul>
-<li>我们看到，简单主效应的分析已经出来，通过这个表格我们就能对自变量B各个水平进行精细比较</li>
-</ul>
-<img src="/2015/07/01/SPSS二因素完全随机设计的简单效应检验方法/1ad5ad6eddc451dab7dd9b29b6fd5266d11632cc.jpg" title="SPSS二因素完全随机设计的简单效应检验方法">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/01/wxpython教程：[2]窗口风格/">
-                wxpython教程：[2]窗口风格
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>这篇文章接着介绍wxpython.Frame，我们需要设置一下窗口的大小、位置等。下面看一下今天要写的所有代码。</p>
-<ul>
-<li>代码的前两行就不说了，引入了相关模块并创建了一个app</li>
-</ul>
-<img src="/2015/07/01/wxpython教程：[2]窗口风格/0d968f2397dda1440ba4fcddb1b7d0a20df486f5.jpg" title="wxpython教程：[2]窗口风格">
-<ul>
-<li>接着是Frame的设置，我们先来看看style，他有很多可以设置的属性，不同的属性用竖线“|”连接，比如我们想要窗口上有最大化按钮，就设置wx.MAXIMIZE_BOX，如果想要增加最小化按钮，就写成style=wx.MAXIMIZE_BOX|wx.MINIMIZE_BOX ，写一连串属性很麻烦，我们可以用wx.DEFAULT_FRAME_STYLE默认设置，它等于wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX | wx.RESIZE_BORDER | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN<br>其他属性的意义我们直接从官网上看就可以，如下图：</li>
-</ul>
-<img src="/2015/07/01/wxpython教程：[2]窗口风格/4abae5edab64034f575f5269acc379310b551d8b.jpg" title="wxpython教程：[2]窗口风格">
-<img src="/2015/07/01/wxpython教程：[2]窗口风格/109eb7ec8a136327064f515c928fa0ec09fac784.jpg" title="wxpython教程：[2]窗口风格">
-<ul>
-<li><p>接着我们想要设置窗口的大小，用size参数，Frame（…size=(200,250))，这样就将窗口大小设置为200长，250高。</p>
-</li>
-<li><p>使用Move方法可以设置窗口的位置，比如（它表示窗口的左上角在屏幕上的位置）</p>
-</li>
-</ul>
-<img src="/2015/07/01/wxpython教程：[2]窗口风格/ac754782b2b7d0a2a66494f2c8ef76094a369af5.jpg" title="wxpython教程：[2]窗口风格">
-<ul>
-<li>如果我们需要将窗口置于屏幕中央，可以使用Center方法</li>
-</ul>
-<img src="/2015/07/01/wxpython教程：[2]窗口风格/b6045da98226cffc24b82fddba014a90f703ea94.jpg" title="wxpython教程：[2]窗口风格">
-<ul>
-<li>还有其他很多方法设置窗口位置，这里就不演示了：</li>
-</ul>
-<img src="/2015/07/01/wxpython教程：[2]窗口风格/4e83cb628535e5dd279737b075c6a7efcf1b62e3.jpg" title="wxpython教程：[2]窗口风格">
-<ul>
-<li>最后就不用解释了，可以看看你创建的一个窗口</li>
-</ul>
-<img src="/2015/07/01/wxpython教程：[2]窗口风格/8bc3a7014a90f6034c220c283a12b31bb151ed94.jpg" title="wxpython教程：[2]窗口风格">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/23/Excel2013：[43]如何打印批注/">
-                Excel2013：[43]如何打印批注
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>怎样打印批注？我在Excel的某个单元格里插入了一个批注，但是打印的时候不显示，那么我改怎么办？怎样才能把批注打印出来？好吧，废话少说，看看下面的教程：如何打印Excel的批注：</p>
-<ul>
-<li>默认插入的批注是隐藏的，你的鼠标离开批注所在的单元格就是隐藏批注，所以要想打印批注，先要显示批注，右键单击该单元格，选择【显示/隐藏批注】</li>
-</ul>
-<img src="/2015/06/23/Excel2013：[43]如何打印批注/bd70426034a85edf860eb9444b540923dc547593.jpg" title="Excel2013：[43]如何打印批注">
-<ul>
-<li>现在你的鼠标随便放，批注都会是显示的</li>
-</ul>
-<img src="/2015/06/23/Excel2013：[43]如何打印批注/6f4703950a7b0208eb56788660d9f2d3562cc8ff.jpg" title="Excel2013：[43]如何打印批注">
-<ul>
-<li>切换到【页面布局】下，找到【打印标题】，点击它</li>
-</ul>
-<img src="/2015/06/23/Excel2013：[43]如何打印批注/570f8c58d109b3de883da30fcebf6c81810a4c93.jpg" title="Excel2013：[43]如何打印批注">
-<ul>
-<li>在打开的对话框中，我们切换到【工作表】标签，找到【批注】选项，我们设置为【如同工作表中的显示】，当然你也可以设置成【工作表末尾】，as you like，点击确定按钮</li>
-</ul>
-<img src="/2015/06/23/Excel2013：[43]如何打印批注/cdfe7281800a19d8a681c36231fa828ba71e4693.jpg" title="Excel2013：[43]如何打印批注">
-<ul>
-<li>在开始菜单中，点击【打印】可以预览一下打印效果</li>
-</ul>
-<img src="/2015/06/23/Excel2013：[43]如何打印批注/6dc09e0a19d8bc3eaa8a41ad808ba61ea9d34593.jpg" title="Excel2013：[43]如何打印批注">
-<ul>
-<li>至此我们看到了，这是打印的效果图，显然批注已经被打印出来了。</li>
-</ul>
-<img src="/2015/06/23/Excel2013：[43]如何打印批注/99636c0e0cf3d7cad4697811f01fbe096a63a9ff.jpg" title="Excel2013：[43]如何打印批注">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/19/numpy函数：[3]数组对象/">
-                numpy函数：[3]数组对象
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>数组是numpy中最重要的对象，我们通常使用array()方法来创建对象，他的参数是一个list对象，我们来看看具体的方法：</p>
-<ul>
-<li>首先强调一点，我们将numpy引入，名称为np</li>
-</ul>
-<img src="/2015/06/19/numpy函数：[3]数组对象/ac0acf1373f0820220f9f19849fbfbedaa641bea.jpg" title="numpy函数：[3]数组对象">
-<ul>
-<li>我们使用一个列表作为array的参数，然后看一下这个array输出的结果，就是一个数组对象，而且是一维的</li>
-</ul>
-<img src="/2015/06/19/numpy函数：[3]数组对象/0db2c9ca7bcb0a463c27eb9e6963f6246a60afd5.jpg" title="numpy函数：[3]数组对象">
-<ul>
-<li>假如我们要创建一个二维数组，我们就要用到一个列表的嵌套，看下面的ab列表就是一个嵌套。</li>
-</ul>
-<img src="/2015/06/19/numpy函数：[3]数组对象/0b14ad19ebc4b745cbffd7b1cdfc1e178b8215ea.jpg" title="numpy函数：[3]数组对象">
-<ul>
-<li>通过array()将ab列表转换成一个二维数组。</li>
-</ul>
-<img src="/2015/06/19/numpy函数：[3]数组对象/d66b7e59252dd42af50c610c013b5bb5c8eab8d5.jpg" title="numpy函数：[3]数组对象">
+<img src="/2015/08/05/numpy函数：[13]切片数组共享内存/48151723dd54564e76474ea6b1de9c82d0584fd4.jpg" title="numpy函数：[13]切片数组共享内存">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1059,13 +726,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/06/19/python教程：[78]type()创建类/">
-                python教程：[78]type()创建类
+            <a href="/2015/08/05/Python教程：[48]集合对象用法/">
+                Python教程：[48]集合对象用法
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年06月19日</span>
+                <span class="date">2015年08月05日</span>
             
             
             
@@ -1074,32 +741,39 @@
 
     
         <div class="content">
-            <p>今天我算是长知识了，我是一个python菜鸟，以前一直认为type（A）可以返回A的类型，但是不知道type还可以用于创建class，这篇经验就是介绍一下如何用type（）创建一个类，以及如何设置该类的属性。</p>
+            <p>集合也就是set对象，关于什么是集合，你自己百度去，如果你知道什么是集合，我们下面就来看看如何在python中使用集合。这是介绍python集合的第一篇文章，下一篇还有更多内容，下一篇的链接：<a href="http://jingyan.baidu.com/article/63acb44afa8f2a61fdc17e50.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/63acb44afa8f2a61fdc17e50.html</a></p>
 <ul>
-<li>我们使用type创建一个空类：只有一个名字，其他什么都没有，它的参数格式是：type(class_name,bases,dic)</li>
+<li>创建一个集合我们使用set，下面创建了一个空集合</li>
 </ul>
-<img src="/2015/06/19/python教程：[78]type()创建类/c8ab0bce36d3d53974894de33987e950352ab01f.jpg" title="python教程：[78]type()创建类">
+<img src="/2015/08/05/Python教程：[48]集合对象用法/5202e5f2b21193135cdc931e67380cd790238d46.jpg" title="Python教程：[48]集合对象用法">
 <ul>
-<li>我们用type来查看一下我们创建的cls的类型：</li>
+<li>当然，你也可以创建一个已经包含了元素1,2,3的非空集合<br>再创建一个集合以备后用</li>
 </ul>
-<img src="/2015/06/19/python教程：[78]type()创建类/906289dda144ad348c25c5a7d3a20cf431ad853d.jpg" title="python教程：[78]type()创建类">
+<img src="/2015/08/05/Python教程：[48]集合对象用法/a1ad16fa513d2697e0b164f357fbb2fb4216d8fb.jpg" title="Python教程：[48]集合对象用法">
+<img src="/2015/08/05/Python教程：[48]集合对象用法/d1e312f431adcbef8cab12a8aeaf2edda2cc9f46.jpg" title="Python教程：[48]集合对象用法">
 <ul>
-<li>查看cls的名称</li>
+<li>我们求一下两个集合的交集吧</li>
 </ul>
-<img src="/2015/06/19/python教程：[78]type()创建类/0db52fadcbef76099791dbbf2ddda3cc7cd99e3d.jpg" title="python教程：[78]type()创建类">
+<img src="/2015/08/05/Python教程：[48]集合对象用法/3c2c4bfbb2fb4316d37d16d422a4462308f7d3fb.jpg" title="Python教程：[48]集合对象用法">
 <ul>
-<li>假如我们用比较熟悉的继承的方式来创建一个类，它跟cls是一样的：</li>
+<li>求一下两个集合的合集吧</li>
 </ul>
-<img src="/2015/06/19/python教程：[78]type()创建类/7d98931001e93901c598cf1e78ec54e736d1963d.jpg" title="python教程：[78]type()创建类">
+<img src="/2015/08/05/Python教程：[48]集合对象用法/b94f65ec54e736d1278de0a699504fc2d4626946.jpg" title="Python教程：[48]集合对象用法">
 <ul>
-<li>当然，我们可以通过参数dic来设置其他任何类的属性，比如：</li>
+<li>我们还可以用两个集合相减</li>
 </ul>
-<img src="/2015/06/19/python教程：[78]type()创建类/207ea60e7bec54e7de76583eba389b504fc26a3d.jpg" title="python教程：[78]type()创建类">
+<img src="/2015/08/05/Python教程：[48]集合对象用法/734f12f3d7ca7bcbc319ab81bc096b63f724a8fb.jpg" title="Python教程：[48]集合对象用法">
 <ul>
-<li>现在cls2比cls多了属性<strong>doc</strong>,<strong>module</strong></li>
+<li>两个集合相减其实相当于这个</li>
 </ul>
-<img src="/2015/06/19/python教程：[78]type()创建类/2e6fa7389b504fc238c5f225e6dde71190ef6d3d.jpg" title="python教程：[78]type()创建类">
-<img src="/2015/06/19/python教程：[78]type()创建类/d4239b35e5dde711614801d6a4efce1b9d16613d.jpg" title="python教程：[78]type()创建类">
+<img src="/2015/08/05/Python教程：[48]集合对象用法/e49cf91190ef76c6b54c97859f16fdfaae516746.jpg" title="Python教程：[48]集合对象用法">
+<ul>
+<li>当然，我们可以这样创建一个集合，单词中的每一个字母被当作了一个元素，进入集合。注意集合中只有一个l</li>
+</ul>
+<img src="/2015/08/05/Python教程：[48]集合对象用法/0d729944ebf81a4c82508067d52a6059242da6fb.jpg" title="Python教程：[48]集合对象用法">
+<ul>
+<li>下一篇接着介绍，今天先到这里</li>
+</ul>
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1115,6 +789,336 @@
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
             <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/03/spss协方差分析如何进行事后两两比较/">
+                spss协方差分析如何进行事后两两比较
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在进行两两比较之前，我们最后先做一个协方差分析，在前面的文章讲了如何进行协方差分析，如果写反差分析显示出来了显著的结果，然后再进行两两的事后检验，下面是具体的过程：<br>方法/步骤</p>
+<ul>
+<li>先进行协方差分析，结果如果达到了显著水平，在进行两两比较，在菜单栏上执行analyze–general linear model–univariate</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/377adab44aed2e73568980d58701a18b86d6fae3.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>将自变量、因变量、斜变量都放到相应的位置，这里评定得分是因变量，培训方式是自变量、家庭指数是斜变量</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/37d12f2eb9389b501ecbe6ab8535e5dde7116e16.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>点击options按钮，进入子对话框</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/f2deb48f8c5494ee911609e02df5e0fe99257e16.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>将培训方式，也就是自变量放到右侧的列表里，勾选下面的描述统计和方差齐性检验，点击继续按钮</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/dc54564e9258d109c1d7af4bd158ccbf6c814d16.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>点击model按钮，选择模型</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/a71ea8d3fd1f413416030387251f95cad1c85e16.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>选择full factorial，然后点击continue按钮，返回主对话框</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/c83d70cf3bc79f3d76d5e2c9baa1cd11728b2916.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>点击paste按钮，进入命令编辑窗口</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/b3119313b07eca8051663f1e912397dda04483e3.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>在这里你会看到很多代码，我们留下前三行，如图所示，然后删除其他的行</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/b7fd5266d01609240011a4e2d40735fae6cd3416.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>编辑下面的六行代码，使用的是lmatrix命令，我们知道培训方式有三个水平，所以要进行三次两两比较才能将所有的水平进行比较。</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/d50735fae6cd7b892f583c7a0f2442a7d9330e16.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li>点击运行按钮，开始处理数据</li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/9a504fc2d5628535b183d4d890ef76c6a6ef63e3.jpg" title="spss协方差分析如何进行事后两两比较">
+<ul>
+<li><p>在出来的结果中，我们主要看的是定制假设检验，因为上面的命令中用了三次LMATRIX，所以会有三个定制假设检验，我们主要看下面的sig值，如图所示，这个值小于0.05就可以认为是有差异的</p>
+</li>
+<li></li>
+</ul>
+<img src="/2015/08/03/spss协方差分析如何进行事后两两比较/5bafa40f4bfbfbed6b6d308678f0f736afc31f16.jpg" title="spss协方差分析如何进行事后两两比较">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/03/Excel2013：[58]文本日期如何改变样式/">
+                Excel2013：[58]文本日期如何改变样式
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>关于Excel的文本和日期格式的问题都很头疼，在开始今天这个实例之前建议你看看我之前写的一篇文章，主要讲了如何识别文本和日期格式、以及文本和日期的互转：<a href="http://jingyan.baidu.com/article/8cdccae965815c315413cdfc.html。今天我们用一个实例来说明上一篇文章讲到的知识点。" target="_blank" rel="noopener">http://jingyan.baidu.com/article/8cdccae965815c315413cdfc.html。今天我们用一个实例来说明上一篇文章讲到的知识点。</a></p>
+<ul>
+<li>根据上一篇文章我们知道，D列虽然显示的是日期格式，但是实际上它是文本，Excel并没有把它当日期，因为Excel无法识别这样的日期格式，只能当文本了。</li>
+</ul>
+<img src="/2015/08/03/Excel2013：[58]文本日期如何改变样式/245e8bcad1c8a78699a836196409c93d71cf50e3.jpg" title="Excel2013：[58]文本日期如何改变样式">
+<ul>
+<li>为了转换为日期，那就需要让Excel识别它，使用替换的方法将其转换为2013-1-1的格式。也就是用“-”替换“-”。</li>
+</ul>
+<img src="/2015/08/03/Excel2013：[58]文本日期如何改变样式/e8112b2ac65c1038a52ab1d5b1119313b07e8916.jpg" title="Excel2013：[58]文本日期如何改变样式">
+<ul>
+<li>你会发现它变成了这个样子</li>
+</ul>
+<img src="/2015/08/03/Excel2013：[58]文本日期如何改变样式/6398ecd3572c11df14a9c034602762d0f703c26a.jpg" title="Excel2013：[58]文本日期如何改变样式">
+<ul>
+<li>现在，我们想要这个样式变一下，变成我们想要的2013-1-1的样式，同时单元格格式转换为文本。那我们用到了一个公式TEXT，在E2单元格输入公式=TEXT(D2,”yyyy-m-d”)，回车看一下结果。</li>
+</ul>
+<img src="/2015/08/03/Excel2013：[58]文本日期如何改变样式/fc5e5f34970a304e6eb7dfedd2c8a786c8175cd4.jpg" title="Excel2013：[58]文本日期如何改变样式">
+<ul>
+<li>快速填充下面的单元格，这样就完成了所有的样式转换</li>
+</ul>
+<img src="/2015/08/03/Excel2013：[58]文本日期如何改变样式/11794d43fbf2b2116b31fb59c98065380cd78e4f.jpg" title="Excel2013：[58]文本日期如何改变样式">
+<ul>
+<li>整个过程其实就是从文本到日期再到文本的过程。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/07/23/Excel2013：[28]countif函数用法大全/">
+                Excel2013：[28]countif函数用法大全
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>countif函数时我们经常用到的函数之一，经过组合它可以求得任何我们想要的计数结果，下面是具体的用法：</p>
+<ul>
+<li>假如我们要统计男女生的人数，我们可以在E5单元格输入公式=COUNTIF(A2:A21,”男”)；公式中A2:A21是我们计数的范围，第二个参数“男”表示对单元格中为男的计数</li>
+</ul>
+<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/61183b2dd42a28344b75b77259b5c9ea14cebfbd.jpg" title="Excel2013：[28]countif函数用法大全">
+<ul>
+<li>同样的，在F5单元格输入公式也可以求得女生人数：=COUNTIF(A2:A21,”女”)</li>
+</ul>
+<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/d56b3634349b033bda5b7da317ce36d3d439bdbd.jpg" title="Excel2013：[28]countif函数用法大全">
+<ul>
+<li>假如我们要统计成绩大于60的人数</li>
+</ul>
+<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/35da1d3b5bb5c9ea9620829ad739b6003bf3b3bd.jpg" title="Excel2013：[28]countif函数用法大全">
+<ul>
+<li>我们可以在单元格中输入公式=COUNTIF(B2:B21,”&gt;=60”)</li>
+</ul>
+<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/dc15484e9258d10963cf29cbd358ccbf6c814d58.jpg" title="Excel2013：[28]countif函数用法大全">
+<ul>
+<li>假如我们要计算一个区间内的人数，我们可以使用两个countif函数，运用减法就可以算出来，下面是计算成绩在60到65之间的个数</li>
+</ul>
+<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/9dc3cf58ccbf6c81551bac91be3eb13533fa4058.jpg" title="Excel2013：[28]countif函数用法大全">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/07/23/wxpython教程：[4]菜单中的图标/">
+                wxpython教程：[4]菜单中的图标
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>我们看到的菜单中多半是有一个图标的，那么今天我们就来做一个菜单，菜单选项左侧有一个图标。要达到这个目的我们必须手动创建一个选项。下面是今天代码的全部：由于这些大部分代码在之前的文章中有讲解，所以这篇文章就着重讲不同的部分。</p>
+<ul>
+<li>先创建一个选项：注意第二个参数设定了该选项的id，以后绑定方法的时候可以用id来表示该选项</li>
+</ul>
+<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/0e655ca7d933c895c3031a14d21373f082020024.jpg" title="wxpython教程：[4]菜单中的图标">
+<ul>
+<li>设置选项的图标用到了方法：SetBitmap，该方法需要传入一个Bitmap对象：exit.jpg是我自己做的一个图片</li>
+</ul>
+<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/c9d4cf43ad4bd11366b0355d59afa40f4bfb0524.jpg" title="wxpython教程：[4]菜单中的图标">
+<ul>
+<li>将创建好的选项添加到菜单</li>
+</ul>
+<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/72b19c025aafa40f52bb4cb2a864034f78f01924.jpg" title="wxpython教程：[4]菜单中的图标">
+<ul>
+<li>将选项与方法绑定，这样点击该菜单选项就能执行OnQuit动作。注意现在用id来表示跟哪个选项进行的绑定，因为我们在</li>
+</ul>
+<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/55a628d12f2eb9383071f89dd6628535e5dd6f06.jpg" title="wxpython教程：[4]菜单中的图标">
+<ul>
+<li>这是最后做出来的效果图</li>
+</ul>
+<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/b25d9901a18b87d61b3c2670040828381f30fd20.jpg" title="wxpython教程：[4]菜单中的图标">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/07/19/amos21.0教程：[6]结构方程模型分析流程/">
+                amos21.0教程：[6]结构方程模型分析流程
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>结构方程模型的分析遵循严格的步骤，在今天这一节我们着重探讨一下使用amos进行结构方程分析时需要的流程，下面这个是整个的流程图。</p>
+<ul>
+<li><p>第一个步骤是相关理论研究，这里主要要明白自己所做的是什么研究，主要的变量有哪些；查看前人的文献来考察这几个变量之间是否相关，正相关还是负相关，是否存在因果关系。当这几个变量的相互关系都基本了解以后，你可以进入下一个阶段了。</p>
+</li>
+<li><p>界定测量模型：前面的文章已经介绍过什么是测量模型了，如果你还不知道什么是测量模型，可以看下面参考资料的内容。界定测量模型首先你要知道那几个变量是通过测量得到的，比如主观幸福感需要使用主观幸福感量表来测定，如果有些变量没有成熟的量表来测定，你需要使用几个指标来作为操作定义，比如“学业成就”可以用四六级英语成绩和其他学习成绩的总分来计算。这个步骤主要的目的就是知道所有的变量都是如何测定的。为了让得到的模型具有可识别性，每个测量模型需要只有少两个指标变量。</p>
+</li>
+<li><p>界定结构模型：确定潜在变量之间的关系，绘制关系图。这时候你需要利用第一步中获得的只是来绘制关系图，也就是变量之间的关系。</p>
+</li>
+<li><p>测量抽样调查：这时候就是你做实验或者做调查的阶段了，从总体中随机抽样，然后根据测量模型对变量进行测定。得到数据。</p>
+</li>
+<li><p>模型参数判别：这时候你已经在amos中绘制好了结构方程模型的图形，图中出现的各个参数需要进行估计，这个过程就是得出各个路径的系数。</p>
+</li>
+<li><p>模型适配：根据得到的模型参数来判断模型是否合适。以后我们会专门介绍如何判断得到的模型是否合适，如果不合适该怎么做，现在你的知识有限，所以我们先不作介绍。这一步如果模型合适就可以进入下一步，如果模型不合适需要返回到第二步重新界定测量模型。</p>
+</li>
+<li><p>假如模型合适，这时候我们需要根据自己的专业知识来对结构方程模型进行解释，得出因果关系。</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/amos/">#amos</a>
         </div>
     
 
@@ -1161,43 +1165,43 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2020/12/23/均值差异的效应量在线计算器/">均值差异的效应量在线计算器</a>
+                <a class="footer-post" href="/2021/07/08/方差分析08-单因素多元方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
+                <a class="footer-post" href="/2021/07/08/方差分析07-单变量协方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/27/文旅特色小镇的具身体验质量-数据分享/">文旅特色小镇的具身体验质量-数据分享</a>
+                <a class="footer-post" href="/2021/07/08/方差分析06-2因素混合设计方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/12/问卷代填-大学生的论文用的-有靠谱的调研商家/">问卷代填(大学生的论文用的)怎么快速收集高质量问卷</a>
+                <a class="footer-post" href="/2021/07/08/方差分析05-重复测量单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/04/嵌入式python的zip安装和并安装pip/">嵌入式python的zip安装和并安装pip</a>
+                <a class="footer-post" href="/2021/07/08/方差分析04-三因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-效度分析/">SPSS问卷效度分析教程</a>
+                <a class="footer-post" href="/2021/07/08/方差分析03-双因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+                <a class="footer-post" href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+                <a class="footer-post" href="/2021/07/08/方差分析01-单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+                <a class="footer-post" href="/2021/07/08/11-2XN卡方检验/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2021/07/08/10-2x2卡方检验/">Untitled</a>
             </li>
             
         </ul>
@@ -1211,7 +1215,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1515,11 +1519,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>

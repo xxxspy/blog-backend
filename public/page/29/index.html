@@ -197,6 +197,12 @@
     <div class="page_list archive-container">
         
             <div class="archive-post">
+                <a href="/2021/01/04/01 安装manimlib/">
+                    manim系列教程01-windows平台安装manim
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2020/11/04/嵌入式python的zip安装和并安装pip/">
                     嵌入式python的zip安装和并安装pip
                 </a>
@@ -217,12 +223,6 @@
             <div class="archive-post">
                 <a href="/2019/08/04/python中logging模块的error和exception的区别和最佳实践/">
                     python中logging模块的error和exception的区别和最佳实践
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2019/07/21/python3的logging模块的最佳实践/">
-                    python3的logging模块的最佳实践
                 </a>
             </div>
             
@@ -448,13 +448,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/09/23/Python统计分析：[7]混合设计的方差分析/">
-                Python统计分析：[7]混合设计的方差分析
+            <a href="/2016/10/17/numpy函数：[8]logspace()创建等比数列数组/">
+                numpy函数：[8]logspace()创建等比数列数组
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年09月23日</span>
+                <span class="date">2016年10月17日</span>
             
             
             
@@ -463,37 +463,23 @@
 
     
         <div class="content">
-            <p>混合设计的方差分析就是既有组内变量又有组间变量的方差分析。想要进行这样的方差分析，如果还是用python.statsmodels就不太方便了，因此用到了Python的另一个还比较年轻的统计包pyvttbl,它对anova的支持更全面，使用也更方便，这里我们就看看如何用pyvttbl来实现混合设计的方差分析。</p>
+            <p>上一篇介绍了numpy.linspace用于创建等差数列，现在介绍logspace用于创建等比数列。其实用法差不多，但是有一个特殊的地方需要注意。</p>
 <ul>
-<li>引入DataFrame对象，注意此Dataframe不是pandas.DataFrame</li>
+<li>先来看一个例子，我们让开始点位0，结束点为0，元素个数为10，看看输出结果。为什么是酱紫呢？难道不都是0么？</li>
 </ul>
-<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/cebd00178a82b90162ea4c4f708da9773812efcc.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<img src="/2016/10/17/numpy函数：[8]logspace()创建等比数列数组/a992e31f4134970ad07f90b297cad1c8a6865de4.jpg" title="numpy函数：[8]logspace()创建等比数列数组">
 <ul>
-<li>读取数据</li>
+<li>因为logspace中，开始点和结束点是10的幂，0代表10的0次方，9代表10的9次方。我们看看下面的例子。<br>】</li>
 </ul>
-<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/b8405490f603738d820d835eb01bb051f919eccc.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<img src="/2016/10/17/numpy函数：[8]logspace()创建等比数列数组/964b2e4e251f95ca32f9122bcb177f3e660952e4.jpg" title="numpy函数：[8]logspace()创建等比数列数组">
 <ul>
-<li>我们看一下pyvttbl.DataFrame的结构，有一个变量是必须的——SUBJECT，也就是被试编号，同一个被试有相同的编号，这是我们必须提供的，否则在后面的分析中会出错。</li>
+<li>假如，我们想要改变基数，不让它以10为底数，我们可以改变base参数，将其设置为2试试</li>
 </ul>
-<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/373bc4b44aed2e73beae09508401a18b86d6facc.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<img src="/2016/10/17/numpy函数：[8]logspace()创建等比数列数组/d089b986c9177f3e80387c9072cf3bc79e3d56e4.jpg" title="numpy函数：[8]logspace()创建等比数列数组">
 <ul>
-<li>我们用anova方法进行混合设计的方差分析，需要制定因变量score，组间变量group，组内变量test</li>
+<li>假如我们想要不包含结束点，可以设置endpoint为0</li>
 </ul>
-<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/2f3295d4b31c870199f13d9a247f9e2f0608ffcc.jpg" title="Python统计分析：[7]混合设计的方差分析">
-<ul>
-<li>打印出来的结果有很多，首先看组间效应的检验，group的F和sig值<br>与此相对应，我们输出spss中的结果</li>
-</ul>
-<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/9f6e190828381f30d65e02d5aa014c086f06f0cc.jpg" title="Python统计分析：[7]混合设计的方差分析">
-<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/5beeba0f4bfbfbedb3cbb9037bf0f736aec31ff8.jpg" title="Python统计分析：[7]混合设计的方差分析">
-<ul>
-<li>接着是组间效应的检验，包括交互效应<br>以下是spss中的输出结果</li>
-</ul>
-<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/8367d1fc1e178a829eaef0dcf503738da877e8f9.jpg" title="Python统计分析：[7]混合设计的方差分析">
-<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/4bd1e803738da97715bd0957b351f8198718e3f9.jpg" title="Python统计分析：[7]混合设计的方差分析">
-<ul>
-<li>最后是边际均值</li>
-</ul>
-<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/8759287adab44aed1adc3198b01c8701a08bfbf9.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<img src="/2016/10/17/numpy函数：[8]logspace()创建等比数列数组/c87c6ecf3bc79f3d14ed64adb8a1cd11738b29e4.jpg" title="numpy函数：[8]logspace()创建等比数列数组">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -508,7 +494,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
+            <a href="/tags/numpy/">#numpy</a>
         </div>
     
 
@@ -519,13 +505,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/09/23/spss如何使用K-S进行正态性检验/">
-                spss如何使用K-S进行正态性检验
+            <a href="/2016/10/15/SPSS实例：[17]进行sobel检验(小白教程)/">
+                SPSS实例：[17]进行sobel检验(小白教程)
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年09月23日</span>
+                <span class="date">2016年10月15日</span>
             
             
             
@@ -534,51 +520,27 @@
 
     
         <div class="content">
-            <p>在对数据进行t检验或者f检验之前需要让数据满足正态性的要求，所以应该对数据进行正态性检验，检验正态性的方法中，K-S检验是最普遍的方法之一，下面我们就来具体的操作一下图和进行K-S检验。<br>方法/步骤</p>
+            <p>通常我们在做中介效应的时候，遇到有一个系数没有达到显著性水平，我们需要进行sobel检验，但是sobel检验的公式非常麻烦，如果你按计算器就很麻烦了，更何况你还有很多中介效应去验证，所以今天我给大家分享一个Excel可以很快的计算。</p>
 <ul>
-<li>我拿到数据以后，先要在spss中组织数据，如图所示，第一列变量是我们要检验是否为正态的变量，第二列是数据的分组，即他们的组号。有的时候你的数据没有分组，也就是只有一个组，那就没有必要写group列了</li>
+<li>从下面的参考资料里下载一个Excel文件</li>
 </ul>
-<img src="/2016/09/23/spss如何使用K-S进行正态性检验/c2cec3fdfc0392458db6a68a8794a4c27d1e2537.jpg" title="spss如何使用K-S进行正态性检验">
+<img src="/2016/10/15/SPSS实例：[17]进行sobel检验(小白教程)/d478a8003af33a879120f002c45c10385343b51e.jpg" title="SPSS实例：[17]进行sobel检验(小白教程)">
 <ul>
-<li>为了分别检验每个分组的数据是否符合正态分布，我们要先将各个组分离（如果你的数据只有一个组那就没必要进行这一步了），如图所示在菜单栏上执行：data—split file</li>
+<li>下载下来以后，打开Excel，你会看到一个这样的表格</li>
 </ul>
-<img src="/2016/09/23/spss如何使用K-S进行正态性检验/71cf3bc79f3df8dc8133c814cd11728b4710282c.jpg" title="spss如何使用K-S进行正态性检验">
+<img src="/2016/10/15/SPSS实例：[17]进行sobel检验(小白教程)/cdfe7281800a19d87b53741d31fa828ba61e4613.jpg" title="SPSS实例：[17]进行sobel检验(小白教程)">
 <ul>
-<li>勾选【organize output by groups】，它的意思是分组呈现变量结果，将分组情况这个变量添加到group based on中，点击ok按钮</li>
+<li>将你的三个模型的三线表粘贴过来</li>
 </ul>
-<img src="/2016/09/23/spss如何使用K-S进行正态性检验/d000baa1cd11728b1323cba7c8fcc3cec3fd2c2c.jpg" title="spss如何使用K-S进行正态性检验">
+<img src="/2016/10/15/SPSS实例：[17]进行sobel检验(小白教程)/c856613e6709c93da9a2feef9d3df8dcd1005413.jpg" title="SPSS实例：[17]进行sobel检验(小白教程)">
 <ul>
-<li>接着要对正太性进行检验了，我们在菜单栏上执行：analyze–nonparametric—one sample</li>
+<li>我们在对应的位置写入对应的值，soble值会自动的计算出来，是否显著这一栏会告诉是否显著，如果显著说明中介效应显著</li>
 </ul>
-<img src="/2016/09/23/spss如何使用K-S进行正态性检验/80cb39dbb6fd5266ba287b91ab18972bd4073637.jpg" title="spss如何使用K-S进行正态性检验">
+<img src="/2016/10/15/SPSS实例：[17]进行sobel检验(小白教程)/bd7faf3533fa828b6d736dfbff1f4134970a5a13.jpg" title="SPSS实例：[17]进行sobel检验(小白教程)">
 <ul>
-<li>切换到fileds这个选项，然后将你要检验的变量放到右侧的text fields中</li>
+<li>跟大家分享一下各个单元格的公式，看下面的公示栏就知道了。</li>
 </ul>
-<img src="/2016/09/23/spss如何使用K-S进行正态性检验/9345d688d43f8794faf10fabd21b0ef41bd53a2c.jpg" title="spss如何使用K-S进行正态性检验">
-<ul>
-<li>切换到settings选项，然后点击【choose test】，勾选右侧的K-S检验，如图所示。然后点击下方的options</li>
-</ul>
-<img src="/2016/09/23/spss如何使用K-S进行正态性检验/0ff41bd5ad6eddc434e9f37e39dbb6fd5266332c.jpg" title="spss如何使用K-S进行正态性检验">
-<ul>
-<li>打开如图所示的对话框，我们将normal这个选项勾选，因为没有已知的正太分布的参数，所以选择use sample data，点击ok</li>
-</ul>
-<img src="/2016/09/23/spss如何使用K-S进行正态性检验/dcc451da81cb39dbdece20d3d0160924ab18302c.jpg" title="spss如何使用K-S进行正态性检验">
-<ul>
-<li>切换到text options 设置显著性水平，如图所示，一般为0.05或者0.01</li>
-</ul>
-<img src="/2016/09/23/spss如何使用K-S进行正态性检验/72f082025aafa40f34c58958ab64034f78f01937.jpg" title="spss如何使用K-S进行正态性检验">
-<ul>
-<li>点击run，你就会看到数据处理的结果了</li>
-</ul>
-<img src="/2016/09/23/spss如何使用K-S进行正态性检验/ac4bd11373f08202279cd6ba4bfbfbedab641b2c.jpg" title="spss如何使用K-S进行正态性检验">
-<ul>
-<li><p>下面是各个组的检验结果，结果显示的很详细，每个组都没有达到显著水平，接受原假设，即所有的组都是正态分布的。</p>
-</li>
-<li></li>
-</ul>
-<img src="/2016/09/23/spss如何使用K-S进行正态性检验/cefc1e178a82b901dbae84b6738da9773912ef30.jpg" title="spss如何使用K-S进行正态性检验">
-<img src="/2016/09/23/spss如何使用K-S进行正态性检验/f703738da97739122525c2e4f8198618367ae230.jpg" title="spss如何使用K-S进行正态性检验">
-<img src="/2016/09/23/spss如何使用K-S进行正态性检验/b21bb051f8198618ac44a8014aed2e738bd4e630.jpg" title="spss如何使用K-S进行正态性检验">
+<img src="/2016/10/15/SPSS实例：[17]进行sobel检验(小白教程)/bbe0d311728b47105b7f0dd4c1cec3fdfc032313.jpg" title="SPSS实例：[17]进行sobel检验(小白教程)">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -604,13 +566,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/09/19/DataNitro：[6]sheet操作(A)/">
-                DataNitro：[6]sheet操作(A)
+            <a href="/2016/10/11/SPSS python教程：[7]读取透视表中的平均数/">
+                SPSS python教程：[7]读取透视表中的平均数
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年09月19日</span>
+                <span class="date">2016年10月11日</span>
             
             
             
@@ -619,169 +581,45 @@
 
     
         <div class="content">
-            <p>今天继续我们的datanitro，讲一讲对sheet的操作，sheet就是工作表（擦！你以为我们不知道啊！），因为内容比较多，我们分为A篇和B篇，看完A篇（A篇听起来很性感），觉得好看再看B篇。</p>
+            <p>由于经常有人问怎么将数据中心化，笨方法就是手工去算，但是我打算用点高级的东西，从描述性统计的输出的透视表中，读取平均数，然后再用变量的每一个值减去平均数。这篇文章介绍一下最关键的一个步骤，那就是从输出的描述性统计中读取平均数。</p>
 <ul>
-<li>active_sheet：返回当前活动工作表（当前活动的也就是你正在操作的，鼠标点一下某个sheet就会激活这个sheet）。如果你不传入任何参数，他会返回活动sheet的名称，如果你传入一个sheet名称，就会激活该sheet：</li>
+<li>先看一下所有的代码。然后我们再逐步解释</li>
 </ul>
-<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/d5462bfae6cd7b8986cda4d00c2442a7d8330e84.jpg" title="DataNitro：[6]sheet操作(A)">
+<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/f677b1c379310a5540f30c74b54543a983261018.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
 <ul>
-<li>display_sheet：展示某个工作表：它的用法和上面一样，传不传参数，它的功能不同，其实datanitro的很多方法都是这样的，你畜类旁通一下，因为很多时候我是不会重复的说这个事情的。</li>
+<li>首先是BEGIN PROGRAM和END PROGRAM,这两者之间插入python代码，也就是说python代码必须在这两者之间才能正确执行，之前有讲过</li>
 </ul>
-<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/d5462bfae6cd7b898914a3d00c2442a7d9330e2d.jpg" title="DataNitro：[6]sheet操作(A)">
+<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/245e8bcad1c8a7867b2d978e6509c93d71cf50e8.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
 <ul>
-<li>clear_row和clear_col：清空某行或者某列：他们可以使用整数、列表、Cell对象CellRange对象作为参数。当使用Cell或者CellRange的时候，他们清空的是这些单元格所在的行或者列</li>
+<li>装载spss和apssaux模块，spss模块很熟悉，但是spssaux模块是一个附加模块，在帮助文件中，没有关于它的，只能去自己搜索了。或者在python中使用help(spssaux)</li>
 </ul>
-<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/cdfe7281800a19d863fd1d5630fa828ba71e46ac.jpg" title="DataNitro：[6]sheet操作(A)">
+<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/f392492c11dfa9eca8f8849760d0f703908fc119.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
 <ul>
-<li><p>del_row/del_col用法也是同上，顾名思义，删除行或者列。</p>
-</li>
-<li><p>hide_row/hide_col用法稍微不同，顾名思义，隐藏行或者列。可以传入整数、列表，还可以指定隐藏某个特定的工作表中的行。</p>
-</li>
+<li>fpath中保存数据文件路径</li>
 </ul>
-<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/d66b7e59252dd42aadde98f8003b5bb5c8eab84b.jpg" title="DataNitro：[6]sheet操作(A)">
+<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/6391e903918fa0ec2011b68d249759ee3c6ddb19.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
 <ul>
-<li>row_is_hidded/col_is_hidden：判断某行/列是否被隐藏，如果被隐藏，返回True，否则返回False。只能接受整数作为参数，而是否指定某个工作表是可选的，如果不指定，那么就指的是当前活动的工作表</li>
+<li>spss打开该数据文件，注意这里用到了一些syntax命令，这些都是基本的。如果你不会写syntax也无妨，你可以在spss中手动操作一下，得到描述性统计，在结果输出文档中，就能看到用到的syntax，你再将其粘贴过来就可以了。</li>
 </ul>
-<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/86d5bac27d1ed21b0824b7b6ae6eddc450da3fb0.jpg" title="DataNitro：[6]sheet操作(A)">
+<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/b7bc4c66d01609247d227f9bd60735fae7cd34e8.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
 <ul>
-<li>insert_row/insert_col：这两个方法你应该亲手测试一下，传入不同的参数看看效果，它可以接受的参数有整数，Cell对象，列表；还可以指定某个工作表。</li>
+<li>然后cmd中存有进行描述性统计的syntax命令</li>
 </ul>
-<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/c8ab0bce36d3d5393bea96903987e950342ab04b.jpg" title="DataNitro：[6]sheet操作(A)">
+<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/d5462bfae6cd7b89426be7030d2442a7d8330ee8.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
 <ul>
-<li>aotofit：设置自动列宽，它有两个可选参数：工作表和CellRange地址</li>
+<li>spssaux.createxmloutput将执行cmd命令，然后将结果保存在xml工作空间中，可以设置visible为True来看到输出结果</li>
 </ul>
-<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/c71d0e385343fbf224fb3f70b37eca8064388f4b.jpg" title="DataNitro：[6]sheet操作(A)">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/datanitro/">#datanitro</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/17/Python教程：[21]url转码方法/">
-                Python教程：[21]url转码方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>在url中有一些是不能被打印或者不被web服务器作为有效url的字符必须转码以后再能使用，所以我们就用到了quote函数，quote函数的语法如下：quote(urldata,safe+’/‘)；逗号、下划线、句点斜线和字母数字这类符号是不需要转化的，通常中文是需要转换的。那些被转换的字符前面会加上一个百分号，同时转换成了16进制字符。</p>
+<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/476217f79052982245e5eb43d5ca7bcb0b46d419.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
 <ul>
-<li>先引入urllib模块</li>
+<li>读取透视表中的的某个以数值，注意观察参数，对照着透视表你就能理解了。</li>
 </ul>
-<img src="/2016/09/17/Python教程：[21]url转码方法/ac754782b2b7d0a2e49d59b0c9ef76094b369a0c.jpg" title="Python教程：[21]url转码方法">
+<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/6a2112338744ebf85ea7b6bfdbf9d72a6159a719.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
 <ul>
-<li>假如我们要对下面的url进行转码，注意观察各种字符的变化</li>
+<li>最后将读取得到的平均数值打印出来，成功！</li>
 </ul>
-<img src="/2016/09/17/Python教程：[21]url转码方法/8d158aeef01f3a29239f88e39b25bc315c607c0c.jpg" title="Python教程：[21]url转码方法">
+<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/a54e55fbfbedab64ef759040f536afc378311ee8.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
 <ul>
-<li>使用quote方法，进行转码</li>
-</ul>
-<img src="/2016/09/17/Python教程：[21]url转码方法/f15e24292df5e0fe894fd42c5e6034a85edf720c.jpg" title="Python教程：[21]url转码方法">
-<ul>
-<li>我们看看转码得到的结果：</li>
-</ul>
-<img src="/2016/09/17/Python教程：[21]url转码方法/4abae5edab64034f15769f2badc379310a551d20.jpg" title="Python教程：[21]url转码方法">
-<ul>
-<li>我们想要得到原先的url，可以使用quote的逆函数unquote</li>
-</ul>
-<img src="/2016/09/17/Python教程：[21]url转码方法/020e66f0f736afc309b76248b119ebc4b7451220.jpg" title="Python教程：[21]url转码方法">
-<ul>
-<li>得到反转码以后的url，我们看到这种方法并没有返回中文字符。</li>
-</ul>
-<img src="/2016/09/17/Python教程：[21]url转码方法/8cf0d51349540923c43e3e539058d109b3de490c.jpg" title="Python教程：[21]url转码方法">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/15/Python教程：[55]matplotlib安装下载方法/">
-                Python教程：[55]matplotlib安装下载方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我建议大家用exe文件安装matplotlib，我使用setuptools安装，没安装成功，提示一堆错误。所以我推荐还是exe安装，我把matplotlib的exe安装文件列表写在下面的参考资料里。你找到对应版本的下载就可以，这里是安装过程：</p>
-<ul>
-<li>首先，我们下载了适合自己的版本</li>
-</ul>
-<img src="/2016/09/15/Python教程：[55]matplotlib安装下载方法/1a94b36eddc451da8c3d9271b4fd5266d1163225.jpg" title="Python教程：[55]matplotlib安装下载方法">
-<ul>
-<li>打开它，就会看到安装界面，点击下一步</li>
-</ul>
-<img src="/2016/09/15/Python教程：[55]matplotlib安装下载方法/91ae68c6a7efce1b5fe55650ad51f3deb58f651b.jpg" title="Python教程：[55]matplotlib安装下载方法">
-<ul>
-<li>这里，输入python的安装目录，点击下一步<br>‘</li>
-</ul>
-<img src="/2016/09/15/Python教程：[55]matplotlib安装下载方法/8d158aeef01f3a29e6064b549b25bc315d607c1b.jpg" title="Python教程：[55]matplotlib安装下载方法">
-<ul>
-<li>安装过程的截图</li>
-</ul>
-<img src="/2016/09/15/Python教程：[55]matplotlib安装下载方法/fd428c45d688d43f837d0f687f1ed21b0ff43b10.jpg" title="Python教程：[55]matplotlib安装下载方法">
-<ul>
-<li>现在就安装好了，引入一下，看看是否出现了错误，没有错误就说明安装成功。</li>
-</ul>
-<img src="/2016/09/15/Python教程：[55]matplotlib安装下载方法/a54e55fbfbedab642b79d45af536afc378311ee5.jpg" title="Python教程：[55]matplotlib安装下载方法">
-<ul>
-<li><p>如果提示错误：ImportError: matplotlib requires dateutil，你可以看这篇文章：<a href="http://jingyan.baidu.com/article/aa6a2c14d5aa7f0d4c19c4e2.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/aa6a2c14d5aa7f0d4c19c4e2.html</a></p>
-</li>
-<li><p>如果提示错误：ImportError: matplotlib requires pyparsing，你可以看这篇文章：<a href="http://jingyan.baidu.com/article/e4d08ffdd3b9690fd2f60de2.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/e4d08ffdd3b9690fd2f60de2.html</a></p>
-</li>
+<li>最近在进行spss的自动化处理数据，有兴趣的可以联系我。</li>
 </ul>
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
@@ -797,7 +635,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
+            <a href="/tags/spss/">#spss</a> <a href="/tags/python/">#python</a>
         </div>
     
 
@@ -808,13 +646,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/09/15/python高级教程：[4]itertools介绍/">
-                python高级教程：[4]itertools介绍
+            <a href="/2016/10/05/SPSS绘图教程：[1]教程简介/">
+                SPSS绘图教程：[1]教程简介
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年09月15日</span>
+                <span class="date">2016年10月05日</span>
             
             
             
@@ -823,231 +661,55 @@
 
     
         <div class="content">
-            <p>itertools是Python提供的用于实现各种生成器的工具包，我们先来看看几个常用的函数的用法。</p>
+            <p>这篇文章是spss绘图教程的第一篇，简单介绍一下该系列教程的主要内容。该系列教程没有啥难懂的东西，都是在数据分析工作中经常用到的一些绘图技巧和基本知识。写这个系列教程的初衷是因为我们的spss教科书中很少有绘图的教程，所以很多学生都在问我怎么绘图，我现在把我会的所有绘图知识都写下来，方便大家查阅，大家可以将这系列教程收藏起来，以便以后查阅。</p>
 <ul>
-<li>切片itertools.islice</li>
+<li>首先是数据的准备，绘图对数据的格式要求非常严格，所以在绘图前需要对数据进行整理。</li>
 </ul>
-<img src="/2016/09/15/python高级教程：[4]itertools介绍/0b07ec1fbe096b6350ac17ef0a338744eaf8ac9d.jpg" title="python高级教程：[4]itertools介绍">
+<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/e865a699a9014c083efcb31d087b02087af4f400.jpg" title="SPSS绘图教程：[1]教程简介">
 <ul>
-<li>切片itertools.islice：有时候我们并不想迭代所有的元素，比如我只想处理d-g这些字母，看下面代码，我们可以使用islice(astr,3,len(astr)-1)</li>
+<li>条形图的绘制以及修改。</li>
 </ul>
-<img src="/2016/09/15/python高级教程：[4]itertools介绍/4e83cb628535e5dd0fbdec6070c6a7efcf1b62b9.jpg" title="python高级教程：[4]itertools介绍">
+<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/32bb9c8ba61ea8d319c9efbc950a304e241f5864.jpg" title="SPSS绘图教程：[1]教程简介">
 <ul>
-<li>生成多个相同的生成器help(itertools.tee)</li>
+<li>折线图的绘制以及修改</li>
 </ul>
-<img src="/2016/09/15/python高级教程：[4]itertools介绍/b3508d13b07eca80a0657258972397dda04483ea.jpg" title="python高级教程：[4]itertools介绍">
+<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/0862c354564e925807fb1d569e82d158cdbf4e78.jpg" title="SPSS绘图教程：[1]教程简介">
 <ul>
-<li>生成多个相同的生成器itertools.tee。</li>
+<li>区域图的绘制以及修改</li>
 </ul>
-<img src="/2016/09/15/python高级教程：[4]itertools介绍/566d0fdfa9ec8a13ebd91c5ff103918fa1ecc00b.jpg" title="python高级教程：[4]itertools介绍">
+<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/9dc3cf58ccbf6c815cf8b750be3eb13532fa4078.jpg" title="SPSS绘图教程：[1]教程简介">
 <ul>
-<li>tee是很有必要的，假如我们不使用tee，而直接在一个迭代器上进行切片，会产生这种混乱的结果：</li>
+<li>饼图的绘制以及修改</li>
 </ul>
-<img src="/2016/09/15/python高级教程：[4]itertools介绍/509b9fcb39dbb6fd6b8bae990f24ab18962b3779.jpg" title="python高级教程：[4]itertools介绍">
+<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/b0742dfa828ba61e4b2153974334970a314e5978.jpg" title="SPSS绘图教程：[1]教程简介">
 <ul>
-<li>help(itertools.groupby)</li>
+<li>散点图的绘制以及修改</li>
 </ul>
-<img src="/2016/09/15/python高级教程：[4]itertools介绍/3c2c4bfbb2fb4316f9b130c526a4462308f7d3a0.jpg" title="python高级教程：[4]itertools介绍">
+<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/4075890a304e251f7c387f40a586c9177e3e5378.jpg" title="SPSS绘图教程：[1]教程简介">
 <ul>
-<li>groupby可以自动将一个序列分组，相同相邻的元素会归为一组，形成一个新的生成器。</li>
+<li>直方图的绘制以及修改</li>
 </ul>
-<img src="/2016/09/15/python高级教程：[4]itertools介绍/b13fd48065380cd757efe852a744ad3458828159.jpg" title="python高级教程：[4]itertools介绍">
+<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/86d5bac27d1ed21b0b23b55daf6eddc450da3f64.jpg" title="SPSS绘图教程：[1]教程简介">
 <ul>
-<li>使用groupby可以压缩数据，如下代码，我们使用元组构成的列表来表示一个字符串，而元组的第一个元素表示组中包含的字母，而第二个元素表示这个字符重复的次数。</li>
+<li>高低图的绘制以及修改</li>
 </ul>
-<img src="/2016/09/15/python高级教程：[4]itertools介绍/0b907cd9f2d3572c9583d6638c13632763d0c3e9.jpg" title="python高级教程：[4]itertools介绍">
+<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/ac2fc3c451da81cb320c18755066d01608243164.jpg" title="SPSS绘图教程：[1]教程简介">
 <ul>
-<li>接下来我们将继续介绍itertools中其他有用的函数。</li>
+<li>箱图的绘制以及修改</li>
 </ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/15/Excel怎样移动列[4]Excel2013教程/">
-                Excel怎样移动列[4]Excel2013教程
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们通常要在Excel中进行的一个操作就是移动列，比如将E列移动到B列的位置，其他的列保持不变，其实在Excel中可以使用鼠标加键盘的方法实现移动列的效果，非常的方便，现在我就跟大家来分享这个方法：</p>
+<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/389aa8fd5266d01606f30590952bd40734fa3564.jpg" title="SPSS绘图教程：[1]教程简介">
 <ul>
-<li>首先我们看这个图，我想把F列的数据整体移动到D列，如果不让你是用复制粘贴，你怎么办？</li>
+<li>双轴图的绘制以及修改（有两种图形）</li>
 </ul>
-<img src="/2016/09/15/Excel怎样移动列[4]Excel2013教程/0e655ca7d933c8954f358012d01373f0830200d4.jpg" title="Excel怎样移动列[4]Excel2013教程">
+<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/cc506c8b4710b912320e6d46c1fdfc0393452278.jpg" title="SPSS绘图教程：[1]教程简介">
 <ul>
-<li>先点击F列标题，选中整个列</li>
+<li>图形元素的设置</li>
 </ul>
-<img src="/2016/09/15/Excel怎样移动列[4]Excel2013教程/a54e55fbfbedab64ab3955a9f636afc378311ed4.jpg" title="Excel怎样移动列[4]Excel2013教程">
+<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/48151723dd54564e46037e81b1de9c82d0584fe1.jpg" title="SPSS绘图教程：[1]教程简介">
 <ul>
-<li>先按下shift键不要松手，然后用鼠标拖动F列的左边框，看到图中的圆圈位置，向左拖动可以移动这个列</li>
+<li>脚注题注等的设置</li>
 </ul>
-<img src="/2016/09/15/Excel怎样移动列[4]Excel2013教程/f677b1c379310a551d6fc69db64543a9832610d4.jpg" title="Excel怎样移动列[4]Excel2013教程">
-<ul>
-<li>拖动过程中，你会看到绿色的边框示意你这列数据将会移动到哪里</li>
-</ul>
-<img src="/2016/09/15/Excel怎样移动列[4]Excel2013教程/b258f5c4b74543a93050e2a51f178a82b80114d4.jpg" title="Excel怎样移动列[4]Excel2013教程">
-<ul>
-<li>我们看看这就是移动之后的效果了：</li>
-</ul>
-<img src="/2016/09/15/Excel怎样移动列[4]Excel2013教程/aa59892bd40735fa709656d09f510fb30f240831.jpg" title="Excel怎样移动列[4]Excel2013教程">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/15/Excel2013：[13]如何设置数据有效性/">
-                Excel2013：[13]如何设置数据有效性
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>Excel2013与其他版本有很大改变，其中数据有效性改名为了数据验证，所以很多人在网上问“数据有效性”在哪里。我现在用例子跟大家演示一下如何设置数据有效性。</p>
-<ul>
-<li>选中一列数据作为数据源，不要选中第一个行的标题</li>
-</ul>
-<img src="/2016/09/15/Excel2013：[13]如何设置数据有效性/fc5e5f34970a304e5623b6e1d3c8a786c9175c6c.jpg" title="Excel2013：[13]如何设置数据有效性">
-<ul>
-<li>在数据标签下找到【数据验证】</li>
-</ul>
-<img src="/2016/09/15/Excel2013：[13]如何设置数据有效性/964b2e4e251f95caa4f484adcb177f3e6709526c.jpg" title="Excel2013：[13]如何设置数据有效性">
-<ul>
-<li>选择设置选项下的【序列】</li>
-</ul>
-<img src="/2016/09/15/Excel2013：[13]如何设置数据有效性/245e8bcad1c8a786be2b5c156509c93d70cf506c.jpg" title="Excel2013：[13]如何设置数据有效性">
-<ul>
-<li>来源设置成刚才设置好的区域，点击确定</li>
-</ul>
-<img src="/2016/09/15/Excel2013：[13]如何设置数据有效性/8697397f9e2f0708fd6b3c1beb24b899a901f204.jpg" title="Excel2013：[13]如何设置数据有效性">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/15/spss如何分组求平均值/">
-                spss如何分组求平均值
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>分组求均值，举个俩字来说就是，一个数据分为男生和女生，那么分别求男生和女生的平均值就是分组均值，要求分组均值就要确定总共有多少分组，比如我们要求不同性别的人不同的学历的人他们每周花费在报纸上的钱有多少，这样有性别和学历两个变量进行分组了。<br>方法/步骤</p>
-<ul>
-<li>打开数据文件以后，打开平均数对话框，在菜单栏上执行：analyze–compare means –means</li>
-</ul>
-<img src="/2016/09/15/spss如何分组求平均值/622762d0f703918fc8e5ce44513d269759eec40c.jpg" title="spss如何分组求平均值">
-<ul>
-<li>将每周买报纸花费的钱作为因变量，将性别作为自变量，如图所示，然后点击next，我们来设置第二层自变量</li>
-</ul>
-<img src="/2016/09/15/spss如何分组求平均值/6159252dd42a2834b9bfc5855bb5c9ea15cebf27.jpg" title="spss如何分组求平均值">
-<ul>
-<li>将最好学历作为第二层自变量，放到independent list，如果你还有要求分组均值的自变量，你可以继续点击next，不过我这里已经不用了</li>
-</ul>
-<img src="/2016/09/15/spss如何分组求平均值/359b033b5bb5c9ea84eaf06dd539b6003af3b327.jpg" title="spss如何分组求平均值">
-<ul>
-<li>点击options来设置要输出的参数</li>
-</ul>
-<img src="/2016/09/15/spss如何分组求平均值/37d3d539b6003af3aca32fee352ac65c1038b627.jpg" title="spss如何分组求平均值">
-<ul>
-<li>系统给出的默认值有：平均数、数据记录数、标准差。如果你需要其他的参数，还可以从左侧的列表里选择，然后点击continue</li>
-</ul>
-<img src="/2016/09/15/spss如何分组求平均值/3bf33a87e950352a5f78d6865343fbf2b2118b27.jpg" title="spss如何分组求平均值">
-<ul>
-<li>回到了平均数对话框，点击ok即可输出不同分组的平均数。</li>
-</ul>
-<img src="/2016/09/15/spss如何分组求平均值/472309f7905298220a07ca4dd7ca7bcb0a46d40c.jpg" title="spss如何分组求平均值">
-<ul>
-<li><p>这就是输出的结果：</p>
-</li>
-<li></li>
-</ul>
-<img src="/2016/09/15/spss如何分组求平均值/9213b07eca806538aef3579d97dda144ad348227.jpg" title="spss如何分组求平均值">
+<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/f7426d8da97739128a9b1fd9fa198618377ae28e.jpg" title="SPSS绘图教程：[1]教程简介">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1073,13 +735,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/09/11/python 线性代数：[5]方阵的行列式计算方法/">
-                python 线性代数：[5]方阵的行列式计算方法
+            <a href="/2016/10/05/python 线性代数：[19]行列式求解/">
+                python 线性代数：[19]行列式求解
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年09月11日</span>
+                <span class="date">2016年10月05日</span>
             
             
             
@@ -1088,150 +750,387 @@
 
     
         <div class="content">
-            <p>如何计算方阵的行列式，用到的是numpy模块的linalg.det方法，关于行列式的定义你应该懂，但是其实也不用记住，以后直接用numpy计算就可以了。下面我们看看如何使用numpy计算矩阵的行列式吧：</p>
+            <p>行列式是线性代数里最重要的概念之一，今天我们使用Python的numpy和sympy包计算几个三阶行列式。下面的计算过程用excel存放矩阵的数据，而用excel里面的datanitro插件来运行Python代码，所以你可能要熟悉一下datanitro这个插件，关于这个插件的全部教程，我都写在了这个系列里：<a href="http://jingyan.baidu.com/season/43508" target="_blank" rel="noopener">http://jingyan.baidu.com/season/43508</a></p>
 <ul>
-<li>行列式的算法：这是二阶方阵行列式</li>
+<li>熟悉了这个插件以后，我们看看我们要解决的这四个矩阵：这些练习题来自《线性代数，同济大学第五版第一张课后题》。</li>
 </ul>
-<img src="/2016/09/11/python%20线性代数：[5]方阵的行列式计算方法/a992e31f4134970ab41e34dd97cad1c8a6865d97.jpg" title="python 线性代数：[5]方阵的行列式计算方法">
+<img src="/2016/10/05/python%20线性代数：[19]行列式求解/73ca5910b912c8fc4c2adbe7f8039245d78821fb.jpg" title="python 线性代数：[19]行列式求解">
 <ul>
-<li>行列式的算法：这是三阶行列式</li>
+<li>这接着我们将这些矩阵录入到excel当中。</li>
 </ul>
-<img src="/2016/09/11/python%20线性代数：[5]方阵的行列式计算方法/0db52fadcbef76090899bd6d2cdda3cc7dd99e76.jpg" title="python 线性代数：[5]方阵的行列式计算方法">
+<img src="/2016/10/05/python%20线性代数：[19]行列式求解/f15e24292df5e0fec472a52b586034a85edf7276.jpg" title="python 线性代数：[19]行列式求解">
 <ul>
-<li>先引入numpy模块</li>
+<li>接着我们把代码写到1.1.py文件中。</li>
 </ul>
-<img src="/2016/09/11/python%20线性代数：[5]方阵的行列式计算方法/b3f6cea20cf431ad986a89c84936acaf2fdd984c.jpg" title="python 线性代数：[5]方阵的行列式计算方法">
+<img src="/2016/10/05/python%20线性代数：[19]行列式求解/4abae5edab64034fc2b2ee2cabc379310a551d59.jpg" title="python 线性代数：[19]行列式求解">
 <ul>
-<li>创建两个方阵</li>
+<li>接着，我们在excel的datanitro插件中，引入1.1.py文件，然后run一下就可以看到计算结果：</li>
 </ul>
-<img src="/2016/09/11/python%20线性代数：[5]方阵的行列式计算方法/1f569482b9014a9013248c4cab773912b21beeef.jpg" title="python 线性代数：[5]方阵的行列式计算方法">
+<img src="/2016/10/05/python%20线性代数：[19]行列式求解/c28fddfdfc03924559e0c8258394a4c27d1e2507.jpg" title="python 线性代数：[19]行列式求解">
 <ul>
-<li>使用det方法求得方阵E和方阵F的行列式</li>
+<li><p>以上是大概的流程，接下来具体讲解一下代码的意义。</p>
+</li>
+<li><p>引入需要的两个模块</p>
+</li>
 </ul>
-<img src="/2016/09/11/python%20线性代数：[5]方阵的行列式计算方法/3853ad1bb051f8196a3fc9bbd8b44aed2f73e7ef.jpg" title="python 线性代数：[5]方阵的行列式计算方法">
-<img src="/2016/09/11/python%20线性代数：[5]方阵的行列式计算方法/373bc4b44aed2e737af34cdd8501a18b86d6faef.jpg" title="python 线性代数：[5]方阵的行列式计算方法">
+<img src="/2016/10/05/python%20线性代数：[19]行列式求解/11794d43fbf2b211ba8ca964ce8065380cd78e3e.jpg" title="python 线性代数：[19]行列式求解">
 <ul>
-<li><p>这是今天用到的所有代码</p>
+<li><p>先看看第一题，这是计算第一个矩阵的行列式：</p>
 </li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>E</p>
-</blockquote>
-</blockquote>
-</blockquote>
+<li><p>a,CellRange是datanitro的内置对象，表示excel里面的一个单元格区域，通过它我们可以将这个区域内的值读取出来，存放到lst这个列表里，也就是Python中的list对象；接着用numpy模块的reshap方法，将list转换为3x3的矩阵，然后用刀了det方法计算行列式，最后结果为-4</p>
 </li>
-<li><p>array([[1, 2, 3],</p>
-</li>
-<li><p>[4, 5, 6],</p>
-</li>
-<li><p>[7, 8, 9]])</p>
-</li>
-<li><blockquote>
+</ul>
+<img src="/2016/10/05/python%20线性代数：[19]行列式求解/647912d7912397dd8e08b72e5d82b2b7d0a28763.jpg" title="python 线性代数：[19]行列式求解">
+<ul>
+<li>第二题：红色字体都是注释，没有实际功能。跟第一题相比，第二题用字母代替了数字，所以，我们要用到Python的符号计算包sympy，我们可以看到E就是一个3x3的矩阵，但是需要将E转换为符号矩阵，用到了sp.Matrix，得到M，然后使用m的det方法计算得到行列式，结果是：</li>
+</ul>
+<img src="/2016/10/05/python%20线性代数：[19]行列式求解/d56b3634349b033b4ce6d5f011ce36d3d539bd6a.jpg" title="python 线性代数：[19]行列式求解">
+<img src="/2016/10/05/python%20线性代数：[19]行列式求解/d089b986c9177f3e181dd22774cf3bc79f3d56ab.jpg" title="python 线性代数：[19]行列式求解">
+<ul>
+<li>第三题，与第二题类似，用到了sp.Matrix，但是我们还用到了sp.factor，这个方法可以将结果提取公因式，最后的计算结果为：</li>
+</ul>
+<img src="/2016/10/05/python%20线性代数：[19]行列式求解/a6c7d7177f3e6709b76b6dd53fc79f3df8dc5575.jpg" title="python 线性代数：[19]行列式求解">
+<img src="/2016/10/05/python%20线性代数：[19]行列式求解/b110e6198618367a153456f72a738bd4b31ce518.jpg" title="python 线性代数：[19]行列式求解">
+<ul>
+<li>如果前三题你都搞懂了，第四题就简单了，没有新知识：</li>
+</ul>
+<img src="/2016/10/05/python%20线性代数：[19]行列式求解/6a2112338744ebf816254c15ddf9d72a6059a700.jpg" title="python 线性代数：[19]行列式求解">
 <blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
 <blockquote>
-<p>F</p>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
 </blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[-1,  0,  1],</p>
-</li>
-<li><p>[ 2,  3,  4],</p>
-</li>
-<li><p>[ 5,  6,  7]])</p>
-</li>
-<li><blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/10/03/SPSS python教程：[6]读取PivotTable行标签/">
+                SPSS python教程：[6]读取PivotTable行标签
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年10月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>spss输出的结果文档用到最多的就是数据透视表（pivot table），在spss中，数据透视表被分为三个部分：行标签列表、列标签列表、数据列表。你可能还不理解这些内容。我们从这篇开始介绍数据透视表的行标签，并用python读取行标签，然后输出。看看代码吧：</p>
+<ul>
+<li>这是在spss结果文档中输出的一个数据透视表，我们要读取它的行标签</li>
+</ul>
+<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/8b527d2762d0f7036208ba450afa513d2797c5b6.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<ul>
+<li>这就是行标签，但是它并不像我们看到的那么简单，我们试着读取行标签就知道了</li>
+</ul>
+<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/6c63514a20a4462308668afb9a22720e0df3d7bf.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<ul>
+<li>创建一个python脚本文件：outputTrim.py，下图中你可以看到该文件存放的目录</li>
+</ul>
+<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/48151723dd54564efa5acaa0b1de9c82d1584f28.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<ul>
+<li>接着先写入代码StartClient和stopclient，所有操作spss的代码都应该放在这两句之间。</li>
+</ul>
+<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/dc15484e9258d109d807862bd358ccbf6d814d07.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<ul>
+<li>我们详细讲解一下代码的意义，先看这两句，假如我们只打开了一个结果文档，我们使用第一句代码可以获取该文档的句柄；第二句获取该文档下所有的输出项目，里面包含但不仅限于数据透视表，outputItems是一个列表</li>
+</ul>
+<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/9864a2315c6034a83fae9618c91349540823769f.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<ul>
+<li>通过循环，我们可以找到名称为’Descriptive Statistics’的数据透视表。我们看下面的if语句，首先判断输出项是不是PIVOT，然后判断该输出项的标题为’Descriptive Statistics’的PIVOT，获取标题用的是GetDescription</li>
+</ul>
+<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/263e802f07082838c19ff28dba99a9014d08f15e.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<ul>
+<li>这句代码是将找到的这个输出项转换为数据透视表，这样才能使用数据透视表所具有的类和方法</li>
+</ul>
+<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/814b07d8bc3eb13540169922a41ea8d3fc1f4412.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<ul>
+<li>这一句就是获取数据透视表的行标签</li>
+</ul>
+<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/9304c888d43f879430a461b7d01b0ef41ad53a94.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<ul>
+<li>我们用这个循环来输出所有的行标签，看看输出结果是啥样的</li>
+</ul>
+<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/35e940df8db1cb132a38158adf54564e93584b92.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<ul>
+<li>这就是输出结果，跟数据透视表对比一下，你就知道行标签到底代表着什么。</li>
+</ul>
+<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/6f4703950a7b02089dae167860d9f2d3562cc881.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/6c63514a20a4462308668afb9a22720e0df3d7bf.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
 <blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
 <blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
 </blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a> <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/10/03/SPSS实例：[31]统计选项频数/">
+                SPSS实例：[31]统计选项频数
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年10月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>假如有一个单选题，有五个选项，我现在想知道每一个选项有都少人选，怎么办？其实这是一个最简单的频率统计问题，我们把在spss中的统计过程列在以下，请参考：</p>
+<ul>
+<li>首先，我们在菜单栏上执行：分析–描述统计–频数</li>
+</ul>
+<img src="/2016/10/03/SPSS实例：[31]统计选项频数/9864a2315c6034a885a32ccfc9134954082376f8.jpg" title="SPSS实例：[31]统计选项频数">
+<ul>
+<li>在这里，我们将想要统计的题目放到变量框</li>
+</ul>
+<img src="/2016/10/03/SPSS实例：[31]统计选项频数/1b0d4f0fd9f9d72aed368753d62a2834359bbbeb.jpg" title="SPSS实例：[31]统计选项频数">
+<ul>
+<li>点击ok开始统计</li>
+</ul>
+<img src="/2016/10/03/SPSS实例：[31]统计选项频数/fc5e5f34970a304ed18337b4d3c8a786c8175c98.jpg" title="SPSS实例：[31]统计选项频数">
+<ul>
+<li>在输出的表格中，我们的频率一栏就是我们要统计的内容了。</li>
+</ul>
+<img src="/2016/10/03/SPSS实例：[31]统计选项频数/fab3ac119313b07e6eefc7460ed7912396dd8ceb.jpg" title="SPSS实例：[31]统计选项频数">
 <blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
 <blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
 </blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/10/03/Python统计分析：[2]相关样本T检验/">
+                Python统计分析：[2]相关样本T检验
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年10月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>上一篇文章介绍了独立样本T检验，现在接着使用Python进行相关样本的T检验，主要用到了scipy.stats.ttest_rel，我们先来看看其基本的用法：</p>
+<ul>
+<li>引入相关模块，这次我们使用stats的</li>
+</ul>
+<img src="/2016/10/03/Python统计分析：[2]相关样本T检验/8640bf8b87d6277f111a614c2b381f30e924fc7f.jpg" title="Python统计分析：[2]相关样本T检验">
+<ul>
+<li>产生两列随机变量，用到了stats。norm.rvs，参数loc表示平均数，scale表示标准差，size是样本量<br>这是产生的两个变量的数据的一部分</li>
+</ul>
+<img src="/2016/10/03/Python统计分析：[2]相关样本T检验/1b0d4f0fd9f9d72aa8094369d72a2834349bbb12.jpg" title="Python统计分析：[2]相关样本T检验">
+<img src="/2016/10/03/Python统计分析：[2]相关样本T检验/99636c0e0cf3d7cac1fe6c02f11fbe096b63a97f.jpg" title="Python统计分析：[2]相关样本T检验">
+<ul>
+<li>ttest_rel的用法：输出t和p值<br>从p值可以看出，这两列数据是没有差异的。</li>
+</ul>
+<img src="/2016/10/03/Python统计分析：[2]相关样本T检验/29790130e924b8993c342a4c6d061d950a7bf67f.jpg" title="Python统计分析：[2]相关样本T检验">
+<img src="/2016/10/03/Python统计分析：[2]相关样本T检验/734f12f3d7ca7bcbb173945bbd096b63f624a87f.jpg" title="Python统计分析：[2]相关样本T检验">
+<ul>
+<li>当然，ttest_rel还可以接受pandas.DataFrame数据，先从excel中读取数据<br>我们可以看一下数据的基本内容：</li>
+</ul>
+<img src="/2016/10/03/Python统计分析：[2]相关样本T检验/d56b3634349b033b95e5afae16ce36d3d539bd12.jpg" title="Python统计分析：[2]相关样本T检验">
+<img src="/2016/10/03/Python统计分析：[2]相关样本T检验/969cbf44ad34598255e7b6e60ff431adcbef8412.jpg" title="Python统计分析：[2]相关样本T检验">
+<ul>
+<li>我们可以选择scoreA和ScoreB这两列数据进行T检验<br>输出的结果可见两列变量均值无差异</li>
+</ul>
+<img src="/2016/10/03/Python统计分析：[2]相关样本T检验/54baacfb43166d22fe7f46e0452309f79052d27f.jpg" title="Python统计分析：[2]相关样本T检验">
+<img src="/2016/10/03/Python统计分析：[2]相关样本T检验/b3f6cea20cf431ad20bf104d4836acaf2edd9812.jpg" title="Python统计分析：[2]相关样本T检验">
+<ul>
+<li>我们还可以同时对多个变量进行检验，比如：<br>这是产生的结果可见：第一个array表示t值，两个表示p值，因此我们可以知道p(scoreA)=0.126&gt;0.05</li>
+</ul>
+<img src="/2016/10/03/Python统计分析：[2]相关样本T检验/d478a8003af33a873f00536ec55c10385343b512.jpg" title="Python统计分析：[2]相关样本T检验">
+<img src="/2016/10/03/Python统计分析：[2]相关样本T检验/0db52fadcbef7609a666caeb2ddda3cc7cd99e12.jpg" title="Python统计分析：[2]相关样本T检验">
 <blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
 <blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
 </blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/10/03/numpy函数：[11]fromfunction以函数式创建数组/">
+                numpy函数：[11]fromfunction以函数式创建数组
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年10月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>给函数绘图的时候经常需要创建一个数组，这时候就用到了fromfunction函数，用以从函数中创建数组，我们下面还是用具体的例子说明一下fromfunction的方法：</p>
+<ul>
+<li>先从numpy中引入所有</li>
+</ul>
+<img src="/2016/10/03/numpy函数：[11]fromfunction以函数式创建数组/d019d2bf6c81800aec6d2a91b33533fa838b4762.jpg" title="numpy函数：[11]fromfunction以函数式创建数组">
+<ul>
+<li>我们创建一个函数，它是y=i*2的表示形式</li>
+</ul>
+<img src="/2016/10/03/numpy函数：[11]fromfunction以函数式创建数组/814b07d8bc3eb135cb4f1424a41ea8d3fc1f4462.jpg" title="numpy函数：[11]fromfunction以函数式创建数组">
+<ul>
+<li>我们使用fromfunction函数，创建一个数组a，看a返回的的结果，所以a中存储的就是y的值，而i其实就是数组的索引，数组a反应的是i取值从0到1时，y的值。fromfunction的第二个参数定义了数组的形状，也就是说参数(5,)表示i取值范围是[0,1,2,3,4]</li>
+</ul>
+<img src="/2016/10/03/numpy函数：[11]fromfunction以函数式创建数组/a75fb6d3fd1f413469bfa6e1271f95cad0c85e62.jpg" title="numpy函数：[11]fromfunction以函数式创建数组">
+<ul>
+<li>假如要创建的是二维数组，也就是说函数式有两个自变量，比如y=i*j这个函数，我们在python的表示形式是</li>
+</ul>
+<img src="/2016/10/03/numpy函数：[11]fromfunction以函数式创建数组/a992e31f4134970acffbb3b097cad1c8a6865d62.jpg" title="numpy函数：[11]fromfunction以函数式创建数组">
+<ul>
+<li>以这个函数创建一个数组，我们看结果,参数(10,10)表示i的取值范围和j的取值范围是[0,1,2,3,4,5,6,7,8,9]，数组b中存放的就是函数返回的值</li>
+</ul>
+<img src="/2016/10/03/numpy函数：[11]fromfunction以函数式创建数组/245e8bcad1c8a786cda1e9916509c93d71cf5062.jpg" title="numpy函数：[11]fromfunction以函数式创建数组">
+<ul>
+<li>换一种取值范围，看看结果</li>
+</ul>
+<img src="/2016/10/03/numpy函数：[11]fromfunction以函数式创建数组/3853ad1bb051f819d3ffa0d5d8b44aed2f73e71c.jpg" title="numpy函数：[11]fromfunction以函数式创建数组">
+<ul>
+<li>这个很好理解</li>
+</ul>
 <blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
 <blockquote>
-<p>np.linalg.det(E)</p>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
 </blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>6.6613381477509402e-16</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>np.linalg.det(F)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>2.664535259100367e-15</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>C</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 2],</p>
-</li>
-<li><p>[1, 3]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>np.linalg.det(C)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>1.0</p>
-</li>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/10/03/Python教程：[61]创建文件夹 目录/">
+                Python教程：[61]创建文件夹 目录
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年10月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>python如何创建文件夹，用到了mkdir和makedirs两个方法，前者创建一层目录，后者创建多层目录，下面我们来看看具体是怎么用的。</p>
+<ul>
+<li>先要引入os模块</li>
+</ul>
+<img src="/2016/10/03/Python教程：[61]创建文件夹%20目录/ac754782b2b7d0a2c2fbb31dc9ef76094a369ac5.jpg" title="Python教程：[61]创建文件夹 目录">
+<ul>
+<li>使用mkdir方法创建一个tt文件夹，参数是文件夹的路径：</li>
+</ul>
+<img src="/2016/10/03/Python教程：[61]创建文件夹%20目录/caae68094b36acaffad2217c7ed98d1000e99cc5.jpg" title="Python教程：[61]创建文件夹 目录">
+<ul>
+<li>假如我们使用mkdir方法创建多层文件夹，也就是说，文件夹f:/tt1和文件夹f:/tt1/tt1都是不存在的，这时候就会出现错误</li>
+</ul>
+<img src="/2016/10/03/Python教程：[61]创建文件夹%20目录/7d98931001e93901fb303abe79ec54e737d196c5.jpg" title="Python教程：[61]创建文件夹 目录">
+<ul>
+<li>我们可以使用makedirs方法来创建多层目录：</li>
+</ul>
+<img src="/2016/10/03/Python教程：[61]创建文件夹%20目录/8697397f9e2f07085e689d80eb24b899a801f286.jpg" title="Python教程：[61]创建文件夹 目录">
+<ul>
+<li>写完这篇文章，你可能想知道，如何删除目录呢，幸好我前几天已经写完了一篇如何删除文件夹的文章，具体见：<a href="http://jingyan.baidu.com/article/39810a23e80384b636fda639.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/39810a23e80384b636fda639.html</a></li>
 </ul>
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
@@ -1294,43 +1193,43 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2020/12/23/均值差异的效应量在线计算器/">均值差异的效应量在线计算器</a>
+                <a class="footer-post" href="/2021/07/08/方差分析08-单因素多元方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
+                <a class="footer-post" href="/2021/07/08/方差分析07-单变量协方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/27/文旅特色小镇的具身体验质量-数据分享/">文旅特色小镇的具身体验质量-数据分享</a>
+                <a class="footer-post" href="/2021/07/08/方差分析06-2因素混合设计方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/12/问卷代填-大学生的论文用的-有靠谱的调研商家/">问卷代填(大学生的论文用的)怎么快速收集高质量问卷</a>
+                <a class="footer-post" href="/2021/07/08/方差分析05-重复测量单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/04/嵌入式python的zip安装和并安装pip/">嵌入式python的zip安装和并安装pip</a>
+                <a class="footer-post" href="/2021/07/08/方差分析04-三因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-效度分析/">SPSS问卷效度分析教程</a>
+                <a class="footer-post" href="/2021/07/08/方差分析03-双因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+                <a class="footer-post" href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+                <a class="footer-post" href="/2021/07/08/方差分析01-单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+                <a class="footer-post" href="/2021/07/08/11-2XN卡方检验/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2021/07/08/10-2x2卡方检验/">Untitled</a>
             </li>
             
         </ul>
@@ -1344,7 +1243,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1648,11 +1547,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>

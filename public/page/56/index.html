@@ -197,6 +197,12 @@
     <div class="page_list archive-container">
         
             <div class="archive-post">
+                <a href="/2021/01/04/01 安装manimlib/">
+                    manim系列教程01-windows平台安装manim
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2020/11/04/嵌入式python的zip安装和并安装pip/">
                     嵌入式python的zip安装和并安装pip
                 </a>
@@ -217,12 +223,6 @@
             <div class="archive-post">
                 <a href="/2019/08/04/python中logging模块的error和exception的区别和最佳实践/">
                     python中logging模块的error和exception的区别和最佳实践
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2019/07/21/python3的logging模块的最佳实践/">
-                    python3的logging模块的最佳实践
                 </a>
             </div>
             
@@ -448,13 +448,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/">
-                DataNitro：[1]怎样在Excel中使用python脚本
+            <a href="/2015/06/15/spss如何做交叉表分析/">
+                spss如何做交叉表分析
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年05月23日</span>
+                <span class="date">2015年06月15日</span>
             
             
             
@@ -463,176 +463,50 @@
 
     
         <div class="content">
-            <p>怎么在Excel中运行python脚本？这个问题由来已久，很多pythoner都希望直接用python控制Excel，但是只能从外部调用，有没有一个VBA的东西可以直接在Excel中运行呢？答案是有，DataNitro就是这么一个东西，看看下面Excel中的界面，他就是了，可以直接点击‘run’来运行一个Python脚本。下面我们来看看它是如何安装与配置的。</p>
+            <p>交叉表分析主要用来检验两个变量之间是否存在关系，或者说是否独立，其零假设为两个变量之间没有关系。我们在实际的工作中，经常用交叉表来分析比例是否相等。比如我们来分析一下，不同的性别对不同的报纸的选择有什么不同，就是要用交叉表分析了，下面是具体的方法。<br>方法/步骤</p>
 <ul>
-<li>先安装python2.7，其他版本不知道行不行，但是这个肯定行，然后配置环境变量，保证python在该环境中，打开开始菜单，找到计算机，然后右键单击它，选择【属性】</li>
+<li>在spss中打开数据，然后依次打开：analyze–descriptive–crosstabs，打开交叉表对话框</li>
 </ul>
-<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/00a82701213fb80e416877e135d12f2eb938940f.jpg" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<img src="/2015/06/15/spss如何做交叉表分析/7dd98d1001e939013903dcb17bec54e736d1963f.jpg" title="spss如何做交叉表分析">
 <ul>
-<li>找到高级系统设置</li>
+<li>将性别放到行列表，将对读物的选择变量放到列，这样就构成了一个交叉表</li>
 </ul>
-<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/4e83cb628535e5dda375b3e975c6a7efce1b626f.jpg" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<img src="/2015/06/15/spss如何做交叉表分析/4ec2d5628535e5ddc32df45076c6a7efce1b623f.jpg" title="spss如何做交叉表分析">
 <ul>
-<li>找到环境变量，点击该按钮，打开环境变量设置窗口</li>
+<li>接下来我们要设置输出的结果，点击statistics，打开一个新的对话框</li>
 </ul>
-<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/ae10eddeb48f8c54db6ad31939292df5e0fe7f0f.jpg" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<img src="/2015/06/15/spss如何做交叉表分析/8435e5dde71190ef50fac350ce1b9d16fdfa603f.jpg" title="spss如何做交叉表分析">
 <ul>
-<li>找到Path系统变量，然后点击【编辑】</li>
+<li>勾选chi-square（卡方检验），勾选phi and cramer’s V（衡量交互分析中两个变量关系强度的指标），点击continue，回到交叉表对话框</li>
 </ul>
-<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/3b6833f5e0fe9925e9557f6637a85edf8db1716f.jpg" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<img src="/2015/06/15/spss如何做交叉表分析/b812c8fcc3cec3fd9b5bf6fad688d43f869427d3.jpg" title="spss如何做交叉表分析">
 <ul>
-<li>在这里，确保python的安装目录在，没有的话，添加进去</li>
+<li>点击cells，设置cell中要展示的数据</li>
 </ul>
-<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/5d212aa85edf8db191976a520a23dd54564e740f.jpg" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<img src="/2015/06/15/spss如何做交叉表分析/f2deb48f8c5494eec0235e962df5e0fe99257e3f.jpg" title="spss如何做交叉表分析">
 <ul>
-<li>下面就可以安装该插件了，去官网下载一个；或者百度一下，各大下载网站都有</li>
+<li>在这里勾选observed（各单元格的观测次数），勾选row（行单元格的百分比），点击continue，回到交叉表对话框</li>
 </ul>
-<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/8cf0d51349540923803775489158d109b3de496e.jpg" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<img src="/2015/06/15/spss如何做交叉表分析/8694a4c27d1ed21b61ac7f6aad6eddc450da3fd3.jpg" title="spss如何做交叉表分析">
 <ul>
-<li>双击即可安装，安装过程就是一路点击’下一步，不过有一步需要注意</li>
+<li>点击ok按钮，输出检验结果</li>
 </ul>
-<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/b13fd48065380cd7b447b4dba244ad345982816f.jpg" title="DataNitro：[1]怎样在Excel中使用python脚本">
-<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/c87c6ecf3bc79f3d85bff206b9a1cd11728b296e.jpg" title="DataNitro：[1]怎样在Excel中使用python脚本">
-<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/78701455b319ebc40f2660af8126cffc1e17166e.jpg" title="DataNitro：[1]怎样在Excel中使用python脚本">
-<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/29790130e924b89971826f0e6d061d950a7bf60f.jpg" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<img src="/2015/06/15/spss如何做交叉表分析/e1fe9925bc315c6003943a608db1cb134954773f.jpg" title="spss如何做交叉表分析">
 <ul>
-<li>在这里，不要勾选python，如果通过这种方式安装python，你原先安装的python就无法使用了</li>
+<li>先看到的第一个表格就是交叉表，性别为行、选择的读物为列</li>
 </ul>
-<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/eab9044c510fd9f9ddae435f262dd42a2834a40f.jpg" title="DataNitro：[1]怎样在Excel中使用python脚本">
+<img src="/2015/06/15/spss如何做交叉表分析/9825bc315c6034a866e3e90ecb1349540923763f.jpg" title="spss如何做交叉表分析">
 <ul>
-<li>最后安装完成，打开Excel就可以看到datanitro了</li>
+<li>卡方检验结果：我们主要是看pearson卡方检验，sig值小于0.05，因此我们认为不同的性别的人对周末读物的选择有显著的差别</li>
 </ul>
-<img src="/2015/05/23/DataNitro：[1]怎样在Excel中使用python脚本/969cbf44ad34598298d3f3a40ff431adcbef846f.jpg" title="DataNitro：[1]怎样在Excel中使用python脚本">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/datanitro/">#datanitro</a> <a href="/tags/python/">#python</a> <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/23/pandas教程：[6]计数统计/">
-                pandas教程：[6]计数统计
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>经过之前的学习，我们现在可以做一个简单的统计了，比如计数，这是最简单的统计，我们现在就使用pandas统计一下数据中各个专业学生的数目：</p>
+<img src="/2015/06/15/spss如何做交叉表分析/bd315c6034a85edfb48dafac49540923dd54753f.jpg" title="spss如何做交叉表分析">
 <ul>
-<li>先来引入pandas，并且从csv文件中读取数据</li>
-</ul>
-<img src="/2015/05/23/pandas教程：[6]计数统计/8640bf8b87d6277fc3b99f2b2b381f30e924fc3f.jpg" title="pandas教程：[6]计数统计">
-<ul>
-<li>查看一下前三行数据，看读取数据是否正确</li>
-</ul>
-<img src="/2015/05/23/pandas教程：[6]计数统计/29790130e924b899ca97d42b6d061d950a7bf63f.jpg" title="pandas教程：[6]计数统计">
-<img src="/2015/05/23/pandas教程：[6]计数统计/8697397f9e2f070877d28713ea24b899a801f28b.jpg" title="pandas教程：[6]计数统计">
-<ul>
-<li>选择数据：之前也有相关的教程，假如现在我们要统计【专业名称】这一列，那么需要学会选择它：</li>
-</ul>
-<img src="/2015/05/23/pandas教程：[6]计数统计/6391e903918fa0ec7e27c91e259759ee3c6ddb86.jpg" title="pandas教程：[6]计数统计">
-<ul>
-<li>计数统计我们使用：save_counts()，打印这个结果，查看一下</li>
-</ul>
-<img src="/2015/05/23/pandas教程：[6]计数统计/09bb4f3d269759ee47b0cdd8b1fb43166c22df86.jpg" title="pandas教程：[6]计数统计">
-<img src="/2015/05/23/pandas教程：[6]计数统计/d872d695d143ad4be32dead381025aafa40f0666.jpg" title="pandas教程：[6]计数统计">
-<ul>
-<li>绘制柱形图，使用plot方法，如果想要输出该图，使用get_figure()和savefig()</li>
-</ul>
-<img src="/2015/05/23/pandas教程：[6]计数统计/27d647ee3d6d55fbce26db356e224f4a21a4dd86.jpg" title="pandas教程：[6]计数统计">
-<ul>
-<li>最后我们可以在D盘下找到plot.png，这就是绘制好的bar图了。</li>
-</ul>
-<img src="/2015/05/23/pandas教程：[6]计数统计/b3ba5d166d224f4aa079de000af790529922d186.jpg" title="pandas教程：[6]计数统计">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/23/SPSS实例：[16]中介效应的检验过程/">
-                SPSS实例：[16]中介效应的检验过程
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>spss做中介效应现在用的越来越普遍，虽然说用amos是最佳的工具，但是很多人还是喜欢spss，更容易理解，操作起来也比amos简单。下面我们就来分享一下如何使用spss进行中介效应的检验，这个教程是理论上的讲解，目的是让你理解这个过程。后面我们会具体的来操作一下，让你知道如何具体的去做，先来看看理论上的过程：</p>
-<ul>
-<li><p>先要明确你的自变量和因变量，假如我们有三个变量分别是：自变量（x），因变量（y），中介变量（M）。</p>
+<li><p>最后一个表格，输出的是phi值和V值，两个都是代表两个变量之间的关系的紧密度的，数值小于0.1说明关系不紧密，即性别与周末读物的选择没有明显的关系，这个结论和上面的卡方检验有出入，所以我们需要进一步进行两两比较。</p>
 </li>
-<li><p>第一个要检验的是自变量对因变量的作用，我们用下面的方程表示：我们首先要做的是对系数c的检验，你应该知道，用回归做检验，假如c不显著，说明不存在中介效应，停止检验；假如c显著，还不能说明存在中介效应，接着进行下面的步骤：</p>
-</li>
+<li></li>
+<li></li>
 </ul>
-<img src="/2015/05/23/SPSS实例：[16]中介效应的检验过程/43e6c733c895d143ecfc5b3b71f082025baf07e4.jpg" title="SPSS实例：[16]中介效应的检验过程">
-<ul>
-<li>接着我们做自变量和中介变量之间的回归方程的检验，也就是用下面的方程来表示，假如系数a显著，说明X确实可以预测M，但仍然没有说明中介效应的存在。假如a不显著，那就需要进行sobel检验。我们暂时不去做sobel，因为还有一个步骤</li>
-</ul>
-<img src="/2015/05/23/SPSS实例：[16]中介效应的检验过程/b94f65ec54e736d1f92f321099504fc2d56269af.jpg" title="SPSS实例：[16]中介效应的检验过程">
-<ul>
-<li>现在我们要检验M和Y之间的关系，也就是下面的方程的系数是否显著。假如a显著、b也显著，那么就可以证明中介效应存在；假如a和b中有一个不显著，另一个先不显著我们不知道，我们需要进行sobel检验，sobel检验显著，那么中介效应存在。</li>
-</ul>
-<img src="/2015/05/23/SPSS实例：[16]中介效应的检验过程/d35a10f41bd5ad6ef642daf283cb39dbb6fd3c2b.jpg" title="SPSS实例：[16]中介效应的检验过程">
-<ul>
-<li>到此为止，我们就完成了中介效应的检验，下面来总结一下整个流程，看下面的流程图：</li>
-</ul>
-<img src="/2015/05/23/SPSS实例：[16]中介效应的检验过程/bbe0d311728b4710a5e043d4c1cec3fdfd03239f.jpg" title="SPSS实例：[16]中介效应的检验过程">
-<ul>
-<li>中介效应的具体操作，参考我的下一篇文章。</li>
-</ul>
+<img src="/2015/06/15/spss如何做交叉表分析/4d086e061d950a7bbe531e4b0ad162d9f3d3c9df.jpg" title="spss如何做交叉表分析">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -658,13 +532,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/05/23/numpy函数：[5]dtype数组元素类型/">
-                numpy函数：[5]dtype数组元素类型
+            <a href="/2015/06/15/Python教程：[23]MySQLdb下载安装与使用/">
+                Python教程：[23]MySQLdb下载安装与使用
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年05月23日</span>
+                <span class="date">2015年06月15日</span>
             
             
             
@@ -673,31 +547,28 @@
 
     
         <div class="content">
-            <p>数组元素的类型可以通过dtype属性获得。下面我们创建几个数组，然后看看她们的元素类型是什么。然后我们看看dtype作为参数创建特定类型的数组的方法。</p>
+            <p>今天使用python来更新我的数据库，需要用到一个MySQLdb支持库，费了半天劲才找到，所以跟大家在这里分享一下。我在下面的参考资料里提供了MySQLdb的32位和64位下载地址，你先下载下来。</p>
 <ul>
-<li>引入numpy ，创建一个列表a</li>
+<li>双击安装软件，打开安装界面，点击下一步</li>
 </ul>
-<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/0b07ec1fbe096b63bec1b5cc0e338744eaf8ac17.jpg" title="numpy函数：[5]dtype数组元素类型">
+<img src="/2015/06/15/Python教程：[23]MySQLdb下载安装与使用/b25aae51f8198618d161df9048ed2e738bd4e645.jpg" title="Python教程：[23]MySQLdb下载安装与使用">
 <ul>
-<li>用列表a创建一个数组c</li>
+<li>设置安装路径，一般路径是自动检测的，也就是你的python的安装路径，如果你发现不对，可以手动设置成python的路径。点击下一步</li>
 </ul>
-<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/f76575600c338744a71dc4e0530fd9f9d62aa017.jpg" title="numpy函数：[5]dtype数组元素类型">
+<img src="/2015/06/15/Python教程：[23]MySQLdb下载安装与使用/8cf0d51349540923a156536a9058d109b3de49a3.jpg" title="Python教程：[23]MySQLdb下载安装与使用">
 <ul>
-<li>我们看看数组c的元素的数据类型，是int32</li>
+<li>接着我们看到这个界面，点击下一步</li>
 </ul>
-<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/e1bf8725bc315c60a96a80738fb1cb1348547774.jpg" title="numpy函数：[5]dtype数组元素类型">
+<img src="/2015/06/15/Python教程：[23]MySQLdb下载安装与使用/064936381f30e9244e82ac254e086e061d95f745.jpg" title="Python教程：[23]MySQLdb下载安装与使用">
+<img src="/2015/06/15/Python教程：[23]MySQLdb下载安装与使用/0b3a1c087bf40ad19dc2f7f7552c11dfa9ecce45.jpg" title="Python教程：[23]MySQLdb下载安装与使用">
 <ul>
-<li>假如我们要创建一个其他类型的数组，可以设置dtype参数，如图所示，我们创建一个浮点型数据数组</li>
+<li>打开python，引入MySQLdb，来测试一下是否安装成功，这是未安装成功的提示</li>
 </ul>
-<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/9864a2315c6034a8c01d531dc913495408237674.jpg" title="numpy函数：[5]dtype数组元素类型">
+<img src="/2015/06/15/Python教程：[23]MySQLdb下载安装与使用/a992e31f4134970aa04c203b97cad1c8a7865da3.jpg" title="Python教程：[23]MySQLdb下载安装与使用">
 <ul>
-<li>我们再创建一个complex类型数组</li>
+<li>这是安装成功，没有任何错误提示。</li>
 </ul>
-<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/d66b7e59252dd42a7cd1ea37013b5bb5c8eab817.jpg" title="numpy函数：[5]dtype数组元素类型">
-<ul>
-<li>当然，每一种数据类型都有几种字符串表达形式，我们可以使用typeDict字典来查询某种字符串所代表的数据类型，比如’d’和‘double’都表示float64数据类型</li>
-</ul>
-<img src="/2015/05/23/numpy函数：[5]dtype数组元素类型/48151723dd54564e379a0fa5b1de9c82d0584f74.jpg" title="numpy函数：[5]dtype数组元素类型">
+<img src="/2015/06/15/Python教程：[23]MySQLdb下载安装与使用/dc854fda81cb39db037b5742d2160924ab18302f.jpg" title="Python教程：[23]MySQLdb下载安装与使用">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -712,7 +583,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/numpy/">#numpy</a>
+            <a href="/tags/python/">#python</a> <a href="/tags/mysql/">#mysql</a>
         </div>
     
 
@@ -723,13 +594,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/">
-                如何去掉excel保存文件时提示隐私问题警告
+            <a href="/2015/06/15/Python教程：[17]UDP客户端程序/">
+                Python教程：[17]UDP客户端程序
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年05月19日</span>
+                <span class="date">2015年06月15日</span>
             
             
             
@@ -738,30 +609,676 @@
 
     
         <div class="content">
-            <p>这几天编辑Excel中的宏的时候,保存的时候总是提示”隐私问题警告:此文档中包含宏、active插件、XML扩展包信息或web组件,其中可能包含个人信息,并且这些信息不能通过“文档检测器”进行删除”,这是为了保护用户的隐私才设置的一个安全警告,但是如果是我们经常使用vba,这个警告经常出现,很麻烦。那么怎么关闭警告呢?下面是具体的方法:</p>
+            <p>python可以快速的写成一个udp客户端程序，前面的文章中我们介绍了如何写udp服务器，服务器其实和客户端的程序时非常类似的，你看了下面的代码就知道了。</p>
 <ul>
-<li>打开Excel软件,然后在左上角有一个开始按钮,点击开始按钮,打开开始菜单</li>
+<li>先引入socket模块</li>
 </ul>
-<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/35e940df8db1cb131c9c221bdc54564e93584b85.jpg" title="如何去掉excel保存文件时提示隐私问题警告">
+<img src="/2015/06/15/Python教程：[17]UDP客户端程序/9e7ce6dcd100baa195843e974510b912c8fc2e36.jpg" title="Python教程：[17]UDP客户端程序">
 <ul>
-<li>在开始菜单的右下角有一个Excel选项，打开Excel选项</li>
+<li>设置几个参数：host主机地址，Port端口，bufsiz缓存大小</li>
 </ul>
-<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/8cf0d513495409238af57d769358d109b2de49de.jpg" title="如何去掉excel保存文件时提示隐私问题警告">
+<img src="/2015/06/15/Python教程：[17]UDP客户端程序/e1bf8725bc315c601b4e12c38fb1cb1348547787.jpg" title="Python教程：[17]UDP客户端程序">
 <ul>
-<li>打开了Excel选项，切换到信任中心，在信任中心找到【信任中心设置】按钮，打开它</li>
+<li>创建一个udp套接字类型，如图所示，关键参数是第二个SOCK_DGRAM</li>
 </ul>
-<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/8c511fe93901213f8be850d455e736d12e2e959b.jpg" title="如何去掉excel保存文件时提示隐私问题警告">
+<img src="/2015/06/15/Python教程：[17]UDP客户端程序/c28fddfdfc039245b71d98238594a4c27d1e2536.jpg" title="Python教程：[17]UDP客户端程序">
 <ul>
-<li>在设置对话框中，找到最下面的个人信息选项，你会看到这里有一个文件检测器，下面有一个选项“保存时从属性中删除个人信息”，我们取消勾选这个选项，然后点击保存</li>
+<li>下面的代码用于向服务器发送数据，并接受服务器传来的数据</li>
 </ul>
-<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/5d212aa85edf8db19ff5626c0823dd54574e749b.jpg" title="如何去掉excel保存文件时提示隐私问题警告">
+<img src="/2015/06/15/Python教程：[17]UDP客户端程序/9319cf09b3de9c82eabe80a36e81800a18d84387.jpg" title="Python教程：[17]UDP客户端程序">
 <ul>
-<li>如果你是从网上下载下来的文档，你还可以对文档进行检测，这样在你保存文档前就可以确定他的安全性。点击文档检测器</li>
+<li><p>下面是完整的代码。</p>
+</li>
+<li><p>from socket import *</p>
+</li>
+<li><p>host=’localhost’  #本地服务器地址</p>
+</li>
+<li><p>port=12345  #客户端端口(确保和服务器的端口一致</p>
+</li>
+<li><p>bufsiz=2048 #缓存大小</p>
+</li>
+<li><p>addc=(host, port) #地址+端口</p>
+</li>
+<li><p>udpclisock=socket(AF_INET,SOCK_DGRAM)  #创建UDP的套接字类型。</p>
+</li>
+<li><p>while True:</p>
+</li>
+<li><p>udpclisock.sendto(b’hello’, addc)</p>
+</li>
+<li><p>data,adds=udpclisock.recvfrom(bufsiz)</p>
+</li>
+<li><p>if not data:</p>
+</li>
+<li><p>break</p>
+</li>
+<li><p>print(data)</p>
+</li>
+<li><p>udpclisock.close()</p>
+</li>
 </ul>
-<img src="/2015/05/19/如何去掉excel保存文件时提示隐私问题警告/0ef2112442a7d9335727fa7bac4bd11372f001ef.jpg" title="如何去掉excel保存文件时提示隐私问题警告">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/06/15/pandas教程：[5]读取csv数据/">
+                pandas教程：[5]读取csv数据
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>很多数据是从网上下载而来，数据的格式可能是csv，那么pandas可以很容易的从csv格式的文件中读取数据，下面我们来看看具体的过程：</p>
 <ul>
-<li>这里也有一个文档属性和个人信息的选项，如果你勾选这个选项还是会提示安全警告</li>
+<li>引入pandas</li>
 </ul>
+<img src="/2015/06/15/pandas教程：[5]读取csv数据/7787b9efce1b9d161dd32272f0deb48f8c54644a.jpg" title="pandas教程：[5]读取csv数据">
+<ul>
+<li>使用pandas下的read_csv方法，读取csv文件，参数是文件的路径，这是一个相对路径，是相对于当前工作目录的，那么如何知道当前的工作目录呢？</li>
+</ul>
+<img src="/2015/06/15/pandas教程：[5]读取csv数据/bd7faf3533fa828ba41825f0fe1f4134970a5aae.jpg" title="pandas教程：[5]读取csv数据">
+<ul>
+<li>使用os.getcwd()方法获取当前工作目录</li>
+</ul>
+<img src="/2015/06/15/pandas教程：[5]读取csv数据/1cd4147b02087bf47fe5effaf1d3572c11dfcf5d.jpg" title="pandas教程：[5]读取csv数据">
+<ul>
+<li>读取前三后数据，查看一下是否读取正确，显然都是乱码，这是什么问题呢？</li>
+</ul>
+<img src="/2015/06/15/pandas教程：[5]读取csv数据/95afee1f3a292df509d71406bf315c6034a8734a.jpg" title="pandas教程：[5]读取csv数据">
+<ul>
+<li>我们需要设定参数encoding，也就是编码方式，如果你不设定编码方式，默认是utf8，现在csv文件是gbk编码的，所以需要使用encoding=’gbk’</li>
+</ul>
+<img src="/2015/06/15/pandas教程：[5]读取csv数据/2cb4fefe9925bc31b049b98b5ddf8db1cb13704a.jpg" title="pandas教程：[5]读取csv数据">
+<ul>
+<li>我用的编辑器是eric4，注意，eric4默认是不支持中文的，如果你想要显示中文，前提是设置正确的编码，在preferences中</li>
+</ul>
+<img src="/2015/06/15/pandas教程：[5]读取csv数据/c87c6ecf3bc79f3debda5c23b9a1cd11728b29ae.jpg" title="pandas教程：[5]读取csv数据">
+<ul>
+<li>设置成utf8即可</li>
+</ul>
+<img src="/2015/06/15/pandas教程：[5]读取csv数据/d041a4a1cd11728b5f163431cbfcc3cec3fd2cae.jpg" title="pandas教程：[5]读取csv数据">
+<ul>
+<li>回到pandas，我们可以有更多选项来设置打开数据时的操作：</li>
+</ul>
+<img src="/2015/06/15/pandas教程：[5]读取csv数据/808a27dbb6fd5266fd228707a818972bd407365c.jpg" title="pandas教程：[5]读取csv数据">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/06/15/python 线性代数：[8]计算矩阵距离/">
+                python 线性代数：[8]计算矩阵距离
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>矩阵的距离，这里是的是欧几里得距离，其他距离表示方法我们以后再谈，今天进说一下如何计算两个形状相同矩阵之间的距离。</p>
+<ul>
+<li>创建一个矩阵a和b</li>
+</ul>
+<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/bd70426034a85edfa4889fd44b540923dc547585.jpg" title="python 线性代数：[8]计算矩阵距离">
+<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/35e940df8db1cb13626d5de4df54564e93584b85.jpg" title="python 线性代数：[8]计算矩阵距离">
+<ul>
+<li>先计算得到他俩的距离矩阵c</li>
+</ul>
+<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/0862c354564e9258e130e7199e82d158cdbf4e85.jpg" title="python 线性代数：[8]计算矩阵距离">
+<ul>
+<li>距离矩阵的平方，得到矩阵d</li>
+</ul>
+<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/e8112b2ac65c1038be14af35b0119313b17e89a4.jpg" title="python 线性代数：[8]计算矩阵距离">
+<ul>
+<li>计算矩阵d的迹</li>
+</ul>
+<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/6dc09e0a19d8bc3e880c673d808ba61ea9d34585.jpg" title="python 线性代数：[8]计算矩阵距离">
+<ul>
+<li>然后将得到的e进行开方得到距离：你可以手动算一下是不是正确。</li>
+</ul>
+<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/814b07d8bc3eb13509c3d64ca41ea8d3fc1f4485.jpg" title="python 线性代数：[8]计算矩阵距离">
+<ul>
+<li><p>我们用到的原理就是矩阵的迹的性质，在numpy或者scipy中还有计算距离的函数，我们以后再说</p>
+</li>
+<li><p>今天用到的所有代码如下：</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>a=[[0,1],[1,0]]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>a=np.array(a)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>a</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[0, 1],</p>
+</li>
+<li><p>[1, 0]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>b=[[1,1],[1,1]]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>b=np.array(b)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>b</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 1],</p>
+</li>
+<li><p>[1, 1]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>c=a-b</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>c</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[-1,  0],</p>
+</li>
+<li><p>[ 0, -1]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>d=np.dot(c,c)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>d</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 0],</p>
+</li>
+<li><p>[0, 1]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>e=np.trace(d)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>e</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>2</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>e**0.5</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>1.4142135623730951</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/">
+                SPSS绘图教程：[3]条形图绘制方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>和上一篇文章一样，开始先打开【图表构建程序】，通常会弹出变量属性校验窗口，不用管它，因为我们在上一篇文章中介绍了如何使用它<br>可以直接点击确定即可。</p>
+<ul>
+<li>首先在库中找到条形图，然后用鼠标将你想要的样式拖拽到预览区域</li>
+</ul>
+<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/207ea60e7bec54e79a3a9ba6bb389b504ec26a71.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<ul>
+<li>然后将变量拖拽到相应的坐标轴，比如年龄组为横轴，干扰与否为纵轴</li>
+</ul>
+<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/d4239b35e5dde7112504c24ea5efce1b9c166171.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<ul>
+<li>在窗口右侧，有一个属性窗口，我们设置统计量，也就是条形图中显示的统计量，用的最多的就是均值。</li>
+</ul>
+<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/ae10eddeb48f8c542b05449738292df5e1fe7f71.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<ul>
+<li>接着，我们可以添加一个误差项，你不知道啥叫误差项？好吧，接着往下看。我们设置误差条形图的显示95%的区间</li>
+</ul>
+<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/48151723dd54564e5d976581b1de9c82d0584f5d.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<ul>
+<li>在条形统的上面就会出现两一条横线，表示95%的区间</li>
+</ul>
+<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/1899a23eb13533fa59441296aad3fd1f40345b5d.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<ul>
+<li>当然，我们还可以设置n个标准差或者标准误作为条形图的误差项</li>
+</ul>
+<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/cdfe7281800a19d864d505bd31fa828ba71e4671.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<ul>
+<li>假如你没有看到属性窗口，或者不小心关闭了，你可以右键单击这个图，选择【属性窗口】，这样就打开它了。</li>
+</ul>
+<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/c28fddfdfc0392452f4760b78594a4c27c1e255d.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<ul>
+<li>点击确定，你就可以看到你绘制好的条形图了。</li>
+</ul>
+<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/a6c7d7177f3e670920d6c44739c79f3df9dc5571.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<ul>
+<li>OH！！不小心出现了错误，你应该能猜到为什么会出错。</li>
+</ul>
+<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/9e7ce6dcd100baa13dfac6034510b912c9fc2e71.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<ul>
+<li>我们把变量名从中文改成英文就好了！就是对中文支持不够好。其实spss22.0已经能够支持中文变量名了。我现在还是spss20.0，该升级了。</li>
+</ul>
+<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/9f1011b30f2442a7cde37c1dd343ad4bd013025d.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/06/11/Python教程：[62]读取路径 目录【1】/">
+                Python教程：[62]读取路径 目录【1】
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>已知一个路径，我们怎么知道文件的类型，文件存放的文件夹，根目录呢？今天这篇文章主要就是解决这个问题——根据路径提取有用信息：</p>
+<ul>
+<li>引用path模块，然后我们创建一个路径filepath</li>
+</ul>
+<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/8697397f9e2f07085a0c9980eb24b899a801f2e2.jpg" title="Python教程：[62]读取路径 目录【1】">
+<ul>
+<li>用dirname提取文件夹的路径：</li>
+</ul>
+<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/29790130e924b899df35cab86c061d950b7bf6e2.jpg" title="Python教程：[62]读取路径 目录【1】">
+<ul>
+<li>用basename提取文件名称：</li>
+</ul>
+<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/91138622720e0cf34da7fd7b0846f21fbf09aa9b.jpg" title="Python教程：[62]读取路径 目录【1】">
+<ul>
+<li>用splitdrive分割根目录和其他目录</li>
+</ul>
+<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/29790130e924b899df77cab86c061d950b7bf6ac.jpg" title="Python教程：[62]读取路径 目录【1】">
+<ul>
+<li>用split方法分割文件名及其目录</li>
+</ul>
+<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/6a2112338744ebf8bf78d7bfdbf9d72a6159a7e2.jpg" title="Python教程：[62]读取路径 目录【1】">
+<ul>
+<li>用splitext，注意它的拼写，用于分割后缀名和其他路径：</li>
+</ul>
+<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/a005b3345982b2b719e58a4433adcbef77099bfd.jpg" title="Python教程：[62]读取路径 目录【1】">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/06/11/Python教程：[19]urlunparse()用法/">
+                Python教程：[19]urlunparse()用法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>前一篇文章我们讲了urlparse函数，我在这里补充一点，在python的新版本中，urlparse模块已经不能用了，想要使用rulparse函数只能是在低版本中使用，我这里示范的代码是在python2.7中测试的，这也是目前比较稳定的版本。其实从前面的文章中看到urlparse函数，你就知道urlunparse函数的用法，下面是具体的例子。</p>
+<ul>
+<li>先引入两个方法，urlparse和urlunparse</li>
+</ul>
+<img src="/2015/06/11/Python教程：[19]urlunparse()用法/29752a9b033b5bb51e9f4ad334d3d539b600bc10.jpg" title="Python教程：[19]urlunparse()用法">
+<ul>
+<li>我们将一个url分割成不同的部分，用的是urlparse，然后将不同的部分在合并成url，用的是urlunparse方法。</li>
+</ul>
+<img src="/2015/06/11/Python教程：[19]urlunparse()用法/7787b9efce1b9d16f269f04cf1deb48f8c546435.jpg" title="Python教程：[19]urlunparse()用法">
+<ul>
+<li>我们看到分割后的parsed，他被分成不同的部分，这个上一篇文章就讲过</li>
+</ul>
+<img src="/2015/06/11/Python教程：[19]urlunparse()用法/d478a8003af33a8737256a37c45c10385343b510.jpg" title="Python教程：[19]urlunparse()用法">
+<ul>
+<li>使用urlparse分割过的可以用urlunparse来合并，重新形成url</li>
+</ul>
+<img src="/2015/06/11/Python教程：[19]urlunparse()用法/3bc6f750352ac65cf14d0c5ef9f2b21193138a10.jpg" title="Python教程：[19]urlunparse()用法">
+<ul>
+<li><p>所有的代码如下：</p>
+</li>
+<li><p>from urlparse import urlparse</p>
+</li>
+<li><p>from urlparse import urlunparse</p>
+</li>
+<li><p>parsed=urlparse(‘<a href="http://user:pass@NetLoc:80/path;parameters?query=argument#fragment&#39;" target="_blank" rel="noopener">http://user:pass@NetLoc:80/path;parameters?query=argument#fragment&#39;</a>)</p>
+</li>
+<li><p>url=urlunparse(parsed)</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/06/11/Excel2013：[22]禁止录入重复值/">
+                Excel2013：[22]禁止录入重复值
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>当我们录入数据的时候，有些内容是不允许重复的，比如身份证号码，电话号码，我们可以使用设置数据有效性来禁止录入重复的数据，在Excel2013中，数据有效性又叫做数据验证，下面我们来看看如何在Excel2013中限制录入重复数据。</p>
+<ul>
+<li>我们先来选中A2单元格，也就是空单元格最上面的一个</li>
+</ul>
+<img src="/2015/06/11/Excel2013：[22]禁止录入重复值/a992e31f4134970ac104815b97cad1c8a7865d14.jpg" title="Excel2013：[22]禁止录入重复值">
+<ul>
+<li>我们切换到【数据】标签，打开【数据验证】对话框</li>
+</ul>
+<img src="/2015/06/11/Excel2013：[22]禁止录入重复值/dc15484e9258d109529438c6d358ccbf6c814d14.jpg" title="Excel2013：[22]禁止录入重复值">
+<ul>
+<li>在设置标签下，找到验证条件为【自定义】<br>、</li>
+</ul>
+<img src="/2015/06/11/Excel2013：[22]禁止录入重复值/9dc3cf58ccbf6c816640bd9cbe3eb13533fa4014.jpg" title="Excel2013：[22]禁止录入重复值">
+<ul>
+<li>我们在公式这一栏，输入公式=countif($A$2:A2,A2)=1</li>
+</ul>
+<img src="/2015/06/11/Excel2013：[22]禁止录入重复值/b3f6cea20cf431ad65bcd24d4936acaf2edd981d.jpg" title="Excel2013：[22]禁止录入重复值">
+<ul>
+<li>切换到【出错警告】标签下面</li>
+</ul>
+<img src="/2015/06/11/Excel2013：[22]禁止录入重复值/00a82701213fb80ec1bff0a334d12f2eb938941d.jpg" title="Excel2013：[22]禁止录入重复值">
+<ul>
+<li>我们设置出错时的提示信息，如下图所示，点击确定按钮，完成设置</li>
+</ul>
+<img src="/2015/06/11/Excel2013：[22]禁止录入重复值/207ea60e7bec54e78a828b6abb389b504fc26a1d.jpg" title="Excel2013：[22]禁止录入重复值">
+<ul>
+<li>拖转A2单元格，快速填充其他单元格</li>
+</ul>
+<img src="/2015/06/11/Excel2013：[22]禁止录入重复值/2f9cbdcc7cd98d10b7ba9d45233fb80e7bec901d.jpg" title="Excel2013：[22]禁止录入重复值">
+<ul>
+<li>我们来测试一下是否设置成功，录入一个重复的数据，看到错误提示信息</li>
+</ul>
+<img src="/2015/06/11/Excel2013：[22]禁止录入重复值/718e25c79f3df8dc2f4a1ee5cf11728b47102814.jpg" title="Excel2013：[22]禁止录入重复值">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -787,13 +1304,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/05/17/spss中如何检验残差的相互独立性/">
-                spss中如何检验残差的相互独立性
+            <a href="/2015/06/11/DataNitro：[9]自定义函数/">
+                DataNitro：[9]自定义函数
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年05月17日</span>
+                <span class="date">2015年06月11日</span>
             
             
             
@@ -802,37 +1319,70 @@
 
     
         <div class="content">
-            <p>在做线性回归的时候要检验残差的独立性，这里交给大家一个方法可以在做回归的时候用到的，可以方便的看出残差之间是否独立，下面是具体的方法：<br>工具/原料</p>
+            <p>之前我们可能讲过用datanitro来自定义一个函数，现在我们回顾一下整个过程，以便把该说的细节都总结在这里，防止以后再走弯路。现在我们从头开始做一个自定义函数。</p>
 <ul>
-<li>spss20.0<br>方法/步骤</li>
+<li>在开始菜单中设定，允许使用自定义函数：</li>
 </ul>
+<img src="/2015/06/11/DataNitro：[9]自定义函数/29790130e924b899a5e7a36b6d061d950b7bf64f.jpg" title="DataNitro：[9]自定义函数">
 <ul>
-<li>首先要早spss中准备好数据，如图所示，每一列数据作为一个变量</li>
+<li>建立一个function.py文件，在里面写好我们要用的函数</li>
 </ul>
-<img src="/2015/05/17/spss中如何检验残差的相互独立性/962bd40735fae6cdf93affa50fb30f2443a70f63.jpg" title="spss中如何检验残差的相互独立性">
+<img src="/2015/06/11/DataNitro：[9]自定义函数/0d968f2397dda144f1e0b6e1b1b7d0a20df486bd.jpg" title="DataNitro：[9]自定义函数">
 <ul>
-<li>在菜单栏上执行：analyse–regression–linear，打开线性回归对话框</li>
+<li>比如我写一个简单的求和函数：传入的参数应当是一个list，其实在用的时候，传入的是一个CellRange对象</li>
 </ul>
-<img src="/2015/05/17/spss中如何检验残差的相互独立性/83025aafa40f4bfb6bdac990034f78f0f63618ef.jpg" title="spss中如何检验残差的相互独立性">
+<img src="/2015/06/11/DataNitro：[9]自定义函数/b9d8b7014c086e061273e51801087bf40bd1cb4f.jpg" title="DataNitro：[9]自定义函数">
 <ul>
-<li>在对话框中，将因变量和自变量放入各自的框中，如图所示上面的是因变量，注意因变量和自变量都是连续性变量，点击statistic按钮，设置输出的参数</li>
+<li>在excel里面引入该文件：</li>
 </ul>
-<img src="/2015/05/17/spss中如何检验残差的相互独立性/29381f30e924b89913a02efc6e061d950b7bf652.jpg" title="spss中如何检验残差的相互独立性">
-<img src="/2015/05/17/spss中如何检验残差的相互独立性/7aec54e736d12f2e9993f9a44fc2d5628435685b.jpg" title="spss中如何检验残差的相互独立性">
+<img src="/2015/06/11/DataNitro：[9]自定义函数/8640bf8b87d6277f9b7bf76b2b381f30e924fc3d.jpg" title="DataNitro：[9]自定义函数">
 <ul>
-<li>勾选独立性检验的参数DW，如图所示，然后点击continue按钮，返回到主菜单</li>
+<li>现在就可以在excel的单元格里输入公式了：</li>
 </ul>
-<img src="/2015/05/17/spss中如何检验残差的相互独立性/2934349b033b5bb53d44773a36d3d539b700bc67.jpg" title="spss中如何检验残差的相互独立性">
+<img src="/2015/06/11/DataNitro：[9]自定义函数/0b3a1c087bf40ad1763f1db0542c11dfa8ecce4f.jpg" title="DataNitro：[9]自定义函数">
 <ul>
-<li><p>点击ok开始输出数据，在下面第二幅图的表格中显示了DW值，如图所示，</p>
+<li><p>好了到此我们就自定义了一个函数，并且能正常使用了，下面是我自己总结的一些心得，肯定以后有用：</p>
 </li>
-<li><p>–当DW值愈接近2时，残差项间愈无相关</p>
+<li><p>#写自定义函数的步骤：</p>
 </li>
-<li><p>–当DW值愈接近0时，残差项间正相关愈强</p>
+<li><p>#1，新建一个名为function.py的文件</p>
 </li>
+<li><p>#2，写一个函数在function.py</p>
+</li>
+<li><p>#3，在excel中datanitro插件设置允许用户自定义函数</p>
+</li>
+<li><p>#4，引入这个function.py文件</p>
+</li>
+<li><p>#5，现在就可以在excel中使用该函数了。</p>
+</li>
+<li><p>#注意事项：</p>
+</li>
+<li><p>##1，不能用使用*args和**kwargs</p>
+</li>
+<li><p>##2，可以使用CellRange作为参数输入多个值，传入的参数为一个2纬list，我写一个函数，看看如何遍历所有的元素</p>
+</li>
+<li><h2><span id="计算所有的元素的和">计算所有的元素的和</span></h2></li>
+<li><h2><span id="def-py_sumx">def py_sum(x):</span></h2></li>
+<li><h2><span id="a0">a=0</span></h2></li>
+<li><h2><span id="for-i-in-rangelenx">for i in range(len(x)):</span></h2></li>
+<li><h2><span id="for-j-in-xi">for j in x[i]:</span></h2></li>
+<li><h2><span id="a-j">a +=j</span></h2></li>
+<li><h2><span id="return-a">return a</span></h2></li>
+<li><p>##3，在函数里不能调用datanitro的任何excel对象，比如Cell，CellRange，虽然函数在使用的时候我们的确是传入的Cell或者CellRange，</p>
+</li>
+<li><p>##但是我们在函数的代码里，只能把这些参数当作Cell.value来用，比如：</p>
+</li>
+<li><p>##正确的写法是：</p>
+</li>
+<li><h2><span id="def-my_sumx-y">def my_sum(x, y):</span></h2></li>
+<li><h2><span id="return-x-y">return x + y</span></h2></li>
+<li><p>##</p>
+</li>
+<li><p>##错误的写法是：</p>
+</li>
+<li><h2><span id="def-my_sumx-y">def my_sum(x, y):</span></h2></li>
+<li><h2><span id="return-xvalue-yvalue">return x.value + y.value</span></h2></li>
 </ul>
-<img src="/2015/05/17/spss中如何检验残差的相互独立性/9a504fc2d5628535c06e85e590ef76c6a6ef6363.jpg" title="spss中如何检验残差的相互独立性">
-<img src="/2015/05/17/spss中如何检验残差的相互独立性/4d086e061d950a7bbd9419000ad162d9f3d3c955.jpg" title="spss中如何检验残差的相互独立性">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -847,289 +1397,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/15/pandas教程：[9]MultiIndex用法/">
-                pandas教程：[9]MultiIndex用法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>在pandas的DataFrame中经常使用多个索引，在pandas中成为MultiIndex对象，这篇文章介绍一下MultiIndex创建和使用方法：</p>
-<ul>
-<li>引入所有需要的模块</li>
-</ul>
-<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/1f569482b9014a90cb5cd5a8aa773912b31bee02.jpg" title="pandas教程：[9]MultiIndex用法">
-<ul>
-<li>创建两个<type 'numpy.ndarray'>对象，分别为colors和foods</type></li>
-</ul>
-<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/2cb4fefe9925bc318f3c928d5ddf8db1cb137007.jpg" title="pandas教程：[9]MultiIndex用法">
-<ul>
-<li>打印出这两个数组来查看一下，注意tm.choice创建的数组是随机的，你利用同样的代码创建的数组和我的可能不一样</li>
-</ul>
-<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/207ea60e7bec54e78f92890bba389b504fc26a6e.jpg" title="pandas教程：[9]MultiIndex用法">
-<ul>
-<li>创建MultiIndex对象，然后创建DataFrame对象（其中使用index=index参数）</li>
-</ul>
-<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/55a628d12f2eb9382713e9e7d6628535e5dd6f6e.jpg" title="pandas教程：[9]MultiIndex用法">
-<ul>
-<li>打印一下df看看里面的数据：有两个索引color和food</li>
-</ul>
-<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/570f8c58d109b3de43de777dcfbf6c81800a4c07.jpg" title="pandas教程：[9]MultiIndex用法">
-<ul>
-<li>如何利用索引来筛选数据：使用query（）<br>结果为：</li>
-</ul>
-<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/ae10eddeb48f8c5458ad563a39292df5e0fe7f6e.jpg" title="pandas教程：[9]MultiIndex用法">
-<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/b29f8282d158ccbf8edd262f1ad8bc3eb1354107.jpg" title="pandas教程：[9]MultiIndex用法">
-<ul>
-<li>还可以在分组中使用索引，使用了level参数<br>打印结果为：</li>
-</ul>
-<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/1899a23eb13533fa6ad7003babd3fd1f41345b07.jpg" title="pandas教程：[9]MultiIndex用法">
-<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/4075890a304e251f659677eda486c9177f3e5307.jpg" title="pandas教程：[9]MultiIndex用法">
-<ul>
-<li>删除或者更改索引的名称：如果删除了名称，我们只能使用ilevel_0表示第一个索引<br>打印结果为：</li>
-</ul>
-<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/b29f8282d158ccbf8ec2262f1ad8bc3eb135416e.jpg" title="pandas教程：[9]MultiIndex用法">
-<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/7e7f7909c93d70cfc39b3918fbdcd100baa12b07.jpg" title="pandas教程：[9]MultiIndex用法">
-<ul>
-<li>分组中也是一样，删除掉索引名称以后，只能使用数字1表示第二个索引<br>打印结果为：</li>
-</ul>
-<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/73ca5910b912c8fcc19365d8ff039245d6882107.jpg" title="pandas教程：[9]MultiIndex用法">
-<img src="/2015/05/15/pandas教程：[9]MultiIndex用法/b853d6fcc3cec3fdf85e3460d588d43f87942707.jpg" title="pandas教程：[9]MultiIndex用法">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/15/wxpython教程：[6]简单布局管理/">
-                wxpython教程：[6]简单布局管理
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>一个软件的界面又很多控件，这些控件是如何布局的？今天我们先来看一下简单的布局方式，之后我们再来看看一些复杂的布局（利用sizer）实现的布局。</p>
-<ul>
-<li><p>接着用之前写的代码，我们看一下代码：<br>很多内容都是之前的文章里介绍的，这里只是添加了两行代码：</p>
-</li>
-<li><p>panel=wx.Panel(self,-1)#创建一个面板对象</p>
-</li>
-<li><p>wx.TextCtrl(panel,pos=(3,3),size=(250,250))#添加一个文本框，并设置它的位置和大小</p>
-</li>
-</ul>
-<img src="/2015/05/15/wxpython教程：[6]简单布局管理/3a86813df8dcd100a92c4274718b4710b8122ff7.jpg" title="wxpython教程：[6]简单布局管理">
-<ul>
-<li><p>Panel是窗口的容器，通常其大小与Frame一样，在其上放置各种控件，比如放置按钮、文本框等。</p>
-</li>
-<li><p>创建文本框的时候，我们传入pos和size参数，顾名思义，就是位置和大小，这段代码：wx.TextCtrl(panel,pos=(3,3),size=(250,250))就是设置文本框的位置是x=3，y=3；大小是长宽都是250的正方形。</p>
-</li>
-<li><p>这就是我们看到的界面：<br>改变界面大小，文本框控件的位置和大小是不变的</p>
-</li>
-</ul>
-<img src="/2015/05/15/wxpython教程：[6]简单布局管理/3bb22487e950352a687e805d5043fbf2b2118b0d.jpg" title="wxpython教程：[6]简单布局管理">
-<img src="/2015/05/15/wxpython教程：[6]简单布局管理/346bd85c103853434ad022749013b07eca80880d.jpg" title="wxpython教程：[6]简单布局管理">
-<ul>
-<li>我们一眼就能看出这种方式布局的局限性，于是，也许下面这种方式更加简便与灵活：我们直接将文本框嫁接到Frame上，而不是利用Panel：</li>
-</ul>
-<img src="/2015/05/15/wxpython教程：[6]简单布局管理/4e83cb628535e5dd30b3008a75c6a7efcf1b628d.jpg" title="wxpython教程：[6]简单布局管理">
-<ul>
-<li>如此一来，文本框铺满整个Frame，大小与Fram相同，改变Frame大小，文本框也跟着变化：</li>
-</ul>
-<img src="/2015/05/15/wxpython教程：[6]简单布局管理/0862c354564e9258228323bb9f82d158cdbf4ef5.jpg" title="wxpython教程：[6]简单布局管理">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/15/pandas教程：[25]插值法填补缺失值/">
-                pandas教程：[25]插值法填补缺失值
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>使用插值法可以计算缺失值的估计值，所谓的插值法就是通过两点（x0，y0），（x1，y1）估计中间点的值，假设y=f(x)是一条直线，通过已知的两点来计算函数f(x),然后只要知道x就能求出y，以此方法来估计缺失值。当然我们也可以假设f（x)不是直线，二是其他函数。</p>
-<ul>
-<li>引入相关模块并创建一个数据框<br>数据框的内容为：<br>‘</li>
-</ul>
-<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/62667cd0f703918f03ed62cd523d269759eec4be.jpg" title="pandas教程：[25]插值法填补缺失值">
-<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/0865b518972bd40763af8cfa78899e510fb30909.jpg" title="pandas教程：[25]插值法填补缺失值">
-<ul>
-<li>使用插值法估计缺失值<br>输出结果为：</li>
-</ul>
-<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/b13fd48065380cd74f81fdeaa244ad34588281df.jpg" title="pandas教程：[25]插值法填补缺失值">
-<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/99636c0e0cf3d7cacdca6071f11fbe096b63a9be.jpg" title="pandas教程：[25]插值法填补缺失值">
-<ul>
-<li><p>我们可以计算一下缺失值实际上上前一个值和后一个值得平均数，因为interpolate（）假设函数是直线形式</p>
-</li>
-<li><p>假如index是数字，我们还可以根据数字来进行插值，用到参数method=’values’<br>比较一下插值的结果与上一个结果的不同之处这时候索引的数值实际上就是用于估计y的x值</p>
-</li>
-</ul>
-<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/dc854fda81cb39dbf9a83851d3160924ab183009.jpg" title="pandas教程：[25]插值法填补缺失值">
-<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/7a8a1446f21fbe09d1629c1368600c338744adbe.jpg" title="pandas教程：[25]插值法填补缺失值">
-<ul>
-<li>同样道理，如果index是时间，我们可以用method=time来达到同样的效果<br>输出结果为：</li>
-</ul>
-<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/54baacfb43166d22e24b4a93452309f79052d2be.jpg" title="pandas教程：[25]插值法填补缺失值">
-<img src="/2015/05/15/pandas教程：[25]插值法填补缺失值/f35ea0096b63f624d76166048444ebf81a4ca3be.jpg" title="pandas教程：[25]插值法填补缺失值">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/11/SPSS实例：[22]如何将几个变量相加减乘除/">
-                SPSS实例：[22]如何将几个变量相加减乘除
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>如何计算几个变量之间的和？如何计算几个变量的乘积？或者是差、商？我们都可以使用spss菜单中的compute方法，这是spss的最基本的功能，只是大家很少去用就忘记了，下面我就干呢大家一起温习一下如何计算变量之间的和。</p>
-<ul>
-<li>我们打开spss的数据，在菜单中依次点击：transform–compute variables</li>
-</ul>
-<img src="/2015/05/11/SPSS实例：[22]如何将几个变量相加减乘除/d089b986c9177f3e80e97c7672cf3bc79e3d56a9.jpg" title="SPSS实例：[22]如何将几个变量相加减乘除">
-<ul>
-<li>在打开的对话框中，我们输入变量名称，也就是几个变量相加后得到的一个变量的名字，然后点击【type&amp;label】</li>
-</ul>
-<img src="/2015/05/11/SPSS实例：[22]如何将几个变量相加减乘除/d019d2bf6c81800acf030975b33533fa838b47ac.jpg" title="SPSS实例：[22]如何将几个变量相加减乘除">
-<ul>
-<li>输入标签【几个变量的和】，标签是对变量的解释，点击【继续】</li>
-</ul>
-<img src="/2015/05/11/SPSS实例：[22]如何将几个变量相加减乘除/a992e31f4134970ad095905497cad1c8a6865dac.jpg" title="SPSS实例：[22]如何将几个变量相加减乘除">
-<ul>
-<li>接着我们选中一个想要计算的变量，点击【添加】按钮</li>
-</ul>
-<img src="/2015/05/11/SPSS实例：[22]如何将几个变量相加减乘除/948bcfc8a786c91799e5d242cb3d70cf3ac757ac.jpg" title="SPSS实例：[22]如何将几个变量相加减乘除">
-<ul>
-<li>添加过来就是一个变量名，我们输入“+”号，然后再选入第二个变量</li>
-</ul>
-<img src="/2015/05/11/SPSS实例：[22]如何将几个变量相加减乘除/b7bc4c66d0160924a2f92260d60735fae7cd34a9.jpg" title="SPSS实例：[22]如何将几个变量相加减乘除">
-<ul>
-<li>最后形成三个变量相加，点击ok按钮就可以计算新的变量了</li>
-</ul>
-<img src="/2015/05/11/SPSS实例：[22]如何将几个变量相加减乘除/7ac880510fb30f2450466c78ca95d143ac4b03a9.jpg" title="SPSS实例：[22]如何将几个变量相加减乘除">
-<ul>
-<li>切换到变量视图下，看看是不是多了一个变量，这就是计算得到的和</li>
-</ul>
-<img src="/2015/05/11/SPSS实例：[22]如何将几个变量相加减乘除/d57e9994a4c27d1e2fc0bbbf19d5ad6edcc438ac.jpg" title="SPSS实例：[22]如何将几个变量相加减乘除">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
+            <a href="/tags/datanitro/">#datanitro</a>
         </div>
     
 
@@ -1176,43 +1444,43 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2020/12/23/均值差异的效应量在线计算器/">均值差异的效应量在线计算器</a>
+                <a class="footer-post" href="/2021/07/08/方差分析08-单因素多元方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
+                <a class="footer-post" href="/2021/07/08/方差分析07-单变量协方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/27/文旅特色小镇的具身体验质量-数据分享/">文旅特色小镇的具身体验质量-数据分享</a>
+                <a class="footer-post" href="/2021/07/08/方差分析06-2因素混合设计方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/12/问卷代填-大学生的论文用的-有靠谱的调研商家/">问卷代填(大学生的论文用的)怎么快速收集高质量问卷</a>
+                <a class="footer-post" href="/2021/07/08/方差分析05-重复测量单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/04/嵌入式python的zip安装和并安装pip/">嵌入式python的zip安装和并安装pip</a>
+                <a class="footer-post" href="/2021/07/08/方差分析04-三因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-效度分析/">SPSS问卷效度分析教程</a>
+                <a class="footer-post" href="/2021/07/08/方差分析03-双因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+                <a class="footer-post" href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+                <a class="footer-post" href="/2021/07/08/方差分析01-单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+                <a class="footer-post" href="/2021/07/08/11-2XN卡方检验/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2021/07/08/10-2x2卡方检验/">Untitled</a>
             </li>
             
         </ul>
@@ -1226,7 +1494,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1530,11 +1798,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>

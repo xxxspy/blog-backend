@@ -197,6 +197,12 @@
     <div class="page_list archive-container">
         
             <div class="archive-post">
+                <a href="/2021/01/04/01 安装manimlib/">
+                    manim系列教程01-windows平台安装manim
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2020/11/04/嵌入式python的zip安装和并安装pip/">
                     嵌入式python的zip安装和并安装pip
                 </a>
@@ -217,12 +223,6 @@
             <div class="archive-post">
                 <a href="/2019/08/04/python中logging模块的error和exception的区别和最佳实践/">
                     python中logging模块的error和exception的区别和最佳实践
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2019/07/21/python3的logging模块的最佳实践/">
-                    python3的logging模块的最佳实践
                 </a>
             </div>
             
@@ -448,13 +448,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/07/23/Excel2013：[28]countif函数用法大全/">
-                Excel2013：[28]countif函数用法大全
+            <a href="/2015/08/19/Python统计分析：[3]单因素方差分析/">
+                Python统计分析：[3]单因素方差分析
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年07月23日</span>
+                <span class="date">2015年08月19日</span>
             
             
             
@@ -463,27 +463,112 @@
 
     
         <div class="content">
-            <p>countif函数时我们经常用到的函数之一，经过组合它可以求得任何我们想要的计数结果，下面是具体的用法：</p>
+            <p>Python 实现单因素方差分析用到了scipy.stats.f_oneway()方法，用法很简单，只不过在用之前需要先检验方差齐性，用到了levene test。</p>
 <ul>
-<li>假如我们要统计男女生的人数，我们可以在E5单元格输入公式=COUNTIF(A2:A21,”男”)；公式中A2:A21是我们计数的范围，第二个参数“男”表示对单元格中为男的计数</li>
+<li>引入相关模块</li>
 </ul>
-<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/61183b2dd42a28344b75b77259b5c9ea14cebfbd.jpg" title="Excel2013：[28]countif函数用法大全">
+<img src="/2015/08/19/Python统计分析：[3]单因素方差分析/ae8267310a55b319747a8c0240a98226cefc1782.jpg" title="Python统计分析：[3]单因素方差分析">
 <ul>
-<li>同样的，在F5单元格输入公式也可以求得女生人数：=COUNTIF(A2:A21,”女”)</li>
+<li>读取数据，数据保存在text文件中，就是两列数据，列之间用逗号隔开，参数header=None指的是数据头部没有标题，names参数指定列的名称<br>我们可以看到输出的数据：</li>
 </ul>
-<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/d56b3634349b033bda5b7da317ce36d3d439bdbd.jpg" title="Excel2013：[28]countif函数用法大全">
+<img src="/2015/08/19/Python统计分析：[3]单因素方差分析/b29f8282d158ccbf2159bb4d1ad8bc3eb03541a4.jpg" title="Python统计分析：[3]单因素方差分析">
+<img src="/2015/08/19/Python统计分析：[3]单因素方差分析/90cebeec08fa513df32962a93e6d55fbb3fbd983.jpg" title="Python统计分析：[3]单因素方差分析">
 <ul>
-<li>假如我们要统计成绩大于60的人数</li>
+<li>数据分组，因为数据中group列有三个值表示数据来自不同的组</li>
 </ul>
-<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/35da1d3b5bb5c9ea9620829ad739b6003bf3b3bd.jpg" title="Excel2013：[28]countif函数用法大全">
+<img src="/2015/08/19/Python统计分析：[3]单因素方差分析/263e802f07082838a28ed263bb99a9014d08f183.jpg" title="Python统计分析：[3]单因素方差分析">
 <ul>
-<li>我们可以在单元格中输入公式=COUNTIF(B2:B21,”&gt;=60”)</li>
+<li>将这三个分组后的数据保存到一个列表args里，有变成经验的应该知道<em>args的作用，不懂的百度 Python </em>args</li>
 </ul>
-<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/dc15484e9258d10963cf29cbd358ccbf6c814d58.jpg" title="Excel2013：[28]countif函数用法大全">
+<img src="/2015/08/19/Python统计分析：[3]单因素方差分析/e865a699a9014c08acb826d2097b02087af4f483.jpg" title="Python统计分析：[3]单因素方差分析">
 <ul>
-<li>假如我们要计算一个区间内的人数，我们可以使用两个countif函数，运用减法就可以算出来，下面是计算成绩在60到65之间的个数</li>
+<li>首先进行levene test，如果p小于0.05，就警告方差不齐</li>
 </ul>
-<img src="/2015/07/23/Excel2013：[28]countif函数用法大全/9dc3cf58ccbf6c81551bac91be3eb13533fa4058.jpg" title="Excel2013：[28]countif函数用法大全">
+<img src="/2015/08/19/Python统计分析：[3]单因素方差分析/948bcfc8a786c91720e65c4eca3d70cf3ac757a4.jpg" title="Python统计分析：[3]单因素方差分析">
+<ul>
+<li>之后再进行方差分析<br>方差分析结果：</li>
+</ul>
+<img src="/2015/08/19/Python统计分析：[3]单因素方差分析/a583631ed21b0ef4630d9629dec451da80cb3ea4.jpg" title="Python统计分析：[3]单因素方差分析">
+<img src="/2015/08/19/Python统计分析：[3]单因素方差分析/6398ecd3572c11df6552b154602762d0f603c283.jpg" title="Python统计分析：[3]单因素方差分析">
+<img src="/2015/08/19/Python统计分析：[3]单因素方差分析/a583631ed21b0ef4630d9629dec451da80cb3ea4.jpg" title="Python统计分析：[3]单因素方差分析">
+<ul>
+<li>很多时候我们不知道数据分成多少组，需要自动生成不同组的数据，可以用下面的方法：</li>
+</ul>
+<img src="/2015/08/19/Python统计分析：[3]单因素方差分析/f99dcf00baa1cd111b537c57ba12c8fcc2ce2da4.jpg" title="Python统计分析：[3]单因素方差分析">
+<ul>
+<li>检验的结果也是一样的。</li>
+</ul>
+<img src="/2015/08/19/Python统计分析：[3]单因素方差分析/734f12f3d7ca7bcbecf8c958bd096b63f724a883.jpg" title="Python统计分析：[3]单因素方差分析">
+<ul>
+<li>如果你熟悉Statsmodels，你可以这么做来输出更优雅的结果：<br>输出结果为：</li>
+</ul>
+<img src="/2015/08/19/Python统计分析：[3]单因素方差分析/cbc17b380cd791239e1fe103ae345982b3b7808e.jpg" title="Python统计分析：[3]单因素方差分析">
+<img src="/2015/08/19/Python统计分析：[3]单因素方差分析/3853ad1bb051f8192f14773dd9b44aed2e73e751.jpg" title="Python统计分析：[3]单因素方差分析">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/08/17/Excel2013：[21]柱形图如何增加系列线/">
+                Excel2013：[21]柱形图如何增加系列线
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>我们经常看到别人的条形图（柱形图）做的非常美观、易懂，是不是很羡慕？现在我们要学一个方法来给柱形图增加系列线，看起来像是虚线，将两条柱形图相连，它的目的是条形图的不同部分进行划分，看起来更方便。</p>
+<ul>
+<li>我们先来看一下我们的数据，我们选中这些数据，点击【插入】标签</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[21]柱形图如何增加系列线/d019d2bf6c81800afbbd157db33533fa828b472e.jpg" title="Excel2013：[21]柱形图如何增加系列线">
+<ul>
+<li>找到柱形图或者条形图，选择第二个，注意看它的形式</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[21]柱形图如何增加系列线/83cab81ea8d3fd1fab513e49324e251f95ca5f2e.jpg" title="Excel2013：[21]柱形图如何增加系列线">
+<ul>
+<li>这是我们插入的柱形图，接着要添加系列线</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[21]柱形图如何增加系列线/cebd00178a82b90170a85f40718da9773912ef79.jpg" title="Excel2013：[21]柱形图如何增加系列线">
+<ul>
+<li>双击条形图可以打开【设计】标签，找到【添加图表元素】</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[21]柱形图如何增加系列线/f7426d8da97739128c231912fa198618367ae279.jpg" title="Excel2013：[21]柱形图如何增加系列线">
+<ul>
+<li>在下啦菜单中，找到【线条】–系列线</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[21]柱形图如何增加系列线/3a86813df8dcd10040c46452708b4710b9122f2e.jpg" title="Excel2013：[21]柱形图如何增加系列线">
+<ul>
+<li>到此我们的系列线添加完毕，你还可以双击系列线来设置它的颜色、粗细、线型</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[21]柱形图如何增加系列线/cc506c8b4710b91237996a8dc1fdfc039245222e.jpg" title="Excel2013：[21]柱形图如何增加系列线">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -509,13 +594,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/07/23/wxpython教程：[4]菜单中的图标/">
-                wxpython教程：[4]菜单中的图标
+            <a href="/2015/08/17/Excel2013：[11]散点图如何画直线/">
+                Excel2013：[11]散点图如何画直线
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年07月23日</span>
+                <span class="date">2015年08月17日</span>
             
             
             
@@ -524,27 +609,36 @@
 
     
         <div class="content">
-            <p>我们看到的菜单中多半是有一个图标的，那么今天我们就来做一个菜单，菜单选项左侧有一个图标。要达到这个目的我们必须手动创建一个选项。下面是今天代码的全部：由于这些大部分代码在之前的文章中有讲解，所以这篇文章就着重讲不同的部分。</p>
+            <p>在Excel里，假如想要绘制散点图的直线也是很简单的，但是我发现大家的问题基本上有两类，一类是散点图画出来了，不知怎么画直线；二是下图这样的情况，我们本来想要绘制的是直线，但出来的是曲线或者是两条线。</p>
 <ul>
-<li>先创建一个选项：注意第二个参数设定了该选项的id，以后绑定方法的时候可以用id来表示该选项</li>
+<li>假如我们要绘制两条散点图曲线，我们选中三列数，第一列是自变量，其余都是因变量。因为有两个因变量我们应该得到两条曲线</li>
 </ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/0e655ca7d933c895c3031a14d21373f082020024.jpg" title="wxpython教程：[4]菜单中的图标">
+<img src="/2015/08/17/Excel2013：[11]散点图如何画直线/0862c354564e9258cc4cd4f49e82d158ccbf4e74.jpg" title="Excel2013：[11]散点图如何画直线">
 <ul>
-<li>设置选项的图标用到了方法：SetBitmap，该方法需要传入一个Bitmap对象：exit.jpg是我自己做的一个图片</li>
+<li>选择散点图，我们选择曲线形式的</li>
 </ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/c9d4cf43ad4bd11366b0355d59afa40f4bfb0524.jpg" title="wxpython教程：[4]菜单中的图标">
+<img src="/2015/08/17/Excel2013：[11]散点图如何画直线/d048adde9c82d158edfa0bab820a19d8bc3e4274.jpg" title="Excel2013：[11]散点图如何画直线">
 <ul>
-<li>将创建好的选项添加到菜单</li>
+<li>我们可以看到得到这个图是这样子的，并不是我们想要的，因为X轴（横坐标轴）不是X，而是一个序列</li>
 </ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/72b19c025aafa40f52bb4cb2a864034f78f01924.jpg" title="wxpython教程：[4]菜单中的图标">
+<img src="/2015/08/17/Excel2013：[11]散点图如何画直线/8c511fe93901213f4e981cc656e736d12e2e95c6.jpg" title="Excel2013：[11]散点图如何画直线">
 <ul>
-<li>将选项与方法绑定，这样点击该菜单选项就能执行OnQuit动作。注意现在用id来表示跟哪个选项进行的绑定，因为我们在</li>
+<li>右键单击散点图，从右键菜单中选择【选择数据】</li>
 </ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/55a628d12f2eb9383071f89dd6628535e5dd6f06.jpg" title="wxpython教程：[4]菜单中的图标">
+<img src="/2015/08/17/Excel2013：[11]散点图如何画直线/bd7faf3533fa828b8f5bcff9ff1f4134970a5a74.jpg" title="Excel2013：[11]散点图如何画直线">
 <ul>
-<li>这是最后做出来的效果图</li>
+<li>然后看到这个对话框，点击切换行/列，点击确定按钮</li>
 </ul>
-<img src="/2015/07/23/wxpython教程：[4]菜单中的图标/b25d9901a18b87d61b3c2670040828381f30fd20.jpg" title="wxpython教程：[4]菜单中的图标">
+<img src="/2015/08/17/Excel2013：[11]散点图如何画直线/b87985504fc2d5627aa382f7e51190ef77c66cc6.jpg" title="Excel2013：[11]散点图如何画直线">
+<img src="/2015/08/17/Excel2013：[11]散点图如何画直线/d089b986c9177f3e524cae1772cf3bc79f3d5674.jpg" title="Excel2013：[11]散点图如何画直线">
+<ul>
+<li>我们接着要设置一下端点的样式，因为在大部分论文中，图都是黑白的，为了区分不同的曲线，我们设置一个端点是空心，另一个是实心。双击选中一条直线，然后在标记这一栏选择填充颜色，设置为白色</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[11]散点图如何画直线/91ae68c6a7efce1b9b819ad0ad51f3deb58f65c6.jpg" title="Excel2013：[11]散点图如何画直线">
+<ul>
+<li>到此，我们就完成了曲线的绘制</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[11]散点图如何画直线/a6aed01b9d16fdfaa7c694f4b68f8c5495ee7bc6.jpg" title="Excel2013：[11]散点图如何画直线">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -559,7 +653,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
+            <a href="/tags/excel/">#excel</a>
         </div>
     
 
@@ -570,13 +664,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/07/19/amos21.0教程：[6]结构方程模型分析流程/">
-                amos21.0教程：[6]结构方程模型分析流程
+            <a href="/2015/08/17/Excel2013：[41]批量导出Excel中的图片/">
+                Excel2013：[41]批量导出Excel中的图片
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年07月19日</span>
+                <span class="date">2015年08月17日</span>
             
             
             
@@ -585,23 +679,40 @@
 
     
         <div class="content">
-            <p>结构方程模型的分析遵循严格的步骤，在今天这一节我们着重探讨一下使用amos进行结构方程分析时需要的流程，下面这个是整个的流程图。</p>
+            <p>假如Excel中有大量图片需要弄出来，我们可以使用现在这个方法，只需要三秒钟，非常快速，而且都不用打开Excel，信不信？跟我来看。</p>
 <ul>
-<li><p>第一个步骤是相关理论研究，这里主要要明白自己所做的是什么研究，主要的变量有哪些；查看前人的文献来考察这几个变量之间是否相关，正相关还是负相关，是否存在因果关系。当这几个变量的相互关系都基本了解以后，你可以进入下一个阶段了。</p>
-</li>
-<li><p>界定测量模型：前面的文章已经介绍过什么是测量模型了，如果你还不知道什么是测量模型，可以看下面参考资料的内容。界定测量模型首先你要知道那几个变量是通过测量得到的，比如主观幸福感需要使用主观幸福感量表来测定，如果有些变量没有成熟的量表来测定，你需要使用几个指标来作为操作定义，比如“学业成就”可以用四六级英语成绩和其他学习成绩的总分来计算。这个步骤主要的目的就是知道所有的变量都是如何测定的。为了让得到的模型具有可识别性，每个测量模型需要只有少两个指标变量。</p>
-</li>
-<li><p>界定结构模型：确定潜在变量之间的关系，绘制关系图。这时候你需要利用第一步中获得的只是来绘制关系图，也就是变量之间的关系。</p>
-</li>
-<li><p>测量抽样调查：这时候就是你做实验或者做调查的阶段了，从总体中随机抽样，然后根据测量模型对变量进行测定。得到数据。</p>
-</li>
-<li><p>模型参数判别：这时候你已经在amos中绘制好了结构方程模型的图形，图中出现的各个参数需要进行估计，这个过程就是得出各个路径的系数。</p>
-</li>
-<li><p>模型适配：根据得到的模型参数来判断模型是否合适。以后我们会专门介绍如何判断得到的模型是否合适，如果不合适该怎么做，现在你的知识有限，所以我们先不作介绍。这一步如果模型合适就可以进入下一步，如果模型不合适需要返回到第二步重新界定测量模型。</p>
-</li>
-<li><p>假如模型合适，这时候我们需要根据自己的专业知识来对结构方程模型进行解释，得出因果关系。</p>
-</li>
+<li>先来看一下，我的Excel文档中有很多图片，现在就要把他们导出来，关闭Excel</li>
 </ul>
+<img src="/2015/08/17/Excel2013：[41]批量导出Excel中的图片/570f8c58d109b3dedb68ee0fcebf6c81810a4c46.jpg" title="Excel2013：[41]批量导出Excel中的图片">
+<ul>
+<li>右键单击该文件，然后选择【重命名】</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[41]批量导出Excel中的图片/a6c7d7177f3e670997d74f9839c79f3df9dc5546.jpg" title="Excel2013：[41]批量导出Excel中的图片">
+<ul>
+<li>接着，我们将后缀名改为rar，也就是压缩包的格式</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[41]批量导出Excel中的图片/c87c6ecf3bc79f3d9a36ee57b8a1cd11738b2946.jpg" title="Excel2013：[41]批量导出Excel中的图片">
+<ul>
+<li>现在Excel文件变身为压缩包，不要吃惊，后面还有</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[41]批量导出Excel中的图片/caae68094b36acaf39779c9b7ed98d1000e99c86.jpg" title="Excel2013：[41]批量导出Excel中的图片">
+<ul>
+<li>打开压缩包，里面有一个xl文件，打开它，然后找到media文件夹，打开它</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[41]批量导出Excel中的图片/cc506c8b4710b912a116fc99c1fdfc0393452246.jpg" title="Excel2013：[41]批量导出Excel中的图片">
+<img src="/2015/08/17/Excel2013：[41]批量导出Excel中的图片/a28d62d98d1001e925ab1e68ba0e7bec55e79786.jpg" title="Excel2013：[41]批量导出Excel中的图片">
+<ul>
+<li>没错，这就是我们要导出来的图片</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[41]批量导出Excel中的图片/b94f65ec54e736d10d84866f99504fc2d4626986.jpg" title="Excel2013：[41]批量导出Excel中的图片">
+<ul>
+<li>你可以在压缩包中，直接将文件夹拖到桌面，完成。</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[41]批量导出Excel中的图片/3790312eb9389b506a68ea358735e5dde6116e86.jpg" title="Excel2013：[41]批量导出Excel中的图片">
+<ul>
+<li>我们看看在桌面上的media文件夹里，是不是。。。</li>
+</ul>
+<img src="/2015/08/17/Excel2013：[41]批量导出Excel中的图片/d4239b35e5dde711ba454991a5efce1b9c166186.jpg" title="Excel2013：[41]批量导出Excel中的图片">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -616,7 +727,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/amos/">#amos</a>
+            <a href="/tags/excel/">#excel</a>
         </div>
     
 
@@ -627,13 +738,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/07/17/amos21.0教程：[9]绘制测量模型/">
-                amos21.0教程：[9]绘制测量模型
+            <a href="/2015/08/17/spss如何画出交互作用图/">
+                spss如何画出交互作用图
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年07月17日</span>
+                <span class="date">2015年08月17日</span>
             
             
             
@@ -642,42 +753,35 @@
 
     
         <div class="content">
-            <p>经过前几篇文章的努力，我们终于到了真正的教程，今天就来教大家如何绘制测量模型，关于测量模型是什么，你可以参考前面的文章，有专门的介绍，现在我们就打开amos，开始绘制。</p>
+            <p>如图所示，在研究中我们经常会用到这样一个线形图，如果两条线相互平行，我们就认为他们是没有交互作用的，如图相互交叉就认为是有交互作用的。下面我就交给大家如何画这个图：<br>工具/原料</p>
 <ul>
-<li>打开amos，先新建一个文件，在菜单上执行：file–new</li>
+<li>spss20.0<br>方法/步骤</li>
 </ul>
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/b87985504fc2d56220352717e61190ef77c66cc8.jpg" title="amos21.0教程：[9]绘制测量模型">
 <ul>
-<li>接着我们看到这个按钮就是添加潜变量的按钮，点击一次，选中这个工具，然后在画布上拖动可以绘制一个椭圆，这就是潜变量了</li>
+<li>首先要打开主对话框，如图所示，在菜单栏上执行：analyse–GLM–univariate</li>
 </ul>
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/d478a8003af33a8794d6f4e0c75c10385243b556.jpg" title="amos21.0教程：[9]绘制测量模型">
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/969cbf44ad3459823c3111680df431adcaef8456.jpg" title="amos21.0教程：[9]绘制测量模型">
+<img src="/2015/08/17/spss如何画出交互作用图/8326cffc1e178a827ed87161f603738da877e80f.jpg" title="spss如何画出交互作用图">
 <ul>
-<li>接着在椭圆上连续点击四次，可以绘制四个指标变量，得到下面这个图，我们看到这个图的第一个指标变量默认的路径系数是1，这是系统自动添加的，只是给测量一个标准，不必在意太多</li>
+<li>将自变量和因变量放入格子的狂，如图所示，上面的框是因变量，点击plots按钮，我们来设置输出的图</li>
 </ul>
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/5202e5f2b211931335df0b4a64380cd790238d69.jpg" title="amos21.0教程：[9]绘制测量模型">
+<img src="/2015/08/17/spss如何画出交互作用图/d0c8a786c9177f3ee754f5cc70cf3bc79e3d568a.jpg" title="spss如何画出交互作用图">
+<img src="/2015/08/17/spss如何画出交互作用图/eaf81a4c510fd9f9c5485ca8252dd42a2934a497.jpg" title="spss如何画出交互作用图">
 <ul>
-<li>接着我们要调整格式，假如要调整指标变量，也就是矩形的大小，我们要先选中，选择如图所示的选择工具，依次点击矩形就可以将其选中，选中的矩形呈现蓝色边框</li>
+<li>将两个自变量分别放入两个框中，如图所示，上面代表横坐标，下面的代表不同的曲线，</li>
 </ul>
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/8c511fe93901213f25afba2655e736d12e2e9569.jpg" title="amos21.0教程：[9]绘制测量模型">
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/fcbbb151f3deb48f3ef55524f11f3a292cf57869.jpg" title="amos21.0教程：[9]绘制测量模型">
+<img src="/2015/08/17/spss如何画出交互作用图/9d82d158ccbf6c81ee412529bc3eb13532fa40f8.jpg" title="spss如何画出交互作用图">
 <ul>
-<li>接着我们看到有一个改变大小的工具，选中它，然后拖动矩形的一个角就可以任意改变大小</li>
+<li>点击add按钮，然后点击continue按钮，返回主对话框</li>
 </ul>
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/fd428c45d688d43f681265087c1ed21b0ff43b56.jpg" title="amos21.0教程：[9]绘制测量模型">
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/b7bc4c66d0160924559e56e1d50735fae7cd3456.jpg" title="amos21.0教程：[9]绘制测量模型">
+<img src="/2015/08/17/spss如何画出交互作用图/f9dcd100baa1cd11fbd17be1b912c8fcc2ce2d8f.jpg" title="spss如何画出交互作用图">
 <ul>
-<li>取消选择的工具，如图所示</li>
+<li>返回主菜单， 点击ok按钮，开始处理数据并输出结果</li>
 </ul>
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/d872d695d143ad4bdd94b23a83025aafa50f0656.jpg" title="amos21.0教程：[9]绘制测量模型">
+<img src="/2015/08/17/spss如何画出交互作用图/2cf5e0fe9925bc3102df08595edf8db1ca137074.jpg" title="spss如何画出交互作用图">
 <ul>
-<li>接下来要给变量命名，我们使用菜单中的plugins–name unobserved variables，变量就会自动命名了。如图所示。</li>
+<li>如图所示，这就是输出的线形图了，很明显这个图证明两个自变量之间存在交互作用。当然要想得到确切的结果还得看输出的交互作用sig值</li>
 </ul>
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/0fb505d5ad6eddc4a67b400138dbb6fd53663369.jpg" title="amos21.0教程：[9]绘制测量模型">
-<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/62667cd0f703918fee6bc930503d269758eec457.jpg" title="amos21.0教程：[9]绘制测量模型">
-<ul>
-<li>好了，今天我们就绘制了一个测量模型，下一篇文章我们要学习如何复制测量模型，如何调整指标变量的位置。</li>
-</ul>
+<img src="/2015/08/17/spss如何画出交互作用图/a1ec08fa513d2697af33019c55fbb2fb4216d80b.jpg" title="spss如何画出交互作用图">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -692,7 +796,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/amos/">#amos</a>
+            <a href="/tags/spss/">#spss</a>
         </div>
     
 
@@ -703,13 +807,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/07/17/numpy函数：[1]shape用法/">
-                numpy函数：[1]shape用法
+            <a href="/2015/08/15/Excel2013：[16]加密手机号码中间数字/">
+                Excel2013：[16]加密手机号码中间数字
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年07月17日</span>
+                <span class="date">2015年08月15日</span>
             
             
             
@@ -718,31 +822,31 @@
 
     
         <div class="content">
-            <p>shape函数是numpy.core.fromnumeric中的函数，它的功能是读取矩阵的长度，比如shape[0]就是读取矩阵第一维度的长度。它的输入参数可以使一个整数表示维度，也可以是一个矩阵。这么说你可能不太理解，我们还是用各种例子来说明他的用法：</p>
+            <p>电话号码需要隐藏中间几位数字？经常看到电视上公布中奖电话的时候就是这么干的，你也可以这么干，使用replace方法，替换掉中间的数字就好了。下面是具体的方法：</p>
 <ul>
-<li>一维矩阵[1]返回值为(1L,)                   </li>
+<li>选中输入公式的单元格，使用函数replace，数据源设置成a2</li>
 </ul>
-<img src="/2015/07/17/numpy函数：[1]shape用法/a6c7d7177f3e67093192d5f339c79f3df9dc55e9.jpg" title="numpy函数：[1]shape用法">
+<img src="/2015/08/15/Excel2013：[16]加密手机号码中间数字/1a94b36eddc451dafaaa04f4b4fd5266d0163215.jpg" title="Excel2013：[16]加密手机号码中间数字">
 <ul>
-<li>二维矩阵，返回两个值                                  </li>
+<li>我们介绍一下该函数的几个参数，分别是旧值，开始替换的位置，替换字母的个数。</li>
 </ul>
-<img src="/2015/07/17/numpy函数：[1]shape用法/9304c888d43f8794af72d822d01b0ef41ad53ae9.jpg" title="numpy函数：[1]shape用法">
+<img src="/2015/08/15/Excel2013：[16]加密手机号码中间数字/0865b518972bd407b19bdbe279899e510fb30915.jpg" title="Excel2013：[16]加密手机号码中间数字">
 <ul>
-<li>一个单独的数字，返回值为空       </li>
+<li>假如我们这样来输入一个公式</li>
 </ul>
-<img src="/2015/07/17/numpy函数：[1]shape用法/5327ce160924ab188d9b713b37fae6cd7a890be9.jpg" title="numpy函数：[1]shape用法">
+<img src="/2015/08/15/Excel2013：[16]加密手机号码中间数字/0ef2112442a7d93344f4ec6caf4bd11373f00115.jpg" title="Excel2013：[16]加密手机号码中间数字">
 <ul>
-<li>我们还可以将shape作为矩阵的方法来调用，下面先创建了一个单位矩阵e     </li>
+<li>得到的结果如下，假如我们换一个参数试试，让你感受一下参数的意义</li>
 </ul>
-<img src="/2015/07/17/numpy函数：[1]shape用法/b25aae51f819861871ca7f8848ed2e738ad4e6ea.jpg" title="numpy函数：[1]shape用法">
+<img src="/2015/08/15/Excel2013：[16]加密手机号码中间数字/5beeba0f4bfbfbed3d053e607af0f736afc31f15.jpg" title="Excel2013：[16]加密手机号码中间数字">
 <ul>
-<li>我们可以快速读取e的形状            </li>
+<li>将替换字母的数据改成5，看下图</li>
 </ul>
-<img src="/2015/07/17/numpy函数：[1]shape用法/58af236d55fbb2fb32a6c81e4d4a20a44723dcea.jpg" title="numpy函数：[1]shape用法">
+<img src="/2015/08/15/Excel2013：[16]加密手机号码中间数字/020e66f0f736afc3e250377ab119ebc4b7451215.jpg" title="Excel2013：[16]加密手机号码中间数字">
 <ul>
-<li>假如我们只想读取e的第一维度长度，使用shape[0]        </li>
+<li>快速填充，完成所有的加密</li>
 </ul>
-<img src="/2015/07/17/numpy函数：[1]shape用法/5202e5f2b211931310ce6fbc67380cd790238dea.jpg" title="numpy函数：[1]shape用法">
+<img src="/2015/08/15/Excel2013：[16]加密手机号码中间数字/0b14ad19ebc4b745e3c8bf09cdfc1e178a821515.jpg" title="Excel2013：[16]加密手机号码中间数字">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -757,7 +861,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/numpy/">#numpy</a>
+            <a href="/tags/excel/">#excel</a>
         </div>
     
 
@@ -768,13 +872,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/07/17/gitignore配置详解/">
-                gitignore配置详解
+            <a href="/2015/08/15/Python教程：[57]txt追加模式/">
+                Python教程：[57]txt追加模式
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年07月17日</span>
+                <span class="date">2015年08月15日</span>
             
             
             
@@ -783,512 +887,27 @@
 
     
         <div class="content">
-            <p>如果你使用git来管理代码版本，你必须懂得如何使用.gitignore文件，该文件可以指定git忽略哪些文件，在git中的作用非常重要。在理解gitignore的配置之前，我们要先看看这些规则都可以来自哪里。通常git可以从多个地方获取忽略规则，优先级从上到下依次为：</p>
+            <p>在写入模式下，我们写入txt，会覆盖掉txt中原先保存的内容，所以，我们今天介绍一个追加模式，可以在保留原先内容的前提下，追加新的内容。</p>
 <ul>
-<li><p>.gitignore文件适合写于项目有关的规则，并且这些规则需要与合作者分享。</p>
-</li>
-<li><p><code>$GIT_DIR/info/exclude</code>适用于与项目有关，但是你不想分享给其他作者，这些规则可能只适用于你自己。</p>
-</li>
-<li><p><code>core.excludesFile</code>适用于你在任何情况下都需要忽略的规则。这种情况不常用。</p>
-</li>
-<li><p>空行不匹配任何文件，所以空行通常是规则分组的分隔符，只是在视觉上将不同的规则分组。</p>
-</li>
+<li>tt.txt文件中已经有了一些内容，我们想要保留这个内容，再追加新的内容<br>‘</li>
 </ul>
-<img src="/2015/07/17/gitignore配置详解/21e5582309f790527c5640f005f3d7ca7acbd570.jpg" title="gitignore配置详解">
+<img src="/2015/08/15/Python教程：[57]txt追加模式/a992e31f4134970a2a695eaf97cad1c8a6865ddc.jpg" title="Python教程：[57]txt追加模式">
 <ul>
-<li>以<code>#</code>开始的行代表注释，所以也不匹配任何文件。</li>
+<li>使用追加模式打开该文件，然后用write方法写入新的内容，然后关闭f文件。</li>
 </ul>
-<img src="/2015/07/17/gitignore配置详解/73ca5910b912c8fcb345f103f5039245d788210e.jpg" title="gitignore配置详解">
+<img src="/2015/08/15/Python教程：[57]txt追加模式/3a86813df8dcd10092a7b6a1708b4710b9122f33.jpg" title="Python教程：[57]txt追加模式">
 <ul>
-<li><p>末尾的空格没有任何意义，如果你想匹配空格，你需要在空格前加转义字符<code></code>。</p>
-</li>
-<li><p>例如：<code>a</code>这种写法可以匹配<code>a</code></p>
-</li>
+<li>现在是写入新的内容，然后保留了已有内容。</li>
 </ul>
-<img src="/2015/07/17/gitignore配置详解/d7c9ca3f8794a4c20583e0e507f41bd5ac6e3918.jpg" title="gitignore配置详解">
+<img src="/2015/08/15/Python教程：[57]txt追加模式/cc506c8b4710b912e5dbb87ec1fdfc03934522dc.jpg" title="Python教程：[57]txt追加模式">
 <ul>
-<li><p>感叹号<code>!</code>的作用是从已有的忽略规则里排除一部分文件。注意想要让感叹号起作用，必须在前规则中使用通配符<code>*</code>。例如：</p>
-</li>
-<li><p>前规则写成：<code>.env/*</code></p>
-</li>
-<li><p>想要追踪<code>.env</code>文件夹下的<code>data.txt</code>，需要追加一个规则：<code>!.env/data.txt</code></p>
-</li>
-<li><p>如果前规则写成<code>.env</code>，则<code>!.env/data.txt</code>不起作用。</p>
-</li>
-<li><p>如果规则以<code>/</code>结尾，则表示匹配文件夹, 类似的文件和链接都不会匹配。</p>
-</li>
+<li>假如我们想要先换一行，然后再输入新的内容，可以用换行符\n</li>
 </ul>
-<img src="/2015/07/17/gitignore配置详解/4bd1e803738da977974181e5b951f8198718e357.jpg" title="gitignore配置详解">
+<img src="/2015/08/15/Python教程：[57]txt追加模式/0fb505d5ad6eddc46ddcfa7b3bdbb6fd52663333.jpg" title="Python教程：[57]txt追加模式">
 <ul>
-<li>如果规则中不包含<code>/</code>，则规则即可匹配文件夹也可以匹配文件和链接，类似于linux shell中的通配符，可以匹配任何可以与通配符匹配的路径。</li>
+<li>新得到的文件就是增加了换行了的。</li>
 </ul>
-<img src="/2015/07/17/gitignore配置详解/ae8267310a55b31949fc85bb4aa98226cefc17b3.jpg" title="gitignore配置详解">
-<ul>
-<li>通配符无法匹配符号<code>/</code>，所以类似这样的规则<code>foo/*.html</code>不能匹配<code>foo/bar/test.html</code>。</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/61183b2dd42a2834ceef31c552b5c9ea14cebf70.jpg" title="gitignore配置详解">
-<ul>
-<li>规则以<code>/</code>开头表示匹配<code>.gitignore</code>文件所在的目录。也就是说规则<code>/*.txt</code>只能匹配.gitignore所在目录下的所有txt文件，不能匹配其他目录下的txt文件。</li>
-</ul>
-<img src="/2015/07/17/gitignore配置详解/dc854fda81cb39db37766098d9160924aa18300e.jpg" title="gitignore配置详解">
-<ul>
-<li><p>以<code>**/</code>开头的规则表示匹配所有文件夹，规则<code>**/a/b</code>能匹配<code>foo/a/b</code>也能匹配<code>foo/bar/a/b</code></p>
-</li>
-<li><p>以<code>/**</code>结尾的规则表示匹配目录下所有文件和文件夹，规则<code>a/b/**</code>能匹配<code>/a/b/c</code>也能匹配<code>a/b/c/d/e</code></p>
-</li>
-<li><p>规则中间包含<code>/**/</code>表示匹配任意路径，比如规则<code>a/**/b</code>可以匹配<code>a/foo/bar/b</code>和<code>a/e/m/c/b</code>。</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/15/python 线性代数：[3]矩阵转置/">
-                python 线性代数：[3]矩阵转置
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>矩阵的转置很简单，就是将矩阵的行变为列，将列变为行，我们先通过例子看一下矩阵转置是怎么做的。然后验证几个规律。</p>
-<ul>
-<li>先创建一个矩阵A</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/faacb564034f78f014b75c027b310a55b2191c40.jpg" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>我们使用属性T来得到矩阵A的转置矩阵</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/5327ce160924ab185b0727c637fae6cd7a890beb.jpg" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>我们验证第一个性质：(A’)’=A</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/d019d2bf6c81800a81044fffb33533fa838b471b.jpg" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>再创建两个尺寸相同的矩阵</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/1899a23eb13533fa1e5755dfaad3fd1f40345b1b.jpg" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>验证矩阵转置的第二个性质：(A±B)’=A’±B’</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/dbf554ed2e738bd44d9c74c0a38b87d6267ff940.jpg" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>验证矩阵转置的第三个性质：(KA)’=KA’</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/2f3295d4b31c8701a10a7417257f9e2f0608ff40.jpg" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li>验证矩阵转置的第四个性质：(A×B)’= B’×A’</li>
-</ul>
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/c87c6ecf3bc79f3d560022c1b8a1cd11738b291b.jpg" title="python 线性代数：[3]矩阵转置">
-<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/6648d73d70cf3bc733560c1dd300baa1cc112aaa.jpg" title="python 线性代数：[3]矩阵转置">
-<ul>
-<li><p>本文用到的所有代码如下：</p>
-</li>
-<li></li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 2, 3],</p>
-</li>
-<li><p>[4, 5, 6]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A.T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 4],</p>
-</li>
-<li><p>[2, 5],</p>
-</li>
-<li><p>[3, 6]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A.T.T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 2, 3],</p>
-</li>
-<li><p>[4, 5, 6]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>B</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 4],</p>
-</li>
-<li><p>[2, 5],</p>
-</li>
-<li><p>[3, 6]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>D</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[0, 3],</p>
-</li>
-<li><p>[1, 4],</p>
-</li>
-<li><p>[2, 5]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>(B+D).T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1,  3,  5],</p>
-</li>
-<li><p>[ 7,  9, 11]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>B.T+D.T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1,  3,  5],</p>
-</li>
-<li><p>[ 7,  9, 11]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>10*A.T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[10, 40],</p>
-</li>
-<li><p>[20, 50],</p>
-</li>
-<li><p>[30, 60]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>(10*A).T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[10, 40],</p>
-</li>
-<li><p>[20, 50],</p>
-</li>
-<li><p>[30, 60]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>np.dot(A,B).T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[14, 32],</p>
-</li>
-<li><p>[32, 77]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>np.dot(A.T,B.T)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[17, 22, 27],</p>
-</li>
-<li><p>[22, 29, 36],</p>
-</li>
-<li><p>[27, 36, 45]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>np.dot(B.T,A.T)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[14, 32],</p>
-</li>
-<li><p>[32, 77]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
+<img src="/2015/08/15/Python教程：[57]txt追加模式/7c5fcc1b0ef41bd59749a67453da81cb38db3ddc.jpg" title="Python教程：[57]txt追加模式">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1314,13 +933,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/07/15/Python教程：[11]正则表达式match()函数/">
-                Python教程：[11]正则表达式match()函数
+            <a href="/2015/08/11/Python教程：[29]读取/">
+                Python教程：[29]读取
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年07月15日</span>
+                <span class="date">2015年08月11日</span>
             
             
             
@@ -1329,27 +948,39 @@
 
     
         <div class="content">
-            <p>如果不创建pattern对象，我们使用match函数可以直接进行正则表达式的匹配，在我看来这种方式更简洁，不过不适合大型程序的编写，后期维护可能会产生困难，不过编写一些小脚本完全可以胜任。</p>
+            <p>我们用python搞数据挖掘，通常要从Excel里读取数据，这就用到了xlrd，下面我们来系统的看一下xlrd的使用方法。（下面的方法介绍了为什么从Excel读取的数据是乱码，其实就是编码的问题。）</p>
 <ul>
-<li>先引入re模块</li>
+<li>先导入xlrd模块</li>
 </ul>
-<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/b3ba5d166d224f4a5decda380bf790529822d161.jpg" title="Python教程：[11]正则表达式match()函数">
+<img src="/2015/08/11/Python教程：[29]读取/476217f7905298223eebded5d5ca7bcb0b46d489.jpg" title="Python教程：[29]读取">
 <ul>
-<li>使用match函数返回一个match对象</li>
+<li>打开指定路径的Excel文件，Excel这个变量存放的是Excel文件的路径</li>
 </ul>
-<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/7d98931001e93901e15e241579ec54e736d1967a.jpg" title="Python教程：[11]正则表达式match()函数">
+<img src="/2015/08/11/Python教程：[29]读取/99636c0e0cf3d7ca342ed860f01fbe096a63a989.jpg" title="Python教程：[29]读取">
 <ul>
-<li>使用group方法输出所有匹配的字符串</li>
+<li>介绍两种获取sheet对象的方法，第一个俄式通过索引获取第一个sheet</li>
 </ul>
-<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/99636c0e0cf3d7cafe83965df01fbe096b63a961.jpg" title="Python教程：[11]正则表达式match()函数">
+<img src="/2015/08/11/Python教程：[29]读取/7a8a1446f21fbe093886240269600c338644ad89.jpg" title="Python教程：[29]读取">
 <ul>
-<li>我们看一下m的数据类型。</li>
+<li>通过sheet的名称获取</li>
 </ul>
-<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/9a1151c2d56285352ebc7b0a92ef76c6a7ef637a.jpg" title="Python教程：[11]正则表达式match()函数">
+<img src="/2015/08/11/Python教程：[29]读取/6a22e8246b600c33d0a139de184c510fd8f9a189.jpg" title="Python教程：[29]读取">
 <ul>
-<li>我们还可以用简单的写法来获得所有匹配的字符串。</li>
+<li>根据坐标来获取单元格的值，我们看到cv在python当中的编码，但是打印出来的话就是正常显示的了。</li>
 </ul>
-<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/e49cf91190ef76c6686a52009f16fdfaaf516726.jpg" title="Python教程：[11]正则表达式match()函数">
+<img src="/2015/08/11/Python教程：[29]读取/ae10eddeb48f8c543551223938292df5e1fe7fe3.jpg" title="Python教程：[29]读取">
+<ul>
+<li>我们还可以读取整行的数据</li>
+</ul>
+<img src="/2015/08/11/Python教程：[29]读取/bd70426034a85edf260e19354b540923dc5475e3.jpg" title="Python教程：[29]读取">
+<ul>
+<li>从读取整整行数据中获得第一个值</li>
+</ul>
+<img src="/2015/08/11/Python教程：[29]读取/cbc17b380cd79123ef387362af345982b3b78089.jpg" title="Python教程：[29]读取">
+<ul>
+<li>当然，我们还可以获取sheet中有多少行和多少列。</li>
+</ul>
+<img src="/2015/08/11/Python教程：[29]读取/d1e312f431adcbeff7ec9910aeaf2edda2cc9f89.jpg" title="Python教程：[29]读取">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1375,13 +1006,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/">
-                pandas教程：[2]DataFrame选择数据-1
+            <a href="/2015/08/11/SPSS自动化：[4]/">
+                SPSS自动化：[4]
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年07月11日</span>
+                <span class="date">2015年08月11日</span>
             
             
             
@@ -1390,49 +1021,68 @@
 
     
         <div class="content">
-            <p>上一篇文章介绍了如何创建和查看DataFrame数据，这篇文章讲一下如何选择DataFrame中的数据，还是用例子来说明问题。</p>
+            <p>syntax是spss中的命令，在spss有syntax文档对象，这个对象有哪些属性呢？</p>
 <ul>
-<li>先来看一下今天用到的数据框的内容</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/509b9fcb39dbb6fdd256ea120a24ab18972b37b1.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>假如我们要选择A列的数据进行操作：df[‘a’]</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/966aca0735fae6cdf3b9a4550cb30f2442a70fb1.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>还可以使用数组的切片操作，但是注意了，切片得到的是行数据</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/d872d695d143ad4b402349f481025aafa40f06b1.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>如果你想使用这个方法得到列，那就会出现错误</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/38403f3fb80e7bec70840cd52c2eb9389b506b6c.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>我们还可以使用行标签来指定输出的行</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/4e83cb628535e5ddca72aaeb75c6a7efce1b626c.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>DataFrame的loc方法是帮助选择数据的，比如选择索引位置为0的一行数据（注意我们是用dates作为索引的）</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/ae10eddeb48f8c54ac8dca1b39292df5e0fe7f6c.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>选择多列数据的写法</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/8640bf8b87d6277f251f3d0c2b381f30e924fcb2.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>假如我们要选择的是一个局部数据，是行和列的交叉区域</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/507c389759ee3d6d8ccb88ff40166d224f4adeb2.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>假如我们只选择某一个数据，可以指定行和列：</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/08b68e529822720ee8c3edce78cb0a46f21fabb2.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>当然，at方法是专门用于获取某个值的：</li>
-</ul>
-<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/3a86813df8dcd100d2c2f715718b4710b9122f6c.jpg" title="pandas教程：[2]DataFrame选择数据-1">
-<ul>
-<li>选择数据就是用到了切片和loc、at方法，下一篇文章介绍一下iloc方法选择数据，它使你像操作array一样操作DataFrame</li>
+<li><p>1&gt;designated属性：为当前输出文档、语法文档或草稿文档返回或设置指定的窗口状态。指定的窗口（designatedwindow）是spss传送输出、粘贴或运行语法命令的窗口。当一个新的输出窗口打开以后它就成为了指定窗口。</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>Intcount=objdocuments.outputdoccount</p>
+</li>
+<li><p>Set objoutputdoc=objdocuments.getoutputdoc(intcount-1)</p>
+</li>
+<li><p>Objoutputdoc.designated=true</p>
+</li>
+<li><p>‘本实例将最后一个输出文档设置成指定文档接收新的输出。</p>
+</li>
+<li><p>2&gt;height和width属性、left和top属性、modified属性在前面其他对象中有介绍，这里省略。</p>
+</li>
+<li><p>3&gt;papersource属性：设置打印时候纸张的来源，它有四个值：</p>
+</li>
+<li><p>1    Upper</p>
+</li>
+<li><p>2    Lower</p>
+</li>
+<li><p>3    Middle</p>
+</li>
+<li><p>4    envelop</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>Setobjprintoptions=objoutputdoc.printoptions</p>
+</li>
+<li><p>‘设置打印选项</p>
+</li>
+<li><p>Printoptions.papersource-2</p>
+</li>
+<li><p>4&gt;rtftext属性：返回或设置语法窗口中的格式化文本，或rich文本框中的rtf文本编辑器。</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>String=objsyntaxdoc.text</p>
+</li>
+<li><p>Objsyntaxdoc.rtftext=string</p>
+</li>
+<li><p>Objsyntaxdoc.run</p>
+</li>
+<li><p>5&gt;text属性：在语法窗口或者激活的rtf文本编辑器中返回或设置文本，可以使用该属性写成或接收未格式化的文本。</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>Dim syntaxcommands as string</p>
+</li>
+<li><p>Syntaxcommands=objdatadoc.invokedialogandreturnsyntax(“analyze&gt;compare means&gt;paired-samples t test”,1)</p>
+</li>
+<li><p>‘获取了syntax命令</p>
+</li>
+<li><p>Dim objsyntaxdoc as ispsssyntaxdoc</p>
+</li>
+<li><p>Set objsyntaxdoc=objspssapp.newsyntaxdoc</p>
+</li>
+<li><p>Objsyntaxdoc.text=syntaxcommands</p>
+</li>
+<li><p>6&gt;toolbarvisible属性、visible属性、windowstate属性略去。</p>
+</li>
 </ul>
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
@@ -1448,7 +1098,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
+            <a href="/tags/spss/">#spss</a>
         </div>
     
 
@@ -1459,13 +1109,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/07/05/numpy函数：[9]zeros创建0矩阵/">
-                numpy函数：[9]zeros创建0矩阵
+            <a href="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/">
+                spss如何用散点图检验两个变量之间的交互作用
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年07月05日</span>
+                <span class="date">2015年08月11日</span>
             
             
             
@@ -1474,31 +1124,39 @@
 
     
         <div class="content">
-            <p>经常用到一些0数组，就是元素均为0的数组。那么怎么在python中创建0数组呢？我们用到了zeros函数，下面看看这个函数的用法：</p>
+            <p>散点图如图所示， 就是由一些点所构成的图，他是怎么看出交互作用的呢？好吧，我们一步一步来做你就懂了，下面是具体的过程。<br>工具/原料</p>
 <ul>
-<li>首先要引入一下numpy这个包</li>
+<li>spss<br>方法/步骤</li>
 </ul>
-<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/9e7ce6dcd100baa19c4a21244510b912c9fc2e8f.jpg" title="numpy函数：[9]zeros创建0矩阵">
 <ul>
-<li>试着创建一个一维数组，只使用一个参数就可以了</li>
+<li>首先在spss中准备好数据，然后在菜单栏上执行：graphs–散点图，如图所示，我这里是spss20.0，如果你要是其他的版本，菜单是不一样的，你得找找散点图在哪里</li>
 </ul>
-<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/73ca5910b912c8fc95959052fe039245d788218f.jpg" title="numpy函数：[9]zeros创建0矩阵">
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/4e4a20a4462309f7380b0cd1720e0cf3d6cad689.jpg" title="spss如何用散点图检验两个变量之间的交互作用">
 <ul>
-<li>默认情况下，zeros创建的数组是浮点型的，假如使用其他类型，可以设置dtype参数</li>
+<li>弹出一个窗口，让你选择使用哪个散点图，我们选择第一个最简单的散点图</li>
 </ul>
-<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/d57e9994a4c27d1e8d6d5d5b19d5ad6edcc438a2.jpg" title="numpy函数：[9]zeros创建0矩阵">
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/64380cd7912397dd762039c75982b2b7d1a2879c.jpg" title="spss如何用散点图检验两个变量之间的交互作用">
 <ul>
-<li>假如我们想要创建一个二维数组，我一开始以为是用下面这个方法，但是会返回错误</li>
+<li>因为我们要检验摸底考试成绩与教学方法之间的交互作用，所以你看好了，期末考试是因变量，也就是在y轴，而摸底考试成绩在x轴，分类变量是教学方法</li>
 </ul>
-<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/a583631ed21b0ef47aa3fec1dfc451da80cb3ea2.jpg" title="numpy函数：[9]zeros创建0矩阵">
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/91529822720e0cf37ba3ef380a46f21fbf09aa99.jpg" title="spss如何用散点图检验两个变量之间的交互作用">
 <ul>
-<li>其实是使用一个列表作为参数，这样就返回一个二维数组</li>
+<li>点击ok按钮，开始输出散点图，如图所示，那是一个初步的散点图</li>
 </ul>
-<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/ac2fc3c451da81cb5f80e5525066d0160824318f.jpg" title="numpy函数：[9]zeros创建0矩阵">
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/8b82b9014a90f60303803c843912b31bb151edc5.jpg" title="spss如何用散点图检验两个变量之间的交互作用">
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/d788d43f8794a4c2411047e80ef41bd5ac6e39c5.jpg" title="spss如何用散点图检验两个变量之间的交互作用">
 <ul>
-<li>同样我们使用第二个参数设置数组的类型</li>
+<li>在散点图上右键单击，然后选择在新的窗口中编辑</li>
 </ul>
-<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/0865b518972bd4075b8cb56279899e510eb309a2.jpg" title="numpy函数：[9]zeros创建0矩阵">
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/9e3df8dcd100baa1e203e7784710b912c9fc2ec1.jpg" title="spss如何用散点图检验两个变量之间的交互作用">
+<ul>
+<li>我们要用到上面两个按钮，第一个是所有的点拟合直线，其实就是忽略教学方法这个变量，得到一条回归曲线，但是我们为了比较教学方法，所以需要给不同的教学方法分别绘制回归线，所以点击右侧的按钮</li>
+</ul>
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/7af40ad162d9f2d3c619842ca9ec8a136227cced.jpg" title="spss如何用散点图检验两个变量之间的交互作用">
+<ul>
+<li>出现了两条回归线，这两条回归线代表不同的教学方法，这两条线如果是平行的就可以认为他们是没有交互作用的，显然这个线有交叉的取向，我们只能先假定有交互作用的取向，但是还无法说达到了显著的水平。</li>
+</ul>
+<img src="/2015/08/11/spss如何用散点图检验两个变量之间的交互作用/9922720e0cf3d7cad7ea9fb5f21fbe096a63a9d1.jpg" title="spss如何用散点图检验两个变量之间的交互作用">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1513,7 +1171,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/numpy/">#numpy</a>
+            <a href="/tags/spss/">#spss</a>
         </div>
     
 
@@ -1560,43 +1218,43 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2020/12/23/均值差异的效应量在线计算器/">均值差异的效应量在线计算器</a>
+                <a class="footer-post" href="/2021/07/08/方差分析08-单因素多元方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
+                <a class="footer-post" href="/2021/07/08/方差分析07-单变量协方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/27/文旅特色小镇的具身体验质量-数据分享/">文旅特色小镇的具身体验质量-数据分享</a>
+                <a class="footer-post" href="/2021/07/08/方差分析06-2因素混合设计方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/12/问卷代填-大学生的论文用的-有靠谱的调研商家/">问卷代填(大学生的论文用的)怎么快速收集高质量问卷</a>
+                <a class="footer-post" href="/2021/07/08/方差分析05-重复测量单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/04/嵌入式python的zip安装和并安装pip/">嵌入式python的zip安装和并安装pip</a>
+                <a class="footer-post" href="/2021/07/08/方差分析04-三因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-效度分析/">SPSS问卷效度分析教程</a>
+                <a class="footer-post" href="/2021/07/08/方差分析03-双因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+                <a class="footer-post" href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+                <a class="footer-post" href="/2021/07/08/方差分析01-单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+                <a class="footer-post" href="/2021/07/08/11-2XN卡方检验/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2021/07/08/10-2x2卡方检验/">Untitled</a>
             </li>
             
         </ul>
@@ -1610,7 +1268,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1914,11 +1572,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>

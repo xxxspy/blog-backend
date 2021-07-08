@@ -197,6 +197,12 @@
     <div class="page_list archive-container">
         
             <div class="archive-post">
+                <a href="/2021/01/04/01 安装manimlib/">
+                    manim系列教程01-windows平台安装manim
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2020/11/04/嵌入式python的zip安装和并安装pip/">
                     嵌入式python的zip安装和并安装pip
                 </a>
@@ -217,12 +223,6 @@
             <div class="archive-post">
                 <a href="/2019/08/04/python中logging模块的error和exception的区别和最佳实践/">
                     python中logging模块的error和exception的区别和最佳实践
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2019/07/21/python3的logging模块的最佳实践/">
-                    python3的logging模块的最佳实践
                 </a>
             </div>
             
@@ -448,13 +448,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/09/11/wxpython教程：[3]菜单栏/">
-                wxpython教程：[3]菜单栏
+            <a href="/2016/10/03/Python教程：[3]input和raw_input函数/">
+                Python教程：[3]input和raw_input函数
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年09月11日</span>
+                <span class="date">2016年10月03日</span>
             
             
             
@@ -463,493 +463,31 @@
 
     
         <div class="content">
-            <p>窗口中通常有菜单栏，菜单栏中包括很多菜单，每一个菜单中包括很多选项，比如一个简单的记事本：里面菜单有：文件、编辑、格式等等。下面我们就来亲手制作一个菜单栏——以便让我们退出程序。</p>
+            <p>今天使用python3.2来编辑程序的时候，突然发现一个错误name ‘raw_input’ is not defined，原因是从版本3.0 开始去掉了raw_input 函数，改用input。所以两个函数合并在了一起，所以今天只讲input函数就可以了。input函数用于弹出一个对话框，提示用户输入内容，输入的内容可以直接显示出来，也可以赋值给某个变量。</p>
 <ul>
-<li>先看一下我们所有的代码</li>
+<li>基本用法是：input(‘输入要显示的文字’)</li>
 </ul>
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/9319cf09b3de9c82072a7ce06f81800a18d843d7.jpg" title="wxpython教程：[3]菜单栏">
+<img src="/2016/10/03/Python教程：[3]input和raw_input函数/f7426d8da97739129adc0f4bfa198618377ae2e7.jpg" title="Python教程：[3]input和raw_input函数">
 <ul>
-<li>重点要说的首先是这句：创建菜单栏<br>这就是菜单栏：</li>
+<li>弹出一个对话框，让你输入，假如我们输入“你好”</li>
 </ul>
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/9dc3cf58ccbf6c815978a987bf3eb13532fa40d7.jpg" title="wxpython教程：[3]菜单栏">
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/a75fb6d3fd1f413474788011261f95cad0c85ed7.jpg" title="wxpython教程：[3]菜单栏">
+<img src="/2016/10/03/Python教程：[3]input和raw_input函数/a8362712b31bb051d3de3902347adab44bede0e7.jpg" title="Python教程：[3]input和raw_input函数">
 <ul>
-<li>创建一个菜单<br>这是一个菜单：</li>
+<li>立刻会出现这个输入的内容。</li>
 </ul>
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/dbf554ed2e738bd4f348375ea28b87d6277ff931.jpg" title="wxpython教程：[3]菜单栏">
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/948bcfc8a786c917954cd756ca3d70cf3ac757d7.jpg" title="wxpython教程：[3]菜单栏">
+<img src="/2016/10/03/Python教程：[3]input和raw_input函数/4bac30738bd4b31cb4c61e9185d6277f9f2ff8e7.jpg" title="Python教程：[3]input和raw_input函数">
 <ul>
-<li>向菜单中添加一个选项：<br>也就是这个选项：</li>
+<li>我们输入</li>
 </ul>
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/1e71f724b899a901005cde591e950a7b0208f531.jpg" title="wxpython教程：[3]菜单栏">
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/72ccb7773912b31b880548468518367adab4e131.jpg" title="wxpython教程：[3]菜单栏">
+<img src="/2016/10/03/Python教程：[3]input和raw_input函数/ca5257540923dd54952c2d42d309b3de9c82487a.jpg" title="Python教程：[3]input和raw_input函数">
 <ul>
-<li>现在我们将创建好的菜单添加到菜单栏</li>
+<li>弹出对话框，假如我们输入“www”</li>
 </ul>
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/d57e9994a4c27d1ed368beab18d5ad6edcc438d7.jpg" title="wxpython教程：[3]菜单栏">
+<img src="/2016/10/03/Python教程：[3]input和raw_input函数/ac2fc3c451da81cbc3f609e75066d0160924314d.jpg" title="Python教程：[3]input和raw_input函数">
 <ul>
-<li>最后，我们将设置好的菜单栏添加到窗口：<br>将菜单中的选项与命令绑定，这样才能在点击选项的时候执行某个动作：<br>到此我们的菜单栏就做好了，运行程序可以看到效果</li>
+<li>a的值就是“www”</li>
 </ul>
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/0fb505d5ad6eddc457a931943adbb6fd536633d7.jpg" title="wxpython教程：[3]菜单栏">
-<img src="/2016/09/11/wxpython教程：[3]菜单栏/dc854fda81cb39dbbf8ee239d3160924aa1830d7.jpg" title="wxpython教程：[3]菜单栏">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/05/spss单因素重复测量的方差分析操作和解释/">
-                spss单因素重复测量的方差分析操作和解释
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>方法/步骤</p>
-<ul>
-<li>首先需要整理数据，数据文件结构对重复测量方差分析很重要，一定要把每次测量作为一个变量（把每个实验处理作为一个变量）!!!</li>
-</ul>
-<img src="/2016/09/05/spss单因素重复测量的方差分析操作和解释/4e4a20a4462309f71ed536d0720e0cf3d6cad6be.jpg" title="spss单因素重复测量的方差分析操作和解释">
-<ul>
-<li>在spss中执行：菜单栏–analyse–GLM–repeated measured，打开重复测量对话框</li>
-</ul>
-<img src="/2016/09/05/spss单因素重复测量的方差分析操作和解释/caef76094b36acafe6fa0d3e7cd98d1000e99cde.jpg" title="spss单因素重复测量的方差分析操作和解释">
-<ul>
-<li>我们给变量写入一个名称，这个名称随便填，然后输入变量的水平数，这个要看你的研究了，在我的研究中，变量只有四个水平，所以就填4，如图所示</li>
-</ul>
-<img src="/2016/09/05/spss单因素重复测量的方差分析操作和解释/5d6034a85edf8db13b6fe7a60923dd54574e74ab.jpg" title="spss单因素重复测量的方差分析操作和解释">
-<ul>
-<li>点击add按钮，将变量添加到下面的框，然后点击define按钮，打开一个新的对话框</li>
-</ul>
-<img src="/2016/09/05/spss单因素重复测量的方差分析操作和解释/c8177f3e6709c93d607d95359f3df8dcd0005460.jpg" title="spss单因素重复测量的方差分析操作和解释">
-<ul>
-<li>将四个水平的变量放入右侧的框中，然后点击ok，开始处理数据</li>
-</ul>
-<img src="/2016/09/05/spss单因素重复测量的方差分析操作和解释/7acb0a46f21fbe09fcd458d66b600c338644ad6e.jpg" title="spss单因素重复测量的方差分析操作和解释">
-<ul>
-<li>我们要看的第一个表格是球星检验的结果，如果sig值大于0.05，就认为符合球星检验</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/05/Excel2013：[34]禁止复制隐藏单元格/">
-                Excel2013：[34]禁止复制隐藏单元格
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>如图所示，假如我隐藏了B列，而A咧和C列是可以选中的，那么我们复制A:C就可以将ABC三列复制下来，那么隐藏的单元格也就暴露了。所以今天我教给大家两个方法保护工作表，都可以防止复制。</p>
-<ul>
-<li>将需要隐藏的单元格先隐藏，这里就省略了隐藏的过程，然后我们点击菜单上的：审阅–保护工作表</li>
-</ul>
-<img src="/2016/09/05/Excel2013：[34]禁止复制隐藏单元格/8c511fe93901213f7a53e0a056e736d12f2e952f.jpg" title="Excel2013：[34]禁止复制隐藏单元格">
-<ul>
-<li>输入密码，勾选前两个选项，然后点击确定按钮。</li>
-</ul>
-<img src="/2016/09/05/Excel2013：[34]禁止复制隐藏单元格/8697397f9e2f0708757e847ceb24b899a901f210.jpg" title="Excel2013：[34]禁止复制隐藏单元格">
-<ul>
-<li>提示你重新输入密码，重新输入密码，点击确定按钮</li>
-</ul>
-<img src="/2016/09/05/Excel2013：[34]禁止复制隐藏单元格/91ae68c6a7efce1b4f4b66b6ad51f3deb48f652f.jpg" title="Excel2013：[34]禁止复制隐藏单元格">
-<ul>
-<li><p>当别人尝试复制你的Excel的时候就会看到无法选中你的单元格，也就无法取消隐藏的单元格。</p>
-</li>
-<li><p>先选中所有单元格</p>
-</li>
-</ul>
-<img src="/2016/09/05/Excel2013：[34]禁止复制隐藏单元格/4bd1e803738da97775542857b251f8198618e310.jpg" title="Excel2013：[34]禁止复制隐藏单元格">
-<ul>
-<li>按下快捷键Ctrl+1，打开【设置单元格格式】对话框，切换到【保护】标签，取消这两个选项，点击确定</li>
-</ul>
-<img src="/2016/09/05/Excel2013：[34]禁止复制隐藏单元格/8759287adab44aed7a351098b11c8701a18bfb10.jpg" title="Excel2013：[34]禁止复制隐藏单元格">
-<ul>
-<li>接着，我们将B列移动到A列，方法是：剪切B列，然后在A列上右键单击，选择【插入复制的列】，这样B列就移动到了A第一列，这很重要，我们这一步的关键点就是：【将要隐藏的列移动到第一列（A列）】。。。</li>
-</ul>
-<img src="/2016/09/05/Excel2013：[34]禁止复制隐藏单元格/1cd4147b02087bf46297f995f0d3572c11dfcf10.jpg" title="Excel2013：[34]禁止复制隐藏单元格">
-<ul>
-<li><p>选中A列，按下快捷键Ctrl+1，打开【设置单元格格式】对话框，切换到【保护】标签，勾选【锁定】和【隐藏】，点击确定</p>
-</li>
-<li><p>隐藏A列：右键单击A列，然后选择【隐藏】</p>
-</li>
-</ul>
-<img src="/2016/09/05/Excel2013：[34]禁止复制隐藏单元格/a005b3345982b2b7622e91b833adcbef77099bde.jpg" title="Excel2013：[34]禁止复制隐藏单元格">
-<ul>
-<li>接着我们保护一下工作表，点击【保护工作表】</li>
-</ul>
-<img src="/2016/09/05/Excel2013：[34]禁止复制隐藏单元格/4e83cb628535e5dd2d240ea374c6a7efce1b6207.jpg" title="Excel2013：[34]禁止复制隐藏单元格">
-<ul>
-<li>输入密码，记得勾选下面的前两项，点击确定按钮。</li>
-</ul>
-<img src="/2016/09/05/Excel2013：[34]禁止复制隐藏单元格/ae10eddeb48f8c5441db6e5338292df5e0fe7f07.jpg" title="Excel2013：[34]禁止复制隐藏单元格">
-<ul>
-<li>现在已经完成了设置，别人无法复制隐藏的第一列数据，可以修改编辑复制其他列数据。如果你打算隐藏的数据不仅仅是一列还有很多列，你可以将所有隐藏列放到表格的最前面，然后隐藏、在保护单元格。这样最前面隐藏的单元格都是无法被选中的，也即是无法被复制查看修改的。</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/05/spss用单样本k-s检验验证正态分布的方法/">
-                spss用单样本k-s检验验证正态分布的方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>k-s检验是用来检验数据是否符合正态分布的，因为在检验之前我们并不知道该数据是否符合正态分布，所以这种检验属于非参数检验。对要检验的数据也没有限制，只要数据量够大就可以，数据量偏少会造成检验不准确。下面来具体介绍k-s检验的过程和结果分析。<br>方法/步骤</p>
-<ul>
-<li><p>在spss中打开数据，怎么打开就不介绍了，打开数据以后，在菜单栏上执行：analyze–非参检验–legacy disalogs–1 sample k-s</p>
-</li>
-<li></li>
-</ul>
-<img src="/2016/09/05/spss用单样本k-s检验验证正态分布的方法/d439b6003af33a87c56f04ebc65c10385243b5c4.jpg" title="spss用单样本k-s检验验证正态分布的方法">
-<ul>
-<li>将你要检验正态的变量放到test variables list，勾选下面的normal，这是正态的意思。</li>
-</ul>
-<img src="/2016/09/05/spss用单样本k-s检验验证正态分布的方法/adaf2edda3cc7cd9c51530283901213fb80e9102.jpg" title="spss用单样本k-s检验验证正态分布的方法">
-<ul>
-<li>点击exact，进入选择检验方法的对话框</li>
-</ul>
-<img src="/2016/09/05/spss用单样本k-s检验验证正态分布的方法/a2cc7cd98d1001e9730410feb80e7bec54e79702.jpg" title="spss用单样本k-s检验验证正态分布的方法">
-<ul>
-<li><p>这里有三个选项可以选择，第一个asymptotic的意思是基于渐进分布的显著性水平的检验指标，适于大样本，如果样本过小或者分布不好，就会影响检验的效力；monte carlo适用于精确显著性水平的无偏估计，如果样本过大，数据处理过程太长，就应该使用这个选项；exact精确计算概率值，可以设定数据处理的时间，如果数据处理时间超过了你设定时间30分钟，就应该使用monte carlo</p>
-</li>
-<li></li>
-</ul>
-<img src="/2016/09/05/spss用单样本k-s检验验证正态分布的方法/e850352ac65c1038637cca33b2119313b17e89c4.jpg" title="spss用单样本k-s检验验证正态分布的方法">
-<ul>
-<li>回到k-s检验对话框，点击options按钮，设置输出的参数</li>
-</ul>
-<img src="/2016/09/05/spss用单样本k-s检验验证正态分布的方法/3801213fb80e7bec1ae207102f2eb9389b506b02.jpg" title="spss用单样本k-s检验验证正态分布的方法">
-<ul>
-<li>勾选descriptive和quartiles，这两个的意思分别是输出描述性统计和四分位数，点击continue按钮</li>
-</ul>
-<img src="/2016/09/05/spss用单样本k-s检验验证正态分布的方法/5243fbf2b21193138441fb4165380cd790238dc4.jpg" title="spss用单样本k-s检验验证正态分布的方法">
-<ul>
-<li>我们可以看到对数据的检验结果，最后的显著性检验值为0.000，非常显著。我们首先要知道在做显著性检验的时候虚无假设是数据符合正态分布，因为检验显著，所以否定虚无假设，所以数据是不符合显著性的要求的。</li>
-</ul>
-<img src="/2016/09/05/spss用单样本k-s检验验证正态分布的方法/7aec54e736d12f2ee83daa914fc2d56285356802.jpg" title="spss用单样本k-s检验验证正态分布的方法">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/03/SPSS实例：[1]计算信度（α系数）/">
-                SPSS实例：[1]计算信度（α系数）
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>克隆巴赫α系数是我们经常用到的一个信度指标，它指的是某一个维度内，不同题项间的一致程度，在编制问卷或者做探索性因素分析时，我们通常会报告α系数来表明我们的问卷可靠程度或者结构效度。那么在spss中如何计算科隆巴赫系数呢？下面是具体的方法：</p>
-<ul>
-<li>录入数据，如图所示，假如这八个变量都是因子1的几个题项，那么如何计算这个因子的信度呢？</li>
-</ul>
-<img src="/2016/09/03/SPSS实例：[1]计算信度（α系数）/8474fbdde71190ef9dc8271fcf1b9d16fcfa6084.jpg" title="SPSS实例：[1]计算信度（α系数）">
-<ul>
-<li>在菜单中执行：reliability analysis，如图所示，也就是信度分析</li>
-</ul>
-<img src="/2016/09/03/SPSS实例：[1]计算信度（α系数）/e1bf8725bc315c60c8a6de2f8cb1cb1348547784.jpg" title="SPSS实例：[1]计算信度（α系数）">
-<ul>
-<li>将这个几个变量放入右侧的items框，记住这几个题项是属于一个维度或者因子的，点击ok即可得到科隆巴赫系数</li>
-</ul>
-<img src="/2016/09/03/SPSS实例：[1]计算信度（α系数）/b9d8b7014c086e069dcc8a8b03087bf40bd1cb4f.jpg" title="SPSS实例：[1]计算信度（α系数）">
-<img src="/2016/09/03/SPSS实例：[1]计算信度（α系数）/ca5257540923dd54554112a8d009b3de9d824884.jpg" title="SPSS实例：[1]计算信度（α系数）">
-<ul>
-<li>有时候我们有大量的信度系数要计算，比如一个问卷有12个维度，每个维度都有一个信度系数，我们就需要重复的操作，不过我们可以使用命令，快速实现，在信度分析对话框中，我们点击paste</li>
-</ul>
-<img src="/2016/09/03/SPSS实例：[1]计算信度（α系数）/346bd85c1038534338ae32e19213b07ecb80884a.jpg" title="SPSS实例：[1]计算信度（α系数）">
-<ul>
-<li>在命令窗口中，我们找到variables这个命令后面的item，如图所示，这里就是变量名，如果我们想要计算其他的信度，我们可以将变量名进行修改，然后选中所有的命令，点击执行按钮</li>
-</ul>
-<img src="/2016/09/03/SPSS实例：[1]计算信度（α系数）/62667cd0f703918f2fb5880a503d269758eec44f.jpg" title="SPSS实例：[1]计算信度（α系数）">
-<img src="/2016/09/03/SPSS实例：[1]计算信度（α系数）/6c63514a20a4462395ae10a29922720e0df3d74f.jpg" title="SPSS实例：[1]计算信度（α系数）">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/01/Excel2013：[3]打开 运行 操作速度慢怎么办/">
-                Excel2013：[3]打开 运行 操作速度慢怎么办
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>Excel用多了，今天突然感觉启动、运行、操作的速度都很慢，于是想了想办法，搜罗了各种加速的方法跟大家分享，主要的方法是减少启动项目、设置Excel配置，我们还是看具体的操作吧。</p>
-<ul>
-<li>我们先来打开选项对话框，执行：文件–选项</li>
-</ul>
-<img src="/2016/09/01/Excel2013：[3]打开%20运行%20操作速度慢怎么办/bbe0d311728b47109f9549dfc1cec3fdfc03232f.jpg" title="Excel2013：[3]打开 运行 操作速度慢怎么办">
-<ul>
-<li>在常规菜单下，先来取消显示开始屏幕，我们取消勾选“此应用程序启动时显示开始屏幕”</li>
-</ul>
-<img src="/2016/09/01/Excel2013：[3]打开%20运行%20操作速度慢怎么办/fd428c45d688d43fa91325e17f1ed21b0ef43b2f.jpg" title="Excel2013：[3]打开 运行 操作速度慢怎么办">
-<ul>
-<li>接着，在保存选项下，我们设置一下保存的位置为本地，然后设置保存的路径。</li>
-</ul>
-<img src="/2016/09/01/Excel2013：[3]打开%20运行%20操作速度慢怎么办/7a8a1446f21fbe09cfc3770769600c338644adc1.jpg" title="Excel2013：[3]打开 运行 操作速度慢怎么办">
-<ul>
-<li>在高级选项下，我们禁用硬件图形加速，这是解决Excel卡顿现象的关键</li>
-</ul>
-<img src="/2016/09/01/Excel2013：[3]打开%20运行%20操作速度慢怎么办/bf487563f6246b60ab930667e9f81a4c500fa2c1.jpg" title="Excel2013：[3]打开 运行 操作速度慢怎么办">
-<ul>
-<li>在加载项选项中，转到Excel加载项</li>
-</ul>
-<img src="/2016/09/01/Excel2013：[3]打开%20运行%20操作速度慢怎么办/0d729944ebf81a4cfaaf58dad52a6059242da6c1.jpg" title="Excel2013：[3]打开 运行 操作速度慢怎么办">
-<ul>
-<li>这些加载项暂时用不到，所以要将其取消勾选，等我们用到的时候再勾上</li>
-</ul>
-<img src="/2016/09/01/Excel2013：[3]打开%20运行%20操作速度慢怎么办/808a27dbb6fd5266eb918807a918972bd407362f.jpg" title="Excel2013：[3]打开 运行 操作速度慢怎么办">
-<ul>
-<li>接着转到com加载项</li>
-</ul>
-<img src="/2016/09/01/Excel2013：[3]打开%20运行%20操作速度慢怎么办/d5462bfae6cd7b89ddd68e900d2442a7d9330e2f.jpg" title="Excel2013：[3]打开 运行 操作速度慢怎么办">
-<ul>
-<li>同样，这些加载项都不要勾，等你用着的时候再勾选就可以了。</li>
-</ul>
-<img src="/2016/09/01/Excel2013：[3]打开%20运行%20操作速度慢怎么办/d002b34bd11373f0cf85db8ca60f4bfbfbed042f.jpg" title="Excel2013：[3]打开 运行 操作速度慢怎么办">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/01/Python教程：[49]集合使用方法/">
-                Python教程：[49]集合使用方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>今天讲集合set对象的操作，这是上一篇经验的续集，所以你要先看上一篇才可以，上一篇的链接：【<a href="http://jingyan.baidu.com/article/597a064369b570312a524350.html】，接着上一篇经验来讲，废话不多说，仍然是使用例子让你自己来体会，看看集合对象在python中是如何使用的。" target="_blank" rel="noopener">http://jingyan.baidu.com/article/597a064369b570312a524350.html】，接着上一篇经验来讲，废话不多说，仍然是使用例子让你自己来体会，看看集合对象在python中是如何使用的。</a></p>
-<ul>
-<li>先创建两个集合，以备后用。</li>
-</ul>
-<img src="/2016/09/01/Python教程：[49]集合使用方法/42e89c26cffc1e170face59f4890f603728de9ca.jpg" title="Python教程：[49]集合使用方法">
-<img src="/2016/09/01/Python教程：[49]集合使用方法/a8362712b31bb0517637da86347adab44bede0ca.jpg" title="Python教程：[49]集合使用方法">
-<ul>
-<li>求两个集合对称差分</li>
-</ul>
-<img src="/2016/09/01/Python教程：[49]集合使用方法/d048adde9c82d158e09c301f820a19d8bd3e42c6.jpg" title="Python教程：[49]集合使用方法">
-<ul>
-<li>集合添加某一个元素</li>
-</ul>
-<img src="/2016/09/01/Python教程：[49]集合使用方法/0862c354564e9258f8bce8409e82d158cdbf4e50.jpg" title="Python教程：[49]集合使用方法">
-<ul>
-<li>集合删除某一个元素</li>
-</ul>
-<img src="/2016/09/01/Python教程：[49]集合使用方法/814b07d8bc3eb135004fd915a41ea8d3fc1f4450.jpg" title="Python教程：[49]集合使用方法">
-<ul>
-<li>求集合的长度</li>
-</ul>
-<img src="/2016/09/01/Python教程：[49]集合使用方法/509b9fcb39dbb6fd0d6b8c880b24ab18972b3728.jpg" title="Python教程：[49]集合使用方法">
-<ul>
-<li>用in判断某个元素是否在集合中</li>
-</ul>
-<img src="/2016/09/01/Python教程：[49]集合使用方法/966aca0735fae6cd1c84c2cf0db30f2442a70f28.jpg" title="Python教程：[49]集合使用方法">
-<ul>
-<li>用issubset判断某个集合是否是另一个集合的子集</li>
-</ul>
-<img src="/2016/09/01/Python教程：[49]集合使用方法/948bcfc8a786c9173f8b3c97cb3d70cf3ac75750.jpg" title="Python教程：[49]集合使用方法">
-<ul>
-<li>判断某个集合是否是另一个集合的父集</li>
-</ul>
-<img src="/2016/09/01/Python教程：[49]集合使用方法/ac0acf1373f0820229a2f89149fbfbedab641b28.jpg" title="Python教程：[49]集合使用方法">
-<ul>
-<li>求并集</li>
-</ul>
-<img src="/2016/09/01/Python教程：[49]集合使用方法/faacb564034f78f08d3bf35d7b310a55b3191c28.jpg" title="Python教程：[49]集合使用方法">
-<ul>
-<li>求交集</li>
-</ul>
-<img src="/2016/09/01/Python教程：[49]集合使用方法/dc854fda81cb39dbe94809f8d2160924aa183050.jpg" title="Python教程：[49]集合使用方法">
-<ul>
-<li>求差</li>
-</ul>
-<img src="/2016/09/01/Python教程：[49]集合使用方法/ea85a94543a982264cf142898882b9014a90eb29.jpg" title="Python教程：[49]集合使用方法">
-<img src="/2016/09/01/Python教程：[49]集合使用方法/4bd1e803738da977b21fef85b251f8198618e329.jpg" title="Python教程：[49]集合使用方法">
-<ul>
-<li>下面的等式相当于x=x|y</li>
-</ul>
-<img src="/2016/09/01/Python教程：[49]集合使用方法/0e655ca7d933c895bef6f6d5d31373f083020050.jpg" title="Python教程：[49]集合使用方法">
-<ul>
-<li>删除一个元素，同时输出这个元素</li>
-</ul>
-<img src="/2016/09/01/Python教程：[49]集合使用方法/f9589818367adab4d8e072ed89d4b31c8701e429.jpg" title="Python教程：[49]集合使用方法">
-<ul>
-<li>删除全部元素</li>
-</ul>
-<img src="/2016/09/01/Python教程：[49]集合使用方法/8a95ad1c8701a18b1fdb7be19c2f07082838fe29.jpg" title="Python教程：[49]集合使用方法">
+<img src="/2016/10/03/Python教程：[3]input和raw_input函数/a28d62d98d1001e9a225e125ba0e7bec54e79744.jpg" title="Python教程：[3]input和raw_input函数">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -975,13 +513,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/09/01/Python教程：[35]如何匹配斜杠+反斜杠/">
-                Python教程：[35]如何匹配斜杠+反斜杠
+            <a href="/2016/10/03/SPSS实例：[24]卡方检验百分比是否相同/">
+                SPSS实例：[24]卡方检验百分比是否相同
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年09月01日</span>
+                <span class="date">2016年10月03日</span>
             
             
             
@@ -990,32 +528,35 @@
 
     
         <div class="content">
-            <p>今天用python采集数据的时候遇到了已给问题，就是这个字符串怎么匹配：“\/”,其实就是一个反斜杠一个斜杠，我用的是正则表达式来匹配，因为反斜杠是转义字符，我们还是看看具体的教程吧。</p>
+            <p>今天我处理的数据是一个百分比数据（一看就知道是卡方检验啊！），一个题有三个选项，现在我想要知道被试选择这三个选项的概率是否相同？被试是不是偏爱选择某一个选项呢？这是一个很常见的检验百分比是否均等的问题，我们看看下面具体的教程吧。</p>
 <ul>
-<li>我们先来看看反斜杠+斜杠在python中的存放的方式，将下面的一堆绿色字符传递给txt这个变量</li>
+<li>首先，我们看看数据结构，先来看第二次选择的时候，有三个选项，被试是不是喜欢选择某一个或者某两个选项呢？用卡方来检验以下</li>
 </ul>
-<img src="/2016/09/01/Python教程：[35]如何匹配斜杠+反斜杠/2f3295d4b31c87015a337ff1257f9e2f0608ffe6.jpg" title="Python教程：[35]如何匹配斜杠+反斜杠">
+<img src="/2016/10/03/SPSS实例：[24]卡方检验百分比是否相同/3b6833f5e0fe99258b361e3736a85edf8db1715b.jpg" title="SPSS实例：[24]卡方检验百分比是否相同">
 <ul>
-<li>我们直接显示的字符和print出来的字符是不一样的。注意看http:后面的字符，直接显示出来的是“\/”而print出来的是“\/”，那我们匹配的时候是按照“\/”还是“\/”来匹配呢？</li>
+<li>在菜单中依次打开：analyse-nonparametric texts-legacy dialogs-chisquare</li>
 </ul>
-<img src="/2016/09/01/Python教程：[35]如何匹配斜杠+反斜杠/1f569482b9014a901a7d8baaab773912b31bee2c.jpg" title="Python教程：[35]如何匹配斜杠+反斜杠">
-<img src="/2016/09/01/Python教程：[35]如何匹配斜杠+反斜杠/263e802f070828381e891103ba99a9014d08f1e6.jpg" title="Python教程：[35]如何匹配斜杠+反斜杠">
+<img src="/2016/10/03/SPSS实例：[24]卡方检验百分比是否相同/b8405490f603738d0d707b45b11bb051f819ec64.jpg" title="SPSS实例：[24]卡方检验百分比是否相同">
 <ul>
-<li>我们先给出正确的答案，我们需要匹配“\/”</li>
+<li>将要检验的变量放入testvariablelist，点击添加按钮</li>
 </ul>
-<img src="/2016/09/01/Python教程：[35]如何匹配斜杠+反斜杠/373bc4b44aed2e73736c4b3b8501a18b86d6fae6.jpg" title="Python教程：[35]如何匹配斜杠+反斜杠">
+<img src="/2016/10/03/SPSS实例：[24]卡方检验百分比是否相同/c9d4cf43ad4bd113f8e8c05558afa40f4bfb0574.jpg" title="SPSS实例：[24]卡方检验百分比是否相同">
 <ul>
-<li>假如我们想要匹配“\/”，实际上得到的是“/”</li>
+<li>我们要检验的是这三个选项被选择的概率是否相同，虚无假设肯定就是三个选项概率相同，所以我们需要选择【all categories equal】</li>
 </ul>
-<img src="/2016/09/01/Python教程：[35]如何匹配斜杠+反斜杠/3853ad1bb051f8197566ce5dd8b44aed2e73e72c.jpg" title="Python教程：[35]如何匹配斜杠+反斜杠">
+<img src="/2016/10/03/SPSS实例：[24]卡方检验百分比是否相同/6c63514a20a44623d0f0d2059a22720e0cf3d764.jpg" title="SPSS实例：[24]卡方检验百分比是否相同">
 <ul>
-<li>如我们不使用r，也就是raw string，同样无法正确匹配</li>
+<li>如果你不需要其他的检验，你可以点击ok按钮，这时候你就会看到卡方检验的结果了</li>
 </ul>
-<img src="/2016/09/01/Python教程：[35]如何匹配斜杠+反斜杠/f9589818367adab4bc93d65489d4b31c8701e42c.jpg" title="Python教程：[35]如何匹配斜杠+反斜杠">
+<img src="/2016/10/03/SPSS实例：[24]卡方检验百分比是否相同/30ecd5ef76094b36bfa76c8aa1cc7cd98d109d64.jpg" title="SPSS实例：[24]卡方检验百分比是否相同">
 <ul>
-<li>当然，下面这种情况也是错误的。</li>
+<li>先看第一个表格，第一列是观察到的数字，第二列是期望数字，也就是虚无假设</li>
 </ul>
-<img src="/2016/09/01/Python教程：[35]如何匹配斜杠+反斜杠/6f4703950a7b0208714df2f660d9f2d3562cc8e6.jpg" title="Python教程：[35]如何匹配斜杠+反斜杠">
+<img src="/2016/10/03/SPSS实例：[24]卡方检验百分比是否相同/d56b3634349b033ba8ad8bbd17ce36d3d539bd75.jpg" title="SPSS实例：[24]卡方检验百分比是否相同">
+<ul>
+<li>第二个表格就是卡方检验的结果，卡方值为32，概率是0，所以拒绝虚无假设。</li>
+</ul>
+<img src="/2016/10/03/SPSS实例：[24]卡方检验百分比是否相同/9c57e3faaf51f3de9b87ce0396eef01f3a297964.jpg" title="SPSS实例：[24]卡方检验百分比是否相同">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1030,7 +571,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
+            <a href="/tags/spss/">#spss</a>
         </div>
     
 
@@ -1041,13 +582,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/08/23/Excel2013：[23]如何输入千分号‰/">
-                Excel2013：[23]如何输入千分号‰
+            <a href="/2016/10/01/excel使用宏进行自动化数据转换/">
+                excel使用宏进行自动化数据转换
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年08月23日</span>
+                <span class="date">2016年10月01日</span>
             
             
             
@@ -1056,27 +597,39 @@
 
     
         <div class="content">
-            <p>在Excel中输入千分号，有三种方法，你可以使用快捷键，可以插入符号，可以使用输入法，我们这里只介绍第一种，使用插入符号法。</p>
+            <p>宏就是能够实现一定功能的一组命令，学习VBA的时候基本的就是宏。宏除了我们自己编写以外，还可以录制，这让没有学过计算机语言的人也能够运用宏。下面是具体的方法：<br>方法/步骤</p>
 <ul>
-<li>我们打开菜单【插入】–符号</li>
+<li>打开excel，先选中要转换格式的一个单元格，记住一定要先选中它，然后点击录制宏。</li>
 </ul>
-<img src="/2016/08/23/Excel2013：[23]如何输入千分号‰/310f3b1f95cad1c8f56f8e527d3e6709c83d51ab.jpg" title="Excel2013：[23]如何输入千分号‰">
+<img src="/2016/10/01/excel使用宏进行自动化数据转换/91529822720e0cf364c1f7de0b46f21fbe09aae5.jpg" title="excel使用宏进行自动化数据转换">
 <ul>
-<li>在打开的下拉菜单中，找到【符号】选项</li>
+<li>打开录制宏对话框，你可以给宏起一个名字，帮助你以后使用的时候方便，将其保存在个人宏中，然后点击确定按钮</li>
 </ul>
-<img src="/2016/08/23/Excel2013：[23]如何输入千分号‰/1a94b36eddc451daf185719eb4fd5266d0163210.jpg" title="Excel2013：[23]如何输入千分号‰">
+<img src="/2016/10/01/excel使用宏进行自动化数据转换/72f082025aafa40f2fe877f8aa64034f78f019ec.jpg" title="excel使用宏进行自动化数据转换">
 <ul>
-<li>我们打开了符号界面，在这里，我们选择【广义标点】子集</li>
+<li>接下来我们几开始录制宏了，右键单击已经被选中的单元格，在右键菜单中选择：单元格格式</li>
 </ul>
-<img src="/2016/08/23/Excel2013：[23]如何输入千分号‰/948bcfc8a786c9172bd7204ccb3d70cf3ac757ab.jpg" title="Excel2013：[23]如何输入千分号‰">
+<img src="/2016/10/01/excel使用宏进行自动化数据转换/9358d109b3de9c82cb0a40aa6d81800a19d843a3.jpg" title="excel使用宏进行自动化数据转换">
 <ul>
-<li>千分号就在这里，我们点击插入</li>
+<li>打开一个数据格式对话框，我们将数据格式设置成百分比，然后点击确定按钮</li>
 </ul>
-<img src="/2016/08/23/Excel2013：[23]如何输入千分号‰/dc854fda81cb39dbc4b31a23d2160924ab183010.jpg" title="Excel2013：[23]如何输入千分号‰">
+<img src="/2016/10/01/excel使用宏进行自动化数据转换/dbb44aed2e738bd437a10b14a08b87d6277ff917.jpg" title="excel使用宏进行自动化数据转换">
 <ul>
-<li>好啦，完成任务。</li>
+<li>到这，宏的录制就完成了，点击停止录制宏按钮，然后我们看一下如何使用这个宏</li>
 </ul>
-<img src="/2016/08/23/Excel2013：[23]如何输入千分号‰/808a27dbb6fd5266a4584161a918972bd4073610.jpg" title="Excel2013：[23]如何输入千分号‰">
+<img src="/2016/10/01/excel使用宏进行自动化数据转换/5882b2b7d0a20cf4d56847fa77094b36acaf991f.jpg" title="excel使用宏进行自动化数据转换">
+<ul>
+<li>选择一批想要转换格式的数据，如图所示，然后点击工具栏上面的【宏】</li>
+</ul>
+<img src="/2016/10/01/excel使用宏进行自动化数据转换/63d9f2d3572c11df32170606622762d0f603c2d5.jpg" title="excel使用宏进行自动化数据转换">
+<ul>
+<li>在打开的对话框中，选择刚才录制的这个宏，然后点击运行</li>
+</ul>
+<img src="/2016/10/01/excel使用宏进行自动化数据转换/023b5bb5c9ea15cefcc0582cb7003af33a87b2ed.jpg" title="excel使用宏进行自动化数据转换">
+<ul>
+<li>最后看一下，这些数据就快速的转换 成了百分比。用这种自动的方法可以快速的完成数据的转换。</li>
+</ul>
+<img src="/2016/10/01/excel使用宏进行自动化数据转换/5ab5c9ea15ce36d31e2f3b153bf33a87e950b1e8.jpg" title="excel使用宏进行自动化数据转换">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1102,13 +655,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/08/23/SPSS实例：[15]如何解读独立样本T检验的结果/">
-                SPSS实例：[15]如何解读独立样本T检验的结果
+            <a href="/2016/10/01/Excel2013：[47]瀑布图的做法/">
+                Excel2013：[47]瀑布图的做法
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年08月23日</span>
+                <span class="date">2016年10月01日</span>
             
             
             
@@ -1117,23 +670,558 @@
 
     
         <div class="content">
-            <p>下面这幅图是从网页上搜索得到的一个结果，我们就拿这个结果来解读一下如何分析独立样本T检验的结果。</p>
+            <p>瀑布图就是看起来像瀑布（我也不知道谁给的名字），总之看起来也不是很像。看下面这个图吧，它可以直观的看到在总计中，各个部分的的组成成分和大小，有点饼图的功能，不多说了，看看我们怎么在Excel 2013中绘制一个瀑布图吧！</p>
 <ul>
-<li>第一个看第一个sig值，它是对方差齐性的假设的检验，假如sig&lt;0.05，说明不满足方差齐性，我们认为方差是不齐的</li>
+<li>先来看看数据，包含项目、销量，然后我们自己增加一个【站位】，功能就是占位</li>
 </ul>
-<img src="/2016/08/23/SPSS实例：[15]如何解读独立样本T检验的结果/3bb22487e950352af27a1b1f5143fbf2b2118b4a.jpg" title="SPSS实例：[15]如何解读独立样本T检验的结果">
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/ea85a94543a9822660db2e488882b9014a90eb0c.jpg" title="Excel2013：[47]瀑布图的做法">
 <ul>
-<li>这种情况下，我们只能看第二行数据，也就是看下图所示的sig值来判断是否有组间差异。第二个sig值说明，差异不显著，因为它大于了.05。我们得出的结论是没有差异。</li>
+<li>在c2单元格输入0，然后在c3单元格输入公式，然后向下拖动，快速填充公式；公式的目的就是计算累加和</li>
 </ul>
-<img src="/2016/08/23/SPSS实例：[15]如何解读独立样本T检验的结果/734f12f3d7ca7bcb1d6af938bc096b63f624a850.jpg" title="SPSS实例：[15]如何解读独立样本T检验的结果">
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/1899a23eb13533fadd069641aad3fd1f40345be9.jpg" title="Excel2013：[47]瀑布图的做法">
 <ul>
-<li>我们看第二行数据，sig值&gt;0.05，说明方差是齐性的。</li>
+<li>这就是填充好的数据了</li>
 </ul>
-<img src="/2016/08/23/SPSS实例：[15]如何解读独立样本T检验的结果/4651a712c8fcc3ce5c58f7249045d688d53f20c9.jpg" title="SPSS实例：[15]如何解读独立样本T检验的结果">
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/5202e5f2b2119313a564fadf67380cd791238d7e.jpg" title="Excel2013：[47]瀑布图的做法">
 <ul>
-<li>这时候，我们需要看另一个sig值，这个值仍然是没有达到显著水平（0.05)，我们认为两组是没有差异的。</li>
+<li>接着选中数据，然后插入直方图，选择如图所示的直方图类型</li>
 </ul>
-<img src="/2016/08/23/SPSS实例：[15]如何解读独立样本T检验的结果/5af4d7ea15ce36d3fb95bd2738f33a87e850b1d0.jpg" title="SPSS实例：[15]如何解读独立样本T检验的结果">
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/cebd00178a82b901f9b7c65c718da9773912ef0c.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>看到了吧，目前就是酱紫</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/f7426d8da97739120b3c800efa198618367ae20c.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>我们设置一下不同部分显示不同的数据，右键单击直方图，然后选择【选择数据】</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/a8362712b31bb051423eb647347adab44aede00c.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>在这里，我们将【站位】移动到上一层，点击确定</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/30ecd5ef76094b3689b51e82a1cc7cd98d109d7e.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>有一点瀑布图的效果了</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/b110e6198618367a67937ab22c738bd4b31ce50c.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>接着，我们设置数据系列格式，吧站位的直方图都设置为透明的</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/7d98931001e939010d25885179ec54e736d1967e.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>在填充选项中，设置为无填充</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/38403f3fb80e7bec7bfd068e2d2eb9389b506b7e.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>瀑布图已经做出来了，但是，我们还需要设置数据标签，删掉图中多余的内容</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/2e6fa7389b504fc2e078b56ae7dde71190ef6d7e.jpg" title="Excel2013：[47]瀑布图的做法">
+<ul>
+<li>这才是最后的效果，瀑布图制作完毕!</li>
+</ul>
+<img src="/2016/10/01/Excel2013：[47]瀑布图的做法/91ae68c6a7efce1ba00ccda5ad51f3deb48f657e.jpg" title="Excel2013：[47]瀑布图的做法">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/23/python 线性代数：[6]逆矩阵 伴随矩阵/">
+                python 线性代数：[6]逆矩阵 伴随矩阵
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>设A是数域上的一个n阶方阵，若在相同数域上存在另一个n阶矩阵B，使得： AB=BA=E。 则我们称B是A的逆矩阵，而A则被称为可逆矩阵。当矩阵A的行列式|A|不等于0时才存在可逆矩阵。而伴随矩阵的定义我 从网上找到了一个：</p>
+<ul>
+<li>先来求一下矩阵的逆，先引入numpy</li>
+</ul>
+<img src="/2016/09/23/python%20线性代数：[6]逆矩阵%20伴随矩阵/72ccb7773912b31bea8677db8418367adbb4e11f.jpg" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+<ul>
+<li>然后创建一个方阵A</li>
+</ul>
+<img src="/2016/09/23/python%20线性代数：[6]逆矩阵%20伴随矩阵/f6428f8fa0ec08fad0a9a9555bee3d6d54fbda5c.jpg" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+<ul>
+<li>使用linalg.det求得方阵的行列式</li>
+</ul>
+<img src="/2016/09/23/python%20线性代数：[6]逆矩阵%20伴随矩阵/09bb4f3d269759eeb9f9da39b0fb43166c22df5c.jpg" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+<ul>
+<li>使用linalg.inv求得方阵A的逆矩阵</li>
+</ul>
+<img src="/2016/09/23/python%20线性代数：[6]逆矩阵%20伴随矩阵/b25aae51f81986186bad557648ed2e738ad4e61f.jpg" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+<ul>
+<li>接着我们利用公式：<br>numpy的计算方法：</li>
+</ul>
+<img src="/2016/09/23/python%20线性代数：[6]逆矩阵%20伴随矩阵/08b68e529822720e9c16580879cb0a46f31fab2d.jpg" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+<img src="/2016/09/23/python%20线性代数：[6]逆矩阵%20伴随矩阵/f9589818367adab4153aa1b189d4b31c8601e41f.jpg" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+<ul>
+<li><p>以下是今天用到的所有代码</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>import numpy as np</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A=np.array([[1,-2,1],[0,2,-1],[1,1,-2]])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[ 1, -2,  1],</p>
+</li>
+<li><p>[ 0,  2, -1],</p>
+</li>
+<li><p>[ 1,  1, -2]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_abs=np.linalg.det(A)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_abs</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>-3.0000000000000004</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>B=np.linalg.inv(A)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>B</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[ 1.        ,  1.        ,  0.        ],</p>
+</li>
+<li><p>[ 0.33333333,  1.        , -0.33333333],</p>
+</li>
+<li><p>[ 0.66666667,  1.        , -0.66666667]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_ni=B*A_abs</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_ni</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[-3., -3., -0.],</p>
+</li>
+<li><p>[-1., -3.,  1.],</p>
+</li>
+<li><p>[-2., -3.,  2.]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_bansui=B*A_abs</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_bansui</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[-3., -3., -0.],</p>
+</li>
+<li><p>[-1., -3.,  1.],</p>
+</li>
+<li><p>[-2., -3.,  2.]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/23/Python教程：[59]读取txt内容/">
+                Python教程：[59]读取txt内容
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>前三篇文章主要将写入txt，今天我们讲读取txt，读取txt其实就是以r模式打开txt文件，然后读取其内容，下面看一下代码吧：</p>
+<ul>
+<li>以可读模式打开txt文件：</li>
+</ul>
+<img src="/2016/09/23/Python教程：[59]读取txt内容/55a628d12f2eb9387f1b3072d7628535e4dd6ff9.jpg" title="Python教程：[59]读取txt内容">
+<ul>
+<li>读取第一行内容，保存在line中，然后打印出line</li>
+</ul>
+<img src="/2016/09/23/Python教程：[59]读取txt内容/8474fbdde71190ef9dffd85fcc1b9d16fcfa60ef.jpg" title="Python教程：[59]读取txt内容">
+<ul>
+<li>通过循环就能读出所有行：注意readine每调用一次就会读取下一行</li>
+</ul>
+<img src="/2016/09/23/Python教程：[59]读取txt内容/9c57e3faaf51f3de46b6f3e496eef01f3b2979ef.jpg" title="Python教程：[59]读取txt内容">
+<ul>
+<li>还可以使用这个方法读取所有的行</li>
+</ul>
+<img src="/2016/09/23/Python教程：[59]读取txt内容/ae10eddeb48f8c5460d78faf38292df5e1fe7fef.jpg" title="Python教程：[59]读取txt内容">
+<ul>
+<li>速度更快的方法是直接使用多行读取的方法：readlines，参数5表示读取5行</li>
+</ul>
+<img src="/2016/09/23/Python教程：[59]读取txt内容/8d158aeef01f3a29dacc9f4e9b25bc315d607cef.jpg" title="Python教程：[59]读取txt内容">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/23/Mysql教程：[4]查看数据库信息/">
+                Mysql教程：[4]查看数据库信息
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>怎么查看数据库的用户名？怎么查看mysql数据库的端口号？怎么查看数据库的表？怎么查看数据库名称？等等，这些问题就会在这篇文章里解决，我们看看下面具体的过程吧：</p>
+<ul>
+<li>首先是查看mysql数据库的端口号，使用命令show：</li>
+</ul>
+<img src="/2016/09/23/Mysql教程：[4]查看数据库信息/1899a23eb13533fad8d49360aad3fd1f40345bda.jpg" title="Mysql教程：[4]查看数据库信息">
+<ul>
+<li>查看有哪些数据库：</li>
+</ul>
+<img src="/2016/09/23/Mysql教程：[4]查看数据库信息/b0742dfa828ba61ef48cc8614334970a314e59da.jpg" title="Mysql教程：[4]查看数据库信息">
+<ul>
+<li>查看mysql数据库所有用户：</li>
+</ul>
+<img src="/2016/09/23/Mysql教程：[4]查看数据库信息/b3ba5d166d224f4ac491735d0bf790529822d131.jpg" title="Mysql教程：[4]查看数据库信息">
+<ul>
+<li>查看某个数据库中所有的表：</li>
+</ul>
+<img src="/2016/09/23/Mysql教程：[4]查看数据库信息/cbc17b380cd791238296943aaf345982b3b780ce.jpg" title="Mysql教程：[4]查看数据库信息">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/mysql/">#mysql</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/23/Python统计分析：[7]混合设计的方差分析/">
+                Python统计分析：[7]混合设计的方差分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>混合设计的方差分析就是既有组内变量又有组间变量的方差分析。想要进行这样的方差分析，如果还是用python.statsmodels就不太方便了，因此用到了Python的另一个还比较年轻的统计包pyvttbl,它对anova的支持更全面，使用也更方便，这里我们就看看如何用pyvttbl来实现混合设计的方差分析。</p>
+<ul>
+<li>引入DataFrame对象，注意此Dataframe不是pandas.DataFrame</li>
+</ul>
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/cebd00178a82b90162ea4c4f708da9773812efcc.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<ul>
+<li>读取数据</li>
+</ul>
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/b8405490f603738d820d835eb01bb051f919eccc.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<ul>
+<li>我们看一下pyvttbl.DataFrame的结构，有一个变量是必须的——SUBJECT，也就是被试编号，同一个被试有相同的编号，这是我们必须提供的，否则在后面的分析中会出错。</li>
+</ul>
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/373bc4b44aed2e73beae09508401a18b86d6facc.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<ul>
+<li>我们用anova方法进行混合设计的方差分析，需要制定因变量score，组间变量group，组内变量test</li>
+</ul>
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/2f3295d4b31c870199f13d9a247f9e2f0608ffcc.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<ul>
+<li>打印出来的结果有很多，首先看组间效应的检验，group的F和sig值<br>与此相对应，我们输出spss中的结果</li>
+</ul>
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/9f6e190828381f30d65e02d5aa014c086f06f0cc.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/5beeba0f4bfbfbedb3cbb9037bf0f736aec31ff8.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<ul>
+<li>接着是组间效应的检验，包括交互效应<br>以下是spss中的输出结果</li>
+</ul>
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/8367d1fc1e178a829eaef0dcf503738da877e8f9.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/4bd1e803738da97715bd0957b351f8198718e3f9.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<ul>
+<li>最后是边际均值</li>
+</ul>
+<img src="/2016/09/23/Python统计分析：[7]混合设计的方差分析/8759287adab44aed1adc3198b01c8701a08bfbf9.jpg" title="Python统计分析：[7]混合设计的方差分析">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/23/spss如何使用K-S进行正态性检验/">
+                spss如何使用K-S进行正态性检验
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在对数据进行t检验或者f检验之前需要让数据满足正态性的要求，所以应该对数据进行正态性检验，检验正态性的方法中，K-S检验是最普遍的方法之一，下面我们就来具体的操作一下图和进行K-S检验。<br>方法/步骤</p>
+<ul>
+<li>我拿到数据以后，先要在spss中组织数据，如图所示，第一列变量是我们要检验是否为正态的变量，第二列是数据的分组，即他们的组号。有的时候你的数据没有分组，也就是只有一个组，那就没有必要写group列了</li>
+</ul>
+<img src="/2016/09/23/spss如何使用K-S进行正态性检验/c2cec3fdfc0392458db6a68a8794a4c27d1e2537.jpg" title="spss如何使用K-S进行正态性检验">
+<ul>
+<li>为了分别检验每个分组的数据是否符合正态分布，我们要先将各个组分离（如果你的数据只有一个组那就没必要进行这一步了），如图所示在菜单栏上执行：data—split file</li>
+</ul>
+<img src="/2016/09/23/spss如何使用K-S进行正态性检验/71cf3bc79f3df8dc8133c814cd11728b4710282c.jpg" title="spss如何使用K-S进行正态性检验">
+<ul>
+<li>勾选【organize output by groups】，它的意思是分组呈现变量结果，将分组情况这个变量添加到group based on中，点击ok按钮</li>
+</ul>
+<img src="/2016/09/23/spss如何使用K-S进行正态性检验/d000baa1cd11728b1323cba7c8fcc3cec3fd2c2c.jpg" title="spss如何使用K-S进行正态性检验">
+<ul>
+<li>接着要对正太性进行检验了，我们在菜单栏上执行：analyze–nonparametric—one sample</li>
+</ul>
+<img src="/2016/09/23/spss如何使用K-S进行正态性检验/80cb39dbb6fd5266ba287b91ab18972bd4073637.jpg" title="spss如何使用K-S进行正态性检验">
+<ul>
+<li>切换到fileds这个选项，然后将你要检验的变量放到右侧的text fields中</li>
+</ul>
+<img src="/2016/09/23/spss如何使用K-S进行正态性检验/9345d688d43f8794faf10fabd21b0ef41bd53a2c.jpg" title="spss如何使用K-S进行正态性检验">
+<ul>
+<li>切换到settings选项，然后点击【choose test】，勾选右侧的K-S检验，如图所示。然后点击下方的options</li>
+</ul>
+<img src="/2016/09/23/spss如何使用K-S进行正态性检验/0ff41bd5ad6eddc434e9f37e39dbb6fd5266332c.jpg" title="spss如何使用K-S进行正态性检验">
+<ul>
+<li>打开如图所示的对话框，我们将normal这个选项勾选，因为没有已知的正太分布的参数，所以选择use sample data，点击ok</li>
+</ul>
+<img src="/2016/09/23/spss如何使用K-S进行正态性检验/dcc451da81cb39dbdece20d3d0160924ab18302c.jpg" title="spss如何使用K-S进行正态性检验">
+<ul>
+<li>切换到text options 设置显著性水平，如图所示，一般为0.05或者0.01</li>
+</ul>
+<img src="/2016/09/23/spss如何使用K-S进行正态性检验/72f082025aafa40f34c58958ab64034f78f01937.jpg" title="spss如何使用K-S进行正态性检验">
+<ul>
+<li>点击run，你就会看到数据处理的结果了</li>
+</ul>
+<img src="/2016/09/23/spss如何使用K-S进行正态性检验/ac4bd11373f08202279cd6ba4bfbfbedab641b2c.jpg" title="spss如何使用K-S进行正态性检验">
+<ul>
+<li><p>下面是各个组的检验结果，结果显示的很详细，每个组都没有达到显著水平，接受原假设，即所有的组都是正态分布的。</p>
+</li>
+<li></li>
+</ul>
+<img src="/2016/09/23/spss如何使用K-S进行正态性检验/cefc1e178a82b901dbae84b6738da9773912ef30.jpg" title="spss如何使用K-S进行正态性检验">
+<img src="/2016/09/23/spss如何使用K-S进行正态性检验/f703738da97739122525c2e4f8198618367ae230.jpg" title="spss如何使用K-S进行正态性检验">
+<img src="/2016/09/23/spss如何使用K-S进行正态性检验/b21bb051f8198618ac44a8014aed2e738bd4e630.jpg" title="spss如何使用K-S进行正态性检验">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1149,6 +1237,78 @@
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
             <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/19/DataNitro：[6]sheet操作(A)/">
+                DataNitro：[6]sheet操作(A)
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天继续我们的datanitro，讲一讲对sheet的操作，sheet就是工作表（擦！你以为我们不知道啊！），因为内容比较多，我们分为A篇和B篇，看完A篇（A篇听起来很性感），觉得好看再看B篇。</p>
+<ul>
+<li>active_sheet：返回当前活动工作表（当前活动的也就是你正在操作的，鼠标点一下某个sheet就会激活这个sheet）。如果你不传入任何参数，他会返回活动sheet的名称，如果你传入一个sheet名称，就会激活该sheet：</li>
+</ul>
+<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/d5462bfae6cd7b8986cda4d00c2442a7d8330e84.jpg" title="DataNitro：[6]sheet操作(A)">
+<ul>
+<li>display_sheet：展示某个工作表：它的用法和上面一样，传不传参数，它的功能不同，其实datanitro的很多方法都是这样的，你畜类旁通一下，因为很多时候我是不会重复的说这个事情的。</li>
+</ul>
+<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/d5462bfae6cd7b898914a3d00c2442a7d9330e2d.jpg" title="DataNitro：[6]sheet操作(A)">
+<ul>
+<li>clear_row和clear_col：清空某行或者某列：他们可以使用整数、列表、Cell对象CellRange对象作为参数。当使用Cell或者CellRange的时候，他们清空的是这些单元格所在的行或者列</li>
+</ul>
+<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/cdfe7281800a19d863fd1d5630fa828ba71e46ac.jpg" title="DataNitro：[6]sheet操作(A)">
+<ul>
+<li><p>del_row/del_col用法也是同上，顾名思义，删除行或者列。</p>
+</li>
+<li><p>hide_row/hide_col用法稍微不同，顾名思义，隐藏行或者列。可以传入整数、列表，还可以指定隐藏某个特定的工作表中的行。</p>
+</li>
+</ul>
+<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/d66b7e59252dd42aadde98f8003b5bb5c8eab84b.jpg" title="DataNitro：[6]sheet操作(A)">
+<ul>
+<li>row_is_hidded/col_is_hidden：判断某行/列是否被隐藏，如果被隐藏，返回True，否则返回False。只能接受整数作为参数，而是否指定某个工作表是可选的，如果不指定，那么就指的是当前活动的工作表</li>
+</ul>
+<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/86d5bac27d1ed21b0824b7b6ae6eddc450da3fb0.jpg" title="DataNitro：[6]sheet操作(A)">
+<ul>
+<li>insert_row/insert_col：这两个方法你应该亲手测试一下，传入不同的参数看看效果，它可以接受的参数有整数，Cell对象，列表；还可以指定某个工作表。</li>
+</ul>
+<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/c8ab0bce36d3d5393bea96903987e950342ab04b.jpg" title="DataNitro：[6]sheet操作(A)">
+<ul>
+<li>aotofit：设置自动列宽，它有两个可选参数：工作表和CellRange地址</li>
+</ul>
+<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/c71d0e385343fbf224fb3f70b37eca8064388f4b.jpg" title="DataNitro：[6]sheet操作(A)">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/datanitro/">#datanitro</a>
         </div>
     
 
@@ -1195,43 +1355,43 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2020/12/23/均值差异的效应量在线计算器/">均值差异的效应量在线计算器</a>
+                <a class="footer-post" href="/2021/07/08/方差分析08-单因素多元方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
+                <a class="footer-post" href="/2021/07/08/方差分析07-单变量协方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/27/文旅特色小镇的具身体验质量-数据分享/">文旅特色小镇的具身体验质量-数据分享</a>
+                <a class="footer-post" href="/2021/07/08/方差分析06-2因素混合设计方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/12/问卷代填-大学生的论文用的-有靠谱的调研商家/">问卷代填(大学生的论文用的)怎么快速收集高质量问卷</a>
+                <a class="footer-post" href="/2021/07/08/方差分析05-重复测量单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/04/嵌入式python的zip安装和并安装pip/">嵌入式python的zip安装和并安装pip</a>
+                <a class="footer-post" href="/2021/07/08/方差分析04-三因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-效度分析/">SPSS问卷效度分析教程</a>
+                <a class="footer-post" href="/2021/07/08/方差分析03-双因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+                <a class="footer-post" href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+                <a class="footer-post" href="/2021/07/08/方差分析01-单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+                <a class="footer-post" href="/2021/07/08/11-2XN卡方检验/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2021/07/08/10-2x2卡方检验/">Untitled</a>
             </li>
             
         </ul>
@@ -1245,7 +1405,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1549,11 +1709,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>

@@ -78,6 +78,8 @@ tags: notebook
 # # open('test.md', 'w', encoding='utf8').write(md[0])
 
 # wt.write(md[0], md[1], 'testname')
+from pathlib import Path
+
 
 def write_fromfile(from_filename, md_filename=None, source_link=None):
 	fname=os.path.split(from_filename)[1]
@@ -88,6 +90,7 @@ def write_fromfile(from_filename, md_filename=None, source_link=None):
 		md_filename = fname
 
 	mdcvt=nbconvert.MarkdownExporter()
+	print('from file:', from_filename)
 	output, resources = mdcvt.from_filename(from_filename)
 	output_extension=resources.get('output_extension')
 	while md_filename.endswith(output_extension):

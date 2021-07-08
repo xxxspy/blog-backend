@@ -197,6 +197,12 @@
     <div class="page_list archive-container">
         
             <div class="archive-post">
+                <a href="/2021/01/04/01 安装manimlib/">
+                    manim系列教程01-windows平台安装manim
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2020/11/04/嵌入式python的zip安装和并安装pip/">
                     嵌入式python的zip安装和并安装pip
                 </a>
@@ -217,12 +223,6 @@
             <div class="archive-post">
                 <a href="/2019/08/04/python中logging模块的error和exception的区别和最佳实践/">
                     python中logging模块的error和exception的区别和最佳实践
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2019/07/21/python3的logging模块的最佳实践/">
-                    python3的logging模块的最佳实践
                 </a>
             </div>
             
@@ -448,13 +448,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/07/19/SPSS实例：[39]如何统计频率/">
-                SPSS实例：[39]如何统计频率
+            <a href="/2016/08/11/Python统计分析：[6]单因素重复测量方差分析/">
+                Python统计分析：[6]单因素重复测量方差分析
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年07月19日</span>
+                <span class="date">2016年08月11日</span>
             
             
             
@@ -463,239 +463,33 @@
 
     
         <div class="content">
-            <p>如何做人口统计学变量的频数统计？这个是spss的最基本功能，很简单，但是很多刚接触spss又想很快写完论文的人都不知道，我今天就写一篇教程，讲一下如何去做，下面是具体的过程：</p>
+            <p>单因素重复测量方差分析:[repeated measuers anova in python]</p>
 <ul>
-<li>先来看一下我的数据，都录入到了spss</li>
+<li>引入相关模块</li>
 </ul>
-<img src="/2016/07/19/SPSS实例：[39]如何统计频率/a992e31f4134970a1c2c4ca997cad1c8a6865d9d.jpg" title="SPSS实例：[39]如何统计频率">
+<img src="/2016/08/11/Python统计分析：[6]单因素重复测量方差分析/c71d0e385343fbf211710c5fb37eca8065388f2a.jpg" title="Python统计分析：[6]单因素重复测量方差分析">
 <ul>
-<li>依次打开菜单：analyse–descriptive statistics–frequencies，打开描述性统计</li>
+<li>读取数据，并打印查看数据<br>数据在整理前是这样的：这是重复测量方差分析标准的数据格式，scoreA和scoreB分别是前测和后测成绩，ID表示被试的编号，group在今天的教程中没用，忽略他</li>
 </ul>
-<img src="/2016/07/19/SPSS实例：[39]如何统计频率/0b07ec1fbe096b634be102d60e338744eaf8ac79.jpg" title="SPSS实例：[39]如何统计频率">
+<img src="/2016/08/11/Python统计分析：[6]单因素重复测量方差分析/fab3ac119313b07e6ce0fa740fd7912397dd8c2a.jpg" title="Python统计分析：[6]单因素重复测量方差分析">
+<img src="/2016/08/11/Python统计分析：[6]单因素重复测量方差分析/83cab81ea8d3fd1fb2ba0846334e251f94ca5fd8.jpg" title="Python统计分析：[6]单因素重复测量方差分析">
 <ul>
-<li>打开了一个对话框，我们将要统计频率的变量放入到右侧的变量框，如图所示</li>
+<li>整理数据很关键，我们用到了pandas.concat来合并两个数据框<br>最终得到的数据如下：一个因变量score和两个自变量（ID和group）</li>
 </ul>
-<img src="/2016/07/19/SPSS实例：[39]如何统计频率/4a77b2af2edda3cc9377e4a603e93901203f9262.jpg" title="SPSS实例：[39]如何统计频率">
+<img src="/2016/08/11/Python统计分析：[6]单因素重复测量方差分析/dc15484e9258d109565003ced258ccbf6d814dd8.jpg" title="Python统计分析：[6]单因素重复测量方差分析">
+<img src="/2016/08/11/Python统计分析：[6]单因素重复测量方差分析/4075890a304e251f62444e84a486c9177e3e53d8.jpg" title="Python统计分析：[6]单因素重复测量方差分析">
 <ul>
-<li>默认情况下，结果会输出频率和百分比，当然，我们还可以点击statistics，选择更多统计量</li>
+<li>回忆上一篇的知识，我们需要写一个公式定义模型，然后进行拟合</li>
 </ul>
-<img src="/2016/07/19/SPSS实例：[39]如何统计频率/9dc3cf58ccbf6c81a183706ebe3eb13532fa4044.jpg" title="SPSS实例：[39]如何统计频率">
+<img src="/2016/08/11/Python统计分析：[6]单因素重复测量方差分析/814b07d8bc3eb135dd741dc7a51ea8d3fc1f44d8.jpg" title="Python统计分析：[6]单因素重复测量方差分析">
 <ul>
-<li>在这里你还可以选择最大值、最小值、四分位数等</li>
+<li>最后得到的重复测量的方差分析结果，ID是被试差异造成的影响，可以不看；group就是实验处理效应，它是不显著的。</li>
 </ul>
-<img src="/2016/07/19/SPSS实例：[39]如何统计频率/32bb9c8ba61ea8d3d4962882950a304e241f5844.jpg" title="SPSS实例：[39]如何统计频率">
+<img src="/2016/08/11/Python统计分析：[6]单因素重复测量方差分析/245e8bcad1c8a7863399e0726409c93d71cf50d8.jpg" title="Python统计分析：[6]单因素重复测量方差分析">
 <ul>
-<li>我们看一下输出的结果：这是学生专业的频率统计</li>
+<li>假如我们用spss进行重复测量的方差分析，得到的结果是：和上面的结果是一样的。至此我们就实现了单因素重复测量的方差分析，下一节继续介绍多因素混合设计方差分析。</li>
 </ul>
-<img src="/2016/07/19/SPSS实例：[39]如何统计频率/5f9e93b1cb1349541eaab4e2544e9258d0094a44.jpg" title="SPSS实例：[39]如何统计频率">
-<ul>
-<li>这是学生年级的频率统计</li>
-</ul>
-<img src="/2016/07/19/SPSS实例：[39]如何统计频率/f15e24292df5e0fe96acd5875e6034a85fdf7244.jpg" title="SPSS实例：[39]如何统计频率">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/07/17/Excel如何取消分类汇总/">
-                Excel如何取消分类汇总
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年07月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们经常用分类汇总来统计数据，但是现在我们不想统计数据了，如何取消分类汇总呢？通常很多人都不知道这个答案，所以我就来给大家示范一下如何取消分类汇总选项，下面是具体的过程：</p>
-<ul>
-<li>我们通常都知道使用如图所示的按钮来设置分类汇总，我们先来自己做一个分类汇总，然后在取消这个分类汇总</li>
-</ul>
-<img src="/2016/07/17/Excel如何取消分类汇总/d002b34bd11373f0cc11db55a50f4bfbfaed048a.jpg" title="Excel如何取消分类汇总">
-<ul>
-<li>假如我要对年龄进行汇总，我们选择汇总项为年龄，点击确定</li>
-</ul>
-<img src="/2016/07/17/Excel如何取消分类汇总/ea85a94543a9822690ef9fed8b82b9014b90eb8b.jpg" title="Excel如何取消分类汇总">
-<ul>
-<li>我们看到这就是汇总成功的样子了，接下来要取消汇总</li>
-</ul>
-<img src="/2016/07/17/Excel如何取消分类汇总/8759287adab44aed41600a2eb21c8701a08bfb8b.jpg" title="Excel如何取消分类汇总">
-<ul>
-<li>鼠标点击一下汇总区域的一个单元格，这个步骤虽然没用，但是有必要，否则就会出现错误</li>
-</ul>
-<img src="/2016/07/17/Excel如何取消分类汇总/95afee1f3a292df517b818dfbd315c6035a87346.jpg" title="Excel如何取消分类汇总">
-<ul>
-<li>选择分类汇总选项，如图所示</li>
-</ul>
-<img src="/2016/07/17/Excel如何取消分类汇总/54baacfb43166d22d759a15e472309f79152d28b.jpg" title="Excel如何取消分类汇总">
-<ul>
-<li>看到警告提示，可以忽略他，点击确定</li>
-</ul>
-<img src="/2016/07/17/Excel如何取消分类汇总/6dc09e0a19d8bc3ebc72b200838ba61ea9d34546.jpg" title="Excel如何取消分类汇总">
-<ul>
-<li>在这里，我们点击“全部删除”按钮就可以了。</li>
-</ul>
-<img src="/2016/07/17/Excel如何取消分类汇总/29752a9b033b5bb57ff9943437d3d539b700bc8b.jpg" title="Excel如何取消分类汇总">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/07/15/SPSS实例：[35]优势比OR计算方法/">
-                SPSS实例：[35]优势比OR计算方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年07月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>优势比OR：是一个比值的比，是反应阳性人群中试验因素有无的 比例与反应阴性人群中试验因素有无的比例之比。假如有一个实验分为对照组和实验组，OR值得计算方法就是实验组中患病人数与非患病人数之比除以对照组中患病人数与非患病人数之比。所以就是一个比值的比。</p>
-<ul>
-<li>在spss中，计算优势比OR值得方法是在交叉分析中，先打开交叉分析对话框</li>
-</ul>
-<img src="/2016/07/15/SPSS实例：[35]优势比OR计算方法/43e6c733c895d143f5d8a29471f082025baf079f.jpg" title="SPSS实例：[35]优势比OR计算方法">
-<ul>
-<li>先将两个变量放入到对应的框中</li>
-</ul>
-<img src="/2016/07/15/SPSS实例：[35]优势比OR计算方法/42e89c26cffc1e17e411ca864890f603728de998.jpg" title="SPSS实例：[35]优势比OR计算方法">
-<ul>
-<li>打开统计量对话框</li>
-</ul>
-<img src="/2016/07/15/SPSS实例：[35]优势比OR计算方法/b8405490f603738ddae44a95b11bb051f919ec98.jpg" title="SPSS实例：[35]优势比OR计算方法">
-<ul>
-<li>勾选【risk】，也就是风险评估分析</li>
-</ul>
-<img src="/2016/07/15/SPSS实例：[35]优势比OR计算方法/b110e6198618367aa027396a2c738bd4b21ce598.jpg" title="SPSS实例：[35]优势比OR计算方法">
-<ul>
-<li>结果页面中，我们看结果OR值就已经有了。不过OR值只有卡方检验显著时才是有价值的。卡方不显著时，就不用提OR值了。</li>
-</ul>
-<img src="/2016/07/15/SPSS实例：[35]优势比OR计算方法/9f6e190828381f306eb7cb1eab014c086f06f098.jpg" title="SPSS实例：[35]优势比OR计算方法">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/07/11/python 线性代数：[17]线性组合的协方差/">
-                python 线性代数：[17]线性组合的协方差
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年07月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们先来看这个练习题：</p>
-<ul>
-<li>先来创建这个X矩阵</li>
-</ul>
-<img src="/2016/07/11/python%20线性代数：[17]线性组合的协方差/425773224f4a20a490994a8593529822730ed0aa.jpg" title="python 线性代数：[17]线性组合的协方差">
-<ul>
-<li>创建两个系数向量</li>
-</ul>
-<img src="/2016/07/11/python%20线性代数：[17]线性组合的协方差/6c63514a20a44623de4dd3209b22720e0df3d7aa.jpg" title="python 线性代数：[17]线性组合的协方差">
-<ul>
-<li>先计算X的协方差矩阵<br>结果为：</li>
-</ul>
-<img src="/2016/07/11/python%20线性代数：[17]线性组合的协方差/54baacfb43166d229b9163d6452309f79152d24b.jpg" title="python 线性代数：[17]线性组合的协方差">
-<img src="/2016/07/11/python%20线性代数：[17]线性组合的协方差/fab3ac119313b07ec83b264a0fd7912396dd8caa.jpg" title="python 线性代数：[17]线性组合的协方差">
-<ul>
-<li>计算X的均值向量，注意设置axis为0<br>求得结果为：</li>
-</ul>
-<img src="/2016/07/11/python%20线性代数：[17]线性组合的协方差/f35ea0096b63f62488da4f418444ebf81b4ca3aa.jpg" title="python 线性代数：[17]线性组合的协方差">
-<img src="/2016/07/11/python%20线性代数：[17]线性组合的协方差/3792cb39b6003af3c25caa22362ac65c1138b64b.jpg" title="python 线性代数：[17]线性组合的协方差">
-<ul>
-<li>求得两个线性组合的均值：<br>结果为：</li>
-</ul>
-<img src="/2016/07/11/python%20线性代数：[17]线性组合的协方差/6a2112338744ebf8fdf6127ddaf9d72a6159a7aa.jpg" title="python 线性代数：[17]线性组合的协方差">
-<img src="/2016/07/11/python%20线性代数：[17]线性组合的协方差/3bb22487e950352a3d87534a5043fbf2b3118b4b.jpg" title="python 线性代数：[17]线性组合的协方差">
-<ul>
-<li>求两个线性组合的方差<br>结果为：</li>
-</ul>
-<img src="/2016/07/11/python%20线性代数：[17]线性组合的协方差/734f12f3d7ca7bcbd49db16dbd096b63f724a84b.jpg" title="python 线性代数：[17]线性组合的协方差">
-<img src="/2016/07/11/python%20线性代数：[17]线性组合的协方差/fab3ac119313b07ec85c264a0fd7912396dd8c4b.jpg" title="python 线性代数：[17]线性组合的协方差">
-<ul>
-<li>求两个线性组合的协方差：<br>结果为：</li>
-</ul>
-<img src="/2016/07/11/python%20线性代数：[17]线性组合的协方差/504ec7f9d72a6059c9f697582b34349b023bba4b.jpg" title="python 线性代数：[17]线性组合的协方差">
-<img src="/2016/07/11/python%20线性代数：[17]线性组合的协方差/0d968f2397dda144a5e81af0b1b7d0a20df4864b.jpg" title="python 线性代数：[17]线性组合的协方差">
+<img src="/2016/08/11/Python统计分析：[6]单因素重复测量方差分析/38403f3fb80e7becea64969d2c2eb9389a506bd5.jpg" title="Python统计分析：[6]单因素重复测量方差分析">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -721,13 +515,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/07/11/Excel2013：[45]如何按月 年汇总日期数据/">
-                Excel2013：[45]如何按月 年汇总日期数据
+            <a href="/2016/08/11/Excel2013：[48]对数坐标轴怎么弄/">
+                Excel2013：[48]对数坐标轴怎么弄
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年07月11日</span>
+                <span class="date">2016年08月11日</span>
             
             
             
@@ -736,43 +530,35 @@
 
     
         <div class="content">
-            <p>很多数据都是需要按照日期来分类汇总的，比如下面我要做的一个数据透视表就是需要用日期来分类汇总，但是呢，我需要按照月、季度、年来汇总，而原始数据是精确到日的（也就是年月日都有的数据），那么这种情况下，怎么进行按照月、年来分类汇总呢？看看具体的教程吧。</p>
+            <p>有时候数据的变化太大，都是几倍几倍的变化，比如我们看一下下面的数据，萝卜的销量是香蕉的几百倍、是白菜的几十倍，这样的数据适合使用对数坐标轴。我们下面来看一下再Excel2013中，对数坐标轴是怎么弄的？</p>
 <ul>
-<li>首先来看一哈我的原始数据，日期一列都是精确到日的，日了</li>
+<li>先选中所有的数据</li>
 </ul>
-<img src="/2016/07/11/Excel2013：[45]如何按月%20年汇总日期数据/a8ad9413632762d0a8d53cd2a2ec08fa503dc6b1.jpg" title="Excel2013：[45]如何按月 年汇总日期数据">
+<img src="/2016/08/11/Excel2013：[48]对数坐标轴怎么弄/8a95ad1c8701a18bdd79bd129c2f07082938fe9a.jpg" title="Excel2013：[48]对数坐标轴怎么弄">
 <ul>
-<li>插入数据透视表</li>
+<li>插入一个直方图，直方图默认的坐标轴都是常规坐标轴，不是对数坐标轴</li>
 </ul>
-<img src="/2016/07/11/Excel2013：[45]如何按月%20年汇总日期数据/0fb505d5ad6eddc45b2b2c963bdbb6fd5366334b.jpg" title="Excel2013：[45]如何按月 年汇总日期数据">
+<img src="/2016/08/11/Excel2013：[48]对数坐标轴怎么弄/a0ca99d6277f9e2f5aa7b2551d30e924b999f39a.jpg" title="Excel2013：[48]对数坐标轴怎么弄">
 <ul>
-<li>在弹出的对话框中，选对数据源，点击确定按钮</li>
+<li>接着我们要选中要设置的坐标轴（有些人要设置横坐标轴，你就要选中横坐标轴）</li>
 </ul>
-<img src="/2016/07/11/Excel2013：[45]如何按月%20年汇总日期数据/90cebeec08fa513d4241f4b33f6d55fbb3fbd9b1.jpg" title="Excel2013：[45]如何按月 年汇总日期数据">
+<img src="/2016/08/11/Excel2013：[48]对数坐标轴怎么弄/5d212aa85edf8db12f89d3390b23dd54574e748d.jpg" title="Excel2013：[48]对数坐标轴怎么弄">
 <ul>
-<li>我们将日期、种类、销量放入数据透视表中</li>
+<li>右键单击坐标轴，在右键菜单中选择【设置坐标轴格式】</li>
 </ul>
-<img src="/2016/07/11/Excel2013：[45]如何按月%20年汇总日期数据/5327ce160924ab1885da795a37fae6cd7a890b4b.jpg" title="Excel2013：[45]如何按月 年汇总日期数据">
+<img src="/2016/08/11/Excel2013：[48]对数坐标轴怎么弄/5f9e93b1cb134954efb94739544e9258d0094a8d.jpg" title="Excel2013：[48]对数坐标轴怎么弄">
 <ul>
-<li>这就是做好的数据透视表，接下来就到了关键的地方，怎么按照月来汇总呢？</li>
+<li>在右侧的选项窗口中，我们勾选【对数刻度】即可</li>
 </ul>
-<img src="/2016/07/11/Excel2013：[45]如何按月%20年汇总日期数据/507c389759ee3d6d322d1fa641166d224e4adeb1.jpg" title="Excel2013：[45]如何按月 年汇总日期数据">
+<img src="/2016/08/11/Excel2013：[48]对数坐标轴怎么弄/263e802f07082838409f7349ba99a9014d08f19a.jpg" title="Excel2013：[48]对数坐标轴怎么弄">
 <ul>
-<li>选中数据透视表中的一个日期的单元格，记得一定是日期</li>
+<li>当然，我们还可以设置对数的底数，比如设置为10</li>
 </ul>
-<img src="/2016/07/11/Excel2013：[45]如何按月%20年汇总日期数据/1f569482b9014a90c07dddd0ab773912b21beed9.jpg" title="Excel2013：[45]如何按月 年汇总日期数据">
+<img src="/2016/08/11/Excel2013：[48]对数坐标轴怎么弄/0862c354564e92583b9329b39e82d158cdbf4e8d.jpg" title="Excel2013：[48]对数坐标轴怎么弄">
 <ul>
-<li>然后在【分析】标签下，找到【组选择】</li>
+<li>这就是我们设置对数坐标轴以后的样子了。</li>
 </ul>
-<img src="/2016/07/11/Excel2013：[45]如何按月%20年汇总日期数据/bd70426034a85edf42d5654e4b540923dc5475c7.jpg" title="Excel2013：[45]如何按月 年汇总日期数据">
-<ul>
-<li>在打开的对话框中，我们选择【月】，点击确定按钮。（当然你可以选择【季度】啊，【年】啊，按照你的意愿来，你又不傻！额。。）</li>
-</ul>
-<img src="/2016/07/11/Excel2013：[45]如何按月%20年汇总日期数据/29790130e924b899e77fe2556c061d950b7bf6d9.jpg" title="Excel2013：[45]如何按月 年汇总日期数据">
-<ul>
-<li>我们来看一下，现在就是按照月份来汇总了！小伙伴们，喜欢的话赶快去分享，感谢支持！</li>
-</ul>
-<img src="/2016/07/11/Excel2013：[45]如何按月%20年汇总日期数据/dc15484e9258d10964ba32dfd358ccbf6d814dc7.jpg" title="Excel2013：[45]如何按月 年汇总日期数据">
+<img src="/2016/08/11/Excel2013：[48]对数坐标轴怎么弄/064936381f30e924d936336c4e086e061c95f79a.jpg" title="Excel2013：[48]对数坐标轴怎么弄">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -798,13 +584,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/07/05/SPSS python教程：[2]怎样使用python代码/">
-                SPSS python教程：[2]怎样使用python代码
+            <a href="/2016/08/11/Excel2013：[53]数字日期转日期格式/">
+                Excel2013：[53]数字日期转日期格式
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年07月05日</span>
+                <span class="date">2016年08月11日</span>
             
             
             
@@ -813,91 +599,31 @@
 
     
         <div class="content">
-            <p>怎样在spss中使用python代码呢？有很多种方法。最简单的方法是复制别人的代码，粘贴到代码运行窗口，然后运行一下；当然大部分时间是我们自己写代码，或者我们使用自己已经编辑好的函数进行处理，总之我们这篇文章就来介绍一下我经常用到的方法。这里只是介绍一下，给你一个启示，以后的教程里我们会详细介绍各种方法，所以如果你看到这里，有些东西不懂，可以暂且不管。</p>
+            <p>打算计算月龄，但是只得到了生日，生日又是字符串格式的，比如20080102，这种数字或者字符串格式的日期是不可以直接转换成日期格式的，这样就无法计算月龄。我们的办法是使用公式date来生成日期，下面看看具体的做法：</p>
 <ul>
-<li>最简单的就是复制别人写好的python代码，然后稍加修改（主要是修改变量名和文件路径），然后运行一下即可。大家一定要注意，python是开源的，与之相应的是大批志愿者贡献自己的代码，所以很多时候我们都是直接从网上复制代码，拿来编辑一下就用。</li>
+<li>首先我们看一下转换后的效果</li>
 </ul>
-<img src="/2016/07/05/SPSS%20python教程：[2]怎样使用python代码/faacb564034f78f0da8806657b310a55b2191c61.jpg" title="SPSS python教程：[2]怎样使用python代码">
+<img src="/2016/08/11/Excel2013：[53]数字日期转日期格式/ac2fc3c451da81cbcaa6703e5066d01608243146.jpg" title="Excel2013：[53]数字日期转日期格式">
 <ul>
-<li><p>更多时候，我们要根据别人写的代码，自己再写一遍代码，当然，如果你已经有python编程经验，这很好办，否则你要先入门，尤其是python独特的书写格式，很多时候都容易让人犯错。</p>
-</li>
-<li><p>写函数：如果有一些python代码模块你经常用到，可以写成一个函数，放到py文件中，然后再调用该文件中的函数，这样就可以重复利用这个函数了。方便以后数据分析的时候使用。</p>
-</li>
+<li>我们先来学习一下DATE函数，例如我们用它生成2007年1月2日</li>
 </ul>
-<img src="/2016/07/05/SPSS%20python教程：[2]怎样使用python代码/3c2c4bfbb2fb431602c0e7ec22a4462308f7d30e.jpg" title="SPSS python教程：[2]怎样使用python代码">
+<img src="/2016/08/11/Excel2013：[53]数字日期转日期格式/509b9fcb39dbb6fda71b16d50b24ab18962b3746.jpg" title="Excel2013：[53]数字日期转日期格式">
 <ul>
-<li><p>写自己的模块：模块就是一个py文件，里面可以写函数或者类。通过引入模块，你就可以使用该模块下的所有方法和属性。增加了代码的可读性和易维护性。</p>
-</li>
-<li><p>建立一个工具栏按钮：想一下，只要你点击按钮就能执行一段python代码，替你搞定繁琐的工作。我们可以开发一个按钮，将其置于工具栏，用的时候直接点击工具栏上的按钮即可，这个我们以后会详细介绍。</p>
-</li>
+<li>这就是生成后的样式</li>
 </ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a> <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/07/05/excel怎样隐藏公式/">
-                excel怎样隐藏公式
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年07月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们看看下面的这个工作表，点击一个有公式单元格，在公式栏就会出现单元格的公式，有时候我们不想让别人知道我们的计算方法，所以有必要隐藏公式，隐藏公式的具体方法如下：<br>步骤/方法</p>
+<img src="/2016/08/11/Excel2013：[53]数字日期转日期格式/d1571724ab18972b2e7af339e4cd7b899f510a46.jpg" title="Excel2013：[53]数字日期转日期格式">
 <ul>
-<li>打开一个工作表，在D2单元格输入一个公式，公式任意，我们的目的就是要隐藏这个公式</li>
+<li>我们再来看一下mid函数，假如我们要提取某个字符串的前4个字符，使用如下的写法，其中M2代表单元格，它里面是一个字符串，第二个参数是1代表从第一个字符开始截取，最后一个参数是4表示总共截取4个字符</li>
 </ul>
-<img src="/2016/07/05/excel怎样隐藏公式/377adab44aed2e7391c6458a8701a18b87d6fa6d.jpg" title="excel怎样隐藏公式">
+<img src="/2016/08/11/Excel2013：[53]数字日期转日期格式/7ac880510fb30f2443d91ff0ca95d143ac4b0346.jpg" title="Excel2013：[53]数字日期转日期格式">
 <ul>
-<li>点击工作表的左上角的位置，如图所示，选中整个工作表，右键单击工作表，选择【设置单元格格式】</li>
+<li>它的结果就是得到了2008这个年份</li>
 </ul>
-<img src="/2016/07/05/excel怎样隐藏公式/6159252dd42a283469bff5ad5bb5c9ea15cebf7f.jpg" title="excel怎样隐藏公式">
+<img src="/2016/08/11/Excel2013：[53]数字日期转日期格式/58af236d55fbb2fb1342abe14d4a20a44723dc9d.jpg" title="Excel2013：[53]数字日期转日期格式">
 <ul>
-<li>在设置单元格格式对话框中，我们切换到【保护】面板，然后点击【隐藏】，点击确定按钮。返回到工作表</li>
+<li>所以，我们直接使用两个函数的组合就可以了：其中M2表示存放字符型日期的单元格</li>
 </ul>
-<img src="/2016/07/05/excel怎样隐藏公式/37d3d539b6003af35ca31fc6352ac65c1038b67f.jpg" title="excel怎样隐藏公式">
-<ul>
-<li>接着我们在菜单栏上执行：审阅–保护工作表</li>
-</ul>
-<img src="/2016/07/05/excel怎样隐藏公式/c75c10385343fbf2df356585b07eca8065388f7f.jpg" title="excel怎样隐藏公式">
-<ul>
-<li>弹出了保护工作表对话框，我们勾选如图所示的选项，然后输入保护密码。点击确定</li>
-</ul>
-<img src="/2016/07/05/excel怎样隐藏公式/5243fbf2b2119313df5a3c1665380cd791238d7f.jpg" title="excel怎样隐藏公式">
-<ul>
-<li><p>弹出确认密码对话框，再次输入刚才的密码，点击确定。</p>
-</li>
-<li><p>回到工作表，点击D2单元格，在公示栏中已经没有公式了，这样就可以保护公式了。</p>
-</li>
-</ul>
+<img src="/2016/08/11/Excel2013：[53]数字日期转日期格式/a54e55fbfbedab640d31be33f536afc378311e46.jpg" title="Excel2013：[53]数字日期转日期格式">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -923,13 +649,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/07/05/pandas教程：[28]散点图添加趋势线/">
-                pandas教程：[28]散点图添加趋势线
+            <a href="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/">
+                Mysql教程：[1]下载安装配置详细教程
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年07月05日</span>
+                <span class="date">2016年08月11日</span>
             
             
             
@@ -938,41 +664,51 @@
 
     
         <div class="content">
-            <p>上一篇文章我们介绍了绘制散点图的过程，现在我们要给散点图添加一个趋势线，从而直观的看到数据的变化趋势，下面来看看具体的过程：</p>
+            <p>如果不小心你下载了免安装的mysql，那么你比较倒霉，你找不到setup文件，还得自己去配置很多东西，然后再使用命令安装。所以我今天呢写一篇教程，写的尽量详细，即便是菜鸟也能安装，我自己安装过很多遍了，方法没问题，下面看具体的教程：</p>
 <ul>
-<li>引入相关的模块</li>
+<li>通过搜索找到mysql的官方，然后在官网找到下载页面，注意别下载错了，我们仔细看</li>
 </ul>
-<img src="/2016/07/05/pandas教程：[28]散点图添加趋势线/d7c9ca3f8794a4c20871e95a0df41bd5ad6e3935.jpg" title="pandas教程：[28]散点图添加趋势线">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/c87c6ecf3bc79f3d655fd57ab8a1cd11738b29fa.jpg" title="Mysql教程：[1]下载安装配置详细教程">
 <ul>
-<li>读取数据，并打印出来前五行数据<br>这是我们看到的数据</li>
+<li>在这里，我们找到这个installer ，点击进入</li>
 </ul>
-<img src="/2016/07/05/pandas教程：[28]散点图添加趋势线/aa251d4f78f0f73634cb42700955b319ebc4134e.jpg" title="pandas教程：[28]散点图添加趋势线">
-<img src="/2016/07/05/pandas教程：[28]散点图添加趋势线/389aa8fd5266d016884b9059942bd40735fa3535.jpg" title="pandas教程：[28]散点图添加趋势线">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/4d4970061d950a7bff737f8e08d162d9f3d3c9f3.jpg" title="Mysql教程：[1]下载安装配置详细教程">
 <ul>
-<li>使用ols进行回归拟合，实际上是建立了parent为自变量的线性回归方程</li>
+<li>然后，我们看页面最下面，不管是64位还是32位，都是下载这个安装文件</li>
 </ul>
-<img src="/2016/07/05/pandas教程：[28]散点图添加趋势线/8367d1fc1e178a821f0971d1f503738da977e84f.jpg" title="pandas教程：[28]散点图添加趋势线">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/2f3295d4b31c87014ef083ac257f9e2f0608fff3.jpg" title="Mysql教程：[1]下载安装配置详细教程">
 <ul>
-<li>先绘制一个简单的散点图</li>
+<li><p>下载下来以后，我们就可以看到这个界面，安装过程很简单，现在就是掩饰一下，仔细看图<br>跳过检查更新：<br>选择只安装服务器，因为别的基本没用：<br>检查你需要安装的其他框架，我这里没有其他需要，如果提示你安装其他的，你得安装：<br>执行安装：</p>
+</li>
+<li><p>设置密码：</p>
+</li>
 </ul>
-<img src="/2016/07/05/pandas教程：[28]散点图添加趋势线/734f12f3d7ca7bcbec4ec95ebd096b63f624a84f.jpg" title="pandas教程：[28]散点图添加趋势线">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/11794d43fbf2b211d368b404c88065380dd78ef2.jpg" title="Mysql教程：[1]下载安装配置详细教程">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/906289dda144ad3410f9b6cdd2a20cf430ad85f2.jpg" title="Mysql教程：[1]下载安装配置详细教程">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/8c511fe93901213fe1757f9656e736d12e2e95f2.jpg" title="Mysql教程：[1]下载安装配置详细教程">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/b87985504fc2d562e74ee1a7e51190ef77c66cf2.jpg" title="Mysql教程：[1]下载安装配置详细教程">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/48151723dd54564eed08d573b1de9c82d0584fcf.jpg" title="Mysql教程：[1]下载安装配置详细教程">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/570f8c58d109b3de1ef9d522cebf6c81810a4cf2.jpg" title="Mysql教程：[1]下载安装配置详细教程">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/6dc09e0a19d8bc3e384e3780808ba61ea9d345f2.jpg" title="Mysql教程：[1]下载安装配置详细教程">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/fc5e5f34970a304eb76491b0d3c8a786c8175cf2.jpg" title="Mysql教程：[1]下载安装配置详细教程">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/d478a8003af33a87de4a3350c45c10385343b511.jpg" title="Mysql教程：[1]下载安装配置详细教程">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/0865b518972bd40788aae2b779899e510eb309cf.jpg" title="Mysql教程：[1]下载安装配置详细教程">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/d7c9ca3f8794a4c2d065d6610cf41bd5ac6e39f2.jpg" title="Mysql教程：[1]下载安装配置详细教程">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/5327ce160924ab182c50d07d37fae6cd7a890bf2.jpg" title="Mysql教程：[1]下载安装配置详细教程">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/43e6c733c895d1436a30d56971f082025baf07f2.jpg" title="Mysql教程：[1]下载安装配置详细教程">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/834344afa40f4bfb3596af1e014f78f0f63618f2.jpg" title="Mysql教程：[1]下载安装配置详细教程">
 <ul>
-<li>接着绘制拟合直线</li>
+<li>安装完成！你可以打开开始菜单就能找到mysql</li>
 </ul>
-<img src="/2016/07/05/pandas教程：[28]散点图添加趋势线/d872d695d143ad4b417c48b181025aafa40f0635.jpg" title="pandas教程：[28]散点图添加趋势线">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/79b1e936afc37931df05b763e9c4b74542a911cf.jpg" title="Mysql教程：[1]下载安装配置详细教程">
 <ul>
-<li>查看绘制出来的图</li>
+<li>打开以后，提示你输入密码，你就输入刚才建立的密码</li>
 </ul>
-<img src="/2016/07/05/pandas教程：[28]散点图添加趋势线/1b0d4f0fd9f9d72a93511e6cd72a2834349bbb4f.jpg" title="pandas教程：[28]散点图添加趋势线">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/8bc3a7014a90f60392f6ad0d3b12b31bb151edf3.jpg" title="Mysql教程：[1]下载安装配置详细教程">
 <ul>
-<li>上面第六步用到了lm.fittedvalues，他其实是一个Series（根据回归方程得到的预测值），我们来查看一下它的数据和类型。</li>
+<li>看到这里，说明安装成功。</li>
 </ul>
-<img src="/2016/07/05/pandas教程：[28]散点图添加趋势线/d66b7e59252dd42ade3c0fda003b5bb5c9eab84f.jpg" title="pandas教程：[28]散点图添加趋势线">
-<img src="/2016/07/05/pandas教程：[28]散点图添加趋势线/c8ab0bce36d3d539480801b23987e950352ab04f.jpg" title="pandas教程：[28]散点图添加趋势线">
-<ul>
-<li>最后绘制得到的散点图（带趋势线）是酱紫的。</li>
-</ul>
-<img src="/2016/07/05/pandas教程：[28]散点图添加趋势线/11794d43fbf2b2119b1a8b3fc98065380cd78e4f.jpg" title="pandas教程：[28]散点图添加趋势线">
+<img src="/2016/08/11/Mysql教程：[1]下载安装配置详细教程/42e89c26cffc1e1757d2bd7b4890f603728de9c8.jpg" title="Mysql教程：[1]下载安装配置详细教程">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -987,7 +723,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
+            <a href="/tags/mysql/">#mysql</a>
         </div>
     
 
@@ -998,13 +734,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/07/05/Excel2013：[24]柱形图如何添加基准线/">
-                Excel2013：[24]柱形图如何添加基准线
+            <a href="/2016/08/05/mysql教程：[1]下载安装与配置/">
+                mysql教程：[1]下载安装与配置
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年07月05日</span>
+                <span class="date">2016年08月05日</span>
             
             
             
@@ -1013,59 +749,202 @@
 
     
         <div class="content">
-            <p>看下面的图，为了一眼看到与几个线的差距，我给柱形图添加了一个基准线，这个基准线怎么做的呢？其实是又添加了一列数据作为及格线，然后又给他添加了一个趋势线，就成了现在的及格线，下面是具体的过程：</p>
+            <p>这是mysql教程第一篇，我介绍一下自己的平台：windows7 64位，安装mysql版本是5.6，mysql 5.6的32位和64位的下载链接都在文章最下面的参考资料里（下载密码就是在链接后面），大家可以看文章的下面下载适合自己的版本，我就用的是64位。</p>
 <ul>
-<li>我们本来要绘制的柱形图只有一列数据，也就是得分这一列数据，为了画基准线，我们增加一个及格线</li>
+<li>第一步我们先在C:Program Files路径下，建立一个新文件夹，命名为mysql</li>
 </ul>
-<img src="/2016/07/05/Excel2013：[24]柱形图如何添加基准线/a005b3345982b2b74402b7bc33adcbef77099bee.jpg" title="Excel2013：[24]柱形图如何添加基准线">
+<img src="/2016/08/05/mysql教程：[1]下载安装与配置/58af236d55fbb2fbbfba776d4d4a20a44723dcf9.jpg" title="mysql教程：[1]下载安装与配置">
 <ul>
-<li>假如及格线都是4，我们快速填充好</li>
+<li>将下载下来的压缩包解压到mysql文件夹汇总</li>
 </ul>
-<img src="/2016/07/05/Excel2013：[24]柱形图如何添加基准线/4a77b2af2edda3cce179365803e93901203f92ee.jpg" title="Excel2013：[24]柱形图如何添加基准线">
+<img src="/2016/08/05/mysql教程：[1]下载安装与配置/f76575600c338744fb550003530fd9f9d62aa0f9.jpg" title="mysql教程：[1]下载安装与配置">
 <ul>
-<li>选中两列数据，添加柱形图</li>
+<li>最后我解压得到的mysql就是酱紫了：注意看地址栏，看看和你是不是一样；当然你可以和我不一样，但是在后面的步骤中我是需要用到mysql的解压路径的，所以，希望你注意一下啦。了</li>
 </ul>
-<img src="/2016/07/05/Excel2013：[24]柱形图如何添加基准线/814b07d8bc3eb135e08039c3a41ea8d3fc1f44c0.jpg" title="Excel2013：[24]柱形图如何添加基准线">
+<img src="/2016/08/05/mysql教程：[1]下载安装与配置/7787b9efce1b9d16a98eb51ef1deb48f8d5464c0.jpg" title="mysql教程：[1]下载安装与配置">
 <ul>
-<li>插入的柱形图是酱紫的</li>
+<li>我们打开计算机的【属性】面板，你可能叫【我的电脑】，随便啦</li>
 </ul>
-<img src="/2016/07/05/Excel2013：[24]柱形图如何添加基准线/d089b986c9177f3e8673727572cf3bc79e3d56c0.jpg" title="Excel2013：[24]柱形图如何添加基准线">
+<img src="/2016/08/05/mysql教程：[1]下载安装与配置/148f28d3d539b6001b5e20c8eb50352ac75cb7f9.jpg" title="mysql教程：[1]下载安装与配置">
 <ul>
-<li>我们点击蓝色的柱子，然后右键单击，从菜单中选择【设置数据系列格式】</li>
+<li>打开【高级系统设置】，，，哎，过程很繁琐呀</li>
 </ul>
-<img src="/2016/07/05/Excel2013：[24]柱形图如何添加基准线/5d212aa85edf8db108b3f21c0b23dd54574e74ee.jpg" title="Excel2013：[24]柱形图如何添加基准线">
+<img src="/2016/08/05/mysql教程：[1]下载安装与配置/9864a2315c6034a83cab97fec9134954082376c0.jpg" title="mysql教程：[1]下载安装与配置">
 <ul>
-<li>在右侧打开一个对话框，我们设置系列重叠为百分之百</li>
+<li>切换到【高级】标签下，打开环境变量</li>
 </ul>
-<img src="/2016/07/05/Excel2013：[24]柱形图如何添加基准线/b29f8282d158ccbfa2213b421bd8bc3eb03541ee.jpg" title="Excel2013：[24]柱形图如何添加基准线">
+<img src="/2016/08/05/mysql教程：[1]下载安装与配置/906289dda144ad346a2fa8f8d2a20cf430ad85f9.jpg" title="mysql教程：[1]下载安装与配置">
 <ul>
-<li>现在图变成了这个样子</li>
+<li>新建一个系统该变量，点击【新建】</li>
 </ul>
-<img src="/2016/07/05/Excel2013：[24]柱形图如何添加基准线/9f1011b30f2442a7d44873ddd343ad4bd01302c0.jpg" title="Excel2013：[24]柱形图如何添加基准线">
+<img src="/2016/08/05/mysql教程：[1]下载安装与配置/310f3b1f95cad1c8d8f2d3587d3e6709c83d51c0.jpg" title="mysql教程：[1]下载安装与配置">
 <ul>
-<li>接着选中红色的柱子</li>
+<li>变量名设置为【MYSQL_HOME】，变量值设置为mysql的解压路径【C:Program Filesmysql】</li>
 </ul>
-<img src="/2016/07/05/Excel2013：[24]柱形图如何添加基准线/3a86813df8dcd10052017659708b4710b8122fee.jpg" title="Excel2013：[24]柱形图如何添加基准线">
+<img src="/2016/08/05/mysql教程：[1]下载安装与配置/4e0b3ea4462309f791cd836d700e0cf3d6cad6eb.jpg" title="mysql教程：[1]下载安装与配置">
 <ul>
-<li>在右侧的属性窗口设置：填充为无，边框为实线，设置一下边框颜色</li>
+<li>接着找到path，编辑一下，点击【编辑】</li>
 </ul>
-<img src="/2016/07/05/Excel2013：[24]柱形图如何添加基准线/4651a712c8fcc3ce2c5d474b9045d688d53f20ee.jpg" title="Excel2013：[24]柱形图如何添加基准线">
+<img src="/2016/08/05/mysql教程：[1]下载安装与配置/ae10eddeb48f8c54cd43ea5038292df5e1fe7ff9.jpg" title="mysql教程：[1]下载安装与配置">
 <ul>
-<li>现在变成了酱紫</li>
+<li>将新的路径添加进去，注意是添加不是覆盖，添加的路径是【%MYSQL_HOME%in】，注意与其他路径用分号隔开</li>
 </ul>
-<img src="/2016/07/05/Excel2013：[24]柱形图如何添加基准线/ac2fc3c451da81cbc77b0db55066d016082431ee.jpg" title="Excel2013：[24]柱形图如何添加基准线">
+<img src="/2016/08/05/mysql教程：[1]下载安装与配置/5d212aa85edf8db1afbe531b0b23dd54574e74f9.jpg" title="mysql教程：[1]下载安装与配置">
 <ul>
-<li>接着我们还是选中红色柱子</li>
+<li>打开dos窗口（win+r，输入cmd，点击确定）</li>
 </ul>
-<img src="/2016/07/05/Excel2013：[24]柱形图如何添加基准线/8a95ad1c8701a18bbead9c379c2f07082938fec1.jpg" title="Excel2013：[24]柱形图如何添加基准线">
+<img src="/2016/08/05/mysql教程：[1]下载安装与配置/cc506c8b4710b9124651d981c1fdfc03934522f9.jpg" title="mysql教程：[1]下载安装与配置">
 <ul>
-<li>右键单击，然后选择【添加趋势线】</li>
+<li>我们将路径重新定位到mysqlin下，用到了cd命令，你可以看我写的文章【dos命令：[1]cd用法】来直到cd的意义。我们现在输入的命令是【cd /d c:Program Filesin】</li>
 </ul>
-<img src="/2016/07/05/Excel2013：[24]柱形图如何添加基准线/29790130e924b899e87af7406c061d950b7bf6c1.jpg" title="Excel2013：[24]柱形图如何添加基准线">
+<img src="/2016/08/05/mysql教程：[1]下载安装与配置/4abae5edab64034fc384ed79adc379310b551dc0.jpg" title="mysql教程：[1]下载安装与配置">
 <ul>
-<li>出来的效果图就是酱紫了。</li>
+<li>接着我们输入命令【mysqld install MySQL –defaults-file=”D:Program Filesmysqlmy-default.ini”】，看到成功安装的提示了没？这说明已经安装成功了。欢呼吧，你可以开始mysql开发了。下一篇文章我们会讲到如何运行mysql服务器。</li>
 </ul>
-<img src="/2016/07/05/Excel2013：[24]柱形图如何添加基准线/1cd4147b02087bf442aad991f0d3572c10dfcfc1.jpg" title="Excel2013：[24]柱形图如何添加基准线">
+<img src="/2016/08/05/mysql教程：[1]下载安装与配置/a583631ed21b0ef48178b721dfc451da80cb3ef9.jpg" title="mysql教程：[1]下载安装与配置">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/mysql/">#mysql</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/08/05/spss如何检验残差是否符合正态分布/">
+                spss如何检验残差是否符合正态分布
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年08月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在做回归的时候，残差的分布必须是正态分布，否则就会使得得到的回归方程没有任何实际的意义。在检验残差的分布是否为正态的时候，我们要用到pp图和直方图，下面就是我们做pp图和直方图的方法，还附有对这两种图的分析方法。<br>方法/步骤</p>
+<ul>
+<li>在菜单栏上执行：分析–回归–线性，打开线性回归对话框</li>
+</ul>
+<img src="/2016/08/05/spss如何检验残差是否符合正态分布/e7cd7b899e510fb3fc5ab174d933c895d0430c96.jpg" title="spss如何检验残差是否符合正态分布">
+<ul>
+<li>将自变量和因变量都放到各自的位置，如图所示，dependent栏是因变量，independent是自变量栏</li>
+</ul>
+<img src="/2016/08/05/spss如何检验残差是否符合正态分布/58ee3d6d55fbb2fb00a49ef14f4a20a44723dc42.jpg" title="spss如何检验残差是否符合正态分布">
+<ul>
+<li><p>设置好变量以后，我们点击plots按钮，设置一下要绘制的图形</p>
+</li>
+<li></li>
+</ul>
+<img src="/2016/08/05/spss如何检验残差是否符合正态分布/faedab64034f78f0f4955c1079310a55b2191cb2.jpg" title="spss如何检验残差是否符合正态分布">
+<ul>
+<li>将y轴设置为概率，将x轴设置为残差，如图所示</li>
+</ul>
+<img src="/2016/08/05/spss如何检验残差是否符合正态分布/b7003af33a87e9505ebe358f10385343faf2b4ac.jpg" title="spss如何检验残差是否符合正态分布">
+<ul>
+<li>勾选直方图和pp图，如图所示，这样才可以输出这两个图，点击continue按钮返回主菜单</li>
+</ul>
+<img src="/2016/08/05/spss如何检验残差是否符合正态分布/3b87e950352ac65c7daca090fbf2b21192138aac.jpg" title="spss如何检验残差是否符合正态分布">
+<ul>
+<li>点击ok按钮，开始输出数据</li>
+</ul>
+<img src="/2016/08/05/spss如何检验残差是否符合正态分布/4610b912c8fcc3ce14990fd09245d688d53f20fc.jpg" title="spss如何检验残差是否符合正态分布">
+<ul>
+<li>我们先来看直方图，这个图形中你要看这个图形分布是否符合正态分布的样子，其实正态分布只是要求数据大概符合正态，下面这个样子就大概可以认为数据是符合正态分布的</li>
+</ul>
+<img src="/2016/08/05/spss如何检验残差是否符合正态分布/b17eca8065380cd7e7b7640ea144ad34588281ac.jpg" title="spss如何检验残差是否符合正态分布">
+<ul>
+<li><p>pp图要看点和线的关系，如果点都围绕在线的周围，如图所示，就可以认为数据是符合正态分布的，这也是一个大概的检验方法，因为线性回归没有对残差的分布形态做出特别严格的要求，只要大概符合就可以了。</p>
+</li>
+<li></li>
+</ul>
+<img src="/2016/08/05/spss如何检验残差是否符合正态分布/0d338744ebf81a4c08bd2a2ad72a6059242da642.jpg" title="spss如何检验残差是否符合正态分布">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/08/03/excel怎样给坐标轴添加标题/">
+                excel怎样给坐标轴添加标题
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年08月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>excel中自动建立的图标是没有坐标轴的标题的，为了让用户看懂图表，我们必须给图表添加坐标轴标题，下面就介绍了一种添加方法，具体步骤如下：<br>步骤/方法</p>
+<ul>
+<li>斜着拖动鼠标，选中数据源，据此来建立图表</li>
+</ul>
+<img src="/2016/08/03/excel怎样给坐标轴添加标题/d31b0ef41bd5ad6e29a8b34c81cb39dbb7fd3cc7.jpg" title="excel怎样给坐标轴添加标题">
+<ul>
+<li>在菜单栏上点击插入–柱形图，选择一种柱形图的样式</li>
+</ul>
+<img src="/2016/08/03/excel怎样给坐标轴添加标题/79f0f736afc379311d38518febc4b74542a911c7.jpg" title="excel怎样给坐标轴添加标题">
+<ul>
+<li>插入了图表以后，我们来给图表添加标题，如图，在菜单栏上执行：坐标轴标题–主要纵坐标标题–竖排标题</li>
+</ul>
+<img src="/2016/08/03/excel怎样给坐标轴添加标题/00e93901213fb80ee76cb67136d12f2eb83894d3.jpg" title="excel怎样给坐标轴添加标题">
+<ul>
+<li>在图表上多了一个文本框，在这个文本框中，将这几个字改为：降水量</li>
+</ul>
+<img src="/2016/08/03/excel怎样给坐标轴添加标题/2e2eb9389b504fc276e267a3e5dde71191ef6dd3.jpg" title="excel怎样给坐标轴添加标题">
+<img src="/2016/08/03/excel怎样给坐标轴添加标题/29381f30e924b899936cae9e6e061d950b7bf6c0.jpg" title="excel怎样给坐标轴添加标题">
+<ul>
+<li>接着再在菜单栏上执行：坐标轴标题–主要横坐标轴标题–坐标轴下方标题</li>
+</ul>
+<img src="/2016/08/03/excel怎样给坐标轴添加标题/8d5494eef01f3a29997502689925bc315d607cd3.jpg" title="excel怎样给坐标轴添加标题">
+<ul>
+<li>在添加的文本框中输入：月份，这样给坐标轴添加标题就设置完成了。</li>
+</ul>
+<img src="/2016/08/03/excel怎样给坐标轴添加标题/35a85edf8db1cb13f4d4ebb5dd54564e93584bd3.jpg" title="excel怎样给坐标轴添加标题">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1091,13 +970,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/07/01/numpy函数：[10]ones和empty创建数组/">
-                numpy函数：[10]ones和empty创建数组
+            <a href="/2016/08/01/Mysql教程：[2]access转mysql（A）/">
+                Mysql教程：[2]access转mysql（A）
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年07月01日</span>
+                <span class="date">2016年08月01日</span>
             
             
             
@@ -1106,35 +985,31 @@
 
     
         <div class="content">
-            <p>使用ones可以创建任意维度和元素个数的数组，其元素均为1。empty函数的使用方法一样，只是它创建的是数组所有元素均为空，所以它是速度最快的创建数组的方法。</p>
+            <p>今天我们要使用一个软件来将access的mdb文件转成mysql文件，这个软件的名称就叫做access2mysql,今天是该教程的第一篇，主要将如何注册该软件，你看下面有第二篇的链接，讲具体如何转的。教程非常简单有效。如果你已经安装了该软件，可以直接看这篇教程，教你如何转的。<a href="http://jingyan.baidu.com/article/ff42efa964dab7c19f220210.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/ff42efa964dab7c19f220210.html</a></p>
 <ul>
-<li>先从numpy中引入所有</li>
+<li>在我的网盘里下载access2mysql，下载下来以后，打开压缩包，双击这个文件即可下载地址：<a href="http://pan.baidu.com/s/1sjnmNgx" target="_blank" rel="noopener">http://pan.baidu.com/s/1sjnmNgx</a></li>
 </ul>
-<img src="/2016/07/01/numpy函数：[10]ones和empty创建数组/d56b3634349b033bff9b584517ce36d3d439bddb.jpg" title="numpy函数：[10]ones和empty创建数组">
+<img src="/2016/08/01/Mysql教程：[2]access转mysql（A）/834344afa40f4bfb3861a41e014f78f0f6361883.jpg" title="Mysql教程：[2]access转mysql（A）">
 <ul>
-<li>接着，我们使用ones创建一个包含5个元素的一维数组，其元素均为1</li>
+<li>这里可以设置安装的位置，我们使用系统默认的就好了，一直点击下一步就安装好了</li>
 </ul>
-<img src="/2016/07/01/numpy函数：[10]ones和empty创建数组/f35ea0096b63f624fd6e9d9c8544ebf81a4ca33b.jpg" title="numpy函数：[10]ones和empty创建数组">
+<img src="/2016/08/01/Mysql教程：[2]access转mysql（A）/95afee1f3a292df58d1f935fbe315c6035a87358.jpg" title="Mysql教程：[2]access转mysql（A）">
 <ul>
-<li>ones创建的数组数据类型默认为浮点型，我们可以通过第二个参数来设置其数据类型</li>
+<li>还没注册呢，接着回到桌面，你会看到这里多了一个快捷方式，打开它</li>
 </ul>
-<img src="/2016/07/01/numpy函数：[10]ones和empty创建数组/0d729944ebf81a4cca014856d52a6059252da63b.jpg" title="numpy函数：[10]ones和empty创建数组">
+<img src="/2016/08/01/Mysql教程：[2]access转mysql（A）/2cb4fefe9925bc312c813ed25cdf8db1ca137058.jpg" title="Mysql教程：[2]access转mysql（A）">
 <ul>
-<li>假如我们创建一个2维数组，就要用到列表作为参数。三维数组以此类推</li>
+<li>选择注册，如图所示</li>
 </ul>
-<img src="/2016/07/01/numpy函数：[10]ones和empty创建数组/1b0d4f0fd9f9d72afe57b482d62a2834349bbb3b.jpg" title="numpy函数：[10]ones和empty创建数组">
+<img src="/2016/08/01/Mysql教程：[2]access转mysql（A）/b853d6fcc3cec3fd5c19993fd488d43f87942711.jpg" title="Mysql教程：[2]access转mysql（A）">
 <ul>
-<li>多维数组也可以改变数据类型</li>
+<li>注册界面，按照我填的信息进行填，否则就会注册失败：Name: Jan LadendorfCompany: 这里留空不填E-Mail:<a href="mailto:peter666@kfz.zeichen.wsSN" target="_blank" rel="noopener">peter666@kfz.zeichen.wsSN</a>：A52GFRQB&gt;AXMGGC7617RUB1AO47Z61B0XPYK214T8LIM</li>
 </ul>
-<img src="/2016/07/01/numpy函数：[10]ones和empty创建数组/c8ab0bce36d3d5391f0eab5c3887e950352ab03b.jpg" title="numpy函数：[10]ones和empty创建数组">
+<img src="/2016/08/01/Mysql教程：[2]access转mysql（A）/a75fb6d3fd1f41341deb3a34271f95cad0c85e58.jpg" title="Mysql教程：[2]access转mysql（A）">
 <ul>
-<li>接着我们用empty试试创建数组</li>
+<li>最后你会看到注册成功的提示啦。</li>
 </ul>
-<img src="/2016/07/01/numpy函数：[10]ones和empty创建数组/3bc6f750352ac65cbf36c2ecf9f2b21193138a3b.jpg" title="numpy函数：[10]ones和empty创建数组">
-<ul>
-<li>和ones的使用方法是一样的。empty创建的数组中，包含元素均为无意义的数值</li>
-</ul>
-<img src="/2016/07/01/numpy函数：[10]ones和empty创建数组/969cbf44ad3459820f99410d0ef431adcaef84db.jpg" title="numpy函数：[10]ones和empty创建数组">
+<img src="/2016/08/01/Mysql教程：[2]access转mysql（A）/9f1011b30f2442a76429c3efd343ad4bd1130211.jpg" title="Mysql教程：[2]access转mysql（A）">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1149,7 +1024,239 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/numpy/">#numpy</a>
+            <a href="/tags/mysql/">#mysql</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/08/01/Python教程：[72]classmethod装饰器/">
+                Python教程：[72]classmethod装饰器
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年08月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>classmethod装饰器用于装饰类方法，怎么说呢？通常我们想要调用类中的某个方法时，需要先将其实例化，然后利用实例调用该方法，但是如果我们想要用类（而不是实例）直接调用方法，那就需要使用classmethod装饰器了，下面看看具体的解释：</p>
+<ul>
+<li>现在我们声明一个类：foo，其中包含两个方法，f1为实例方法，调用时需要先将类实例化；f2为类函数，调用前不需要实例化，注意f2的参数为cls，也就是类本身，而不是self。具体看下面的例子</li>
+</ul>
+<img src="/2016/08/01/Python教程：[72]classmethod装饰器/1899a23eb13533fa623009eaaad3fd1f40345b35.jpg" title="Python教程：[72]classmethod装饰器">
+<ul>
+<li>加入我们想要调用f1，f1为实例函数，所以需要先将其实例化，foo_sl是foo的一个实例</li>
+</ul>
+<img src="/2016/08/01/Python教程：[72]classmethod装饰器/a75fb6d3fd1f413472b19fba271f95cad0c85e35.jpg" title="Python教程：[72]classmethod装饰器">
+<ul>
+<li>调用f1：</li>
+</ul>
+<img src="/2016/08/01/Python教程：[72]classmethod装饰器/310f3b1f95cad1c84d3d66e37d3e6709c83d5135.jpg" title="Python教程：[72]classmethod装饰器">
+<ul>
+<li>假如我们使用类直接调用f1，就会提示错误</li>
+</ul>
+<img src="/2016/08/01/Python教程：[72]classmethod装饰器/c87c6ecf3bc79f3d0a677ef4b8a1cd11738b2935.jpg" title="Python教程：[72]classmethod装饰器">
+<ul>
+<li>而类方法就可以直接调用</li>
+</ul>
+<img src="/2016/08/01/Python教程：[72]classmethod装饰器/a75fb6d3fd1f413472d29fba271f95cad3c85eca.jpg" title="Python教程：[72]classmethod装饰器">
+<ul>
+<li>当然，实例也可以直接调用类方法：</li>
+</ul>
+<img src="/2016/08/01/Python教程：[72]classmethod装饰器/a6c7d7177f3e670927e5df3b39c79f3dfadc55ca.jpg" title="Python教程：[72]classmethod装饰器">
+<ul>
+<li><p>以下为本经验用到的所有的代码：</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>class foo(object):</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>def f1(self):</p>
+</li>
+<li><p>print ‘normal’</p>
+</li>
+<li><p>@classmethod</p>
+</li>
+<li><p>def f2(cls):</p>
+</li>
+<li><p>print ‘class’</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>foo_sl=foo()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>foo_sl.f1()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>normal</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>foo_sl.f2()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>class</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>foo.f1()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>Traceback (most recent call last):</p>
+</li>
+<li><p>File “&lt;pyshell#42&gt;”, line 1, in <module></module></p>
+</li>
+<li><p>foo.f1()</p>
+</li>
+<li><p>TypeError: unbound method f1() must be called with foo instance as first argument (got nothing instead)</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>foo.f2()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>class</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/08/01/vba批量重命名 复制 删除文件夹：[6]Excel2013/">
+                vba批量重命名 复制 删除文件夹：[6]Excel2013
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年08月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>使用Excel中的vba可以帮助我们批量的处理一些文件和文件夹，比如vba批量重命名移动复制删除文件夹，今天我们就来分享几个简单的程序，大家看一下就能懂，帮助我们批量的vba批量重命名移动复制删除文件夹，下面是具体的教程：</p>
+<ul>
+<li>dir函数判断文件夹是否存在：dir函数有两个参数，一个是文件夹的路径，第二个参数见下面第二幅图，他的意义已经在后面标注出来。下面这段程序的意思是如果在本Excel路径下没有找到文件夹“新建文件夹（2）”，那么就弹出消息框说没有该文件夹。</li>
+</ul>
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/2f9cbdcc7cd98d10397b1a5c203fb80e7aec90f4.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/77485536acaf2edd96315f848c1001e93801935f.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<ul>
+<li>mkdir函数可以创建文件夹：如图所示，它只有一个参数就是文件的路径，我们使用了本工作簿的路径，如图所示</li>
+</ul>
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/4abae5edab64034fca54d36baec379310b551d86.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<ul>
+<li>rmdir函数可以删除文件夹：如图所示它只有一个参数，那就是文件夹的路径，它的一个应用案例如图所示：注意这个函数只能删除空文件夹，如果文件夹中有文件，那么函数就会提示错误</li>
+</ul>
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/29790130e924b899710769556f061d950a7bf661.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<ul>
+<li>name函数重命名文件夹或者文件：它其实包括两个部分，As的前面是我们要命名的文件夹路径，As后面是命名后的文件夹路径</li>
+</ul>
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/5af4d7ea15ce36d3c127905d3bf33a87e950b178.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<ul>
+<li>name函数移动文件夹或者文家：和上面的用法一样，只不过在写As后面的路径的时候我们把路径改成想要移动到的位置，比如对上面的代码进行修改就变成了移动文件夹：</li>
+</ul>
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/0862c354564e92588f2d94839d82d158ccbf4e06.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<ul>
+<li>使用filesystemobject对象来复制文件夹：注意这个写法有些不同，首先要创建一个对象，然后才能使用它的方法，copyfolder方法也有两个参数，两个参数用逗号隔开，前面是要复制的文件夹，后面是复制得到的文件夹路径</li>
+</ul>
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/245e8bcad1c8a786ba0f57636609c93d70cf5072.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<ul>
+<li>使用shell打开文件夹：我们用到了explore.exe应用程序，注意其后面有一个空格不能省略，后面是文件夹的路径，注意使用引号，然后最后是一个逗号和参数，各个参数不同，你自己尝试一下</li>
+</ul>
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/bd7faf3533fa828bcef3818efc1f4134960a5a4f.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
         </div>
     
 
@@ -1196,43 +1303,43 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2020/12/23/均值差异的效应量在线计算器/">均值差异的效应量在线计算器</a>
+                <a class="footer-post" href="/2021/07/08/方差分析08-单因素多元方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
+                <a class="footer-post" href="/2021/07/08/方差分析07-单变量协方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/27/文旅特色小镇的具身体验质量-数据分享/">文旅特色小镇的具身体验质量-数据分享</a>
+                <a class="footer-post" href="/2021/07/08/方差分析06-2因素混合设计方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/12/问卷代填-大学生的论文用的-有靠谱的调研商家/">问卷代填(大学生的论文用的)怎么快速收集高质量问卷</a>
+                <a class="footer-post" href="/2021/07/08/方差分析05-重复测量单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/04/嵌入式python的zip安装和并安装pip/">嵌入式python的zip安装和并安装pip</a>
+                <a class="footer-post" href="/2021/07/08/方差分析04-三因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-效度分析/">SPSS问卷效度分析教程</a>
+                <a class="footer-post" href="/2021/07/08/方差分析03-双因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+                <a class="footer-post" href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+                <a class="footer-post" href="/2021/07/08/方差分析01-单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+                <a class="footer-post" href="/2021/07/08/11-2XN卡方检验/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2021/07/08/10-2x2卡方检验/">Untitled</a>
             </li>
             
         </ul>
@@ -1246,7 +1353,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1550,11 +1657,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>

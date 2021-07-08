@@ -208,6 +208,6 @@ $$`
 
 > **注意**
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](Tensorflow逐步实现记忆网络(Memory networks)第一部分.ipynb)
-> 有问题可以直接在下方留言
-> 或者给我发邮件675495787[at]qq.com
+> 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的
+> 微博上@mlln-cn可以向我免费题问
 > 请记住我的网址: mlln.cn 或者 jupyter.cn

@@ -154,7 +154,8 @@ logger.info("test")
 {% raw %}
 <div class="output" contenteditable="true">
 输出(stream):<br>
-2019-07-21 14:46:21,141 - INFO - test
+2019-07-21 14:46:21,141 - INFO - test
+
 
 </div>
 {% endraw %}
@@ -183,7 +184,8 @@ logger.info('purchase completed', extra={'user': 'Sid Panjwani'})
 {% raw %}
 <div class="output" contenteditable="true">
 输出(stream):<br>
-2019-07-21 14:53:45,539 - Sid Panjwani - INFO - purchase completed
+2019-07-21 14:53:45,539 - Sid Panjwani - INFO - purchase completed
+
 
 </div>
 {% endraw %}
@@ -370,8 +372,8 @@ logger.debug('often makes a very good meal of %s', 'visiting tourists')
 ```
 
 
-> **注意**
+> 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](python3的logging模块的最佳实践.ipynb)
 > 有问题可以直接在下方留言
-> 或者给我发邮件675495787[at]qq.com
+> 微博上@mlln-cn可以向我免费题问
 > 请记住我的网址: mlln.cn 或者 jupyter.cn

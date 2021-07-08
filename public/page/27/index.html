@@ -197,6 +197,12 @@
     <div class="page_list archive-container">
         
             <div class="archive-post">
+                <a href="/2021/01/04/01 安装manimlib/">
+                    manim系列教程01-windows平台安装manim
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2020/11/04/嵌入式python的zip安装和并安装pip/">
                     嵌入式python的zip安装和并安装pip
                 </a>
@@ -217,12 +223,6 @@
             <div class="archive-post">
                 <a href="/2019/08/04/python中logging模块的error和exception的区别和最佳实践/">
                     python中logging模块的error和exception的区别和最佳实践
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2019/07/21/python3的logging模块的最佳实践/">
-                    python3的logging模块的最佳实践
                 </a>
             </div>
             
@@ -448,13 +448,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/10/19/numpy函数：[2]tile函数用法/">
-                numpy函数：[2]tile函数用法
+            <a href="/2017/09/07/gitlab和git入门/">
+                gitlab和git入门
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年10月19日</span>
+                <span class="date">2017年09月07日</span>
             
             
             
@@ -463,30 +463,24 @@
 
     
         <div class="content">
-            <p>tile函数位于python模块 numpy.lib.shape_base中，他的功能是重复某个数组。比如tile(A,n)，功能是将数组A重复n次，构成一个新的数组，我们还是使用具体的例子来说明问题：</p>
-<ul>
-<li>先来引入numpy下的所有方法</li>
-</ul>
-<img src="/2016/10/19/numpy函数：[2]tile函数用法/f677b1c379310a5583d241f8b54543a98326108c.jpg" title="numpy函数：[2]tile函数用法">
-<ul>
-<li>我们创建一个a，如图下图，使用tile来创建b，注意看b的数据结构</li>
-</ul>
-<img src="/2016/10/19/numpy函数：[2]tile函数用法/43e6c733c895d1438c637b2f71f082025aaf0761.jpg" title="numpy函数：[2]tile函数用法">
-<ul>
-<li>假如我们输入一个元组(1,2)，我们会得到一样的结果，与上面相同的b</li>
-</ul>
-<img src="/2016/10/19/numpy函数：[2]tile函数用法/d57e9994a4c27d1eda87a4c819d5ad6edcc438dd.jpg" title="numpy函数：[2]tile函数用法">
-<ul>
-<li>当然，我们想要a变为一个二维数组，就要换一种重复的方式了。</li>
-</ul>
-<img src="/2016/10/19/numpy函数：[2]tile函数用法/0fb505d5ad6eddc45c462bf73bdbb6fd536633dd.jpg" title="numpy函数：[2]tile函数用法">
+            <h2><span id="安装-git-for-windows">安装 git for windows</span></h2><blockquote>
 <blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>下载链接：<a href="http://pan.baidu.com/s/1b1hNtG" target="_blank" rel="noopener">http://pan.baidu.com/s/1b1hNtG</a> 密码：pe3y。</p>
 </blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
 </blockquote>
-
+<p>安装很简单，不详细介绍。</p>
+<h2><span id="初始设置">初始设置</span></h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name <span class="string">"gitlab网站的用户名"</span></span><br><span class="line">git config --global user.email <span class="string">"注册的邮箱"</span></span><br></pre></td></tr></table></figure>
+<h2><span id="复制代码">复制代码</span></h2><p>从gitlab克隆一个项目：</p>
+<p><a href="http://gitlab.eachina.com:10080/ydsun/functional-test.git" target="_blank" rel="noopener">http://gitlab.eachina.com:10080/ydsun/functional-test.git</a></p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> http://gitlab.eachina.com:10080/ydsun/functional-test.git</span><br></pre></td></tr></table></figure>
+<h2><span id="修改代码">修改代码</span></h2><p>可以新建、删除、修改文件。</p>
+<h2><span id="保存修改">保存修改</span></h2><p>你修改的代码只是保存在工作区，并没有进入版本仓库中，<br>你需要使用如下命令保存修改。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git add .</span><br><span class="line">git commit -m <span class="string">"增加登录测试"</span></span><br></pre></td></tr></table></figure>
+<h2><span id="推送修改">推送修改</span></h2><p>只有推动到gitlab网站，才能使得别人看到你做的修改。但是在推送之前，需要保证你已经拿到了最新的代码，所以按照以下步骤进行推送：</p>
+<p>先更新代码，也就是从gitlab服务器中下载最新版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull origin master</span><br></pre></td></tr></table></figure>
+<p>然后再推送你的修改</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git push origin master</span><br></pre></td></tr></table></figure>
         </div>
     
 
@@ -494,7 +488,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/numpy/">#numpy</a>
+            <a href="/tags/git/">#git</a>
         </div>
     
 
@@ -505,13 +499,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/10/19/SPSS实例：[23]如何对数据进行排序/">
-                SPSS实例：[23]如何对数据进行排序
+            <a href="/2017/09/07/python-selenium撰写自动化功能测试脚本/">
+                python-selenium撰写自动化功能测试脚本
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年10月19日</span>
+                <span class="date">2017年09月07日</span>
             
             
             
@@ -520,45 +514,21 @@
 
     
         <div class="content">
-            <p>我们今天来学习一个简单的功能，在spss中如何对数据进行排序，虽然简单，但是很重要。我刚才处理的数据是从Excel中导入的，接着还有其他Excel中的数据要粘贴到spss中，我需要先让spss中的数据按照年级、专业排序，然后才能保证粘贴数据的时候能够按照年级和专业的顺序去粘贴，下面我们来看看如何排序吧。</p>
-<ul>
-<li>在菜单中执行：data-sort cases，打开排序对话框</li>
-</ul>
-<img src="/2016/10/19/SPSS实例：[23]如何对数据进行排序/58af236d55fbb2fb93e62b704d4a20a44723dc40.jpg" title="SPSS实例：[23]如何对数据进行排序">
-<ul>
-<li>我们想要让spss按照年级排序，当case与case的年级相同的时候，按照专业进行排序，如图所示，将年级和专业按照先后顺序放入sort by框中</li>
-</ul>
-<img src="/2016/10/19/SPSS实例：[23]如何对数据进行排序/bf487563f6246b60eed4c116e9f81a4c500fa2bf.jpg" title="SPSS实例：[23]如何对数据进行排序">
-<ul>
-<li>设置排序的方式是【升序】，如图所示，选择ascending，相反你可以选择desceding来降序</li>
-</ul>
-<img src="/2016/10/19/SPSS实例：[23]如何对数据进行排序/7787b9efce1b9d16d51fe903f1deb48f8d5464bc.jpg" title="SPSS实例：[23]如何对数据进行排序">
-<ul>
-<li>接着，我们其实可以点击ok来完成排序，但是没用一次spss就看一下它的syntax是非常好的习惯，这样你很快就能学会基本的syntax操作，学会syntax好处就是你比别人处理数据的速度大大提升，十倍百倍的速度提升，点击paste可以看到syntax</li>
-</ul>
-<img src="/2016/10/19/SPSS实例：[23]如何对数据进行排序/b5ce925494eef01f15cc6ba7e2fe9925bd317dbc.jpg" title="SPSS实例：[23]如何对数据进行排序">
-<ul>
-<li>你看到了，其实只需要用两句简单的代码就能实现排序的功能</li>
-</ul>
-<img src="/2016/10/19/SPSS实例：[23]如何对数据进行排序/95afee1f3a292df5d11bdf77be315c6035a873bc.jpg" title="SPSS实例：[23]如何对数据进行排序">
-<ul>
-<li>我们还是回到界面中，点击ok</li>
-</ul>
-<img src="/2016/10/19/SPSS实例：[23]如何对数据进行排序/9864a2315c6034a8683acbe3c9134954082376bc.jpg" title="SPSS实例：[23]如何对数据进行排序">
-<ul>
-<li>排序好了以后，你最好保存一下结果</li>
-</ul>
-<img src="/2016/10/19/SPSS实例：[23]如何对数据进行排序/5f9e93b1cb13495433c69b06544e9258d0094abc.jpg" title="SPSS实例：[23]如何对数据进行排序">
-<ul>
-<li>现在的数据就是按照年级和专业进行的排序，你学会了吗？请关注我的系列教程：spss实例教程，你将看到一个专业的数据分析员是如何在工作中使用spss的。</li>
-</ul>
-<img src="/2016/10/19/SPSS实例：[23]如何对数据进行排序/d019d2bf6c81800a5c3dfa6cb33533fa838b47bc.jpg" title="SPSS实例：[23]如何对数据进行排序">
+            <h2><span id="安装">安装</span></h2><p>你需要参考<a href="/2017/06/10/selenim%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E5%85%A5%E9%97%A8-for-psychologist/">selenium入门</a><br>来指导你安装python和selenium，<br>同时你还需要安装chrome和chromedriver，在这篇文章中有详细的介绍。</p>
+<h2><span id="撰写用例">撰写用例</span></h2><p>在写功能测试脚本之前，需要先指导测什么。这就是用例的作用。用例要详细描述一个用户的操作行为，用到的数据，得到的反馈等。<br>比如我们想要测试网站的登录功能，我们可以这么写：</p>
 <blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+<p>打开网址<code>http://www.mlln.cn</code><br>点击<code>登录</code>按钮<br>输入用户名和密码<br>点击登录<br>验证登录是否成功</p>
 </blockquote>
+<p>用例要列出所有可能的反馈，测试也要测试到所有可能情况。比如简单的登录功能，首先要测试成功登录的情况，然后要测试用户名或密码错误的情况。<br>网站应当根据不同的用户操作给出不同的反馈。</p>
+<h2><span id="编写脚本">编写脚本</span></h2><p>脚本就是一段代码，用于执行一个特定的功能。通常一个<code>*.py</code>文件存放一个脚本，一个测试脚本的大体结构应当是这样的：</p>
 <blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+<blockquote>
+<p>文件中最上面写用例, 用三个引号表示。比如<code>&#39;&#39;&#39;这是一个测试用例的描述文字 &#39;&#39;&#39;</code><br>准备阶段：准备好测试用到的数据，比如你要测试的是登录功能，你需要提前写入数据一个账号和密码，用于测试，写入数据的过程就是准备过程<br>测试阶段：写代码执行测试<br>销毁阶段：在准备阶段写入的数据应当在销毁阶段销毁，也就是删除测试账号。关闭任何打开过的浏览器或其他软件。</p>
 </blockquote>
+</blockquote>
+<p>测试脚本文件名称以<code>test_</code>开头。</p>
+<p>下面是一个测试脚本的样例：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="string">这里描述测试用例</span></span><br><span class="line"><span class="string">'''</span></span><br><span class="line"><span class="keyword">import</span> settings</span><br><span class="line"><span class="keyword">import</span> selenium</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">prepare</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="string">'''准备阶段'''</span></span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="string">'''测试阶段'''</span></span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">destroy</span><span class="params">()</span>:</span></span><br><span class="line">	<span class="string">'''销毁阶段'''</span></span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
 
         </div>
     
@@ -567,7 +537,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
+            <a href="/tags/selenium/">#selenium</a>
         </div>
     
 
@@ -578,13 +548,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/10/19/numpy函数：[12]数组切片/">
-                numpy函数：[12]数组切片
+            <a href="/2017/06/28/svd和pca的区别和联系，附代码实现/">
+                svd和pca的区别和联系，附代码实现
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年10月19日</span>
+                <span class="date">2017年06月28日</span>
             
             
             
@@ -593,55 +563,29 @@
 
     
         <div class="content">
-            <p>我们可以向使用列表切片一样使用数组切片，如果会使用liest切片，那么这篇文章就是温习一下而已，下面我们来看看具体的数组切片是如何使用的。</p>
-<ul>
-<li>从numpy中引入所有</li>
-</ul>
-<img src="/2016/10/19/numpy函数：[12]数组切片/c71d0e385343fbf21a8108bcb27eca8064388f45.jpg" title="numpy函数：[12]数组切片">
-<ul>
-<li>创建一个包含10个元素的一位数组</li>
-</ul>
-<img src="/2016/10/19/numpy函数：[12]数组切片/d1571724ab18972bf1a4ae55e4cd7b899f510a57.jpg" title="numpy函数：[12]数组切片">
-<ul>
-<li>我们可以使用一个下标获取数组中相应的值，也可以更改它的值</li>
-</ul>
-<img src="/2016/10/19/numpy函数：[12]数组切片/b3508d13b07eca80c9a89778932397dda0448345.jpg" title="numpy函数：[12]数组切片">
-<ul>
-<li>使用冒号获取连续的几个元素，如获取第四个到第五个元素</li>
-</ul>
-<img src="/2016/10/19/numpy函数：[12]数组切片/34bbf8cd7b899e512510948b40a7d933c9950d57.jpg" title="numpy函数：[12]数组切片">
-<ul>
-<li>省略冒号前的数字，表示从头开始</li>
-</ul>
-<img src="/2016/10/19/numpy函数：[12]数组切片/43e6c733c895d1439de84abc71f082025baf0757.jpg" title="numpy函数：[12]数组切片">
-<ul>
-<li>使用负数表示从后往前数，-1表示从后往前数第一个数</li>
-</ul>
-<img src="/2016/10/19/numpy函数：[12]数组切片/30ecd5ef76094b36163fb572a1cc7cd98c109d45.jpg" title="numpy函数：[12]数组切片">
-<ul>
-<li>-2表示从后往前第二个，以此类推</li>
-</ul>
-<img src="/2016/10/19/numpy函数：[12]数组切片/a28d62d98d1001e9f991ba90ba0e7bec55e79745.jpg" title="numpy函数：[12]数组切片">
-<img src="/2016/10/19/numpy函数：[12]数组切片/b258f5c4b74543a9c18554531c178a82b8011457.jpg" title="numpy函数：[12]数组切片">
-<ul>
-<li>还可以设置步长来读取数组元素</li>
-</ul>
-<img src="/2016/10/19/numpy函数：[12]数组切片/b6045da98226cffc5bb4112dbb014a90f703ea50.jpg" title="numpy函数：[12]数组切片">
-<ul>
-<li>步长为-1，其他参数不设置，就是将数组进行了倒序排列</li>
-</ul>
-<img src="/2016/10/19/numpy函数：[12]数组切片/1f569482b9014a90bfa0e822ab773912b21bee50.jpg" title="numpy函数：[12]数组切片">
-<ul>
-<li>使用负数步长需要让第一个下表大于第二个下标</li>
-</ul>
-<img src="/2016/10/19/numpy函数：[12]数组切片/a005b3345982b2b7635e905b33adcbef77099b29.jpg" title="numpy函数：[12]数组切片">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+            <blockquote>
+<p>svd=singular value decomposition<br>pca=principal component analysis</p>
 </blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
+<p>在做潜在语义分析(lsa)的时候，我用的svd，感觉svd和pca非常像，但是又有区别。所以查了一些资料，在这里翻译一下，并在最后，贴上python代码比较了这两种方法。</p>
+<h2><span id="pca">PCA</span></h2><p>假设<code>\( \mathbf X \)</code>是一个<code>\( n \times p \)</code>的矩阵，<code>n</code>是样本量, 而<code>p</code>是变量个数。那么，我们就可以计算得到协方差矩阵<code>\( \Singma \)</code>：</p>
+<p><code>\[ \Sigma=X^TX/(n-1) \]</code></p>
+<p>由于<code>\( \Sigma \)</code>是对称矩阵，那么它可以对角化:</p>
+<p><code>\[ \Sigma = \mathbf V \mathbf L \mathbf V^\top \]</code></p>
+<p><code>\( \mathbf V \)</code>就是<code>\( \mathbf X \)</code>的特征向量构成的矩阵，而<code>\( \mathbf L \)</code>是一个对角矩阵，对角元素就是特征向量对应的特征值。</p>
+<p>用<code>\( \mathbf Y \)</code>表示主成分矩阵，<code>\( y_i \)</code>表示第i个主成分向量。用<code>\( v_i \)</code>表示第i个特征向量。那么有关系式：</p>
+<p><code>\[ y_i= \mathbf X v_i\]</code></p>
+<p>即：</p>
+<p><code>\[ Y= \mathbf X \mathbf V \]</code></p>
+<h2><span id="svd">SVD</span></h2><p>接下来我们看看SVD的性质。对<code>\( \mathbf X \)</code>进行SVD分解：</p>
+<p><code>\[ \mathbf X = \mathbf U \mathbf S \mathbf V^\top \]</code></p>
+<p><code>\( \mathbf V \)</code>和上面提到的<code>\( \mathbf V \)</code>是一样的，但是在SVD中叫做singular vector(奇异向量)，而<code>\( \mathbf S \)</code>叫做奇异值构成的对角矩阵, 它与特征向量是不同的，但是他们之间是成比例的。如此，我们很容易得到：</p>
+<p><code>\[ \mathbf X = \mathbf V \mathbf S \mathbf U^\top \mathbf U \mathbf S \mathbf V^\top /(n-1) = \mathbf V \frac{\mathbf S^2}{n-1}\mathbf V^\top \]</code></p>
+<p>所以，特征值与奇异值之间的关系就是：</p>
+<p><code>\[ \lambda_i = s_i^2/(n-1) \]</code></p>
+<p>主成分也可以得到：</p>
+<p><code>\[ \mathbf X \mathbf V = \mathbf U \mathbf S \mathbf V^\top \mathbf V = \mathbf U \mathbf S \]</code></p>
+<p>下面我们通过python代码来探索svd和pca之间的关系</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> numpy <span class="keyword">import</span> linalg <span class="keyword">as</span> la</span><br><span class="line">np.random.seed(<span class="number">42</span>)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">flip_signs</span><span class="params">(A, B)</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    utility function for resolving the sign ambiguity in SVD</span></span><br><span class="line"><span class="string">    http://stats.stackexchange.com/q/34396/115202</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    signs = np.sign(A) * np.sign(B)</span><br><span class="line">    <span class="keyword">return</span> A, B * signs</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="comment"># Let the data matrix X be of n x p size,</span></span><br><span class="line"><span class="comment"># where n is the number of samples and p is the number of variables</span></span><br><span class="line">n, p = <span class="number">5</span>, <span class="number">3</span></span><br><span class="line">X = np.random.rand(n, p)</span><br><span class="line"><span class="comment"># Let us assume that it is centered</span></span><br><span class="line">X -= np.mean(X, axis=<span class="number">0</span>)</span><br><span class="line"></span><br><span class="line"><span class="comment"># the p x p covariance matrix</span></span><br><span class="line">C = np.cov(X, rowvar=<span class="literal">False</span>)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"C = \n"</span>, C)</span><br><span class="line"><span class="comment"># C is a symmetric matrix and so it can be diagonalized:</span></span><br><span class="line">l, principal_axes = la.eig(C)</span><br><span class="line"><span class="comment"># sort results wrt. eigenvalues</span></span><br><span class="line">idx = l.argsort()[::<span class="number">-1</span>]</span><br><span class="line">l, principal_axes = l[idx], principal_axes[:, idx]</span><br><span class="line"><span class="comment"># the eigenvalues in decreasing order</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"l = \n"</span>, l)</span><br><span class="line"><span class="comment"># a matrix of eigenvectors (each column is an eigenvector)</span></span><br><span class="line"><span class="keyword">print</span> (<span class="string">"V = \n"</span>, principal_axes)</span><br><span class="line"><span class="comment"># projections of X on the principal axes are called principal components</span></span><br><span class="line">principal_components = X.dot(principal_axes)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"Y = \n"</span>, principal_components)</span><br><span class="line"></span><br><span class="line"><span class="comment"># we now perform singular value decomposition of X</span></span><br><span class="line"><span class="comment"># "economy size" (or "thin") SVD</span></span><br><span class="line">U, s, Vt = la.svd(X, full_matrices=<span class="literal">False</span>)</span><br><span class="line">V = Vt.T</span><br><span class="line">S = np.diag(s)</span><br><span class="line"><span class="keyword">print</span> (<span class="string">"V2 = \n"</span>, V )</span><br><span class="line"><span class="comment"># 1) then columns of V are principal directions/axes.</span></span><br><span class="line"><span class="keyword">assert</span> np.allclose(*flip_signs(V, principal_axes))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 2) columns of US are principal components</span></span><br><span class="line"><span class="keyword">assert</span> np.allclose(*flip_signs(U.dot(S), principal_components))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 3) singular values are related to the eigenvalues of covariance matrix</span></span><br><span class="line"><span class="keyword">assert</span> np.allclose((s ** <span class="number">2</span>) / (n - <span class="number">1</span>), l)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 8) dimensionality reduction</span></span><br><span class="line">k = <span class="number">2</span></span><br><span class="line">PC_k = principal_components[:, <span class="number">0</span>:k]</span><br><span class="line">US_k = U[:, <span class="number">0</span>:k].dot(S[<span class="number">0</span>:k, <span class="number">0</span>:k])</span><br><span class="line"><span class="keyword">assert</span> np.allclose(*flip_signs(PC_k, US_k))</span><br><span class="line"></span><br><span class="line"><span class="comment"># 10) we used "economy size" (or "thin") SVD</span></span><br><span class="line"><span class="keyword">assert</span> U.shape == (n, p)</span><br><span class="line"><span class="keyword">assert</span> S.shape == (p, p)</span><br><span class="line"><span class="keyword">assert</span> V.shape == (p, p)</span><br></pre></td></tr></table></figure>
         </div>
     
 
@@ -649,7 +593,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/numpy/">#numpy</a>
+            <a href="/tags/svd/">#svd</a> <a href="/tags/pca/">#pca</a>
         </div>
     
 
@@ -660,13 +604,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/10/17/numpy函数：[8]logspace()创建等比数列数组/">
-                numpy函数：[8]logspace()创建等比数列数组
+            <a href="/2017/06/26/gitlab配置和基本使用方法/">
+                gitlab配置和基本使用方法(写给测试用)
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年10月17日</span>
+                <span class="date">2017年06月26日</span>
             
             
             
@@ -675,29 +619,11 @@
 
     
         <div class="content">
-            <p>上一篇介绍了numpy.linspace用于创建等差数列，现在介绍logspace用于创建等比数列。其实用法差不多，但是有一个特殊的地方需要注意。</p>
-<ul>
-<li>先来看一个例子，我们让开始点位0，结束点为0，元素个数为10，看看输出结果。为什么是酱紫呢？难道不都是0么？</li>
-</ul>
-<img src="/2016/10/17/numpy函数：[8]logspace()创建等比数列数组/a992e31f4134970ad07f90b297cad1c8a6865de4.jpg" title="numpy函数：[8]logspace()创建等比数列数组">
-<ul>
-<li>因为logspace中，开始点和结束点是10的幂，0代表10的0次方，9代表10的9次方。我们看看下面的例子。<br>】</li>
-</ul>
-<img src="/2016/10/17/numpy函数：[8]logspace()创建等比数列数组/964b2e4e251f95ca32f9122bcb177f3e660952e4.jpg" title="numpy函数：[8]logspace()创建等比数列数组">
-<ul>
-<li>假如，我们想要改变基数，不让它以10为底数，我们可以改变base参数，将其设置为2试试</li>
-</ul>
-<img src="/2016/10/17/numpy函数：[8]logspace()创建等比数列数组/d089b986c9177f3e80387c9072cf3bc79e3d56e4.jpg" title="numpy函数：[8]logspace()创建等比数列数组">
-<ul>
-<li>假如我们想要不包含结束点，可以设置endpoint为0</li>
-</ul>
-<img src="/2016/10/17/numpy函数：[8]logspace()创建等比数列数组/c87c6ecf3bc79f3d14ed64adb8a1cd11738b29e4.jpg" title="numpy函数：[8]logspace()创建等比数列数组">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
+            <h2><span id="注册账号">注册账号</span></h2><p>打开<a href="http://123.56.79.214:10080/users/sign_in" target="_blank" rel="noopener">gitlab</a>，注册一个账户。</p>
+<p>记住账号，并把账号发送给管理员，让管理员给你设置权限。</p>
+<p>打开网址查看项目<code>http://123.56.79.214:10080/ydsun/auto_report_client</code>，如果你看不到，说明你还没有权限。</p>
+<h2><span id="下载代码">下载代码</span></h2><p>在项目<a href="http://123.56.79.214:10080/ydsun/auto_report_client" target="_blank" rel="noopener">主页</a>，找到下载按钮，下载源码。下载得到一个zip压缩包，把压缩包解压到你想要放置源码的地方。</p>
+<h2><span id="安装">安装</span></h2><p>打开项目<a href="http://123.56.79.214:10080/ydsun/auto_report_client" target="_blank" rel="noopener">主页</a>，在主页上可以看安装的过程。</p>
 
         </div>
     
@@ -706,7 +632,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/numpy/">#numpy</a>
+            <a href="/tags/gitlab/">#gitlab</a>
         </div>
     
 
@@ -717,13 +643,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/10/15/SPSS实例：[17]进行sobel检验(小白教程)/">
-                SPSS实例：[17]进行sobel检验(小白教程)
+            <a href="/2017/06/22/报告模板书写规范培训/">
+                报告文字模板书写规范培训
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年10月15日</span>
+                <span class="date">2017年06月22日</span>
             
             
             
@@ -732,33 +658,48 @@
 
     
         <div class="content">
-            <p>通常我们在做中介效应的时候，遇到有一个系数没有达到显著性水平，我们需要进行sobel检验，但是sobel检验的公式非常麻烦，如果你按计算器就很麻烦了，更何况你还有很多中介效应去验证，所以今天我给大家分享一个Excel可以很快的计算。</p>
-<ul>
-<li>从下面的参考资料里下载一个Excel文件</li>
-</ul>
-<img src="/2016/10/15/SPSS实例：[17]进行sobel检验(小白教程)/d478a8003af33a879120f002c45c10385343b51e.jpg" title="SPSS实例：[17]进行sobel检验(小白教程)">
-<ul>
-<li>下载下来以后，打开Excel，你会看到一个这样的表格</li>
-</ul>
-<img src="/2016/10/15/SPSS实例：[17]进行sobel检验(小白教程)/cdfe7281800a19d87b53741d31fa828ba61e4613.jpg" title="SPSS实例：[17]进行sobel检验(小白教程)">
-<ul>
-<li>将你的三个模型的三线表粘贴过来</li>
-</ul>
-<img src="/2016/10/15/SPSS实例：[17]进行sobel检验(小白教程)/c856613e6709c93da9a2feef9d3df8dcd1005413.jpg" title="SPSS实例：[17]进行sobel检验(小白教程)">
-<ul>
-<li>我们在对应的位置写入对应的值，soble值会自动的计算出来，是否显著这一栏会告诉是否显著，如果显著说明中介效应显著</li>
-</ul>
-<img src="/2016/10/15/SPSS实例：[17]进行sobel检验(小白教程)/bd7faf3533fa828b6d736dfbff1f4134970a5a13.jpg" title="SPSS实例：[17]进行sobel检验(小白教程)">
-<ul>
-<li>跟大家分享一下各个单元格的公式，看下面的公示栏就知道了。</li>
-</ul>
-<img src="/2016/10/15/SPSS实例：[17]进行sobel检验(小白教程)/bbe0d311728b47105b7f0dd4c1cec3fdfc032313.jpg" title="SPSS实例：[17]进行sobel检验(小白教程)">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+            <blockquote>
+<p>注意，文章中所有 <code>{ {     } }</code> <code>{ %     % }</code> 中间没有空格</p>
 </blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
+<h2><span id="变量">变量</span></h2><p>用<code>{ {     } }</code>来修饰变量，内部的值会被渲染成文本。比如 <code>我有{ { 1 + 1 } }个苹果</code>会被渲染成 <code>我有2个苹果</code>。</p>
+<p>通常我们会提前设置好一些变量，比如，我们在写模板的时候，为了方便起见，可以先设<code>pro_code=44</code>，即广东省的省代码，这些变量的设置可以在word的常量表里。那么我们在需要用到省代码的地方，可以写成<code>{ { pro_code } }</code>，如此便能在不同的省报告中使用不同的省代码了。</p>
+<h2><span id="计算">计算</span></h2><p>我们除了可以设置一些常量(如<code>pro_code</code>)之外，我们还可以计算一些临时变量。比如<code>a = 500*600</code>，这样，我们就得到一个变量2，他的值为500和600的乘积。除此以外，我们更常用的是如下这种形式的计算：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">a2=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(2)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br></pre></td></tr></table></figure>
+<p>我们分别来说一下其中用到的一些方法。</p>
+<h3><span id="variable-和-table">Variable 和 table</span></h3><p>表示变量的符号。上面的例子中，等号后面的式子，开头一个V表示<code>variable</code>，这是为了识别数据库中的变量。后面的参数就是变量名。<code>Variabel</code> 后面的 <code>table</code> 指明变量来自于哪一个表。为了方便起见，这两种写法是等价的：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V(&quot;maths_level&quot;)|table(&quot;4stu&quot;) &lt;==&gt; V(&quot;maths_level&quot;, &quot;4stu&quot;)</span><br></pre></td></tr></table></figure>
+<h3><span id="select">select</span></h3><p><code>select</code>是对数据的选择。上面的例子指明了我们的数据限定在一个省。如果要计算全国数据，直接去掉select及其参数即可。如果需要使用多个筛选条件，比如要选择广东省的男生数据，那么可以用逗号隔开两个条件，写成如下形式：(province 和 gender都是数据库中的变量，他们都需要用引号包裹起来)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select(&#123;&quot;province&quot;:pro_code, &quot;gender&quot;:1&#125;)</span><br></pre></td></tr></table></figure>
+<h3><span id="which">which</span></h3><p><code>which</code>只有在计算百分比的时候有用，因为他指的是计算谁的百分比。上例中计算的是<code>maths_level</code>为2的百分比。</p>
+<h3><span id="percent-amp-mean">percent &amp; mean</span></h3><p>这两个函数都是指明计算方法，顾名思义，前者计算百分比，后者计算平均值。</p>
+<h3><span id="format">format</span></h3><p>顾名思义，<code>format</code>是用来描述数据格式的。参数<code>decimal</code>表明小数位数，<code>multi</code>表明乘数，按照上例来说，percent方法的计算结果都在(0,1)之间，所以我们让结果乘以100，保留1位小数, 另外再加上一个百分号。写法就是：(decimal、multi和suffix的前后顺序不影响结果)</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100,&quot;suffix&quot;:&quot;%&quot;&#125;)</span><br></pre></td></tr></table></figure>
+<p>其实你可以省略format，这时候系统会使用默认的配置，保留一位小数。百分比的结果会乘以100以后再保留一位小数。</p>
+<p>有一个问题需要指出，就是你在计算一个变量的时候，什么时候保留小数位数你得自己设置。例如，如下两种写法是不同的：</p>
+<h4><span id="第一种写法先保留一位小数再相加">第一种写法：先保留一位小数，再相加</span></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a2=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(2)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line">a3=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(3)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line">aa=a2+a3</span><br></pre></td></tr></table></figure>
+<h4><span id="第二种写法先相加再保留1位小数">第二种写法：先相加再保留1位小数</span></h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">a2=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(2)|percent</span><br><span class="line">a3=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(3)|percent</span><br><span class="line">aa= (a2+a3)|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br></pre></td></tr></table></figure>
+<h3><span id="groupby">groupby</span></h3><p><code>groupby</code>是将数据分组，分组后再计算，这样每个组都会得到一个结果。比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V(&quot;maths&quot;,&quot;4stu&quot;)|groupby(&quot;gender&quot;)|mean</span><br></pre></td></tr></table></figure>
+<p>这是计算两种性别下maths的平均值。</p>
+<h3><span id="mi-amp-ma">mi &amp; ma</span></h3><p>经常配合groupby使用，求最小值和最大值。因为groupby可以计算得到多个值，在多个值里面选择最大值和最小值就用<code>ma</code>和<code>mi</code>。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">V(&quot;maths&quot;,&quot;4stu&quot;)|groupby(&quot;gender&quot;)|mean|mi</span><br></pre></td></tr></table></figure>
+<h2><span id="逻辑判断">逻辑判断</span></h2><p>逻辑判断语句的基本写法是:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&#123; % if a==b % &#125;</span><br><span class="line">a等于b</span><br><span class="line">&#123; % elif a&gt;b % &#125;</span><br><span class="line">a比b大&#123; &#123; a - b &#125; &#125;</span><br><span class="line">&#123; % else % &#125;</span><br><span class="line">a比b小&#123; &#123; b-a &#125; &#125;</span><br><span class="line">&#123; % end % &#125;</span><br></pre></td></tr></table></figure>
+<p>注意，逻辑判断语句用到的符号是<code>{ % ... % }</code>。其中 if 和 end 标明语句的开始和结尾，中间可以用elif增加判断语句，它是可选的，你可以不使用它，只用<code>if ... else ... end</code>, 你也可以用多个elif。还有就是，虽然我们写了很多行，但是最终渲染得到的内容是没有换行的，也就是任何换行符都会被删除。</p>
+<h2><span id="实战">实战</span></h2><p>在报告中，经常用到非常复杂的计算。例如看下面在报告模板中的真实写法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">======Variables=======</span><br><span class="line"></span><br><span class="line">a2=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(2)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line"></span><br><span class="line">a3=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(3)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line"></span><br><span class="line">a4=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(4)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line"></span><br><span class="line">pa=a2+a3+a4</span><br><span class="line"></span><br><span class="line">a2=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|which(2)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line"></span><br><span class="line">a3=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|which(3)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line"></span><br><span class="line">a4=V(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|which(4)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br><span class="line"></span><br><span class="line">qga=a2+a3+a4</span><br><span class="line">=======Content========</span><br><span class="line"></span><br><span class="line">&#123; % if pa &gt; qga % &#125;</span><br><span class="line">高于全国均值&#123; &#123; pa - qga &#125; &#125;</span><br><span class="line">&#123; % elif pa == qga % &#125;</span><br><span class="line">等于全国均值</span><br><span class="line">&#123; % else % &#125;</span><br><span class="line">低于全国均值&#123; &#123; qga - pa &#125; &#125;</span><br><span class="line">&#123; % end % &#125;</span><br></pre></td></tr></table></figure>
+<p>其中有两个特殊的行<code>======Variables=======</code>和<code>=======Content========</code>，他们是分隔符，在两行中间可以定义各种用到的变量，这些变量不会被渲染。而content下面的内容是真正会被渲染的部分，但是这部分又用到了上面定义的变量。</p>
+<hr>
+<h1><span id="图表">图表</span></h1><hr>
+<h2><span id="序列">序列</span></h2><p>word中的图表都是由数据序列构成的，数据序列可以看成是一列数值，比如<code>(1, 2, 3, 4)</code>就是一个数据序列，我们的系统中，用如下方法表达一个序列：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br></pre></td></tr></table></figure>
+<p>以上代码中，我们只使用选择了某个省的数据，指明了变量maths_level，并没有指明which，这样就会返回maths_level的所有水平的百分比。百分比会按照水平值从小到大排列，最终的结果就类似于<code>(1.2, 3.4, 90.0, 5.2)</code></p>
+<p>还有一种方法是使用groupby, 它的作用是将数据分组。例如:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|groupby(&quot;gender_new&quot;)|which(1)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br></pre></td></tr></table></figure>
+<p>以上代码中，groupby指明数据按照性别分组，这样计算结果会得到类似这样的结果<code>(90.0, 5.2)</code>，两个数分别表示男生和女生的maths_level为1的百分比。</p>
+<p>另有一种特殊的情况是，一个数据序列由多用算法计算得到，比如</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">v(&quot;maths_level&quot;)|table(&quot;4stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(1)|groupby(&quot;school_loc_new&quot;)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)| merge |v(&quot;maths_level&quot;)|table(&quot;8stu&quot;)|select(&#123;&quot;province&quot;:pro_code&#125;)|which(1)|groupby(&quot;school_loc_new&quot;)|percent|format(&#123;&quot;decimal&quot;:1,&quot;multi&quot;:100&#125;)</span><br></pre></td></tr></table></figure>
+<p>以上代码使用了merge算法，将前后两种计算结果合并在一起构成一个序列。merge之前计算结果为四年级的数据，如<code>(4.5, 6.5, 2.4)</code>，之后计算的是八年级的数据，结果为<code>(55.4, 34.2, 42.3)</code>，合并之后为<code>(4.5, 6.5, 2.4, 55.4, 34.2, 42.3)</code></p>
 
         </div>
     
@@ -767,7 +708,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
+            <a href="/tags/报告系统/">#报告系统</a>
         </div>
     
 
@@ -778,13 +719,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/10/11/SPSS python教程：[7]读取透视表中的平均数/">
-                SPSS python教程：[7]读取透视表中的平均数
+            <a href="/2017/06/14/远程数据库下载和查询教程/">
+                远程数据库下载和查询教程
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年10月11日</span>
+                <span class="date">2017年06月14日</span>
             
             
             
@@ -793,52 +734,47 @@
 
     
         <div class="content">
-            <p>由于经常有人问怎么将数据中心化，笨方法就是手工去算，但是我打算用点高级的东西，从描述性统计的输出的透视表中，读取平均数，然后再用变量的每一个值减去平均数。这篇文章介绍一下最关键的一个步骤，那就是从输出的描述性统计中读取平均数。</p>
-<ul>
-<li>先看一下所有的代码。然后我们再逐步解释</li>
+            <h2><span id="使用ssh登录linux">使用ssh登录Linux</span></h2><ul>
+<li>新建链接，输入以下信息</li>
 </ul>
-<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/f677b1c379310a5540f30c74b54543a983261018.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
+<img src="/2017/06/14/远程数据库下载和查询教程/enter-host-user.jpg">
 <ul>
-<li>首先是BEGIN PROGRAM和END PROGRAM,这两者之间插入python代码，也就是说python代码必须在这两者之间才能正确执行，之前有讲过</li>
+<li>输入密码</li>
 </ul>
-<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/245e8bcad1c8a7867b2d978e6509c93d71cf50e8.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
+<img src="/2017/06/14/远程数据库下载和查询教程/enter-password.jpg">
 <ul>
-<li>装载spss和apssaux模块，spss模块很熟悉，但是spssaux模块是一个附加模块，在帮助文件中，没有关于它的，只能去自己搜索了。或者在python中使用help(spssaux)</li>
+<li>点击文件管理按钮</li>
 </ul>
-<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/f392492c11dfa9eca8f8849760d0f703908fc119.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
+<img src="/2017/06/14/远程数据库下载和查询教程/open-download-dialog.jpg">
 <ul>
-<li>fpath中保存数据文件路径</li>
+<li>找到你要下载的文件，双击下载</li>
 </ul>
-<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/6391e903918fa0ec2011b68d249759ee3c6ddb19.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
+<img src="/2017/06/14/远程数据库下载和查询教程/download.jpg">
+<h2><span id="在mysql中做查询">在mysql中做查询</span></h2><p>在mysql中做查询需要进入muysql的交互环境。</p>
 <ul>
-<li>spss打开该数据文件，注意这里用到了一些syntax命令，这些都是基本的。如果你不会写syntax也无妨，你可以在spss中手动操作一下，得到描述性统计，在结果输出文档中，就能看到用到的syntax，你再将其粘贴过来就可以了。</li>
+<li>进入mysql</li>
 </ul>
-<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/b7bc4c66d01609247d227f9bd60735fae7cd34e8.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql -h[ip地址] -u[用户名] -p[密码]</span><br></pre></td></tr></table></figure>
+<p>以下命令都是在mysql交互环境中运行</p>
 <ul>
-<li>然后cmd中存有进行描述性统计的syntax命令</li>
+<li>查询有哪些数据库</li>
 </ul>
-<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/d5462bfae6cd7b89426be7030d2442a7d8330ee8.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> <span class="keyword">databases</span>;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>spssaux.createxmloutput将执行cmd命令，然后将结果保存在xml工作空间中，可以设置visible为True来看到输出结果</li>
+<li>选择一个数据库</li>
 </ul>
-<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/476217f79052982245e5eb43d5ca7bcb0b46d419.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">use</span> name_of_databse;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>读取透视表中的的某个以数值，注意观察参数，对照着透视表你就能理解了。</li>
+<li>查询数据库</li>
 </ul>
-<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/6a2112338744ebf85ea7b6bfdbf9d72a6159a719.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="keyword">count</span>(*) <span class="keyword">from</span> basic_child_info;</span><br></pre></td></tr></table></figure>
+<h2><span id="下载数据库表">下载数据库表</span></h2><ul>
+<li>把表下载到当前目录</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump -h[ip地址] -u[username] -p[password] [databse name] [table name] &gt; [filename].sql;</span><br></pre></td></tr></table></figure>
 <ul>
-<li>最后将读取得到的平均数值打印出来，成功！</li>
+<li>导出表到本地</li>
 </ul>
-<img src="/2016/10/11/SPSS%20python教程：[7]读取透视表中的平均数/a54e55fbfbedab64ef759040f536afc378311ee8.jpg" title="SPSS python教程：[7]读取透视表中的平均数">
-<ul>
-<li>最近在进行spss的自动化处理数据，有兴趣的可以联系我。</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
 
         </div>
     
@@ -847,7 +783,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a> <a href="/tags/python/">#python</a>
+            <a href="/tags/mysql/">#mysql</a>
         </div>
     
 
@@ -858,13 +794,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/10/05/SPSS绘图教程：[1]教程简介/">
-                SPSS绘图教程：[1]教程简介
+            <a href="/2017/06/13/作文自动分类方案设计/">
+                作文自动分类方案设计
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年10月05日</span>
+                <span class="date">2017年06月13日</span>
             
             
             
@@ -873,62 +809,7 @@
 
     
         <div class="content">
-            <p>这篇文章是spss绘图教程的第一篇，简单介绍一下该系列教程的主要内容。该系列教程没有啥难懂的东西，都是在数据分析工作中经常用到的一些绘图技巧和基本知识。写这个系列教程的初衷是因为我们的spss教科书中很少有绘图的教程，所以很多学生都在问我怎么绘图，我现在把我会的所有绘图知识都写下来，方便大家查阅，大家可以将这系列教程收藏起来，以便以后查阅。</p>
-<ul>
-<li>首先是数据的准备，绘图对数据的格式要求非常严格，所以在绘图前需要对数据进行整理。</li>
-</ul>
-<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/e865a699a9014c083efcb31d087b02087af4f400.jpg" title="SPSS绘图教程：[1]教程简介">
-<ul>
-<li>条形图的绘制以及修改。</li>
-</ul>
-<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/32bb9c8ba61ea8d319c9efbc950a304e241f5864.jpg" title="SPSS绘图教程：[1]教程简介">
-<ul>
-<li>折线图的绘制以及修改</li>
-</ul>
-<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/0862c354564e925807fb1d569e82d158cdbf4e78.jpg" title="SPSS绘图教程：[1]教程简介">
-<ul>
-<li>区域图的绘制以及修改</li>
-</ul>
-<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/9dc3cf58ccbf6c815cf8b750be3eb13532fa4078.jpg" title="SPSS绘图教程：[1]教程简介">
-<ul>
-<li>饼图的绘制以及修改</li>
-</ul>
-<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/b0742dfa828ba61e4b2153974334970a314e5978.jpg" title="SPSS绘图教程：[1]教程简介">
-<ul>
-<li>散点图的绘制以及修改</li>
-</ul>
-<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/4075890a304e251f7c387f40a586c9177e3e5378.jpg" title="SPSS绘图教程：[1]教程简介">
-<ul>
-<li>直方图的绘制以及修改</li>
-</ul>
-<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/86d5bac27d1ed21b0b23b55daf6eddc450da3f64.jpg" title="SPSS绘图教程：[1]教程简介">
-<ul>
-<li>高低图的绘制以及修改</li>
-</ul>
-<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/ac2fc3c451da81cb320c18755066d01608243164.jpg" title="SPSS绘图教程：[1]教程简介">
-<ul>
-<li>箱图的绘制以及修改</li>
-</ul>
-<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/389aa8fd5266d01606f30590952bd40734fa3564.jpg" title="SPSS绘图教程：[1]教程简介">
-<ul>
-<li>双轴图的绘制以及修改（有两种图形）</li>
-</ul>
-<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/cc506c8b4710b912320e6d46c1fdfc0393452278.jpg" title="SPSS绘图教程：[1]教程简介">
-<ul>
-<li>图形元素的设置</li>
-</ul>
-<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/48151723dd54564e46037e81b1de9c82d0584fe1.jpg" title="SPSS绘图教程：[1]教程简介">
-<ul>
-<li>脚注题注等的设置</li>
-</ul>
-<img src="/2016/10/05/SPSS绘图教程：[1]教程简介/f7426d8da97739128a9b1fd9fa198618377ae28e.jpg" title="SPSS绘图教程：[1]教程简介">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
+            <h3><span id="语义空间的构建">语义空间的构建</span></h3><h4><span id="数据采集">数据采集</span></h4><h4><span id="分词和词性标注">分词和词性标注</span></h4><h4><span id="心理特征标注">心理特征标注</span></h4><h4><span id="构建语义空间">构建语义空间</span></h4><h4><span id="基于语义空间">基于语义空间</span></h4><h3><span id="学生作文人工标注">学生作文人工标注</span></h3><h4><span id="数据提取">数据提取</span></h4><h4><span id="开发标注页面">开发标注页面</span></h4><h4><span id="保存标注后数据">保存标注后数据</span></h4><h3><span id="预测">预测</span></h3><h4><span id="作文映射到语义空间">作文映射到语义空间</span></h4><h4><span id="构建语义向量向测量指标的网络">构建语义向量向测量指标的网络</span></h4>
         </div>
     
 
@@ -936,7 +817,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
+            <a href="/tags/文本挖掘/">#文本挖掘</a>
         </div>
     
 
@@ -947,13 +828,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/10/05/python 线性代数：[19]行列式求解/">
-                python 线性代数：[19]行列式求解
+            <a href="/2017/06/13/神经网络python库keras在windows下部署过程，带下载链接/">
+                神经网络python库keras在windows下部署过程，带下载链接
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年10月05日</span>
+                <span class="date">2017年06月13日</span>
             
             
             
@@ -962,58 +843,27 @@
 
     
         <div class="content">
-            <p>行列式是线性代数里最重要的概念之一，今天我们使用Python的numpy和sympy包计算几个三阶行列式。下面的计算过程用excel存放矩阵的数据，而用excel里面的datanitro插件来运行Python代码，所以你可能要熟悉一下datanitro这个插件，关于这个插件的全部教程，我都写在了这个系列里：<a href="http://jingyan.baidu.com/season/43508" target="_blank" rel="noopener">http://jingyan.baidu.com/season/43508</a></p>
-<ul>
-<li>熟悉了这个插件以后，我们看看我们要解决的这四个矩阵：这些练习题来自《线性代数，同济大学第五版第一张课后题》。</li>
+            <h3><span id="环境">环境</span></h3><ul>
+<li>64位win10</li>
+<li>python 3.5 64 bit</li>
 </ul>
-<img src="/2016/10/05/python%20线性代数：[19]行列式求解/73ca5910b912c8fc4c2adbe7f8039245d78821fb.jpg" title="python 线性代数：[19]行列式求解">
-<ul>
-<li>这接着我们将这些矩阵录入到excel当中。</li>
-</ul>
-<img src="/2016/10/05/python%20线性代数：[19]行列式求解/f15e24292df5e0fec472a52b586034a85edf7276.jpg" title="python 线性代数：[19]行列式求解">
-<ul>
-<li>接着我们把代码写到1.1.py文件中。</li>
-</ul>
-<img src="/2016/10/05/python%20线性代数：[19]行列式求解/4abae5edab64034fc2b2ee2cabc379310a551d59.jpg" title="python 线性代数：[19]行列式求解">
-<ul>
-<li>接着，我们在excel的datanitro插件中，引入1.1.py文件，然后run一下就可以看到计算结果：</li>
-</ul>
-<img src="/2016/10/05/python%20线性代数：[19]行列式求解/c28fddfdfc03924559e0c8258394a4c27d1e2507.jpg" title="python 线性代数：[19]行列式求解">
-<ul>
-<li><p>以上是大概的流程，接下来具体讲解一下代码的意义。</p>
-</li>
-<li><p>引入需要的两个模块</p>
-</li>
-</ul>
-<img src="/2016/10/05/python%20线性代数：[19]行列式求解/11794d43fbf2b211ba8ca964ce8065380cd78e3e.jpg" title="python 线性代数：[19]行列式求解">
-<ul>
-<li><p>先看看第一题，这是计算第一个矩阵的行列式：</p>
-</li>
-<li><p>a,CellRange是datanitro的内置对象，表示excel里面的一个单元格区域，通过它我们可以将这个区域内的值读取出来，存放到lst这个列表里，也就是Python中的list对象；接着用numpy模块的reshap方法，将list转换为3x3的矩阵，然后用刀了det方法计算行列式，最后结果为-4</p>
-</li>
-</ul>
-<img src="/2016/10/05/python%20线性代数：[19]行列式求解/647912d7912397dd8e08b72e5d82b2b7d0a28763.jpg" title="python 线性代数：[19]行列式求解">
-<ul>
-<li>第二题：红色字体都是注释，没有实际功能。跟第一题相比，第二题用字母代替了数字，所以，我们要用到Python的符号计算包sympy，我们可以看到E就是一个3x3的矩阵，但是需要将E转换为符号矩阵，用到了sp.Matrix，得到M，然后使用m的det方法计算得到行列式，结果是：</li>
-</ul>
-<img src="/2016/10/05/python%20线性代数：[19]行列式求解/d56b3634349b033b4ce6d5f011ce36d3d539bd6a.jpg" title="python 线性代数：[19]行列式求解">
-<img src="/2016/10/05/python%20线性代数：[19]行列式求解/d089b986c9177f3e181dd22774cf3bc79f3d56ab.jpg" title="python 线性代数：[19]行列式求解">
-<ul>
-<li>第三题，与第二题类似，用到了sp.Matrix，但是我们还用到了sp.factor，这个方法可以将结果提取公因式，最后的计算结果为：</li>
-</ul>
-<img src="/2016/10/05/python%20线性代数：[19]行列式求解/a6c7d7177f3e6709b76b6dd53fc79f3df8dc5575.jpg" title="python 线性代数：[19]行列式求解">
-<img src="/2016/10/05/python%20线性代数：[19]行列式求解/b110e6198618367a153456f72a738bd4b31ce518.jpg" title="python 线性代数：[19]行列式求解">
-<ul>
-<li>如果前三题你都搞懂了，第四题就简单了，没有新知识：</li>
-</ul>
-<img src="/2016/10/05/python%20线性代数：[19]行列式求解/6a2112338744ebf816254c15ddf9d72a6059a700.jpg" title="python 线性代数：[19]行列式求解">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
+<p>keras的官方文档说，他们只支持python2.7-python3.5。</p>
+<h3><span id="下载wheels">下载wheels</span></h3><p>因为numpy和scipy在windows平台上安装会出现编译问题，因为他们依赖一些c库会找不到，所以我们就安装wheel格式的库，他们是预先编译好的。</p>
+<p>下载链接：<a href="http://pan.baidu.com/s/1dETxbwd" target="_blank" rel="noopener">http://pan.baidu.com/s/1dETxbwd</a> 密码：5jwl</p>
+<p>在这里你能看到有很多<code>.whl</code>格式的文件，如果你跟我的python版本一样，你可以下载，否则你需要下载适合你自己版本的安装文件。</p>
+<img src="/2017/06/13/神经网络python库keras在windows下部署过程，带下载链接/baiduyun.jpg">
+<h3><span id="安装numpy和scipy">安装numpy和scipy</span></h3><figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> wheel文件所在的文件夹</span><br><span class="line">pip install "numpy-<span class="number">1</span>.<span class="number">11</span>.<span class="number">3</span>+mkl-cp35-cp35m-win_amd64.whl"</span><br><span class="line">pip install "scipy-<span class="number">0</span>.<span class="number">19</span>.<span class="number">0</span>-cp35-cp35m-win_amd64.whl"</span><br></pre></td></tr></table></figure>
+<h3><span id="安装tensorflow">安装tensorflow</span></h3><p>tensorflow是keras的神经网络计算引擎，但是安装keras的时候，不会自动安装它，因为这是一个可选包，所以你的自己安装。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install tensorflow</span><br></pre></td></tr></table></figure>
+<h3><span id="安装keras">安装keras</span></h3><p>因为在安装麻烦的库已经安装好了，现在可以安装keras了。keras还依赖一些其他的库，比如six/tensorflow/pyyaml等，不过他们可以在安装keras的时候，自动被安装，所以不需要你手动安装。</p>
+<figure class="highlight cmd"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">pip install keras</span><br></pre></td></tr></table></figure>
+<h3><span id="hello-keras">hello keras</span></h3><p>打开python shell，可以在cmd中输入python来打开。</p>
+<p>首先来构建一个网络结构</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> keras.models <span class="keyword">import</span> Sequential</span><br><span class="line"><span class="keyword">from</span> keras.layers <span class="keyword">import</span> Dense, Activation</span><br><span class="line">model.add(Dense(units=<span class="number">25</span>, input_dim=<span class="number">64</span>))</span><br><span class="line">model=Sequential()   <span class="comment">#网络基本结构</span></span><br><span class="line">model.add(Dense(units=<span class="number">25</span>, input_dim=<span class="number">8</span>*<span class="number">8</span>))  <span class="comment">#添加一个隐层，有25个节点，64个输入</span></span><br><span class="line">model.add(Activation(<span class="string">"sigmoid"</span>))  <span class="comment">#设置激活函数logistic</span></span><br><span class="line">model.add(Dense(units=<span class="number">10</span>))  <span class="comment">#增加一个输出层</span></span><br><span class="line">model.add(Activation(<span class="string">'sigmoid'</span>))  <span class="comment"># 设置激活函数</span></span><br></pre></td></tr></table></figure>
+<p>准备数据，我们要得到输入和输出矩阵，输入矩阵每一行是一个64维的向量，输出矩阵每一行是一个10维矩阵</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">data=open(<span class="string">'orc-data.csv'</span>,<span class="string">'r'</span>).readlines()</span><br><span class="line">data=[line.strip().split(<span class="string">','</span>) <span class="keyword">for</span> line <span class="keyword">in</span> data]</span><br><span class="line">data=[list(map(row, int)) <span class="keyword">for</span> row <span class="keyword">in</span> data]</span><br><span class="line">data=[list(map(int, row)) <span class="keyword">for</span> row <span class="keyword">in</span> data]</span><br><span class="line">X=[row[<span class="number">1</span>:] <span class="keyword">for</span> row <span class="keyword">in</span> data]</span><br><span class="line">temp_Y=[row[<span class="number">0</span>] <span class="keyword">for</span> row <span class="keyword">in</span> data]</span><br><span class="line">Y=[]</span><br><span class="line"><span class="keyword">for</span> y <span class="keyword">in</span> temp_Y:</span><br><span class="line">	v=[<span class="number">0</span>]*<span class="number">10</span></span><br><span class="line">	v[y]=<span class="number">1</span></span><br><span class="line">	Y.append(v)</span><br></pre></td></tr></table></figure>
+<p>现在我们得到了两个矩阵X和Y。网络结构已经建好，我们可以训练这个模型了</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">model.compile(loss=<span class="string">'categorical_crossentropy'</span>,</span><br><span class="line">				optimizer=<span class="string">'adam'</span>,</span><br><span class="line">				metrics=[<span class="string">'accuracy'</span>])</span><br><span class="line">model.fid(X, Y, batch_size=<span class="number">100</span>, nb_epoch=<span class="number">20</span>)</span><br></pre></td></tr></table></figure>
         </div>
     
 
@@ -1021,7 +871,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
+            <a href="/tags/python/">#python</a> <a href="/tags/机器学习/">#机器学习</a> <a href="/tags/keras/">#keras</a> <a href="/tags/神经网络/">#神经网络</a>
         </div>
     
 
@@ -1032,13 +882,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/10/03/SPSS python教程：[6]读取PivotTable行标签/">
-                SPSS python教程：[6]读取PivotTable行标签
+            <a href="/2017/06/11/人工神经网络入门-代码实现ORC/">
+                人工神经网络入门+代码实现ORC
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年10月03日</span>
+                <span class="date">2017年06月11日</span>
             
             
             
@@ -1047,54 +897,341 @@
 
     
         <div class="content">
-            <p>spss输出的结果文档用到最多的就是数据透视表（pivot table），在spss中，数据透视表被分为三个部分：行标签列表、列标签列表、数据列表。你可能还不理解这些内容。我们从这篇开始介绍数据透视表的行标签，并用python读取行标签，然后输出。看看代码吧：</p>
-<ul>
-<li>这是在spss结果文档中输出的一个数据透视表，我们要读取它的行标签</li>
+            
+<div class="row" id="content-body">
+    <div id="orc-container" class="col-md-6 col-lg-6 col-sm-12"></div>
+    <div class="controls col-md-6 col-lg-6 col-sm-12">
+        在表格里写入一个一个数字(0-9)<br>
+        <button class="clear btn btn-default"> 清空 </button>
+        <button class="recognize btn btn-default">识别</button>
+        <div>预测结果： <span class="prediction"> ?? </span> </div>
+        信度：<div class="confidence"></div>
+        <div class="confidences">
+        </div>
+    </div>
+</div>
+<div class="row" id="network-container"></div>
+<div class="row btn-group" id="network-buttons">
+    <button class="btn btn-lg btn-default" id="reduce-neuron">减少神经元</button>
+    <input id="num-nodes" type="number" class="btn btn-default btn-large form-group" value="25" title="隐层神经元个数" height="100%">
+    <button class="btn btn-lg btn-default" id="add-neuron">增加神经元</button>
+    <button class="btn btn-lg btn-default" id="network-run">训练</button>
+</div>
+
+
+<!-- orc -->
+   <style>
+        body {
+          margin: 0;
+          font-family: Helvetica;
+          font-weight: 100;
+        }
+        svg {
+          shape-rendering: crispEdges;
+          cursor: pointer;
+        }
+        .controls {
+        }
+    </style>
+    
+    <!-- draw a grid -->
+    <script type="text/javascript">
+
+        if ('d3' in window){
+            var gL=50, gridN=8, boxLength=gL * gridN
+            var svg=d3.select('#orc-container').append('svg').attr("width",boxLength)
+                .attr("height",boxLength)
+            var data=d3.range(gridN*gridN).map(function(d){
+                return {i: d%gridN, j:Math.floor(d/gridN), id: d, active:0}
+            })
+
+            var grids=svg.append('g').attr('class', 'grids')
+                .selectAll('rect').data(data).enter().append('rect')
+                .attr("width", gL).attr("height", gL)
+                .attr('x', function(d){return gL*d.i})
+                .attr('y', function(d){return gL*d.j})
+                .style('stroke', 'rgba(255, 255, 255, 0.2)')
+
+            function updateGrid(g){
+                g.style('fill', function(d){
+                    return d.active ? 'rgba(255,255,255,1)':'black'
+                })
+
+            }
+            var conf = d3.select('.confidences').selectAll('div')
+                .data(d3.range(10)).enter()
+                .append('div').text(function(d){return d + ': '})
+
+            var bar=conf.append('div').attr('class', 'bg')
+                .style("width",'60px')
+                .style("height", '20px')
+                .style("display", 'inline-block')
+
+            bar.append('div').attr('class', 'fg')
+                .style("width", '20%')
+                .style("height", '100%')
+                .style('background-color', 'rgba(0, 0, 0, 0.8)')
+
+            svg.on('mousedown', function(){
+                grids.on('mousemove',function(d){
+                    d.active=1
+                    updateGrid(d3.select(this))
+                })
+            }).on('mouseup',function(){
+                grids.on('mousemove',null)
+            })
+
+            function updateState(){
+                var input = data.map(function(d){return d.active})
+                var output = window.network.activate(input)
+                var max = -1, maxId = -1
+                output.forEach(function(d, i) { if (d > max) max = d, maxId = i })
+                conf.data(output).select('.fg')
+                    .style('width', function(d) { return d * 100 + '%' })
+                d3.select('.prediction').text(maxId)
+                d3.select('.confidence').text(max)
+
+            }
+            d3.select('button.clear').on('click', resetBlocks)
+            d3.select('button.recognize').on('click', updateState)
+
+            function resetBlocks() {
+              grids.each(function(d) { d.active = 0 }).call(updateGrid)
+            }
+        }else{
+            document.getElementById('content-body').innerHTML='本篇文章内容特殊，只有打开文章才能看到。'
+            document.getElementById('network-buttons').innerHTML=''
+        }
+    </script>
+
+
+
+   <!-- network graph -->
+    <style type="text/css">
+        text {
+          pointer-events: none;
+        }
+
+        .node:hover {
+          stroke: #999;
+          stroke-opacity: .6;
+          stroke-width: 4px;
+        }
+
+        .link {
+          stroke: #999;
+          stroke-opacity: .6;
+        }
+    </style>
+    <script type="text/javascript">
+    if ('d3' in window){
+        var width = 960,
+            height = 1400,
+            nodeSize = 10;
+
+        var color = d3.scaleOrdinal(d3.schemeCategory20);
+
+        var svg = d3.select("#network-container").append("svg")
+            .attr("width", width)
+            .attr("height", height);
+
+
+        window.show_network=function(network) {
+            
+            svg.selectAll('*').remove()
+            // get network size
+            var netsize = {}
+            allLayers=[network.layers.input]
+            network.layers.hidden.forEach(function(l){
+                allLayers.push(l)
+            })
+            allLayers.push(network.layers.output)
+
+            // calc distances between nodes
+            largestLayerSize=0
+            allLayers.forEach(function(d){if(d.size>largestLayerSize){
+                largestLayerSize=d.size
+            }})
+
+            var xdist = width / allLayers.length,
+                ydist = height / largestLayerSize;
+
+            // create node locations
+            layerCount=0
+            var links = [];
+            allLayers.map(function(layer) {
+                layerCount +=1
+                layer.layerCount=layerCount
+                neurons=layer.neurons()
+                nNeurons=neurons.length
+                maxYDistance=nNeurons * ydist
+                startY=(height-maxYDistance)/2
+                neuCount=0
+                neurons.forEach(function(neuron){
+                    neuCount +=1
+                    neuron.x=(layerCount - 0.5) * xdist
+                    neuron.y=(neuCount - 0.5 ) * ydist + startY
+                    connections=neuron.connections.projected
+                    keys=Object.keys(connections)
+                    keys.forEach(function(id){
+                        links.push(connections[id])
+                    })
+                })
+            });
+
+            // draw links
+            var link = svg.selectAll(".link")
+                .data(links)
+              .enter().append("line")
+                .attr("class", "link")
+                .attr("x1", function(d) { return d.from.x; })
+                .attr("y1", function(d) { return d.from.y; })
+                .attr("x2", function(d) { return d.to.x; })
+                .attr("y2", function(d) { return d.to.y; })
+                .style("stroke-width", function(d) { return d.weight * 10; });
+
+            // draw nodes
+            console.log(network.neurons())
+            var node = svg.selectAll(".node")
+                .data(network.neurons())
+              .enter().append("g")
+                .attr("transform", function(d) {
+                    return "translate(" + d.neuron.x + "," + d.neuron.y + ")"; }
+                );
+
+            var circle = node.append("circle")
+                .attr("class", "node")
+                .attr("r", nodeSize)
+                .style("fill", function(d) { return color(d.layer.layerCount); });
+
+
+            node.append("text")
+                .attr("dx", "-.35em")
+                .attr("dy", ".35em")
+                .text(function(d, i) { return i; })
+        }
+
+        var numInput=document.getElementById('num-nodes')
+        var addBtn=d3.select('#add-neuron').on('click', function(){
+            value=numInput.value
+            console.log(value)
+            value = parseInt(value)
+            // numInput.attr('value', value + 1)  #这个方法不能动态显示更改后的数据
+            numInput.value=value +1
+        })
+        var reduceBtn=d3.select('#reduce-neuron').on('click', function(){
+            value= parseInt(numInput.value)
+            value = (value > 1)? value -1 : 0
+            numInput.value=value
+            
+        })
+        var runBtn= d3.select('#network-run').on('click', function(){
+            num=parseInt(numInput.value)
+            if(num>0){
+                myNetwork=new synaptic.Architect.Perceptron(64, num, 10)
+                trainer=new synaptic.Trainer(myNetwork)
+                window.train(trainer)
+                window.show_network(myNetwork)
+                window.network=myNetwork
+                window.trainer=trainer
+                alert('训练完成')
+            }else{
+                alert('神经元的数量必须大于0')
+            }
+        })
+    }
+    </script>
+
+
+
+    <script type="text/javascript">
+        if('synaptic' in window){
+            var myNetwork = new synaptic.Architect.Perceptron(64, 25, 10)
+            var trainer = new synaptic.Trainer(myNetwork)
+
+            function train(trainer){
+                d3.text('data', function(err, data) {
+                  if (err) {
+                    throw err
+                  }
+                  var ts, te, idx
+                  data = d3.csvParseRows(data, function(row) { return row.map(Number) })
+                    .map(function(d) {
+                    // Expected output.
+                    var t = d3.range(10).map(function() { return 0 })
+                    t[d[0]] = 1
+                    return { input: d.slice(1), output: t }
+                  })
+                    ts=Date.now()
+                    trainer.train(data)
+                    te=Date.now()
+                    console.log('Time Spend: '+ (te-ts))
+                })
+            }
+            window.train=train
+            train(trainer)
+            window.network=myNetwork
+            window.trianer=trainer
+            window.show_network(myNetwork)
+        }
+    </script>
+
+<h3><span id="计算计算过程">计算计算过程</span></h3><h4><span id="输入和输出">输入和输出</span></h4><p>假设网络中所有的参数已知，根据一个输入向量x，求输出向量y。</p>
+<p>首先输入是一个64维向量：</p>
+<p><code>\[ x=\left[ x_1, x_2,\dots x_d \right] \](d=64)</code></p>
+<p>而输出向量应该是一个10维的向量，用来表征10个数字的识别概率。</p>
+<p><code>\[ \hat y=\left [ \hat y_1, \hat y_2,\dots \hat y_l \right](l=10) \]</code></p>
+<h4><span id="已知条件">已知条件：</span></h4><ul>
+<li>输入层到隐层神经元之间的链接权重<code>v</code>：</li>
 </ul>
-<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/8b527d2762d0f7036208ba450afa513d2797c5b6.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<p><code>\[ v=\left| { \begin{array}{c}
+v_{11} &amp; v_{12} &amp; \dots &amp; v_{1d}\\
+v_{21} &amp; v_{22} &amp; \dots &amp; v_{2d}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+v_{q1} &amp; v_{q2} &amp; \dots &amp; v_{qd}
+\end{array} }\right| (d=64, q=\text{count of hidden layer neurons})\]</code></p>
 <ul>
-<li>这就是行标签，但是它并不像我们看到的那么简单，我们试着读取行标签就知道了</li>
+<li>隐层神经元的阈值b</li>
 </ul>
-<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/6c63514a20a4462308668afb9a22720e0df3d7bf.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<p><code>\[ b=[b_1, b_2, \dots, b_q](q=\text{count of hidden layer neurons}) \]</code></p>
 <ul>
-<li>创建一个python脚本文件：outputTrim.py，下图中你可以看到该文件存放的目录</li>
+<li>隐层到输出层的权重<code>w</code>：</li>
 </ul>
-<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/48151723dd54564efa5acaa0b1de9c82d1584f28.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<p><code>\[
+w=\left| { \begin{array}{c}
+w_{11} &amp; w_{12} &amp; \dots &amp; w_{1q}\\
+w_{21} &amp; w_{22} &amp; \dots &amp; w_{2q}\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+w_{l1} &amp; w_{l2} &amp; \dots &amp; w_{lq}
+\end{array} }\right| (l=10, q=\text{count of hidden layer neurons})
+\]</code></p>
 <ul>
-<li>接着先写入代码StartClient和stopclient，所有操作spss的代码都应该放在这两句之间。</li>
+<li>输出层的阈值<code>\( \theta \)</code></li>
 </ul>
-<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/dc15484e9258d109d807862bd358ccbf6d814d07.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<p><code>\[ \theta=[\theta_1, \theta_2,\dots,\theta_l](l=10) \]</code></p>
 <ul>
-<li>我们详细讲解一下代码的意义，先看这两句，假如我们只打开了一个结果文档，我们使用第一句代码可以获取该文档的句柄；第二句获取该文档下所有的输出项目，里面包含但不仅限于数据透视表，outputItems是一个列表</li>
+<li>激活函数</li>
 </ul>
-<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/9864a2315c6034a83fae9618c91349540823769f.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<p><code>\[ f(x)={ 1 \over { 1 + e^{-x} } } \]</code></p>
+<h4><span id="计算结果">计算结果</span></h4><ul>
+<li>隐层神经元的输入</li>
+</ul>
+<p><code>\[ \alpha = v · x^T + b  \]</code></p>
 <ul>
-<li>通过循环，我们可以找到名称为’Descriptive Statistics’的数据透视表。我们看下面的if语句，首先判断输出项是不是PIVOT，然后判断该输出项的标题为’Descriptive Statistics’的PIVOT，获取标题用的是GetDescription</li>
+<li>隐层神经元的激活</li>
 </ul>
-<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/263e802f07082838c19ff28dba99a9014d08f15e.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<p><code>\[ \beta=f(\alpha) \]</code></p>
 <ul>
-<li>这句代码是将找到的这个输出项转换为数据透视表，这样才能使用数据透视表所具有的类和方法</li>
+<li>输出神经元输入</li>
 </ul>
-<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/814b07d8bc3eb13540169922a41ea8d3fc1f4412.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
+<p><code>\[\gamma = w · \beta + \theta\]</code></p>
 <ul>
-<li>这一句就是获取数据透视表的行标签</li>
+<li>输出神经元的激活</li>
 </ul>
-<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/9304c888d43f879430a461b7d01b0ef41ad53a94.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
-<ul>
-<li>我们用这个循环来输出所有的行标签，看看输出结果是啥样的</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/35e940df8db1cb132a38158adf54564e93584b92.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
-<ul>
-<li>这就是输出结果，跟数据透视表对比一下，你就知道行标签到底代表着什么。</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/6f4703950a7b02089dae167860d9f2d3562cc881.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
-<img src="/2016/10/03/SPSS%20python教程：[6]读取PivotTable行标签/6c63514a20a4462308668afb9a22720e0df3d7bf.jpg" title="SPSS python教程：[6]读取PivotTable行标签">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
+<p><code>\[f(\gamma)\]</code></p>
+<h3><span id="synapticjs实现神经网络">synaptic.js实现神经网络</span></h3><p>为了演示我们就用一个前端库来做一个神经网络。</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> myNetwork = <span class="keyword">new</span> synaptic.Architect.Perceptron(<span class="number">64</span>, <span class="number">25</span>, <span class="number">10</span>)</span><br><span class="line"><span class="keyword">var</span> trainer = <span class="keyword">new</span> synaptic.Trainer(myNetwork)</span><br><span class="line">data=[</span><br><span class="line">    &#123;<span class="attr">input</span>: [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>], <span class="attr">output</span>: <span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">input</span>: [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>], <span class="attr">output</span>: <span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">input</span>: [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>], <span class="attr">output</span>: <span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">input</span>: [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>], <span class="attr">output</span>: <span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">input</span>: [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>], <span class="attr">output</span>: <span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">input</span>: [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>], <span class="attr">output</span>: <span class="number">1</span>&#125;,</span><br><span class="line">    &#123;<span class="attr">input</span>: [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>], <span class="attr">output</span>: <span class="number">1</span>&#125;</span><br><span class="line">]</span><br><span class="line">trainer.train(data)</span><br><span class="line">new_input=[<span class="number">0</span>,<span class="number">0</span>,<span class="number">1</span>,...,<span class="number">0</span>]</span><br><span class="line"><span class="keyword">var</span> output = network.activate(new_input)</span><br></pre></td></tr></table></figure>
+<p>###</p>
 
         </div>
     
@@ -1103,7 +1240,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a> <a href="/tags/python/">#python</a>
+            <a href="/tags/神经网络/">#神经网络</a> <a href="/tags/ORC/">#ORC</a> <a href="/tags/3djs/">#3djs</a> <a href="/tags/synaptic/">#synaptic</a>
         </div>
     
 
@@ -1114,13 +1251,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/10/03/SPSS实例：[31]统计选项频数/">
-                SPSS实例：[31]统计选项频数
+            <a href="/2017/06/11/测试d3-js在hexo博客中的效果/">
+                测试d3.js在hexo博客中的效果
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年10月03日</span>
+                <span class="date">2017年06月11日</span>
             
             
             
@@ -1129,29 +1266,109 @@
 
     
         <div class="content">
-            <p>假如有一个单选题，有五个选项，我现在想知道每一个选项有都少人选，怎么办？其实这是一个最简单的频率统计问题，我们把在spss中的统计过程列在以下，请参考：</p>
-<ul>
-<li>首先，我们在菜单栏上执行：分析–描述统计–频数</li>
-</ul>
-<img src="/2016/10/03/SPSS实例：[31]统计选项频数/9864a2315c6034a885a32ccfc9134954082376f8.jpg" title="SPSS实例：[31]统计选项频数">
-<ul>
-<li>在这里，我们将想要统计的题目放到变量框</li>
-</ul>
-<img src="/2016/10/03/SPSS实例：[31]统计选项频数/1b0d4f0fd9f9d72aed368753d62a2834359bbbeb.jpg" title="SPSS实例：[31]统计选项频数">
-<ul>
-<li>点击ok开始统计</li>
-</ul>
-<img src="/2016/10/03/SPSS实例：[31]统计选项频数/fc5e5f34970a304ed18337b4d3c8a786c8175c98.jpg" title="SPSS实例：[31]统计选项频数">
-<ul>
-<li>在输出的表格中，我们的频率一栏就是我们要统计的内容了。</li>
-</ul>
-<img src="/2016/10/03/SPSS实例：[31]统计选项频数/fab3ac119313b07e6eefc7460ed7912396dd8ceb.jpg" title="SPSS实例：[31]统计选项频数">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
+            <p>d3.js可以在hexo博客中使用，如下图所示。但是有一些坑需要你提前知道如何填。</p>
+<h4><span id="json数据">json数据</span></h4><p>d3经常需要用到json格式的数据文件，如果放在代码里不太好，加载js的时候比较慢，<br>所以通常我们都是用<code>d3.json</code>方法，它需要你准备一个可被调用的json文件。<br>那么，我的做法是，在文章（post）的同名资源文件夹中加入json文件，但是我遇到一个问题，<br>就是json文件会被hexo当做一篇post给渲染，导致你的网站中会出现一篇无名的文章，<br>内容就是json文件的内容。你可能想到在<code>_config.yml</code>中配置<code>skip_render</code>，但是，<br>这个选项还有一些bug，我也懒得去改，这么做并不能防止生成一篇莫名文章。<br>我想到没有后缀名的文件是不会被渲染的，所以我就把json文件的后缀名给去掉，这样就可以了。</p>
+<h4><span id="代码">代码</span></h4><p>hexo中想要嵌入到文章中的代码通常写在<code>{ raw }your html code{ endraw }</code>中(标签中百分号没写)，<br>我也是这么做的。但是你一定要注意，文章不仅会出现在文章页面，还可能会出现在index(home)页，<br>这就麻烦了，因为你的JavaScript很可能影响到首页。如果你加载太多JavaScript库，还会导致首页加载速度过慢，<br>如果你在意用户体验或者SEO，你就需要注意这点。</p>
+<p>我的方法是在文章开始输入一个配置变量，这是我这篇文章的配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 测试d3.js在hexo博客中的效果</span><br><span class="line">date: 2017-06-11 08:12:09</span><br><span class="line">tags: [hexo, d3js]</span><br><span class="line">d3js: true</span><br><span class="line">---</span><br></pre></td></tr></table></figure>
+<p>你可以看到d3js这个变量。但是它还不能发挥作用，因为我们还得修改网站的模板。让模板侦测该变量，<br>如果为true就加载d3.js这个库。所以我们先增加一个partial文件，在主题文件夹下<code>layout/_partial/d3js.ejs</code>：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;script src=&quot;https://d3js.org/d3.v4.min.js&quot;&gt;&lt;/script&gt;</span><br></pre></td></tr></table></figure>
+<p>然后再修改<code>head.ejs</code>, 增加如下代码：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&lt;% <span class="keyword">if</span>(page.d3js)&#123; %&gt;</span><br><span class="line">    &lt;!-- d3js --&gt;</span><br><span class="line">    &lt;%- partial(<span class="string">'d3js'</span>) %&gt;</span><br><span class="line">&lt;% &#125; %&gt;</span><br></pre></td></tr></table></figure>
+<p>到此，我们已经成功了一半了（怎么还有一半？）</p>
+<h4><span id="探测d3是否加载">探测d3是否加载</span></h4><p>在写post的时候，你如果直接用d3这个变量，会引发错误，因为在index页面我们不允许加载d3，但是文章出现在首页的时候，<br>错误就发生了，告诉你d3是undefined。所以在使用d3前，你需要判断d3是否为undefined。你可以用in操作符即可：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">if</span>(<span class="string">"d3"</span> <span class="keyword">in</span> <span class="built_in">window</span>)&#123;</span><br><span class="line">    <span class="comment">// code to run</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<h4><span id="代码">代码</span></h4><p>OK, 是时候让你看到我文章中写的全部代码了，而代码的运行效果就是下图。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"d3js-example-content"</span>&gt;</span></span><br><span class="line">    这里是文章自定义内容，你需要进入该文章才能看到。</span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span>  </span><br><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"># input-button &#123;</span></span><br><span class="line"><span class="undefined">  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;</span></span><br><span class="line"><span class="undefined">  position: relative;</span></span><br><span class="line"><span class="undefined">  left: 10px;</span></span><br><span class="line"><span class="undefined">  top: 10px;</span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript"><span class="keyword">if</span> (<span class="string">'d3'</span> <span class="keyword">in</span> <span class="built_in">window</span>)&#123;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> html=<span class="string">''</span></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> contentDiv=<span class="built_in">document</span>.getElementById(<span class="string">"d3js-example-content"</span>);</span></span><br><span class="line"><span class="xml">    contentDiv.innerHTML='<span class="tag">&lt;<span class="name">canvas</span> <span class="attr">width</span>=<span class="string">"960"</span> <span class="attr">height</span>=<span class="string">"600"</span>&gt;</span><span class="tag">&lt;/<span class="name">canvas</span>&gt;</span>' +</span></span><br><span class="line"><span class="xml">                            '<span class="tag">&lt;<span class="name">label</span> <span class="attr">id</span>=<span class="string">"input-button"</span>&gt;</span><span class="tag">&lt;<span class="name">input</span> <span class="attr">style</span>=<span class="string">"width:240px;"</span> <span class="attr">type</span>=<span class="string">"range"</span> <span class="attr">min</span>=<span class="string">"0"</span> <span class="attr">max</span>=<span class="string">"1"</span> <span class="attr">step</span>=<span class="string">"any"</span> <span class="attr">value</span>=<span class="string">"0.5"</span>&gt;</span>'+</span></span><br><span class="line"><span class="javascript">                            <span class="string">' Link Strength&lt;/label&gt;'</span>;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> canvas = <span class="built_in">document</span>.querySelector(<span class="string">"canvas"</span>),</span></span><br><span class="line"><span class="javascript">        context = canvas.getContext(<span class="string">"2d"</span>),</span></span><br><span class="line"><span class="undefined">        width = canvas.width,</span></span><br><span class="line"><span class="undefined">        height = canvas.height;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="keyword">var</span> simulation = d3.forceSimulation()</span></span><br><span class="line"><span class="javascript">        .force(<span class="string">"link"</span>, d3.forceLink().id(<span class="function"><span class="keyword">function</span>(<span class="params">d</span>) </span>&#123; <span class="keyword">return</span> d.id; &#125;).strength(<span class="number">0.5</span>))</span></span><br><span class="line"><span class="javascript">        .force(<span class="string">"charge"</span>, d3.forceManyBody())</span></span><br><span class="line"><span class="javascript">        .force(<span class="string">"center"</span>, d3.forceCenter(width / <span class="number">2</span>, height / <span class="number">2</span>))</span></span><br><span class="line"><span class="javascript">        <span class="comment">// .alphaDecay(0);</span></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    d3.select(<span class="string">"input[type=range]"</span>)</span></span><br><span class="line"><span class="javascript">        .on(<span class="string">"input"</span>, inputted);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    d3.json(<span class="string">"miserables"</span>, <span class="function"><span class="keyword">function</span>(<span class="params">error, graph</span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      <span class="keyword">if</span> (error) <span class="keyword">throw</span> error;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">      simulation</span></span><br><span class="line"><span class="undefined">          .nodes(graph.nodes)</span></span><br><span class="line"><span class="javascript">          .on(<span class="string">"tick"</span>, ticked);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      simulation.force(<span class="string">"link"</span>)</span></span><br><span class="line"><span class="undefined">          .links(graph.links);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">      <span class="function"><span class="keyword">function</span> <span class="title">ticked</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">        context.clearRect(0, 0, width, height);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        context.beginPath();</span></span><br><span class="line"><span class="undefined">        graph.links.forEach(drawLink);</span></span><br><span class="line"><span class="javascript">        context.strokeStyle = <span class="string">"#aaa"</span>;</span></span><br><span class="line"><span class="undefined">        context.stroke();</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">        context.beginPath();</span></span><br><span class="line"><span class="undefined">        graph.nodes.forEach(drawNode);</span></span><br><span class="line"><span class="undefined">        context.fill();</span></span><br><span class="line"><span class="javascript">        context.strokeStyle = <span class="string">"#fff"</span>;</span></span><br><span class="line"><span class="undefined">        context.stroke();</span></span><br><span class="line"><span class="undefined">      &#125;</span></span><br><span class="line"><span class="undefined">    &#125;);</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">inputted</span>(<span class="params"></span>) </span>&#123;</span></span><br><span class="line"><span class="javascript">      simulation.force(<span class="string">"link"</span>).strength(+<span class="keyword">this</span>.value);</span></span><br><span class="line"><span class="undefined">      simulation.alpha(1).restart();</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">drawLink</span>(<span class="params">d</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">      context.moveTo(d.source.x, d.source.y);</span></span><br><span class="line"><span class="undefined">      context.lineTo(d.target.x, d.target.y);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="javascript">    <span class="function"><span class="keyword">function</span> <span class="title">drawNode</span>(<span class="params">d</span>) </span>&#123;</span></span><br><span class="line"><span class="undefined">      context.moveTo(d.x + 3, d.y);</span></span><br><span class="line"><span class="javascript">      context.arc(d.x, d.y, <span class="number">3</span>, <span class="number">0</span>, <span class="number">2</span> * <span class="built_in">Math</span>.PI);</span></span><br><span class="line"><span class="undefined">    &#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined">&#125;</span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span></span><br><span class="line"><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+
+<div id="d3js-example-content">
+    这是特殊内容，你需要进入该文章才能看到。
+</div>  
+
+<style>
+
+# input-button {
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  position: relative;
+  left: 10px;
+  top: 10px;
+}
+
+</style>
+
+<script>
+
+if ('d3' in window){
+    var html=''
+    var contentDiv=document.getElementById("d3js-example-content");
+    contentDiv.innerHTML='<canvas width="960" height="600"></canvas>' +
+                            '<label id="input-button"><input style="width:240px;" type="range" min="0" max="1" step="any" value="0.5">'+
+                            ' Link Strength</label>';
+
+    var canvas = document.querySelector("canvas"),
+        context = canvas.getContext("2d"),
+        width = canvas.width,
+        height = canvas.height;
+
+    var simulation = d3.forceSimulation()
+        .force("link", d3.forceLink().id(function(d) { return d.id; }).strength(0.5))
+        .force("charge", d3.forceManyBody())
+        .force("center", d3.forceCenter(width / 2, height / 2))
+        // .alphaDecay(0);
+
+    d3.select("input[type=range]")
+        .on("input", inputted);
+
+    d3.json("miserables", function(error, graph) {
+      if (error) throw error;
+
+      simulation
+          .nodes(graph.nodes)
+          .on("tick", ticked);
+
+      simulation.force("link")
+          .links(graph.links);
+
+      function ticked() {
+        context.clearRect(0, 0, width, height);
+
+        context.beginPath();
+        graph.links.forEach(drawLink);
+        context.strokeStyle = "#aaa";
+        context.stroke();
+
+        context.beginPath();
+        graph.nodes.forEach(drawNode);
+        context.fill();
+        context.strokeStyle = "#fff";
+        context.stroke();
+      }
+    });
+
+    function inputted() {
+      simulation.force("link").strength(+this.value);
+      simulation.alpha(1).restart();
+    }
+
+    function drawLink(d) {
+      context.moveTo(d.source.x, d.source.y);
+      context.lineTo(d.target.x, d.target.y);
+    }
+
+    function drawNode(d) {
+      context.moveTo(d.x + 3, d.y);
+      context.arc(d.x, d.y, 3, 0, 2 * Math.PI);
+    }
+
+
+
+
+}
+
+
+</script>
+
 
         </div>
     
@@ -1160,7 +1377,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
+            <a href="/tags/hexo/">#hexo</a> <a href="/tags/d3js/">#d3js</a>
         </div>
     
 
@@ -1207,43 +1424,43 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2020/12/23/均值差异的效应量在线计算器/">均值差异的效应量在线计算器</a>
+                <a class="footer-post" href="/2021/07/08/方差分析08-单因素多元方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
+                <a class="footer-post" href="/2021/07/08/方差分析07-单变量协方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/27/文旅特色小镇的具身体验质量-数据分享/">文旅特色小镇的具身体验质量-数据分享</a>
+                <a class="footer-post" href="/2021/07/08/方差分析06-2因素混合设计方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/12/问卷代填-大学生的论文用的-有靠谱的调研商家/">问卷代填(大学生的论文用的)怎么快速收集高质量问卷</a>
+                <a class="footer-post" href="/2021/07/08/方差分析05-重复测量单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/04/嵌入式python的zip安装和并安装pip/">嵌入式python的zip安装和并安装pip</a>
+                <a class="footer-post" href="/2021/07/08/方差分析04-三因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-效度分析/">SPSS问卷效度分析教程</a>
+                <a class="footer-post" href="/2021/07/08/方差分析03-双因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+                <a class="footer-post" href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+                <a class="footer-post" href="/2021/07/08/方差分析01-单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+                <a class="footer-post" href="/2021/07/08/11-2XN卡方检验/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2021/07/08/10-2x2卡方检验/">Untitled</a>
             </li>
             
         </ul>
@@ -1257,7 +1474,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1561,11 +1778,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>

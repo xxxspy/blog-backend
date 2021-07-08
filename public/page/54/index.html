@@ -197,6 +197,12 @@
     <div class="page_list archive-container">
         
             <div class="archive-post">
+                <a href="/2021/01/04/01 安装manimlib/">
+                    manim系列教程01-windows平台安装manim
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2020/11/04/嵌入式python的zip安装和并安装pip/">
                     嵌入式python的zip安装和并安装pip
                 </a>
@@ -217,12 +223,6 @@
             <div class="archive-post">
                 <a href="/2019/08/04/python中logging模块的error和exception的区别和最佳实践/">
                     python中logging模块的error和exception的区别和最佳实践
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2019/07/21/python3的logging模块的最佳实践/">
-                    python3的logging模块的最佳实践
                 </a>
             </div>
             
@@ -448,13 +448,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/06/19/python教程：[77]lambda和filter的神奇/">
-                python教程：[77]lambda和filter的神奇
+            <a href="/2015/07/17/amos21.0教程：[9]绘制测量模型/">
+                amos21.0教程：[9]绘制测量模型
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年06月19日</span>
+                <span class="date">2015年07月17日</span>
             
             
             
@@ -463,28 +463,653 @@
 
     
         <div class="content">
-            <p>我们先分别讲一下这两个内置函数的用法，然后看看这两个结合起来产生的效果，以及通常我们用他们来干嘛。</p>
+            <p>经过前几篇文章的努力，我们终于到了真正的教程，今天就来教大家如何绘制测量模型，关于测量模型是什么，你可以参考前面的文章，有专门的介绍，现在我们就打开amos，开始绘制。</p>
 <ul>
-<li>lambda通常是匿名函数的代名词，我们用到lambda的时候就是创建一个匿名函数：举个简单的例子：x代表了输入，x**2代表计算方法，也代表返回内容，也就是说这个函数输入一个数，返回这个数的平方。但是因为这个函数没有函数名，所以无法在其他地方调用</li>
+<li>打开amos，先新建一个文件，在菜单上执行：file–new</li>
 </ul>
-<img src="/2015/06/19/python教程：[77]lambda和filter的神奇/4d4970061d950a7bf9f37ef809d162d9f3d3c98d.jpg" title="python教程：[77]lambda和filter的神奇">
+<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/b87985504fc2d56220352717e61190ef77c66cc8.jpg" title="amos21.0教程：[9]绘制测量模型">
 <ul>
-<li>除非我们将这个函数起一个名字：但通常我们不会这么做，匿名函数只是作为匿名使用。</li>
+<li>接着我们看到这个按钮就是添加潜变量的按钮，点击一次，选中这个工具，然后在画布上拖动可以绘制一个椭圆，这就是潜变量了</li>
 </ul>
-<img src="/2015/06/19/python教程：[77]lambda和filter的神奇/21e5582309f790528e7674020ff3d7ca7bcbd565.jpg" title="python教程：[77]lambda和filter的神奇">
+<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/d478a8003af33a8794d6f4e0c75c10385243b556.jpg" title="amos21.0教程：[9]绘制测量模型">
+<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/969cbf44ad3459823c3111680df431adcaef8456.jpg" title="amos21.0教程：[9]绘制测量模型">
 <ul>
-<li>filter函数用法是：filter(fuction,list)：将list中每一个元素带入到function中，计算返回值，将返回值为True的list中的元素形成一个新的list，当然也可以是tuple。</li>
+<li>接着在椭圆上连续点击四次，可以绘制四个指标变量，得到下面这个图，我们看到这个图的第一个指标变量默认的路径系数是1，这是系统自动添加的，只是给测量一个标准，不必在意太多</li>
 </ul>
-<img src="/2015/06/19/python教程：[77]lambda和filter的神奇/8a95ad1c8701a18b6cee2f739d2f07082838fe42.jpg" title="python教程：[77]lambda和filter的神奇">
-<img src="/2015/06/19/python教程：[77]lambda和filter的神奇/064936381f30e9244aa1a10d4f086e061d95f742.jpg" title="python教程：[77]lambda和filter的神奇">
+<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/5202e5f2b211931335df0b4a64380cd790238d69.jpg" title="amos21.0教程：[9]绘制测量模型">
 <ul>
-<li>对于上面这个函数，我们可以用lambda来简化：它的意思是，如果alist中的值的平方小于5，就返回这个值，形成一个新的list</li>
+<li>接着我们要调整格式，假如要调整指标变量，也就是矩形的大小，我们要先选中，选择如图所示的选择工具，依次点击矩形就可以将其选中，选中的矩形呈现蓝色边框</li>
 </ul>
-<img src="/2015/06/19/python教程：[77]lambda和filter的神奇/6398ecd3572c11df565a821f602762d0f603c2c0.jpg" title="python教程：[77]lambda和filter的神奇">
+<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/8c511fe93901213f25afba2655e736d12e2e9569.jpg" title="amos21.0教程：[9]绘制测量模型">
+<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/fcbbb151f3deb48f3ef55524f11f3a292cf57869.jpg" title="amos21.0教程：[9]绘制测量模型">
 <ul>
-<li>通常，我们使用这两个内置函数的结合来过滤list里的空值：</li>
+<li>接着我们看到有一个改变大小的工具，选中它，然后拖动矩形的一个角就可以任意改变大小</li>
 </ul>
-<img src="/2015/06/19/python教程：[77]lambda和filter的神奇/32bb9c8ba61ea8d375184838940a304e251f5890.jpg" title="python教程：[77]lambda和filter的神奇">
+<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/fd428c45d688d43f681265087c1ed21b0ff43b56.jpg" title="amos21.0教程：[9]绘制测量模型">
+<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/b7bc4c66d0160924559e56e1d50735fae7cd3456.jpg" title="amos21.0教程：[9]绘制测量模型">
+<ul>
+<li>取消选择的工具，如图所示</li>
+</ul>
+<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/d872d695d143ad4bdd94b23a83025aafa50f0656.jpg" title="amos21.0教程：[9]绘制测量模型">
+<ul>
+<li>接下来要给变量命名，我们使用菜单中的plugins–name unobserved variables，变量就会自动命名了。如图所示。</li>
+</ul>
+<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/0fb505d5ad6eddc4a67b400138dbb6fd53663369.jpg" title="amos21.0教程：[9]绘制测量模型">
+<img src="/2015/07/17/amos21.0教程：[9]绘制测量模型/62667cd0f703918fee6bc930503d269758eec457.jpg" title="amos21.0教程：[9]绘制测量模型">
+<ul>
+<li>好了，今天我们就绘制了一个测量模型，下一篇文章我们要学习如何复制测量模型，如何调整指标变量的位置。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/amos/">#amos</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/07/17/numpy函数：[1]shape用法/">
+                numpy函数：[1]shape用法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>shape函数是numpy.core.fromnumeric中的函数，它的功能是读取矩阵的长度，比如shape[0]就是读取矩阵第一维度的长度。它的输入参数可以使一个整数表示维度，也可以是一个矩阵。这么说你可能不太理解，我们还是用各种例子来说明他的用法：</p>
+<ul>
+<li>一维矩阵[1]返回值为(1L,)                   </li>
+</ul>
+<img src="/2015/07/17/numpy函数：[1]shape用法/a6c7d7177f3e67093192d5f339c79f3df9dc55e9.jpg" title="numpy函数：[1]shape用法">
+<ul>
+<li>二维矩阵，返回两个值                                  </li>
+</ul>
+<img src="/2015/07/17/numpy函数：[1]shape用法/9304c888d43f8794af72d822d01b0ef41ad53ae9.jpg" title="numpy函数：[1]shape用法">
+<ul>
+<li>一个单独的数字，返回值为空       </li>
+</ul>
+<img src="/2015/07/17/numpy函数：[1]shape用法/5327ce160924ab188d9b713b37fae6cd7a890be9.jpg" title="numpy函数：[1]shape用法">
+<ul>
+<li>我们还可以将shape作为矩阵的方法来调用，下面先创建了一个单位矩阵e     </li>
+</ul>
+<img src="/2015/07/17/numpy函数：[1]shape用法/b25aae51f819861871ca7f8848ed2e738ad4e6ea.jpg" title="numpy函数：[1]shape用法">
+<ul>
+<li>我们可以快速读取e的形状            </li>
+</ul>
+<img src="/2015/07/17/numpy函数：[1]shape用法/58af236d55fbb2fb32a6c81e4d4a20a44723dcea.jpg" title="numpy函数：[1]shape用法">
+<ul>
+<li>假如我们只想读取e的第一维度长度，使用shape[0]        </li>
+</ul>
+<img src="/2015/07/17/numpy函数：[1]shape用法/5202e5f2b211931310ce6fbc67380cd790238dea.jpg" title="numpy函数：[1]shape用法">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/07/17/gitignore配置详解/">
+                gitignore配置详解
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>如果你使用git来管理代码版本，你必须懂得如何使用.gitignore文件，该文件可以指定git忽略哪些文件，在git中的作用非常重要。在理解gitignore的配置之前，我们要先看看这些规则都可以来自哪里。通常git可以从多个地方获取忽略规则，优先级从上到下依次为：</p>
+<ul>
+<li><p>.gitignore文件适合写于项目有关的规则，并且这些规则需要与合作者分享。</p>
+</li>
+<li><p><code>$GIT_DIR/info/exclude</code>适用于与项目有关，但是你不想分享给其他作者，这些规则可能只适用于你自己。</p>
+</li>
+<li><p><code>core.excludesFile</code>适用于你在任何情况下都需要忽略的规则。这种情况不常用。</p>
+</li>
+<li><p>空行不匹配任何文件，所以空行通常是规则分组的分隔符，只是在视觉上将不同的规则分组。</p>
+</li>
+</ul>
+<img src="/2015/07/17/gitignore配置详解/21e5582309f790527c5640f005f3d7ca7acbd570.jpg" title="gitignore配置详解">
+<ul>
+<li>以<code>#</code>开始的行代表注释，所以也不匹配任何文件。</li>
+</ul>
+<img src="/2015/07/17/gitignore配置详解/73ca5910b912c8fcb345f103f5039245d788210e.jpg" title="gitignore配置详解">
+<ul>
+<li><p>末尾的空格没有任何意义，如果你想匹配空格，你需要在空格前加转义字符<code></code>。</p>
+</li>
+<li><p>例如：<code>a</code>这种写法可以匹配<code>a</code></p>
+</li>
+</ul>
+<img src="/2015/07/17/gitignore配置详解/d7c9ca3f8794a4c20583e0e507f41bd5ac6e3918.jpg" title="gitignore配置详解">
+<ul>
+<li><p>感叹号<code>!</code>的作用是从已有的忽略规则里排除一部分文件。注意想要让感叹号起作用，必须在前规则中使用通配符<code>*</code>。例如：</p>
+</li>
+<li><p>前规则写成：<code>.env/*</code></p>
+</li>
+<li><p>想要追踪<code>.env</code>文件夹下的<code>data.txt</code>，需要追加一个规则：<code>!.env/data.txt</code></p>
+</li>
+<li><p>如果前规则写成<code>.env</code>，则<code>!.env/data.txt</code>不起作用。</p>
+</li>
+<li><p>如果规则以<code>/</code>结尾，则表示匹配文件夹, 类似的文件和链接都不会匹配。</p>
+</li>
+</ul>
+<img src="/2015/07/17/gitignore配置详解/4bd1e803738da977974181e5b951f8198718e357.jpg" title="gitignore配置详解">
+<ul>
+<li>如果规则中不包含<code>/</code>，则规则即可匹配文件夹也可以匹配文件和链接，类似于linux shell中的通配符，可以匹配任何可以与通配符匹配的路径。</li>
+</ul>
+<img src="/2015/07/17/gitignore配置详解/ae8267310a55b31949fc85bb4aa98226cefc17b3.jpg" title="gitignore配置详解">
+<ul>
+<li>通配符无法匹配符号<code>/</code>，所以类似这样的规则<code>foo/*.html</code>不能匹配<code>foo/bar/test.html</code>。</li>
+</ul>
+<img src="/2015/07/17/gitignore配置详解/61183b2dd42a2834ceef31c552b5c9ea14cebf70.jpg" title="gitignore配置详解">
+<ul>
+<li>规则以<code>/</code>开头表示匹配<code>.gitignore</code>文件所在的目录。也就是说规则<code>/*.txt</code>只能匹配.gitignore所在目录下的所有txt文件，不能匹配其他目录下的txt文件。</li>
+</ul>
+<img src="/2015/07/17/gitignore配置详解/dc854fda81cb39db37766098d9160924aa18300e.jpg" title="gitignore配置详解">
+<ul>
+<li><p>以<code>**/</code>开头的规则表示匹配所有文件夹，规则<code>**/a/b</code>能匹配<code>foo/a/b</code>也能匹配<code>foo/bar/a/b</code></p>
+</li>
+<li><p>以<code>/**</code>结尾的规则表示匹配目录下所有文件和文件夹，规则<code>a/b/**</code>能匹配<code>/a/b/c</code>也能匹配<code>a/b/c/d/e</code></p>
+</li>
+<li><p>规则中间包含<code>/**/</code>表示匹配任意路径，比如规则<code>a/**/b</code>可以匹配<code>a/foo/bar/b</code>和<code>a/e/m/c/b</code>。</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/07/15/python 线性代数：[3]矩阵转置/">
+                python 线性代数：[3]矩阵转置
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>矩阵的转置很简单，就是将矩阵的行变为列，将列变为行，我们先通过例子看一下矩阵转置是怎么做的。然后验证几个规律。</p>
+<ul>
+<li>先创建一个矩阵A</li>
+</ul>
+<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/faacb564034f78f014b75c027b310a55b2191c40.jpg" title="python 线性代数：[3]矩阵转置">
+<ul>
+<li>我们使用属性T来得到矩阵A的转置矩阵</li>
+</ul>
+<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/5327ce160924ab185b0727c637fae6cd7a890beb.jpg" title="python 线性代数：[3]矩阵转置">
+<ul>
+<li>我们验证第一个性质：(A’)’=A</li>
+</ul>
+<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/d019d2bf6c81800a81044fffb33533fa838b471b.jpg" title="python 线性代数：[3]矩阵转置">
+<ul>
+<li>再创建两个尺寸相同的矩阵</li>
+</ul>
+<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/1899a23eb13533fa1e5755dfaad3fd1f40345b1b.jpg" title="python 线性代数：[3]矩阵转置">
+<ul>
+<li>验证矩阵转置的第二个性质：(A±B)’=A’±B’</li>
+</ul>
+<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/dbf554ed2e738bd44d9c74c0a38b87d6267ff940.jpg" title="python 线性代数：[3]矩阵转置">
+<ul>
+<li>验证矩阵转置的第三个性质：(KA)’=KA’</li>
+</ul>
+<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/2f3295d4b31c8701a10a7417257f9e2f0608ff40.jpg" title="python 线性代数：[3]矩阵转置">
+<ul>
+<li>验证矩阵转置的第四个性质：(A×B)’= B’×A’</li>
+</ul>
+<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/c87c6ecf3bc79f3d560022c1b8a1cd11738b291b.jpg" title="python 线性代数：[3]矩阵转置">
+<img src="/2015/07/15/python%20线性代数：[3]矩阵转置/6648d73d70cf3bc733560c1dd300baa1cc112aaa.jpg" title="python 线性代数：[3]矩阵转置">
+<ul>
+<li><p>本文用到的所有代码如下：</p>
+</li>
+<li></li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 2, 3],</p>
+</li>
+<li><p>[4, 5, 6]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A.T</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 4],</p>
+</li>
+<li><p>[2, 5],</p>
+</li>
+<li><p>[3, 6]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A.T.T</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 2, 3],</p>
+</li>
+<li><p>[4, 5, 6]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>B</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 4],</p>
+</li>
+<li><p>[2, 5],</p>
+</li>
+<li><p>[3, 6]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>D</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[0, 3],</p>
+</li>
+<li><p>[1, 4],</p>
+</li>
+<li><p>[2, 5]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>(B+D).T</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[ 1,  3,  5],</p>
+</li>
+<li><p>[ 7,  9, 11]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>B.T+D.T</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[ 1,  3,  5],</p>
+</li>
+<li><p>[ 7,  9, 11]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>10*A.T</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[10, 40],</p>
+</li>
+<li><p>[20, 50],</p>
+</li>
+<li><p>[30, 60]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>(10*A).T</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[10, 40],</p>
+</li>
+<li><p>[20, 50],</p>
+</li>
+<li><p>[30, 60]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>np.dot(A,B).T</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[14, 32],</p>
+</li>
+<li><p>[32, 77]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>np.dot(A.T,B.T)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[17, 22, 27],</p>
+</li>
+<li><p>[22, 29, 36],</p>
+</li>
+<li><p>[27, 36, 45]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>np.dot(B.T,A.T)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[14, 32],</p>
+</li>
+<li><p>[32, 77]])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -510,13 +1135,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/06/19/图表设置坐标轴刻度和单位[3]Excel2013教程/">
-                图表设置坐标轴刻度和单位[3]Excel2013教程
+            <a href="/2015/07/15/Python教程：[11]正则表达式match()函数/">
+                Python教程：[11]正则表达式match()函数
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年06月19日</span>
+                <span class="date">2015年07月15日</span>
             
             
             
@@ -525,353 +1150,27 @@
 
     
         <div class="content">
-            <p>使用office2013以后，设置图表的方法发生了很大的变化，其中一个重要的问题就是坐标轴的刻度的设置方法不一样了，应该说，设置的方法更加快捷和方便了，所以推荐大家尽快使用最新的office，无论是外观还是功能都让我们眼前一亮。我们现在就来看看如何在Excel2013中设置坐标轴刻度：</p>
+            <p>如果不创建pattern对象，我们使用match函数可以直接进行正则表达式的匹配，在我看来这种方式更简洁，不过不适合大型程序的编写，后期维护可能会产生困难，不过编写一些小脚本完全可以胜任。</p>
 <ul>
-<li>首先我们来建立一个图标，比如做一个折线图，先选中我们的数据，如图所示</li>
+<li>先引入re模块</li>
 </ul>
-<img src="/2015/06/19/图表设置坐标轴刻度和单位[3]Excel2013教程/9252ae7eca806538029aaa7b96dda144ad348222.jpg" title="图表设置坐标轴刻度和单位[3]Excel2013教程">
+<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/b3ba5d166d224f4a5decda380bf790529822d161.jpg" title="Python教程：[11]正则表达式match()函数">
 <ul>
-<li>在菜单栏上执行：插入–推荐的图表</li>
+<li>使用match函数返回一个match对象</li>
 </ul>
-<img src="/2015/06/19/图表设置坐标轴刻度和单位[3]Excel2013教程/5d212aa85edf8db18f21720c0823dd54564e740f.jpg" title="图表设置坐标轴刻度和单位[3]Excel2013教程">
+<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/7d98931001e93901e15e241579ec54e736d1967a.jpg" title="Python教程：[11]正则表达式match()函数">
 <ul>
-<li>打开一个对话框，选择折线图，如图所示，点击确定按钮</li>
+<li>使用group方法输出所有匹配的字符串</li>
 </ul>
-<img src="/2015/06/19/图表设置坐标轴刻度和单位[3]Excel2013教程/d048adde9c82d158828d57d9810a19d8bc3e420f.jpg" title="图表设置坐标轴刻度和单位[3]Excel2013教程">
+<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/99636c0e0cf3d7cafe83965df01fbe096b63a961.jpg" title="Python教程：[11]正则表达式match()函数">
 <ul>
-<li>插入的折线图是没有刻度的</li>
+<li>我们看一下m的数据类型。</li>
 </ul>
-<img src="/2015/06/19/图表设置坐标轴刻度和单位[3]Excel2013教程/7e7f7909c93d70cf5ef5a465f9dcd100baa12b0f.jpg" title="图表设置坐标轴刻度和单位[3]Excel2013教程">
+<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/9a1151c2d56285352ebc7b0a92ef76c6a7ef637a.jpg" title="Python教程：[11]正则表达式match()函数">
 <ul>
-<li>选中横坐标，双击横坐标的位置就可以选中它</li>
+<li>我们还可以用简单的写法来获得所有匹配的字符串。</li>
 </ul>
-<img src="/2015/06/19/图表设置坐标轴刻度和单位[3]Excel2013教程/d041a4a1cd11728b2b22824ac9fcc3cec3fd2c0f.jpg" title="图表设置坐标轴刻度和单位[3]Excel2013教程">
-<ul>
-<li>在右侧出现了一个设置对话框，在坐标轴选项下，找到如图所示的位置，主要类型设置为“内部”</li>
-</ul>
-<img src="/2015/06/19/图表设置坐标轴刻度和单位[3]Excel2013教程/fd428c45d688d43ff2a69f9a7c1ed21b0ef43b0f.jpg" title="图表设置坐标轴刻度和单位[3]Excel2013教程">
-<ul>
-<li>我们可以看到横轴已经出现了刻度</li>
-</ul>
-<img src="/2015/06/19/图表设置坐标轴刻度和单位[3]Excel2013教程/7c5fcc1b0ef41bd5d65ce69c50da81cb39db3d0f.jpg" title="图表设置坐标轴刻度和单位[3]Excel2013教程">
-<ul>
-<li>同样的方法可以让纵坐标出现刻度</li>
-</ul>
-<img src="/2015/06/19/图表设置坐标轴刻度和单位[3]Excel2013教程/8cf0d513495409239a196d169358d109b3de4922.jpg" title="图表设置坐标轴刻度和单位[3]Excel2013教程">
-<ul>
-<li>其实我们还可以使用线条属性来更改坐标轴的样式，可以选择无箭头的坐标轴，也可以更改坐标轴的箭头样式</li>
-</ul>
-<img src="/2015/06/19/图表设置坐标轴刻度和单位[3]Excel2013教程/b29f8282d158ccbf23ccbb5218d8bc3eb1354122.jpg" title="图表设置坐标轴刻度和单位[3]Excel2013教程">
-<ul>
-<li>最后我们可以设置坐标轴的其他选项，来满足我们的需求</li>
-</ul>
-<img src="/2015/06/19/图表设置坐标轴刻度和单位[3]Excel2013教程/d019d2bf6c81800a48958766b03533fa828b4722.jpg" title="图表设置坐标轴刻度和单位[3]Excel2013教程">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/17/Excel2013：[42]修改批注中的默认前面/">
-                Excel2013：[42]修改批注中的默认前面
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>这篇文章的标题写错了，应该是《修改批注默认签名》，希望管理员看懂啊了给改一下《修改批注默认签名》</p>
-<ul>
-<li>我们看到默认的批注签名都是：administrator，现在就要修改它</li>
-</ul>
-<img src="/2015/06/17/Excel2013：[42]修改批注中的默认前面/9864a2315c6034a853c2e2e6c913495409237671.jpg" title="Excel2013：[42]修改批注中的默认前面">
-<ul>
-<li>点击【文件】按钮</li>
-</ul>
-<img src="/2015/06/17/Excel2013：[42]修改批注中的默认前面/5d212aa85edf8db1c40e26030b23dd54564e7471.jpg" title="Excel2013：[42]修改批注中的默认前面">
-<ul>
-<li>看到打开了开始菜单，我们选择【选项】按钮</li>
-</ul>
-<img src="/2015/06/17/Excel2013：[42]修改批注中的默认前面/9f6e190828381f30621bd7ceab014c086e06f01c.jpg" title="Excel2013：[42]修改批注中的默认前面">
-<ul>
-<li>切换到【常规】标签下面，对这就是这里</li>
-</ul>
-<img src="/2015/06/17/Excel2013：[42]修改批注中的默认前面/9319cf09b3de9c82c945a3e86e81800a19d84371.jpg" title="Excel2013：[42]修改批注中的默认前面">
-<ul>
-<li>找到用户名，修改用户名为你需要的名字</li>
-</ul>
-<img src="/2015/06/17/Excel2013：[42]修改批注中的默认前面/6dc09e0a19d8bc3eaf285cad808ba61ea8d34571.jpg" title="Excel2013：[42]修改批注中的默认前面">
-<ul>
-<li>点击确定按钮，设置完成</li>
-</ul>
-<img src="/2015/06/17/Excel2013：[42]修改批注中的默认前面/245e8bcad1c8a786e20a10696509c93d70cf5071.jpg" title="Excel2013：[42]修改批注中的默认前面">
-<ul>
-<li>插入一个批注试试效果</li>
-</ul>
-<img src="/2015/06/17/Excel2013：[42]修改批注中的默认前面/90cebeec08fa513d84a836b93f6d55fbb2fbd91c.jpg" title="Excel2013：[42]修改批注中的默认前面">
-<ul>
-<li>现在批注的签名已经成为你想要的了。哈哈，更多教程，请关注我的百度经验。我们是专业的数据分析员，喜欢分享在工作中遇到的各种经验</li>
-</ul>
-<img src="/2015/06/17/Excel2013：[42]修改批注中的默认前面/7e7f7909c93d70cf0bdaf06afadcd100baa12b71.jpg" title="Excel2013：[42]修改批注中的默认前面">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/15/spss如何做交叉表分析/">
-                spss如何做交叉表分析
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>交叉表分析主要用来检验两个变量之间是否存在关系，或者说是否独立，其零假设为两个变量之间没有关系。我们在实际的工作中，经常用交叉表来分析比例是否相等。比如我们来分析一下，不同的性别对不同的报纸的选择有什么不同，就是要用交叉表分析了，下面是具体的方法。<br>方法/步骤</p>
-<ul>
-<li>在spss中打开数据，然后依次打开：analyze–descriptive–crosstabs，打开交叉表对话框</li>
-</ul>
-<img src="/2015/06/15/spss如何做交叉表分析/7dd98d1001e939013903dcb17bec54e736d1963f.jpg" title="spss如何做交叉表分析">
-<ul>
-<li>将性别放到行列表，将对读物的选择变量放到列，这样就构成了一个交叉表</li>
-</ul>
-<img src="/2015/06/15/spss如何做交叉表分析/4ec2d5628535e5ddc32df45076c6a7efce1b623f.jpg" title="spss如何做交叉表分析">
-<ul>
-<li>接下来我们要设置输出的结果，点击statistics，打开一个新的对话框</li>
-</ul>
-<img src="/2015/06/15/spss如何做交叉表分析/8435e5dde71190ef50fac350ce1b9d16fdfa603f.jpg" title="spss如何做交叉表分析">
-<ul>
-<li>勾选chi-square（卡方检验），勾选phi and cramer’s V（衡量交互分析中两个变量关系强度的指标），点击continue，回到交叉表对话框</li>
-</ul>
-<img src="/2015/06/15/spss如何做交叉表分析/b812c8fcc3cec3fd9b5bf6fad688d43f869427d3.jpg" title="spss如何做交叉表分析">
-<ul>
-<li>点击cells，设置cell中要展示的数据</li>
-</ul>
-<img src="/2015/06/15/spss如何做交叉表分析/f2deb48f8c5494eec0235e962df5e0fe99257e3f.jpg" title="spss如何做交叉表分析">
-<ul>
-<li>在这里勾选observed（各单元格的观测次数），勾选row（行单元格的百分比），点击continue，回到交叉表对话框</li>
-</ul>
-<img src="/2015/06/15/spss如何做交叉表分析/8694a4c27d1ed21b61ac7f6aad6eddc450da3fd3.jpg" title="spss如何做交叉表分析">
-<ul>
-<li>点击ok按钮，输出检验结果</li>
-</ul>
-<img src="/2015/06/15/spss如何做交叉表分析/e1fe9925bc315c6003943a608db1cb134954773f.jpg" title="spss如何做交叉表分析">
-<ul>
-<li>先看到的第一个表格就是交叉表，性别为行、选择的读物为列</li>
-</ul>
-<img src="/2015/06/15/spss如何做交叉表分析/9825bc315c6034a866e3e90ecb1349540923763f.jpg" title="spss如何做交叉表分析">
-<ul>
-<li>卡方检验结果：我们主要是看pearson卡方检验，sig值小于0.05，因此我们认为不同的性别的人对周末读物的选择有显著的差别</li>
-</ul>
-<img src="/2015/06/15/spss如何做交叉表分析/bd315c6034a85edfb48dafac49540923dd54753f.jpg" title="spss如何做交叉表分析">
-<ul>
-<li><p>最后一个表格，输出的是phi值和V值，两个都是代表两个变量之间的关系的紧密度的，数值小于0.1说明关系不紧密，即性别与周末读物的选择没有明显的关系，这个结论和上面的卡方检验有出入，所以我们需要进一步进行两两比较。</p>
-</li>
-<li></li>
-<li></li>
-</ul>
-<img src="/2015/06/15/spss如何做交叉表分析/4d086e061d950a7bbe531e4b0ad162d9f3d3c9df.jpg" title="spss如何做交叉表分析">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/15/Python教程：[23]MySQLdb下载安装与使用/">
-                Python教程：[23]MySQLdb下载安装与使用
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>今天使用python来更新我的数据库，需要用到一个MySQLdb支持库，费了半天劲才找到，所以跟大家在这里分享一下。我在下面的参考资料里提供了MySQLdb的32位和64位下载地址，你先下载下来。</p>
-<ul>
-<li>双击安装软件，打开安装界面，点击下一步</li>
-</ul>
-<img src="/2015/06/15/Python教程：[23]MySQLdb下载安装与使用/b25aae51f8198618d161df9048ed2e738bd4e645.jpg" title="Python教程：[23]MySQLdb下载安装与使用">
-<ul>
-<li>设置安装路径，一般路径是自动检测的，也就是你的python的安装路径，如果你发现不对，可以手动设置成python的路径。点击下一步</li>
-</ul>
-<img src="/2015/06/15/Python教程：[23]MySQLdb下载安装与使用/8cf0d51349540923a156536a9058d109b3de49a3.jpg" title="Python教程：[23]MySQLdb下载安装与使用">
-<ul>
-<li>接着我们看到这个界面，点击下一步</li>
-</ul>
-<img src="/2015/06/15/Python教程：[23]MySQLdb下载安装与使用/064936381f30e9244e82ac254e086e061d95f745.jpg" title="Python教程：[23]MySQLdb下载安装与使用">
-<img src="/2015/06/15/Python教程：[23]MySQLdb下载安装与使用/0b3a1c087bf40ad19dc2f7f7552c11dfa9ecce45.jpg" title="Python教程：[23]MySQLdb下载安装与使用">
-<ul>
-<li>打开python，引入MySQLdb，来测试一下是否安装成功，这是未安装成功的提示</li>
-</ul>
-<img src="/2015/06/15/Python教程：[23]MySQLdb下载安装与使用/a992e31f4134970aa04c203b97cad1c8a7865da3.jpg" title="Python教程：[23]MySQLdb下载安装与使用">
-<ul>
-<li>这是安装成功，没有任何错误提示。</li>
-</ul>
-<img src="/2015/06/15/Python教程：[23]MySQLdb下载安装与使用/dc854fda81cb39db037b5742d2160924ab18302f.jpg" title="Python教程：[23]MySQLdb下载安装与使用">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/mysql/">#mysql</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/15/Python教程：[17]UDP客户端程序/">
-                Python教程：[17]UDP客户端程序
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>python可以快速的写成一个udp客户端程序，前面的文章中我们介绍了如何写udp服务器，服务器其实和客户端的程序时非常类似的，你看了下面的代码就知道了。</p>
-<ul>
-<li>先引入socket模块</li>
-</ul>
-<img src="/2015/06/15/Python教程：[17]UDP客户端程序/9e7ce6dcd100baa195843e974510b912c8fc2e36.jpg" title="Python教程：[17]UDP客户端程序">
-<ul>
-<li>设置几个参数：host主机地址，Port端口，bufsiz缓存大小</li>
-</ul>
-<img src="/2015/06/15/Python教程：[17]UDP客户端程序/e1bf8725bc315c601b4e12c38fb1cb1348547787.jpg" title="Python教程：[17]UDP客户端程序">
-<ul>
-<li>创建一个udp套接字类型，如图所示，关键参数是第二个SOCK_DGRAM</li>
-</ul>
-<img src="/2015/06/15/Python教程：[17]UDP客户端程序/c28fddfdfc039245b71d98238594a4c27d1e2536.jpg" title="Python教程：[17]UDP客户端程序">
-<ul>
-<li>下面的代码用于向服务器发送数据，并接受服务器传来的数据</li>
-</ul>
-<img src="/2015/06/15/Python教程：[17]UDP客户端程序/9319cf09b3de9c82eabe80a36e81800a18d84387.jpg" title="Python教程：[17]UDP客户端程序">
-<ul>
-<li><p>下面是完整的代码。</p>
-</li>
-<li><p>from socket import *</p>
-</li>
-<li><p>host=’localhost’  #本地服务器地址</p>
-</li>
-<li><p>port=12345  #客户端端口(确保和服务器的端口一致</p>
-</li>
-<li><p>bufsiz=2048 #缓存大小</p>
-</li>
-<li><p>addc=(host, port) #地址+端口</p>
-</li>
-<li><p>udpclisock=socket(AF_INET,SOCK_DGRAM)  #创建UDP的套接字类型。</p>
-</li>
-<li><p>while True:</p>
-</li>
-<li><p>udpclisock.sendto(b’hello’, addc)</p>
-</li>
-<li><p>data,adds=udpclisock.recvfrom(bufsiz)</p>
-</li>
-<li><p>if not data:</p>
-</li>
-<li><p>break</p>
-</li>
-<li><p>print(data)</p>
-</li>
-<li><p>udpclisock.close()</p>
-</li>
-</ul>
+<img src="/2015/07/15/Python教程：[11]正则表达式match()函数/e49cf91190ef76c6686a52009f16fdfaaf516726.jpg" title="Python教程：[11]正则表达式match()函数">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -897,13 +1196,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/06/15/pandas教程：[5]读取csv数据/">
-                pandas教程：[5]读取csv数据
+            <a href="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/">
+                pandas教程：[2]DataFrame选择数据-1
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年06月15日</span>
+                <span class="date">2015年07月11日</span>
             
             
             
@@ -912,39 +1211,50 @@
 
     
         <div class="content">
-            <p>很多数据是从网上下载而来，数据的格式可能是csv，那么pandas可以很容易的从csv格式的文件中读取数据，下面我们来看看具体的过程：</p>
+            <p>上一篇文章介绍了如何创建和查看DataFrame数据，这篇文章讲一下如何选择DataFrame中的数据，还是用例子来说明问题。</p>
 <ul>
-<li>引入pandas</li>
+<li>先来看一下今天用到的数据框的内容</li>
 </ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/7787b9efce1b9d161dd32272f0deb48f8c54644a.jpg" title="pandas教程：[5]读取csv数据">
+<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/509b9fcb39dbb6fdd256ea120a24ab18972b37b1.jpg" title="pandas教程：[2]DataFrame选择数据-1">
 <ul>
-<li>使用pandas下的read_csv方法，读取csv文件，参数是文件的路径，这是一个相对路径，是相对于当前工作目录的，那么如何知道当前的工作目录呢？</li>
+<li>假如我们要选择A列的数据进行操作：df[‘a’]</li>
 </ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/bd7faf3533fa828ba41825f0fe1f4134970a5aae.jpg" title="pandas教程：[5]读取csv数据">
+<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/966aca0735fae6cdf3b9a4550cb30f2442a70fb1.jpg" title="pandas教程：[2]DataFrame选择数据-1">
 <ul>
-<li>使用os.getcwd()方法获取当前工作目录</li>
+<li>还可以使用数组的切片操作，但是注意了，切片得到的是行数据</li>
 </ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/1cd4147b02087bf47fe5effaf1d3572c11dfcf5d.jpg" title="pandas教程：[5]读取csv数据">
+<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/d872d695d143ad4b402349f481025aafa40f06b1.jpg" title="pandas教程：[2]DataFrame选择数据-1">
 <ul>
-<li>读取前三后数据，查看一下是否读取正确，显然都是乱码，这是什么问题呢？</li>
+<li>如果你想使用这个方法得到列，那就会出现错误</li>
 </ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/95afee1f3a292df509d71406bf315c6034a8734a.jpg" title="pandas教程：[5]读取csv数据">
+<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/38403f3fb80e7bec70840cd52c2eb9389b506b6c.jpg" title="pandas教程：[2]DataFrame选择数据-1">
 <ul>
-<li>我们需要设定参数encoding，也就是编码方式，如果你不设定编码方式，默认是utf8，现在csv文件是gbk编码的，所以需要使用encoding=’gbk’</li>
+<li>我们还可以使用行标签来指定输出的行</li>
 </ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/2cb4fefe9925bc31b049b98b5ddf8db1cb13704a.jpg" title="pandas教程：[5]读取csv数据">
+<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/4e83cb628535e5ddca72aaeb75c6a7efce1b626c.jpg" title="pandas教程：[2]DataFrame选择数据-1">
 <ul>
-<li>我用的编辑器是eric4，注意，eric4默认是不支持中文的，如果你想要显示中文，前提是设置正确的编码，在preferences中</li>
+<li>DataFrame的loc方法是帮助选择数据的，比如选择索引位置为0的一行数据（注意我们是用dates作为索引的）</li>
 </ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/c87c6ecf3bc79f3debda5c23b9a1cd11728b29ae.jpg" title="pandas教程：[5]读取csv数据">
+<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/ae10eddeb48f8c54ac8dca1b39292df5e0fe7f6c.jpg" title="pandas教程：[2]DataFrame选择数据-1">
 <ul>
-<li>设置成utf8即可</li>
+<li>选择多列数据的写法</li>
 </ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/d041a4a1cd11728b5f163431cbfcc3cec3fd2cae.jpg" title="pandas教程：[5]读取csv数据">
+<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/8640bf8b87d6277f251f3d0c2b381f30e924fcb2.jpg" title="pandas教程：[2]DataFrame选择数据-1">
 <ul>
-<li>回到pandas，我们可以有更多选项来设置打开数据时的操作：</li>
+<li>假如我们要选择的是一个局部数据，是行和列的交叉区域</li>
 </ul>
-<img src="/2015/06/15/pandas教程：[5]读取csv数据/808a27dbb6fd5266fd228707a818972bd407365c.jpg" title="pandas教程：[5]读取csv数据">
+<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/507c389759ee3d6d8ccb88ff40166d224f4adeb2.jpg" title="pandas教程：[2]DataFrame选择数据-1">
+<ul>
+<li>假如我们只选择某一个数据，可以指定行和列：</li>
+</ul>
+<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/08b68e529822720ee8c3edce78cb0a46f21fabb2.jpg" title="pandas教程：[2]DataFrame选择数据-1">
+<ul>
+<li>当然，at方法是专门用于获取某个值的：</li>
+</ul>
+<img src="/2015/07/11/pandas教程：[2]DataFrame选择数据-1/3a86813df8dcd100d2c2f715718b4710b9122f6c.jpg" title="pandas教程：[2]DataFrame选择数据-1">
+<ul>
+<li>选择数据就是用到了切片和loc、at方法，下一篇文章介绍一下iloc方法选择数据，它使你像操作array一样操作DataFrame</li>
+</ul>
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -970,13 +1280,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/06/15/python 线性代数：[8]计算矩阵距离/">
-                python 线性代数：[8]计算矩阵距离
+            <a href="/2015/07/05/numpy函数：[9]zeros创建0矩阵/">
+                numpy函数：[9]zeros创建0矩阵
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年06月15日</span>
+                <span class="date">2015年07月05日</span>
             
             
             
@@ -985,226 +1295,88 @@
 
     
         <div class="content">
-            <p>矩阵的距离，这里是的是欧几里得距离，其他距离表示方法我们以后再谈，今天进说一下如何计算两个形状相同矩阵之间的距离。</p>
+            <p>经常用到一些0数组，就是元素均为0的数组。那么怎么在python中创建0数组呢？我们用到了zeros函数，下面看看这个函数的用法：</p>
 <ul>
-<li>创建一个矩阵a和b</li>
+<li>首先要引入一下numpy这个包</li>
 </ul>
-<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/bd70426034a85edfa4889fd44b540923dc547585.jpg" title="python 线性代数：[8]计算矩阵距离">
-<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/35e940df8db1cb13626d5de4df54564e93584b85.jpg" title="python 线性代数：[8]计算矩阵距离">
+<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/9e7ce6dcd100baa19c4a21244510b912c9fc2e8f.jpg" title="numpy函数：[9]zeros创建0矩阵">
 <ul>
-<li>先计算得到他俩的距离矩阵c</li>
+<li>试着创建一个一维数组，只使用一个参数就可以了</li>
 </ul>
-<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/0862c354564e9258e130e7199e82d158cdbf4e85.jpg" title="python 线性代数：[8]计算矩阵距离">
+<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/73ca5910b912c8fc95959052fe039245d788218f.jpg" title="numpy函数：[9]zeros创建0矩阵">
 <ul>
-<li>距离矩阵的平方，得到矩阵d</li>
+<li>默认情况下，zeros创建的数组是浮点型的，假如使用其他类型，可以设置dtype参数</li>
 </ul>
-<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/e8112b2ac65c1038be14af35b0119313b17e89a4.jpg" title="python 线性代数：[8]计算矩阵距离">
+<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/d57e9994a4c27d1e8d6d5d5b19d5ad6edcc438a2.jpg" title="numpy函数：[9]zeros创建0矩阵">
 <ul>
-<li>计算矩阵d的迹</li>
+<li>假如我们想要创建一个二维数组，我一开始以为是用下面这个方法，但是会返回错误</li>
 </ul>
-<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/6dc09e0a19d8bc3e880c673d808ba61ea9d34585.jpg" title="python 线性代数：[8]计算矩阵距离">
+<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/a583631ed21b0ef47aa3fec1dfc451da80cb3ea2.jpg" title="numpy函数：[9]zeros创建0矩阵">
 <ul>
-<li>然后将得到的e进行开方得到距离：你可以手动算一下是不是正确。</li>
+<li>其实是使用一个列表作为参数，这样就返回一个二维数组</li>
 </ul>
-<img src="/2015/06/15/python%20线性代数：[8]计算矩阵距离/814b07d8bc3eb13509c3d64ca41ea8d3fc1f4485.jpg" title="python 线性代数：[8]计算矩阵距离">
+<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/ac2fc3c451da81cb5f80e5525066d0160824318f.jpg" title="numpy函数：[9]zeros创建0矩阵">
 <ul>
-<li><p>我们用到的原理就是矩阵的迹的性质，在numpy或者scipy中还有计算距离的函数，我们以后再说</p>
+<li>同样我们使用第二个参数设置数组的类型</li>
+</ul>
+<img src="/2015/07/05/numpy函数：[9]zeros创建0矩阵/0865b518972bd4075b8cb56279899e510eb309a2.jpg" title="numpy函数：[9]zeros创建0矩阵">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/07/05/python高级教程：[3]生成器方法send throw clos/">
+                python高级教程：[3]生成器方法send throw clos
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>这一篇接着讲Python的生成器，生成器总共有四个方法你可以看一下：next方法已经说过了，接下来说一下其余的三个方法。</p>
+<ul>
+<li>send：用于传递参数，实现与生成器的交互，我们举一个例子，下面的函数dog代表一只狗。当程序运行到food=(yield)的时候就会被挂起，等待生成器调用send方法，这时候我调用d.send(u’骨头’)，骨头就会被传递到food这个变量中，然后程序就说”我吃饱了”。仔细看一下下面的输出内容你就会明白。所以，send实际上是把yield变成了一个输入入口。</li>
+</ul>
+<img src="/2015/07/05/python高级教程：[3]生成器方法send%20throw%20clos/2e6fa7389b504fc2fc62bdbae3dde71190ef6d14.jpg" title="python高级教程：[3]生成器方法send throw clos">
+<ul>
+<li>stop用于停止生成器，如果再stop之后调用next，就会引发StopIteration错误。</li>
+</ul>
+<img src="/2015/07/05/python高级教程：[3]生成器方法send%20throw%20clos/b29f8282d158ccbf2069b9851fd8bc3eb035417c.jpg" title="python高级教程：[3]生成器方法send throw clos">
+<ul>
+<li>throw用于给生成器传递一个error，结合stop，我们可以做一些有意思的事情：</li>
+</ul>
+<img src="/2015/07/05/python高级教程：[3]生成器方法send%20throw%20clos/346bd85c10385343ffbf889e9513b07ecb8088d9.jpg" title="python高级教程：[3]生成器方法send throw clos">
+<ul>
+<li><p>根据上面的例子我们可以知道，实际上stop可以在生成器内部引发一个GeneratorExit错误，我们可以使用try…except GeneratorExit句型捕获该错误，然后做一些善后的事情。</p>
 </li>
-<li><p>今天用到的所有代码如下：</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a=[[0,1],[1,0]]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a=np.array(a)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[0, 1],</p>
-</li>
-<li><p>[1, 0]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>b=[[1,1],[1,1]]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>b=np.array(b)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>b</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 1],</p>
-</li>
-<li><p>[1, 1]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>c=a-b</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>c</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[-1,  0],</p>
-</li>
-<li><p>[ 0, -1]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>d=np.dot(c,c)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>d</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 0],</p>
-</li>
-<li><p>[0, 1]])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>e=np.trace(d)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>e</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>2</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>e**0.5</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>1.4142135623730951</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
+<li><p>注意，在捕获GeneratorExit错误以后，你需要raise StopIteration错误，否则程序就没有终止的时候了。</p>
 </li>
 </ul>
 <blockquote>
@@ -1232,13 +1404,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/">
-                SPSS绘图教程：[3]条形图绘制方法
+            <a href="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/">
+                Excel2013：[17]数据透视表有两个汇总项
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年06月11日</span>
+                <span class="date">2015年07月05日</span>
             
             
             
@@ -1247,47 +1419,39 @@
 
     
         <div class="content">
-            <p>和上一篇文章一样，开始先打开【图表构建程序】，通常会弹出变量属性校验窗口，不用管它，因为我们在上一篇文章中介绍了如何使用它<br>可以直接点击确定即可。</p>
+            <p>现在我想要在分类汇总的时候出现两个汇总项，看下面的数据，假如我要在一个数据透视表里看到两个汇总项，也就是重量和中转费。我们的目的是统计上一站和目的网点之间中转费和重量的总计，下面看看如何具体来做。</p>
 <ul>
-<li>首先在库中找到条形图，然后用鼠标将你想要的样式拖拽到预览区域</li>
+<li>先插入一个数据透视表，如图所示</li>
 </ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/207ea60e7bec54e79a3a9ba6bb389b504ec26a71.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/027a45b5c9ea15ce702a270eb4003af33b87b2b6.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
 <ul>
-<li>然后将变量拖拽到相应的坐标轴，比如年龄组为横轴，干扰与否为纵轴</li>
+<li>打开一个对话框，我们默认在新的工作表放置数据透视表，点击确定按钮</li>
 </ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/d4239b35e5dde7112504c24ea5efce1b9c166171.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/e8112b2ac65c10381cba09c5b0119313b17e89b6.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
 <ul>
-<li>在窗口右侧，有一个属性窗口，我们设置统计量，也就是条形图中显示的统计量，用的最多的就是均值。</li>
+<li>看到界面的右侧出现了一个数据透视表字段，将行和列字段拖动到对应的位置</li>
 </ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/ae10eddeb48f8c542b05449738292df5e1fe7f71.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/b13fd48065380cd7c6da65eaa344ad34588281b6.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
 <ul>
-<li>接着，我们可以添加一个误差项，你不知道啥叫误差项？好吧，接着往下看。我们设置误差条形图的显示95%的区间</li>
+<li>接着讲想要统计的字段拖动到下面的值字段</li>
 </ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/48151723dd54564e5d976581b1de9c82d0584f5d.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/b3ba5d166d224f4a06feb5140bf790529822d117.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
 <ul>
-<li>在条形统的上面就会出现两一条横线，表示95%的区间</li>
+<li>设置值字段，我们点击【计数项：重量】，在打开的菜单中选择：值字段设置</li>
 </ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/1899a23eb13533fa59441296aad3fd1f40345b5d.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/caae68094b36acaf4a2451fb7ed98d1000e99cb6.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
 <ul>
-<li>当然，我们还可以设置n个标准差或者标准误作为条形图的误差项</li>
+<li>在打开的对话框中，我们选择【求和】，点击确定按钮</li>
 </ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/cdfe7281800a19d864d505bd31fa828ba71e4671.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/d68b65cb0a46f21f8f539854f4246b600c33ae17.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
 <ul>
-<li>假如你没有看到属性窗口，或者不小心关闭了，你可以右键单击这个图，选择【属性窗口】，这样就打开它了。</li>
+<li>同样，设置第二个字段</li>
 </ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/c28fddfdfc0392452f4760b78594a4c27c1e255d.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/b94f65ec54e736d140d74b0f99504fc2d46269b6.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
 <ul>
-<li>点击确定，你就可以看到你绘制好的条形图了。</li>
+<li>至此，我们就完成了任务。</li>
 </ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/a6c7d7177f3e670920d6c44739c79f3df9dc5571.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
-<ul>
-<li>OH！！不小心出现了错误，你应该能猜到为什么会出错。</li>
-</ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/9e7ce6dcd100baa13dfac6034510b912c9fc2e71.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
-<ul>
-<li>我们把变量名从中文改成英文就好了！就是对中文支持不够好。其实spss22.0已经能够支持中文变量名了。我现在还是spss20.0，该升级了。</li>
-</ul>
-<img src="/2015/06/11/SPSS绘图教程：[3]条形图绘制方法/9f1011b30f2442a7cde37c1dd343ad4bd013025d.jpg" title="SPSS绘图教程：[3]条形图绘制方法">
+<img src="/2015/07/05/Excel2013：[17]数据透视表有两个汇总项/389aa8fd5266d016ccc8532f952bd40734fa35a1.jpg" title="Excel2013：[17]数据透视表有两个汇总项">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1302,7 +1466,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
+            <a href="/tags/excel/">#excel</a>
         </div>
     
 
@@ -1313,13 +1477,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/06/11/Python教程：[62]读取路径 目录【1】/">
-                Python教程：[62]读取路径 目录【1】
+            <a href="/2015/07/05/pandas教程：[18]匹配字符串/">
+                pandas教程：[18]匹配字符串
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年06月11日</span>
+                <span class="date">2015年07月05日</span>
             
             
             
@@ -1328,31 +1492,44 @@
 
     
         <div class="content">
-            <p>已知一个路径，我们怎么知道文件的类型，文件存放的文件夹，根目录呢？今天这篇文章主要就是解决这个问题——根据路径提取有用信息：</p>
+            <p>pandas可以检测字符串是否包含某字符模式或者匹配它，这在处理一些字符串数据的时候非常有用，下面我们来用几个例子说明一下。</p>
 <ul>
-<li>引用path模块，然后我们创建一个路径filepath</li>
+<li>首先，我们创建一个数据序列<br>查看数据序列：</li>
 </ul>
-<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/8697397f9e2f07085a0c9980eb24b899a801f2e2.jpg" title="Python教程：[62]读取路径 目录【1】">
+<img src="/2015/07/05/pandas教程：[18]匹配字符串/5202e5f2b21193133c3f72b466380cd791238d73.jpg" title="pandas教程：[18]匹配字符串">
+<img src="/2015/07/05/pandas教程：[18]匹配字符串/1e71f724b899a90109ecd9321e950a7b0308f59e.jpg" title="pandas教程：[18]匹配字符串">
 <ul>
-<li>用dirname提取文件夹的路径：</li>
+<li>检测数据序列中哪些元素包含一个字母和一个数字的字符模式<br>匹配结果为：</li>
 </ul>
-<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/29790130e924b899df35cab86c061d950b7bf6e2.jpg" title="Python教程：[62]读取路径 目录【1】">
+<img src="/2015/07/05/pandas教程：[18]匹配字符串/b13fd48065380cd701622fe9a244ad3459828173.jpg" title="pandas教程：[18]匹配字符串">
+<img src="/2015/07/05/pandas教程：[18]匹配字符串/7d98931001e93901827e003a78ec54e736d19673.jpg" title="pandas教程：[18]匹配字符串">
 <ul>
-<li>用basename提取文件名称：</li>
+<li>我们可以使用na参数来规定出现NaN数据的时候匹配成True还是False<br>结果为：</li>
 </ul>
-<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/91138622720e0cf34da7fd7b0846f21fbf09aa9b.jpg" title="Python教程：[62]读取路径 目录【1】">
+<img src="/2015/07/05/pandas教程：[18]匹配字符串/0d968f2397dda1443e75e1b6b1b7d0a20cf48673.jpg" title="pandas教程：[18]匹配字符串">
+<img src="/2015/07/05/pandas教程：[18]匹配字符串/0b3a1c087bf40ad12e3d45e7542c11dfa8ecce9e.jpg" title="pandas教程：[18]匹配字符串">
 <ul>
-<li>用splitdrive分割根目录和其他目录</li>
+<li>match方法可以严格匹配字符串：<br>输出结果为：</li>
 </ul>
-<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/29790130e924b899df77cab86c061d950b7bf6ac.jpg" title="Python教程：[62]读取路径 目录【1】">
+<img src="/2015/07/05/pandas教程：[18]匹配字符串/8640bf8b87d6277fa0cbb03c2b381f30e824fc9e.jpg" title="pandas教程：[18]匹配字符串">
+<img src="/2015/07/05/pandas教程：[18]匹配字符串/55a628d12f2eb9383111f7f6d6628535e5dd6f73.jpg" title="pandas教程：[18]匹配字符串">
 <ul>
-<li>用split方法分割文件名及其目录</li>
+<li><p>还有，我们可以检查字符串开始字符，假设我们想要查找以字母a开头的数据，可以用startswith或者contains，注意contains中第一个参数，不懂得童鞋可以去看Python的正则表达式</p>
+</li>
+<li><p>输出结果：</p>
+</li>
 </ul>
-<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/6a2112338744ebf8bf78d7bfdbf9d72a6159a7e2.jpg" title="Python教程：[62]读取路径 目录【1】">
+<img src="/2015/07/05/pandas教程：[18]匹配字符串/caae68094b36acafb39c1bf87fd98d1001e99c73.jpg" title="pandas教程：[18]匹配字符串">
+<img src="/2015/07/05/pandas教程：[18]匹配字符串/4e83cb628535e5dd485028db75c6a7efce1b6273.jpg" title="pandas教程：[18]匹配字符串">
 <ul>
-<li>用splitext，注意它的拼写，用于分割后缀名和其他路径：</li>
+<li>同样道理，可以检查结束字符串<br>输出结果为：</li>
 </ul>
-<img src="/2015/06/11/Python教程：[62]读取路径%20目录【1】/a005b3345982b2b719e58a4433adcbef77099bfd.jpg" title="Python教程：[62]读取路径 目录【1】">
+<img src="/2015/07/05/pandas教程：[18]匹配字符串/9f6e190828381f30abc00fadaa014c086f06f09e.jpg" title="pandas教程：[18]匹配字符串">
+<img src="/2015/07/05/pandas教程：[18]匹配字符串/a8ad9413632762d0a3e726bba3ec08fa503dc69e.jpg" title="pandas教程：[18]匹配字符串">
+<ul>
+<li>还有很多字符串方法，这里不一一距离，你看一下简介用到的时候再去学</li>
+</ul>
+<img src="/2015/07/05/pandas教程：[18]匹配字符串/54baacfb43166d222fae9790452309f79152d29e.jpg" title="pandas教程：[18]匹配字符串">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1367,7 +1544,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
+            <a href="/tags/pandas/">#pandas</a>
         </div>
     
 
@@ -1414,43 +1591,43 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2020/12/23/均值差异的效应量在线计算器/">均值差异的效应量在线计算器</a>
+                <a class="footer-post" href="/2021/07/08/方差分析08-单因素多元方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
+                <a class="footer-post" href="/2021/07/08/方差分析07-单变量协方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/27/文旅特色小镇的具身体验质量-数据分享/">文旅特色小镇的具身体验质量-数据分享</a>
+                <a class="footer-post" href="/2021/07/08/方差分析06-2因素混合设计方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/12/问卷代填-大学生的论文用的-有靠谱的调研商家/">问卷代填(大学生的论文用的)怎么快速收集高质量问卷</a>
+                <a class="footer-post" href="/2021/07/08/方差分析05-重复测量单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/04/嵌入式python的zip安装和并安装pip/">嵌入式python的zip安装和并安装pip</a>
+                <a class="footer-post" href="/2021/07/08/方差分析04-三因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-效度分析/">SPSS问卷效度分析教程</a>
+                <a class="footer-post" href="/2021/07/08/方差分析03-双因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+                <a class="footer-post" href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+                <a class="footer-post" href="/2021/07/08/方差分析01-单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+                <a class="footer-post" href="/2021/07/08/11-2XN卡方检验/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2021/07/08/10-2x2卡方检验/">Untitled</a>
             </li>
             
         </ul>
@@ -1464,7 +1641,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1768,11 +1945,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>

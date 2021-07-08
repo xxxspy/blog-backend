@@ -99,9 +99,10 @@ class HexoExporter(MarkdownExporter):
 
 def _add_infos(body, notebook_link, qq='675495787'):
     info = (f'\n\n> **注意**\n'
+            f'> 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的, 不论什么模型都可以, 只限制于1个研究内. \n'
+            f'> 跟我学统计可以代做分析, 每单几百元不等. \n'
             f'> 本文由jupyter notebook转换而来, 您可以在这里下载[notebook]({notebook_link})\n'
-            f'> 有问题可以直接在下方留言\n'
-            f'> 或者给我发邮件{qq}[at]qq.com\n'
+            f'> 可以在微博上@mlln-cn向我免费题问\n'
             f'> 请记住我的网址: mlln.cn 或者 jupyter.cn\n')
     body += info
     return body

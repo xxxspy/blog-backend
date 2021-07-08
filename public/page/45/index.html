@@ -197,6 +197,12 @@
     <div class="page_list archive-container">
         
             <div class="archive-post">
+                <a href="/2021/01/04/01 安装manimlib/">
+                    manim系列教程01-windows平台安装manim
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2020/11/04/嵌入式python的zip安装和并安装pip/">
                     嵌入式python的zip安装和并安装pip
                 </a>
@@ -217,12 +223,6 @@
             <div class="archive-post">
                 <a href="/2019/08/04/python中logging模块的error和exception的区别和最佳实践/">
                     python中logging模块的error和exception的区别和最佳实践
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2019/07/21/python3的logging模块的最佳实践/">
-                    python3的logging模块的最佳实践
                 </a>
             </div>
             
@@ -448,13 +448,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/01/11/pandas教程：[4]Dataframe筛选数据/">
-                pandas教程：[4]Dataframe筛选数据
+            <a href="/2016/02/05/Excel2013：[26]如何将ABCD替换成数字/">
+                Excel2013：[26]如何将ABCD替换成数字
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年01月11日</span>
+                <span class="date">2016年02月05日</span>
             
             
             
@@ -463,382 +463,74 @@
 
     
         <div class="content">
-            <p>今天还是用到了DataFrame，如果你用一下它的筛选数据的功能，你会大吃一惊，它非常擅长筛选数据，可以极大提高你的工作效率，废话不多说，下面看看几个进行复杂数据筛选的例子。</p>
+            <p>经常给别人做数据分析，拿到的数据都是很不规范的，比如下面这个例子，单元格中的数据是ABCD而不是数字1234，这样的数据是无法放入到spss中进行处理的，所以我们需要对这个进行重新编码，在Excel中使用vba是比较快速的方法，这里我跟大家分享一下我的方法：</p>
 <ul>
-<li>首先我们创建一个DataFrame，该DataFrame包含的数据如下</li>
+<li>明确目标：把ABCD转换成1234，如图所示，题目1这一列是我转换完成的，题目3这一列是还没有进行转换的。</li>
 </ul>
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/814b07d8bc3eb13550c4a88da51ea8d3fd1f4441.jpg" title="pandas教程：[4]Dataframe筛选数据">
+<img src="/2016/02/05/Excel2013：[26]如何将ABCD替换成数字/a8362712b31bb051727be651347adab44aede029.jpg" title="Excel2013：[26]如何将ABCD替换成数字">
 <ul>
-<li>假如我们想要筛选D列数据中大于0的行</li>
+<li>我们使用快捷键alt + F11，打开vbe编辑窗口</li>
 </ul>
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/32bb9c8ba61ea8d39a216b32940a304e251f5841.jpg" title="pandas教程：[4]Dataframe筛选数据">
+<img src="/2016/02/05/Excel2013：[26]如何将ABCD替换成数字/8640bf8b87d6277f084d67412a381f30e924fc29.jpg" title="Excel2013：[26]如何将ABCD替换成数字">
 <ul>
-<li>使用&amp;符号可以实现多条件筛选，当然是用”|”符号也可以实现多条件，只不过他是或的关系。</li>
+<li>掺入一个模块：菜单上执行【插入】-【模块】</li>
 </ul>
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/346bd85c10385343eceb98179013b07eca8088a4.jpg" title="pandas教程：[4]Dataframe筛选数据">
+<img src="/2016/02/05/Excel2013：[26]如何将ABCD替换成数字/d1571724ab18972bb45255b3e4cd7b899e510a1b.jpg" title="Excel2013：[26]如何将ABCD替换成数字">
 <ul>
-<li>假如我们只需要A和B列数据，而D和C列数据都是用于筛选的，可以这样写：只返回了AB两列数据<br>‘</li>
-</ul>
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/d041a4a1cd11728b3c2e9314cbfcc3cec3fd2c41.jpg" title="pandas教程：[4]Dataframe筛选数据">
-<ul>
-<li>我们以上用到的方法都是通过一个布尔索引完成的，我们看一下这样的运算返回的值是什么</li>
-</ul>
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/4a77b2af2edda3cc51c0a71602e93901213f92a4.jpg" title="pandas教程：[4]Dataframe筛选数据">
-<ul>
-<li>我们还可以使用insin方法来筛选特定的值，把要筛选的值写到一个列表里，如alist</li>
-</ul>
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/38403f3fb80e7bec60fe1cd72c2eb9389b506ba4.jpg" title="pandas教程：[4]Dataframe筛选数据">
-<ul>
-<li>假如选择D列数据中，有alist中的值的行</li>
-</ul>
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/2e6fa7389b504fc2ef7baf33e6dde71190ef6da4.jpg" title="pandas教程：[4]Dataframe筛选数据">
-<img src="/2016/01/11/pandas教程：[4]Dataframe筛选数据/b7bc4c66d01609243982bc2dd70735fae6cd3425.jpg" title="pandas教程：[4]Dataframe筛选数据">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/01/11/SPSS实例：[20]检验中介效应的操作方法/">
-                SPSS实例：[20]检验中介效应的操作方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年01月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>上一篇文章我介绍了检验中介效应的理论过程，见文章【中介效应的检验过程】，现在哦我们要在上一篇文章的基础上进行操作，操作方法如下：</p>
-<ul>
-<li>首先检验第一个方程，方程形式如下<br>检验过程是使用线性回归：：：：：：打开线性回归的对话框<br>然后再放入X和Y，如图，，，，，，，，，，，，，，</li>
-</ul>
-<img src="/2016/01/11/SPSS实例：[20]检验中介效应的操作方法/32bb9c8ba61ea8d3563fa61e950a304e251f5848.jpg" title="SPSS实例：[20]检验中介效应的操作方法">
-<img src="/2016/01/11/SPSS实例：[20]检验中介效应的操作方法/a6aed01b9d16fdfa271c14f4b68f8c5494ee7b7d.jpg" title="SPSS实例：[20]检验中介效应的操作方法">
-<img src="/2016/01/11/SPSS实例：[20]检验中介效应的操作方法/d66b7e59252dd42a630ed3b1013b5bb5c9eab862.jpg" title="SPSS实例：[20]检验中介效应的操作方法">
-<ul>
-<li>检验第二个方程，方程形式如下，，，，，<br>接着还是使用线性回归，我们放入M和X，如下图，，，，，</li>
-</ul>
-<img src="/2016/01/11/SPSS实例：[20]检验中介效应的操作方法/7d98931001e9390154675f2479ec54e736d19600.jpg" title="SPSS实例：[20]检验中介效应的操作方法">
-<img src="/2016/01/11/SPSS实例：[20]检验中介效应的操作方法/9319cf09b3de9c8271152b956e81800a19d8437d.jpg" title="SPSS实例：[20]检验中介效应的操作方法">
-<ul>
-<li>接着检验第三个方程，方程形式如下：<br>操作方法如下：：：：：：：：：：点击ok按钮可以进行参数的估计，然后根据上一篇文章讲到的，进行分析。</li>
-</ul>
-<img src="/2016/01/11/SPSS实例：[20]检验中介效应的操作方法/a8362712b31bb051fbc86132347adab44bede0f9.jpg" title="SPSS实例：[20]检验中介效应的操作方法">
-<img src="/2016/01/11/SPSS实例：[20]检验中介效应的操作方法/7ac880510fb30f24a2873e19ca95d143ad4b0348.jpg" title="SPSS实例：[20]检验中介效应的操作方法">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/01/05/Django教程：[3]运行开发服务器/">
-                Django教程：[3]运行开发服务器
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年01月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>虽然现在我们还没有开发任何的网络应用；但是在上一篇文章中，我们已经创建了一个站点，现在我们想要在浏览器中看到它，那就要配置服务器，django给我们提供了一个开发服务器，使我们在不考虑服务器的配置问题前就能看到自己的应用，并进行调试。那么如何运行开发服务器呢？下面是具体的步骤。</p>
-<ul>
-<li>打开命令窗口：这个你肯定很熟悉了</li>
-</ul>
-<img src="/2016/01/05/Django教程：[3]运行开发服务器/3853ad1bb051f8197003c333d8b44aed2e73e763.jpg" title="Django教程：[3]运行开发服务器">
-<ul>
-<li>将当前目录定位到我们创建的web应用所在的文件夹，我的文件夹是djangoweb使用cd命令定位到该文件夹，如果你不会使用cd命令，可以看下面的参考资料里提供的链接，专门介绍cd的用法</li>
-</ul>
-<img src="/2016/01/05/Django教程：[3]运行开发服务器/8640bf8b87d6277f9f33f2412a381f30e924fc63.jpg" title="Django教程：[3]运行开发服务器">
-<ul>
-<li>假如我们的web应用使用8001端口，我们输入的命令是：python manage.py runserver 8001    ，参数8001是我设置的端口号，指明该服务器使用端口号为8001；当然我们可以设置其他的端口号，如果你不写端口号也没问题，系统默认使用8000</li>
-</ul>
-<img src="/2016/01/05/Django教程：[3]运行开发服务器/064936381f30e924be855c484e086e061d95f763.jpg" title="Django教程：[3]运行开发服务器">
-<ul>
-<li>当你看到这个提示信息的时候说明你的开发服务器已经运行成功；你可以看到提示你可以输入IP地址和端口号来访问站点</li>
-</ul>
-<img src="/2016/01/05/Django教程：[3]运行开发服务器/e865a699a9014c08671ae8dc087b02087bf4f463.jpg" title="Django教程：[3]运行开发服务器">
-<ul>
-<li>在浏览器中输入ip地址和端口号就能找到该应用</li>
-</ul>
-<img src="/2016/01/05/Django教程：[3]运行开发服务器/7ab514d162d9f2d34630e496abec8a136327cc63.jpg" title="Django教程：[3]运行开发服务器">
-<ul>
-<li>假如我们关闭dos窗口，这个开发服务器也就停止运行了，所以每次调试你的web应用，你需要开启服务器。</li>
-</ul>
-<img src="/2016/01/05/Django教程：[3]运行开发服务器/a8ad9413632762d0e01f64c6a2ec08fa513dc663.jpg" title="Django教程：[3]运行开发服务器">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/django/">#django</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/01/03/Python教程：[42]pywin32下载安装方法/">
-                Python教程：[42]pywin32下载安装方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年01月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>python有大量的插件、库都是需要在英文的网页上去下载，如果你是python新手，你大概很难找到相关的库和插件。今天我在安装pywin32的时候，也是遇到这样的问题，找一个适合版本的pywin32费了半天劲，下面我来跟大家分享一下如何下载pywin32和如何安装它。</p>
-<ul>
-<li>从下面的参考地址里，找到pywin32各个版本下载地址。</li>
-</ul>
-<img src="/2016/01/03/Python教程：[42]pywin32下载安装方法/38403f3fb80e7bec66b11bee2d2eb9389b506b12.jpg" title="Python教程：[42]pywin32下载安装方法">
-<ul>
-<li>打开的页面里，你会发现有几十个版本的pywin32，怎么找呢？比如我的电脑是win7 64位，python版本是2.7，我找到的是下面这个。点击它就能直接下载。</li>
-</ul>
-<img src="/2016/01/03/Python教程：[42]pywin32下载安装方法/b87985504fc2d562bc63c8e2e51190ef76c66c12.jpg" title="Python教程：[42]pywin32下载安装方法">
-<ul>
-<li>下载完成以后，这是一个exe文件，直接双击安装就可以了。点击下一步。</li>
-</ul>
-<img src="/2016/01/03/Python教程：[42]pywin32下载安装方法/f35ea0096b63f6249157210c8544ebf81a4ca37c.jpg" title="Python教程：[42]pywin32下载安装方法">
-<ul>
-<li>在第二步，你会看到你的python安装目录，如果没有检测到你的python安装目录，八成你现在的pywin32版本是不对的，重新下载。点击下一步</li>
-</ul>
-<img src="/2016/01/03/Python教程：[42]pywin32下载安装方法/fcbbb151f3deb48fc902b9d1f21f3a292df57812.jpg" title="Python教程：[42]pywin32下载安装方法">
-<ul>
-<li>安装状态，显示ready to install以后，点击下一步</li>
-</ul>
-<img src="/2016/01/03/Python教程：[42]pywin32下载安装方法/346bd85c10385343eeca9f2e9113b07eca80887c.jpg" title="Python教程：[42]pywin32下载安装方法">
-<ul>
-<li>看到这个界面，说明你安装完成，不过你不要高兴太早，我们接着要测试一下是否安装成功</li>
-</ul>
-<img src="/2016/01/03/Python教程：[42]pywin32下载安装方法/bd70426034a85edfdde7e62c4b540923dd547512.jpg" title="Python教程：[42]pywin32下载安装方法">
-<ul>
-<li>在python中，引入win32com，测试一下，如果没有错误提示，说明安装成功</li>
-</ul>
-<img src="/2016/01/03/Python教程：[42]pywin32下载安装方法/ca5257540923dd540318bf67d309b3de9c824812.jpg" title="Python教程：[42]pywin32下载安装方法">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/01/03/spss20.0安装和破解方法【附许可证】/">
-                spss20.0安装和破解方法【附许可证】
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年01月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>#####该方法已经失效#####大家不要骂街####<br>方法/步骤</p>
-<ul>
-<li>下一步</li>
-</ul>
-<img src="/2016/01/03/spss20.0安装和破解方法【附许可证】/7c1ed21b0ef41bd597c8467751da81cb38db3d9d.jpg" title="spss20.0安装和破解方法【附许可证】">
-<ul>
-<li>准备安装</li>
-</ul>
-<img src="/2016/01/03/spss20.0安装和破解方法【附许可证】/f636afc379310a55ecdf7077b74543a9832610bd.jpg" title="spss20.0安装和破解方法【附许可证】">
-<ul>
-<li>下一步</li>
-</ul>
-<img src="/2016/01/03/spss20.0安装和破解方法【附许可证】/0bd162d9f2d3572c9d19325f8a13632763d0c3be.jpg" title="spss20.0安装和破解方法【附许可证】">
-<ul>
-<li>下一步</li>
-</ul>
-<img src="/2016/01/03/spss20.0安装和破解方法【附许可证】/3c6d55fbb2fb4316f1e4d4f920a4462308f7d3be.jpg" title="spss20.0安装和破解方法【附许可证】">
-<ul>
-<li>因为我们一般使用的就是中文，</li>
-</ul>
-<img src="/2016/01/03/spss20.0安装和破解方法【附许可证】/5ab5c9ea15ce36d36b9f2db33af33a87e850b19e.jpg" title="spss20.0安装和破解方法【附许可证】">
-<ul>
-<li>。点击图中所示按钮</li>
-</ul>
-<img src="/2016/01/03/spss20.0安装和破解方法【附许可证】/c75c10385343fbf27ad708a0b07eca8064388fbe.jpg" title="spss20.0安装和破解方法【附许可证】">
-<ul>
-<li>继续</li>
-</ul>
-<img src="/2016/01/03/spss20.0安装和破解方法【附许可证】/4ec2d5628535e5dd0ab70b5c76c6a7efcf1b629e.jpg" title="spss20.0安装和破解方法【附许可证】">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/01/03/怎样将excel中的联系人导入到邮箱/">
-                怎样将excel中的联系人导入到邮箱
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年01月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>在日常的办公中，我们整理客户资料的时候经常是使用excel，如果要想给这些客服发邮件，我们就得将他们的邮件地址一个一个的输入到邮箱里，不过，还有更简单的做法，那就是利用批量导入联系人的方法实现一键导入，下面是具体的方法，本人用的是126邮箱，经测试，其他邮箱导入的方法也是一样的。<br>方法/步骤</p>
-<ul>
-<li></li>
-<li><p>先打开要导入的excel文件，格式不正确的文件是无法导入的，我们要对其进行修改。首先你要检查这个文件是不是有标题栏，没有标题栏的话，很多邮箱都不能导入，所以我们最好先插入标题栏，如图所示，右键单击第一行，然后再打开的菜单中选择【插入】</p>
+<li><p>将这段代码粘贴到模块中：</p>
+</li>
+<li><p>Sub 替换abcd()</p>
+</li>
+<li><p>Dim iRng As Range</p>
+</li>
+<li><p>Set iRng = Selection</p>
+</li>
+<li><p>For Each icell In iRng</p>
+</li>
+<li><p>txt = icell.Value</p>
+</li>
+<li><p>Select Case txt</p>
+</li>
+<li><p>Case “A”</p>
+</li>
+<li><p>icell.Value = 1</p>
+</li>
+<li><p>Case “B”</p>
+</li>
+<li><p>icell.Value = 2</p>
+</li>
+<li><p>Case “C”</p>
+</li>
+<li><p>icell.Value = 3</p>
+</li>
+<li><p>Case “D”</p>
+</li>
+<li><p>icell.Value = 4</p>
+</li>
+<li><p>Case “E”</p>
+</li>
+<li><p>icell.Value = 5</p>
+</li>
+<li><p>End Select</p>
+</li>
+<li><p>Next icell</p>
+</li>
+<li><p>End Sub</p>
 </li>
 </ul>
-<img src="/2016/01/03/怎样将excel中的联系人导入到邮箱/71cf3bc79f3df8dc7f79ae0fcd11728b461028e3.jpg" title="怎样将excel中的联系人导入到邮箱">
+<img src="/2016/02/05/Excel2013：[26]如何将ABCD替换成数字/0b3a1c087bf40ad1c6bb929a552c11dfa9ecce29.jpg" title="Excel2013：[26]如何将ABCD替换成数字">
 <ul>
-<li>导入到标题栏以后，我们按照‘联系组   姓名   邮件地址   联系地址   邮政编码   联系电话   移动电话   公司   ’这样的顺序整理你的联系人的信息，当然，如果你的联系人的信息没有这么多，你可以空着不填，比如没有电话，你就空着这一栏就可以了，如下图所示就是整理好的联系人的信息</li>
+<li>保存并关闭vbe窗口，然后按下快捷键alt+F8，打开宏编辑窗口，选中这个唯一的宏，然后点击【选项】按钮</li>
 </ul>
-<img src="/2016/01/03/怎样将excel中的联系人导入到邮箱/aa64034f78f0f7364ca66d9f0a55b319eac413d7.jpg" title="怎样将excel中的联系人导入到邮箱">
+<img src="/2016/02/05/Excel2013：[26]如何将ABCD替换成数字/f392492c11dfa9ec2371036e60d0f703918fc129.jpg" title="Excel2013：[26]如何将ABCD替换成数字">
 <ul>
-<li>点击excel的开始按钮，打开开始菜单，然后执行：另存为–其他格式</li>
+<li>设置快捷键为Ctrl+q，然后点击确定按钮</li>
 </ul>
-<img src="/2016/01/03/怎样将excel中的联系人导入到邮箱/f9dcd100baa1cd11c3f253beb912c8fcc2ce2de3.jpg" title="怎样将excel中的联系人导入到邮箱">
+<img src="/2016/02/05/Excel2013：[26]如何将ABCD替换成数字/0b14ad19ebc4b7453efce26fcdfc1e178a82151b.jpg" title="Excel2013：[26]如何将ABCD替换成数字">
 <ul>
-<li>在打开的另存为对话框中，我们将保存的格式设置为csv，这是个大邮箱都承认的导入格式，然后选择一个保存的位置，点击‘保存’</li>
+<li>下面开始使用这个宏来转化数据，如图，先选中要转换的这一列，然后按下快捷键【Ctrl+q】，你可以看到数据快速得到转换。abcd都变成了1234</li>
 </ul>
-<img src="/2016/01/03/怎样将excel中的联系人导入到邮箱/962bd40735fae6cdb4ec8aff0fb30f2443a70fd7.jpg" title="怎样将excel中的联系人导入到邮箱">
-<ul>
-<li>弹出一个警告消息，不用管它，点击‘是’</li>
-</ul>
-<img src="/2016/01/03/怎样将excel中的联系人导入到邮箱/4610b912c8fcc3ce7584e8ad9245d688d53f20e3.jpg" title="怎样将excel中的联系人导入到邮箱">
-<ul>
-<li>来到你的邮箱，在菜单栏上选择【通讯录】，打开联系人的列表</li>
-</ul>
-<img src="/2016/01/03/怎样将excel中的联系人导入到邮箱/a5c27d1ed21b0ef4dbb0b9c0ddc451da80cb3ed7.jpg" title="怎样将excel中的联系人导入到邮箱">
-<ul>
-<li>在标题栏，找到【更多】选项，点击它可以打开一个下拉列表，在该下拉列表里，找到【导入通讯录】这个选项</li>
-</ul>
-<img src="/2016/01/03/怎样将excel中的联系人导入到邮箱/d31b0ef41bd5ad6e1fa1457481cb39dbb7fd3cd7.jpg" title="怎样将excel中的联系人导入到邮箱">
-<ul>
-<li>打开导入通讯录页面，点击浏览按钮，查找你刚才保存的文件</li>
-</ul>
-<img src="/2016/01/03/怎样将excel中的联系人导入到邮箱/e7cd7b899e510fb3dd415609d933c895d0430cd7.jpg" title="怎样将excel中的联系人导入到邮箱">
-<ul>
-<li>选择你要上传的文件，然后点击【打开】</li>
-</ul>
-<img src="/2016/01/03/怎样将excel中的联系人导入到邮箱/fd039245d688d43f3cedb06c7d1ed21b0ff43be3.jpg" title="怎样将excel中的联系人导入到邮箱">
-<ul>
-<li><p>设置遇到重复的邮件地址的时候是该覆盖还是不导入，也就是跳过该记录，按照你需要的自己进行设定，一般就是选择【不导入】。点击确定按钮，完成导入。</p>
-</li>
-<li></li>
-<li></li>
-</ul>
-<img src="/2016/01/03/怎样将excel中的联系人导入到邮箱/d833c895d143ad4b0976675e82025aafa50f06d7.jpg" title="怎样将excel中的联系人导入到邮箱">
+<img src="/2016/02/05/Excel2013：[26]如何将ABCD替换成数字/58af236d55fbb2fbf5740d6b4d4a20a44623dc29.jpg" title="Excel2013：[26]如何将ABCD替换成数字">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -864,13 +556,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2016/01/01/DataNitro：[5]Cell对象方法/">
-                DataNitro：[5]Cell对象方法
+            <a href="/2016/02/05/Python教程：[33]setuptools安装扩展库的方法/">
+                Python教程：[33]setuptools安装扩展库的方法
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2016年01月01日</span>
+                <span class="date">2016年02月05日</span>
             
             
             
@@ -879,42 +571,39 @@
 
     
         <div class="content">
-            <p>这篇文章介绍一下Datanitro常用的一些方法。我们还是用例子来说明，大家比较容易理解，另外想要学习一门计算机语言，一定要亲手实验你的代码，否则学起来很慢。</p>
+            <p>确保你正确安装了setuptools，或者你可以查看我在百度经验写的这篇文章【setuptools下载安装方法】，然后我们就可以进行下面的扩展库的安装过程了，安装方法非常简单，下面来演示一下：</p>
 <ul>
-<li><p>clear()：清空Cell，例如：</p>
-</li>
-<li><p>#clear()</p>
-</li>
-<li><p>Cell(1,1).clear()</p>
-</li>
-<li><p>copy_from():复制单元格：下面的代码将A21单元格的内容和格式复制到了A22</p>
-</li>
+<li>打开运行窗口</li>
 </ul>
-<img src="/2016/01/01/DataNitro：[5]Cell对象方法/389aa8fd5266d01634b4d47a942bd40734fa35f7.jpg" title="DataNitro：[5]Cell对象方法">
+<img src="/2016/02/05/Python教程：[33]setuptools安装扩展库的方法/cf5a8316fdfaaf5194dfbda88e5494eef01f7aad.jpg" title="Python教程：[33]setuptools安装扩展库的方法">
 <ul>
-<li>copy_format_from()：仅仅复制单元格格式</li>
+<li>输入cmd，点击确定按钮</li>
 </ul>
-<img src="/2016/01/01/DataNitro：[5]Cell对象方法/99636c0e0cf3d7cada757524f11fbe096a63a9a6.jpg" title="DataNitro：[5]Cell对象方法">
+<img src="/2016/02/05/Python教程：[33]setuptools安装扩展库的方法/fcbbb151f3deb48fe5559dc9f21f3a292df578ad.jpg" title="Python教程：[33]setuptools安装扩展库的方法">
 <ul>
-<li>is_empty():判断单元格是否为空，如果为空则返回True，否则返回False</li>
+<li>在这里我们试试输入easy_install是否安装正确，提示这个消息，说明安装正确了。</li>
 </ul>
-<img src="/2016/01/01/DataNitro：[5]Cell对象方法/3b6833f5e0fe9925443edc0237a85edf8db17177.jpg" title="DataNitro：[5]Cell对象方法">
+<img src="/2016/02/05/Python教程：[33]setuptools安装扩展库的方法/b5ce925494eef01f562824d2e2fe9925bc317dad.jpg" title="Python教程：[33]setuptools安装扩展库的方法">
 <ul>
-<li>offset()：移动：下面的代码将返回A1单元格右边的单元格A2</li>
+<li>使用easy_install+包名的方法来安装包。你无需自己下载包，只需要这个命令</li>
 </ul>
-<img src="/2016/01/01/DataNitro：[5]Cell对象方法/6648d73d70cf3bc7801478bed200baa1cd112a08.jpg" title="DataNitro：[5]Cell对象方法">
+<img src="/2016/02/05/Python教程：[33]setuptools安装扩展库的方法/4075890a304e251f1b5dd8efa586c9177f3e533b.jpg" title="Python教程：[33]setuptools安装扩展库的方法">
 <ul>
-<li>print,这不是cell的方法，但是使用print可以返回cell的名字，注意Cell的参数，有一个sheet1，它明确的指明了是在sheet1中的单元格A1</li>
+<li>看到这个提示消息，说明安装成功了。</li>
 </ul>
-<img src="/2016/01/01/DataNitro：[5]Cell对象方法/dc15484e9258d109b7ce1ce0d258ccbf6c814d77.jpg" title="DataNitro：[5]Cell对象方法">
+<img src="/2016/02/05/Python教程：[33]setuptools安装扩展库的方法/6648d73d70cf3bc708aaf1fbd300baa1cd112a3b.jpg" title="Python教程：[33]setuptools安装扩展库的方法">
 <ul>
-<li>rename()我们还可以给单元格起一个个性化名字，然后使用改名字就可以调用该单元格</li>
+<li>在python中引入这个模块试试是否安装成功</li>
 </ul>
-<img src="/2016/01/01/DataNitro：[5]Cell对象方法/b29f8282d158ccbf649100681ad8bc3eb1354177.jpg" title="DataNitro：[5]Cell对象方法">
+<img src="/2016/02/05/Python教程：[33]setuptools安装扩展库的方法/0e655ca7d933c8951096a46cd31373f0830200f9.jpg" title="Python教程：[33]setuptools安装扩展库的方法">
 <ul>
-<li>active_cell():返回当前活动单元格，如果你输入一个参数，比如：active_cell(Cell(‘A1’))，就可以设定A1为活动单元格</li>
+<li>没有看到任何提示，说明安装成功了</li>
 </ul>
-<img src="/2016/01/01/DataNitro：[5]Cell对象方法/d7c9ca3f8794a4c24d3752790df41bd5ad6e3908.jpg" title="DataNitro：[5]Cell对象方法">
+<img src="/2016/02/05/Python教程：[33]setuptools安装扩展库的方法/86d5bac27d1ed21ba42112f2af6eddc450da3ff9.jpg" title="Python教程：[33]setuptools安装扩展库的方法">
+<ul>
+<li>我们可以使用easy_install -m 包名    来卸载一个包</li>
+</ul>
+<img src="/2016/02/05/Python教程：[33]setuptools安装扩展库的方法/1899a23eb13533fa041caf39aad3fd1f41345b3b.jpg" title="Python教程：[33]setuptools安装扩展库的方法">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -929,7 +618,7 @@
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/datanitro/">#datanitro</a>
+            <a href="/tags/python/">#python</a>
         </div>
     
 
@@ -940,13 +629,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/10/23/SPSS实例：[40]如何更改界面语言/">
-                SPSS实例：[40]如何更改界面语言
+            <a href="/2016/02/05/如何更改折线图的曲线样式[1]Excel2013教程/">
+                如何更改折线图的曲线样式[1]Excel2013教程
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年10月23日</span>
+                <span class="date">2016年02月05日</span>
             
             
             
@@ -955,96 +644,37 @@
 
     
         <div class="content">
-            <p>spss内置多国语言，除非你用的spss版本，老到该退休的版本，那时候只有英文版，现在的版本比如20、21、22都内置多国语言，可以自行设置。下面是具体的过程：</p>
+            <p>我们绘制出来折线图以后，经常需要更改图中曲线的样式，比如，在做论文的时候，图表的颜色要求必须是黑白的，不能使用彩色，所以只能把折线图的曲线样式改变一下，以便将不同的曲线区别开，下面我们就来看看如何更改折线图的折线样式：</p>
 <ul>
-<li>先随便启动一个spss，我的版本是22</li>
+<li>选中我们要使用的数据，以此数据创建折线图</li>
 </ul>
-<img src="/2015/10/23/SPSS实例：[40]如何更改界面语言/fd428c45d688d43f30fb53c47e1ed21b0ef43b73.jpg" title="SPSS实例：[40]如何更改界面语言">
+<img src="/2016/02/05/如何更改折线图的曲线样式[1]Excel2013教程/6398ecd3572c11dfbac77c46622762d0f703c206.jpg" title="如何更改折线图的曲线样式[1]Excel2013教程">
 <ul>
-<li>我通用的是英文版，先看一下如何改成中文，点击edit–opetions</li>
+<li>在菜单栏上执行：插入–推荐的图标，打开一个对话框，从中选择折线图即可</li>
 </ul>
-<img src="/2015/10/23/SPSS实例：[40]如何更改界面语言/0865b518972bd407fc7911cb78899e510fb3090f.jpg" title="SPSS实例：[40]如何更改界面语言">
+<img src="/2016/02/05/如何更改折线图的曲线样式[1]Excel2013教程/62667cd0f703918fb9c7feaf503d269759eec406.jpg" title="如何更改折线图的曲线样式[1]Excel2013教程">
 <ul>
-<li>找到language选项，这里有设置输出结果的语言和用户界面的语言，都设置成中文即可</li>
+<li>到这里就可以看到我们的折线图，下面要对折线的样式进行更改</li>
 </ul>
-<img src="/2015/10/23/SPSS实例：[40]如何更改界面语言/0b14ad19ebc4b745a62a7520ccfc1e178a82150f.jpg" title="SPSS实例：[40]如何更改界面语言">
+<img src="/2016/02/05/如何更改折线图的曲线样式[1]Excel2013教程/6c63514a20a446232fdc66079922720e0cf3d706.jpg" title="如何更改折线图的曲线样式[1]Excel2013教程">
 <ul>
-<li>当然，我们还可以选择是繁体中文还是简体中文</li>
+<li>双击图例，如图所示，即可打开设置对话框，在右侧边栏</li>
 </ul>
-<img src="/2015/10/23/SPSS实例：[40]如何更改界面语言/b110e6198618367a2fdbbdeb2d738bd4b31ce57c.jpg" title="SPSS实例：[40]如何更改界面语言">
+<img src="/2016/02/05/如何更改折线图的曲线样式[1]Excel2013教程/dc15484e9258d109239b6ad7d058ccbf6c814d18.jpg" title="如何更改折线图的曲线样式[1]Excel2013教程">
+<img src="/2016/02/05/如何更改折线图的曲线样式[1]Excel2013教程/0b07ec1fbe096b63c70f9d350d338744ebf8ac06.jpg" title="如何更改折线图的曲线样式[1]Excel2013教程">
 <ul>
-<li>点击确定即可设置完成，</li>
+<li>接着选中其中一个图例进行更改，比如我们选择happy</li>
 </ul>
-<img src="/2015/10/23/SPSS实例：[40]如何更改界面语言/62667cd0f703918fb668fffc523d269759eec408.jpg" title="SPSS实例：[40]如何更改界面语言">
+<img src="/2016/02/05/如何更改折线图的曲线样式[1]Excel2013教程/a992e31f4134970a900bd34a94cad1c8a7865d18.jpg" title="如何更改折线图的曲线样式[1]Excel2013教程">
 <ul>
-<li>做一个简单的描述统计，看看输出语言是不是中文，是简体中文还是繁体中文，都已经转换为简体中文了</li>
+<li>在侧边栏中选择边框–短线类型，这样就可以更改折线的样式，将直线变成了曲线</li>
 </ul>
-<img src="/2015/10/23/SPSS实例：[40]如何更改界面语言/fd428c45d688d43f31f15cc47e1ed21b0ef43b69.jpg" title="SPSS实例：[40]如何更改界面语言">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/10/23/excel如何夸文件同步数据/">
-                excel如何夸文件同步数据
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年10月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>在一个excel的单元格里如何显示另一个excel文件单元格里的数据我们可以使用文件引用，很简单，下面是具体的过程：</p>
+<img src="/2016/02/05/如何更改折线图的曲线样式[1]Excel2013教程/a6c7d7177f3e67096178869a3ac79f3df8dc5518.jpg" title="如何更改折线图的曲线样式[1]Excel2013教程">
 <ul>
-<li>我们看到我现在有几个excel文件，现在想要在A.xlsx中显示B1.xlsx中的数据，打开A.xlsx</li>
+<li>同样的方法，把其他的折线都改成唯一的样式，以便和其他的折线相区分，这样就完成了样式的更改</li>
 </ul>
-<img src="/2015/10/23/excel如何夸文件同步数据/3b6833f5e0fe99250d3e9b2837a85edf8db1715d.jpg" title="excel如何夸文件同步数据">
-<ul>
-<li><p>随便找一个单元格输入公式：=’F:\数据分析存档\excel[b1.xlsx]Sheet1’!A1 </p>
-</li>
-<li><p>这个公式的意思是：文件的路径+[文件名称]+工作表名！单元格地址</p>
-</li>
-</ul>
-<img src="/2015/10/23/excel如何夸文件同步数据/9864a2315c6034a8ead04af9c81349540923765d.jpg" title="excel如何夸文件同步数据">
-<img src="/2015/10/23/excel如何夸文件同步数据/d1e312f431adcbeffac58d7eafaf2edda2cc9f92.jpg" title="excel如何夸文件同步数据">
-<ul>
-<li>这样在这个单元格里已经显示了另一个excel的内容，下面我们增加一个功能</li>
-</ul>
-<img src="/2015/10/23/excel如何夸文件同步数据/d1e312f431adcbeffac58d7eafaf2edda2cc9f92.jpg" title="excel如何夸文件同步数据">
-<ul>
-<li>增加一个超链接，点击超链接就可以打开所引用的文件，右键单击单元格，选择【超链接】</li>
-</ul>
-<img src="/2015/10/23/excel如何夸文件同步数据/570f8c58d109b3de228d1610cfbf6c81800a4c5d.jpg" title="excel如何夸文件同步数据">
-<ul>
-<li>在打开的对话框中选择你所引用的文件夹，点击确定即可</li>
-</ul>
-<img src="/2015/10/23/excel如何夸文件同步数据/00a82701213fb80eec2092af35d12f2eb8389492.jpg" title="excel如何夸文件同步数据">
+<img src="/2016/02/05/如何更改折线图的曲线样式[1]Excel2013教程/e8112b2ac65c10381f680da7b3119313b07e8906.jpg" title="如何更改折线图的曲线样式[1]Excel2013教程">
+<img src="/2016/02/05/如何更改折线图的曲线样式[1]Excel2013教程/c2bce2039245d6886d7a71c1a5c27d1ed21b2418.jpg" title="如何更改折线图的曲线样式[1]Excel2013教程">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1070,13 +700,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2015/10/23/Python教程：[54]matplotlib引用错误/">
-                Python教程：[54]matplotlib引用错误
+            <a href="/2016/02/05/python 线性代数：[20]求逆序数/">
+                python 线性代数：[20]求逆序数
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2015年10月23日</span>
+                <span class="date">2016年02月05日</span>
             
             
             
@@ -1085,36 +715,28 @@
 
     
         <div class="content">
-            <p>安装好了matplotlib，但是引入的时候出现问题，无法引用，提示引用错误：ImportError: matplotlib requires pyparsing。然后通过安装pyparsing模块解决了这个问题，为了让大家都解决这个问题，我把我遇到问题描述在这里：</p>
+            <p>关于逆序数的概念大家自行百度，这里介绍一下逆序数的求法，我将课本上的方法截图在下面：</p>
 <ul>
-<li>首先，我用的是exe文件装的matplotlib模块：</li>
+<li>先来看看这几个序列：</li>
 </ul>
-<img src="/2015/10/23/Python教程：[54]matplotlib引用错误/54baacfb43166d2221538a0e442309f79152d2c1.jpg" title="Python教程：[54]matplotlib引用错误">
+<img src="/2016/02/05/python%20线性代数：[20]求逆序数/a28d62d98d1001e927721a25bc0e7bec54e7970a.jpg" title="python 线性代数：[20]求逆序数">
 <ul>
-<li><p>安装过程没有任何提示错误，但是引用的时候出现问题：提示错误</p>
-</li>
-<li><p>Traceback (most recent call last):</p>
-</li>
-<li><p>File “&lt;pyshell#0&gt;”, line 1, in <module></module></p>
-</li>
-<li><p>import matplotlib</p>
-</li>
-<li><p>File “D:\Python27\lib\site-packages\matplotlib__init__.py”, line 125, in <module></module></p>
-</li>
-<li><p>raise ImportError(“matplotlib requires pyparsing”)</p>
-</li>
-<li><p>ImportError: matplotlib requires pyparsing</p>
-</li>
-<li><p>解决问题的方法是安装pyparsing，用到setuptools，如果你没有安装setuptools，你可以在这里安装：<a href="http://jingyan.baidu.com/article/b907e627dd80df46e7891c2c.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/b907e627dd80df46e7891c2c.html</a></p>
-</li>
-<li><p>接着我们打开命令窗口，输入命令easy_install pyparsing</p>
-</li>
+<li>引入相关模块并设定一个标准序列（也就是自然数序列）</li>
 </ul>
-<img src="/2015/10/23/Python教程：[54]matplotlib引用错误/fc5e5f34970a304ec9993f60d3c8a786c8175cb6.jpg" title="Python教程：[54]matplotlib引用错误">
+<img src="/2016/02/05/python%20线性代数：[20]求逆序数/b3f6cea20cf431addf4c4a134f36acaf2edd983a.jpg" title="python 线性代数：[20]求逆序数">
 <ul>
-<li>接着，我们引入matplotlib，就成功了</li>
+<li>在Python中，我们输入这几个序列</li>
 </ul>
-<img src="/2015/10/23/Python教程：[54]matplotlib引用错误/c9bdddcec3fdfc03902a7c22d63f8794a5c2269e.jpg" title="Python教程：[54]matplotlib引用错误">
+<img src="/2016/02/05/python%20线性代数：[20]求逆序数/0862c354564e925897eb8fc49882d158cdbf4ef9.jpg" title="python 线性代数：[20]求逆序数">
+<img src="/2016/02/05/python%20线性代数：[20]求逆序数/9a1151c2d5628535cc7edb0b94ef76c6a7ef633a.jpg" title="python 线性代数：[20]求逆序数">
+<ul>
+<li>输出四个序列的逆序数</li>
+</ul>
+<img src="/2016/02/05/python%20线性代数：[20]求逆序数/6648d73d70cf3bc7fddfc4c6d500baa1cc112af9.jpg" title="python 线性代数：[20]求逆序数">
+<ul>
+<li>这是求解的答案：</li>
+</ul>
+<img src="/2016/02/05/python%20线性代数：[20]求逆序数/bd70426034a85edfb212f7094d540923dd54753a.jpg" title="python 线性代数：[20]求逆序数">
 <blockquote>
 <p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
 </blockquote>
@@ -1130,6 +752,431 @@
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
             <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/02/03/python 线性代数：[16]线性组合均值协方差阵/">
+                python 线性代数：[16]线性组合均值协方差阵
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年02月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>这里从《实用多元统计分析》（理查德~约翰逊)这本书里摘出一个例子，看题目：</p>
+<ul>
+<li>引入相关模块</li>
+</ul>
+<img src="/2016/02/03/python%20线性代数：[16]线性组合均值协方差阵/09bb4f3d269759ee2a25ae8ab1fb43166d22df3f.jpg" title="python 线性代数：[16]线性组合均值协方差阵">
+<ul>
+<li>创建几个符号，代码已知量</li>
+</ul>
+<img src="/2016/02/03/python%20线性代数：[16]线性组合均值协方差阵/58af236d55fbb2fb595e96534c4a20a44623dc3f.jpg" title="python 线性代数：[16]线性组合均值协方差阵">
+<ul>
+<li>sigma代表已知的X矩阵的协方差矩阵<br>sigma =</li>
+</ul>
+<img src="/2016/02/03/python%20线性代数：[16]线性组合均值协方差阵/e6508eef76c6a7efbffe6767fefaaf51f2de665c.jpg" title="python 线性代数：[16]线性组合均值协方差阵">
+<img src="/2016/02/03/python%20线性代数：[16]线性组合均值协方差阵/61183b2dd42a283403d3f84a58b5c9ea15cebf3f.jpg" title="python 线性代数：[16]线性组合均值协方差阵">
+<ul>
+<li>u代表已知的x矩阵的均值向量<br>这是均值向量</li>
+</ul>
+<img src="/2016/02/03/python%20线性代数：[16]线性组合均值协方差阵/99636c0e0cf3d7ca5e83f137f11fbe096b63a93f.jpg" title="python 线性代数：[16]线性组合均值协方差阵">
+<img src="/2016/02/03/python%20线性代数：[16]线性组合均值协方差阵/5af4d7ea15ce36d3e8714d7139f33a87e950b13f.jpg" title="python 线性代数：[16]线性组合均值协方差阵">
+<ul>
+<li>、这是线性组合的系数矩阵</li>
+</ul>
+<img src="/2016/02/03/python%20线性代数：[16]线性组合均值协方差阵/f15e24292df5e0fee4c046405f6034a85fdf725c.jpg" title="python 线性代数：[16]线性组合均值协方差阵">
+<img src="/2016/02/03/python%20线性代数：[16]线性组合均值协方差阵/570f8c58d109b3de17672b29cfbf6c81810a4c5c.jpg" title="python 线性代数：[16]线性组合均值协方差阵">
+<ul>
+<li>计算均值向量，利用均值向量的计算公式：<br>代码为：<br>求得：</li>
+</ul>
+<img src="/2016/02/03/python%20线性代数：[16]线性组合均值协方差阵/9304c888d43f8794105b866fd11b0ef41ad53a88.jpg" title="python 线性代数：[16]线性组合均值协方差阵">
+<img src="/2016/02/03/python%20线性代数：[16]线性组合均值协方差阵/1b0d4f0fd9f9d72a5311de5cd72a2834349bbb3f.jpg" title="python 线性代数：[16]线性组合均值协方差阵">
+<img src="/2016/02/03/python%20线性代数：[16]线性组合均值协方差阵/cdfe7281800a19d82ddb4b4430fa828ba71e465c.jpg" title="python 线性代数：[16]线性组合均值协方差阵">
+<ul>
+<li><p>同样，我们利用协方差矩阵的公式：<br>代码为：</p>
+</li>
+<li><p>求得结果为：</p>
+</li>
+</ul>
+<img src="/2016/02/03/python%20线性代数：[16]线性组合均值协方差阵/b29f8282d158ccbfe14b7b7b1ad8bc3eb03541b9.jpg" title="python 线性代数：[16]线性组合均值协方差阵">
+<img src="/2016/02/03/python%20线性代数：[16]线性组合均值协方差阵/e1bf8725bc315c60b44da4ae8eb1cb134854775c.jpg" title="python 线性代数：[16]线性组合均值协方差阵">
+<img src="/2016/02/03/python%20线性代数：[16]线性组合均值协方差阵/b13fd48065380cd7dc6b6caca244ad345982813f.jpg" title="python 线性代数：[16]线性组合均值协方差阵">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/02/01/python 线性代数：[18]线性规划求最优解/">
+                python 线性代数：[18]线性规划求最优解
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年02月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>现在有个需要解决的问题：我找到了一份实习工作，于是想租一个房子，最好离工作近点，但是还没毕业，学校时不时有事，还不能离学校远了；而且有时候还要去女朋友那里，她希望我就住在她附近，于是，我怎么选择房子的地址？假定：公司、学校、女盆友的在地图上的坐标分别是：（1,1），（4,6），（9,2），求我的房子的坐标？</p>
+<ul>
+<li>我们解决的方法是用scipy提供的一个scipy.optimize.minimize 方法，首先要写出一个计算距离的方程：</li>
+</ul>
+<img src="/2016/02/01/python%20线性代数：[18]线性规划求最优解/61183b2dd42a28343bbf204358b5c9ea15cebf19.jpg" title="python 线性代数：[18]线性规划求最优解">
+<img src="/2016/02/01/python%20线性代数：[18]线性规划求最优解/cc506c8b4710b9124cece0b6c0fdfc039245220d.jpg" title="python 线性代数：[18]线性规划求最优解">
+<ul>
+<li>分别把三个地点的横坐标和纵坐标都保存在两个列向量里</li>
+</ul>
+<img src="/2016/02/01/python%20线性代数：[18]线性规划求最优解/c9bdddcec3fdfc031a55f5f0d73f8794a4c2260d.jpg" title="python 线性代数：[18]线性规划求最优解">
+<ul>
+<li>找一个起始点：</li>
+</ul>
+<img src="/2016/02/01/python%20线性代数：[18]线性规划求最优解/9c57e3faaf51f3def9aeaf2c97eef01f3a29791e.jpg" title="python 线性代数：[18]线性规划求最优解">
+<ul>
+<li>看一下，随便选择的这个住址到三个地点的距离的平方和<br>求得这个值很大：6224</li>
+</ul>
+<img src="/2016/02/01/python%20线性代数：[18]线性规划求最优解/d35a10f41bd5ad6e4fd472a282cb39dbb6fd3c0d.jpg" title="python 线性代数：[18]线性规划求最优解">
+<ul>
+<li>求最优解</li>
+</ul>
+<img src="/2016/02/01/python%20线性代数：[18]线性规划求最优解/5f9e93b1cb1349545502fe2c554e9258d1094a1e.jpg" title="python 线性代数：[18]线性规划求最优解">
+<ul>
+<li><p>求得最优解<br>输出为：</p>
+</li>
+<li><p>[ 4.66666667  3.        ]</p>
+</li>
+<li><p>46.6666666667</p>
+</li>
+</ul>
+<img src="/2016/02/01/python%20线性代数：[18]线性规划求最优解/ca5257540923dd54086fb120d209b3de9c82481e.jpg" title="python 线性代数：[18]线性规划求最优解">
+<ul>
+<li>将地图绘制出来<br>求得我的地址就标在地图上（house的地方）</li>
+</ul>
+<img src="/2016/02/01/python%20线性代数：[18]线性规划求最优解/7ac880510fb30f24e1b7fa4bcb95d143ad4b030d.jpg" title="python 线性代数：[18]线性规划求最优解">
+<img src="/2016/02/01/python%20线性代数：[18]线性规划求最优解/948bcfc8a786c917081f4471ca3d70cf3bc7571e.jpg" title="python 线性代数：[18]线性规划求最优解">
+<ul>
+<li>有的人还说了，假如我的预算有限，只能租得起五环边上的房子，那么问题也很简单，就是设定我的房子的坐标是(x,y)，假如五环到市中心（0,0）的距离为r=10，那么我的房子在五环边上，就可以用等式x<strong>2+y</strong>2-100=0来表示。可以写到我的代码里：</li>
+</ul>
+<img src="/2016/02/01/python%20线性代数：[18]线性规划求最优解/91138622720e0cf32f5c5cb10946f21fbf09aa96.jpg" title="python 线性代数：[18]线性规划求最优解">
+<ul>
+<li>在求最优解得时候，我们加上一个参数constraints</li>
+</ul>
+<img src="/2016/02/01/python%20线性代数：[18]线性规划求最优解/0db2c9ca7bcb0a46098999736863f6246a60af96.jpg" title="python 线性代数：[18]线性规划求最优解">
+<ul>
+<li>最后我们将五环也绘制在图上，看看我的房子是不是在五环上：</li>
+</ul>
+<img src="/2016/02/01/python%20线性代数：[18]线性规划求最优解/cdfe7281800a19d8df3f994f30fa828ba61e4678.jpg" title="python 线性代数：[18]线性规划求最优解">
+<ul>
+<li>最后求得的结果绘图如下：蓝色线就表示五环</li>
+</ul>
+<img src="/2016/02/01/python%20线性代数：[18]线性规划求最优解/54baacfb43166d22bfdc07de452309f79152d296.jpg" title="python 线性代数：[18]线性规划求最优解">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/02/01/SPSS实例：[18]中介效应占总效应百分比/">
+                SPSS实例：[18]中介效应占总效应百分比
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年02月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天跟大家分享的是一个用Excel计算中介效应占总效应的百分比的方法。这个百分比我们都知道，就是中介效应比总效应，看过我前面文章的人应该都知道如何进行中介效应的检验了，假如我们得出的结论是部分中介效应，那么我们需要计算总效应中的百分之多少是中介效应，所以我就做了一个Excel文件，可以帮助大家快速计算，下面是方法：</p>
+<ul>
+<li>从下面的参考资料里现在我在百度网盘里的文件</li>
+</ul>
+<img src="/2016/02/01/SPSS实例：[18]中介效应占总效应百分比/d68b65cb0a46f21fe423a14bf4246b600c33ae50.jpg" title="SPSS实例：[18]中介效应占总效应百分比">
+<ul>
+<li>打开里面的Excel文件，我们看到这样一个表格</li>
+</ul>
+<img src="/2016/02/01/SPSS实例：[18]中介效应占总效应百分比/00a82701213fb80eee0a9dcf34d12f2eb8389494.jpg" title="SPSS实例：[18]中介效应占总效应百分比">
+<ul>
+<li>我们举一个例子来说明如何使用，下面的三线表格就是我们中介效应检验的三个方程，看不懂的可以去翻我前面的文章</li>
+</ul>
+<img src="/2016/02/01/SPSS实例：[18]中介效应占总效应百分比/f677b1c379310a55a34921ecb54543a98226107d.jpg" title="SPSS实例：[18]中介效应占总效应百分比">
+<ul>
+<li>将对应的值放入表格中的对应位置，在D2单元格就会出现百分比，那就是你需要的中介效应占总效应的百分比。</li>
+</ul>
+<img src="/2016/02/01/SPSS实例：[18]中介效应占总效应百分比/72ccb7773912b31baf0132318418367adab4e17e.jpg" title="SPSS实例：[18]中介效应占总效应百分比">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/01/23/spss20.0多重线型回归模型的操作方法和结果分析/">
+                spss20.0多重线型回归模型的操作方法和结果分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年01月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>为了能够简要的说明操作方法，我们这里只用两个自变量和一个因变量，使用进入的方法进行多重线性回归分析，下面有操作的方法和对结果的分析方法。<br>方法/步骤</p>
+<ul>
+<li>在确定你的数据已经进行了线性关系的验证以后，再进行回归分析，因为前面的文章有讲如何验证线型关系，所以这里就不说了，直接进行回归分析，在菜单栏上执行：分析–回归</li>
+</ul>
+<img src="/2016/01/23/spss20.0多重线型回归模型的操作方法和结果分析/d1a20cf431adcbefd5879bf9acaf2edda2cc9f9a.jpg" title="spss20.0多重线型回归模型的操作方法和结果分析">
+<ul>
+<li>打开线性回归对话框，将因变量和自变量都放到各自的位置，如图所示</li>
+</ul>
+<img src="/2016/01/23/spss20.0多重线型回归模型的操作方法和结果分析/3b87e950352ac65c8069838cfbf2b21192138ae5.jpg" title="spss20.0多重线型回归模型的操作方法和结果分析">
+<ul>
+<li>记得选择方法为进入，因为你的自变量只有两个，在自变量较少的时候使用进入这个方法是最常用的，点击确定，去看结果输出窗口</li>
+</ul>
+<img src="/2016/01/23/spss20.0多重线型回归模型的操作方法和结果分析/8435e5dde71190efcc487720ce1b9d16fcfa609a.jpg" title="spss20.0多重线型回归模型的操作方法和结果分析">
+<ul>
+<li>要分析的结果主要有两个，一个是方差分析，如图所示，我们要看sig值是否显著，如果值小于0.01我们就认为它是显著的，这就证明我们建立的模型是可行的，至少一个自变量的回归系数不为零</li>
+</ul>
+<img src="/2016/01/23/spss20.0多重线型回归模型的操作方法和结果分析/fcfaaf51f3deb48f4eda4421f01f3a292cf5789a.jpg" title="spss20.0多重线型回归模型的操作方法和结果分析">
+<ul>
+<li><p>接着看系数的检验，这个主要是看回归系数是否达到了显著水平，结果显示系数是显著的</p>
+</li>
+<li></li>
+</ul>
+<img src="/2016/01/23/spss20.0多重线型回归模型的操作方法和结果分析/0dd7912397dda1443165894db2b7d0a20df486e5.jpg" title="spss20.0多重线型回归模型的操作方法和结果分析">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/01/23/SPSS实例：[30]kappa系数怎么计算/">
+                SPSS实例：[30]kappa系数怎么计算
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年01月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>假如有两个评分者针对一批作文进行分级，分为好中差三级，分级结果见下表。你怎么判定这两个评分者的评分结果是否一致呢？这时候就要计算卡帕系数了。</p>
+<ul>
+<li>好中差分别用123来表示，将数据录入到spss中</li>
+</ul>
+<img src="/2016/01/23/SPSS实例：[30]kappa系数怎么计算/fab3ac119313b07ea149be440ed7912396dd8c43.jpg" title="SPSS实例：[30]kappa系数怎么计算">
+<ul>
+<li>接着，我们再给数据加权，用频数作为加权变量，不会的可以参考我上一篇文章，这里不再重复。<a href="http://jingyan.baidu.com/article/9f7e7ec050c3c36f28155434.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/9f7e7ec050c3c36f28155434.html</a></li>
+</ul>
+<img src="/2016/01/23/SPSS实例：[30]kappa系数怎么计算/b25aae51f8198618261306c848ed2e738ad4e6e3.jpg" title="SPSS实例：[30]kappa系数怎么计算">
+<ul>
+<li>接着，打开菜单：分析–描述统计-交叉表，将两个变量分别放入行和列变量</li>
+</ul>
+<img src="/2016/01/23/SPSS实例：[30]kappa系数怎么计算/2f3295d4b31c8701b6e25baa257f9e2f0608ffe3.jpg" title="SPSS实例：[30]kappa系数怎么计算">
+<ul>
+<li>设置输出的描述性统计，这里就是输出kappa系数的地方</li>
+</ul>
+<img src="/2016/01/23/SPSS实例：[30]kappa系数怎么计算/fd428c45d688d43f541278be7f1ed21b0ff43b80.jpg" title="SPSS实例：[30]kappa系数怎么计算">
+<ul>
+<li>勾选kappa系数，然后点击继续按钮</li>
+</ul>
+<img src="/2016/01/23/SPSS实例：[30]kappa系数怎么计算/29790130e924b899896890746c061d950b7bf6e3.jpg" title="SPSS实例：[30]kappa系数怎么计算">
+<ul>
+<li>回到了主菜单，我们点击ok按钮</li>
+</ul>
+<img src="/2016/01/23/SPSS实例：[30]kappa系数怎么计算/4d4970061d950a7b2761a78808d162d9f3d3c9e3.jpg" title="SPSS实例：[30]kappa系数怎么计算">
+<ul>
+<li>评分者一致性系数就到此计算出来了。</li>
+</ul>
+<img src="/2016/01/23/SPSS实例：[30]kappa系数怎么计算/1cd4147b02087bf42db8bea5f0d3572c10dfcfe3.jpg" title="SPSS实例：[30]kappa系数怎么计算">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/01/19/numpy函数：[4]reshape用法/">
+                numpy函数：[4]reshape用法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年01月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天我们学习一个新函数reshape，顾名思义，它就是用于该表数组的形状的，它是数组对象中的方法，我们还是来看具体的例子吧：</p>
+<ul>
+<li>同样要引入numpy，名称为np</li>
+</ul>
+<img src="/2016/01/19/numpy函数：[4]reshape用法/c9bdddcec3fdfc03c787811fd63f8794a5c2265e.jpg" title="numpy函数：[4]reshape用法">
+<ul>
+<li>我们先来创建一个数组a，你们可以看到这是一个一维的数组</li>
+</ul>
+<img src="/2016/01/19/numpy函数：[4]reshape用法/5af4d7ea15ce36d33419ee9738f33a87e950b13d.jpg" title="numpy函数：[4]reshape用法">
+<ul>
+<li>我们使用reshape()方法来更改数组的形状，我们看看数组d成为了一个二维数组</li>
+</ul>
+<img src="/2016/01/19/numpy函数：[4]reshape用法/509b9fcb39dbb6fd36a487810b24ab18962b375e.jpg" title="numpy函数：[4]reshape用法">
+<ul>
+<li>当然我们还可以得到一个三维数组f</li>
+</ul>
+<img src="/2016/01/19/numpy函数：[4]reshape用法/0e655ca7d933c895a3b6f5dcd31373f083020009.jpg" title="numpy函数：[4]reshape用法">
+<ul>
+<li>形状变化的原则是数组元素不能发生改变，比如这样写就是错误的，因为数组元素发生了变化。</li>
+</ul>
+<img src="/2016/01/19/numpy函数：[4]reshape用法/d1571724ab18972bbdc5626de4cd7b899f510a5e.jpg" title="numpy函数：[4]reshape用法">
+<ul>
+<li>通过reshape生成的新数组和原始数组公用一个内存，也就是说，假如更改一个数组的元素，另一个数组也将发生改变。看看下面的例子：</li>
+</ul>
+<img src="/2016/01/19/numpy函数：[4]reshape用法/647912d7912397dd5264f5a35b82b2b7d0a2873d.jpg" title="numpy函数：[4]reshape用法">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
         </div>
     
 
@@ -1176,43 +1223,43 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2020/12/23/均值差异的效应量在线计算器/">均值差异的效应量在线计算器</a>
+                <a class="footer-post" href="/2021/07/08/方差分析08-单因素多元方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/12/04/T检验和方差分析是等价的/">T检验和方差分析是等价的-证明过程来了</a>
+                <a class="footer-post" href="/2021/07/08/方差分析07-单变量协方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/27/文旅特色小镇的具身体验质量-数据分享/">文旅特色小镇的具身体验质量-数据分享</a>
+                <a class="footer-post" href="/2021/07/08/方差分析06-2因素混合设计方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/12/问卷代填-大学生的论文用的-有靠谱的调研商家/">问卷代填(大学生的论文用的)怎么快速收集高质量问卷</a>
+                <a class="footer-post" href="/2021/07/08/方差分析05-重复测量单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/11/04/嵌入式python的zip安装和并安装pip/">嵌入式python的zip安装和并安装pip</a>
+                <a class="footer-post" href="/2021/07/08/方差分析04-三因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-效度分析/">SPSS问卷效度分析教程</a>
+                <a class="footer-post" href="/2021/07/08/方差分析03-双因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">SPSS视频教程内容目录和跳转链接</a>
+                <a class="footer-post" href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/05-信度分析/">SPSS问卷信度分析教程(视频在最后)</a>
+                <a class="footer-post" href="/2021/07/08/方差分析01-单因素方差分析/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/06-方差齐性检验/">SPSS方差齐性检验(图文+视频教程)</a>
+                <a class="footer-post" href="/2021/07/08/11-2XN卡方检验/">Untitled</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2020/10/31/模型14有调节的中介spss-process教程/">SPSS+process做model14有调节的中</a>
+                <a class="footer-post" href="/2021/07/08/10-2x2卡方检验/">Untitled</a>
             </li>
             
         </ul>
@@ -1226,7 +1273,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1530,11 +1577,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>

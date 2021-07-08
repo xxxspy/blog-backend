@@ -39,6 +39,6 @@ tags: [spss, process]
 
 > **注意**
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](SEM结构方程模型分析的数据需要至少多少样本量.ipynb)
-> 有问题可以直接在下方留言
-> 或者给我发邮件675495787[at]qq.com
+> 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的
+> 微博上@mlln-cn可以向我免费题问
 > 请记住我的网址: mlln.cn 或者 jupyter.cn
