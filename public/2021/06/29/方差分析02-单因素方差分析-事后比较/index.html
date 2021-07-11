@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="DataSense">
+        <meta property="og:title" content="方差分析02-单因素方差分析-事后比较">
     
 
     <!--Open Graph Description-->
@@ -36,7 +36,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -47,7 +47,7 @@
 
     <!-- Title -->
     
-    <title>DataSense</title>
+    <title>方差分析02-单因素方差分析-事后比较 - DataSense</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -98,6 +98,62 @@
     #pop_ad{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
 
     </style>
+
+    
+        <!-- mathjax -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        var maths = document.getElementsByTagName("code");
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+    </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: true,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"],["$","$"]],
+      displayMath: [["\\[", "\\]"],["$$", "$$"]],
+      skipTags: ['^(?!code).*$']
+    }
+  });
+  var maths = document.getElementsByTagName("code");
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+</script>
+
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [ ['\\(','\\)']]} });
+</script> -->
+
+<!-- <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script> -->
 
     
     
@@ -200,8 +256,8 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/2021/07/08/11-2XN卡方检验/">
-                Untitled
+            <a href="/2021/06/29/方差分析02-单因素方差分析-事后比较/">
+                方差分析02-单因素方差分析-事后比较
             </a>
 
         </h1>
@@ -210,7 +266,7 @@
         </div>
         <div class="post-info">
             
-                <span class="date">2021年07月08日</span>
+                <span class="date">2021年06月29日</span>
             
             
             
@@ -224,39 +280,35 @@
         
 
         <!-- Post Content -->
-        <h3><span id="多分类和两分类卡方检验">多分类和两分类卡方检验</span></h3><p>之前我们演示了两个两分类变量进行卡方检验, 现在我们要考察多分类变量, 但是其中一个变量是两分类。其实方法和之前一样, 只不过当变量有多分类的话, 需要进行两两比较, 所以才会有今天这篇教程。</p>
-<p>拿案例来说, 是否看过某电影可能与年龄有关, 那我们需要做一个卡方检验, 查看不同年龄组下看过某电影的人的比率是否有差异。</p>
-<h3><span id="前提">前提</span></h3><ul>
-<li>二分类和多分类</li>
-<li>相互独立的观测值</li>
-<li>样本量足够大，最小分组的样本量大于5。</li>
-</ul>
-<h3><span id="spss操作">SPSS操作</span></h3><p>在菜单中依次选择”分析–&gt;描述统计–&gt;交叉表”:</p>
-<p><img src="imgs/11-01-spss.png"></p>
-<p>在交叉表中选择”是否看过”和”年龄”:</p>
-<p><img src="imgs/11-02-spss.png"></p>
-<p>在”统计”对话框中, 勾选”卡方”:</p>
-<p><img src="imgs/11-03-spss.png"></p>
-<p>在”单元格”对话框中, 我们需要勾选”比较列比例”, 这个选项可以进行比率的两两比较, 然后勾选”列”百分比:<br><img src="imgs/11-04-spss.png"></p>
-<p>当有某些组的频数低于5的时候, 我们需要查看”费希尔精确检验”的结果, 但是默认情况下, 你看不到这个结果, 所以需要在”精确”对话框中勾选:<br><img src="imgs/11-05-spss.png"></p>
-<h4><span id="结果解读">结果解读</span></h4><p>我们首先看交叉表, 这个表可以看到各组的频率和列百分比, 并且频数上都标上了角标”a, b, c…”, 角标的意义我们稍后说。</p>
-<p>我们从百分比中大概可以看出, 28岁以上的年龄组中, 看过该电影的比例大大超过前面两个年龄组, 但是这种差异是否具有统计学意义呢? 需要看下面的卡方检验。</p>
-<p><img src="imgs/11-05-result.png"></p>
-<p>因为我们的交叉表中, 任何一个单元格的频数都超过了5, 我们直接看皮尔逊卡方的结果, 也就是第一行, 由于P=0.001, 所以达到显著水平, 因此各个年龄组看过该电影的比率具有显著差异。 那么问题来了, 到底是哪两个年龄组之间有差异呢? 是第一组和第二组有差异吗? 还是第二组和第三组有差异? 或者第一组和第三组有差异? 我们需要返回去查看交叉表。</p>
-<p><img src="imgs/11-06-result.png"></p>
-<p>交叉表中, 角标从”a”到”z”的顺序就代表比率的等级, 如果角标相同就说明比率没有差异, 如果角标不同, 就说明比率有差异。举例来说, 第一个年龄组和第二个年龄组的角标都是a, 说明两组之间比率没有差异。而第二组和第三组他们的角标分别是”a”和”b”, 因此, 这两组之间有显著差异。</p>
-<p><img src="imgs/11-05-result.png"></p>
-<h3><span id="汇报结果">汇报结果</span></h3><p>我们通常需要汇报一个表格, 里面包含了频率和卡方检验。</p>
-<p>结论可以这么写: 首先描述各个年龄组的看过该电影的百分比, 卡方分析结果显著(X^2=13.1,df=2,p&lt;.01), 通过多组比较可以发现, 小于20岁和20-28岁两组之间看过该电影的比率没有差异, 他们均低于28岁以上的年龄组。</p>
-<p><img src="imgs/11-07-result.png"></p>
+        <p>…</p>
+<a id="more"></a>
+<h3><span id="单因素方差分析">单因素方差分析</span></h3><p>因为在前面的文章中已经详细介绍了”单因素方差”的分析方法和具体操作步骤, 这里就不多嘴了, 直接进入事后多重比较的内容了。</p>
+<h3><span id="案例介绍">案例介绍</span></h3><p>我们调查了147人影响旅游景点的因素,其中两个因素”文化安全”和”休闲娱乐”, 我们想知道不同年龄的人, 对”文化安全”和”休闲娱乐”的需求有没有差异, 因此需要进行单因素方差分析。 </p>
+<h3><span id="spss操作">SPSS操作</span></h3><p><img src="imgs/13-00-spss.png"></p>
+<p>假如方差齐性假设满足, 我们一般使用LSD作为事后检验的方法, 如果方差不齐, 可以使用Games-Howell方法:</p>
+<p><img src="imgs/13-01-spss.png"></p>
+<h3><span id="结果解读">结果解读</span></h3><p>组间方差不齐的变量是休闲娱乐，方差齐的变量是文化安全。<br>因此”休闲娱乐”就不能使用LSD作为事后检验的方法了, 可以使用”Games-Howell”</p>
+<p><img src="imgs/13-02-spss.png"></p>
+<p>我们可以看到, 两个变量的方差分析结果都显著, 需要进一步进行事后比较</p>
+<p><img src="imgs/13-03-spss.png"></p>
+<p>方差不齐时看下面这个表格, “休闲娱乐”这个变量也是显著的</p>
+<p><img src="imgs/13-04-spss.png"></p>
+<p>由于”文化和娱乐”这个变量满足方差齐性假设, 因此在事后比较的时候, 可以看LSD方法, 我哦们可以看到, 16-19岁年龄组的文化安全需求显著高于”30-39岁”年龄组, 与其他组差异并不显著; 而”30-39岁”年龄组又显著低于”40-49岁”年龄组。</p>
+<p><img src="imgs/13-05-spss.png"></p>
+<p>由于”休闲娱乐”变量组间方差不齐, 在事后比较的时候使用”Games-Howell”方法, 从结果中可以看到 16-19岁年龄组的休闲娱乐的需求显著高于其他三个年龄组, 其他三个年龄组之间没有显著差异。<br><img src="imgs/13-06-spss.png"></p>
 <blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="11-2XN卡方检验.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
+<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="方差分析02-单因素方差分析-事后比较.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>
-
+<h3><span id="视频教程">视频教程</span></h3><iframe src="//player.bilibili.com/player.html?bvid=BV16U4y1V7PU&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
     </div>
 
     
 
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a>
+        </div>
     
 
 
@@ -274,7 +326,7 @@
         <section class="main">
             <!--PC版畅言-->
 
-<div class="container"><div id="SOHUCS" sid="2021/07/08/11-2XN卡方检验/"></div>
+<div class="container"><div id="SOHUCS" sid="2021/06/29/方差分析02-单因素方差分析-事后比较/"></div>
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
 <script type="text/javascript">
 window.changyan.api.config({
@@ -290,6 +342,166 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
     <!-- rightside -->
     <div class="col-md-3 col-sm-12 rightside">
         
+<div class="related-posts">
+    <h3>
+        常用工具
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a href="/drawio/">绘图软件</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2018/09/26/在线绘制中介效应图/">
+                在线绘制中介效应图
+            </a>
+        </div>
+        <div class="archive-post">
+            <a href="/neural/">神经网络可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/psychopy/">psychopy教程</a>
+        </div>
+        <div class="archive-post">
+            <a href="/vector/">[词向量]高维向量可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/demos/evolutionSimulator/">[tensorflow.js案例]进化算法演示</a>
+        </div>
+        <div class="archive-post">
+            <a href="/guideToPython/">[书]Python最佳实践</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/10/10/sobel检验原理和一键计算器/">Sobel检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">平均方差提取量AVE和组合信度CR计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">卡方检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">简单交互效应可视化工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/12/23/均值差异的效应量在线计算器/">两组均值差异的效应量在线计算器</a>
+        </div>
+    </div>
+</div>
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/SPSS/">
+            SPSS
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2021/07/08/回归-多重线性回归分析共线性和控制变量的设置和解读/">
+                    SPSS多重线性回归分析共线性和控制变量的设置和解读(视频教程)
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/07/08/回归-1元线性回归分析/">
+                    SPSS1元线性回归分析(视频教程)
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/11-2XN卡方检验/">
+                    11-2XN卡方检验
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/10-2x2卡方检验/">
+                    10-2x2卡方检验
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/09-T检验-配对样本/">
+                    09-T检验-配对样本
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/08-T检验-独立样本/">
+                    08-T检验-独立样本
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/07-T检验-单样本/">
+                    07-T检验-单样本
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析08-单因素多元方差分析/">
+                    方差分析08-单因素多元方差分析
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析07-单变量协方差分析/">
+                    方差分析07-单变量协方差分析
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析06-2因素混合设计方差分析/">
+                    方差分析06-2因素混合设计方差分析
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析05-重复测量单因素方差分析/">
+                    方差分析05-重复测量单因素方差分析
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析04-三因素方差分析/">
+                    方差分析04-三因素方差分析
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析03-双因素方差分析/">
+                    方差分析03-双因素方差分析
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析02-单因素方差分析-事后比较/">
+                    方差分析02-单因素方差分析-事后比较
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析01-单因素方差分析/">
+                    方差分析01-单因素方差分析
+                </a>
+            </div>
+            
+    </div>
+</div>
+
 
 <div class="related-posts hidden-sm-down">
     <h3>
@@ -332,43 +544,43 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         <ul>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析08-单因素多元方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/07/08/回归-多重线性回归分析共线性和控制变量的设置和解读/">SPSS多重线性回归分析共线性和控制变量的设置和解</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析07-单变量协方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/07/08/回归-1元线性回归分析/">SPSS1元线性回归分析(视频教程)</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析06-2因素混合设计方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/11-2XN卡方检验/">11-2XN卡方检验</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析05-重复测量单因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/10-2x2卡方检验/">10-2x2卡方检验</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析04-三因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/08-T检验-独立样本/">08-T检验-独立样本</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析03-双因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/09-T检验-配对样本/">09-T检验-配对样本</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/07-T检验-单样本/">07-T检验-单样本</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析01-单因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/方差分析08-单因素多元方差分析/">方差分析08-单因素多元方差分析</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/11-2XN卡方检验/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/方差分析07-单变量协方差分析/">方差分析07-单变量协方差分析</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/10-2x2卡方检验/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/方差分析06-2因素混合设计方差分析/">方差分析06-2因素混合设计方差分析</a>
             </li>
             
         </ul>

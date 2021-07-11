@@ -448,8 +448,8 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2021/07/08/方差分析08-单因素多元方差分析/">
-                Untitled
+            <a href="/2021/07/08/回归-多重线性回归分析共线性和控制变量的设置和解读/">
+                SPSS多重线性回归分析共线性和控制变量的设置和解读(视频教程)
             </a>
         </h1>
         <div class="post-info">
@@ -463,25 +463,17 @@
 
     
         <div class="content">
-            <h3><span id="前提假设">前提假设</span></h3><ul>
-<li>2个或以上因变量为连续变量</li>
-<li>各观察对象之间相互独立。</li>
-<li>没有单因素离群值（univariate outliers）与多因素离群值（multivariate outliers）</li>
-<li>因变量服从多元正态分布</li>
-<li>因变量之间没有多重共线性(相关性低于0.9)</li>
-<li>自变量的各个组内，各因变量之间存在线性关系</li>
-<li>样本量足够</li>
-<li>各组因变量的方差协方差矩阵没有显著差异</li>
-<li>每个因变量在自变量的各个组中方差相等</li>
-</ul>
-<blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="方差分析08-单因素多元方差分析.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
-
+            <p>在前一篇教程中(回归-1元线性回归分析)我们主要介绍了1个自变量的回归分析, 这种情况比较少见, 通常回归分析可以加入多个自变量, 使得我们的研究更具有”生态效度”, 也就是说现实生活中, 影响因变量Y的因素太多了, 如果我们只研究1个自变量, 那我们的研究就偏离真实生活很远, 以至于我们的研究没有应用价值, 因此我们倾向于将更多的自变量加入到我们的模型中。</p>
         </div>
+        <a href="/2021/07/08/回归-多重线性回归分析共线性和控制变量的设置和解读/" class="read-more">Read More</a>
     
 
     
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a> <a href="/tags/回归/">#回归</a>
+        </div>
     
 
 </div>
@@ -491,8 +483,8 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2021/07/08/方差分析07-单变量协方差分析/">
-                Untitled
+            <a href="/2021/07/08/回归-1元线性回归分析/">
+                SPSS1元线性回归分析(视频教程)
             </a>
         </h1>
         <div class="post-info">
@@ -506,197 +498,89 @@
 
     
         <div class="content">
-            <ul>
-<li>微博: mlln-cn</li>
-<li>B站: mlln-cn</li>
-<li>网站: mlln.cn</li>
-</ul>
-<h3><span id="案例介绍">案例介绍</span></h3><p>我们想知道运动对改善抑郁有没有作用, 所以我们召集了140人, 他们都是略微有一些抑郁倾向的, 但是没有达到抑郁症的程度, 我们将他们随机分为三组:不运动/中等强度运动/高强度运动。 这三组人在我们干预之前先评估自己的抑郁倾向, 然后按照我们的分组进行不同的干预活动, 之后再判断自己的抑郁倾向, 所以我们得到的数据就是这样的:</p>
-<p><img src="imgs/18-01-spss.png"></p>
-<p>现在我们就分析一下, 干预对抑郁有影响吗? 我们首先想到的是三个分析: </p>
-<ul>
-<li>判断分组误差: 以干预前抑郁为因变量, 干预组为自变量, 进行单因素方差分析, 如果差异不显著, 说明我们分组前没有差异</li>
-<li>以干预后抑郁为因变量, 干预组为自变量, 进行单因素方差分析, 如果干预前无差异, 干预后有差异, 说明干预起作用了</li>
-<li>以干预后抑郁为因变量, 干预组为自变量, 同时以干预前抑郁作为协变量, 进行单因素方差分析</li>
-</ul>
-<p>由于这篇文章重点介绍协方差分析, 所以不对前两步进行图文介绍, 在视频里会讲。</p>
-<p>总之我们第一步的结果是: 干预前, 没有组间差异</p>
-<p><img src="imgs/18-02-spss.png"></p>
-<p>第二步, 干预后没有组间差异</p>
-<p><img src="imgs/18-03-spss.png"></p>
-<p>第三步, 协方差分析, 结果显著</p>
-<p><img src="imgs/18-04-spss.png"></p>
-<h3><span id="前提假设">前提假设</span></h3><ul>
-<li>因变量/协变量是连续变量</li>
-<li>自变量存在2个或多个分组</li>
-<li>被试相互独立</li>
-<li>协变量和因变量之间存在线性关系</li>
-<li>各组间协变量和因变量的回归直线平行</li>
-<li>各组内因变量的残差近似服从正态分布</li>
-<li>各组内/各组间因变量的残差具有等方差性</li>
-<li>因变量没有显著异常值</li>
-</ul>
-<h3><span id="spss操作">SPSS操作</span></h3><p><img src="imgs/18-05-spss.png"></p>
-<p>以”干预后抑郁”为因变量, 固定因子设置为”干预组”, 协变量是”干预前抑郁”</p>
-<p><img src="imgs/18-06-spss.png"></p>
-<p>因为在默认情况下, 模型中不会包含协变量与固定因子的交互项, 但是我们为了检验前提假设”各组间协变量和因变量的回归直线平行”, 也就是自变量与协变量没有交互作用, 所以需要增加协变量与固定因子的交互项<br><img src="imgs/18-07-spss.png"></p>
-<p>在”选项”对话框中, 我们需要勾选”描述统计”/“齐性检验”和”效应量估算”<br><img src="imgs/18-08-spss.png"></p>
-<h3><span id="结果解读">结果解读</span></h3><p>首先看方差齐性检验, 由于不显著, 所以满足方差齐性假设。</p>
-<p><img src="imgs/18-09-spss.png"></p>
-<p>其次要看交互项是否显著, 显然我们可以看到这是不显著的, 因而自变量”干预组”与协变量”前抑郁”是不存在交互作用的, 也就是说在前抑郁不同水平上, 不同干预组的效用相同, 假如交互项显著的话, 就会导致不满足前提假设”各组间协变量和因变量的回归直线平行”, 所以我们需要使用其他统计方法</p>
-<p><img src="imgs/18-10-spss.png"></p>
-<h3><span id="数据处理">数据处理</span></h3><p>因为我们的研究目的是研究干预对抑郁的影响, 所以我们可以构建一个变量”差值”, 代表干预前后抑郁倾向的差值, 差值为正说明干预对抑郁由减轻作用。</p>
-<p><img src="imgs/18-11-spss.png"></p>
-<p>但是考虑到, “前抑郁”的不同水平可能会影响干预效果, 所以我们还得考虑”前抑郁”对结果的影响, 但是”协方差分析”的方法已经无法继续做, 那么我们可以讲”前抑郁”分为高低分组, 然后将其设置为”固定因子”, 进行两因素方差分析</p>
-<p><img src="imgs/18-12-spss.png"></p>
-<h3><span id="两因素方差分析">两因素方差分析</span></h3><p>以”差值”为因变量, 以”干预组”和”抑郁组”为固定因子</p>
-<p><img src="imgs/18-16-spss.png"></p>
-<p>我们需要绘制一个折线图来显示交互效应</p>
-<p><img src="imgs/18-13-spss.png"></p>
-<p>最后, 我们需要编辑代码来实现简单的事后两两比较</p>
-<p><img src="imgs/18-17-spss.png"></p>
-<h3><span id="结果解读">结果解读</span></h3><p>我们忽略了对一些假设的检验, 因为在之前的文章中已经详细讲过两因素的方差分析, 因此现在我们就简单来看, 直接看主效应的检验:</p>
-<p>结果显示干预组的主效应显著, 干预组和抑郁组的交互效应显著</p>
-<p><img src="imgs/18-18-spss.png"></p>
-<p>在成对比较中, 我们可以看到, 在抑郁低分组中, 干预组的不同水平并不影响差值(p&gt;0.05), 而在高分组中, “强运动”与”无运动”和”中等运动”的相比, 干预前后的抑郁差值差别显著, “强运动组”对抑郁的影响更强, 更能降低抑郁倾向。</p>
-<p><img src="imgs/18-14-spss.png"></p>
-<p>从图中来看, 交互效应的效果更直观<br><img src="imgs/18-15-spss.png"></p>
-<blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="方差分析07-单变量协方差分析.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
-<h3><span id="视频教程">视频教程</span></h3><iframe src="//player.bilibili.com/player.html?bvid=BV13v411p7Ug&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
-
-        </div>
-    
-
-    
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2021/07/08/方差分析06-2因素混合设计方差分析/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2021年07月08日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h3><span id="案例介绍">案例介绍</span></h3><p>我们有一个变量是电影因素, 包括三个水平(情感意象/认知意象/故事情节), 并且还想考虑性别作为组间变量, 考察不同性别受各种电影因素的吸引力, 因为电影因素是组内设计, 也就是说每个被试都测量了情感意象/认知意象/故事情节这三个变量, 因此这种设计就叫做混合设计。</p>
-<h3><span id="前提">前提</span></h3><ul>
-<li>因变量为连续变量</li>
-<li>没有极端值</li>
-<li>球形检验</li>
-<li>各变量在各组内正态</li>
-<li>组间方差齐性</li>
-</ul>
-<h3><span id="spss操作">SPSS操作</span></h3><p>在菜单依次打开: 分析–&gt;一般线性模型–&gt;重复测量<br><img src="imgs/17-01-spss.png"></p>
-<p>重复测量需要定义组内因子, 所谓组内因子就是我们今天案例中讲的影响是否看某个电影的因素, 我们可以起名字为”电影因素”, 其中包含三种变量: 情感意象, 认知意象和故事情节, 所以级别数是3, 然后点击”添加”<br><img src="imgs/17-02-spss.png"></p>
-<p>选择三个变量”情感意象, 认知意象和故事情节”为我们定义的因子的三个变量, 情感状态作为被试间因子:<br><img src="imgs/17-03-spss.png"></p>
-<p>在”选项”对话框中, 我们需要勾选”描述统计”, “效应量估算”, “齐性检验”<br><img src="imgs/17-04-spss.png"></p>
-<p>在”EM平均值”对话框中, 我们将”情感状态x电影因素”这一项放入右侧的变量框中</p>
-<p><img src="imgs/17-05-spss.png"></p>
-<p>另外我们想要做一个折线图来显示各组均值, 所以我们在”图”对话框中, 按如下设置:</p>
-<p><img src="imgs/17-06-spss.png"></p>
-<p>最后, 我们不是直接运行, 而是点击’粘贴”, 将代码粘贴到编辑器中<br><img src="imgs/17-07-spss.png"></p>
-<p>在这里, 我们需要将<code>/EMMEANS</code>这一行改成如下红框中所示, 这句代码就是为了进行简单效应分析, 也就是在不同的情感状态下比较不同的电影因素是否有均值差异。</p>
-<p><img src="imgs/17-08-spss.png"></p>
-<h3><span id="结果解读">结果解读</span></h3><p>首先需要查看球形检验的结果, 如果显著性&lt;0.05, 就认为数据不满足球星假设, 那么就需要对结果进行矫正, 否则不需要纠正。</p>
-<p>我们的表格显示不符合球星假设,在实际应用中，只用Greenhouse-Geisser和Huynh-Feldt两种方法，这两种方法计算的epsilon (ε)的值越低，说明违反球形假设的程度越大，当epsilon=1时数据服从球形假设。 Maxwell &amp; Delaney (2004)建议当epsilon&lt;0.75时，使用Greenhouse-Geisser方法校正。其他统计学家建议当epsilon&gt;0.75时，使用Huynh-Feldt方法。因此我们可以使用Huynh-Feldt方法。</p>
-<p><img src="imgs/17-09-spss.png"></p>
-<p>方差齐性检验, 不管基于什么方法, 显著性都超过0.05, 因此可以认为组间方差差异不明显。<br><img src="imgs/17-11-spss.png"></p>
-<p>根据上面球形检验的结果, 我们需要采纳Huynh-Feldt的方法所得结果, 也就是下面红框中的结果: 电影因素的主效应显著F(1.814, 263)=6.177, p&lt;.01。因此我们需要进行成对比较来确定具体哪些因素是有差异的。</p>
-<p>由于”电影因素*情感状态”的交互效应显著F(1.814, 263)=9.431, p&lt;.01, 因此我们需要进行简单效应分析。<br><img src="imgs/17-10-spss.png"></p>
-<p>组间效应主要是指”情感状态”是否影响”电影因素”的三个指标的均值, 结果显示”情感状态”的主效应显著F(1, 145)=7.402, p&lt;0.01。</p>
-<p><img src="imgs/17-12-spss.png"></p>
-<p>交互作用显著, 我们进一步需要比较在不同情感状态下, 三个电影因素是否有差异。由于多重比较会提高犯错的概率, 因此我们需要降低显著性的标准, 通常是0.05除以比较的次数, 0.05/6=0.008, 因此以0.008为标准判断显著性, 低于0.008才认为显著。</p>
-<p>在单身状态下, 故事情节(3)要显著低于情感意象(p=0.001)和和认知意象(p=0.007), 但是在婚恋状态下, 故事情节和情感意象没有显著差异, 但是故事情节却显著高于认知意象(p=0.001)。<br><img src="imgs/17-13-spss.png"></p>
-<p>我们从折线图中更容易看清楚:<br><img src="imgs/17-14-spss.png"></p>
-<h3><span id="结论撰写">结论撰写</span></h3><p>首先对组间变量”情感状态”进行组间的方差齐性检验, 结果显示方差差异不显著(L(1, 145)=0.3, p&gt;0.05)。然后进行球形检验, 结果显著, 数据不满足球形假设(<code>$\lambda^2$</code></p>
-<blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="方差分析06-2因素混合设计方差分析.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
-<h3><span id="视频教程">视频教程</span></h3><iframe src="//player.bilibili.com/player.html?bvid=BV14K4y1X7Xp&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
-        </div>
-    
-
-    
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2021/07/08/方差分析05-重复测量单因素方差分析/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2021年07月08日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h3><span id="案例介绍">案例介绍</span></h3><p>我们调查了147人关于哪些因素导致你去观看某个电影, 其中有”情感意象””认知意象”和”故事情节”, 那么我们问题来了, 这些因素有差异吗? 也就是说什么因素对你是否看某个电影的影响力更大?</p>
-<p>解决这个问题我们就需要使用重复测量的方差分析, 因为不同的因素其实就是几个指标, 每个被试都有这几个指标, 比较这几个指标谁高谁低, 就是重复测量方差分析的用武之地。</p>
-<ul>
-<li>b站: mlln-cn</li>
-<li>网站: mlln.cn</li>
-</ul>
+            <p>我们这个系列的教程目的就是让只有高中数学知识的童靴能够正确而有效率的完成论文的数据分析, 因此我们并不关注过深的统计知识, 基于此, 我们可以如此理解回归分析:</p>
+<p>有一个理论的模型方程: <code>$Y = b_0 + b_1 X + \epsilon$</code>, 这里的X和Y是我们关心的自变量和因变量, 我们的目的是求方程中的参数<code>$b_1和b_0$</code></p>
 <h3><span id="前提条件">前提条件</span></h3><ul>
-<li>因变量为连续变量</li>
-<li>组内因素（Within-Subject Factor）有2个或以上的水平</li>
-<li>组内因素的各个水平，因变量没有极端值</li>
-<li>因变量服从近似正态分布</li>
-<li>因变量的方差协方差矩阵相等，也称球形假设</li>
+<li>自变量和因变量都是连续型变量(或者自变量可以定义为连续)</li>
+<li>自变量和因变量之间有线性关系(散点图或者相关分析)</li>
+<li>具有相互独立的观测值(Durbin-Watson)</li>
+<li>没有异常值(Casewise Diagnostics)</li>
+<li>等方差性(残差与回归拟合值或标准化残差与标准化预测值之间的散点图)</li>
+<li>回归残差近似正态分布(直方图)</li>
 </ul>
-<h3><span id="spss操作">SPSS操作</span></h3><p>在菜单依次打开: 分析–&gt;一般线性模型–&gt;重复测量</p>
-<p><img src="imgs/16-01-spss.png"></p>
-<p>重复测量需要定义组内因子, 所谓组内因子就是我们今天案例中讲的影响是否看某个电影的因素, 我们可以起名字为”电影因素”, 其中包含三种变量: 情感意象, 认知意象和故事情节, 所以级别数是3, 然后点击”添加”</p>
-<p><img src="imgs/16-02-spss.png"></p>
-<p>点击”定义”</p>
-<p><img src="imgs/16-03-spss.png"></p>
-<p>选择三个变量”情感意象, 认知意象和故事情节”为我们定义的因子的三个变量:</p>
-<p><img src="imgs/16-04-spss.png"></p>
-<p>点击”EM平均值”, 打开对话框, 我们需要显示电影因素的各项均值, 平且比较主效应。</p>
-<p><img src="imgs/16-05-spss.png"></p>
-<h2><span id="结果解读">结果解读</span></h2><p>首先需要查看球形检验的结果, 如果显著性&lt;0.05, 就认为数据不满足球星假设, 那么就需要对结果进行矫正, 否则不需要纠正。</p>
-<p>我们的表格显示不符合球星假设,在实际应用中，只用Greenhouse-Geisser和Huynh-Feldt两种方法，这两种方法计算的epsilon (ε)的值越低，说明违反球形假设的程度越大，当epsilon (ε)=1时，说明完美的服从了球形假设。<br>Maxwell &amp; Delaney (2004)建议当epsilon (ε)&lt;0.75时，使用Greenhouse-Geisser方法校正。其他统计学家建议当epsilon (ε)&gt;0.75时，使用Huynh-Feldt方法校正。因此我们可以使用Huynh-Feldt方法。</p>
-<p><img src="imgs/16-06-spss.png"></p>
-<p>根据上面球形检验的结果, 我们需要采纳Huynh-Feldt的方法所得结果, 也就是下面红框中的结果: 电影因素的主效应显著F(1.783, 260)=5.186, p&lt;.01。因此我们需要进行成对比较来确定具体哪些因素是有差异的。</p>
-<p><img src="imgs/16-07-spss.png"></p>
-<p>多重比较由于统计的次数多, 所以需要对显著性水平α进行调整, 调整方法是<code>调整后α=调整前α ÷ 比较的次数</code>, 因为我们比较了3次, 因此调整后的α=0.05/3, 不过下表显示, 电影因素里第一个因素和第二个因素的差异的显著性&lt;0.001, 因此我们可以认为第一个因素显著大于第二个因素。</p>
-<p><img src="imgs/16-08-spss.png"></p>
-<h3><span id="结果汇报">结果汇报</span></h3><p>球形检验的结果显著(<code>$\lambda^2$</code></p>
+<p>这些前提条件满足才可以做回归分析, 但是我们实际上不需要一项一项进行检查, 很多检测项目会在spss进行回归分析的时候输出。</p>
+<p>我们会在视频里详细介绍这些条件是否有必要检测。</p>
+<h3><span id="数据介绍">数据介绍</span></h3><p>我们调查了三百多人的体重和坐姿时间的数据, 研究目的是考察坐姿时间是否对体重有影响, 采集到的数据是这样的:</p>
+<p><img src="imgs/19-1.jpg"></p>
+<h3><span id="相关和散点图">相关和散点图</span></h3><p>在做回归之前, 有必要进行相关分析和做散点图, 主要目的就是对数据的总体情况有一个大概的了解。</p>
+<ul>
+<li>首先打开相关的对话框</li>
+</ul>
+<p><img src="imgs/19-1-spss.png"></p>
+<ul>
+<li>选择有关的变量</li>
+</ul>
+<p><img src="imgs/19-2-spss.png"></p>
+<ul>
+<li>结果解读(我们会在视频中进行一个讲解)</li>
+</ul>
+<p><img src="imgs/19-3-spss.png"></p>
+<h3><span id="回归分析">回归分析</span></h3><h4><span id="操作步骤">操作步骤</span></h4><ul>
+<li>打开线性回归的对话框</li>
+</ul>
+<p><img src="imgs/19-4-spss.png"></p>
+<ul>
+<li>设置自变量和因变量</li>
+</ul>
+<p><img src="imgs/19-5-spss.png"></p>
+<ul>
+<li><p>打开”统计”对话框, 按照下图所示勾选选项,</p>
+<ul>
+<li>杜宾-沃森: 为了检验观测值之间是否相互独立</li>
+<li>个案诊断: 检测异常值</li>
+</ul>
+</li>
+</ul>
+<p><img src="imgs/19-6-spss.png"></p>
+<ul>
+<li>打开”图”设置框, 设置X轴为”ZPRED”(标准化预测值), 设置Y轴为”ZRESID”(标准化残差)</li>
+</ul>
+<p><img src="imgs/19-7-spss.png"></p>
+<ul>
+<li>点击”确定”开始你的分析</li>
+</ul>
+<p><img src="imgs/19-8-spss.png"></p>
+<h4><span id="结果解读">结果解读</span></h4><p>首先是要看”个案诊断”, 很多童鞋没有输出这个表格, 因为你的数据没有诊断出问题, 而我用的数据也没有诊断出问题(标准残差超过3),<br>所以我设置的时候, 设置超过2就算异常(仅仅是为了输出这个图, 图中所有标准残差绝对值没有超过3。这个结果会在视频教程里详细介绍。</p>
+<p><img src="imgs/19-9-case.png"></p>
+<p>然后, 查看残差的直方图, 直方图应该大概符合正太分布, 没有必要进行严格的正态性检验, 只要大致看起来中间高两边低就可以了<br><img src="imgs/19-10-residual.png"></p>
+<p>“等方差性”就是不同的Y值的情况下, 残差的方差没有差异, 可以通过散点图的方式来考察, 之前作图的步骤就是为了输出这个散点图, 我们会在视频教程里详细解读这个图:</p>
+<p><img src="imgs/19-9-scatter.png"></p>
+<p>接下来就进入真正的回归分析了, 首先要看模型的”模型摘要”表格。</p>
+<p>首先要看杜宾沃森检验, 该统计量位于0-4之间, 实际值越接近2, 说明样本之间的独立性越好, 我们这个值是2.088, 非常接近2, 所以前提条件中”具有相互独立的观测值”是成立的。</p>
+<p>在”模型摘要”表格中, 最重要的指标就是R, 它代表着预测的准确性, 也就是当你知道自变量x的值的时候, 根据回归模型<code>$Y = b_0 + b_1 X + \epsilon$</code>可以计算得到<code>$Y$</code>的值, 这个值叫做<code>$\hat Y$</code>, 这个预测值与Y的实际值之间的相关系数就是R, 而<code>$R^2$</code>就是R的平方, 在回归分析中<code>$R^2$</code></p>
+<p>在ANOVA分析中, 很多童鞋会质疑”为什么回归分析中有方差分析的结果”, 在这里我再次强调, 回归分析中用到了F检验去检测模型是否有统计学意义, 在F检验显著的情况下, 才需要去查看回归系数显著性检验表。 另外再说下, 方差分析其实是特殊的回归分析。</p>
+<p><img src="imgs/19-11-anova.png"></p>
+<p>最后, 也是最重要的结果就是回归系数表, 这里每个系数使用t检验的方法来检测该系数是否显著不等于0, 如果显著性小于0.05, 可以认为系数显著不等于0。 回归我们的方程式:<code>$Y = b_0 + b_1 X + \epsilon$</code>, 根据下表的结果, 我们可以轻易得到各个参数的值, 如下:</p>
+<ul>
+<li>截距: <code>$b_0=48$</code></li>
+<li>回归系数: <code>$b_1=2$</code></li>
+</ul>
+<p>根据参数值, 我们可以写出回归方程是: <code>$Y = 48 + 2 X + \epsilon$</code>, 注意方程中还带有参数<code>$\epsilon$</code></p>
+<h3><span id="结果汇报">结果汇报</span></h3><p>回归方程的ANOVA检验显示F(1,301) = 19.3, P&lt;.001，结果显著，说明至少有一个自变量对因变量具有预测作用，具体哪些变量有预测作用，需要看具体的系数显著性检验。坐姿时间的标准化系数为0.245(t=4.388, P&lt;.001), 系数显著，且因为系数大于0，所以坐姿时间正向影响体重的大小。总之，变量坐姿时间的变化会显著影响体重的变化。</p>
+<p><img src="imgs/19-11-result.png"></p>
 <blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="方差分析05-重复测量单因素方差分析.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
+<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="回归-1元线性回归分析.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>
-<h3><span id="视频教程">视频教程</span></h3><iframe src="//player.bilibili.com/player.html?bvid=BV1GB4y1g7Gk&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
 
         </div>
     
 
     
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a> <a href="/tags/回归/">#回归</a>
+        </div>
     
 
 </div>
@@ -706,13 +590,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2021/07/08/方差分析04-三因素方差分析/">
-                Untitled
+            <a href="/2021/06/29/11-2XN卡方检验/">
+                11-2XN卡方检验
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2021年07月08日</span>
+                <span class="date">2021年06月29日</span>
             
             
             
@@ -721,25 +605,17 @@
 
     
         <div class="content">
-            <h3><span id="案例介绍">案例介绍</span></h3><p>我们调查了147位年轻人, 想了解一下多大程度上因为故事情节去看一个电影, 我们同时收集了被试的性别和情感状态(是否单身)以及是否爱读小说, 我们想知道, 不同性别和情感状态以及是否爱读小说的人, 电影的故事情节的吸引力有何差别? 所以我们需要使用双因素方差分析。</p>
-<h3><span id="结果预告">结果预告</span></h3><p>这是一个2x2x2的三因素方差分析, 并且最终的结果显示”是否爱读小说”这个变量的主效应和交互效应都不显著, 所以可以在以后的分析中删除该变量。</p>
-<h3><span id="spss操作">SPSS操作</span></h3><p><img src="imgs/15-01-spss.png"></p>
-<p><img src="imgs/15-02-spss.png"></p>
-<p><img src="imgs/15-03-spss.png"></p>
-<h3><span id="结果解读">结果解读</span></h3><p>我们可以先看显著性, 由于”是否爱看小说”这个变量的主效应不显著, 它与其他变量的交互作用也不显著, 因此我们没必要继续分析这个变量, 我们可以将这个变量删除, 再做两因素的方差分析, 也就是上一篇文章那样, 做完两因素方差分析以后, 再进行结果的汇报。</p>
-<p><img src="imgs/15-04-spss.png"></p>
-<p>从下面的折线图可以看出来, 是否爱看小说似乎没有影响, 意思是不管是哪个图, 线的趋势一样, “性别”和”情感状态”与”故事情节”的关系是一致的。</p>
-<p><img src="imgs/15-05-spss.png" width="50%"> <img src="imgs/15-06-spss.png" width="50%"></p>
-<h3><span id="结果汇报">结果汇报</span></h3><p>参考”两因素方差分析”的结果汇报。</p>
-<blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="方差分析04-三因素方差分析.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
-<h3><span id="视频教程">视频教程</span></h3><iframe src="//player.bilibili.com/player.html?bvid=BV1M54y157o6&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
-
+            <p>…</p>
         </div>
+        <a href="/2021/06/29/11-2XN卡方检验/" class="read-more">Read More</a>
     
 
     
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a>
+        </div>
     
 
 </div>
@@ -749,13 +625,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2021/07/08/方差分析03-双因素方差分析/">
-                Untitled
+            <a href="/2021/06/29/10-2x2卡方检验/">
+                10-2x2卡方检验
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2021年07月08日</span>
+                <span class="date">2021年06月29日</span>
             
             
             
@@ -764,52 +640,17 @@
 
     
         <div class="content">
-            <h3><span id="案例介绍">案例介绍</span></h3><p>我们调查了147位年轻人, 想了解一下多大程度上因为故事情节去看一个电影, 我们同时收集了被试的性别和情感状态(是否单身), 我们想知道, 不同性别和情感状态的人, 电影的故事情节的吸引力有何差别?  所以我们需要使用双因素方差分析。</p>
-<p>这是一个2x2的两因素方差分析, 并且因为交互作用显著, 所以</p>
-<h3><span id="前提假设">前提假设</span></h3><ul>
-<li>因变量是连续变量</li>
-<li>存在两个自变量，且都是分类变量</li>
-<li>具有相互独立的观测值 </li>
-<li>不存在显著异常值</li>
-<li>残差近似正态分布</li>
-<li>各分类等方差性</li>
-</ul>
-<h3><span id="spss操作">SPSS操作</span></h3><p>依次打开菜单: 分析–&gt;一般线性模型–&gt;单变量:</p>
-<p><img src="imgs/14-01-spss.png"></p>
-<p>我们将”故事情节”设置为因变量, “性别”和”情感状态”是固定因子, 这时候你自己得意识到为什么它们是固定因子而不是随机因子,因为我们的样本中包含性别的全部种类和情感状态的全部种类, 所以他们都是固定因子, 如果我调查的是”年龄”, 但是并不包含全部的年龄组, 那就应该叫做随机因子。<br><img src="imgs/14-02-spss.png"></p>
-<p>在打开的对话框中选择: 选项, 在选项对话框中, 我们勾选”描述统计”, “齐性检验”和”效应量估算”<br><img src="imgs/14-03-spss.png"></p>
-<p>下面我们需要编辑一下代码, 因为我们需要进行简单效应分析, 意思是, 我们需要在不同情感状态下, 比较不同性别的人在”故事情节”这个指标上是否存在差异, 因为spss界面上无法完成, 所以需要使用代码。</p>
-<p>点击”粘贴”会打开一个代码编辑的界面</p>
-<p><img src="imgs/14-04-spss.png"></p>
-<p>在这里我们可以加入一行代码, 如图, 这个代码的意思很简单, 就是说”情感状态”和”性别”是交叉设计, 我们需要在不同”情感状态”下比较”性别”, 反过来你可以说, 想在不同”性别”下比较”情感状态”, 这也可以, 但是代码就变成:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/EMMEANTABLES(情感状态*性别) COMPARE(情感状态) ADJ(SIDAK)</span><br></pre></td></tr></table></figure>
-<p><img src="imgs/14-05-spss.png"></p>
-<p>最后, 我们运行代码就可以了</p>
-<h3><span id="结果解读">结果解读</span></h3><p>结果显示方差齐, 如果方差不齐, 也不用着急, 因为当各组样本量差不多时, 方差不齐对结果的影响不大, 所以仍然可以使用GLM进行方差分析。</p>
-<p><img src="imgs/14-06-spss.png"></p>
-<p>下面的表格对各个变量的主效应的检验, 根据显著性这一列, 显著性低于0.05就可以认为主效应显著, 显然我们可以知道”情感状态”的主效应显著, 并且”情感状态”和”性别”的交互效应显著。</p>
-<p><img src="imgs/14-07-spss.png"></p>
-<p>由于交互效应显著, 我们需要进一步比较在不同”情感状态”下, 性别之间是否存在显著差异, 从表中结果可知, 在单身状态下, 男生比女生更容易受故事情节的影响而去看某个电影, 但是在婚恋状态下, 女生反而比男生更容易受故事情节的吸引而去看某部电影。</p>
-<p><img src="imgs/14-08-spss.png"></p>
-<h3><span id="结果汇报">结果汇报</span></h3><p>本研究均使用均数±标准差反映数据情况，用箱式图检验异常值，用Shapiro-Wilk检验数据正态性，用Levene方差齐性检验判断等方差性。结果显示，本研究数据没有异常值，残差接近正态分布（P&gt;0.05），并且具有等方差性（P&gt;0.05）。</p>
-<p>我们最重要的表格就是这个”主效应检验”, 根据表格数据, 写结论:</p>
-<p>情感状态的主效应显著(F=22.323,df=1,P&lt;.001)；性别的主效应不显著(F=0.017,df=1,p&gt;.05)；情感状态和性别交互效应显著(F=16.731,df=1,P&lt;.001)。</p>
-<p><img src="imgs/14-09-spss.png"></p>
-<p>因为交互作用显著, 进一步做简单效应分析,我们可以将各组均值绘制到图中, 然后配合上面的”成对比较”表格进一步得出结论:</p>
-<p>在单身状态下, 性别的简单效应显著(p&lt;.05), 也就是说男生比女生更容易受故事情节的影响而去看某个电影, 但是在婚恋状态下, 性别的主效应显著((p&lt;.01), 但是女生反而比男生更容易受故事情节的吸引而去看某部电影。<br><img src="imgs/14-10-spss.png"></p>
-<h3><span id="参考">参考</span></h3><ul>
-<li>固定和随机因子: <a href="https://web.ma.utexas.edu/users/mks/statmistakes/fixedvsrandom.html" target="_blank" rel="noopener">https://web.ma.utexas.edu/users/mks/statmistakes/fixedvsrandom.html</a></li>
-<li>方差分析属于特殊的回归分析: <a href="https://www.theanalysisfactor.com/why-anova-and-linear-regression-are-the-same-analysis/" target="_blank" rel="noopener">https://www.theanalysisfactor.com/why-anova-and-linear-regression-are-the-same-analysis/</a></li>
-<li>回归中,自变量01编码和12编码的区别: <a href="https://www.researchgate.net/post/What_is_the_difference_between_0_1_and_1_2_coding_for_dichotomous_variables_in_regression_analysis" target="_blank" rel="noopener">https://www.researchgate.net/post/What_is_the_difference_between_0_1_and_1_2_coding_for_dichotomous_variables_in_regression_analysis</a></li>
-</ul>
-<blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="方差分析03-双因素方差分析.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
-<h3><span id="视频教程">视频教程</span></h3><iframe src="//player.bilibili.com/player.html?bvid=BV1Rv411V7qn&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
+            <p>…</p>
         </div>
+        <a href="/2021/06/29/10-2x2卡方检验/" class="read-more">Read More</a>
     
 
     
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a>
+        </div>
     
 
 </div>
@@ -819,13 +660,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">
-                Untitled
+            <a href="/2021/06/29/08-T检验-独立样本/">
+                08-T检验-独立样本
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2021年07月08日</span>
+                <span class="date">2021年06月29日</span>
             
             
             
@@ -834,28 +675,17 @@
 
     
         <div class="content">
-            <h3><span id="单因素方差分析">单因素方差分析</span></h3><p>因为在前面的文章中已经详细介绍了”单因素方差”的分析方法和具体操作步骤, 这里就不多嘴了, 直接进入事后多重比较的内容了。</p>
-<h3><span id="案例介绍">案例介绍</span></h3><p>我们调查了147人影响旅游景点的因素,其中两个因素”文化安全”和”休闲娱乐”, 我们想知道不同年龄的人, 对”文化安全”和”休闲娱乐”的需求有没有差异, 因此需要进行单因素方差分析。 </p>
-<h3><span id="spss操作">SPSS操作</span></h3><p><img src="imgs/13-00-spss.png"></p>
-<p>假如方差齐性假设满足, 我们一般使用LSD作为事后检验的方法, 如果方差不齐, 可以使用Games-Howell方法:</p>
-<p><img src="imgs/13-01-spss.png"></p>
-<h3><span id="结果解读">结果解读</span></h3><p>组间方差不齐的变量是休闲娱乐，方差齐的变量是文化安全。<br>因此”休闲娱乐”就不能使用LSD作为事后检验的方法了, 可以使用”Games-Howell”</p>
-<p><img src="imgs/13-02-spss.png"></p>
-<p>我们可以看到, 两个变量的方差分析结果都显著, 需要进一步进行事后比较</p>
-<p><img src="imgs/13-03-spss.png"></p>
-<p>方差不齐时看下面这个表格, “休闲娱乐”这个变量也是显著的</p>
-<p><img src="imgs/13-04-spss.png"></p>
-<p>由于”文化和娱乐”这个变量满足方差齐性假设, 因此在事后比较的时候, 可以看LSD方法, 我哦们可以看到, 16-19岁年龄组的文化安全需求显著高于”30-39岁”年龄组, 与其他组差异并不显著; 而”30-39岁”年龄组又显著低于”40-49岁”年龄组。</p>
-<p><img src="imgs/13-05-spss.png"></p>
-<p>由于”休闲娱乐”变量组间方差不齐, 在事后比较的时候使用”Games-Howell”方法, 从结果中可以看到 16-19岁年龄组的休闲娱乐的需求显著高于其他三个年龄组, 其他三个年龄组之间没有显著差异。<br><img src="imgs/13-06-spss.png"></p>
-<blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="方差分析02-单因素方差分析-事后比较.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
-<h3><span id="视频教程">视频教程</span></h3><iframe src="//player.bilibili.com/player.html?bvid=BV16U4y1V7PU&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
+            <p>…</p>
         </div>
+        <a href="/2021/06/29/08-T检验-独立样本/" class="read-more">Read More</a>
     
 
     
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a>
+        </div>
     
 
 </div>
@@ -865,13 +695,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2021/07/08/方差分析01-单因素方差分析/">
-                Untitled
+            <a href="/2021/06/29/09-T检验-配对样本/">
+                09-T检验-配对样本
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2021年07月08日</span>
+                <span class="date">2021年06月29日</span>
             
             
             
@@ -880,47 +710,17 @@
 
     
         <div class="content">
-            <h3><span id="前提假设">前提假设</span></h3><ul>
-<li>因变量为连续变量</li>
-<li>自变量为分类变量</li>
-<li>观测值相互独立</li>
-<li>没有明显异常值</li>
-<li>近似正态分布或样本量足够大</li>
-<li>观察每组的方差没有显著差异</li>
-</ul>
-<h3><span id="案例介绍">案例介绍</span></h3><p>我们调查了147人关于是否观看电影受名人效应的影响有多大, 名人效应分为男名人效应和女名人效应, 我们现在想知道, 男名人效应和女名人效应是否有性别差异, 因此可以以性别为自变量, 分别以男名人效应和女名人效应为因变量进行单因素方差分析。</p>
-<h3><span id="spss操作">SPSS操作</span></h3><p>依次展开菜单:分析–&gt;比较均值–&gt;单因素ANOVA</p>
-<p><img src="imgs/12-01-spss.png"></p>
-<p>我们可以同时分析几个因变量, 所以把”男名人效应”和”女名人效应”都放到因变量列表里, 然后设置”性别”为因子</p>
-<p><img src="imgs/12-02-spss.png"></p>
-<p>在”选项”对话框, 我们需要勾选”描述”, “方差齐性检验”, “韦尔奇”。<br><img src="imgs/12-03-spss.png"></p>
-<h3><span id="结果解读">结果解读</span></h3><p>描述统计表</p>
-<p><img src="imgs/12-04-spss.png"></p>
-<p>方差齐性检验</p>
-<p>因为我们不太清楚因变量的分布形状, 所以稳健的方法就是参考基于中位数的方法。</p>
-<p>方差不齐的变量是女名人效应，满足方差齐性的变量是男名人效应。方差不齐的变量(女名人效应)的方差分析结果不可靠，因此应该采用Welch检验的结果。</p>
-<p><img src="imgs/12-05-spss.png"></p>
-<p>方差分析结果</p>
-<p><img src="imgs/12-06-spss.png"></p>
-<p>方差不齐时采纳Welch方法:</p>
-<p><img src="imgs/12-07-spss.png"></p>
-<h3><span id="结果汇报">结果汇报</span></h3><p>方差显著的变量是男名人效应、女名人效应, 统计量为 F(1,146) = 5.62, p&lt;.05、Welch F(1,145) = 25.1, P&lt;.001，说明性别不同可以显著影响男名人效应、女名人效应的值，具体来说，对于变量男名人效应，女生的的男名人效应均值高于男生的均值0.375。对于变量女名人效应，男生的的女名人效应均值高于女生的均值0.644。</p>
-<p><img src="imgs/12-08-spss.png"></p>
-<h3><span id="附录方差齐性检验看哪个结果">附录:方差齐性检验看哪个结果</span></h3><ul>
-<li>对于偏斜的分布，或者如果您不确定分布的基本形状，则中位数可能是您的最佳选择。</li>
-<li>对于对称和中尾分布，请使用均值。</li>
-</ul>
-<h3><span id="参考文献">参考文献</span></h3><ul>
-<li>Brown, M. B. and Forsythe, Robust Tests for the Equality of Variances. A. B. (1974), Journal of the American Statistical Association, 69, pp. 364-367.</li>
-</ul>
-<blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="方差分析01-单因素方差分析.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
-<h3><span id="视频教程">视频教程</span></h3><iframe src="//player.bilibili.com/player.html?bvid=BV16U4y1V7PU&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
+            <p>…</p>
         </div>
+        <a href="/2021/06/29/09-T检验-配对样本/" class="read-more">Read More</a>
     
 
     
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a>
+        </div>
     
 
 </div>
@@ -930,13 +730,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2021/07/08/11-2XN卡方检验/">
-                Untitled
+            <a href="/2021/06/29/07-T检验-单样本/">
+                07-T检验-单样本
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2021年07月08日</span>
+                <span class="date">2021年06月29日</span>
             
             
             
@@ -945,39 +745,17 @@
 
     
         <div class="content">
-            <h3><span id="多分类和两分类卡方检验">多分类和两分类卡方检验</span></h3><p>之前我们演示了两个两分类变量进行卡方检验, 现在我们要考察多分类变量, 但是其中一个变量是两分类。其实方法和之前一样, 只不过当变量有多分类的话, 需要进行两两比较, 所以才会有今天这篇教程。</p>
-<p>拿案例来说, 是否看过某电影可能与年龄有关, 那我们需要做一个卡方检验, 查看不同年龄组下看过某电影的人的比率是否有差异。</p>
-<h3><span id="前提">前提</span></h3><ul>
-<li>二分类和多分类</li>
-<li>相互独立的观测值</li>
-<li>样本量足够大，最小分组的样本量大于5。</li>
-</ul>
-<h3><span id="spss操作">SPSS操作</span></h3><p>在菜单中依次选择”分析–&gt;描述统计–&gt;交叉表”:</p>
-<p><img src="imgs/11-01-spss.png"></p>
-<p>在交叉表中选择”是否看过”和”年龄”:</p>
-<p><img src="imgs/11-02-spss.png"></p>
-<p>在”统计”对话框中, 勾选”卡方”:</p>
-<p><img src="imgs/11-03-spss.png"></p>
-<p>在”单元格”对话框中, 我们需要勾选”比较列比例”, 这个选项可以进行比率的两两比较, 然后勾选”列”百分比:<br><img src="imgs/11-04-spss.png"></p>
-<p>当有某些组的频数低于5的时候, 我们需要查看”费希尔精确检验”的结果, 但是默认情况下, 你看不到这个结果, 所以需要在”精确”对话框中勾选:<br><img src="imgs/11-05-spss.png"></p>
-<h4><span id="结果解读">结果解读</span></h4><p>我们首先看交叉表, 这个表可以看到各组的频率和列百分比, 并且频数上都标上了角标”a, b, c…”, 角标的意义我们稍后说。</p>
-<p>我们从百分比中大概可以看出, 28岁以上的年龄组中, 看过该电影的比例大大超过前面两个年龄组, 但是这种差异是否具有统计学意义呢? 需要看下面的卡方检验。</p>
-<p><img src="imgs/11-05-result.png"></p>
-<p>因为我们的交叉表中, 任何一个单元格的频数都超过了5, 我们直接看皮尔逊卡方的结果, 也就是第一行, 由于P=0.001, 所以达到显著水平, 因此各个年龄组看过该电影的比率具有显著差异。 那么问题来了, 到底是哪两个年龄组之间有差异呢? 是第一组和第二组有差异吗? 还是第二组和第三组有差异? 或者第一组和第三组有差异? 我们需要返回去查看交叉表。</p>
-<p><img src="imgs/11-06-result.png"></p>
-<p>交叉表中, 角标从”a”到”z”的顺序就代表比率的等级, 如果角标相同就说明比率没有差异, 如果角标不同, 就说明比率有差异。举例来说, 第一个年龄组和第二个年龄组的角标都是a, 说明两组之间比率没有差异。而第二组和第三组他们的角标分别是”a”和”b”, 因此, 这两组之间有显著差异。</p>
-<p><img src="imgs/11-05-result.png"></p>
-<h3><span id="汇报结果">汇报结果</span></h3><p>我们通常需要汇报一个表格, 里面包含了频率和卡方检验。</p>
-<p>结论可以这么写: 首先描述各个年龄组的看过该电影的百分比, 卡方分析结果显著(X^2=13.1,df=2,p&lt;.01), 通过多组比较可以发现, 小于20岁和20-28岁两组之间看过该电影的比率没有差异, 他们均低于28岁以上的年龄组。</p>
-<p><img src="imgs/11-07-result.png"></p>
-<blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="11-2XN卡方检验.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
-
+            <p>…</p>
         </div>
+        <a href="/2021/06/29/07-T检验-单样本/" class="read-more">Read More</a>
     
 
     
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a>
+        </div>
     
 
 </div>
@@ -987,13 +765,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2021/07/08/10-2x2卡方检验/">
-                Untitled
+            <a href="/2021/06/29/方差分析08-单因素多元方差分析/">
+                方差分析08-单因素多元方差分析
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2021年07月08日</span>
+                <span class="date">2021年06月29日</span>
             
             
             
@@ -1002,35 +780,87 @@
 
     
         <div class="content">
-            <h3><span id="卡方检验">卡方检验</span></h3><p>卡方检验用于考察两个分类变量之间关系的统计方法, 而2X2的卡方检验就是两个变量的分类都是二分类, 这是最简单的一种卡方检验。</p>
-<p>举例来说, 我想知道男生和女生对某个电影的观看有没有差异, 换句话说, 我有两个变量, 性别和是否观看过某个电影, 我想知道两个变量是否存在关联, 是不是男生看的更多? 男生看过该电影的比率是不是显著高于女生看过该电影的比率?</p>
-<p>这个时候就需要用卡方检验了。</p>
-<h3><span id="前提">前提</span></h3><ul>
-<li>都是二分类(不用检验</li>
-<li>相互独立的观测值</li>
-<li>样本量足够大，最小分组的样本量大于5。</li>
-</ul>
-<h3><span id="数据格式">数据格式</span></h3><p><img src="imgs/10-01-data.png"></p>
-<p><img src="imgs/10-02-data.png"></p>
-<h3><span id="spss操作">SPSS操作</span></h3><p><img src="imgs/10-03-spss.png"></p>
-<p>分别把”性别”和”是否看过”这两个变量放到行和列里, 然后点击”统计”, 打开的对话框中一定要勾选”卡方”</p>
-<p><img src="imgs/10-04-spss.png"></p>
-<p>打开”单元格”对话框, 勾选”列”百分比, 这样就可以看到每个单元格内的计数占列总数的白粉不:<br><img src="imgs/10-05.5-spss.png"></p>
-<p>点击”确定”开始计算:</p>
-<p><img src="imgs/10-05-spss.png"></p>
-<h3><span id="结果解读">结果解读</span></h3><p>我们先看交叉表, 我们可以看到每个单元格的频数, 频数最低的是没有看过该电影的男生, 只有7人, 而且7大于最低标准5, 所以我们可以使用皮尔逊卡方检验的结果。如果我们的某一个小组内的频数低于5, 那么我们就只能使用费希尔精确检验的结果。</p>
-<p><img src="imgs/10-06-result.png"></p>
-<p>因为我们每一个小组内的频数都大于5, 所以我们看第一行结果即可: 皮尔逊卡方, 结果显著, 说明不同性别观看该电影的比率的确有差异, 或者你也可以这么说: 是否观看该电影与观众的性别有关系, 男生观看的比例更高。</p>
-<p><img src="imgs/10-07-result.png"></p>
-<h3><span id="汇报结果">汇报结果</span></h3><p>在看过该电影的人群中, 男生占60.3%, 而在没有看过该电影的人群中, 男生占比仅为18.9%, 卡方检验结果比率的差异显著(<code>$\lambda^2 = 16.5, df=1, p&lt;0.001$</code></p>
-<blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="10-2x2卡方检验.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
+            <p>…</p>
+        </div>
+        <a href="/2021/06/29/方差分析08-单因素多元方差分析/" class="read-more">Read More</a>
+    
 
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a>
         </div>
     
 
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2021/06/29/方差分析07-单变量协方差分析/">
+                方差分析07-单变量协方差分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2021年06月29日</span>
+            
+            
+            
+        </div>
+    </div>
+
     
+        <div class="content">
+            <p>…</p>
+        </div>
+        <a href="/2021/06/29/方差分析07-单变量协方差分析/" class="read-more">Read More</a>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2021/06/29/方差分析06-2因素混合设计方差分析/">
+                方差分析06-2因素混合设计方差分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2021年06月29日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>…</p>
+        </div>
+        <a href="/2021/06/29/方差分析06-2因素混合设计方差分析/" class="read-more">Read More</a>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a>
+        </div>
     
 
 </div>
@@ -1076,43 +906,43 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析08-单因素多元方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/07/08/回归-多重线性回归分析共线性和控制变量的设置和解读/">SPSS多重线性回归分析共线性和控制变量的设置和解</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析07-单变量协方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/07/08/回归-1元线性回归分析/">SPSS1元线性回归分析(视频教程)</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析06-2因素混合设计方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/11-2XN卡方检验/">11-2XN卡方检验</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析05-重复测量单因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/10-2x2卡方检验/">10-2x2卡方检验</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析04-三因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/08-T检验-独立样本/">08-T检验-独立样本</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析03-双因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/09-T检验-配对样本/">09-T检验-配对样本</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/07-T检验-单样本/">07-T检验-单样本</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析01-单因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/方差分析08-单因素多元方差分析/">方差分析08-单因素多元方差分析</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/11-2XN卡方检验/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/方差分析07-单变量协方差分析/">方差分析07-单变量协方差分析</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/10-2x2卡方检验/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/方差分析06-2因素混合设计方差分析/">方差分析06-2因素混合设计方差分析</a>
             </li>
             
         </ul>

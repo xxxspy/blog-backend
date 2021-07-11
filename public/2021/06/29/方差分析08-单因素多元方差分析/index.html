@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="DataSense">
+        <meta property="og:title" content="方差分析08-单因素多元方差分析">
     
 
     <!--Open Graph Description-->
@@ -36,7 +36,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website">
+        <meta property="og:type" content="article">
     
 
     <!--Page Cover-->
@@ -47,7 +47,7 @@
 
     <!-- Title -->
     
-    <title>DataSense</title>
+    <title>方差分析08-单因素多元方差分析 - DataSense</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -98,6 +98,62 @@
     #pop_ad{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
 
     </style>
+
+    
+        <!-- mathjax -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        var maths = document.getElementsByTagName("code");
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+    </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: true,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"],["$","$"]],
+      displayMath: [["\\[", "\\]"],["$$", "$$"]],
+      skipTags: ['^(?!code).*$']
+    }
+  });
+  var maths = document.getElementsByTagName("code");
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+</script>
+
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [ ['\\(','\\)']]} });
+</script> -->
+
+<!-- <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script> -->
 
     
     
@@ -200,8 +256,8 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/2021/07/08/方差分析03-双因素方差分析/">
-                Untitled
+            <a href="/2021/06/29/方差分析08-单因素多元方差分析/">
+                方差分析08-单因素多元方差分析
             </a>
 
         </h1>
@@ -210,7 +266,7 @@
         </div>
         <div class="post-info">
             
-                <span class="date">2021年07月08日</span>
+                <span class="date">2021年06月29日</span>
             
             
             
@@ -224,52 +280,37 @@
         
 
         <!-- Post Content -->
-        <h3><span id="案例介绍">案例介绍</span></h3><p>我们调查了147位年轻人, 想了解一下多大程度上因为故事情节去看一个电影, 我们同时收集了被试的性别和情感状态(是否单身), 我们想知道, 不同性别和情感状态的人, 电影的故事情节的吸引力有何差别?  所以我们需要使用双因素方差分析。</p>
-<p>这是一个2x2的两因素方差分析, 并且因为交互作用显著, 所以</p>
-<h3><span id="前提假设">前提假设</span></h3><ul>
-<li>因变量是连续变量</li>
-<li>存在两个自变量，且都是分类变量</li>
-<li>具有相互独立的观测值 </li>
-<li>不存在显著异常值</li>
-<li>残差近似正态分布</li>
-<li>各分类等方差性</li>
+        <p>…</p>
+<a id="more"></a>
+<ul>
+<li>微博: mlln-cn</li>
+<li>B站: mlln-cn</li>
+<li>网站: mlln.cn</li>
 </ul>
-<h3><span id="spss操作">SPSS操作</span></h3><p>依次打开菜单: 分析–&gt;一般线性模型–&gt;单变量:</p>
-<p><img src="imgs/14-01-spss.png"></p>
-<p>我们将”故事情节”设置为因变量, “性别”和”情感状态”是固定因子, 这时候你自己得意识到为什么它们是固定因子而不是随机因子,因为我们的样本中包含性别的全部种类和情感状态的全部种类, 所以他们都是固定因子, 如果我调查的是”年龄”, 但是并不包含全部的年龄组, 那就应该叫做随机因子。<br><img src="imgs/14-02-spss.png"></p>
-<p>在打开的对话框中选择: 选项, 在选项对话框中, 我们勾选”描述统计”, “齐性检验”和”效应量估算”<br><img src="imgs/14-03-spss.png"></p>
-<p>下面我们需要编辑一下代码, 因为我们需要进行简单效应分析, 意思是, 我们需要在不同情感状态下, 比较不同性别的人在”故事情节”这个指标上是否存在差异, 因为spss界面上无法完成, 所以需要使用代码。</p>
-<p>点击”粘贴”会打开一个代码编辑的界面</p>
-<p><img src="imgs/14-04-spss.png"></p>
-<p>在这里我们可以加入一行代码, 如图, 这个代码的意思很简单, 就是说”情感状态”和”性别”是交叉设计, 我们需要在不同”情感状态”下比较”性别”, 反过来你可以说, 想在不同”性别”下比较”情感状态”, 这也可以, 但是代码就变成:</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/EMMEANTABLES(情感状态*性别) COMPARE(情感状态) ADJ(SIDAK)</span><br></pre></td></tr></table></figure>
-<p><img src="imgs/14-05-spss.png"></p>
-<p>最后, 我们运行代码就可以了</p>
-<h3><span id="结果解读">结果解读</span></h3><p>结果显示方差齐, 如果方差不齐, 也不用着急, 因为当各组样本量差不多时, 方差不齐对结果的影响不大, 所以仍然可以使用GLM进行方差分析。</p>
-<p><img src="imgs/14-06-spss.png"></p>
-<p>下面的表格对各个变量的主效应的检验, 根据显著性这一列, 显著性低于0.05就可以认为主效应显著, 显然我们可以知道”情感状态”的主效应显著, 并且”情感状态”和”性别”的交互效应显著。</p>
-<p><img src="imgs/14-07-spss.png"></p>
-<p>由于交互效应显著, 我们需要进一步比较在不同”情感状态”下, 性别之间是否存在显著差异, 从表中结果可知, 在单身状态下, 男生比女生更容易受故事情节的影响而去看某个电影, 但是在婚恋状态下, 女生反而比男生更容易受故事情节的吸引而去看某部电影。</p>
-<p><img src="imgs/14-08-spss.png"></p>
-<h3><span id="结果汇报">结果汇报</span></h3><p>本研究均使用均数±标准差反映数据情况，用箱式图检验异常值，用Shapiro-Wilk检验数据正态性，用Levene方差齐性检验判断等方差性。结果显示，本研究数据没有异常值，残差接近正态分布（P&gt;0.05），并且具有等方差性（P&gt;0.05）。</p>
-<p>我们最重要的表格就是这个”主效应检验”, 根据表格数据, 写结论:</p>
-<p>情感状态的主效应显著(F=22.323,df=1,P&lt;.001)；性别的主效应不显著(F=0.017,df=1,p&gt;.05)；情感状态和性别交互效应显著(F=16.731,df=1,P&lt;.001)。</p>
-<p><img src="imgs/14-09-spss.png"></p>
-<p>因为交互作用显著, 进一步做简单效应分析,我们可以将各组均值绘制到图中, 然后配合上面的”成对比较”表格进一步得出结论:</p>
-<p>在单身状态下, 性别的简单效应显著(p&lt;.05), 也就是说男生比女生更容易受故事情节的影响而去看某个电影, 但是在婚恋状态下, 性别的主效应显著((p&lt;.01), 但是女生反而比男生更容易受故事情节的吸引而去看某部电影。<br><img src="imgs/14-10-spss.png"></p>
-<h3><span id="参考">参考</span></h3><ul>
-<li>固定和随机因子: <a href="https://web.ma.utexas.edu/users/mks/statmistakes/fixedvsrandom.html" target="_blank" rel="noopener">https://web.ma.utexas.edu/users/mks/statmistakes/fixedvsrandom.html</a></li>
-<li>方差分析属于特殊的回归分析: <a href="https://www.theanalysisfactor.com/why-anova-and-linear-regression-are-the-same-analysis/" target="_blank" rel="noopener">https://www.theanalysisfactor.com/why-anova-and-linear-regression-are-the-same-analysis/</a></li>
-<li>回归中,自变量01编码和12编码的区别: <a href="https://www.researchgate.net/post/What_is_the_difference_between_0_1_and_1_2_coding_for_dichotomous_variables_in_regression_analysis" target="_blank" rel="noopener">https://www.researchgate.net/post/What_is_the_difference_between_0_1_and_1_2_coding_for_dichotomous_variables_in_regression_analysis</a></li>
+<h3><span id="前提假设">前提假设</span></h3><ul>
+<li>2个或以上因变量为连续变量</li>
+<li>各观察对象之间相互独立。</li>
+<li>没有单因素离群值（univariate outliers）与多因素离群值（multivariate outliers）</li>
+<li>因变量服从多元正态分布</li>
+<li>因变量之间没有多重共线性(相关性低于0.9)</li>
+<li>自变量的各个组内，各因变量之间存在线性关系</li>
+<li>样本量足够</li>
+<li>各组因变量的方差协方差矩阵没有显著差异</li>
+<li>每个因变量在自变量的各个组中方差相等</li>
 </ul>
 <blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="方差分析03-双因素方差分析.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
+<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="方差分析08-单因素多元方差分析.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>
-<h3><span id="视频教程">视频教程</span></h3><iframe src="//player.bilibili.com/player.html?bvid=BV1Rv411V7qn&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
+
     </div>
 
     
 
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a>
+        </div>
     
 
 
@@ -287,7 +328,7 @@
         <section class="main">
             <!--PC版畅言-->
 
-<div class="container"><div id="SOHUCS" sid="2021/07/08/方差分析03-双因素方差分析/"></div>
+<div class="container"><div id="SOHUCS" sid="2021/06/29/方差分析08-单因素多元方差分析/"></div>
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
 <script type="text/javascript">
 window.changyan.api.config({
@@ -303,6 +344,166 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
     <!-- rightside -->
     <div class="col-md-3 col-sm-12 rightside">
         
+<div class="related-posts">
+    <h3>
+        常用工具
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a href="/drawio/">绘图软件</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2018/09/26/在线绘制中介效应图/">
+                在线绘制中介效应图
+            </a>
+        </div>
+        <div class="archive-post">
+            <a href="/neural/">神经网络可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/psychopy/">psychopy教程</a>
+        </div>
+        <div class="archive-post">
+            <a href="/vector/">[词向量]高维向量可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/demos/evolutionSimulator/">[tensorflow.js案例]进化算法演示</a>
+        </div>
+        <div class="archive-post">
+            <a href="/guideToPython/">[书]Python最佳实践</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/10/10/sobel检验原理和一键计算器/">Sobel检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">平均方差提取量AVE和组合信度CR计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">卡方检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">简单交互效应可视化工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/12/23/均值差异的效应量在线计算器/">两组均值差异的效应量在线计算器</a>
+        </div>
+    </div>
+</div>
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/SPSS/">
+            SPSS
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2021/07/08/回归-多重线性回归分析共线性和控制变量的设置和解读/">
+                    SPSS多重线性回归分析共线性和控制变量的设置和解读(视频教程)
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/07/08/回归-1元线性回归分析/">
+                    SPSS1元线性回归分析(视频教程)
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/11-2XN卡方检验/">
+                    11-2XN卡方检验
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/10-2x2卡方检验/">
+                    10-2x2卡方检验
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/09-T检验-配对样本/">
+                    09-T检验-配对样本
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/08-T检验-独立样本/">
+                    08-T检验-独立样本
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/07-T检验-单样本/">
+                    07-T检验-单样本
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析08-单因素多元方差分析/">
+                    方差分析08-单因素多元方差分析
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析07-单变量协方差分析/">
+                    方差分析07-单变量协方差分析
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析06-2因素混合设计方差分析/">
+                    方差分析06-2因素混合设计方差分析
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析05-重复测量单因素方差分析/">
+                    方差分析05-重复测量单因素方差分析
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析04-三因素方差分析/">
+                    方差分析04-三因素方差分析
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析03-双因素方差分析/">
+                    方差分析03-双因素方差分析
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析02-单因素方差分析-事后比较/">
+                    方差分析02-单因素方差分析-事后比较
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2021/06/29/方差分析01-单因素方差分析/">
+                    方差分析01-单因素方差分析
+                </a>
+            </div>
+            
+    </div>
+</div>
+
 
 <div class="related-posts hidden-sm-down">
     <h3>
@@ -345,43 +546,43 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         <ul>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析08-单因素多元方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/07/08/回归-多重线性回归分析共线性和控制变量的设置和解读/">SPSS多重线性回归分析共线性和控制变量的设置和解</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析07-单变量协方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/07/08/回归-1元线性回归分析/">SPSS1元线性回归分析(视频教程)</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析06-2因素混合设计方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/11-2XN卡方检验/">11-2XN卡方检验</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析05-重复测量单因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/10-2x2卡方检验/">10-2x2卡方检验</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析04-三因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/08-T检验-独立样本/">08-T检验-独立样本</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析03-双因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/09-T检验-配对样本/">09-T检验-配对样本</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/07-T检验-单样本/">07-T检验-单样本</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析01-单因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/方差分析08-单因素多元方差分析/">方差分析08-单因素多元方差分析</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/11-2XN卡方检验/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/方差分析07-单变量协方差分析/">方差分析07-单变量协方差分析</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/10-2x2卡方检验/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/方差分析06-2因素混合设计方差分析/">方差分析06-2因素混合设计方差分析</a>
             </li>
             
         </ul>

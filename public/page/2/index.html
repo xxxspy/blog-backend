@@ -448,13 +448,13 @@
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2021/07/08/09-T检验-配对样本/">
-                Untitled
+            <a href="/2021/06/29/方差分析05-重复测量单因素方差分析/">
+                方差分析05-重复测量单因素方差分析
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2021年07月08日</span>
+                <span class="date">2021年06月29日</span>
             
             
             
@@ -463,224 +463,16 @@
 
     
         <div class="content">
-            <h3><span id="t检验种类">T检验种类</span></h3><ul>
-<li><strong>单样本T检验: 样本均值与某个已知均值进行比较</strong></li>
-</ul>
-<p>比如, 满意度评价中, 5分为满分, 3分为及格, 我们收集了n个人的满意度, 然后我们想要知道这n个人平均满意度是否显著高于3分</p>
-<ul>
-<li><strong>独立样本T检验: 两个样本均值是否有差异</strong></li>
-</ul>
-<p>比如, 比较男生的评分与女生的评分均值是否有显著差异</p>
-<ul>
-<li><strong>配对样本T检验: 两个配对样本的均值是否有差异</strong></li>
-</ul>
-<p>比如, N个人在两个评价指标上的均值有没有差异</p>
-<h3><span id="配对样本t检验">配对样本T检验</span></h3><p>所谓配对样本不一定是配对的两个人或其他对象, 可以是一个人的两个变量, 这一点往往引起误会。</p>
-<h4><span id="案例">案例</span></h4><p>我们调查了100个人对某品牌的认知和情感两个变量, 我们想知道两个变量均值是否有差异, 因为每个被调查者都有这两个变量(指标), 我们可以说这个差异比较就属于配对样本的差异比较。</p>
-<h3><span id="前提">前提</span></h3><ul>
-<li>因变量是连续变量</li>
-<li>自变量包含2个分类</li>
-<li>两组内没有明显异常值</li>
-<li>两组内, 近似服从正态分布(当N&lt;30时需要检验)</li>
-</ul>
-<h3><span id="spss操作">SPSS操作</span></h3><p><img src="imgs/09-01-spss.png"></p>
-<p><img src="imgs/09-02-spss.png"></p>
-<h3><span id="结果解读">结果解读</span></h3><p>这是对两个变量的描述统计, 里面可以看到均值标准差和样本量。</p>
-<p><img src="imgs/09-03-spss.png"></p>
-<p>这是两个变量的相关系数, 从下表中可以看到品牌认知和品牌情感的相关系数是0.2(p&lt;0.05), 是显著的。</p>
-<p><img src="imgs/09-04-spss.png"></p>
-<p>这是配对样本T检验的结果了, 下面列出表头的意义:</p>
-<ul>
-<li>平均值: 配对样本两个变量差值的均值</li>
-<li>标准 偏差(标准差): 配对样本两个变量差值的标准差</li>
-<li>标准 误差平均值: 差值的均值的标准误</li>
-<li>差值95%置信区间, 差值的置信区间, 如果包含0, 就说明在95%的概率下, 差值可能为0, 也就是说差异不显著</li>
-<li>t: t统计量</li>
-<li>自由度</li>
-<li>sig: p值, 只有小于0.05才认为差异显著</li>
-</ul>
-<p><img src="imgs/09-05-spss.png"></p>
-<h3><span id="计算效应量">计算效应量</span></h3><p>效应量是用于衡量均值差异大小的量, 因为不同的研究使用不同的变量, 不同的变量有不同的量纲, 所以没法比较, 但是近期很多期刊都要求当t检验结果显著的时候就应当汇报效应量, 效应量可以排除量纲的影响, 使得不同的研究具有一定可比性。</p>
-<p>在t检验中, 常用效应量是:</p>
-<p><code>$$
-d = {M / SD} (M是差值的均值, SD是差值的标准差)
-$$</code></p>
-<h4><span id="效应量的评价忽略符号">效应量的评价(忽略符号)</span></h4><ul>
-<li>0.2以内: 小</li>
-<li>0.2-0.5: 中</li>
-<li>0.5-0.8: 大</li>
-</ul>
-<h3><span id="结果汇报">结果汇报</span></h3><p><img src="imgs/09-06-spss.png"></p>
-<p>总共调查了105人, 样本量超过30可以认为满足近似正态分布的假设 , 品牌认知和品牌情感的均值分别是3.55(sd=0.82)和3.65(sd=0.80)，t检验结果显示差异不显著t=-0.998,df=104,p&gt;.05。</p>
-<p>注: 如果差异显著需要汇报效应量。</p>
-<blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="09-T检验-配对样本.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
-<h3><span id="视频教程">视频教程</span></h3><iframe src="//player.bilibili.com/player.html?bvid=BV1qK411g7GC&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
+            <p>…</p>
         </div>
-    
-
-    
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2021/07/08/08-T检验-独立样本/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2021年07月08日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h3><span id="t检验种类">T检验种类</span></h3><ul>
-<li><strong>单样本T检验: 样本均值与某个已知均值进行比较</strong></li>
-</ul>
-<p>比如, 满意度评价中, 5分为满分, 3分为及格, 我们收集了n个人的满意度, 然后我们想要知道这n个人平均满意度是否显著高于3分</p>
-<ul>
-<li><strong>独立样本T检验: 两个样本均值是否有差异</strong></li>
-</ul>
-<p>比如, 比较男生的评分与女生的评分均值是否有显著差异</p>
-<ul>
-<li><strong>配对样本T检验: 两个配对样本的均值是否有差异</strong></li>
-</ul>
-<p>比如, N个人在两个评价指标上的均值有没有差异</p>
-<h3><span id="独立样本t检验">独立样本T检验</span></h3><h4><span id="案例介绍">案例介绍</span></h4><p>我调研了一百多个人对某个品牌情感态度, 男女大概一半一半, 我现在就想考察一下品牌感情有没有性别差异, 所以需要使用独立样本T检验。</p>
-<h4><span id="前提">前提</span></h4><ul>
-<li>连续变量和分类变量(有两个分类)</li>
-<li>观测值之间相互独立</li>
-<li>没有异常值</li>
-<li>各组内接近正态分布(或样本量较大)</li>
-<li>两组的观测变量的方差相等</li>
-</ul>
-<h4><span id="直方图">直方图</span></h4><p><img src="imgs/08-01-hist.png"></p>
-<h4><span id="spss操作">SPSS操作</span></h4><p><img src="imgs/08-02-spss.png"></p>
-<p><img src="imgs/08-03-spss.png"></p>
-<h4><span id="结果解读">结果解读</span></h4><p><img src="imgs/08-04-spss.png"></p>
-<ul>
-<li>首先要看方差齐性假设是否满足, 看莱文方差等同性检验, 显著性大于0.05, 我们可以认为男女两组方差齐性。</li>
-<li>其次要看t检验, 直接看sig这一列, 我们可以看到不管是方差齐还是不齐的情况下, 都不显著。</li>
-</ul>
-<h4><span id="计算效应量-cohens-d">计算效应量 Cohen’s d</span></h4><p><code>$$
-d=(m_1-m_2)/s_p，s_p为联合方差。
-$$</code></p>
-<h4><span id="汇报结果">汇报结果</span></h4><p>以性别为分组变量，对品牌情感进行独立样本T检验，满足方差齐性假设(F=0.465, P&gt;0.05)，下表中，显著性主要查看的是sig这一列，sig&lt;0.05认为达到显著性水平。具体来说： 品牌情感的T检验结果(t=-0.265,df=103,p&gt;.05)显示均值差异不显著。</p>
-<p><img src="imgs/08-05-spss.png"></p>
-<blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="08-T检验-独立样本.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
-<h3><span id="视频教程">视频教程</span></h3><iframe src="//player.bilibili.com/player.html?bvid=BV1qK411g7GC&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
-        </div>
-    
-
-    
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2021/07/08/07-T检验-单样本/">
-                Untitled
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2021年07月08日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h3><span id="t检验种类">T检验种类</span></h3><ul>
-<li><strong>单样本T检验: 样本均值与某个已知均值进行比较</strong></li>
-</ul>
-<p>比如, 满意度评价中, 5分为满分, 3分为及格, 我们收集了n个人的满意度, 然后我们想要知道这n个人平均满意度是否显著高于3分</p>
-<ul>
-<li><strong>独立样本T检验: 两个样本均值是否有差异</strong></li>
-</ul>
-<p>比如, 比较男生的评分与女生的评分均值是否有显著差异</p>
-<ul>
-<li><strong>配对样本T检验: 两个配对样本的均值是否有差异</strong></li>
-</ul>
-<p>比如, N个人在两个评价指标上的均值有没有差异</p>
-<h3><span id="单样本t检验">单样本T检验</span></h3><h4><span id="案例介绍">案例介绍</span></h4><p>我调研了某品牌的品牌认知度, 有三个题, 每个题有5个评分等级(从”非常不同意”到”非常同意”), 我想知道的是, 品牌认知度是否超过3分, 因为3分代表认同和不认同的分界线, 如果品牌认知度的平均值超过3分, 我可以得出结论, 品牌认知度较高。</p>
-<h4><span id="前提">前提</span></h4><ul>
-<li>连续变量</li>
-<li>case之间相互独立</li>
-<li>没有异常值</li>
-<li>正态分布或样本量较大</li>
-</ul>
-<h4><span id="spss操作">SPSS操作</span></h4><p><img src="imgs/07-01-spss.png"></p>
-<p><img src="imgs/07-02-spss.png"></p>
-<h4><span id="结果解读">结果解读</span></h4><p><img src="imgs/07-03-result.png"></p>
-<ul>
-<li>检验值就是比较的标准</li>
-<li>sig就是p值, 小于0.05就认为差异显著</li>
-<li>平均值差值就是变量平均值与标准值的差</li>
-<li>差值的置信区间: 就是平均值差值的置信区间, 如果置信区间不包含0, sig就会显著, 也就是差值在统计学上不为0</li>
-</ul>
-<h4><span id="结果汇报">结果汇报</span></h4><p>品牌认知度的平均值是3.55(N=105,sd=0.82), 单样本T检验的结果显示均值显著高于标准值3(t=6.84, p&lt;0.01).</p>
-<blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="07-T检验-单样本.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
-<h3><span id="视频教程">视频教程</span></h3><iframe src="//player.bilibili.com/player.html?bvid=BV1qK411g7GC&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:800px;height:600px"> </iframe>
-        </div>
-    
-
-    
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2021/07/08/回归-多重线性回归分析共线性和控制变量的设置和解读/">
-                SPSS多重线性回归分析共线性和控制变量的设置和解读(视频教程)
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2021年07月08日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>在前一篇教程中(回归-1元线性回归分析)我们主要介绍了1个自变量的回归分析, 这种情况比较少见, 通常回归分析可以加入多个自变量, 使得我们的研究更具有”生态效度”, 也就是说现实生活中, 影响因变量Y的因素太多了, 如果我们只研究1个自变量, 那我们的研究就偏离真实生活很远, 以至于我们的研究没有应用价值, 因此我们倾向于将更多的自变量加入到我们的模型中。</p>
-        </div>
-        <a href="/2021/07/08/回归-多重线性回归分析共线性和控制变量的设置和解读/" class="read-more">Read More</a>
+        <a href="/2021/06/29/方差分析05-重复测量单因素方差分析/" class="read-more">Read More</a>
     
 
     
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/SPSS/">#SPSS</a> <a href="/tags/回归/">#回归</a>
+            <a href="/tags/SPSS/">#SPSS</a>
         </div>
     
 
@@ -691,13 +483,13 @@ $$</code></p>
 
     <div class="post-header index">
         <h1 class="title">
-            <a href="/2021/07/08/回归-1元线性回归分析/">
-                SPSS1元线性回归分析(视频教程)
+            <a href="/2021/06/29/方差分析04-三因素方差分析/">
+                方差分析04-三因素方差分析
             </a>
         </h1>
         <div class="post-info">
             
-                <span class="date">2021年07月08日</span>
+                <span class="date">2021年06月29日</span>
             
             
             
@@ -706,88 +498,121 @@ $$</code></p>
 
     
         <div class="content">
-            <p>我们这个系列的教程目的就是让只有高中数学知识的童靴能够正确而有效率的完成论文的数据分析, 因此我们并不关注过深的统计知识, 基于此, 我们可以如此理解回归分析:</p>
-<p>有一个理论的模型方程: <code>$Y = b_0 + b_1 X + \epsilon$</code>, 这里的X和Y是我们关心的自变量和因变量, 我们的目的是求方程中的参数<code>$b_1和b_0$</code></p>
-<h3><span id="前提条件">前提条件</span></h3><ul>
-<li>自变量和因变量都是连续型变量(或者自变量可以定义为连续)</li>
-<li>自变量和因变量之间有线性关系(散点图或者相关分析)</li>
-<li>具有相互独立的观测值(Durbin-Watson)</li>
-<li>没有异常值(Casewise Diagnostics)</li>
-<li>等方差性(残差与回归拟合值或标准化残差与标准化预测值之间的散点图)</li>
-<li>回归残差近似正态分布(直方图)</li>
-</ul>
-<p>这些前提条件满足才可以做回归分析, 但是我们实际上不需要一项一项进行检查, 很多检测项目会在spss进行回归分析的时候输出。</p>
-<p>我们会在视频里详细介绍这些条件是否有必要检测。</p>
-<h3><span id="数据介绍">数据介绍</span></h3><p>我们调查了三百多人的体重和坐姿时间的数据, 研究目的是考察坐姿时间是否对体重有影响, 采集到的数据是这样的:</p>
-<p><img src="imgs/19-1.jpg"></p>
-<h3><span id="相关和散点图">相关和散点图</span></h3><p>在做回归之前, 有必要进行相关分析和做散点图, 主要目的就是对数据的总体情况有一个大概的了解。</p>
-<ul>
-<li>首先打开相关的对话框</li>
-</ul>
-<p><img src="imgs/19-1-spss.png"></p>
-<ul>
-<li>选择有关的变量</li>
-</ul>
-<p><img src="imgs/19-2-spss.png"></p>
-<ul>
-<li>结果解读(我们会在视频中进行一个讲解)</li>
-</ul>
-<p><img src="imgs/19-3-spss.png"></p>
-<h3><span id="回归分析">回归分析</span></h3><h4><span id="操作步骤">操作步骤</span></h4><ul>
-<li>打开线性回归的对话框</li>
-</ul>
-<p><img src="imgs/19-4-spss.png"></p>
-<ul>
-<li>设置自变量和因变量</li>
-</ul>
-<p><img src="imgs/19-5-spss.png"></p>
-<ul>
-<li><p>打开”统计”对话框, 按照下图所示勾选选项,</p>
-<ul>
-<li>杜宾-沃森: 为了检验观测值之间是否相互独立</li>
-<li>个案诊断: 检测异常值</li>
-</ul>
-</li>
-</ul>
-<p><img src="imgs/19-6-spss.png"></p>
-<ul>
-<li>打开”图”设置框, 设置X轴为”ZPRED”(标准化预测值), 设置Y轴为”ZRESID”(标准化残差)</li>
-</ul>
-<p><img src="imgs/19-7-spss.png"></p>
-<ul>
-<li>点击”确定”开始你的分析</li>
-</ul>
-<p><img src="imgs/19-8-spss.png"></p>
-<h4><span id="结果解读">结果解读</span></h4><p>首先是要看”个案诊断”, 很多童鞋没有输出这个表格, 因为你的数据没有诊断出问题, 而我用的数据也没有诊断出问题(标准残差超过3),<br>所以我设置的时候, 设置超过2就算异常(仅仅是为了输出这个图, 图中所有标准残差绝对值没有超过3。这个结果会在视频教程里详细介绍。</p>
-<p><img src="imgs/19-9-case.png"></p>
-<p>然后, 查看残差的直方图, 直方图应该大概符合正太分布, 没有必要进行严格的正态性检验, 只要大致看起来中间高两边低就可以了<br><img src="imgs/19-10-residual.png"></p>
-<p>“等方差性”就是不同的Y值的情况下, 残差的方差没有差异, 可以通过散点图的方式来考察, 之前作图的步骤就是为了输出这个散点图, 我们会在视频教程里详细解读这个图:</p>
-<p><img src="imgs/19-9-scatter.png"></p>
-<p>接下来就进入真正的回归分析了, 首先要看模型的”模型摘要”表格。</p>
-<p>首先要看杜宾沃森检验, 该统计量位于0-4之间, 实际值越接近2, 说明样本之间的独立性越好, 我们这个值是2.088, 非常接近2, 所以前提条件中”具有相互独立的观测值”是成立的。</p>
-<p>在”模型摘要”表格中, 最重要的指标就是R, 它代表着预测的准确性, 也就是当你知道自变量x的值的时候, 根据回归模型<code>$Y = b_0 + b_1 X + \epsilon$</code>可以计算得到<code>$Y$</code>的值, 这个值叫做<code>$\hat Y$</code>, 这个预测值与Y的实际值之间的相关系数就是R, 而<code>$R^2$</code>就是R的平方, 在回归分析中<code>$R^2$</code></p>
-<p>在ANOVA分析中, 很多童鞋会质疑”为什么回归分析中有方差分析的结果”, 在这里我再次强调, 回归分析中用到了F检验去检测模型是否有统计学意义, 在F检验显著的情况下, 才需要去查看回归系数显著性检验表。 另外再说下, 方差分析其实是特殊的回归分析。</p>
-<p><img src="imgs/19-11-anova.png"></p>
-<p>最后, 也是最重要的结果就是回归系数表, 这里每个系数使用t检验的方法来检测该系数是否显著不等于0, 如果显著性小于0.05, 可以认为系数显著不等于0。 回归我们的方程式:<code>$Y = b_0 + b_1 X + \epsilon$</code>, 根据下表的结果, 我们可以轻易得到各个参数的值, 如下:</p>
-<ul>
-<li>截距: <code>$b_0=48$</code></li>
-<li>回归系数: <code>$b_1=2$</code></li>
-</ul>
-<p>根据参数值, 我们可以写出回归方程是: <code>$Y = 48 + 2 X + \epsilon$</code>, 注意方程中还带有参数<code>$\epsilon$</code></p>
-<h3><span id="结果汇报">结果汇报</span></h3><p>回归方程的ANOVA检验显示F(1,301) = 19.3, P&lt;.001，结果显著，说明至少有一个自变量对因变量具有预测作用，具体哪些变量有预测作用，需要看具体的系数显著性检验。坐姿时间的标准化系数为0.245(t=4.388, P&lt;.001), 系数显著，且因为系数大于0，所以坐姿时间正向影响体重的大小。总之，变量坐姿时间的变化会显著影响体重的变化。</p>
-<p><img src="imgs/19-11-result.png"></p>
-<blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="回归-1元线性回归分析.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
-
+            <p>…</p>
         </div>
+        <a href="/2021/06/29/方差分析04-三因素方差分析/" class="read-more">Read More</a>
     
 
     
     
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/SPSS/">#SPSS</a> <a href="/tags/回归/">#回归</a>
+            <a href="/tags/SPSS/">#SPSS</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2021/06/29/方差分析03-双因素方差分析/">
+                方差分析03-双因素方差分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2021年06月29日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>…</p>
+        </div>
+        <a href="/2021/06/29/方差分析03-双因素方差分析/" class="read-more">Read More</a>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2021/06/29/方差分析02-单因素方差分析-事后比较/">
+                方差分析02-单因素方差分析-事后比较
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2021年06月29日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>…</p>
+        </div>
+        <a href="/2021/06/29/方差分析02-单因素方差分析-事后比较/" class="read-more">Read More</a>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2021/06/29/方差分析01-单因素方差分析/">
+                方差分析01-单因素方差分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2021年06月29日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>…</p>
+        </div>
+        <a href="/2021/06/29/方差分析01-单因素方差分析/" class="read-more">Read More</a>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/SPSS/">#SPSS</a>
         </div>
     
 
@@ -1012,43 +837,43 @@ $$</code></p>
         <ul>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析08-单因素多元方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/07/08/回归-多重线性回归分析共线性和控制变量的设置和解读/">SPSS多重线性回归分析共线性和控制变量的设置和解</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析07-单变量协方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/07/08/回归-1元线性回归分析/">SPSS1元线性回归分析(视频教程)</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析06-2因素混合设计方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/11-2XN卡方检验/">11-2XN卡方检验</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析05-重复测量单因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/10-2x2卡方检验/">10-2x2卡方检验</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析04-三因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/08-T检验-独立样本/">08-T检验-独立样本</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析03-双因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/09-T检验-配对样本/">09-T检验-配对样本</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析02-单因素方差分析-事后比较/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/07-T检验-单样本/">07-T检验-单样本</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/方差分析01-单因素方差分析/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/方差分析08-单因素多元方差分析/">方差分析08-单因素多元方差分析</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/11-2XN卡方检验/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/方差分析07-单变量协方差分析/">方差分析07-单变量协方差分析</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2021/07/08/10-2x2卡方检验/">Untitled</a>
+                <a class="footer-post" href="/2021/06/29/方差分析06-2因素混合设计方差分析/">方差分析06-2因素混合设计方差分析</a>
             </li>
             
         </ul>
