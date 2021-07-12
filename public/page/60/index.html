@@ -293,20 +293,20 @@
             </div>
             
             <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程12：半监督学习/">
+                    李宏毅机器学习教程12：半监督学习
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程14：无监督学习-词嵌入模型/">
+                    李宏毅机器学习教程14：无监督学习-词嵌入模型
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2018/09/21/李宏毅机器学习教程15：无监督学习-neighbor-embeding/">
                     李宏毅机器学习教程15：无监督学习-neighbor-embeding
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程13：无监督学习/">
-                    李宏毅机器学习教程13：无监督学习
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程17：深度生成模型/">
-                    李宏毅机器学习教程17：深度生成模型
                 </a>
             </div>
             
@@ -380,8 +380,8 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程23-2：Policy-Gradient/">
-                    李宏毅机器学习教程23-2：Policy-Gradient
+                <a href="/2018/09/21/李宏毅机器学习教程23-3：强化学习(包括Qlearning)/">
+                    李宏毅机器学习教程23-3：强化学习(包括Qlearning)
                 </a>
             </div>
             
@@ -856,6 +856,87 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/">
+                SPSS实例：[28]卡方检验百分比与理论值差异
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年04月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>我们有一个研究检验某种疗法的有效性，统计了实施前后的人数，我们想要比较实施前和实施后人数是否有差异，怎么比较？有两种数据结构，得使用不同的方法，下面将要介绍的是这种数据没有原始数据，只有计数数据，如下图。变量9表示人数，实施前后表示该方法实施前用0表示，实施后用1表示。另外一种数据结构是你有原始数据，而不是计数数据，你可以参考我以前的文章：<a href="http://jingyan.baidu.com/article/d8072ac4587f6dec95cefd9a.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/d8072ac4587f6dec95cefd9a.html</a></p>
+<ul>
+<li>首先要给数据加权，我们在data菜单下，选择case加权</li>
+</ul>
+<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/c71d0e385343fbf213af316fb27eca8064388fb8.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+<ul>
+<li>将变量9放入频数变量框，点击【ok】，完成加权（如果有原始数据，则不需要加权）</li>
+</ul>
+<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/29790130e924b899f378ee746c061d950b7bf6f3.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+<ul>
+<li>接着我们来做卡方检验，在菜单栏上执行：分析–非参检验–遗留选项–卡方检验</li>
+</ul>
+<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/906289dda144ad34f23c10cbd2a20cf430ad85b8.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+<ul>
+<li>将实施前后变量放入检验变量框。</li>
+</ul>
+<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/0db52fadcbef7609f9880ed32cdda3cc7dd99eb8.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+<ul>
+<li>这里有一个问题，如果你的数据有一个单元格频数小于5，你得使用精确卡方检验，需要点击【exact】进行设置</li>
+</ul>
+<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/f99dcf00baa1cd117002e46cbb12c8fcc2ce2d82.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+<ul>
+<li>勾选这个选项，点击继续</li>
+</ul>
+<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/c9bdddcec3fdfc039bcc75f4d63f8794a5c22682.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+<ul>
+<li>接着设置这里，我们可以检验不同组人数是否相同，使用【所有分类相同】；</li>
+</ul>
+<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/27d647ee3d6d55fbc02fe06a6f224f4a21a4dd56.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+<ul>
+<li>也可以自己设定频数，比如我设定为2和6，当然今天我们只讲上面的【所有分类相同】的情况。</li>
+</ul>
+<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/1cd4147b02087bf46a59c1a5f0d3572c10dfcf82.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+<ul>
+<li>这里就是检验结果了，sig值大于0.05，结果不显著，说明两组之间没有差异。</li>
+</ul>
+<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/30ecd5ef76094b361f118ca1a1cc7cd98c109db8.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+<ul>
+<li>如果你用的是精确检验就会看大有一个精确sig值</li>
+</ul>
+<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/91138622720e0cf3abe7dfb70846f21fbe09aa2f.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/04/19/Excel2013：[59]匹配不同工作表记录/">
                 Excel2013：[59]匹配不同工作表记录
             </a>
@@ -975,87 +1056,6 @@
         <div class="post-tags">
             <i class="fa fa-tags" aria-hidden="true"></i>
             <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/">
-                SPSS实例：[28]卡方检验百分比与理论值差异
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年04月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们有一个研究检验某种疗法的有效性，统计了实施前后的人数，我们想要比较实施前和实施后人数是否有差异，怎么比较？有两种数据结构，得使用不同的方法，下面将要介绍的是这种数据没有原始数据，只有计数数据，如下图。变量9表示人数，实施前后表示该方法实施前用0表示，实施后用1表示。另外一种数据结构是你有原始数据，而不是计数数据，你可以参考我以前的文章：<a href="http://jingyan.baidu.com/article/d8072ac4587f6dec95cefd9a.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/d8072ac4587f6dec95cefd9a.html</a></p>
-<ul>
-<li>首先要给数据加权，我们在data菜单下，选择case加权</li>
-</ul>
-<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/c71d0e385343fbf213af316fb27eca8064388fb8.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
-<ul>
-<li>将变量9放入频数变量框，点击【ok】，完成加权（如果有原始数据，则不需要加权）</li>
-</ul>
-<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/29790130e924b899f378ee746c061d950b7bf6f3.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
-<ul>
-<li>接着我们来做卡方检验，在菜单栏上执行：分析–非参检验–遗留选项–卡方检验</li>
-</ul>
-<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/906289dda144ad34f23c10cbd2a20cf430ad85b8.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
-<ul>
-<li>将实施前后变量放入检验变量框。</li>
-</ul>
-<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/0db52fadcbef7609f9880ed32cdda3cc7dd99eb8.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
-<ul>
-<li>这里有一个问题，如果你的数据有一个单元格频数小于5，你得使用精确卡方检验，需要点击【exact】进行设置</li>
-</ul>
-<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/f99dcf00baa1cd117002e46cbb12c8fcc2ce2d82.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
-<ul>
-<li>勾选这个选项，点击继续</li>
-</ul>
-<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/c9bdddcec3fdfc039bcc75f4d63f8794a5c22682.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
-<ul>
-<li>接着设置这里，我们可以检验不同组人数是否相同，使用【所有分类相同】；</li>
-</ul>
-<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/27d647ee3d6d55fbc02fe06a6f224f4a21a4dd56.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
-<ul>
-<li>也可以自己设定频数，比如我设定为2和6，当然今天我们只讲上面的【所有分类相同】的情况。</li>
-</ul>
-<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/1cd4147b02087bf46a59c1a5f0d3572c10dfcf82.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
-<ul>
-<li>这里就是检验结果了，sig值大于0.05，结果不显著，说明两组之间没有差异。</li>
-</ul>
-<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/30ecd5ef76094b361f118ca1a1cc7cd98c109db8.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
-<ul>
-<li>如果你用的是精确检验就会看大有一个精确sig值</li>
-</ul>
-<img src="/2015/04/19/SPSS实例：[28]卡方检验百分比与理论值差异/91138622720e0cf3abe7dfb70846f21fbe09aa2f.jpg" title="SPSS实例：[28]卡方检验百分比与理论值差异">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
         </div>
     
 
@@ -1507,7 +1507,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
         </span>
         
         <span>
@@ -1543,6 +1543,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/问卷互填/">问卷互填</a>
         </span>
         
@@ -1563,10 +1567,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/mplus/">mplus</a>
         </span>
         
@@ -1576,6 +1576,10 @@
         
         <span>
             <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
         </span>
         
         <span>
@@ -1591,15 +1595,19 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/卡方检验/">卡方检验</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/javascript/">javascript</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
         </span>
         
         <span>
@@ -1615,7 +1623,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+            <a class="footer-post" href="/tags/显著性/">显著性</a>
         </span>
         
         <span>
@@ -1639,10 +1647,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/显著性/">显著性</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/process/">process</a>
         </span>
         
@@ -1652,6 +1656,14 @@
         
         <span>
             <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/t检验/">t检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/方差分析/">方差分析</a>
         </span>
         
         <span>
@@ -1695,10 +1707,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/nginx/">nginx</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/mongodb/">mongodb</a>
         </span>
         
@@ -1711,11 +1719,15 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+            <a class="footer-post" href="/tags/nginx/">nginx</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/officejs/">officejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
         </span>
         
         <span>
@@ -1759,6 +1771,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
         </span>
         
@@ -1767,7 +1783,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/logging/">logging</a>
+            <a class="footer-post" href="/tags/os/">os</a>
         </span>
         
         <span>
@@ -1795,19 +1811,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/os/">os</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/情感分析/">情感分析</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>
@@ -1815,7 +1823,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1828,6 +1836,10 @@
         
         <span>
             <a class="footer-post" href="/tags/tensorflow教程/">tensorflow教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/cron/">cron</a>
         </span>
         
         <span>
@@ -1847,19 +1859,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/cron/">cron</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/语料库/">语料库</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/CCA/">CCA</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/典型相关分析/">典型相关分析</a>
         </span>
         
         <span>
@@ -1868,6 +1868,14 @@
         
         <span>
             <a class="footer-post" href="/tags/作文评分/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/CCA/">CCA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/典型相关分析/">典型相关分析</a>
         </span>
         
         <span>
@@ -1883,27 +1891,19 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/卡方/">卡方</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/回归/">回归</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/区块链/">区块链</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/可视化/">可视化</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/visjs/">visjs</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/心理学/">心理学</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/卡方/">卡方</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/数据分享/">数据分享</a>
         </span>
         
     </ul>

@@ -293,20 +293,20 @@
             </div>
             
             <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程12：半监督学习/">
+                    李宏毅机器学习教程12：半监督学习
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程14：无监督学习-词嵌入模型/">
+                    李宏毅机器学习教程14：无监督学习-词嵌入模型
+                </a>
+            </div>
+            
+            <div class="archive-post">
                 <a href="/2018/09/21/李宏毅机器学习教程15：无监督学习-neighbor-embeding/">
                     李宏毅机器学习教程15：无监督学习-neighbor-embeding
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程13：无监督学习/">
-                    李宏毅机器学习教程13：无监督学习
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程17：深度生成模型/">
-                    李宏毅机器学习教程17：深度生成模型
                 </a>
             </div>
             
@@ -380,8 +380,8 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程23-2：Policy-Gradient/">
-                    李宏毅机器学习教程23-2：Policy-Gradient
+                <a href="/2018/09/21/李宏毅机器学习教程23-3：强化学习(包括Qlearning)/">
+                    李宏毅机器学习教程23-3：强化学习(包括Qlearning)
                 </a>
             </div>
             
@@ -499,80 +499,8 @@
     
         <div class="content">
             <p>我们这个系列的教程目的就是让只有高中数学知识的童靴能够正确而有效率的完成论文的数据分析, 因此我们并不关注过深的统计知识, 基于此, 我们可以如此理解回归分析:</p>
-<p>有一个理论的模型方程: <code>$Y = b_0 + b_1 X + \epsilon$</code>, 这里的X和Y是我们关心的自变量和因变量, 我们的目的是求方程中的参数<code>$b_1和b_0$</code></p>
-<h3><span id="前提条件">前提条件</span></h3><ul>
-<li>自变量和因变量都是连续型变量(或者自变量可以定义为连续)</li>
-<li>自变量和因变量之间有线性关系(散点图或者相关分析)</li>
-<li>具有相互独立的观测值(Durbin-Watson)</li>
-<li>没有异常值(Casewise Diagnostics)</li>
-<li>等方差性(残差与回归拟合值或标准化残差与标准化预测值之间的散点图)</li>
-<li>回归残差近似正态分布(直方图)</li>
-</ul>
-<p>这些前提条件满足才可以做回归分析, 但是我们实际上不需要一项一项进行检查, 很多检测项目会在spss进行回归分析的时候输出。</p>
-<p>我们会在视频里详细介绍这些条件是否有必要检测。</p>
-<h3><span id="数据介绍">数据介绍</span></h3><p>我们调查了三百多人的体重和坐姿时间的数据, 研究目的是考察坐姿时间是否对体重有影响, 采集到的数据是这样的:</p>
-<p><img src="imgs/19-1.jpg"></p>
-<h3><span id="相关和散点图">相关和散点图</span></h3><p>在做回归之前, 有必要进行相关分析和做散点图, 主要目的就是对数据的总体情况有一个大概的了解。</p>
-<ul>
-<li>首先打开相关的对话框</li>
-</ul>
-<p><img src="imgs/19-1-spss.png"></p>
-<ul>
-<li>选择有关的变量</li>
-</ul>
-<p><img src="imgs/19-2-spss.png"></p>
-<ul>
-<li>结果解读(我们会在视频中进行一个讲解)</li>
-</ul>
-<p><img src="imgs/19-3-spss.png"></p>
-<h3><span id="回归分析">回归分析</span></h3><h4><span id="操作步骤">操作步骤</span></h4><ul>
-<li>打开线性回归的对话框</li>
-</ul>
-<p><img src="imgs/19-4-spss.png"></p>
-<ul>
-<li>设置自变量和因变量</li>
-</ul>
-<p><img src="imgs/19-5-spss.png"></p>
-<ul>
-<li><p>打开”统计”对话框, 按照下图所示勾选选项,</p>
-<ul>
-<li>杜宾-沃森: 为了检验观测值之间是否相互独立</li>
-<li>个案诊断: 检测异常值</li>
-</ul>
-</li>
-</ul>
-<p><img src="imgs/19-6-spss.png"></p>
-<ul>
-<li>打开”图”设置框, 设置X轴为”ZPRED”(标准化预测值), 设置Y轴为”ZRESID”(标准化残差)</li>
-</ul>
-<p><img src="imgs/19-7-spss.png"></p>
-<ul>
-<li>点击”确定”开始你的分析</li>
-</ul>
-<p><img src="imgs/19-8-spss.png"></p>
-<h4><span id="结果解读">结果解读</span></h4><p>首先是要看”个案诊断”, 很多童鞋没有输出这个表格, 因为你的数据没有诊断出问题, 而我用的数据也没有诊断出问题(标准残差超过3),<br>所以我设置的时候, 设置超过2就算异常(仅仅是为了输出这个图, 图中所有标准残差绝对值没有超过3。这个结果会在视频教程里详细介绍。</p>
-<p><img src="imgs/19-9-case.png"></p>
-<p>然后, 查看残差的直方图, 直方图应该大概符合正太分布, 没有必要进行严格的正态性检验, 只要大致看起来中间高两边低就可以了<br><img src="imgs/19-10-residual.png"></p>
-<p>“等方差性”就是不同的Y值的情况下, 残差的方差没有差异, 可以通过散点图的方式来考察, 之前作图的步骤就是为了输出这个散点图, 我们会在视频教程里详细解读这个图:</p>
-<p><img src="imgs/19-9-scatter.png"></p>
-<p>接下来就进入真正的回归分析了, 首先要看模型的”模型摘要”表格。</p>
-<p>首先要看杜宾沃森检验, 该统计量位于0-4之间, 实际值越接近2, 说明样本之间的独立性越好, 我们这个值是2.088, 非常接近2, 所以前提条件中”具有相互独立的观测值”是成立的。</p>
-<p>在”模型摘要”表格中, 最重要的指标就是R, 它代表着预测的准确性, 也就是当你知道自变量x的值的时候, 根据回归模型<code>$Y = b_0 + b_1 X + \epsilon$</code>可以计算得到<code>$Y$</code>的值, 这个值叫做<code>$\hat Y$</code>, 这个预测值与Y的实际值之间的相关系数就是R, 而<code>$R^2$</code>就是R的平方, 在回归分析中<code>$R^2$</code></p>
-<p>在ANOVA分析中, 很多童鞋会质疑”为什么回归分析中有方差分析的结果”, 在这里我再次强调, 回归分析中用到了F检验去检测模型是否有统计学意义, 在F检验显著的情况下, 才需要去查看回归系数显著性检验表。 另外再说下, 方差分析其实是特殊的回归分析。</p>
-<p><img src="imgs/19-11-anova.png"></p>
-<p>最后, 也是最重要的结果就是回归系数表, 这里每个系数使用t检验的方法来检测该系数是否显著不等于0, 如果显著性小于0.05, 可以认为系数显著不等于0。 回归我们的方程式:<code>$Y = b_0 + b_1 X + \epsilon$</code>, 根据下表的结果, 我们可以轻易得到各个参数的值, 如下:</p>
-<ul>
-<li>截距: <code>$b_0=48$</code></li>
-<li>回归系数: <code>$b_1=2$</code></li>
-</ul>
-<p>根据参数值, 我们可以写出回归方程是: <code>$Y = 48 + 2 X + \epsilon$</code>, 注意方程中还带有参数<code>$\epsilon$</code></p>
-<h3><span id="结果汇报">结果汇报</span></h3><p>回归方程的ANOVA检验显示F(1,301) = 19.3, P&lt;.001，结果显著，说明至少有一个自变量对因变量具有预测作用，具体哪些变量有预测作用，需要看具体的系数显著性检验。坐姿时间的标准化系数为0.245(t=4.388, P&lt;.001), 系数显著，且因为系数大于0，所以坐姿时间正向影响体重的大小。总之，变量坐姿时间的变化会显著影响体重的变化。</p>
-<p><img src="imgs/19-11-result.png"></p>
-<blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="回归-1元线性回归分析.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
-
         </div>
+        <a href="/2021/07/08/回归-1元线性回归分析/" class="read-more">Read More</a>
     
 
     
@@ -956,7 +884,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
         </span>
         
         <span>
@@ -992,6 +920,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/问卷互填/">问卷互填</a>
         </span>
         
@@ -1012,10 +944,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/mplus/">mplus</a>
         </span>
         
@@ -1025,6 +953,10 @@
         
         <span>
             <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
         </span>
         
         <span>
@@ -1040,15 +972,19 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/卡方检验/">卡方检验</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/javascript/">javascript</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
         </span>
         
         <span>
@@ -1064,7 +1000,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+            <a class="footer-post" href="/tags/显著性/">显著性</a>
         </span>
         
         <span>
@@ -1088,10 +1024,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/显著性/">显著性</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/process/">process</a>
         </span>
         
@@ -1101,6 +1033,14 @@
         
         <span>
             <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/t检验/">t检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/方差分析/">方差分析</a>
         </span>
         
         <span>
@@ -1144,10 +1084,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/nginx/">nginx</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/mongodb/">mongodb</a>
         </span>
         
@@ -1160,11 +1096,15 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+            <a class="footer-post" href="/tags/nginx/">nginx</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/officejs/">officejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
         </span>
         
         <span>
@@ -1208,6 +1148,10 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
         </span>
         
@@ -1216,7 +1160,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/logging/">logging</a>
+            <a class="footer-post" href="/tags/os/">os</a>
         </span>
         
         <span>
@@ -1244,19 +1188,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/os/">os</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/情感分析/">情感分析</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>
@@ -1264,7 +1200,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -1277,6 +1213,10 @@
         
         <span>
             <a class="footer-post" href="/tags/tensorflow教程/">tensorflow教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/cron/">cron</a>
         </span>
         
         <span>
@@ -1296,19 +1236,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/cron/">cron</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/语料库/">语料库</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/CCA/">CCA</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/典型相关分析/">典型相关分析</a>
         </span>
         
         <span>
@@ -1317,6 +1245,14 @@
         
         <span>
             <a class="footer-post" href="/tags/作文评分/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/CCA/">CCA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/典型相关分析/">典型相关分析</a>
         </span>
         
         <span>
@@ -1332,27 +1268,19 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/卡方/">卡方</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/回归/">回归</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/区块链/">区块链</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/可视化/">可视化</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/visjs/">visjs</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/心理学/">心理学</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/卡方/">卡方</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/数据分享/">数据分享</a>
         </span>
         
     </ul>
