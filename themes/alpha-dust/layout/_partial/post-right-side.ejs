@@ -1,4 +1,17 @@
-<% item.tags.forEach(function(tag){ %>
+<div class="related-posts">
+    <h3>
+        <a href="#">
+            赞助推荐
+        </a>
+    </h3>
+    <div class="page_list">
+        <% config.alimama.forEach(function(cat){ %>
+            <div class="archive-post">
+                <a href="<%= cat.url %>"><%= cat.name %></a>
+            </div>
+        <% }) %>
+    </div>
+</div>
 <div class="related-posts">
     <h3>
         常用工具
@@ -47,6 +60,9 @@
         </div>
     </div>
 </div>
+
+<% item.tags.forEach(function(tag){ %>
+
 <div class="related-posts">
     <div class="archive-post">
         <a href="#">Python数据科学技术交流QQ群:116384132</a>
