@@ -287,26 +287,26 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程2：误差来自哪里/">
-                    李宏毅机器学习教程2：误差来自哪里
+                <a href="/2018/09/21/李宏毅机器学习教程4：分类问题/">
+                    李宏毅机器学习教程4：分类问题
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程12：半监督学习/">
-                    李宏毅机器学习教程12：半监督学习
-                </a>
-            </div>
-            
-            <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程14：无监督学习-词嵌入模型/">
-                    李宏毅机器学习教程14：无监督学习-词嵌入模型
+                <a href="/2018/09/21/李宏毅机器学习教程11：为什么使用深度网络/">
+                    李宏毅机器学习教程11：为什么使用深度网络
                 </a>
             </div>
             
             <div class="archive-post">
                 <a href="/2018/09/21/李宏毅机器学习教程15：无监督学习-neighbor-embeding/">
                     李宏毅机器学习教程15：无监督学习-neighbor-embeding
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/09/21/李宏毅机器学习教程16：无监督学习-自编码器/">
+                    李宏毅机器学习教程16：无监督学习-自编码器
                 </a>
             </div>
             
@@ -380,8 +380,8 @@
             </div>
             
             <div class="archive-post">
-                <a href="/2018/09/21/李宏毅机器学习教程23-3：强化学习(包括Qlearning)/">
-                    李宏毅机器学习教程23-3：强化学习(包括Qlearning)
+                <a href="/2018/09/21/李宏毅机器学习教程14：无监督学习-词嵌入模型/">
+                    李宏毅机器学习教程14：无监督学习-词嵌入模型
                 </a>
             </div>
             
@@ -443,6 +443,76 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/08/01/vba批量重命名 复制 删除文件夹：[6]Excel2013/">
+                vba批量重命名 复制 删除文件夹：[6]Excel2013
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年08月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>使用Excel中的vba可以帮助我们批量的处理一些文件和文件夹，比如vba批量重命名移动复制删除文件夹，今天我们就来分享几个简单的程序，大家看一下就能懂，帮助我们批量的vba批量重命名移动复制删除文件夹，下面是具体的教程：</p>
+<ul>
+<li>dir函数判断文件夹是否存在：dir函数有两个参数，一个是文件夹的路径，第二个参数见下面第二幅图，他的意义已经在后面标注出来。下面这段程序的意思是如果在本Excel路径下没有找到文件夹“新建文件夹（2）”，那么就弹出消息框说没有该文件夹。</li>
+</ul>
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/2f9cbdcc7cd98d10397b1a5c203fb80e7aec90f4.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/77485536acaf2edd96315f848c1001e93801935f.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<ul>
+<li>mkdir函数可以创建文件夹：如图所示，它只有一个参数就是文件的路径，我们使用了本工作簿的路径，如图所示</li>
+</ul>
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/4abae5edab64034fca54d36baec379310b551d86.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<ul>
+<li>rmdir函数可以删除文件夹：如图所示它只有一个参数，那就是文件夹的路径，它的一个应用案例如图所示：注意这个函数只能删除空文件夹，如果文件夹中有文件，那么函数就会提示错误</li>
+</ul>
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/29790130e924b899710769556f061d950a7bf661.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<ul>
+<li>name函数重命名文件夹或者文件：它其实包括两个部分，As的前面是我们要命名的文件夹路径，As后面是命名后的文件夹路径</li>
+</ul>
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/5af4d7ea15ce36d3c127905d3bf33a87e950b178.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<ul>
+<li>name函数移动文件夹或者文家：和上面的用法一样，只不过在写As后面的路径的时候我们把路径改成想要移动到的位置，比如对上面的代码进行修改就变成了移动文件夹：</li>
+</ul>
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/0862c354564e92588f2d94839d82d158ccbf4e06.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<ul>
+<li>使用filesystemobject对象来复制文件夹：注意这个写法有些不同，首先要创建一个对象，然后才能使用它的方法，copyfolder方法也有两个参数，两个参数用逗号隔开，前面是要复制的文件夹，后面是复制得到的文件夹路径</li>
+</ul>
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/245e8bcad1c8a786ba0f57636609c93d70cf5072.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<ul>
+<li>使用shell打开文件夹：我们用到了explore.exe应用程序，注意其后面有一个空格不能省略，后面是文件夹的路径，注意使用引号，然后最后是一个逗号和参数，各个参数不同，你自己尝试一下</li>
+</ul>
+<img src="/2016/08/01/vba批量重命名%20复制%20删除文件夹：[6]Excel2013/bd7faf3533fa828bcef3818efc1f4134960a5a4f.jpg" title="vba批量重命名 复制 删除文件夹：[6]Excel2013">
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -1316,67 +1386,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/07/15/SPSS实例：[35]优势比OR计算方法/">
-                SPSS实例：[35]优势比OR计算方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年07月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>优势比OR：是一个比值的比，是反应阳性人群中试验因素有无的 比例与反应阴性人群中试验因素有无的比例之比。假如有一个实验分为对照组和实验组，OR值得计算方法就是实验组中患病人数与非患病人数之比除以对照组中患病人数与非患病人数之比。所以就是一个比值的比。</p>
-<ul>
-<li>在spss中，计算优势比OR值得方法是在交叉分析中，先打开交叉分析对话框</li>
-</ul>
-<img src="/2016/07/15/SPSS实例：[35]优势比OR计算方法/43e6c733c895d143f5d8a29471f082025baf079f.jpg" title="SPSS实例：[35]优势比OR计算方法">
-<ul>
-<li>先将两个变量放入到对应的框中</li>
-</ul>
-<img src="/2016/07/15/SPSS实例：[35]优势比OR计算方法/42e89c26cffc1e17e411ca864890f603728de998.jpg" title="SPSS实例：[35]优势比OR计算方法">
-<ul>
-<li>打开统计量对话框</li>
-</ul>
-<img src="/2016/07/15/SPSS实例：[35]优势比OR计算方法/b8405490f603738ddae44a95b11bb051f919ec98.jpg" title="SPSS实例：[35]优势比OR计算方法">
-<ul>
-<li>勾选【risk】，也就是风险评估分析</li>
-</ul>
-<img src="/2016/07/15/SPSS实例：[35]优势比OR计算方法/b110e6198618367aa027396a2c738bd4b21ce598.jpg" title="SPSS实例：[35]优势比OR计算方法">
-<ul>
-<li>结果页面中，我们看结果OR值就已经有了。不过OR值只有卡方检验显著时才是有价值的。卡方不显著时，就不用提OR值了。</li>
-</ul>
-<img src="/2016/07/15/SPSS实例：[35]优势比OR计算方法/9f6e190828381f306eb7cb1eab014c086f06f098.jpg" title="SPSS实例：[35]优势比OR计算方法">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1418,6 +1427,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2021/07/15/样本量计算器-史上最全/">效应量计算器-史上最全</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2021/07/08/回归-多重线性回归分析共线性和控制变量的设置和解读/">SPSS多重线性回归分析共线性和控制变量的设置和解</a>
             </li>
             
@@ -1453,10 +1466,6 @@
                 <a class="footer-post" href="/2021/06/29/方差分析07-单变量协方差分析/">方差分析07-单变量协方差分析</a>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2021/06/29/方差分析06-2因素混合设计方差分析/">方差分析06-2因素混合设计方差分析</a>
-            </li>
-            
         </ul>
     </div>
 
@@ -1484,18 +1493,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/数据分析/">数据分析</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/教程/">教程</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/信度分析/">信度分析</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/amos/">amos</a>
         </span>
         
@@ -1505,6 +1502,18 @@
         
         <span>
             <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/数据分析/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/教程/">教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/信度分析/">信度分析</a>
         </span>
         
         <span>
@@ -1556,11 +1565,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+            <a class="footer-post" href="/tags/Latex/">Latex</a>
         </span>
         
         <span>
@@ -1572,19 +1581,31 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/Latex/">Latex</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/mysql/">mysql</a>
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/机器学习/">机器学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/游戏/">游戏</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/显著性/">显著性</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/process/">process</a>
         </span>
         
         <span>
@@ -1596,19 +1617,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/机器学习/">机器学习</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/深度学习/">深度学习</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/游戏/">游戏</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/process/">process</a>
         </span>
         
         <span>
@@ -1636,14 +1645,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/gensim/">gensim</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/摘要生成/">摘要生成</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/git/">git</a>
         </span>
         
@@ -1657,6 +1658,14 @@
         
         <span>
             <a class="footer-post" href="/tags/notebook/">notebook</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gensim/">gensim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/摘要生成/">摘要生成</a>
         </span>
         
         <span>
@@ -1728,7 +1737,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/格式化字符串/">格式化字符串</a>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
         </span>
         
         <span>
@@ -1736,7 +1745,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+            <a class="footer-post" href="/tags/格式化字符串/">格式化字符串</a>
         </span>
         
         <span>
@@ -1749,14 +1758,6 @@
         
         <span>
             <a class="footer-post" href="/tags/时间序列/">时间序列</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/pil/">pil</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/tkinter/">tkinter</a>
         </span>
         
         <span>
@@ -1773,6 +1774,14 @@
         
         <span>
             <a class="footer-post" href="/tags/情感分析/">情感分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pil/">pil</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tkinter/">tkinter</a>
         </span>
         
         <span>
@@ -1824,19 +1833,19 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/作文评分/">作文评分</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/CCA/">CCA</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/典型相关分析/">典型相关分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/作文评分/">作文评分</a>
         </span>
         
         <span>
@@ -1852,7 +1861,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/卡方/">卡方</a>
+            <a class="footer-post" href="/tags/区块链/">区块链</a>
         </span>
         
         <span>
@@ -1860,11 +1869,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/区块链/">区块链</a>
+            <a class="footer-post" href="/tags/可视化/">可视化</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/可视化/">可视化</a>
+            <a class="footer-post" href="/tags/visjs/">visjs</a>
         </span>
         
     </ul>
