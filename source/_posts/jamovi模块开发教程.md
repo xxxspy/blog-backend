@@ -1012,7 +1012,7 @@ object <- table$`
 
 
 > **注意**
-> 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的, 不论什么模型都可以, 只限制于1个研究内. 
+> 统计咨询请加QQ 2726725926, 微信 mllncn,  SPSS统计咨询是收费的, 不论什么模型都可以, 只限制于1个研究内. 
 > 跟我学统计可以代做分析, 每单几百元不等. 
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](jamovi模块开发教程.ipynb)
 > 可以在微博上@mlln-cn向我免费题问

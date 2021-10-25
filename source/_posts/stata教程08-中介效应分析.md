@@ -433,6 +433,6 @@ Ratio of indirect to direct effect:       -0.0617
 
 > **注意**
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](stata教程08-中介效应分析.ipynb)
-> 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的
+> 统计咨询请加QQ 2726725926, 微信 mllncn,  SPSS统计咨询是收费的
 > 微博上@mlln-cn可以向我免费题问
 > 请记住我的网址: mlln.cn 或者 jupyter.cn

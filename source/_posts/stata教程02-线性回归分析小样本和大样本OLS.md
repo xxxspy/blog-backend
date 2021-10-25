@@ -466,6 +466,6 @@ test lnq=1
 
 > **注意**
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](stata教程02-线性回归分析小样本和大样本OLS.ipynb)
-> 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的
+> 统计咨询请加QQ 2726725926, 微信 mllncn,  SPSS统计咨询是收费的
 > 微博上@mlln-cn可以向我免费题问
 > 请记住我的网址: mlln.cn 或者 jupyter.cn

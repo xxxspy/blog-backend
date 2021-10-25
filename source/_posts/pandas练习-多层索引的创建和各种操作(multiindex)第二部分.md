@@ -1909,6 +1909,6 @@ ss.loc[('bar', 'one' ): ('baz', 'one')]
 
 > **注意**
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](pandas练习-多层索引的创建和各种操作(multiindex)第二部分.ipynb)
-> 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的
+> 统计咨询请加QQ 2726725926, 微信 mllncn,  SPSS统计咨询是收费的
 > 微博上@mlln-cn可以向我免费题问
 > 请记住我的网址: mlln.cn 或者 jupyter.cn

@@ -84,6 +84,6 @@ Process没有什么魔力, 只是将spss的五个步骤, 合成到一起, 让你
 
 > **注意**
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](模型14有调节的中介spss-process教程.ipynb)
-> 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的
+> 统计咨询请加QQ 2726725926, 微信 mllncn,  SPSS统计咨询是收费的
 > 微博上@mlln-cn可以向我免费题问
 > 请记住我的网址: mlln.cn 或者 jupyter.cn

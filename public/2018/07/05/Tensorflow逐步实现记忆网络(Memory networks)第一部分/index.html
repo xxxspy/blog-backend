@@ -358,7 +358,7 @@ $$</code></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># W = last C, weight tying</span></span><br><span class="line"><span class="keyword">with</span> tf.variable_scope(<span class="string">"hop_number&#123;&#125;"</span>.format(hop_number)):</span><br><span class="line">    self._logits = tf.matmul(u_k, tf.transpose(self.C[<span class="number">-1</span>], [<span class="number">1</span>,<span class="number">0</span>]))</span><br><span class="line">    self._scores = tf.nn.softmax(self._logits)</span><br></pre></td></tr></table></figure>
 <h3><span id="小结">小结</span></h3><p>文章到此就是完成了一个端到端的记忆网络, 但是这里还没有介绍如何训练这个网络以及一些可视化的方法。我们统一放在下一篇<a href="http://mlln.cn">介绍, </a>链接:</p>
 <blockquote>
-<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="Tensorflow逐步实现记忆网络(Memory networks">notebook</a>第一部分.ipynb)<br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
+<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="Tensorflow逐步实现记忆网络(Memory networks">notebook</a>第一部分.ipynb)<br>统计咨询请加QQ 2726725926, 微信 mllncn,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
 </blockquote>
 
     </div>
@@ -473,6 +473,9 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         常用工具
     </h3>
     <div class="page_list">
+        <div class="archive-post">
+            <a href="/mplusoutput/">Mplus结果查看器</a>
+        </div>
         <div class="archive-post">
             <a href="/drawio/">绘图软件</a>
         </div>

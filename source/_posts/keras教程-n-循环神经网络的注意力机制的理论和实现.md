@@ -434,6 +434,6 @@ plt.bar(range(10), np.mean(weightV, axis=0))
 
 > **注意**
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](keras教程-n-循环神经网络的注意力机制的理论和实现.ipynb)
-> 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的
+> 统计咨询请加QQ 2726725926, 微信 mllncn,  SPSS统计咨询是收费的
 > 微博上@mlln-cn可以向我免费题问
 > 请记住我的网址: mlln.cn 或者 jupyter.cn

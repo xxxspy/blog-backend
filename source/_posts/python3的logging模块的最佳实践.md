@@ -372,7 +372,7 @@ logger.debug('often makes a very good meal of %s', 'visiting tourists')
 ```
 
 
-> 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的
+> 统计咨询请加QQ 2726725926, 微信 mllncn,  SPSS统计咨询是收费的
 > 本文由jupyter notebook转换而来, 您可以在这里下载[notebook](python3的logging模块的最佳实践.ipynb)
 > 有问题可以直接在下方留言
 > 微博上@mlln-cn可以向我免费题问
