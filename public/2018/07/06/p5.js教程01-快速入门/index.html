@@ -295,7 +295,7 @@
 
 <p><code>createCanvas（）</code>将创建一个指定大小的绘图画布，并将其附加到你正在使用的html页面。如果您的html页面正文中有其他内容，那么它将在此之后添加到页面，因此你可能无法在窗口顶部看到它。</p>
 <p>画布也会受到页面上任何现有css（样式）的影响，包括浏览器设置的默认值。例如，许多浏览器在页面末尾都有一个默认填充。如果您注意到窗口左上角的画布并非一直存在，这可能就是原因。要解决这个问题，你可以在你的html文件的<code>&lt;head&gt;</code>中添加一行来覆盖默认的填充，如下所示：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="undefined"> body&#123;padding:0; margin:0;&#125; </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"> <span class="selector-tag">body</span>&#123;<span class="attribute">padding</span>:<span class="number">0</span>; <span class="attribute">margin</span>:<span class="number">0</span>;&#125; </span><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>如果要为画布指定位置，而不是直接附加到末尾，则可以使用<code>parent</code>方法。在你的html文件的<code>&lt;body&gt;</code>中，创建一个你想要插入画布的容器，其中包含你选择的ID：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">'myContainer'</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>然后在<code>setup()</code>函数中调用<code>parent</code>方法:</p>
@@ -595,14 +595,14 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
             </div>
             
             <div class="archive-post">
-                <a href="/2018/06/06/p5.js教程06-显示文字/">
-                    p5.js教程06-显示文字
+                <a href="/2018/06/06/p5.js教程05-图片处理/">
+                    p5.js教程05-图片处理
                 </a>
             </div>
             
             <div class="archive-post">
-                <a href="/2018/06/06/p5.js教程05-图片处理/">
-                    p5.js教程05-图片处理
+                <a href="/2018/06/06/p5.js教程06-显示文字/">
+                    p5.js教程06-显示文字
                 </a>
             </div>
             
@@ -669,6 +669,14 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         <ul>
             
             <li>
+                <a class="footer-post" href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">SPSS+AMOS数据分析案例教程-关于中介模型</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/05/17/大纲/">SPSS+AMOS数据分析案例分析报告</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2021/11/19/百度指数数据下载方法/">百度指数数据下载方法</a>
             </li>
             
@@ -700,14 +708,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
                 <a class="footer-post" href="/2021/06/29/10-2x2卡方检验/">10-2x2卡方检验</a>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2021/06/29/09-T检验-配对样本/">09-T检验-配对样本</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2021/06/29/08-T检验-独立样本/">08-T检验-独立样本</a>
-            </li>
-            
         </ul>
     </div>
 
@@ -719,11 +719,11 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>
@@ -735,18 +735,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/数据分析/">数据分析</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/教程/">教程</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/信度分析/">信度分析</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/amos/">amos</a>
         </span>
         
@@ -755,7 +743,19 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/数据分析/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/教程/">教程</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/信度分析/">信度分析</a>
         </span>
         
         <span>
@@ -783,15 +783,15 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/python/">python</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
         </span>
         
         <span>
@@ -811,6 +811,14 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/卡方检验/">卡方检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/javascript/">javascript</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
         </span>
         
@@ -820,14 +828,6 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         
         <span>
             <a class="footer-post" href="/tags/Latex/">Latex</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/卡方检验/">卡方检验</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/javascript/">javascript</a>
         </span>
         
         <span>
@@ -887,15 +887,15 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/git/">git</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/gensim/">gensim</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/摘要生成/">摘要生成</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/git/">git</a>
         </span>
         
         <span>
@@ -919,6 +919,10 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/nginx/">nginx</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/mongodb/">mongodb</a>
         </span>
         
@@ -931,7 +935,7 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/nginx/">nginx</a>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
         </span>
         
         <span>
@@ -939,63 +943,7 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/officejs/">officejs</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/pandas/">pandas</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/效度分析/">效度分析</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/manim/">manim</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/EM/">EM</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/tensorflow-js/">tensorflow.js</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/作文评分/">作文评分</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/自然语言处理/">自然语言处理</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/NLP/">NLP</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/语料库/">语料库</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/electron/">electron</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/gui/">gui</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/networkx/">networkx</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/dataframe/">dataframe</a>
         </span>
         
         <span>
@@ -1015,7 +963,15 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/electron/">electron</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/flexx/">flexx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gui/">gui</a>
         </span>
         
         <span>
@@ -1031,7 +987,7 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
         </span>
         
         <span>
@@ -1075,7 +1031,7 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
         </span>
         
         <span>
@@ -1099,6 +1055,10 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/自然语言处理/">自然语言处理</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/vscode/">vscode</a>
         </span>
         
@@ -1111,11 +1071,51 @@ conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/语料库/">语料库</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/作文评分/">作文评分</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/CCA/">CCA</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/典型相关分析/">典型相关分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/爬虫/">爬虫</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/卡方/">卡方</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/区块链/">区块链</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/回归/">回归</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/可视化/">可视化</a>
         </span>
         
     </ul>
