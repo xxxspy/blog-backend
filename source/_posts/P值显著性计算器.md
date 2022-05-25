@@ -5,6 +5,7 @@ tags: [spss, 显著性]
 ---
 
 <script src="/tfstats/tfstats.js"></script>
+<script src="tfstats.js"></script>
 
 这是计算卡方分布/T分布/F分布P值(显著性)的计算器, 做这个小程序的目的是因为现在很多学生学习统计的时候会自己计算一些统计量, 比如卡方和t分数等, 
 我们知道这些值以后需要根据统计书上的附录查表才能知道这些值对应的P值, 比较麻烦, 所以我就想, 既然P值是可以直接计算得到, 
@@ -143,6 +144,50 @@ tags: [spss, 显著性]
                 let cdf = tfstats.utils.jstat.centralF.cdf;
                 let p = 1-cdf(f, df1, df2)
                 $('#p3').val(p)
+            }catch(e){
+                console.log(e)
+                alert('计算过程发生错误')
+            }
+        }else{
+            alert('数据不全')
+        }
+    }
+</script>
+{% endraw %}
+
+
+{% raw %}
+<table>
+    <tr>
+        <td>Z分数</td><td>单侧</td><td>P值</td>
+    </tr>
+    <tr>
+        <td><input class="form-control" type="number" id="zfen" step="0.1"></td>
+        <td><input class="form-control" type="checkbox" id="side4"></td>
+        <td><input class="form-control" type="number" id="p4" disabled></td>
+    </tr>
+    <tr>
+        <td>
+            <button class="btn btn-block" onclick="calculateZtest()">计算</button>
+        </td>
+        <td colspan="3">
+        </td>
+    </tr>
+</table>
+<script>
+    function calculateZtest(){
+        let zfen = $('#zfen').val()
+        let side = $('#side4').prop('checked') ? 1:2 ;
+        console.log({zfen, side})
+        if(zfen!="" ){
+            try{
+                zfen = parseFloat(zfen)
+                let cdf = tfstats.utils.jstat.normal.cdf;
+                if(zfen<0){
+                    zfen *= -1
+                }
+                let p = (1-cdf(zfen, 0, 1)) * side;
+                $('#p4').val(p);
             }catch(e){
                 console.log(e)
                 alert('计算过程发生错误')
