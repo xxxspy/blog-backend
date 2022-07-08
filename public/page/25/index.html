@@ -204,6 +204,92 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2018/02/03/pyltp安装和小白入门/">
+                pyltp安装和小白入门
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018年02月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>之前一篇文章我介绍了一下如何在windows下安装pyltp, 但是自我感觉对小白还是不太友好, 因为我也是小白出身(潜在语义你懂), 所以我对小白有一种发自内心的感情纠结, 所以思前想后辗转反侧以后, 我决定再补充一篇入门教程.</p>
+<p>我的开发环境:</p>
+<ul>
+<li>win10 64bit</li>
+<li>python3.5 64bit</li>
+</ul>
+<p>我的意思是不要问我python怎么装上去的.</p>
+<h3><span id="安装">安装</span></h3><p>参考<a href="/2018/01/31/pyltp在windows下的编译安装/" title="哈工大自然语言处理ltp在windows10下的安装使用">哈工大自然语言处理ltp在windows10下的安装使用</a>下载对应版本的wheel文件, 这是我自己打包的一个免编译安装文件, 为小白独家定制的, 拿走. 我下载的是<code>pyltp-0.2.1-cp35-cp35m-win_amd64.whl</code>.</p>
+<p>我的习惯是, 为每个任务创建一个虚拟环境.</p>
+<p>假如我打算在<code>D:\programs\learn-pyltp</code>目录下做开发, 后面简称工程根目录. 打开powershell, 不知道怎么打开的需要百度. cd 到这个目录.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建.env文件夹, 并以此作为虚拟环境的目录</span></span><br><span class="line">&gt; python -m venv .env </span><br><span class="line"><span class="comment"># 激活虚拟环境</span></span><br><span class="line">&gt; .env/script/activate</span><br></pre></td></tr></table></figure>
+<p>把wheel文件放到工程根目录下, 运行命令:<code>pip install pyltp-0.2.1-cp35-cp35m-win_amd64.whl</code>.</p>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/文本挖掘/">#文本挖掘</a> <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2018/01/31/pyltp在windows下的编译安装/">
+                哈工大自然语言处理ltp在windows10下的安装使用
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018年01月31日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>ltp是哈工大出品的自然语言处理工具箱, pyltp是python下对ltp(c++)的封装. 在linux下我们很容易的安装pyltp, 因为各种编译工具比较方便. 但是在windows下需要安装vs并且还得做一些配置, 因为我服务的人都是在windows下办公, 需要让他们能够在windows下使用ltp, 所以才有了这篇笔记. 我的方案有两个:</p>
+<ul>
+<li>在win10 的bash下安装ltp, 然后启动ltp的server, 通过http协议来实现在windows下python调用ltp的方法.</li>
+<li>安装编译好的wheel(目前只有python3.6/3.5 amd64)(我推荐这种方案)</li>
+<li>我在文章最下面还引用了一种方法, 就是使用官方已经编译好的可执行exe文件, 直接在命令行(如cmd)下调用.</li>
+</ul>
+        </div>
+        <a href="/2018/01/31/pyltp在windows下的编译安装/" class="read-more">Read More</a>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/文本挖掘/">#文本挖掘</a> <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2018/01/19/visual-studio-code-编辑器使用问题技巧汇总/">
                 visual studio code 编辑器使用问题技巧汇总
             </a>
@@ -484,79 +570,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2017/11/19/eprime-e-prime的logging数据指标详解/">
-                eprime/e-prime的logging数据指标详解
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2017年11月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>eprime有几十个数据指标, 但是 很多新手不清楚里面的指标是什么意思, 这里特别总结到一起, 可能不太全, 会逐步补充到里面. 如果里面有什么错误, 或者有需要补充的内容, 请在下面留言.</p>
-<h3 id="几个概念"><a href="#几个概念" class="headerlink" title="几个概念:"></a>几个概念:</h3><ul>
-<li>时间戳: 从实验开始到某个时间点之间的毫秒数.</li>
-</ul>
-        </div>
-        <a href="/2017/11/19/eprime-e-prime的logging数据指标详解/" class="read-more">Read More</a>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/eprime/">#eprime</a> <a href="/tags/e-prime/">#e-prime</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2017/11/15/python计算卡方统计值及其矫正值/">
-                python计算四格表卡方统计值及其矫正值
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2017年11月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>卡方检验就是统计样本的实际观测值与理论推断值之间的偏离程度，实际观测值与理论推断值之间的偏离程度就决定卡方值的大小，卡方值越大，越不符合；卡方值越小，偏差越小，越趋于符合，若两个值完全相等时，卡方值就为0，表明理论值完全符合。</p>
-        </div>
-        <a href="/2017/11/15/python计算卡方统计值及其矫正值/" class="read-more">Read More</a>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/scipy/">#scipy</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -598,11 +611,19 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2022/07/08/Amos结构方程数据分析案例教程/">Untitled</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">SPSS+AMOS数据分析案例教程-关于中介模型</a>
             </li>
             
             <li>
                 <a class="footer-post" href="/2022/05/17/大纲/">SPSS+AMOS数据分析案例分析报告</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/01/12/结构方程模型最佳实践/">结构方程模型最佳实践</a>
             </li>
             
             <li>
@@ -629,14 +650,6 @@
                 <a class="footer-post" href="/2021/07/08/回归-1元线性回归分析/">SPSS1元线性回归分析(视频教程)</a>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2021/06/29/11-2XN卡方检验/">11-2XN卡方检验</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2021/06/29/10-2x2卡方检验/">10-2x2卡方检验</a>
-            </li>
-            
         </ul>
     </div>
 
@@ -648,7 +661,7 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
         </span>
         
         <span>
@@ -960,11 +973,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/sublime/">sublime</a>
+            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
         </span>
         
         <span>
