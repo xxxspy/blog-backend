@@ -1,5 +1,14 @@
 
+---
+
+title: Amos结构方程模型数据分析入门教程
+date: 2022-06-12 12:44:03
+tags: [结构方程, amos]
+
+---
+
 ### 模型
+
 
 <img src="imgs/model.png">
 
