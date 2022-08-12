@@ -204,6 +204,66 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/10/03/Python教程：[61]创建文件夹 目录/">
+                Python教程：[61]创建文件夹 目录
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年10月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>python如何创建文件夹，用到了mkdir和makedirs两个方法，前者创建一层目录，后者创建多层目录，下面我们来看看具体是怎么用的。</p>
+<ul>
+<li>先要引入os模块</li>
+</ul>
+<img src="/2016/10/03/Python教程：[61]创建文件夹%20目录/ac754782b2b7d0a2c2fbb31dc9ef76094a369ac5.jpg" title="Python教程：[61]创建文件夹 目录">
+<ul>
+<li>使用mkdir方法创建一个tt文件夹，参数是文件夹的路径：</li>
+</ul>
+<img src="/2016/10/03/Python教程：[61]创建文件夹%20目录/caae68094b36acaffad2217c7ed98d1000e99cc5.jpg" title="Python教程：[61]创建文件夹 目录">
+<ul>
+<li>假如我们使用mkdir方法创建多层文件夹，也就是说，文件夹f:/tt1和文件夹f:/tt1/tt1都是不存在的，这时候就会出现错误</li>
+</ul>
+<img src="/2016/10/03/Python教程：[61]创建文件夹%20目录/7d98931001e93901fb303abe79ec54e737d196c5.jpg" title="Python教程：[61]创建文件夹 目录">
+<ul>
+<li>我们可以使用makedirs方法来创建多层目录：</li>
+</ul>
+<img src="/2016/10/03/Python教程：[61]创建文件夹%20目录/8697397f9e2f07085e689d80eb24b899a801f286.jpg" title="Python教程：[61]创建文件夹 目录">
+<ul>
+<li>写完这篇文章，你可能想知道，如何删除目录呢，幸好我前几天已经写完了一篇如何删除文件夹的文章，具体见：<a href="http://jingyan.baidu.com/article/39810a23e80384b636fda639.html" target="_blank" rel="noopener">http://jingyan.baidu.com/article/39810a23e80384b636fda639.html</a></li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/10/03/Python教程：[3]input和raw_input函数/">
                 Python教程：[3]input和raw_input函数
             </a>
@@ -998,78 +1058,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/19/DataNitro：[6]sheet操作(A)/">
-                DataNitro：[6]sheet操作(A)
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>今天继续我们的datanitro，讲一讲对sheet的操作，sheet就是工作表（擦！你以为我们不知道啊！），因为内容比较多，我们分为A篇和B篇，看完A篇（A篇听起来很性感），觉得好看再看B篇。</p>
-<ul>
-<li>active_sheet：返回当前活动工作表（当前活动的也就是你正在操作的，鼠标点一下某个sheet就会激活这个sheet）。如果你不传入任何参数，他会返回活动sheet的名称，如果你传入一个sheet名称，就会激活该sheet：</li>
-</ul>
-<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/d5462bfae6cd7b8986cda4d00c2442a7d8330e84.jpg" title="DataNitro：[6]sheet操作(A)">
-<ul>
-<li>display_sheet：展示某个工作表：它的用法和上面一样，传不传参数，它的功能不同，其实datanitro的很多方法都是这样的，你畜类旁通一下，因为很多时候我是不会重复的说这个事情的。</li>
-</ul>
-<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/d5462bfae6cd7b898914a3d00c2442a7d9330e2d.jpg" title="DataNitro：[6]sheet操作(A)">
-<ul>
-<li>clear_row和clear_col：清空某行或者某列：他们可以使用整数、列表、Cell对象CellRange对象作为参数。当使用Cell或者CellRange的时候，他们清空的是这些单元格所在的行或者列</li>
-</ul>
-<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/cdfe7281800a19d863fd1d5630fa828ba71e46ac.jpg" title="DataNitro：[6]sheet操作(A)">
-<ul>
-<li><p>del_row/del_col用法也是同上，顾名思义，删除行或者列。</p>
-</li>
-<li><p>hide_row/hide_col用法稍微不同，顾名思义，隐藏行或者列。可以传入整数、列表，还可以指定隐藏某个特定的工作表中的行。</p>
-</li>
-</ul>
-<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/d66b7e59252dd42aadde98f8003b5bb5c8eab84b.jpg" title="DataNitro：[6]sheet操作(A)">
-<ul>
-<li>row_is_hidded/col_is_hidden：判断某行/列是否被隐藏，如果被隐藏，返回True，否则返回False。只能接受整数作为参数，而是否指定某个工作表是可选的，如果不指定，那么就指的是当前活动的工作表</li>
-</ul>
-<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/86d5bac27d1ed21b0824b7b6ae6eddc450da3fb0.jpg" title="DataNitro：[6]sheet操作(A)">
-<ul>
-<li>insert_row/insert_col：这两个方法你应该亲手测试一下，传入不同的参数看看效果，它可以接受的参数有整数，Cell对象，列表；还可以指定某个工作表。</li>
-</ul>
-<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/c8ab0bce36d3d5393bea96903987e950342ab04b.jpg" title="DataNitro：[6]sheet操作(A)">
-<ul>
-<li>aotofit：设置自动列宽，它有两个可选参数：工作表和CellRange地址</li>
-</ul>
-<img src="/2016/09/19/DataNitro：[6]sheet操作(A)/c71d0e385343fbf224fb3f70b37eca8064388f4b.jpg" title="DataNitro：[6]sheet操作(A)">
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/datanitro/">#datanitro</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1111,6 +1099,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2022/08/12/R中如何自动整理结果为论文可用格式/">R中如何自动整理结果为论文可用格式</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2022/08/11/R语言快速入门练习材料/">R语言快速入门练习材料</a>
             </li>
             
@@ -1123,11 +1115,11 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2022/05/17/大纲/">SPSS+AMOS数据分析案例分析报告</a>
+                <a class="footer-post" href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">SPSS+AMOS数据分析案例教程-关于中介模型</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">SPSS+AMOS数据分析案例教程-关于中介模型</a>
+                <a class="footer-post" href="/2022/05/17/大纲/">SPSS+AMOS数据分析案例分析报告</a>
             </li>
             
             <li>
@@ -1146,10 +1138,6 @@
                 <a class="footer-post" href="/2021/08/19/jamovi模块开发教程/">jamovi模块开发教程</a>
             </li>
             
-            <li>
-                <a class="footer-post" href="/2021/07/15/样本量计算器-史上最全/">效应量计算器-史上最全</a>
-            </li>
-            
         </ul>
     </div>
 
@@ -1161,11 +1149,11 @@
     <ul>
         
         <span>
-            <a class="footer-post" href="/tags/stata/">stata</a>
+            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
         </span>
         
         <span>
@@ -1185,7 +1173,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/信度分析/">信度分析</a>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
         </span>
         
         <span>
@@ -1197,7 +1185,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+            <a class="footer-post" href="/tags/信度分析/">信度分析</a>
         </span>
         
         <span>
@@ -1217,18 +1205,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/numpy/">numpy</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/mplus/">mplus</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/结构方程/">结构方程</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/datanitro/">datanitro</a>
         </span>
         
@@ -1241,7 +1217,15 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/mplus/">mplus</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/VBA/">VBA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
         </span>
         
         <span>
@@ -1253,10 +1237,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/卡方检验/">卡方检验</a>
         </span>
         
@@ -1265,7 +1245,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+            <a class="footer-post" href="/tags/mysql/">mysql</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/结构方程/">结构方程</a>
         </span>
         
         <span>
@@ -1277,11 +1261,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/mysql/">mysql</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/显著性/">显著性</a>
+            <a class="footer-post" href="/tags/R语言/">R语言</a>
         </span>
         
         <span>
@@ -1290,6 +1270,26 @@
         
         <span>
             <a class="footer-post" href="/tags/游戏/">游戏</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/显著性/">显著性</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/process/">process</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
         </span>
         
         <span>
@@ -1305,11 +1305,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/process/">process</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
+            <a class="footer-post" href="/tags/e-prime/">e-prime</a>
         </span>
         
         <span>
@@ -1317,27 +1313,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/t检验/">t检验</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/方差分析/">方差分析</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/nodejs/">nodejs</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/e-prime/">e-prime</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/gensim/">gensim</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/摘要生成/">摘要生成</a>
         </span>
         
         <span>
@@ -1357,11 +1333,31 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/gensim/">gensim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/摘要生成/">摘要生成</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/keras教程/">keras教程</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/keras基础/">keras基础</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/t检验/">t检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/方差分析/">方差分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
         </span>
         
         <span>
@@ -1377,15 +1373,7 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/nginx/">nginx</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/officejs/">officejs</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
         </span>
         
         <span>
@@ -1397,15 +1385,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/下载/">下载</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/网盘/">网盘</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nginx/">nginx</a>
         </span>
         
         <span>
@@ -1441,10 +1425,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/os/">os</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/时间序列/">时间序列</a>
         </span>
         
@@ -1461,6 +1441,22 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/情感分析/">情感分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/下载/">下载</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/网盘/">网盘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/os/">os</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/requests/">requests</a>
         </span>
         
@@ -1469,15 +1465,11 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/情感分析/">情感分析</a>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
+            <a class="footer-post" href="/tags/stata/">stata</a>
         </span>
         
         <span>
@@ -1497,10 +1489,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/cron/">cron</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/vscode/">vscode</a>
         </span>
         
@@ -1517,10 +1505,6 @@
         </span>
         
         <span>
-            <a class="footer-post" href="/tags/语料库/">语料库</a>
-        </span>
-        
-        <span>
             <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
         </span>
         
@@ -1529,11 +1513,19 @@
         </span>
         
         <span>
+            <a class="footer-post" href="/tags/语料库/">语料库</a>
+        </span>
+        
+        <span>
             <a class="footer-post" href="/tags/CCA/">CCA</a>
         </span>
         
         <span>
             <a class="footer-post" href="/tags/典型相关分析/">典型相关分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/cron/">cron</a>
         </span>
         
         <span>
@@ -1554,10 +1546,6 @@
         
         <span>
             <a class="footer-post" href="/tags/区块链/">区块链</a>
-        </span>
-        
-        <span>
-            <a class="footer-post" href="/tags/回归/">回归</a>
         </span>
         
     </ul>
