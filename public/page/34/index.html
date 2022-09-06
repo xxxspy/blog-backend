@@ -204,6 +204,90 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/08/23/python 线性代数：[2]矩阵乘法/">
+                python 线性代数：[2]矩阵乘法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年08月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天我们来使用Python的numpy包进行矩阵的乘法运算，用到了一些矩阵乘法的基本知识，这里我们就不再说矩阵，我们假设你对矩阵都有一定的了解，下面看我们具体的例子。</p>
+<ul>
+<li>使用二维数组创建两个矩阵A和B</li>
+</ul>
+<img src="/2016/08/23/python%20线性代数：[2]矩阵乘法/43e6c733c895d143723b3dd271f082025baf07b7.jpg" title="python 线性代数：[2]矩阵乘法">
+<ul>
+<li>先来一个矩阵的数乘，其实见识矩阵的每一个元素乘以该数</li>
+</ul>
+<img src="/2016/08/23/python%20线性代数：[2]矩阵乘法/9304c888d43f8794605d91dfd01b0ef41ad53a66.jpg" title="python 线性代数：[2]矩阵乘法">
+<ul>
+<li>dot函数用于矩阵乘法，对于二维数组，它计算的是矩阵乘积，对于一维数组，它计算的是内积。注意交换矩阵的前后位置会导致不同的结果，看下面的例子</li>
+</ul>
+<img src="/2016/08/23/python%20线性代数：[2]矩阵乘法/1a94b36eddc451da4d54d51ab4fd5266d1163266.jpg" title="python 线性代数：[2]矩阵乘法">
+<img src="/2016/08/23/python%20线性代数：[2]矩阵乘法/964b2e4e251f95ca7c3a4c47cb177f3e66095231.jpg" title="python 线性代数：[2]矩阵乘法">
+<ul>
+<li>再创建一个二维数组</li>
+</ul>
+<img src="/2016/08/23/python%20线性代数：[2]矩阵乘法/647912d7912397ddc19e46f55b82b2b7d1a28719.jpg" title="python 线性代数：[2]矩阵乘法">
+<ul>
+<li>我们验证一个矩阵乘法的结合性 （AB)C=A(BC）</li>
+</ul>
+<img src="/2016/08/23/python%20线性代数：[2]矩阵乘法/a005b3345982b2b7b478e73533adcbef77099b19.jpg" title="python 线性代数：[2]矩阵乘法">
+<ul>
+<li>接着看一下对加法的分配性 （A+B)C=AC+BC，C(A+B）=CA+CB</li>
+</ul>
+<img src="/2016/08/23/python%20线性代数：[2]矩阵乘法/d041a4a1cd11728bfce252d3cafcc3cec2fd2c31.jpg" title="python 线性代数：[2]矩阵乘法">
+<img src="/2016/08/23/python%20线性代数：[2]矩阵乘法/4651a712c8fcc3ce7c0f17c29045d688d53f2031.jpg" title="python 线性代数：[2]矩阵乘法">
+<ul>
+<li>数乘的结合性，也一样啦：</li>
+</ul>
+<img src="/2016/08/23/python%20线性代数：[2]矩阵乘法/8c511fe93901213fcad4902d56e736d12e2e9519.jpg" title="python 线性代数：[2]矩阵乘法">
+<img src="/2016/08/23/python%20线性代数：[2]矩阵乘法/d7c9ca3f8794a4c2bbec39da0cf41bd5ac6e3931.jpg" title="python 线性代数：[2]矩阵乘法">
+<img src="/2016/08/23/python%20线性代数：[2]矩阵乘法/a005b3345982b2b7b479e73533adcbef77099b1a.jpg" title="python 线性代数：[2]矩阵乘法">
+<ul>
+<li>接着我们用到一个新知识，使用eye创建一个单位矩阵，单位矩阵的定义就是看下面的步骤</li>
+</ul>
+<img src="/2016/08/23/python%20线性代数：[2]矩阵乘法/adee30dda3cc7cd9e3cbea283b01213fb90e911a.jpg" title="python 线性代数：[2]矩阵乘法">
+<ul>
+<li>我们看一下，一个矩阵A乘以一个单位矩阵，还是它本身</li>
+</ul>
+<img src="/2016/08/23/python%20线性代数：[2]矩阵乘法/00a82701213fb80e0837bf2634d12f2eb838941a.jpg" title="python 线性代数：[2]矩阵乘法">
+<ul>
+<li>好了，乘法就到这里了，我们下面接着继续讲矩阵的转置</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/08/19/excel如何保护公式不被修改/">
                 excel如何保护公式不被修改
             </a>
@@ -883,47 +967,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/08/15/Python教程：[37]处理网页源码中的 x22字符/">
-                Python教程：[37]处理网页源码中的 x22字符
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年08月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>python采集网页，不一样的网页有不一样的编码方式，我今天采集的一个网页处理起来有点麻烦，不仅仅是编码的问题，我尝试了各种编码最后还是没有解决这个问题，我们来看看下面，源码里有大量的\x22，其实你一看就知道是双引号，但是我print出来，按照常理双引号应该显示正常，为什么这里不行了呢？如果你知道原因，可以指导我一下，我说说我的解决方法吧。</p>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:675495787@qq.com" target="_blank" rel="noopener">675495787@qq.com</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -965,6 +1008,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2022/08/31/结构方程模型多组比较分析调节变量/">结构方程模型多组比较分析调节变量</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2022/08/24/JupyterNotebook中运行R代码/">Jupyter notebook中运行R代码</a>
             </li>
             
@@ -985,11 +1032,11 @@
             </li>
             
             <li>
-                <a class="footer-post" href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">SPSS+AMOS数据分析案例教程-关于中介模型</a>
+                <a class="footer-post" href="/2022/05/17/大纲/">SPSS+AMOS数据分析案例分析报告</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2022/05/17/大纲/">SPSS+AMOS数据分析案例分析报告</a>
+                <a class="footer-post" href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">SPSS+AMOS数据分析案例教程-关于中介模型</a>
             </li>
             
             <li>
@@ -998,10 +1045,6 @@
             
             <li>
                 <a class="footer-post" href="/2021/11/19/百度指数数据下载方法/">百度指数数据下载方法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2021/08/19/meta-essentials-cn/">meta-essentials中文手册</a>
             </li>
             
         </ul>
