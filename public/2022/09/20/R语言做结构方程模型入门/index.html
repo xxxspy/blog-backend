@@ -1,0 +1,1436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head><meta name="generator" content="Hexo 3.8.0">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-transform">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width">
+    <meta name="HandheldFriendly" content="true">
+    <!--Description-->
+    
+        <meta name="description" content="专注于数据开发, 数据分析, 数据采集, python教学">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xxxspy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="R语言做结构方程模型入门">
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="专注于数据开发, 数据分析, 数据采集, python教学">
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="DataSense">
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article">
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary">
+    
+
+    <!-- Title -->
+    
+    <title>R语言做结构方程模型入门 - DataSense</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+    code{
+    color: #d7ecff;
+    font-size: 110%;
+    }
+    pre > code {
+        -webkit-border-before: black;
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        color: #f9f4f4;
+        word-break: break-all;
+        word-wrap: break-word;
+        background-color: #f5f5f500;
+        border: 1px solid #eff3f521;
+        border-radius: 0;
+    }
+    pre > code::before {
+        content:"- ";
+        z-index: -1;
+        left:-2px;
+    }
+    #feedAv{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #MZAD_POP_PLACEHOLDER{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #pop_ad{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    </style>
+
+    
+    
+    
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+</head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+    <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i>
+        
+            <p id="main-title" class="title">DataSense</p>
+        
+        </a>
+    </div>
+</header>
+<div class="page_list archive-container">
+        
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+            SPSS+AMOS数据分析案例教程-关于中介模
+        </a>
+    </div>
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+            SPSS视频教程内容目录和跳转链接
+        </a>
+    </div>
+    
+</div>
+
+    <!-- Main Content -->
+    
+
+    
+        
+<div class="row">
+    <div class="col-md-9 col-sm-12">
+        <!--Title and Logo-->
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2022/09/20/R语言做结构方程模型入门/">
+                R语言做结构方程模型入门
+            </a>
+
+        </h1>
+        <div class="weibo-share">
+            <p>微博@mlln-cn, 并附上文章url链接, 我就能回答你的问题奥!</p>
+        </div>
+        <div class="post-info">
+            
+                <span class="date">2022年09月20日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+    <!-- Table of Contents -->
+    
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">1.</span> <span class="toc-text">目的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">2.</span> <span class="toc-text">案例介绍</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">2.1.</span> <span class="toc-text">模型表示</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">3.</span> <span class="toc-text">R代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.1.</span> <span class="toc-text">模型的表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">3.2.</span> <span class="toc-text">R 代码</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">4.</span> <span class="toc-text">实战</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.1.</span> <span class="toc-text">安装和加载库</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.2.</span> <span class="toc-text">下载数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.3.</span> <span class="toc-text">估计模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#undefined"><span class="toc-number">4.4.</span> <span class="toc-text">计算中介效应和总效应</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#undefined"><span class="toc-number">5.</span> <span class="toc-text">视频教程</span></a></li></ol>
+    </div>
+    
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>这是用R做结构方程的案例, 最下方有视频教程.</p>
+<a id="more"></a>
+<h2><span id="目的">目的</span></h2><p>这篇教程目的是介绍如何使用R语言的<a href="http://lavaan.ugent.be/" target="_blank" rel="noopener">lavaan</a>包来做结构方程模型，<br>如果你不清楚什么是结构方程（SEM）， 建议你先看这个<a href="https://www.bilibili.com/video/BV17v4y1M7Kk/?spm_id_from=333.788.recommend_more_video.1&amp;vd_source=a196c58475bb84633185dbd4a3bdaf20" target="_blank" rel="noopener">介绍视频</a>。<br>当然， 我们会在教程的前面简要介绍结构方程的概念， 以便于我们教程的完整性。</p>
+<h2><span id="案例介绍">案例介绍</span></h2><p>这是一个研究学生的学业成绩影响因素的研究，<br>目前数据已经采集技术， 你可以在<a href="https://stats.idre.ucla.edu/wp-content/uploads/2021/02/worland5.csv" target="_blank" rel="noopener">这里下载</a>这个数据,<br>这个数据有9个观测指标（9个变量）：Motivation（冬季）, Harmony, Stability, Negative Parental Psychology, SES, Verbal IQ, Reading, Arithmetic and Spelling（动机、和谐、稳定、消极的父母心理、SES、语言智力、阅读、算术和拼写）。研究员假设三个潜变量：Adjustment, Risk, Achievement， 他们的测量指标如下， 其中包含了变量名及其解释：</p>
+<p>Adjustment</p>
+<pre><code>- motiv Motivation
+- harm Harmony
+- stabi Stability
+</code></pre><p>Risk</p>
+<pre><code>- ppsych (Negative) Parental Psychology
+- ses SES
+- verbal Verbal IQ
+</code></pre><p>Achievement</p>
+<pre><code>- read Reading
+- arith Arithmetic
+- spell Spelling
+</code></pre><h3><span id="模型表示">模型表示</span></h3><p>对于任何结构方程研究， 你最好事先绘制理论模型图， 下面就是我们的假定模型图：</p>
+<p><img src="imgs/r-sem-model.png"></p>
+<p>根据理论模型， 如果用数学符号表示， 我们可以绘制具有数学意义的模型图：</p>
+<p><img src="imgs/r-sem-model2.png"></p>
+<p>我们先来解释一下图中的符号的意义：</p>
+<ul>
+<li>observed variable: 显变量或者叫观测指标， 就是在你的数据中有一列数据可以代表该变量， 图中用矩形表示</li>
+<li>latent variable: 潜变量， 数据中不存在， 但是可以在模型中构建出来，图中用椭圆表示</li>
+<li>exogenous variable: 外生变量， 可以认为是自变量， 就是在模型中没有变量预测它， 它用于预测其他变量， 它既可以是显变量<code>$x$</code>也可以是潜变量<code>$\xi$</code></li>
+<li>endogenous variable: 内生变量， 可以认为是因变量， 只要有箭头指向它， 它就可以被成为是内生变量， 即可以是显变量<code>$y$</code>也可以是潜变量<code>$\eta$</code></li>
+<li>measurement model: 测量模型， 多个显变量和一个潜变量构成的结构， 比如图中<code>$\xi_1$</code>与<code>$x_1 x_2 x_3$</code>构成的结构</li>
+<li>factor: 因子， 一个潜变量， 由多个显变量所定义， 例如图中的<code>$\eta_1 \eta_2 \xi_1$</code></li>
+<li>loading: 因子载荷， 因子和观测指标之间的连线， 可以用字母<code>$\lambda$</code>表示</li>
+<li>structural model: 由自变量和因变量构成的结构， 比如<code>$\eta_1 \eta_2 \xi_1$</code>及其连线构成的结构</li>
+<li>regression path: 回归路径， 自变量和因变量之间的连线， 用字母<code>$\gamma\$</code></li>
+</ul>
+<h2><span id="r代码">R代码</span></h2><p>有了数据和模型， 下一步就是如何用R来表示模型和估计模型。</p>
+<h3><span id="模型的表示">模型的表示</span></h3><p>R中最常用的SEM包就是lavaan , 它定义了一些模型表示的方法, 列在这里:</p>
+<ul>
+<li>~ 波浪号, 表示观测变量的回归关系, <code>(e.g., y ~ x)</code></li>
+<li>=~ 等号波浪号, 用于表示测量模型, <code>(e.g., f =~ q + r + s)</code>, f表示潜变量, q r s 表示测量指标</li>
+<li><code>~~</code> 协方差 <code>(e.g., x ~~ x)</code></li>
+<li>~1 截距或者均值, 比如<code>x ~ 1</code>估计了变量x的均值</li>
+<li><code>*</code> 固定参数, 比如<code>f =~ 1*q</code>意思是f对q的因子载荷固定为1</li>
+<li>NA<em> 自由参数或者载荷 `(e.g., f =~ NA</em>q)`</li>
+<li>a<em> 参数标签, 比如`f =~ a</em>q`, 意思是f对q的因子载荷是a, 在设定模型constrants时非常有用</li>
+</ul>
+<p><img src="imgs/r-sem-model.png"></p>
+<p>参考这个模型图, 我们有三个潜变量, 每个潜变量有三个测量指标, 测量模型的表示为:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">adjust =~ motiv + harm + stabi</span><br><span class="line">risk =~ verbal + ses + ppsych</span><br><span class="line">achieve =~ read + arith + spell</span><br></pre></td></tr></table></figure>
+<p>结构方程需要你清楚模型中有多少个因变量, 因为有多少因变量, 就可以写几行回归方程, 识别因变量最好的方法就是看有几个变量被箭头指向,<br>根据模型图, 我们得出两个回归方程, 结构模型的表示:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">adjust ~ risk </span><br><span class="line">achieve ~ adjust + risk</span><br></pre></td></tr></table></figure>
+<h3><span id="r-代码">R 代码</span></h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># m6b就是模型代码, 它在R中数据类型是字符串</span></span><br><span class="line">m6b &lt;- <span class="string">'</span></span><br><span class="line"><span class="string"># measurement model</span></span><br><span class="line"><span class="string">adjust =~ motiv + harm + stabi</span></span><br><span class="line"><span class="string">risk =~ verbal + ses + ppsych</span></span><br><span class="line"><span class="string">achieve =~ read + arith + spell</span></span><br><span class="line"><span class="string"># regressions</span></span><br><span class="line"><span class="string">adjust ~ risk </span></span><br><span class="line"><span class="string">achieve ~ adjust + risk</span></span><br><span class="line"><span class="string">'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用SEM函数, 第一个参数是模型代码, 第二个参数是数据(DataFrame)</span></span><br><span class="line">fit6b &lt;- sem(m6b, data=dat)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用summary输出结果</span></span><br><span class="line">summary(fit6b, standardized=<span class="literal">TRUE</span>, fit.measures=<span class="literal">TRUE</span>)</span><br></pre></td></tr></table></figure>
+<h2><span id="实战">实战</span></h2><h3><span id="安装和加载库">安装和加载库</span></h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">install.packages(<span class="string">"lavaan"</span>, dependencies=<span class="literal">TRUE</span>)</span><br><span class="line"><span class="keyword">library</span>(lavaan)</span><br></pre></td></tr></table></figure>
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+Installing package into 'C:/Users/syd/AppData/Local/R/win-library/4.2'
+(as 'lib' is unspecified)
+
+
+</div>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+package 'lavaan' successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\syd\AppData\Local\Temp\Rtmpa2kU3N\downloaded_packages
+
+</div>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+This is lavaan 0.6-12
+lavaan is FREE software! Please report any bugs.
+
+
+</div>
+
+<h3><span id="下载数据">下载数据</span></h3><p>这是一个网络数据, 你可以下载到本地, 点<a href="https://stats.idre.ucla.edu/wp-content/uploads/2021/02/worland5.csv" target="_blank" rel="noopener">这里</a>,<br>你也可以直接加载到R中.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dat &lt;- read.csv(<span class="string">"https://stats.idre.ucla.edu/wp-content/uploads/2021/02/worland5.csv"</span>)</span><br></pre></td></tr></table></figure>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head(dat) <span class="comment"># 查看数据前几行</span></span><br></pre></td></tr></table></figure>
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<table class="dataframe">
+<caption>A data.frame: 6 × 9</caption>
+<thead>
+	<tr><th></th><th scope="col">motiv</th><th scope="col">harm</th><th scope="col">stabi</th><th scope="col">ppsych</th><th scope="col">ses</th><th scope="col">verbal</th><th scope="col">read</th><th scope="col">arith</th><th scope="col">spell</th></tr>
+	<tr><th></th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope="row">1</th><td>-7.907122</td><td> -5.075312</td><td>-3.138836</td><td>-17.800210</td><td>  4.766450</td><td>-3.633360</td><td>-3.488981</td><td>-9.989121</td><td>-6.567873</td></tr>
+	<tr><th scope="row">2</th><td> 1.751478</td><td> -4.155847</td><td> 3.520752</td><td>  7.009367</td><td> -6.048681</td><td>-7.693461</td><td>-4.520552</td><td> 8.196238</td><td> 8.778973</td></tr>
+	<tr><th scope="row">3</th><td>14.472570</td><td> -4.540677</td><td> 4.070600</td><td> 23.734260</td><td>-16.970670</td><td>-3.909941</td><td>-4.818170</td><td> 7.529984</td><td>-5.688716</td></tr>
+	<tr><th scope="row">4</th><td>-1.165421</td><td> -5.668406</td><td> 2.600437</td><td>  1.493158</td><td>  1.396363</td><td>21.409450</td><td>-3.138441</td><td> 5.730547</td><td>-2.915676</td></tr>
+	<tr><th scope="row">5</th><td>-4.222899</td><td>-10.072150</td><td>-6.030737</td><td> -5.985864</td><td>-18.376400</td><td>-1.438816</td><td>-2.009742</td><td>-0.623953</td><td>-1.024624</td></tr>
+	<tr><th scope="row">6</th><td> 4.868769</td><td>  3.029841</td><td>-7.648277</td><td> 14.668790</td><td> -2.235039</td><td>-6.826892</td><td> 0.822650</td><td> 5.045174</td><td> 0.904154</td></tr>
+</tbody>
+</table>
+
+</div>
+
+<p>根据前面测量模型的代码, 我们知道, 各个变量的意义, </p>
+<ul>
+<li>adjust的测量指标是: motiv + harm + stabi</li>
+<li>risk 的测量指标是: verbal + ses + ppsych</li>
+<li>achieve 的测量指标是: read + arith + spell</li>
+</ul>
+<h3><span id="估计模型">估计模型</span></h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># m6b就是模型代码, 它在R中数据类型是字符串</span></span><br><span class="line">m6b &lt;- <span class="string">'</span></span><br><span class="line"><span class="string"># measurement model</span></span><br><span class="line"><span class="string">adjust =~ motiv + harm + stabi</span></span><br><span class="line"><span class="string">risk =~ verbal + ses + ppsych</span></span><br><span class="line"><span class="string">achieve =~ read + arith + spell</span></span><br><span class="line"><span class="string"># regressions</span></span><br><span class="line"><span class="string">adjust ~ risk </span></span><br><span class="line"><span class="string">achieve ~ adjust + risk</span></span><br><span class="line"><span class="string">'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用SEM函数, 第一个参数是模型代码, 第二个参数是数据(DataFrame)</span></span><br><span class="line">fit6b &lt;- sem(m6b, data=dat)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用summary输出结果</span></span><br><span class="line">summary(fit6b, standardized=<span class="literal">TRUE</span>, fit.measures=<span class="literal">TRUE</span>)</span><br></pre></td></tr></table></figure>
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<dl>
+	<dt>$header</dt>
+		<dd><dl>
+	<dt>$lavaan.version</dt>
+		<dd>'0.6-12'</dd>
+	<dt>$sam.approach</dt>
+		<dd>FALSE</dd>
+	<dt>$optim.method</dt>
+		<dd>'nlminb'</dd>
+	<dt>$optim.iterations</dt>
+		<dd>112</dd>
+	<dt>$optim.converged</dt>
+		<dd>TRUE</dd>
+</dl>
+</dd>
+	<dt>$optim</dt>
+		<dd><dl>
+	<dt>$estimator</dt>
+		<dd>'ML'</dd>
+	<dt>$estimator.args</dt>
+		<dd><ol>
+</ol>
+</dd>
+	<dt>$optim.method</dt>
+		<dd>'nlminb'</dd>
+	<dt>$npar</dt>
+		<dd>21</dd>
+	<dt>$eq.constraints</dt>
+		<dd>FALSE</dd>
+	<dt>$nrow.ceq.jac</dt>
+		<dd>0</dd>
+	<dt>$nrow.cin.jac</dt>
+		<dd>0</dd>
+	<dt>$nrow.con.jac</dt>
+		<dd>0</dd>
+	<dt>$con.jac.rank</dt>
+		<dd>0</dd>
+</dl>
+</dd>
+	<dt>$data</dt>
+		<dd><dl>
+	<dt>$ngroups</dt>
+		<dd>1</dd>
+	<dt>$nobs</dt>
+		<dd>500</dd>
+</dl>
+</dd>
+	<dt>$test</dt>
+		<dd><strong>$standard</strong> = <dl>
+	<dt>$test</dt>
+		<dd>'standard'</dd>
+	<dt>$stat</dt>
+		<dd>148.981777928469</dd>
+	<dt>$stat.group</dt>
+		<dd>148.981777928469</dd>
+	<dt>$df</dt>
+		<dd>24</dd>
+	<dt>$refdistr</dt>
+		<dd>'chisq'</dd>
+	<dt>$pvalue</dt>
+		<dd>0</dd>
+</dl>
+</dd>
+	<dt>$fit</dt>
+		<dd><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class="dl-inline"><dt>npar</dt><dd>21</dd><dt>fmin</dt><dd>0.148981777928469</dd><dt>chisq</dt><dd>148.981777928469</dd><dt>df</dt><dd>24</dd><dt>pvalue</dt><dd>0</dd><dt>baseline.chisq</dt><dd>2597.97194315292</dd><dt>baseline.df</dt><dd>36</dd><dt>baseline.pvalue</dt><dd>0</dd><dt>cfi</dt><dd>0.951216570399027</dd><dt>tli</dt><dd>0.92682485559854</dd><dt>logl</dt><dd>-15517.8567323358</dd><dt>unrestricted.logl</dt><dd>-15443.3658433715</dd><dt>aic</dt><dd>31077.7134646715</dd><dt>bic</dt><dd>31166.2202347384</dd><dt>ntotal</dt><dd>500</dd><dt>bic2</dt><dd>31099.5649367478</dd><dt>rmsea</dt><dd>0.102054633215282</dd><dt>rmsea.ci.lower</dt><dd>0.0866822262014351</dd><dt>rmsea.ci.upper</dt><dd>0.118076367501006</dd><dt>rmsea.pvalue</dt><dd>4.04968328870936e-08</dd><dt>srmr</dt><dd>0.0405618347716423</dd></dl>
+</dd>
+	<dt>$pe</dt>
+		<dd><table class="dataframe">
+<caption>A data.frame: 24 × 11</caption>
+<thead>
+	<tr><th scope="col">lhs</th><th scope="col">op</th><th scope="col">rhs</th><th scope="col">exo</th><th scope="col">est</th><th scope="col">se</th><th scope="col">z</th><th scope="col">pvalue</th><th scope="col">std.lv</th><th scope="col">std.all</th><th scope="col">std.nox</th></tr>
+	<tr><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>adjust </td><td>=~</td><td>motiv  </td><td>0</td><td> 1.0000000</td><td>0.00000000</td><td>        NA</td><td>          NA</td><td> 9.3236112</td><td> 0.9332948</td><td> 0.9332948</td></tr>
+	<tr><td>adjust </td><td>=~</td><td>harm   </td><td>0</td><td> 0.8844138</td><td>0.04061818</td><td> 21.773843</td><td>0.000000e+00</td><td> 8.2459306</td><td> 0.8254189</td><td> 0.8254189</td></tr>
+	<tr><td>adjust </td><td>=~</td><td>stabi  </td><td>0</td><td> 0.6947893</td><td>0.04345933</td><td> 15.987116</td><td>0.000000e+00</td><td> 6.4779457</td><td> 0.6484433</td><td> 0.6484433</td></tr>
+	<tr><td>risk   </td><td>=~</td><td>verbal </td><td>0</td><td> 1.0000000</td><td>0.00000000</td><td>        NA</td><td>          NA</td><td> 7.3185705</td><td> 0.7325900</td><td> 0.7325900</td></tr>
+	<tr><td>risk   </td><td>=~</td><td>ses    </td><td>0</td><td> 0.8070235</td><td>0.07608457</td><td> 10.606927</td><td>0.000000e+00</td><td> 5.9062586</td><td> 0.5912174</td><td> 0.5912174</td></tr>
+	<tr><td>risk   </td><td>=~</td><td>ppsych </td><td>0</td><td>-0.7701249</td><td>0.07532976</td><td>-10.223381</td><td>0.000000e+00</td><td>-5.6362132</td><td>-0.5641858</td><td>-0.5641858</td></tr>
+	<tr><td>achieve</td><td>=~</td><td>read   </td><td>0</td><td> 1.0000000</td><td>0.00000000</td><td>        NA</td><td>          NA</td><td> 9.4035951</td><td> 0.9413013</td><td> 0.9413013</td></tr>
+	<tr><td>achieve</td><td>=~</td><td>arith  </td><td>0</td><td> 0.8372176</td><td>0.03426034</td><td> 24.436932</td><td>0.000000e+00</td><td> 7.8728550</td><td> 0.7880740</td><td> 0.7880740</td></tr>
+	<tr><td>achieve</td><td>=~</td><td>spell  </td><td>0</td><td> 0.9760348</td><td>0.02842407</td><td> 34.338325</td><td>0.000000e+00</td><td> 9.1782364</td><td> 0.9187428</td><td> 0.9187428</td></tr>
+	<tr><td>adjust </td><td>~ </td><td>risk   </td><td>0</td><td> 0.5992803</td><td>0.07647237</td><td>  7.836560</td><td>4.662937e-15</td><td> 0.4704052</td><td> 0.4704052</td><td> 0.4704052</td></tr>
+	<tr><td>achieve</td><td>~ </td><td>adjust </td><td>0</td><td> 0.3747906</td><td>0.04635701</td><td>  8.084875</td><td>6.661338e-16</td><td> 0.3716028</td><td> 0.3716028</td><td> 0.3716028</td></tr>
+	<tr><td>achieve</td><td>~ </td><td>risk   </td><td>0</td><td> 0.7243599</td><td>0.07828439</td><td>  9.252929</td><td>0.000000e+00</td><td> 0.5637503</td><td> 0.5637503</td><td> 0.5637503</td></tr>
+	<tr><td>motiv  </td><td>~~</td><td>motiv  </td><td>0</td><td>12.8702817</td><td>2.85223254</td><td>  4.512354</td><td>6.411220e-06</td><td>12.8702817</td><td> 0.1289607</td><td> 0.1289607</td></tr>
+	<tr><td>harm   </td><td>~~</td><td>harm   </td><td>0</td><td>31.8046281</td><td>2.97294639</td><td> 10.698016</td><td>0.000000e+00</td><td>31.8046281</td><td> 0.3186837</td><td> 0.3186837</td></tr>
+	<tr><td>stabi  </td><td>~~</td><td>stabi  </td><td>0</td><td>57.8362265</td><td>3.99023894</td><td> 14.494427</td><td>0.000000e+00</td><td>57.8362265</td><td> 0.5795213</td><td> 0.5795213</td></tr>
+	<tr><td>verbal </td><td>~~</td><td>verbal </td><td>0</td><td>46.2385229</td><td>4.78776498</td><td>  9.657643</td><td>0.000000e+00</td><td>46.2385229</td><td> 0.4633119</td><td> 0.4633119</td></tr>
+	<tr><td>ses    </td><td>~~</td><td>ses    </td><td>0</td><td>64.9161012</td><td>4.97522402</td><td> 13.047875</td><td>0.000000e+00</td><td>64.9161012</td><td> 0.6504620</td><td> 0.6504620</td></tr>
+	<tr><td>ppsych </td><td>~~</td><td>ppsych </td><td>0</td><td>68.0331022</td><td>5.06751791</td><td> 13.425330</td><td>0.000000e+00</td><td>68.0331022</td><td> 0.6816944</td><td> 0.6816944</td></tr>
+	<tr><td>read   </td><td>~~</td><td>read   </td><td>0</td><td>11.3724048</td><td>1.60764520</td><td>  7.073952</td><td>1.505907e-12</td><td>11.3724048</td><td> 0.1139519</td><td> 0.1139519</td></tr>
+	<tr><td>arith  </td><td>~~</td><td>arith  </td><td>0</td><td>37.8181571</td><td>2.68041969</td><td> 14.109043</td><td>0.000000e+00</td><td>37.8181571</td><td> 0.3789394</td><td> 0.3789394</td></tr>
+	<tr><td>spell  </td><td>~~</td><td>spell  </td><td>0</td><td>15.5599796</td><td>1.69864710</td><td>  9.160219</td><td>0.000000e+00</td><td>15.5599796</td><td> 0.1559116</td><td> 0.1559116</td></tr>
+	<tr><td>adjust </td><td>~~</td><td>adjust </td><td>0</td><td>67.6938212</td><td>6.06585950</td><td> 11.159807</td><td>0.000000e+00</td><td> 0.7787189</td><td> 0.7787189</td><td> 0.7787189</td></tr>
+	<tr><td>risk   </td><td>~~</td><td>risk   </td><td>0</td><td>53.5614747</td><td>6.75713280</td><td>  7.926657</td><td>2.220446e-15</td><td> 1.0000000</td><td> 1.0000000</td><td> 1.0000000</td></tr>
+	<tr><td>achieve</td><td>~~</td><td>achieve</td><td>0</td><td>30.6848664</td><td>3.44941260</td><td>  8.895679</td><td>0.000000e+00</td><td> 0.3470055</td><td> 0.3470055</td><td> 0.3470055</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+
+</div>
+
+<p>展示模型的概览:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">show(fit6b)</span><br></pre></td></tr></table></figure>
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+lavaan 0.6-12 ended normally after 112 iterations
+
+  Estimator                                         ML
+  Optimization method                           NLMINB
+  Number of model parameters                        21
+
+  Number of observations                           500
+
+Model Test User Model:
+                                                      
+  Test statistic                               148.982
+  Degrees of freedom                                24
+  P-value (Chi-square)                           0.000
+
+</div>
+
+<ul>
+<li>获取模型拟合参数</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fits = fitMeasures(fit6b)</span><br><span class="line"></span><br><span class="line">fits[<span class="string">'rmsea'</span>]</span><br></pre></td></tr></table></figure>
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<strong>rmsea:</strong> 0.102054633215282
+</div>
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">fits[c(<span class="string">'chisq'</span>, <span class="string">'df'</span>,  <span class="string">'pvalue'</span>, <span class="string">'cfi'</span> ,<span class="string">'rmsea'</span>, <span class="string">'srmr'</span>, <span class="string">'aic'</span>)]</span><br></pre></td></tr></table></figure>
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class="dl-inline"><dt>chisq</dt><dd>148.981777928469</dd><dt>df</dt><dd>24</dd><dt>pvalue</dt><dd>0</dd><dt>cfi</dt><dd>0.951216570399027</dd><dt>rmsea</dt><dd>0.102054633215282</dd><dt>srmr</dt><dd>0.0405618347716423</dd><dt>aic</dt><dd>31077.7134646715</dd></dl>
+
+</div>
+
+<h3><span id="计算中介效应和总效应">计算中介效应和总效应</span></h3><p>我们注意到, 这是一个中介模型, 我们想要检验中介效应以及总效应是否显著, 可以使用下面的代码:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># m6b就是模型代码, 它在R中数据类型是字符串</span></span><br><span class="line">m6b &lt;- <span class="string">'</span></span><br><span class="line"><span class="string"># measurement model</span></span><br><span class="line"><span class="string">adjust =~ motiv + harm + stabi</span></span><br><span class="line"><span class="string">risk =~ verbal + ses + ppsych</span></span><br><span class="line"><span class="string">achieve =~ read + arith + spell</span></span><br><span class="line"><span class="string"># regressions</span></span><br><span class="line"><span class="string">adjust ~ a*risk # 设置参数a</span></span><br><span class="line"><span class="string">achieve ~ b*adjust + c*risk # 设置参数b和c</span></span><br><span class="line"><span class="string"></span></span><br><span class="line"><span class="string"># 中介效应</span></span><br><span class="line"><span class="string">indirect := a * b</span></span><br><span class="line"><span class="string">total := a*b + c</span></span><br><span class="line"><span class="string">'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用SEM函数, 第一个参数是模型代码, 第二个参数是数据(DataFrame)</span></span><br><span class="line">fit6b &lt;- sem(m6b, data=dat)</span><br><span class="line"></span><br><span class="line"><span class="comment"># 使用summary输出结果</span></span><br><span class="line">summary(fit6b, standardized=<span class="literal">TRUE</span>, fit.measures=<span class="literal">TRUE</span>)</span><br></pre></td></tr></table></figure>
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<dl>
+	<dt>$header</dt>
+		<dd><dl>
+	<dt>$lavaan.version</dt>
+		<dd>'0.6-12'</dd>
+	<dt>$sam.approach</dt>
+		<dd>FALSE</dd>
+	<dt>$optim.method</dt>
+		<dd>'nlminb'</dd>
+	<dt>$optim.iterations</dt>
+		<dd>112</dd>
+	<dt>$optim.converged</dt>
+		<dd>TRUE</dd>
+</dl>
+</dd>
+	<dt>$optim</dt>
+		<dd><dl>
+	<dt>$estimator</dt>
+		<dd>'ML'</dd>
+	<dt>$estimator.args</dt>
+		<dd><ol>
+</ol>
+</dd>
+	<dt>$optim.method</dt>
+		<dd>'nlminb'</dd>
+	<dt>$npar</dt>
+		<dd>21</dd>
+	<dt>$eq.constraints</dt>
+		<dd>FALSE</dd>
+	<dt>$nrow.ceq.jac</dt>
+		<dd>0</dd>
+	<dt>$nrow.cin.jac</dt>
+		<dd>0</dd>
+	<dt>$nrow.con.jac</dt>
+		<dd>0</dd>
+	<dt>$con.jac.rank</dt>
+		<dd>0</dd>
+</dl>
+</dd>
+	<dt>$data</dt>
+		<dd><dl>
+	<dt>$ngroups</dt>
+		<dd>1</dd>
+	<dt>$nobs</dt>
+		<dd>500</dd>
+</dl>
+</dd>
+	<dt>$test</dt>
+		<dd><strong>$standard</strong> = <dl>
+	<dt>$test</dt>
+		<dd>'standard'</dd>
+	<dt>$stat</dt>
+		<dd>148.981777928469</dd>
+	<dt>$stat.group</dt>
+		<dd>148.981777928469</dd>
+	<dt>$df</dt>
+		<dd>24</dd>
+	<dt>$refdistr</dt>
+		<dd>'chisq'</dd>
+	<dt>$pvalue</dt>
+		<dd>0</dd>
+</dl>
+</dd>
+	<dt>$fit</dt>
+		<dd><style>
+.dl-inline {width: auto; margin:0; padding: 0}
+.dl-inline>dt, .dl-inline>dd {float: none; width: auto; display: inline-block}
+.dl-inline>dt::after {content: ":\0020"; padding-right: .5ex}
+.dl-inline>dt:not(:first-of-type) {padding-left: .5ex}
+</style><dl class="dl-inline"><dt>npar</dt><dd>21</dd><dt>fmin</dt><dd>0.148981777928469</dd><dt>chisq</dt><dd>148.981777928469</dd><dt>df</dt><dd>24</dd><dt>pvalue</dt><dd>0</dd><dt>baseline.chisq</dt><dd>2597.97194315292</dd><dt>baseline.df</dt><dd>36</dd><dt>baseline.pvalue</dt><dd>0</dd><dt>cfi</dt><dd>0.951216570399027</dd><dt>tli</dt><dd>0.92682485559854</dd><dt>logl</dt><dd>-15517.8567323358</dd><dt>unrestricted.logl</dt><dd>-15443.3658433715</dd><dt>aic</dt><dd>31077.7134646715</dd><dt>bic</dt><dd>31166.2202347384</dd><dt>ntotal</dt><dd>500</dd><dt>bic2</dt><dd>31099.5649367478</dd><dt>rmsea</dt><dd>0.102054633215282</dd><dt>rmsea.ci.lower</dt><dd>0.0866822262014351</dd><dt>rmsea.ci.upper</dt><dd>0.118076367501006</dd><dt>rmsea.pvalue</dt><dd>4.04968328870936e-08</dd><dt>srmr</dt><dd>0.0405618347716423</dd></dl>
+</dd>
+	<dt>$pe</dt>
+		<dd><table class="dataframe">
+<caption>A data.frame: 26 × 12</caption>
+<thead>
+	<tr><th scope="col">lhs</th><th scope="col">op</th><th scope="col">rhs</th><th scope="col">label</th><th scope="col">exo</th><th scope="col">est</th><th scope="col">se</th><th scope="col">z</th><th scope="col">pvalue</th><th scope="col">std.lv</th><th scope="col">std.all</th><th scope="col">std.nox</th></tr>
+	<tr><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;chr&gt;</th><th scope="col">&lt;int&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th><th scope="col">&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>adjust  </td><td>=~</td><td>motiv  </td><td>        </td><td>0</td><td> 1.0000000</td><td>0.00000000</td><td>        NA</td><td>          NA</td><td> 9.3236112</td><td> 0.9332948</td><td> 0.9332948</td></tr>
+	<tr><td>adjust  </td><td>=~</td><td>harm   </td><td>        </td><td>0</td><td> 0.8844138</td><td>0.04061818</td><td> 21.773843</td><td>0.000000e+00</td><td> 8.2459306</td><td> 0.8254189</td><td> 0.8254189</td></tr>
+	<tr><td>adjust  </td><td>=~</td><td>stabi  </td><td>        </td><td>0</td><td> 0.6947893</td><td>0.04345933</td><td> 15.987116</td><td>0.000000e+00</td><td> 6.4779457</td><td> 0.6484433</td><td> 0.6484433</td></tr>
+	<tr><td>risk    </td><td>=~</td><td>verbal </td><td>        </td><td>0</td><td> 1.0000000</td><td>0.00000000</td><td>        NA</td><td>          NA</td><td> 7.3185705</td><td> 0.7325900</td><td> 0.7325900</td></tr>
+	<tr><td>risk    </td><td>=~</td><td>ses    </td><td>        </td><td>0</td><td> 0.8070235</td><td>0.07608457</td><td> 10.606927</td><td>0.000000e+00</td><td> 5.9062586</td><td> 0.5912174</td><td> 0.5912174</td></tr>
+	<tr><td>risk    </td><td>=~</td><td>ppsych </td><td>        </td><td>0</td><td>-0.7701249</td><td>0.07532976</td><td>-10.223381</td><td>0.000000e+00</td><td>-5.6362132</td><td>-0.5641858</td><td>-0.5641858</td></tr>
+	<tr><td>achieve </td><td>=~</td><td>read   </td><td>        </td><td>0</td><td> 1.0000000</td><td>0.00000000</td><td>        NA</td><td>          NA</td><td> 9.4035951</td><td> 0.9413013</td><td> 0.9413013</td></tr>
+	<tr><td>achieve </td><td>=~</td><td>arith  </td><td>        </td><td>0</td><td> 0.8372176</td><td>0.03426034</td><td> 24.436932</td><td>0.000000e+00</td><td> 7.8728550</td><td> 0.7880740</td><td> 0.7880740</td></tr>
+	<tr><td>achieve </td><td>=~</td><td>spell  </td><td>        </td><td>0</td><td> 0.9760348</td><td>0.02842407</td><td> 34.338325</td><td>0.000000e+00</td><td> 9.1782364</td><td> 0.9187428</td><td> 0.9187428</td></tr>
+	<tr><td>adjust  </td><td>~ </td><td>risk   </td><td>a       </td><td>0</td><td> 0.5992803</td><td>0.07647237</td><td>  7.836560</td><td>4.662937e-15</td><td> 0.4704052</td><td> 0.4704052</td><td> 0.4704052</td></tr>
+	<tr><td>achieve </td><td>~ </td><td>adjust </td><td>b       </td><td>0</td><td> 0.3747906</td><td>0.04635701</td><td>  8.084875</td><td>6.661338e-16</td><td> 0.3716028</td><td> 0.3716028</td><td> 0.3716028</td></tr>
+	<tr><td>achieve </td><td>~ </td><td>risk   </td><td>c       </td><td>0</td><td> 0.7243599</td><td>0.07828439</td><td>  9.252929</td><td>0.000000e+00</td><td> 0.5637503</td><td> 0.5637503</td><td> 0.5637503</td></tr>
+	<tr><td>motiv   </td><td>~~</td><td>motiv  </td><td>        </td><td>0</td><td>12.8702817</td><td>2.85223254</td><td>  4.512354</td><td>6.411220e-06</td><td>12.8702817</td><td> 0.1289607</td><td> 0.1289607</td></tr>
+	<tr><td>harm    </td><td>~~</td><td>harm   </td><td>        </td><td>0</td><td>31.8046281</td><td>2.97294639</td><td> 10.698016</td><td>0.000000e+00</td><td>31.8046281</td><td> 0.3186837</td><td> 0.3186837</td></tr>
+	<tr><td>stabi   </td><td>~~</td><td>stabi  </td><td>        </td><td>0</td><td>57.8362265</td><td>3.99023894</td><td> 14.494427</td><td>0.000000e+00</td><td>57.8362265</td><td> 0.5795213</td><td> 0.5795213</td></tr>
+	<tr><td>verbal  </td><td>~~</td><td>verbal </td><td>        </td><td>0</td><td>46.2385229</td><td>4.78776498</td><td>  9.657643</td><td>0.000000e+00</td><td>46.2385229</td><td> 0.4633119</td><td> 0.4633119</td></tr>
+	<tr><td>ses     </td><td>~~</td><td>ses    </td><td>        </td><td>0</td><td>64.9161012</td><td>4.97522402</td><td> 13.047875</td><td>0.000000e+00</td><td>64.9161012</td><td> 0.6504620</td><td> 0.6504620</td></tr>
+	<tr><td>ppsych  </td><td>~~</td><td>ppsych </td><td>        </td><td>0</td><td>68.0331022</td><td>5.06751791</td><td> 13.425330</td><td>0.000000e+00</td><td>68.0331022</td><td> 0.6816944</td><td> 0.6816944</td></tr>
+	<tr><td>read    </td><td>~~</td><td>read   </td><td>        </td><td>0</td><td>11.3724048</td><td>1.60764520</td><td>  7.073952</td><td>1.505907e-12</td><td>11.3724048</td><td> 0.1139519</td><td> 0.1139519</td></tr>
+	<tr><td>arith   </td><td>~~</td><td>arith  </td><td>        </td><td>0</td><td>37.8181571</td><td>2.68041969</td><td> 14.109043</td><td>0.000000e+00</td><td>37.8181571</td><td> 0.3789394</td><td> 0.3789394</td></tr>
+	<tr><td>spell   </td><td>~~</td><td>spell  </td><td>        </td><td>0</td><td>15.5599796</td><td>1.69864710</td><td>  9.160219</td><td>0.000000e+00</td><td>15.5599796</td><td> 0.1559116</td><td> 0.1559116</td></tr>
+	<tr><td>adjust  </td><td>~~</td><td>adjust </td><td>        </td><td>0</td><td>67.6938212</td><td>6.06585950</td><td> 11.159807</td><td>0.000000e+00</td><td> 0.7787189</td><td> 0.7787189</td><td> 0.7787189</td></tr>
+	<tr><td>risk    </td><td>~~</td><td>risk   </td><td>        </td><td>0</td><td>53.5614747</td><td>6.75713280</td><td>  7.926657</td><td>2.220446e-15</td><td> 1.0000000</td><td> 1.0000000</td><td> 1.0000000</td></tr>
+	<tr><td>achieve </td><td>~~</td><td>achieve</td><td>        </td><td>0</td><td>30.6848664</td><td>3.44941260</td><td>  8.895679</td><td>0.000000e+00</td><td> 0.3470055</td><td> 0.3470055</td><td> 0.3470055</td></tr>
+	<tr><td>indirect</td><td>:=</td><td>a*b    </td><td>indirect</td><td>0</td><td> 0.2246047</td><td>0.03257583</td><td>  6.894826</td><td>5.393019e-12</td><td> 0.1748039</td><td> 0.1748039</td><td> 0.1748039</td></tr>
+	<tr><td>total   </td><td>:=</td><td>a*b+c  </td><td>total   </td><td>0</td><td> 0.9489646</td><td>0.08175637</td><td> 11.607225</td><td>0.000000e+00</td><td> 0.7385542</td><td> 0.7385542</td><td> 0.7385542</td></tr>
+</tbody>
+</table>
+</dd>
+</dl>
+
+</div>
+
+<h2><span id="视频教程">视频教程</span></h2><blockquote>
+<p><strong>注意</strong><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的, 不论什么模型都可以, 只限制于1个研究内.<br>跟我学统计可以代做分析, 每单几百元不等.<br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="R语言做结构方程模型入门.ipynb">notebook</a><br>可以在微博上@mlln-cn向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
+</blockquote>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/结构方程/">#结构方程</a> <a href="/tags/r/">#r</a>
+        </div>
+    
+
+
+
+</div>
+        </section>
+        <section>
+            <div class="content" style="color: #d7ecff">
+                <h3 id="赞助"><a href="#赞助" class="headerlink" title="赞助"></a>赞助</h3>
+                <p>持续创造有价值的内容, 我需要你的帮助</p>
+                <p><img src="/img/收款二维码.png" class="img-thumbnail"></p>
+            </div>
+        </section>
+        <!-- changyan comments -->
+        <section class="main">
+            <!--PC版畅言-->
+
+<div class="container"><div id="SOHUCS" sid="2022/09/20/R语言做结构方程模型入门/"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js"></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cysqnjGqk',
+conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
+});
+setTimeout(()=>{
+    $('#closePoPBD').click()
+}, 2000)
+</script>
+</div>
+
+        </section>
+    </div>
+
+    <!-- rightside -->
+    <div class="col-md-3 col-sm-12 rightside">
+        <div class="related-posts">
+    <h3>
+        <a href="#">
+            赞助推荐
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="https://jupyter.cn/home/">问卷代填保证质量</a>
+            </div>
+        
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        常用工具
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a href="/mplusoutput/">Mplus结果查看器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/drawio/">绘图软件</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2018/09/26/在线绘制中介效应图/">
+                在线绘制中介效应图
+            </a>
+        </div>
+        <div class="archive-post">
+            <a href="/neural/">神经网络可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/psychopy/">psychopy教程</a>
+        </div>
+        <div class="archive-post">
+            <a href="/vector/">[词向量]高维向量可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/demos/evolutionSimulator/">[tensorflow.js案例]进化算法演示</a>
+        </div>
+        <div class="archive-post">
+            <a href="/guideToPython/">[书]Python最佳实践</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/10/10/sobel检验原理和一键计算器/">Sobel检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">平均方差提取量AVE和组合信度CR计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">卡方检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">简单交互效应可视化工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/12/23/均值差异的效应量在线计算器/">两组均值差异的效应量在线计算器</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/结构方程/">
+            结构方程
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2022/09/20/R语言做结构方程模型入门/">
+                    R语言做结构方程模型入门
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/08/31/结构方程模型多组比较分析调节变量/">
+                    结构方程模型多组比较分析调节变量
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/07/24/潜在类别分析入门/">
+                    潜在类别分析LCA入门
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/06/12/Amos结构方程数据分析案例教程/">
+                    Amos结构方程模型数据分析入门教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/01/12/结构方程模型最佳实践/">
+                    结构方程模型最佳实践
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/r/">
+            r
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2022/09/20/R语言做结构方程模型入门/">
+                    R语言做结构方程模型入门
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts hidden-sm-down">
+    <h3>
+        <a href="#">
+            友商赞助
+        </a>
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a href="http://jupyter.cn">
+                  问卷大全问卷案例下载
+            </a>
+            <a href="https://mlln.cn/2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/">
+                大学生互填问卷群推荐
+            </a>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 footer-about">
+                <h2>About</h2>
+                <p>
+                    这是<code>xxxspy</code>的个人博客
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2022/09/20/R语言做结构方程模型入门/">R语言做结构方程模型入门</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/08/31/结构方程模型多组比较分析调节变量/">结构方程模型多组比较分析调节变量</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/08/24/JupyterNotebook中运行R代码/">Jupyter notebook中运行R代码</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/08/12/R中如何自动整理结果为论文可用格式/">R中如何自动整理结果为论文可用格式</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/08/11/R语言快速入门练习材料/">R语言快速入门练习材料</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/07/24/潜在类别分析入门/">潜在类别分析LCA入门</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/06/12/Amos结构方程数据分析案例教程/">Amos结构方程模型数据分析入门教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">SPSS+AMOS数据分析案例教程-关于中介模型</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/05/17/大纲/">SPSS+AMOS数据分析案例分析报告</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/01/12/结构方程模型最佳实践/">结构方程模型最佳实践</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 footer-tags">
+    <h2>tags</h2>
+    <ul>
+        
+        <span>
+            <a class="footer-post" href="/tags/stata/">stata</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/报告系统/">报告系统</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/spss/">spss</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/问卷数据分析/">问卷数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/数据分析/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/教程/">教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/amos/">amos</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/共同方法偏差/">共同方法偏差</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/信度分析/">信度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/问卷互填/">问卷互填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/问卷星/">问卷星</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/问卷代填/">问卷代填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/问卷网/">问卷网</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/python/">python</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mplus/">mplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/VBA/">VBA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/django/">django</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime/">eprime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/卡方检验/">卡方检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/javascript/">javascript</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mysql/">mysql</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/结构方程/">结构方程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Latex/">Latex</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R语言/">R语言</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/机器学习/">机器学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/游戏/">游戏</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/显著性/">显著性</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/process/">process</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/推荐书/">推荐书</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/人工智能/">人工智能</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Q-learning/">Q-learning</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/深度学习/">深度学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/e-prime/">e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nodejs/">nodejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/git/">git</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jupyter/">jupyter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/notebook/">notebook</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gensim/">gensim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/摘要生成/">摘要生成</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras教程/">keras教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras基础/">keras基础</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/t检验/">t检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/方差分析/">方差分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongodb/">mongodb</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jieba/">jieba</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongoengine/">mongoengine</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pandas/">pandas</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nginx/">nginx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/electron/">electron</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gui/">gui</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/selenium/">selenium</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/格式化字符串/">格式化字符串</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/时间序列/">时间序列</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pil/">pil</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tkinter/">tkinter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/scipy/">scipy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/情感分析/">情感分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/下载/">下载</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/网盘/">网盘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/os/">os</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/requests/">requests</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/cookies/">cookies</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/中介效应/">中介效应</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/文本挖掘/">文本挖掘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/sublime/">sublime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/svd/">svd</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pca/">pca</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow教程/">tensorflow教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/vscode/">vscode</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/自然语言处理/">自然语言处理</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/win32com/">win32com</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/wxpython/">wxpython</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/作文评分/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/语料库/">语料库</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/CCA/">CCA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/典型相关分析/">典型相关分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/cron/">cron</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/爬虫/">爬虫</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/逆向工程/">逆向工程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/卡方/">卡方</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/区块链/">区块链</a>
+        </span>
+        
+    </ul>
+</div>
+
+            
+        </div>
+        <!-- links -->
+
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-about">
+        <h2>Links</h2>
+        <ul>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/baidusitemap.xml" target="_blank">网站地图</a><span> | </span>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/sitemap.xml" target="_blank">DataScience</a><span> | </span>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a href="https://github.com/xxxspy">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:675495787@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @感谢github免费托管，hexo的静态网站引擎和模板主题制作者<a href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                    <br>
+                    <a href="http://www.beian.miit.gov.cn">京ICP备16033873号-2</>
+                </a></div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<!-- tweenmax -->
+<script src="/js/TweenMax.min.js">
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- bootstrap.js -->
+<script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<!-- Custom JavaScript -->
+<script src="/js/main.js"></script>
+
+<!-- Baidu link push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<!-- baidu_static -->
+
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?588f06b88af0ef575445f53432cd15ec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>
