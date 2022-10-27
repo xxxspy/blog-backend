@@ -1,0 +1,1642 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <!--Description-->
+    
+        <meta name="description" content="专注于数据开发, 数据分析, 数据采集, python教学">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xxxspy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="stata教程07-常见样本量估计"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="专注于数据开发, 数据分析, 数据采集, python教学" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="DataSense"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>stata教程07-常见样本量估计 - DataSense</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <style>
+    code{
+    color: #d7ecff;
+    font-size: 110%;
+    }
+    pre > code {
+        -webkit-border-before: black;
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        color: #f9f4f4;
+        word-break: break-all;
+        word-wrap: break-word;
+        background-color: #f5f5f500;
+        border: 1px solid #eff3f521;
+        border-radius: 0;
+    }
+    pre > code::before {
+        content:"- ";
+        z-index: -1;
+        left:-2px;
+    }
+    #feedAv{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #MZAD_POP_PLACEHOLDER{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #pop_ad{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    </style>
+
+    
+        <!-- mathjax -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        var maths = document.getElementsByTagName("code");
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+    </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: true,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"],["$","$"]],
+      displayMath: [["\\[", "\\]"],["$$", "$$"]],
+      skipTags: ['^(?!code).*$']
+    }
+  });
+  var maths = document.getElementsByTagName("code");
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+</script>
+
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [ ['\\(','\\)']]} });
+</script> -->
+
+<!-- <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script> -->
+
+    
+    
+    
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+    <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i>
+        
+            <p id="main-title" class="title">DataSense</p>
+        
+        </a>
+    </div>
+</header>
+<div class="page_list archive-container">
+        
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+            SPSS+AMOS数据分析案例教程-关于中介模
+        </a>
+    </div>
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+            SPSS视频教程内容目录和跳转链接
+        </a>
+    </div>
+    
+</div>
+
+    <!-- Main Content -->
+    
+
+    
+        
+<div class="row">
+    <div class="col-md-9 col-sm-12">
+        <!--Title and Logo-->
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2018/12/13/stata%E6%95%99%E7%A8%8B07-%E5%B8%B8%E8%A7%81%E6%A0%B7%E6%9C%AC%E9%87%8F%E4%BC%B0%E8%AE%A1/">
+                stata教程07-常见样本量估计
+            </a>
+
+        </h1>
+        <div class="weibo-share">
+            <p>微博@mlln-cn, 并附上文章url链接, 我就能回答你的问题奥!</p>
+        </div>
+        <div class="post-info">
+            
+                <span class="date">2018年12月13日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+    <!-- Table of Contents -->
+    
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%90%86%E8%AE%BA%E7%9F%A5%E8%AF%86"><span class="toc-number">1.</span> <span class="toc-text">理论知识</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8D%95%E6%A0%B7%E6%9C%AC%E5%9D%87%E5%80%BC%E6%A3%80%E9%AA%8C"><span class="toc-number">2.</span> <span class="toc-text">单样本均值检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E7%85%A7%E7%BB%84%E5%9D%87%E5%80%BC%E6%AF%94%E8%BE%83"><span class="toc-number">3.</span> <span class="toc-text">对照组均值比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%85%8D%E5%AF%B9%E6%A0%B7%E6%9C%AC%E5%9D%87%E5%80%BC%E6%AF%94%E8%BE%83"><span class="toc-number">4.</span> <span class="toc-text">配对样本均值比较</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BE%A4%E7%BB%84%E9%9A%8F%E6%9C%BA%E5%8C%96%E8%AE%BE%E8%AE%A1%EF%BC%88CRD%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">群组随机化设计（CRD）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#ANOVA"><span class="toc-number">6.</span> <span class="toc-text">ANOVA</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Oneway-ANOVA"><span class="toc-number">6.1.</span> <span class="toc-text">Oneway ANOVA</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#Twoway-ANOVA"><span class="toc-number">6.2.</span> <span class="toc-text">Twoway ANOVA</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92"><span class="toc-number">7.</span> <span class="toc-text">线性回归</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%B8%80%E5%85%83%E5%9B%9E%E5%BD%92%E7%B3%BB%E6%95%B0%E6%A3%80%E9%AA%8C"><span class="toc-number">7.1.</span> <span class="toc-text">一元回归系数检验</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A4%9A%E5%85%83%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E7%9A%84R-2%E7%9A%84%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C"><span class="toc-number">7.2.</span> <span class="toc-text">多元线性回归的R^2的显著性检验</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95"><span class="toc-number">8.</span> <span class="toc-text">其他分析方法</span></a></li></ol>
+    </div>
+    
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>我们常用PASS做样本量的计算, 不过本人更熟悉Stata, 所以我把常用的样本量计算情景都用stata实现了一遍, 希望对大家有用, 对自己也是一个备忘录。<br><span></span></p>
+<span id="more"></span>
+
+<h3 id="理论知识"><a href="#理论知识" class="headerlink" title="理论知识"></a>理论知识</h3><img src="images/alpha-beta.png" />
+
+<p>在估计样本量的时候, 我们通常需要知道自己预期的实验结果, 而有些统计指标需要在这里提前解释一下:</p>
+<ul>
+<li>α显著性水平: 犯Ⅰ型错误的概率, 即H0假设为真, 但是我们却没有接受H0, 导致错误的抛弃了H0, 通常α取值0.05(双侧检验)</li>
+<li>1-β统计效能: β是犯Ⅱ型错误的概率, 即H1假设为真, 但是我们却没有接受H1, 导致错误的抛弃了H1, 通常β取值0.2, 即统计效能power取值0.8</li>
+</ul>
+<h3 id="单样本均值检验"><a href="#单样本均值检验" class="headerlink" title="单样本均值检验"></a>单样本均值检验</h3><p>已知总体均值, 想要知道样本均值是否等于总体均值。</p>
+<p>案例:</p>
+<p>考虑Tamhane和Dunlop（2000,209）的一个例子，该例子讨论了有改善SAT成绩口语部分的辅导计划。以前的研究发现学生<br>在没有任何教练计划的情况下重新参加SAT考试，他们的得分平均提高了15分, 标准差约为40分。一项新的教练计划声称可以提高40分。假设分数的变化大致为正态分布。该示例中感兴趣的参数是测试分数的平均变化。为了测试索赔，调查人员希望进行另一项研究并计算样本量, 需要使用5％显著性的双侧检验，80％的统计效能。我们假设总体的分数变化的标准差未知, 使用40分的估计值。</p>
+<p>我们的stata命令是:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power onemean 15 40, sd(40)</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Performing iteration ...
+
+Estimated sample size for a one-sample mean test
+t test
+Ho: m = m0  versus  Ha: m != m0
+
+Study parameters:
+
+        alpha =    0.0500
+        power =    0.8000
+        delta =    0.6250
+           m0 =   15.0000
+           ma =   40.0000
+           sd =   40.0000
+
+Estimated sample size:
+
+            N =        23
+
+</div>
+
+
+<p>结果现实, 我们只需要23个样本即可。</p>
+<p>如果我们项使用1%的显著性, 可以写成:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power onemean 15 40, sd(40) <span class="keyword">alpha</span>(.01)</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Performing iteration ...
+
+Estimated sample size for a one-sample mean test
+t test
+Ho: m = m0  versus  Ha: m != m0
+
+Study parameters:
+
+        alpha =    0.0100
+        power =    0.8000
+        delta =    0.6250
+           m0 =   15.0000
+           ma =   40.0000
+           sd =   40.0000
+
+Estimated sample size:
+
+            N =        34
+
+</div>
+
+
+<p>当然, 我们可以不指定备择假设的均值, 只需要指定差值即可:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power onemean 15, sd(40) diff(25)</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Performing iteration ...
+
+Estimated sample size for a one-sample mean test
+t test
+Ho: m = m0  versus  Ha: m != m0
+
+Study parameters:
+
+        alpha =    0.0500
+        power =    0.8000
+        delta =    0.6250
+           m0 =   15.0000
+           ma =   40.0000
+         diff =   25.0000
+           sd =   40.0000
+
+Estimated sample size:
+
+            N =        23
+
+</div>
+
+
+<p>如果总体的标准差已知, 并且就是40, 可以这样写:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power onemean 15, sd(40) diff(25) knownsd</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Performing iteration ...
+
+Estimated sample size for a one-sample mean test
+z test
+Ho: m = m0  versus  Ha: m != m0
+
+Study parameters:
+
+        alpha =    0.0500
+        power =    0.8000
+        delta =    0.6250
+           m0 =   15.0000
+           ma =   40.0000
+         diff =   25.0000
+           sd =   40.0000
+
+Estimated sample size:
+
+            N =        21
+
+</div>
+
+
+<p>更多案例, 请参考stata手册: <a target="_blank" rel="noopener" href="https://www.stata.com/manuals/psspoweronemean.pdf">https://www.stata.com/manuals/psspoweronemean.pdf</a></p>
+<h3 id="对照组均值比较"><a href="#对照组均值比较" class="headerlink" title="对照组均值比较"></a>对照组均值比较</h3><p>假如我们要检验两个均值之间的差异性是否显著, 原假设是H0: µ1 &#x3D; µ2 , 备择假设是s Ha: µ1 !&#x3D; µ2, 从文献中得知两个样本均值大概为8和12, 标准差均为9, 统计检验力为0.8, 显著性水平设置为0.05, 我们可以这样计算样本量:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power twomeans 8 12, sd(9)</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Performing iteration ...
+
+Estimated sample sizes for a two-sample means test
+t test assuming sd1 = sd2 = sd
+Ho: m2 = m1  versus  Ha: m2 != m1
+
+Study parameters:
+
+        alpha =    0.0500
+        power =    0.8000
+        delta =    4.0000
+           m1 =    8.0000
+           m2 =   12.0000
+           sd =    9.0000
+
+Estimated sample sizes:
+
+            N =       162
+  N per group =        81
+
+</div>
+
+
+<p>假如m2可能的取值是10-14:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power twomeans 8 (10(1)14), sd(9)</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Performing iteration ...
+
+Estimated sample sizes for a two-sample means test
+t test assuming sd1 = sd2 = sd
+Ho: m2 = m1  versus  Ha: m2 != m1
+
+  +-------------------------------------------------------------------------+
+  |   alpha   power       N      N1      N2   delta      m1      m2      sd |
+  |-------------------------------------------------------------------------|
+  |     .05      .8     638     319     319       2       8      10       9 |
+  |     .05      .8     286     143     143       3       8      11       9 |
+  |     .05      .8     162      81      81       4       8      12       9 |
+  |     .05      .8     104      52      52       5       8      13       9 |
+  |     .05      .8      74      37      37       6       8      14       9 |
+  +-------------------------------------------------------------------------+
+
+</div>
+
+
+<p>如果是单侧检验:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power twomeans 8 (10(1)14), sd(9) oneside</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Performing iteration ...
+
+Estimated sample sizes for a two-sample means test
+t test assuming sd1 = sd2 = sd
+Ho: m2 = m1  versus  Ha: m2 > m1
+
+  +-------------------------------------------------------------------------+
+  |   alpha   power       N      N1      N2   delta      m1      m2      sd |
+  |-------------------------------------------------------------------------|
+  |     .05      .8     504     252     252       2       8      10       9 |
+  |     .05      .8     224     112     112       3       8      11       9 |
+  |     .05      .8     128      64      64       4       8      12       9 |
+  |     .05      .8      82      41      41       5       8      13       9 |
+  |     .05      .8      58      29      29       6       8      14       9 |
+  +-------------------------------------------------------------------------+
+
+</div>
+
+
+<h3 id="配对样本均值比较"><a href="#配对样本均值比较" class="headerlink" title="配对样本均值比较"></a>配对样本均值比较</h3><p>配对样本T检验样本量的计算:</p>
+<ul>
+<li>假设: H0: µ2 − µ1 &#x3D; d &#x3D; 0 versus H1: d !&#x3D; 0</li>
+<li>均值: ma1 &#x3D; 73  ma2 &#x3D; 57 </li>
+<li>标准差均为:σ&#x3D; 36</li>
+<li>power: 0.8 </li>
+<li>显著性: α &#x3D; 0.05</li>
+</ul>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power pairedmeans 73 57, sddiff(36)</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Performing iteration ...
+
+Estimated sample size for a two-sample paired-means test
+Paired t test
+Ho: d = d0  versus  Ha: d != d0
+
+Study parameters:
+
+        alpha =    0.0500          ma1 =   73.0000
+        power =    0.8000          ma2 =   57.0000
+        delta =   -0.4444
+           d0 =    0.0000
+           da =  -16.0000
+         sd_d =   36.0000
+
+Estimated sample size:
+
+            N =        42
+
+</div>
+
+
+<p>我们也可以只指定两个均值的差异量:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power pairedmeans, altdiff(-16) sddiff(36)</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Performing iteration ...
+
+Estimated sample size for a two-sample paired-means test
+Paired t test
+Ho: d = d0  versus  Ha: d != d0
+
+Study parameters:
+
+        alpha =    0.0500
+        power =    0.8000
+        delta =   -0.4444
+           d0 =    0.0000
+           da =  -16.0000
+         sd_d =   36.0000
+
+Estimated sample size:
+
+            N =        42
+
+</div>
+
+
+<p>有时候我们可以指定两个样本的相关系数:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power pairedmeans 73 57, <span class="built_in">corr</span>(.5) sd1(29) sd2(40)</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Performing iteration ...
+
+Estimated sample size for a two-sample paired-means test
+Paired t test
+Ho: d = d0  versus  Ha: d != d0
+
+Study parameters:
+
+        alpha =    0.0500          ma1 =   73.0000
+        power =    0.8000          ma2 =   57.0000
+        delta =   -0.4470          sd1 =   29.0000
+           d0 =    0.0000          sd2 =   40.0000
+           da =  -16.0000         corr =    0.5000
+         sd_d =   35.7911
+
+Estimated sample size:
+
+            N =        42
+
+</div>
+
+
+<p>更多案例请参考stata手册: <a target="_blank" rel="noopener" href="https://www.stata.com/manuals/psspowerpairedmeans.pdf">https://www.stata.com/manuals/psspowerpairedmeans.pdf</a></p>
+<h3 id="群组随机化设计（CRD）"><a href="#群组随机化设计（CRD）" class="headerlink" title="群组随机化设计（CRD）"></a>群组随机化设计（CRD）</h3><p>考虑一个来自Ahn，Heo和Zhang（2015,37）的群组随机化设计的例子<br>试验的目的是评估健康促进计划对提高运动水平的影响。在这个研究中，<br>教会是随机化的分组单位，个体参与者是被分析的对象。教会将被随机分配到实验组<br>和对照组。调查人员计划从每个教会招募20名被试，并希望检测实验组和对照组之间的平均差异为1.1千卡&#x2F;千克&#x2F;天<br>。从以前的研究来看，共同的标准偏差是<br>3.67千卡&#x2F;千克&#x2F;天。研究者假设组内相关系数为0.025。</p>
+<p>stata命令是:</p>
+<p>由于对照组的均值大小并不影响最终的结果, 所以我们让对照组的均值为0。</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power twomeans 0 1.1, m1(20) m2(20) sd(3.67) rho(0.025)</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Performing iteration ...
+
+Estimated numbers of clusters for a two-sample means test
+Cluster randomized design, z test assuming sd1 = sd2 = sd
+Ho: m2 = m1  versus  Ha: m2 != m1
+
+Study parameters:
+
+        alpha =    0.0500
+        power =    0.8000
+        delta =    1.1000
+           m1 =    0.0000
+           m2 =    1.1000
+           sd =    3.6700
+
+Cluster design:
+
+           M1 =        20
+           M2 =        20
+          rho =    0.0250
+
+Estimated numbers of clusters and sample sizes:
+
+           K1 =        13
+           K2 =        13
+           N1 =       260
+           N2 =       260
+
+</div>
+
+
+<p>关于群组随机化的更多例子, 可以参考stata手册: <a target="_blank" rel="noopener" href="https://www.stata.com/manuals/psspowertwomeanscluster.pdf">https://www.stata.com/manuals/psspowertwomeanscluster.pdf</a></p>
+<h3 id="ANOVA"><a href="#ANOVA" class="headerlink" title="ANOVA"></a>ANOVA</h3><h4 id="Oneway-ANOVA"><a href="#Oneway-ANOVA" class="headerlink" title="Oneway ANOVA"></a>Oneway ANOVA</h4><p>用于多组均值的比较, 举一个例子, 假设有三个分组:</p>
+<ul>
+<li>假设H0: µ1 &#x3D; µ2 &#x3D; µ3</li>
+<li>从以往研究中估计三组均值为: 21, 19, 18</li>
+<li>三组共同方差是16</li>
+<li>alpha &#x3D; 0.05</li>
+<li>beta &#x3D; 0.2</li>
+</ul>
+<p>stata命令是:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power <span class="keyword">oneway</span> 21 19 18, varerror(16)</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Performing iteration ...
+
+Estimated sample size for one-way ANOVA
+F test for group effect
+Ho: delta = 0  versus  Ha: delta != 0
+
+Study parameters:
+
+        alpha =    0.0500
+        power =    0.8000
+        delta =    0.3118
+          N_g =         3
+           m1 =   21.0000
+           m2 =   19.0000
+           m3 =   18.0000
+        Var_m =    1.5556
+        Var_e =   16.0000
+
+Estimated sample sizes:
+
+            N =       105
+  N per group =        35
+
+</div>
+
+
+<p>ANOVA的更多案例可以参考手册: <a target="_blank" rel="noopener" href="https://www.stata.com/manuals/psspoweroneway.pdf">https://www.stata.com/manuals/psspoweroneway.pdf</a></p>
+<h4 id="Twoway-ANOVA"><a href="#Twoway-ANOVA" class="headerlink" title="Twoway ANOVA"></a>Twoway ANOVA</h4><p>假设有一个2x3的分组设计, 各组的均值分别是: 19 18 32 \ 23 25 26, 组内方差为27,  我们可以这样计算样本量:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">matrix</span> cm = (19, 18, 32 \ 23, 25, 26)</span><br><span class="line">power <span class="keyword">twoway</span> cm , varerror()</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+
+
+Performing iteration ...
+
+Estimated sample size for two-way ANOVA
+F test for row effect
+Ho: delta = 0  versus  Ha: delta != 0
+
+Study parameters:
+
+        alpha =    0.0500
+        power =    0.8000
+        delta =    0.8333
+          N_r =         2
+          N_c =         3
+        means =   <matrix>
+        Var_r =    0.6944
+        Var_e =    1.0000
+
+Estimated sample sizes:
+
+            N =        18
+   N per cell =         3
+
+</div>
+
+
+<p>更多Twoway ANOVA的案例可以看手册: <a target="_blank" rel="noopener" href="https://www.stata.com/manuals/psspowertwoway.pdf">https://www.stata.com/manuals/psspowertwoway.pdf</a></p>
+<h3 id="线性回归"><a href="#线性回归" class="headerlink" title="线性回归"></a>线性回归</h3><h4 id="一元回归系数检验"><a href="#一元回归系数检验" class="headerlink" title="一元回归系数检验"></a>一元回归系数检验</h4><p>考虑一项假设性研究，其目标是调查每天锻炼时间对BMI的影响。<br>感兴趣的参数是斜率系数b。<br>我们的零假设是H0：b &#x3D; 0,<br>我们希望计算BMI下降0.1 kg&#x2F;m2所需的样本量<br>，使用5％级别的双侧检验，power为80％。我们假设锻炼时间的标准差为10<br>和BMI的标准差为4。</p>
+<p>我们可以这样计算样本量:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power oneslope 0 -0.1, sdx(10) sdy(4)</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Performing iteration ...
+
+Estimated sample size for a linear regression slope test
+t test
+Ho: b = b0  versus  Ha: b != b0
+
+Study parameters:
+
+        alpha =    0.0500
+        power =    0.8000
+        delta =   -0.2582
+           b0 =    0.0000
+           ba =   -0.1000
+          sdx =   10.0000
+      sderror =    3.8730
+          sdy =    4.0000
+
+Estimated sample size:
+
+            N =       120
+
+</div>
+
+
+<h4 id="多元线性回归的R-2的显著性检验"><a href="#多元线性回归的R-2的显著性检验" class="headerlink" title="多元线性回归的R^2的显著性检验"></a>多元线性回归的R^2的显著性检验</h4><p>R^2显著可以证明回归方程中至少有一个回归系数不为零。</p>
+<ul>
+<li>假设: H0: R2 &#x3D; 0</li>
+<li>备择的R2取值是0.1</li>
+<li>α &#x3D; 0.05</li>
+<li>power 0.8</li>
+<li>2个协变量</li>
+</ul>
+<p>stata命令是:</p>
+<figure class="highlight stata"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">power rsquared 0.10, ntested(2)</span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Performing iteration ...
+
+Estimated sample size for multiple linear regression
+F test for R2 testing all coefficients
+Ho: R2_T = 0  versus  Ha: R2_T != 0
+
+Study parameters:
+
+        alpha =    0.0500
+        power =    0.8000
+        delta =    0.1111
+         R2_T =    0.1000
+      ntested =         2
+
+Estimated sample size:
+
+            N =        90
+
+</div>
+
+
+<p>参考手册: <a target="_blank" rel="noopener" href="https://www.stata.com/manuals/psspowerrsquared.pdf">https://www.stata.com/manuals/psspowerrsquared.pdf</a></p>
+<h3 id="其他分析方法"><a href="#其他分析方法" class="headerlink" title="其他分析方法"></a>其他分析方法</h3><p>在官方文档中有大量的案例, 包括均值比较&#x2F;百分比比较&#x2F;方差&#x2F;相关分析&#x2F;生存分析等, 大家都可以在这个页面找到: <a target="_blank" rel="noopener" href="https://www.stata.com/features/power-and-sample-size/">https://www.stata.com/features/power-and-sample-size/</a>  。</p>
+<blockquote>
+<p><strong>注意</strong><br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="stata%E6%95%99%E7%A8%8B07-%E5%B8%B8%E8%A7%81%E6%A0%B7%E6%9C%AC%E9%87%8F%E4%BC%B0%E8%AE%A1.ipynb">notebook</a><br>统计咨询请加QQ 2726725926, 微信 mllncn,  SPSS统计咨询是收费的<br>微博上@mlln-cn可以向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
+</blockquote>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/stata/">#stata</a>
+        </div>
+    
+
+
+
+</div>
+        </section>
+        <section>
+            <div class="content" style="color: #d7ecff">
+                <h3 id="赞助"><a href="#赞助" class="headerlink" title="赞助"></a>赞助</h3>
+                <p>持续创造有价值的内容, 我需要你的帮助</p>
+                <p><img src="/img/收款二维码.png" class="img-thumbnail"></p>
+            </div>
+        </section>
+        <!-- changyan comments -->
+        <section class="main">
+            <!--PC版畅言-->
+
+<div class="container"><div id="SOHUCS" sid="2018/12/13/stata教程07-常见样本量估计/"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cysqnjGqk',
+conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
+});
+setTimeout(()=>{
+    $('#closePoPBD').click()
+}, 2000)
+</script>
+</div>
+
+        </section>
+    </div>
+
+    <!-- rightside -->
+    <div class="col-md-3 col-sm-12 rightside">
+        <div class="related-posts">
+    <h3>
+        <a href="#">
+            赞助推荐
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://jupyter.cn/home/">问卷代填保证质量</a>
+            </div>
+        
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        常用工具
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a href="/mplusoutput/">Mplus结果查看器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/drawio/">绘图软件</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2018/09/26/在线绘制中介效应图/">
+                在线绘制中介效应图
+            </a>
+        </div>
+        <div class="archive-post">
+            <a href="/neural/">神经网络可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/psychopy/">psychopy教程</a>
+        </div>
+        <div class="archive-post">
+            <a href="/vector/">[词向量]高维向量可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/demos/evolutionSimulator/">[tensorflow.js案例]进化算法演示</a>
+        </div>
+        <div class="archive-post">
+            <a href="/guideToPython/">[书]Python最佳实践</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/10/10/sobel检验原理和一键计算器/">Sobel检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">平均方差提取量AVE和组合信度CR计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">卡方检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">简单交互效应可视化工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/12/23/均值差异的效应量在线计算器/">两组均值差异的效应量在线计算器</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/stata/">
+            stata
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2019/01/11/stata%E6%95%99%E7%A8%8B15-%E5%9B%9E%E5%BD%92%E5%8F%98%E5%8A%A8%E7%9A%84%E6%A3%80%E9%AA%8C/">
+                    stata教程15-回归变动的检验
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2019/01/10/stata%E6%95%99%E7%A8%8B13-%E5%9B%9E%E5%BD%92%E4%B8%AD%E5%A4%9A%E9%87%8D%E5%85%B1%E7%BA%BF%E6%80%A7%E7%9A%84%E6%A3%80%E9%AA%8C/">
+                    stata教程13-回归中多重共线性的检验
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2019/01/10/stata%E6%95%99%E7%A8%8B14-%E6%9E%81%E7%AB%AF%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86/">
+                    stata教程14-极端数据处理
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/12/23/stata%E6%95%99%E7%A8%8B10-%E9%A1%B9%E7%9B%AE%E5%8F%8D%E5%BA%94%E4%BD%BF%E7%94%A8irt%E5%91%BD%E4%BB%A4%E8%BF%9B%E8%A1%8C%E5%8D%95%E5%8F%82%E6%95%B0logit%E5%8F%82%E6%95%B0%E4%BC%B0%E8%AE%A1/">
+                    stata教程10-项目反应使用irt命令进行单参数logit参数估计
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/12/23/stata%E6%95%99%E7%A8%8B11-raschtest%E6%A8%A1%E5%9D%97%E8%BF%9B%E8%A1%8C%E9%A1%B9%E7%9B%AE%E5%8F%8D%E5%BA%94%E8%AF%95%E9%A2%98%E5%88%86%E6%9E%90/">
+                    stata教程11-raschtest模块进行项目反应试题分析
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/12/22/stata%E6%95%99%E7%A8%8B09-%E9%A1%B9%E7%9B%AE%E5%8F%8D%E5%BA%94%E7%90%86%E8%AE%BAIRT%E7%9A%84Rash%E6%A8%A1%E5%9E%8B/">
+                    stata教程09-项目反应理论IRT的Rash模型
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/12/22/stata%E6%95%99%E7%A8%8B08-%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90/">
+                    stata教程08-中介效应分析
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/12/13/stata%E6%95%99%E7%A8%8B07-%E5%B8%B8%E8%A7%81%E6%A0%B7%E6%9C%AC%E9%87%8F%E4%BC%B0%E8%AE%A1/">
+                    stata教程07-常见样本量估计
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/12/12/stata%E6%95%99%E7%A8%8B06-%E8%AE%A1%E7%AE%97AIC%E5%92%8CBIC%E5%86%B3%E5%AE%9A%E5%8F%98%E9%87%8F%E4%B8%AA%E6%95%B0/">
+                    stata教程06-计算AIC和BIC决定变量个数
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/12/12/stata%E6%95%99%E7%A8%8B05-%E8%87%AA%E7%9B%B8%E5%85%B3%E7%9A%84%E6%A3%80%E9%AA%8C%E5%92%8C%E5%A4%84%E7%90%86/">
+                    stata教程05-自相关的检验和处理
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/12/11/stata%E6%95%99%E7%A8%8B03-%E5%BC%82%E6%96%B9%E5%B7%AE%E7%9A%84%E6%A3%80%E9%AA%8C%E5%92%8C%E5%A4%84%E7%90%86/">
+                    stata教程03-异方差的检验和处理
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/12/11/stata%E6%95%99%E7%A8%8B03-%E6%95%B0%E6%8D%AE%E7%9A%84%E6%AD%A3%E6%80%81%E6%80%A7%E6%A3%80%E9%AA%8C%E5%92%8C%E5%8F%98%E9%87%8F%E6%AD%A3%E6%80%81%E5%8C%96/">
+                    stata教程03-数据的正态性检验和变量正态化
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/12/10/stata%E6%95%99%E7%A8%8B02-%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E5%B0%8F%E6%A0%B7%E6%9C%AC%E5%92%8C%E5%A4%A7%E6%A0%B7%E6%9C%ACOLS/">
+                    stata教程02-线性回归分析小样本和大样本OLS
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/11/01/%E5%AE%89%E8%A3%85stata%E5%B9%B6%E5%9C%A8jupyter-notebook%E4%B8%AD%E8%B0%83%E7%94%A8/">
+                    安装stata并在jupyter notebook中调用
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2018/01/03/stata%E6%95%99%E7%A8%8B12-%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%9D%9E%E7%BA%BF%E6%80%A7%E6%A3%80%E9%AA%8C/">
+                    stata教程12-回归模型的非线性检验
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts hidden-sm-down">
+    <h3>
+        <a href="#">
+            友商赞助
+        </a>
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a target="_blank" rel="noopener" href="http://jupyter.cn">
+                  问卷大全问卷案例下载
+            </a>
+            <a href="https://mlln.cn/2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/">
+                大学生互填问卷群推荐
+            </a>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 footer-about">
+                <h2>About</h2>
+                <p>
+                    这是<code>xxxspy</code>的个人博客
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2022/10/26/2022%E5%B9%B4conda%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%89%8B%E5%86%8C/">2022年conda常用命令常见问题手册</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/10/24/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE%E6%A3%80%E6%9F%A5%E5%92%8C%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">共同方法偏差检查和控制方法大全</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/10/24/%E6%88%91%E5%A6%82%E4%BD%95%E4%B8%80%E5%A4%A9%E5%81%9A%E5%AE%8C%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E5%92%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷快速收集并做完数据分析的常用流程介绍</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/09/20/R%E8%AF%AD%E8%A8%80%E5%81%9A%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%85%A5%E9%97%A8/">R语言做结构方程模型入门</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/08/31/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E5%88%86%E6%9E%90%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F/">结构方程模型多组比较分析调节变量</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/08/24/JupyterNotebook%E4%B8%AD%E8%BF%90%E8%A1%8CR%E4%BB%A3%E7%A0%81/">Jupyter notebook中运行R代码</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/08/12/R%E4%B8%AD%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E6%95%B4%E7%90%86%E7%BB%93%E6%9E%9C%E4%B8%BA%E8%AE%BA%E6%96%87%E5%8F%AF%E7%94%A8%E6%A0%BC%E5%BC%8F/">R中如何自动整理结果为论文可用格式</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">R语言快速入门练习材料</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/">潜在类别分析LCA入门</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/06/12/Amos%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B/">Amos结构方程模型数据分析入门教程</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 footer-tags">
+    <h2>tags</h2>
+    <ul>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%87%E6%9C%AC%E6%8C%96%E6%8E%98/">文本挖掘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8A%A5%E5%91%8A%E7%B3%BB%E7%BB%9F/">报告系统</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/python/">python</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/manim/">manim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/spss/">spss</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BF%A1%E5%BA%A6%E5%88%86%E6%9E%90/">信度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%88%E5%BA%A6%E5%88%86%E6%9E%90/">效度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/amos/">amos</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE/">共同方法偏差</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB/">问卷互填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%98%9F/">问卷星</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BB%A3%E5%A1%AB/">问卷代填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E7%BD%91/">问卷网</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/conda/">conda</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mplus/">mplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B/">结构方程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/VBA/">VBA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/django/">django</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/EM/">EM</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime/">eprime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8E%A8%E8%8D%90%E4%B9%A6/">推荐书</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/">卡方检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/javascript/">javascript</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jupyter/">jupyter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R/">R</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Latex/">Latex</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mysql/">mysql</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%98%BE%E8%91%97%E6%80%A7/">显著性</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Q-learning/">Q-learning</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R%E8%AF%AD%E8%A8%80/">R语言</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/r/">r</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/process/">process</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94/">调节效应</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow-js/">tensorflow.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BD%9C%E6%96%87%E8%AF%84%E5%88%86/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/t%E6%A3%80%E9%AA%8C/">t检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/">方差分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/NLP/">NLP</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%AF%AD%E6%96%99%E5%BA%93/">语料库</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nodejs/">nodejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/electron/">electron</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/e-prime/">e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gensim/">gensim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/">摘要生成</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/git/">git</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gui/">gui</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jamovi/">jamovi</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/notebook/">notebook</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E6%95%99%E7%A8%8B/">keras教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E5%9F%BA%E7%A1%80/">keras基础</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongodb/">mongodb</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jieba/">jieba</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongoengine/">mongoengine</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/meta%E5%88%86%E6%9E%90/">meta分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/networkx/">networkx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nginx/">nginx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/dataframe/">dataframe</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pandas/">pandas</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%B8%8B%E8%BD%BD/">下载</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BD%91%E7%9B%98/">网盘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pychrome/">pychrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pydotplus/">pydotplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pymongo/">pymongo</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/graphviz/">graphviz</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/selenium/">selenium</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/">格式化字符串</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lru-cache/">lru_cache</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/os/">os</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">时间序列</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pil/">pil</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tkinter/">tkinter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/print/">print</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/js2py/">js2py</a>
+        </span>
+        
+    </ul>
+</div>
+
+            
+        </div>
+        <!-- links -->
+
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-about">
+        <h2>Links</h2>
+        <ul>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/baidusitemap.xml" target="_blank">网站地图</a><span> | </span>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/sitemap.xml" target="_blank">DataScience</a><span> | </span>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/xxxspy">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:675495787@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @感谢github免费托管，hexo的静态网站引擎和模板主题制作者<a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                    <br/>
+                    <a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">京ICP备16033873号-2</>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<!-- tweenmax -->
+<script src="/js/TweenMax.min.js">
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- bootstrap.js -->
+<script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Baidu link push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<!-- baidu_static -->
+
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?588f06b88af0ef575445f53432cd15ec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>

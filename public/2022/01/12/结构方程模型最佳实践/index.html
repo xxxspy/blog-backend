@@ -1,0 +1,1314 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <!--Description-->
+    
+        <meta name="description" content="专注于数据开发, 数据分析, 数据采集, python教学">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xxxspy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="结构方程模型最佳实践"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="专注于数据开发, 数据分析, 数据采集, python教学" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="DataSense"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>结构方程模型最佳实践 - DataSense</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <style>
+    code{
+    color: #d7ecff;
+    font-size: 110%;
+    }
+    pre > code {
+        -webkit-border-before: black;
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        color: #f9f4f4;
+        word-break: break-all;
+        word-wrap: break-word;
+        background-color: #f5f5f500;
+        border: 1px solid #eff3f521;
+        border-radius: 0;
+    }
+    pre > code::before {
+        content:"- ";
+        z-index: -1;
+        left:-2px;
+    }
+    #feedAv{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #MZAD_POP_PLACEHOLDER{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #pop_ad{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    </style>
+
+    
+    
+    
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+    <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i>
+        
+            <p id="main-title" class="title">DataSense</p>
+        
+        </a>
+    </div>
+</header>
+<div class="page_list archive-container">
+        
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+            SPSS+AMOS数据分析案例教程-关于中介模
+        </a>
+    </div>
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+            SPSS视频教程内容目录和跳转链接
+        </a>
+    </div>
+    
+</div>
+
+    <!-- Main Content -->
+    
+
+    
+        
+<div class="row">
+    <div class="col-md-9 col-sm-12">
+        <!--Title and Logo-->
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2022/01/12/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+                结构方程模型最佳实践
+            </a>
+
+        </h1>
+        <div class="weibo-share">
+            <p>微博@mlln-cn, 并附上文章url链接, 我就能回答你的问题奥!</p>
+        </div>
+        <div class="post-info">
+            
+                <span class="date">2022年01月12日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+    <!-- Table of Contents -->
+    
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>这是结构方程模型入门教程, 前面介绍理论部分, 后面会结合案例使用amos软件进行结构方程模型分析, 还会讲解如何汇报和整理结果。</p>
+<p>本教程还提供视频教程, 不过视频教程是收费的, 视频和数据的下载地址在最后。</p>
+<span id="more"></span>
+
+<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>由于很多学生在使用结构方程模型时, 不理解其原理, 造成错误百出, 更严重的是,<br>他们的指导老师也没有能力看出统计的错误, 导致大量不合格的论文出现。<br>因此我们编辑了这篇文章, 帮大家梳理结构方程的必要步骤, 以及如何汇报结果,<br>避免常见错误。</p>
+<p>本文介绍了结构方程模型 (SEM)的最佳实践，以及这种统计技术在实际应用中的重要性。<br>由于是”实践”, 文章尽量以简短的篇幅讲清楚你应该做什么和不应该做什么,<br>最终目的就是正确的做完论文或者分析报告。</p>
+<p>SEM是一个非常强大的统计建模工具，它将测量模型和结构模型合并到<br>协方差结构分析框架。本文在此简要介绍了SEM方法的主要步骤和特点，并且,<br>探索性因子分析 (EFA) 和验证性因素分析 (CFA) 通常用作建模设计的中间阶段, 也一并进行了介绍。</p>
+<h1 id="结构方程特点"><a href="#结构方程特点" class="headerlink" title="结构方程特点"></a>结构方程特点</h1><h2 id="两种结构"><a href="#两种结构" class="headerlink" title="两种结构"></a>两种结构</h2><img src="imgs/measure-structural.png">
+
+
+<p>结构方程模型通常由两部分构成: 测量模型(mearurement model)和结构模型(structural model), 在上图中可以看到,<br>测量模型就是我们常说的因子结构, 因为有三个潜变量(<code>$\eta_1 \eta_2 \xi$</code></p>
+<h2 id="测量模型"><a href="#测量模型" class="headerlink" title="测量模型"></a>测量模型</h2><p>你可以理解为因子结构。</p>
+<p>探索性因子分析(EFA)通常被用作研究的初步步骤，如果你理论上, 或者根据前人经验, 是无法确定题目的因子结构,<br>你需要做EFA来提取因子, 为CFA做准备。但是, 由于大多数时候, 我们已经知道理论上的因子结构, 比如,<br>研究者根据某种因子结构设计的问卷, 或者使用前人验证过的问卷(所谓的验证就是做过CFA测试), 那么EFA不是必须汇报的,<br>不过作为研究者, 在做CFA之前做一下EFA没有坏处, 即便做了, 也并不一定要汇报, 这就是他们的关系。</p>
+<h2 id="结构模型"><a href="#结构模型" class="headerlink" title="结构模型"></a>结构模型</h2><p>SEM 也可以被视为所谓的路径（因果）分析。路径分析<br>是多元回归分析的扩展，因为多元回归只有1个因变量,<br>但是在路径分析中, 变量间的关系很复杂, 自变量可能同时也是因变量,<br>因变量可能有多个, 所以路径分析让我们能够研究更复杂的变量关系。<br>由于这些关系通常暗藏在显变量的协方差矩阵中，<br>协方差矩阵是SEM的输入数据,<br>SEM有时也称为协方差结构分析 [2]。</p>
+<h1 id="SEM建模流程"><a href="#SEM建模流程" class="headerlink" title="SEM建模流程"></a>SEM建模流程</h1><h2 id="第一步-理论框架"><a href="#第一步-理论框架" class="headerlink" title="第一步: 理论框架"></a>第一步: 理论框架</h2><img src="imgs/theory-graph.png">
+
+<p>根据你的经验, 或者对文献的梳理, 你可以画出这样的一个理论关系图吗? 这是你首先要做的, 在你什么都没有的情况下,<br>你需要首先构建这样一个理论模型, 以便指导你后续的工作。 如果你感觉无能为力, 做不出这样的理论框架, 说明你没有看文献,<br>或者对自己的专业一无所知, 那么你现在就需要去看文献, 其实很简单, 让</p>
+<p>这个图的符号很简单, 双向箭头代表相关关系, 看图中, IN和DN是相关的, 不存在因果关系;<br>再看IN和CET之间的关系, 箭头从IN指向CET, 指的是IN对CET有影响, 自变量是IN, 因变量是CET。</p>
+<p>当然, 我们还可能需要表达调节关系, 比如下图这样, GN的箭头指向了IN和CET之间的连线, 这说明GN可以影响IN和CET之间的关系,<br>注意这句话, GN影响的是关系, 而不是图中列出的变量。</p>
+<img src="imgs/theory-graph2.png">
+
+<p>如果你好奇我们是怎么做上面的理论图的, 我建议你使用word绘制, 或者一些在线工具, 比如: <a target="_blank" rel="noopener" href="https://www.mlln.cn/drawio/">https://www.mlln.cn/drawio/</a></p>
+<h2 id="第二步-列出理论假设"><a href="#第二步-列出理论假设" class="headerlink" title="第二步 列出理论假设"></a>第二步 列出理论假设</h2><p>理论假设就是你关心的想要证明的结论。我们可以举几个例子:</p>
+<ul>
+<li>假设1: IN对CET有正向影响</li>
+<li>假设2:DN对CET有负向影响</li>
+<li>假设3:GN可以影响IN与CET的关系, 具体来说, GN增大可以增强IN与CET的关系, 也就是说GN正向调节IN与CET的关系。</li>
+</ul>
+<p>你需要注意的地方是:</p>
+<ul>
+<li>所有的关系必须指出是正向还是负向, 而不能说, 你不确定正负, 让数据来检验, 这是完全错误的思路</li>
+<li>图中的关系不必全部改成假设, 假设必须是你关心的并且重要的, 能够体现你论文价值的</li>
+</ul>
+<h2 id="第三步-设计问卷或者数据指标"><a href="#第三步-设计问卷或者数据指标" class="headerlink" title="第三步 设计问卷或者数据指标"></a>第三步 设计问卷或者数据指标</h2><p>这一步主要是构建你的结构方程的测量模型, 对于问卷研究, 通常是寻找前人研究中用过的量表,<br>最好是经过CFA检验的量表, 因为如果你使用的量表的作者没有分析过CFA, 那么大概率上,<br>这个量表在CFA上可能会表现不好。很多同学抱怨SEM结果拟合很差, 可能你从选择量表这一步就错了!</p>
+<p>对于经济学甚至工科的一些学生, 如果使用的经济指标作为变量, 在此基础上提取潜变量,<br>你必须注意, 前人有没有用过这些指标作为潜变量的指标, 如果没有, 你也要慎重使用,<br>你很可能无法在CFA分析中得到好结果。</p>
+<p>在这一步最重要的成果是列出测量指标, 比如下面这样的表格:</p>
+<img src="imgs/manifactors.png">
+
+<p>下面是一个错误示范, 这个列表没有列出来每个题目所归属的因子或变量, 并且这些变量都不适合做结构方程, 他们要么是分类数据, 要么变量之间没有任何相关关系却归属到一个因子, 比如原作者把X4(来源地)和X5(教育程度)归结为1个因子, 这种随意的把测量指标分组, 并声称他们是什么因子, 都是错误的! 并且这种文章一旦发表就会遗臭万年。 你一定不能想象, 下面这个截图就是从发表的文章中截取的。</p>
+<img src="imgs/manifactors2.png">
+
+<h3 id="每个因子有几个测量指标-题目-比较好"><a href="#每个因子有几个测量指标-题目-比较好" class="headerlink" title="每个因子有几个测量指标(题目)比较好"></a>每个因子有几个测量指标(题目)比较好</h3><p>推荐4个指标, 最低三个指标, 如果只有两个, 那么你的模型很难拟合, 内部一致性信度也会偏低, 如果只有1个指标, 那不构成一个潜变量, 直接用这个指标当作显变量.</p>
+<h2 id="第四步-数据前测"><a href="#第四步-数据前测" class="headerlink" title="第四步 数据前测"></a>第四步 数据前测</h2><p>在做大规模收集数据之前, 先小规模测试, 比如50人的样本测试, 然后对你的数据质量进行检验。</p>
+<p><a ref="https://www.mlln.cn/drawio/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=%E6%9C%AA%E5%91%BD%E5%90%8D%E8%A1%A8%E5%8D%95.xml#R7Vttk6o2FP41%2BXqHEF7CR1BoZ9pOO7Mf2n5kNav0onEwrmt%2FfRMIIEl0d1Vwe9F7ZzYcw1vOc5485yQCNFm9%2FVSkm%2BVvdE5yYFvzN4CmwLZhYGP%2BR1gOlSXATmVYFNlcdmoNT9m%2FRBotad1lc7LtdGSU5izbdI0zul6TGevY0qKg%2B263F5p377pJF0QzPM3SXLf%2Bmc3ZsrJi22%2FtP5NssazvDL2g%2BuY5nX1fFHS3lvcDNnopP9XXq7S%2BlnzR7TKd0%2F2RCcUATQpKWdVavU1ILsa2HrbqvOTEt81zF2TNPnKCKx%2BDHepXJ3M%2BEvJwTdf8T1S%2BDxFnWPxoyVY5b0Le5DcpDn8J%2Bze3PvxbdsvTZ5JHzXBMaE6L8g4oSSz%2B4V22LC1YKNzV3qu0JVmey8uQ9bzuMcvT7TabVUbZRTzFP4Sxg8RQumOUm2jBlnRB12n%2BK6Ub2W%2FLCvqdHD0IDMW%2F5pva09wJ0QtdM3lJG8pj05nV8IkxO%2BkAadrSXTGTvZCEdFosiOzlNM7nQUXoivCh5F0Kkqcse%2B1ePZXoXjT9Wg%2FzhnSy2eHy1q9pvpMXBbEHAhdElmjgKQhjEAcA%2B%2BI%2FbwQRwJ6GkhYSYnT2y4yRp01avt%2BeU0IXJieg0HhccUuSTPhHDDr3sdH%2BKee8koKRt%2FPu0QdenoA8GaiSyJA83LesAOtYXh4xQn3aNa7yza7CIEzuErXi8wWi1rIa%2Brg0ahVgSYa%2BNJodPZq9gaI5MEDEBYEFQj1kPwOR%2FwEM7kbeBnfjgdztGBkBY%2BHx2Bc8HSQ1efMGZwoIQqyT95KunnfbH5u4rS5xQ19nbtsxMDe%2BAXPb%2BpgfR18L8Li1%2FrB8fbdA9fRArfTuAJHqaZE6ScLxqigXfXM74egOKaQgNCupCcDBmJXU3SIT65EJ7SsjU576B834jRvk%2BUjR70jBU%2FUM8iwFUs1jfAxlJ%2FS6D0LrLMoe08HdQDeUTsdnCIjrtdAG2Cn1WgyiuJTwkUANb4RTIe7GqOA8930FB72eFBw01UkcECVCUnO3RKFIsYR%2FeHvaS3jDTnCXsf4I79PhXU0g90nDoSm%2BTWiJfBHivUwGD7Rci5bBZoP65sp0ELkAR0fpuwagUc4CagHWlDj0lsc%2FhNtXiFVDIg%2BDoWJVz%2BTjEWfygZpPOQPm8bYpjy%2FVc4BF%2FVOI5ljIaK6qw6RfdabE8KNo%2Fk4MB4YYvjbl%2FzBuTGJexw2fb7FYAG0A9FD1XxI39k1KRXys0sNRh40oAW2PrqxUkoKgy3wuthQMVle8uHxkWsszkRsHJg7L8oEnqgNjFIUB7PrCcQcsDdSrcI8J5Z7EYJsSuLsQg1pidtUtV5%2FrfzWR1CPz%2FmyXlA1OJLytL4SMRdJ6vuIPE5n0JmlNiwYD6tZH7vkOzbgG%2FTFUnagmCrWsWKnUHlAyDiScq5neDiXoBOtcuaCpspVv9bagWb%2BVut0oKncZldvM8Eg3FznqfoamTDlIWVKvSYmJPeKOQeV8PhUeGut8rm82wdaAMzoyF%2FerbQCiyo%2FEbutj%2BcWTuBD1Mtk%2Fig2fonFU%2F9TklotCF%2BUUEEIzzZ9KKrQTkH%2FbrAKdXhBvQfz7L0No1vEoldvB%2BOqNj5elxnaXiH3vPIod6Jzrfz2ITQsIGhOLBpYLr0Es9M4YNY4qNI0KB95G4fDD9idvlV%2Fb3xWi%2BD8%3D"><img src="imgs/sem-flow.png"></a></p>
+<p>流程图的高清图在<a target="_blank" rel="noopener" href="https://www.mlln.cn/drawio/?lightbox=1&highlight=0000ff&edit=_blank&layers=1&nav=1&title=%E6%9C%AA%E5%91%BD%E5%90%8D%E8%A1%A8%E5%8D%95.xml#R7Vrfb6M4EP5r%2FFphDMY8QgJ70u7pTurD7T7SxE3YJTgiTpPcX3822BDA6bYJoacmtFLM4B%2Fg%2Bb6Z8dgATVb7L0WyXv7J5jQDtjXfAzQFtg19m4gfKTlUEp84lWBRpHNVqRE8pv9SJbSUdJvO6aZVkTOW8XTdFs5YntMZb8mSomC7drVnlrVHXScL2hM8zpKsL%2F0nnfNlJSW218j%2FoOliqUeG2K%2BePCWzX4uCbXM1HrDRc3lVj1eJ7kt96GaZzNnuSIQigCYFY7wqrfYTmsm51dNWtYtPPK3fu6A5f0sDV70GP%2BhPp3MxE%2Bo2Z7n4CcvvobKFJe6WfJWJIhRFMUhx%2BC7lD66%2B%2FaGqZckTzcJ6OiYsY0U5AopjS1yiyoYnBQ%2BkupqxSlmcZpnqhuZzXWOWJZtNOquEqop8i5%2BU84PCULLlTIhYwZdswfIk%2B8bYWtXb8IL9okcvAgP5Vz%2FRmhZKCJ9ZzlWXNlT3ppbV9Mk5O6kAJdqwbTFTtZCCdFIsqKrl1MoXpKJsRcVUiioFzRKevrR7TxS6F3W9RsOioJRsVrga%2BiXJtqpTEGHguyC0ZIFMQRCByAfEk%2F%2Bi4IeA4B5KGkjI2dktU04f10n5fTthEtowOQGFWuMdtcTxRFxy0oWOjfJ3KeeFFpzuX1dPf%2BJVA4QVUZUhQ%2Bp211gFqLm8PLIIutklqvLMqiIgiD%2BEtfL6H7DWsmrzcS5rO8BSFvpcNjt9NuOR2OwYIUII8AWbPUlcP9ZsFgUBHQgC0mfzkq2etpvPzWSrzWTo9alsOwYqkwGobBvm%2FJPS88OcKu7TsApvRuAh7vFwEge36zRd9OC2yObgEf0mNDlOV5rEoB%2FIHDvOBuBRI%2F20fnQAotJ9yr%2Fr2RDlH%2FVkDOZJ4aWuVDX9m6Vi4BqixPIfPOx4lkuIwKtsfQRXsQ59gLB5jt12%2F9U7qy47wKzf8W2Owboj8uNdBzT4DuiP5Dtg33lEN%2Bw8vE6chpwRXYdxeeyBMAQ%2BKhdfESCOdCahJ9fJI1D3FW3eqVvTtBP22UP4DDFXyeGowlqa%2B81pl%2BL7beC6pJN669SH9usNRKF6hXN9C%2BqvDv%2F6esY6BB7jsYLnHZHvQ%2BRY%2BQA9djf0DUFgyUIwLTMDZQqJBKVFw1J4iwkBTNr0c1yDo8FXSgig1xPv5zqPm6WqXoko76nXImeTWC8IjkmMPsKrQKuTgcbDOgn9oS2L4YPAlolmEfpI0xGByAFhXBaExRBl%2F2bDU2hZbzAbV4tPzamNQASkfSN%2BX0iO7vv1fmorGh3L%2Beu9qRY4BFmJ3NW7BkpuAwkNF%2FrOdTiUoBNm58I8F%2Fba1qpeXesuqncYJJXlGuCHAQnLPagy%2F0pudOvJ6ebDsSkffrXNp36CqZ3UmEoN3apD729WEMPO4NU8OjLFX0InXrliwyBE8nDG73l0Xz2Mf4pHn0wbfLvivYsEgs1W%2FlTqqVsfeQNnnkwWpwthQy7qrFMsd9RejNqLQ9SzUOvpUxH6kCgcGIXQHA%2FrhWwwBUHpAIPyXIzEZSQxeoshSjdONAYocJgARdw2B1wrvTaniFH0Hw%3D%3D">这里</a></p>
+<p>结构方程模型最关键的一步就是你要确保测量模型的质量,<br>我们通常需要前测数据, 重点是对测量模型进行检验,<br>而CFA就是用来确保测量模型质量的,<br>但是为了CFA结果好, 有一些工作需要做:</p>
+<ul>
+<li>检查每个潜变量的探索性因子分析,确保它是单因子的</li>
+</ul>
+<p>以上是必须要检查的工作, 当然还有一些是你最好要做的:</p>
+<ul>
+<li>全部变量的探索性因子分析(检查每个潜变量是否可以相互区分开, 如果出现题目错乱, 问题很复杂, 需要自己研究,没有统一答案)</li>
+</ul>
+<p>我实际上在上面的流程图中绘制了我的常用工作流程, 然而因为这个工作太过复杂, 我们很难用文字或者流程图来详尽解释全部的内容,<br>所以我录制了一套实战的流程的视频教程, 里面有详细的解答。</p>
+<p>在流程图里, 我们认为如果量表前人研究用过的, 并且结果了CFA检验, 你不必进行EFA, 直接做CFA是可以的, 但是当CFA结果差,<br>你需要返回到EFA进行问题的诊断。</p>
+<h3 id="EFA部分问题"><a href="#EFA部分问题" class="headerlink" title="EFA部分问题"></a>EFA部分问题</h3><p>针对这一部分的常见问题, 我在这里先列出来:</p>
+<h4 id="是否有必要做EFA-探索性因子分析"><a href="#是否有必要做EFA-探索性因子分析" class="headerlink" title="是否有必要做EFA(探索性因子分析)"></a>是否有必要做EFA(探索性因子分析)</h4><pre><code>如果你的问卷是来自于前人研究, 并且它已经经过EFA的测试, 得到了题目的因子结构, 那么你没必要再做EFA;
+如果你的问卷是自编问卷, 我通常建议你先做EFA; 不过如果你的问卷有预设的因子结构, 也就是很明确的哪个题归属于哪个因子, 那么EFA也不是必须的, 但是, 你必须明白, EFA的结果好可以确保CFA结果不会太差, 所以做EFA似乎又有某种必要性, 我想说的是没人规定你必须做EFA, 你做了的话只有好处没有坏处
+但是, 我必须说一些实际情况, 大部分做SEM的研究都做EFA, EFA结果好对SEM至关重要, 如果你不想SEM模型拟合指数太差, 建议EFA都必须做;至于是否将EFA结果写入你的论文呢, 很多时候, 论文中仅仅是一句话带过, 但是如果EFA阶段花费了你很多时间和精力, 你可以在论文中多一些汇报。
+</code></pre>
+<h4 id="EFA中-因子载荷多少合适-如果太低有必要删题吗"><a href="#EFA中-因子载荷多少合适-如果太低有必要删题吗" class="headerlink" title="EFA中, 因子载荷多少合适, 如果太低有必要删题吗"></a>EFA中, 因子载荷多少合适, 如果太低有必要删题吗</h4><pre><code> Field (2005)和Guadagnoli &amp; Velicer (1988)建议, 如果一个因子有四五个因子载荷都在0.6以上, 那么可以认为这个因子是稳定的. Stevens (1992)建议因子载荷最低是0.4, 如果题目/变量测有不同的取值分布,  Tabachnick and Fidell (2007) 建议使用更严格标准:  0.32 (poor), 0.45 (fair), 0.55 (good), 0.63 (very good) or 0.71 (excellent). 我们列举这么多标准的目的就是, 没有一个金标准说因子载荷必须到多少.
+
+在实际工作中, 因子载荷常用标准是要高于0.5, 并且该题目在其他因子上的载荷要低于0.32, 才认为这个题目是可以被接受的 (Comery and Lee 1992; Laura J. Burton and Stephanie M. Mazerolle 2011), 但是, 由于大部分学生都是使用前人的成熟量表, 删题是非常不建议的, 世界上没有一个建议你因子载荷低于某个标准就必须删题, 大部分学生因为从课本学了一些所谓的删题标准, 就认为低于标准就得删题, 这是自己加的戏, 并在学生群体中以恶讹传讹, 还有一些老师也是半瓶子醋, 不断添油加醋。 实际上我们必须考虑题目本身的价值, 如果这个题被认为很有必要, 很有代表性, 那么不能删。 给一个成熟量表删题, 带来的最大问题是, 你的研究成果没有价值, 因为你的结果与其他人的结果无法比较, 别人都没删题, 你删题了, 导致测量工具不同, 统计结果不同很正常, 因此不具有讨论的价值。
+</code></pre>
+<h4 id="EFA中KMO多少合适"><a href="#EFA中KMO多少合适" class="headerlink" title="EFA中KMO多少合适"></a>EFA中KMO多少合适</h4><pre><code>KMO的全称是Kaiser-Meyer-Olkin, Kaiser(1970)给出的KMO标准是:
+
+- 0.00 to 0.49 unacceptable.
+- 0.50 to 0.59 miserable.
+- 0.60 to 0.69 mediocre.
+- 0.70 to 0.79 middling.
+- 0.80 to 0.89 meritorious.
+- 0.90 to 1.00 marvelous.
+</code></pre>
+<h4 id="EFA要求的样本量"><a href="#EFA要求的样本量" class="headerlink" title="EFA要求的样本量"></a>EFA要求的样本量</h4><p>通常考虑样本量的时候, 我们要根据实际情况, 比如你的样本很罕见, 那没办法只能使用很少的样本,<br>当样本量很容易增加的时候, 建议参考下面的表格, 因子载荷越小, 需要越大的样本量, 使得载荷显著。</p>
+<img src="imgs/loading-sample-size.png">
+
+<h4 id="EFA怎么确定因子数目"><a href="#EFA怎么确定因子数目" class="headerlink" title="EFA怎么确定因子数目"></a>EFA怎么确定因子数目</h4><p>有很多方法帮你确定因子个数, 常用的有:</p>
+<ul>
+<li>Kaiser提出的”因子的特征值大于1”, 因此有多少个因子特征值大于1, 就可以提取多少个因子</li>
+<li>Cattell提出的”碎石图”, 特征值变化锐减的点就是必要的因子个数</li>
+</ul>
+<p>还有很多标准, 我们没必要列出来, 因为这个问题的重点不在于这些常见答案,<br>重点是, 我们经常错误的使用这些标准, 这些标准因为简单, 所以经常被过度使用。</p>
+<p>我们下面提出一些情况, 你不必使用这些标准:</p>
+<ul>
+<li><p>如果你明确知道你的题目应该提取几个因子, 你可以预设提取几个因子, 在SPSS这些常用软件中, 都可以自己定因子个数,<br>你没有必要一定遵守”特征值大于1”这个标准, 因为Kaiser本人都没说过你的因子的特征值必须大于1, 但是很可能你的统计学老师说过,<br>这就是我们的教育现状。</p>
+</li>
+<li><p>如果你想要提取5个因子, 但是却得到了6个因子, 你需要观察最后一个因子, 也就是特征值最小的因子, 是不是有意义的, 如果没意义完全可以删掉, 也就是回到上一步, 把因子个数这只为5</p>
+</li>
+<li><p>如果你想要提取6个因子, 却得到了5个因子, 你需要观察第6个因子, 你需要回到第一步, 做因子旋转, 看第六个因子是不是合理的, 第六个因子包含的题目是不是合理的, 如果合理, 你应当保留6个因子, 而不是5个</p>
+</li>
+</ul>
+<p>最后, 我想说的是, 特征值对于提取几个因子有很大的参考意义, 而不能让它完全决定你的研究!你必须对你的研究负责, 而不是把责任推卸给Kaiser.</p>
+<h3 id="CFA部分"><a href="#CFA部分" class="headerlink" title="CFA部分"></a>CFA部分</h3><p>CFA与EFA有本质的区别, 但是他们也有类似的地方, 下图是一个例子, EFA的因子对所有指标变量都有载荷, 只不过很多分析报告中, 只报告最大的因子载荷, 因此你好像看到的是一个测量指标(题目)只对应一个因子, 但是实际上就像图中所画的, 每个因子都对每个测量指标有影响。但是对于CFA, 我们通常已经知道每个测量指标归属于哪个因子, 通常一个指标只受到一个因子的影响。</p>
+<img src="imgs/efa-cfa.png">
+
+<h4 id="常用的聚合和区分效度有哪些"><a href="#常用的聚合和区分效度有哪些" class="headerlink" title="常用的聚合和区分效度有哪些"></a>常用的聚合和区分效度有哪些</h4><ul>
+<li>组合信度 Composite (construct) Reliability (CR),</li>
+<li>平均方差提取量 Average Variance Extracted (AVE),</li>
+<li>最大共同方差 Maximum Shared Variance (MSV), and</li>
+<li>平均共同方差 Average Shared Variance (ASV).</li>
+</ul>
+<p>这些指标都有常用的判断标准:</p>
+<img src="imgs/ave cr msv asv.png">
+
+<p>AVE和CR通常是我们用Excel手算的, 但是也有一些工具帮你算, 这里有一个<a href="https://mlln.cn/2019/09/06/spss%E8%AE%A1%E7%AE%97%E5%B9%B3%E5%9D%87%E6%96%B9%E5%B7%AE%E6%8F%90%E5%8F%96%E9%87%8FAVE%E5%92%8C%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6CR%E7%9A%84%E6%96%B9%E6%B3%95/">计算器</a>帮你.</p>
+<h4 id="一阶因子和二阶因子"><a href="#一阶因子和二阶因子" class="headerlink" title="一阶因子和二阶因子"></a>一阶因子和二阶因子</h4><img src="imgs/1or2sragefactor.png">
+
+<p>上面的模型是1阶因子结构, 下面的模型是2阶, 很多人不清楚什么时候使用二阶因子结构i, 实际上由两个因素决定你是否可以使用二阶因子:</p>
+<ul>
+<li>如果因子F1和F2高相关, 并且理论上他们属于某个共同的概念, 比如生活满意度下面分为经济满意度和情感满意度, 生活满意度很可能是一个二阶因子</li>
+<li>如果你的研究不涉及更高的因子, 比如你的研究没有对因子f4做出假设, 所有假设仅涉及f2和f1, 那么你不要做二阶因子结构</li>
+<li>你想知道f1和f2对其他变量的关系, 而不是f4, 那么就不要做二阶因子, 可以参考下面两个图</li>
+</ul>
+<p>假设你想做如下的结构方程, 你没有必要设置二阶因子结构:<br><img src="imgs/1stagefactor.png"></p>
+<p>假设你想要做如下结构方程, 那么你有必要验证二阶因子:<br><img src="imgs/2stagefactor.png"></p>
+<h2 id="第五步-正式实测"><a href="#第五步-正式实测" class="headerlink" title="第五步 正式实测"></a>第五步 正式实测</h2><p>由于很多工作在前测阶段都做过了, 在正式实测后, 我们的工作就会减少, 通常不需要做EFA, 因为通常我们认为你正式实测阶段不应该改动题目,<br>因此EFA结果差也不太可能去修改你的题目了, 另外为了保证你的研究不是完全数据结果驱动, 一些专家建议EFA和CFA不要使用同一批数据。</p>
+<p>正式实测阶段收集的数据, 需要做CFA和SEM即可。</p>
+<p>下图中, 上面的模型是CFA模型, 下面的模型是SEM模型, </p>
+<img src="imgs/cfa-sem.png">
+
+<h3 id="自变量之间需要有协方差吗-也就是在图中看到的COV标记的曲线"><a href="#自变量之间需要有协方差吗-也就是在图中看到的COV标记的曲线" class="headerlink" title="自变量之间需要有协方差吗, 也就是在图中看到的COV标记的曲线"></a>自变量之间需要有协方差吗, 也就是在图中看到的COV标记的曲线</h3><p>这个问题没有确定答案, 当然结构方程的算法允许你在自变量之间增加协方差, 但是你可能回发现,<br>当你增加了协方差之后, 自变量到因变量的路径系数(例如P1)可能会降低, 当然不是说一定会降低, 但是存在这种可能,<br>甚至你可能发现, 路径系数低到不显著了, 但是同时, 模型的拟合度会提升.</p>
+<p>从实践的角度看, 我建议当路径系数不太受影响的时候, 可以增加自变量之间的协方差, 但是如果增加协方差后发现路径系数由显著变为不显著,<br>我建议你不要增加协方差, 这种情况说明, 自变量(Factor1和Factor2)与因变量(Factor3)存在共线性, 并不代表自变量对因变量没有影响,<br>为了真实的体现这种关系, 我建议你去掉自变量之间的协方差。</p>
+<p>但是为什么我们看到的结构方程, 很多都有自变量之间的协方差? 因为这样做可以提高模型的拟合指数. 然而</p>
+<h3 id="为什么模型越简单越好"><a href="#为什么模型越简单越好" class="headerlink" title="为什么模型越简单越好"></a>为什么模型越简单越好</h3><p>最复杂的模型就是每个变量之间都有连线, 这导致模型总是完美拟合, 也就是说, 模型越复杂变量之间的关系越多, 拟合越好, 但是模型价值越低.<br>这就是为什么很多拟合指标都是惩罚模型的复杂度. 在结构方程中, 我们一直鼓励越简单越好, 但是降低复杂度就会降低模型拟合, 所以这需要研究者在拟合度和复杂度之间进行权衡.</p>
+<h3 id="数据非正态可以做结构方程吗"><a href="#数据非正态可以做结构方程吗" class="headerlink" title="数据非正态可以做结构方程吗"></a>数据非正态可以做结构方程吗</h3><p>一般结构方程最常用的算法是极大似然估计, 这种方法假定我们的数据是服从多元正态分布的, 由于检查多元正态分布有些困难,<br>至少我们保证每个变量是正态分布, 或者不要偏离正态分布太多. 或者说只要不是极度偏离正态分布就可以.</p>
+<img src="imgs/nonnormality.png">
+
+<h3 id="常用的拟合指标及其标准"><a href="#常用的拟合指标及其标准" class="headerlink" title="常用的拟合指标及其标准"></a>常用的拟合指标及其标准</h3><p>这些指标摘自: IntroductiontoStructuralEquationModelingReviewMethodologyandPracticalApplications</p>
+<img src="imgs/fit-index01.png">
+<img src="imgs/fit-index02.png">
+
+<p>另外还有其他学者有别的标准, 查看<a href="https://mlln.cn/2019/02/26/Amos%E5%92%8CMplus%E4%B8%AD%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8BSEM%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E6%8B%9F%E5%90%88%E6%8C%87%E6%A0%87%E8%AF%A6%E8%A7%A3/">这里</a></p>
+<p>另外有学者统计了各个拟合指标在文献中出现的频率, 具体参考<a target="_blank" rel="noopener" href="https://www.bilibili.com/read/cv9922403">这里</a></p>
+<h3 id="什么是打包变量"><a href="#什么是打包变量" class="headerlink" title="什么是打包变量"></a>什么是打包变量</h3><p>当你的测量模型结果较差, 或者模型过于复杂, 比如你的模型中有二阶因子, 你可以将题目和平变成因子分, 这样让二阶因子结构变成一阶因子结构, 进而降低模型复杂度, 并且减少测量指标的数量, 减少潜变量数量, 尤其是当你的数据里较少的时候, 打包变量是常用的方法.</p>
+<p>在学术界, 打包变量是非常专业的术语, 打包的方法非常多, 但是对于一般学生, 不建议研究复杂的打包变量的方法, 首先你不知道这样做对结果有什么样的影响, 其次你不清楚为什么使用这样的打包方法; 所以我建议所有需要打包变量的学生, 直接使用最简单的方法, 就是一个维度内的测量指标合成一个维度分, 维度作为潜变量, 变成显变量了。</p>
+<h1 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h1><p>这篇文章列出的一些指导原则可能比较抽象难懂, 因此我们还会推出一个配套的视频教程进行讲解,<br>另外会有案例教程, 将这些原则应用到实际工作中. 视频教程与本篇文章都会在这个平台上, 大家去下载观看就可以了.</p>
+<iframe 
+style="width:800px;height:600px" 
+src="//player.bilibili.com/player.html?aid=555736434&bvid=BV17v4y1M7Kk&cid=767005266&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<iframe 
+style="width:800px;height:600px" 
+src="//player.bilibili.com/player.html?aid=555736434&bvid=BV1cY4y1J7rt&cid=767005266&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+<iframe 
+style="width:800px;height:600px" 
+src="//player.bilibili.com/player.html?aid=555736434&bvid=BV16r4y1u7tc&cid=767005266&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
+
+
+<h3 id="视频完整版及数据下载"><a href="#视频完整版及数据下载" class="headerlink" title="视频完整版及数据下载"></a>视频完整版及数据下载</h3><p><a target="_blank" rel="noopener" href="https://afdian.net/item?plan_id=d72215a6fe7111eca07a52540025c377">https://afdian.net/item?plan_id=d72215a6fe7111eca07a52540025c377</a></p>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
+<li><p>Laura J. Burton and Stephanie M. Mazerolle (2011). “Survey Instrument Validity Part I: Principles of Survey Instrument Development and Validation in Athletic Training Education Research.” ATHLETIC TRAINING EDUCATION JOURNAL 6(1): 27-35. </p>
+</li>
+<li><p>Kaiser, Henry F. (1970). “A second generation little jiffy”. Psychometrika. 35 (4): 401–415. doi:10.1007&#x2F;BF02291817</p>
+</li>
+<li><p>J. F. Hair, W. C. Black, B, J. Babin, and R. E. Anderson, Multivariate Data Analysis, 7rd ed., Prentice Hall: New Jersey, 2010. </p>
+</li>
+<li><p>Comrey AL and Lee HB (1992) A first course in factor analysis (2nd edition). Hillsdale,NJ: Lawrence Erlbaum Associates.</p>
+</li>
+<li><p>Guadagnoli E and Velicer W (1988) Relation of sample size to the stability of component patterns. Psychological Bulletin 103 265-275.</p>
+</li>
+<li><p>Hair JF, Tatham RL, Anderson RE and Black W (1998) Multivariate data analysis. (Fifth Ed.) Prentice-Hall:London.</p>
+</li>
+<li><p>Field A (2005) Discovering statistics using SPSS. Second edition. Sage.</p>
+</li>
+<li><p>MacCallum RC, Widaman KF, Zhang S and Hong S. (1999) Sample size in factor analysis. Psychological Methods 4(1) 84-99.</p>
+</li>
+<li><p>MacCallum RC, Widaman KF, Preacher KJ and Hong S (2001) Sample size in factor analysis: The role of model error. Multivariate Behavioral Research 36 611-637.</p>
+</li>
+<li><p>Stevens JP (1992) Applied multivariate statistics for the social sciences (2nd edition). Hillsdale, NJ:Erlbaum.</p>
+</li>
+<li><p>Tabachnick BG and Fidell LS (2007) Using multivariate statistics. Fifth Edition. Pearson Education Inc.</p>
+</li>
+<li><p>Rex B. Kline(1998) Principles and Practice of Structural Equation Modeling NY: Guilford Press, 1998.</p>
+</li>
+<li><p><a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/1a49b9f17c192279168884868762caaedd33ba2a.html">https://wenku.baidu.com/view/1a49b9f17c192279168884868762caaedd33ba2a.html</a></p>
+</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的, 不论什么模型都可以, 只限制于1个研究内.<br>跟我学统计可以代做分析, 每单几百元不等.<br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5.ipynb">notebook</a><br>可以在微博上@mlln-cn向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
+</blockquote>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/amos/">#amos</a> <a href="/tags/结构方程/">#结构方程</a>
+        </div>
+    
+
+
+
+</div>
+        </section>
+        <section>
+            <div class="content" style="color: #d7ecff">
+                <h3 id="赞助"><a href="#赞助" class="headerlink" title="赞助"></a>赞助</h3>
+                <p>持续创造有价值的内容, 我需要你的帮助</p>
+                <p><img src="/img/收款二维码.png" class="img-thumbnail"></p>
+            </div>
+        </section>
+        <!-- changyan comments -->
+        <section class="main">
+            <!--PC版畅言-->
+
+<div class="container"><div id="SOHUCS" sid="2022/01/12/结构方程模型最佳实践/"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cysqnjGqk',
+conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
+});
+setTimeout(()=>{
+    $('#closePoPBD').click()
+}, 2000)
+</script>
+</div>
+
+        </section>
+    </div>
+
+    <!-- rightside -->
+    <div class="col-md-3 col-sm-12 rightside">
+        <div class="related-posts">
+    <h3>
+        <a href="#">
+            赞助推荐
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://jupyter.cn/home/">问卷代填保证质量</a>
+            </div>
+        
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        常用工具
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a href="/mplusoutput/">Mplus结果查看器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/drawio/">绘图软件</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2018/09/26/在线绘制中介效应图/">
+                在线绘制中介效应图
+            </a>
+        </div>
+        <div class="archive-post">
+            <a href="/neural/">神经网络可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/psychopy/">psychopy教程</a>
+        </div>
+        <div class="archive-post">
+            <a href="/vector/">[词向量]高维向量可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/demos/evolutionSimulator/">[tensorflow.js案例]进化算法演示</a>
+        </div>
+        <div class="archive-post">
+            <a href="/guideToPython/">[书]Python最佳实践</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/10/10/sobel检验原理和一键计算器/">Sobel检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">平均方差提取量AVE和组合信度CR计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">卡方检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">简单交互效应可视化工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/12/23/均值差异的效应量在线计算器/">两组均值差异的效应量在线计算器</a>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/amos/">
+            amos
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2022/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/">
+                    潜在类别分析LCA入门
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/06/12/Amos%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B/">
+                    Amos结构方程模型数据分析入门教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/05/17/SPSS-AMOS%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B-%E5%85%B3%E4%BA%8E%E4%B8%AD%E4%BB%8B%E6%A8%A1%E5%9E%8B/">
+                    SPSS+AMOS数据分析案例教程-关于中介模型
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/05/17/%E5%A4%A7%E7%BA%B2/">
+                    SPSS+AMOS数据分析案例分析报告
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/01/12/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+                    结构方程模型最佳实践
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2020/09/17/05-%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE%E7%9A%84%E8%AF%8A%E6%96%AD/">
+                    SPSS+Amos共同方法偏差的诊断
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2019/02/26/Amos%E5%92%8CMplus%E4%B8%AD%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8BSEM%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E6%8B%9F%E5%90%88%E6%8C%87%E6%A0%87%E8%AF%A6%E8%A7%A3/">
+                    Amos和Mplus中结构方程SEM因子分析CFA拟合指标详解
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/">
+                    amos21.0教程：[5]结构方程图中的符号意义
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2016/05/15/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E4%B8%AD%E7%9A%84%E7%BB%93%E6%9E%84%E6%A8%A1%E5%9E%8B/">
+                    amos21.0教程：[3]结构方程中的结构模型
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2016/04/17/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B8%5D%E5%A6%82%E4%BD%95%E6%9B%B4%E6%94%B9%E7%95%8C%E9%9D%A2%E8%AF%AD%E8%A8%80/">
+                    amos21.0教程：[8]如何更改界面语言
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2016/03/15/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B10%5D%E5%A4%8D%E5%88%B6%E5%92%8C%E4%BF%AE%E6%94%B9%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B/">
+                    amos21.0教程：[10]复制和修改测量模型
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2015/09/23/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B7%5D%E5%A6%82%E4%BD%95%E5%90%AF%E5%8A%A8amos/">
+                    amos21.0教程：[7]如何启动amos
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2015/09/11/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B/">
+                    amos21.0教程：[2]结构方程模型中的测量模型
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2015/07/19/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%88%86%E6%9E%90%E6%B5%81%E7%A8%8B/">
+                    amos21.0教程：[6]结构方程模型分析流程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2015/07/17/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5D%E7%BB%98%E5%88%B6%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B/">
+                    amos21.0教程：[9]绘制测量模型
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/结构方程/">
+            结构方程
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2022/09/20/R%E8%AF%AD%E8%A8%80%E5%81%9A%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%85%A5%E9%97%A8/">
+                    R语言做结构方程模型入门
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/08/31/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E5%88%86%E6%9E%90%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F/">
+                    结构方程模型多组比较分析调节变量
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/">
+                    潜在类别分析LCA入门
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/06/12/Amos%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B/">
+                    Amos结构方程模型数据分析入门教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/01/12/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+                    结构方程模型最佳实践
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts hidden-sm-down">
+    <h3>
+        <a href="#">
+            友商赞助
+        </a>
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a target="_blank" rel="noopener" href="http://jupyter.cn">
+                  问卷大全问卷案例下载
+            </a>
+            <a href="https://mlln.cn/2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/">
+                大学生互填问卷群推荐
+            </a>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 footer-about">
+                <h2>About</h2>
+                <p>
+                    这是<code>xxxspy</code>的个人博客
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2022/10/26/2022%E5%B9%B4conda%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%89%8B%E5%86%8C/">2022年conda常用命令常见问题手册</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/10/24/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE%E6%A3%80%E6%9F%A5%E5%92%8C%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">共同方法偏差检查和控制方法大全</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/10/24/%E6%88%91%E5%A6%82%E4%BD%95%E4%B8%80%E5%A4%A9%E5%81%9A%E5%AE%8C%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E5%92%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷快速收集并做完数据分析的常用流程介绍</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/09/20/R%E8%AF%AD%E8%A8%80%E5%81%9A%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%85%A5%E9%97%A8/">R语言做结构方程模型入门</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/08/31/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E5%88%86%E6%9E%90%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F/">结构方程模型多组比较分析调节变量</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/08/24/JupyterNotebook%E4%B8%AD%E8%BF%90%E8%A1%8CR%E4%BB%A3%E7%A0%81/">Jupyter notebook中运行R代码</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/08/12/R%E4%B8%AD%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E6%95%B4%E7%90%86%E7%BB%93%E6%9E%9C%E4%B8%BA%E8%AE%BA%E6%96%87%E5%8F%AF%E7%94%A8%E6%A0%BC%E5%BC%8F/">R中如何自动整理结果为论文可用格式</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">R语言快速入门练习材料</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/">潜在类别分析LCA入门</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/06/12/Amos%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B/">Amos结构方程模型数据分析入门教程</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 footer-tags">
+    <h2>tags</h2>
+    <ul>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%87%E6%9C%AC%E6%8C%96%E6%8E%98/">文本挖掘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8A%A5%E5%91%8A%E7%B3%BB%E7%BB%9F/">报告系统</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/python/">python</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/manim/">manim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/spss/">spss</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BF%A1%E5%BA%A6%E5%88%86%E6%9E%90/">信度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%88%E5%BA%A6%E5%88%86%E6%9E%90/">效度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/amos/">amos</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE/">共同方法偏差</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB/">问卷互填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%98%9F/">问卷星</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BB%A3%E5%A1%AB/">问卷代填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E7%BD%91/">问卷网</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/conda/">conda</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mplus/">mplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B/">结构方程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/VBA/">VBA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/django/">django</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/EM/">EM</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime/">eprime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8E%A8%E8%8D%90%E4%B9%A6/">推荐书</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/">卡方检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/javascript/">javascript</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jupyter/">jupyter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R/">R</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Latex/">Latex</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mysql/">mysql</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%98%BE%E8%91%97%E6%80%A7/">显著性</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Q-learning/">Q-learning</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R%E8%AF%AD%E8%A8%80/">R语言</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/r/">r</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/process/">process</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94/">调节效应</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow-js/">tensorflow.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BD%9C%E6%96%87%E8%AF%84%E5%88%86/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/t%E6%A3%80%E9%AA%8C/">t检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/">方差分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/NLP/">NLP</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%AF%AD%E6%96%99%E5%BA%93/">语料库</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nodejs/">nodejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/electron/">electron</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/e-prime/">e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gensim/">gensim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/">摘要生成</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/git/">git</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gui/">gui</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jamovi/">jamovi</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/notebook/">notebook</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E6%95%99%E7%A8%8B/">keras教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E5%9F%BA%E7%A1%80/">keras基础</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongodb/">mongodb</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jieba/">jieba</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongoengine/">mongoengine</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/meta%E5%88%86%E6%9E%90/">meta分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/networkx/">networkx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nginx/">nginx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/dataframe/">dataframe</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pandas/">pandas</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%B8%8B%E8%BD%BD/">下载</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BD%91%E7%9B%98/">网盘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pychrome/">pychrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pydotplus/">pydotplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pymongo/">pymongo</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/graphviz/">graphviz</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/selenium/">selenium</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/">格式化字符串</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lru-cache/">lru_cache</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/os/">os</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">时间序列</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pil/">pil</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tkinter/">tkinter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/print/">print</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/js2py/">js2py</a>
+        </span>
+        
+    </ul>
+</div>
+
+            
+        </div>
+        <!-- links -->
+
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-about">
+        <h2>Links</h2>
+        <ul>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/baidusitemap.xml" target="_blank">网站地图</a><span> | </span>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/sitemap.xml" target="_blank">DataScience</a><span> | </span>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/xxxspy">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:675495787@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @感谢github免费托管，hexo的静态网站引擎和模板主题制作者<a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                    <br/>
+                    <a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">京ICP备16033873号-2</>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<!-- tweenmax -->
+<script src="/js/TweenMax.min.js">
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- bootstrap.js -->
+<script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Baidu link push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<!-- baidu_static -->
+
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?588f06b88af0ef575445f53432cd15ec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>
