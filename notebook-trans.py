@@ -89,12 +89,12 @@ class HexoExporter(MarkdownExporter):
         return 'markdown'
 
     @property
-    def template_path(self):
+    def template_paths(self):
         """
         We want to inherit from HTML template, and have template under
         `./templates/` so append it to the search path. (see next section)
         """
-        return super().template_path + [str(here)]
+        return super().template_paths + [str(here)]
 
 
 def _add_infos(body, notebook_link, qq='675495787'):

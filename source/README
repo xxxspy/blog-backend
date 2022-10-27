@@ -6,3 +6,11 @@
 
 QQ: 675495787
 Email: 675495787@qq.com
+
+# 如何从笔记转换post
+
+使用已经编写好的脚本：`notebook-trans.py`
+
+```py
+python notebook-trans.py -d D:/notebooks notebook-file-name-relative-to-directory 
+```
