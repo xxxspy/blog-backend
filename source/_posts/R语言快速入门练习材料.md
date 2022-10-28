@@ -13,6 +13,9 @@ tags: R语言
 
 <!-- more -->
 
+# 视频教程
+
+我把所有视频教程放到了B站， 点击这里进入视频列表：[《R语言快速入门视频教程》](https://space.bilibili.com/383752637/channel/collectiondetail?sid=633199)
 
 
 # 加载库

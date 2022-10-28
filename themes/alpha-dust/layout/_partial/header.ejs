@@ -19,5 +19,11 @@
             SPSS视频教程内容目录和跳转链接
         </a>
     </div>
-    
+    <% config.toplinks.forEach(function(cat){ %>
+        <div class="archive-post" style="opacity: 1;">
+            <a href="<%= cat.url %>">
+                <%= cat.name %>
+            </a>
+        </div>
+    <% }) %>
 </div>

@@ -207,6 +207,42 @@
         </a>
     </div>
     
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+                SPSS+AMOS数据分析案例教程-关于中介模
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+                SPSS视频教程内容目录和跳转链接
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="https://mlln.cn/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">
+                R语言快速入门视频教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a target="_blank" rel="noopener" href="https://space.bilibili.com/383752637/channel/collectiondetail?sid=778283">
+                Python智联招聘数据分析
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/07/24/潜在类别分析入门/">
+                LCA潜在类别分析和Mplus应用
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/06/12/Amos结构方程数据分析案例教程/">
+                Amos结构方程模型数据分析入门教程
+            </a>
+        </div>
+    
 </div>
 
     <!-- Main Content -->
@@ -242,12 +278,12 @@
 
     <div class="content">
     <!-- Table of Contents -->
-    
+
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5dataframe%E6%98%AF%E5%90%A6%E6%9C%89%E7%BC%BA%E5%A4%B1%E5%80%BC"><span class="toc-number">1.</span> <span class="toc-text">检查dataframe是否有缺失值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%9F%E8%AE%A1dataframe%E4%B8%AD%E6%AF%8F%E5%88%97%E7%BC%BA%E5%A4%B1%E5%80%BC%E7%9A%84%E6%95%B0%E9%87%8F"><span class="toc-number">2.</span> <span class="toc-text">统计dataframe中每列缺失值的数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dataframe%E7%94%A8%E6%AF%8F%E5%88%97%E7%9A%84%E5%B9%B3%E5%9D%87%E5%80%BC%E5%8F%96%E4%BB%A3%E7%BC%BA%E5%A4%B1%E5%80%BC"><span class="toc-number">3.</span> <span class="toc-text">dataframe用每列的平均值取代缺失值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%8Edataframe%E4%B8%AD%E8%8E%B7%E5%8F%96%E6%9F%90%E4%B8%80%E5%88%97-%E5%B9%B6%E8%BF%94%E5%9B%9E%E4%B8%80%E4%B8%AAdataframe"><span class="toc-number">4.</span> <span class="toc-text">从dataframe中获取某一列, 并返回一个dataframe</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dataframe%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E5%88%97%E7%9A%84%E9%A1%BA%E5%BA%8F"><span class="toc-number">5.</span> <span class="toc-text">dataframe如何改变列的顺序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEdataframe%E8%BE%93%E5%87%BA%E7%9A%84%E8%A1%8C%E6%95%B0%E5%92%8C%E5%88%97%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">设置dataframe输出的行数和列数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEdataframe%E8%BE%93%E5%87%BA%E6%97%B6%E4%B8%8D%E4%BD%BF%E7%94%A8%E7%A7%91%E5%AD%A6%E8%AE%B0%E6%95%B0%E6%B3%95"><span class="toc-number">7.</span> <span class="toc-text">设置dataframe输出时不使用科学记数法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%BE%E7%BD%AEdataframe%E8%BE%93%E5%87%BA%E7%99%BE%E5%88%86%E6%AF%94%E6%95%B0%E6%8D%AE"><span class="toc-number">8.</span> <span class="toc-text">设置dataframe输出百分比数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%A4%9A%E4%B8%AA%E5%88%97%E5%88%9B%E5%BB%BA%E5%94%AF%E4%B8%80%E7%B4%A2%E5%BC%95-index"><span class="toc-number">9.</span> <span class="toc-text">使用多个列创建唯一索引(index)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E7%AC%ACn%E5%A4%A7%E7%9A%84%E6%95%B0%E6%89%80%E5%9C%A8%E8%A1%8C"><span class="toc-number">10.</span> <span class="toc-text">获取第n大的数所在行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dataframe%E8%8E%B7%E5%8F%96%E8%A1%8C%E4%B9%8B%E5%92%8C%E5%A4%A7%E4%BA%8E100%E7%9A%84%E6%95%B0%E6%8D%AE-%E5%B9%B6%E8%BF%94%E5%9B%9E%E6%9C%80%E5%90%8E%E7%9A%84%E4%B8%A4%E8%A1%8C"><span class="toc-number">11.</span> <span class="toc-text">dataframe获取行之和大于100的数据, 并返回最后的两行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BB%8E%E7%B3%BB%E5%88%97%E6%88%96%E6%95%B0%E6%8D%AE%E6%A1%86%E5%88%97%E4%B8%AD%E6%9F%A5%E6%89%BE%E5%92%8C%E9%99%90%E5%88%B6%E5%BC%82%E5%B8%B8%E5%80%BC"><span class="toc-number">12.</span> <span class="toc-text">如何从系列或数据框列中查找和限制异常值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8%E5%88%A0%E9%99%A4%E8%B4%9F%E5%80%BC%E5%90%8E%E5%B0%86dataframe%E9%87%8D%E6%96%B0%E6%95%B4%E5%BD%A2%E4%B8%BA%E6%9C%80%E5%A4%A7%E5%8F%AF%E8%83%BD%E7%9A%84%E6%AD%A3%E6%96%B9%E5%BD%A2"><span class="toc-number">13.</span> <span class="toc-text">如何在删除负值后将dataframe重新整形为最大可能的正方形</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BA%A4%E6%8D%A2dataframe%E7%9A%84%E4%B8%A4%E8%A1%8C"><span class="toc-number">14.</span> <span class="toc-text">交换dataframe的两行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dataframe%E8%A1%8C%E5%80%92%E5%BA%8F%E6%8E%92%E5%BA%8F"><span class="toc-number">15.</span> <span class="toc-text">dataframe行倒序排序</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%B9%E5%88%86%E7%B1%BB%E6%95%B0%E6%8D%AE%E8%BF%9B%E8%A1%8Cone-hot%E7%BC%96%E7%A0%81"><span class="toc-number">16.</span> <span class="toc-text">对分类数据进行one-hot编码</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%93%AA%E4%B8%AA%E5%88%97%E5%8C%85%E5%90%AB%E6%AF%8F%E8%A1%8C%E7%9A%84%E6%9C%80%E5%A4%A7%E5%80%BC"><span class="toc-number">17.</span> <span class="toc-text">哪个列包含每行的最大值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97-%E6%AF%8F%E8%A1%8C%E7%9A%84%E6%9C%80%E8%BF%91%E8%A1%8C-%E4%BD%BF%E7%94%A8%E6%AC%A7%E5%87%A0%E9%87%8C%E5%BE%97%E8%B7%9D%E7%A6%BB"><span class="toc-number">18.</span> <span class="toc-text">计算 每行的最近行(使用欧几里得距离)</span></a></li></ol>
     </div>
-    
+
         <!-- Gallery -->
         
 
@@ -1839,6 +1875,10 @@ setTimeout(()=>{
         
             <div class="archive-post">
                 <a target="_blank" rel="noopener" href="https://jupyter.cn/home/">问卷代填保证质量</a>
+            </div>
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=2013.1.w4023-21724689242.4.76085e0a2k46Ky&amp;id=601314051411">问卷代填保证质量</a>
             </div>
         
     </div>

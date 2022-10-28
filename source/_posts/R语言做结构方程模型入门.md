@@ -566,6 +566,7 @@ summary(fit6b, standardized=TRUE, fit.measures=TRUE)
 
 ## 视频教程
 
+<iframe src="//player.bilibili.com/player.html?bvid=BV1RP411H79W&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="width:900px;height:600px"> </iframe>
 
 > **注意**
 > 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的, 不论什么模型都可以, 只限制于1个研究内. 

@@ -190,6 +190,42 @@
         </a>
     </div>
     
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+                SPSS+AMOS数据分析案例教程-关于中介模
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+                SPSS视频教程内容目录和跳转链接
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="https://mlln.cn/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">
+                R语言快速入门视频教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a target="_blank" rel="noopener" href="https://space.bilibili.com/383752637/channel/collectiondetail?sid=778283">
+                Python智联招聘数据分析
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/07/24/潜在类别分析入门/">
+                LCA潜在类别分析和Mplus应用
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/06/12/Amos结构方程数据分析案例教程/">
+                Amos结构方程模型数据分析入门教程
+            </a>
+        </div>
+    
 </div>
 
     <!-- Main Content -->
@@ -225,7 +261,12 @@
 
     <div class="content">
     <!-- Table of Contents -->
-    
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B5%B7%E9%A3%9E"><span class="toc-number">1.</span> <span class="toc-text">起飞</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85-jmvtools"><span class="toc-number">1.1.</span> <span class="toc-text">安装 jmvtools</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E6%9F%A5jmvtools%E5%8F%AF%E4%BB%A5%E6%89%BE%E5%88%B0jamovi"><span class="toc-number">1.2.</span> <span class="toc-text">检查jmvtools可以找到jamovi</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E6%A8%A1%E5%9D%97"><span class="toc-number">1.3.</span> <span class="toc-text">安装模块</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E6%A8%A1%E5%9D%97"><span class="toc-number">2.</span> <span class="toc-text">创建模块</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E5%88%86%E6%9E%90"><span class="toc-number">3.</span> <span class="toc-text">创建分析</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ttest-a-yaml%E7%9A%84%E5%AE%9A%E4%B9%89"><span class="toc-number">3.1.</span> <span class="toc-text">ttest.a.yaml的定义</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%9E%E7%8E%B0%E5%88%86%E6%9E%90-R%E4%BB%A3%E7%A0%81"><span class="toc-number">4.</span> <span class="toc-text">实现分析(R代码)</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Error-in-parse-text-x3D-x-keep-source-x3D-FALSE"><span class="toc-number">5.</span> <span class="toc-text">Error in parse(text &#x3D; x, keep.source &#x3D; FALSE) :</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-5-unexpected-symbol"><span class="toc-number">6.</span> <span class="toc-text">:1:5: unexpected symbol</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1-the-fish"><span class="toc-number">7.</span> <span class="toc-text">1: the fish</span></a></li><li class="toc-item toc-level-2"><a class="toc-link"><span class="toc-number">8.</span> <span class="toc-text">^</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E8%A1%A8%E6%A0%BC"><span class="toc-number">8.1.</span> <span class="toc-text">添加表格</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A1%AB%E5%85%85%E8%A1%A8"><span class="toc-number">8.2.</span> <span class="toc-text">填充表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B7%BB%E5%8A%A0%E5%9B%BE"><span class="toc-number">9.</span> <span class="toc-text">添加图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%8A%B6%E6%80%81"><span class="toc-number">10.</span> <span class="toc-text">状态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#clearWith"><span class="toc-number">10.1.</span> <span class="toc-text">clearWith</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#isFilled"><span class="toc-number">10.2.</span> <span class="toc-text">isFilled()</span></a></li></ol></li></ol>
+    </div>
+
         <!-- Gallery -->
         
 
@@ -583,6 +624,10 @@ setTimeout(()=>{
         
             <div class="archive-post">
                 <a target="_blank" rel="noopener" href="https://jupyter.cn/home/">问卷代填保证质量</a>
+            </div>
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=2013.1.w4023-21724689242.4.76085e0a2k46Ky&amp;id=601314051411">问卷代填保证质量</a>
             </div>
         
     </div>

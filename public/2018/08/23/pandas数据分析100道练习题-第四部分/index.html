@@ -190,6 +190,42 @@
         </a>
     </div>
     
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+                SPSS+AMOS数据分析案例教程-关于中介模
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+                SPSS视频教程内容目录和跳转链接
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="https://mlln.cn/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">
+                R语言快速入门视频教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a target="_blank" rel="noopener" href="https://space.bilibili.com/383752637/channel/collectiondetail?sid=778283">
+                Python智联招聘数据分析
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/07/24/潜在类别分析入门/">
+                LCA潜在类别分析和Mplus应用
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/06/12/Amos结构方程数据分析案例教程/">
+                Amos结构方程模型数据分析入门教程
+            </a>
+        </div>
+    
 </div>
 
     <!-- Main Content -->
@@ -225,12 +261,12 @@
 
     <div class="content">
     <!-- Table of Contents -->
-    
+
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E5%88%97%E4%B9%8B%E9%97%B4%E7%9A%84%E6%9C%80%E5%A4%A7%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0"><span class="toc-number">1.</span> <span class="toc-text">如何计算列之间的最大相关系数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%A1%E7%AE%97%E6%AF%8F%E4%B8%80%E8%A1%8C%E7%9A%84%E6%9C%80%E5%B0%8F%E5%80%BC%E4%B8%8E%E6%9C%80%E5%A4%A7%E5%80%BC%E7%9A%84%E6%AF%94%E5%80%BC"><span class="toc-number">2.</span> <span class="toc-text">计算每一行的最小值与最大值的比值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%89%BE%E5%88%B0%E6%AF%8F%E8%A1%8C%E7%AC%AC%E4%BA%8C%E5%A4%A7%E7%9A%84%E5%80%BC"><span class="toc-number">3.</span> <span class="toc-text">找到每行第二大的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%AD%A3%E6%80%81%E5%8C%96dataframe%E4%B8%AD%E7%9A%84%E6%89%80%E6%9C%89%E5%88%97"><span class="toc-number">4.</span> <span class="toc-text">如何正态化dataframe中的所有列</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E6%AF%8F%E8%A1%8C%E4%B8%8E%E4%B8%8A%E4%B8%80%E8%A1%8C%E7%9A%84%E7%9B%B8%E5%85%B3%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">如何计算每行与上一行的相关？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%A80%E5%A1%AB%E5%85%85dataframe%E7%9A%84%E5%AF%B9%E8%A7%92%E7%BA%BF%E4%B8%8A%E7%9A%84%E6%95%B0"><span class="toc-number">6.</span> <span class="toc-text">如何用0填充dataframe的对角线上的数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#dataframe%E5%88%86%E7%BB%84%E5%90%8E%E8%8E%B7%E5%8F%96%E6%9F%90%E4%B8%AA%E7%BB%84%E7%9A%84%E6%95%B0%E6%8D%AE"><span class="toc-number">7.</span> <span class="toc-text">dataframe分组后获取某个组的数据</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E5%90%8E%E8%8E%B7%E5%8F%96%E6%9F%90%E7%BB%84%E4%B8%AD%E7%9A%84%E7%AC%ACn%E5%A4%A7%E7%9A%84%E5%80%BC"><span class="toc-number">8.</span> <span class="toc-text">分组后获取某组中的第n大的值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E7%BB%84%E5%90%8E%E8%8E%B7%E5%8F%96%E6%AF%8F%E7%BB%84%E5%B9%B3%E5%9D%87%E5%80%BC-%E5%B9%B6%E4%B8%94%E4%BF%9D%E6%8C%81%E5%88%86%E7%BB%84%E5%88%97%E4%B8%8D%E6%98%AFindex"><span class="toc-number">9.</span> <span class="toc-text">分组后获取每组平均值, 并且保持分组列不是index</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%82%E7%85%A7%E4%B8%A4%E5%88%97%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AAdataframe-%E5%B9%B6%E4%B8%94%E5%8F%AA%E4%BF%9D%E7%95%99%E4%B8%A4%E4%B8%AAdataframe%E9%83%BD%E6%9C%89%E7%9A%84%E8%A1%8C"><span class="toc-number">10.</span> <span class="toc-text">参照两列合并两个dataframe, 并且只保留两个dataframe都有的行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E4%BB%8Edataframe%E4%B8%AD%E5%88%A0%E9%99%A4%E5%8F%A6%E4%B8%80%E4%B8%AAdataframe%E4%B8%AD%E5%AD%98%E5%9C%A8%E7%9A%84%E8%A1%8C"><span class="toc-number">11.</span> <span class="toc-text">如何从dataframe中删除另一个dataframe中存在的行</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%8E%B7%E5%BE%97%E4%B8%A4%E5%88%97%E5%80%BC%E5%8C%B9%E9%85%8D%E7%9A%84%E4%BD%8D%E7%BD%AE"><span class="toc-number">12.</span> <span class="toc-text">如何获得两列值匹配的位置</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97%E5%A6%82%E4%BD%95%E5%89%8D%E5%90%8E%E7%A7%BB%E5%8A%A8%E6%97%B6%E9%97%B4%E6%AD%A5"><span class="toc-number">13.</span> <span class="toc-text">时间序列如何前后移动时间步</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E6%95%B4%E4%B8%AAdataframe%E5%80%BC%E7%9A%84%E8%AE%A1%E6%95%B0"><span class="toc-number">14.</span> <span class="toc-text">获取整个dataframe值的计数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%97%E7%AC%A6%E4%B8%B2%E5%88%97%E7%9A%84%E5%88%86%E5%89%B2"><span class="toc-number">15.</span> <span class="toc-text">字符串列的分割</span></a></li></ol>
     </div>
-    
+
         <!-- Gallery -->
         
 
@@ -1021,6 +1057,10 @@ setTimeout(()=>{
         
             <div class="archive-post">
                 <a target="_blank" rel="noopener" href="https://jupyter.cn/home/">问卷代填保证质量</a>
+            </div>
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=2013.1.w4023-21724689242.4.76085e0a2k46Ky&amp;id=601314051411">问卷代填保证质量</a>
             </div>
         
     </div>
