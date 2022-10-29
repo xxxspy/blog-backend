@@ -1,8 +1,8 @@
 
 ---
 
-title: SPSS的Process插件下载和安装
-date: 2019-08-21 12:44:03
+title: SPSS的 Process v4.1 插件下载和安装
+date: 2022-08-21 12:44:03
 tags: [spss, process]
 ---
 
@@ -13,6 +13,10 @@ SPSS的Process插件由 Andrew F. Hayes, Ph.D 开发, 大家可以免费使用�
 
 <!-- more -->
 
+### 视频教程
+
+
+
 
 ### Process有两种使用方法
 
@@ -22,10 +26,10 @@ SPSS的Process插件由 Andrew F. Hayes, Ph.D 开发, 大家可以免费使用�
 
 从下面的网址中下载插件的压缩包:
 
-下载地址:  http://www.afhayes.com/public/processv34.zip
+下载地址:  https://www.afhayes.com/public/processv41.zip
 
-或者从网盘下载: https://pan.baidu.com/s/1SgkgeDq8p_ybeNcLhJQrUw 
-(提取码：apx1)
+或者从网盘下载: https://pan.baidu.com/s/1r_wUSK7UhYtN8rfzrLT5oA?pwd=xdpn 
+提取码：xdpn
 
 你会得到一个压缩包, 解压以后得到如下文件:
 
