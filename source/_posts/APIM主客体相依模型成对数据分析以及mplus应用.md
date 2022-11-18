@@ -1,10 +1,7 @@
-None
 ---
-
 title: APIM主客体相依模型成对数据分析以及mplus应用
 date: 2022-22-14 12:44:03
 tags: [apim]
-
 ---
 
 APIM是 Actor-Partner Interdependence Model 的简称， 
