@@ -9,6 +9,11 @@ import nbformat as nbf
 from IPython import display
 import shutil
 
+NOTEBOOK_DIRS = [ 
+    r'D:\notebooks',
+    r'D:\dev\notebooks',
+]
+
 here = Path(os.path.dirname(os.path.abspath(__file__)))
 source = here / 'source'
 _posts = source / '_posts'
@@ -158,11 +163,16 @@ if __name__ == '__main__':
     import argparse
     parser = argparse.ArgumentParser()
     parser.add_argument('-d', '--directory', help='notebook文件夹',
-                        type=str, default=r'D:\notebooks')
+                        type=str, default=NOTEBOOK_DIRS[0])
     parser.add_argument('name', help='notebook文件名, 无后缀, 后缀默认是.ipynb', type=str)
     args = parser.parse_args()
-    
-    nb_path = Path(args.directory) / (args.name + '.ipynb')
+    for d in [args.directory, ] + NOTEBOOK_DIRS:
+        fname = args.name
+        if not fname.endswith('.ipynb'):
+            fname += '.ipynb'
+        nb_path = Path(d) / fname
+        if nb_path.exists():
+            break
     if not nb_path.exists():
         raise ValueError(f'File not exists: {nb_path}')
     to_hexo(str(nb_path))

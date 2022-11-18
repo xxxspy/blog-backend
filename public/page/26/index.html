@@ -246,6 +246,53 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2018/02/03/pyltp%E5%AE%89%E8%A3%85%E5%92%8C%E5%B0%8F%E7%99%BD%E5%85%A5%E9%97%A8/">
+                pyltp安装和小白入门
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2018年02月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>之前一篇文章我介绍了一下如何在windows下安装pyltp, 但是自我感觉对小白还是不太友好, 因为我也是小白出身(潜在语义你懂), 所以我对小白有一种发自内心的感情纠结, 所以思前想后辗转反侧以后, 我决定再补充一篇入门教程.</p>
+<p>我的开发环境:</p>
+<ul>
+<li>win10 64bit</li>
+<li>python3.5 64bit</li>
+</ul>
+<p>我的意思是不要问我python怎么装上去的.</p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>参考<a href="/2018/01/31/pyltp%E5%9C%A8windows%E4%B8%8B%E7%9A%84%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/" title="哈工大自然语言处理ltp在windows10下的安装使用">哈工大自然语言处理ltp在windows10下的安装使用</a>下载对应版本的wheel文件, 这是我自己打包的一个免编译安装文件, 为小白独家定制的, 拿走. 我下载的是<code>pyltp-0.2.1-cp35-cp35m-win_amd64.whl</code>.</p>
+<p>我的习惯是, 为每个任务创建一个虚拟环境.</p>
+<p>假如我打算在<code>D:\programs\learn-pyltp</code>目录下做开发, 后面简称工程根目录. 打开powershell, 不知道怎么打开的需要百度. cd 到这个目录.</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 创建.env文件夹, 并以此作为虚拟环境的目录</span></span><br><span class="line">&gt; python <span class="literal">-m</span> venv .env </span><br><span class="line"><span class="comment"># 激活虚拟环境</span></span><br><span class="line">&gt; .env/script/activate</span><br></pre></td></tr></table></figure>
+
+<p>把wheel文件放到工程根目录下, 运行命令:<code>pip install pyltp-0.2.1-cp35-cp35m-win_amd64.whl</code>.</p>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/文本挖掘/">#文本挖掘</a> <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2018/01/31/pyltp%E5%9C%A8windows%E4%B8%8B%E7%9A%84%E7%BC%96%E8%AF%91%E5%AE%89%E8%A3%85/">
                 哈工大自然语言处理ltp在windows10下的安装使用
             </a>
@@ -566,44 +613,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2017/11/19/eprime-e-prime%E7%9A%84logging%E6%95%B0%E6%8D%AE%E6%8C%87%E6%A0%87%E8%AF%A6%E8%A7%A3/">
-                eprime/e-prime的logging数据指标详解
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2017年11月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>eprime有几十个数据指标, 但是 很多新手不清楚里面的指标是什么意思, 这里特别总结到一起, 可能不太全, 会逐步补充到里面. 如果里面有什么错误, 或者有需要补充的内容, 请在下面留言.</p>
-<h3 id="几个概念"><a href="#几个概念" class="headerlink" title="几个概念:"></a>几个概念:</h3><ul>
-<li>时间戳: 从实验开始到某个时间点之间的毫秒数.</li>
-</ul>
-        </div>
-        <a href="/2017/11/19/eprime-e-prime%E7%9A%84logging%E6%95%B0%E6%8D%AE%E6%8C%87%E6%A0%87%E8%AF%A6%E8%A7%A3/" class="read-more">Read More</a>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/eprime/">#eprime</a> <a href="/tags/e-prime/">#e-prime</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -645,6 +654,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2022/11/18/APIM%E4%B8%BB%E5%AE%A2%E4%BD%93%E7%9B%B8%E4%BE%9D%E6%A8%A1%E5%9E%8B%E6%88%90%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Amplus%E5%BA%94%E7%94%A8/">Untitled</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2022/10/26/2022%E5%B9%B4conda%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%89%8B%E5%86%8C/">2022年conda常用命令常见问题手册</a>
             </li>
             
@@ -678,10 +691,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">R语言快速入门练习材料</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/">潜在类别分析LCA入门</a>
             </li>
             
         </ul>
