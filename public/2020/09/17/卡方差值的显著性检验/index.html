@@ -273,7 +273,11 @@
         <!-- Post Content -->
         <p>卡方是常用的模型的拟合指标, 比如结构方程模型, 有时候我们需要比较两个模型的卡方有没有差异,<br>就需要用到下面的一个小插件, 我们只要填入两个卡方的值和自由度, 就能计算得到卡方差异的显著性。</p>
 <span id="more"></span>
+
+
+
 <script src="/tfstats/tfstats.js"></script>
+
 <form class="form-inline">
     <div type="form-group">
         <input onchange="calculate()" placeholder="卡方值1" type="number" id="chi1" class="form-control"><input onchange="calculate()"  id="df1" placeholder="自由度1" type="number" class="form-control">
@@ -294,6 +298,8 @@
         <td colspan="3" id="description"></td>
     </tr>
 </table>
+
+
 <script>
     function calculate(){
         console.log('calculateing..')
@@ -318,9 +324,10 @@
             $('#description').text('-')
         }
         
-<pre><code>&#125;
-</code></pre>
-<p></script></p>
+    }
+</script>
+
+
 
     </div>
 
@@ -433,6 +440,10 @@ setTimeout(()=>{
         <div class="archive-post">
             <a href="/2020/12/23/均值差异的效应量在线计算器/">两组均值差异的效应量在线计算器</a>
         </div>
+        <div class="archive-post">
+            <a href="https://mlln.cn/2020/09/17/%E5%8D%A1%E6%96%B9%E5%B7%AE%E5%80%BC%E7%9A%84%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C/">卡方差值的显著性检验</a>
+        </div>
+        
     </div>
 </div>
 
