@@ -246,6 +246,86 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/01/19/spss%E5%A4%9A%E9%87%8D%E5%8F%8D%E5%BA%94%E4%B8%8B%E7%9A%84%E9%A2%91%E6%AC%A1%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%EF%BC%88%E5%A4%9A%E9%A1%B9%E9%80%89%E6%8B%A9%E9%A2%98%E5%88%86%E6%9E%90/">
+                spss多重反应下的频次分析方法（多项选择题分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年01月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在问卷调查中经常用到多项选择题，分析多项选择题的方法就是multiple response，我们举一个例子，在网络调查问卷中有一题是：你获得信息的主要来源有哪些？选项有：网络、报纸、电视、读书、听说、手机。这是一个有六个选项的多项选择题，你改如何对各个选项的频率进行分析呢？下面是具体的方法：<br>方法&#x2F;步骤</p>
+<ul>
+<li>spss中打开数据，为了对多项选择题进行频次分析，先要设定一个变量集，因为在spss中，多项选择题额答案不能直接输入，只能将每一个变量当作一个单项选择题，每一题有一个答案或者没有答案。我们先要做的就是将所有的选项构成的单项选择题组成变量集，如图所示，在菜单栏上执行：analyze–multiple response–define sets</li>
+</ul>
+<img src="/2016/01/19/spss%E5%A4%9A%E9%87%8D%E5%8F%8D%E5%BA%94%E4%B8%8B%E7%9A%84%E9%A2%91%E6%AC%A1%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%EF%BC%88%E5%A4%9A%E9%A1%B9%E9%80%89%E6%8B%A9%E9%A2%98%E5%88%86%E6%9E%90/7c1ed21b0ef41bd5b80b1d7b51da81cb38db3de0.jpg" class="" title="spss多重反应下的频次分析方法（多项选择题分析">
+
+<ul>
+<li>将所有的选项变量放到变量集中</li>
+</ul>
+<img src="/2016/01/19/spss%E5%A4%9A%E9%87%8D%E5%8F%8D%E5%BA%94%E4%B8%8B%E7%9A%84%E9%A2%91%E6%AC%A1%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%EF%BC%88%E5%A4%9A%E9%A1%B9%E9%80%89%E6%8B%A9%E9%A2%98%E5%88%86%E6%9E%90/8b13632762d0f703fcc6605308fa513d2797c5cd.jpg" class="" title="spss多重反应下的频次分析方法（多项选择题分析">
+
+<ul>
+<li>选择变量是如何编码的，我们刚才看到了，每个变量都有6个选项，这就是分类变量了，所以要选择category。如果每个选项变量是是否形式的，应该选择dichotomies。</li>
+</ul>
+<img src="/2016/01/19/spss%E5%A4%9A%E9%87%8D%E5%8F%8D%E5%BA%94%E4%B8%8B%E7%9A%84%E9%A2%91%E6%AC%A1%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%EF%BC%88%E5%A4%9A%E9%A1%B9%E9%80%89%E6%8B%A9%E9%A2%98%E5%88%86%E6%9E%90/d50735fae6cd7b89ba34cf0c0f2442a7d8330ee0.jpg" class="" title="spss多重反应下的频次分析方法（多项选择题分析">
+
+<ul>
+<li>给变量添加一个名称，并填写标签，如图所示，然后点击add按钮，最后点击关闭按钮。</li>
+</ul>
+<img src="/2016/01/19/spss%E5%A4%9A%E9%87%8D%E5%8F%8D%E5%BA%94%E4%B8%8B%E7%9A%84%E9%A2%91%E6%AC%A1%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%EF%BC%88%E5%A4%9A%E9%A1%B9%E9%80%89%E6%8B%A9%E9%A2%98%E5%88%86%E6%9E%90/0e2442a7d933c895fb266df4d11373f0830200e0.jpg" class="" title="spss多重反应下的频次分析方法（多项选择题分析">
+
+<img src="/2016/01/19/spss%E5%A4%9A%E9%87%8D%E5%8F%8D%E5%BA%94%E4%B8%8B%E7%9A%84%E9%A2%91%E6%AC%A1%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%EF%BC%88%E5%A4%9A%E9%A1%B9%E9%80%89%E6%8B%A9%E9%A2%98%E5%88%86%E6%9E%90/91529822720e0cf35783bb740a46f21fbf09aacd.jpg" class="" title="spss多重反应下的频次分析方法（多项选择题分析">
+
+<ul>
+<li>接着就要对多项选择题进行分析了，在菜单栏上执行：analyze–multiple response–frequencies</li>
+</ul>
+<img src="/2016/01/19/spss%E5%A4%9A%E9%87%8D%E5%8F%8D%E5%BA%94%E4%B8%8B%E7%9A%84%E9%A2%91%E6%AC%A1%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%EF%BC%88%E5%A4%9A%E9%A1%B9%E9%80%89%E6%8B%A9%E9%A2%98%E5%88%86%E6%9E%90/6a600c338744ebf8910591b0d9f9d72a6159a7cd.jpg" class="" title="spss多重反应下的频次分析方法（多项选择题分析">
+
+<ul>
+<li>将你刚才新家的变量集添加到右侧列表里，点击ok按钮，开始输出结果</li>
+</ul>
+<img src="/2016/01/19/spss%E5%A4%9A%E9%87%8D%E5%8F%8D%E5%BA%94%E4%B8%8B%E7%9A%84%E9%A2%91%E6%AC%A1%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%EF%BC%88%E5%A4%9A%E9%A1%B9%E9%80%89%E6%8B%A9%E9%A2%98%E5%88%86%E6%9E%90/1f178a82b9014a90b266b332a9773912b21beee1.jpg" class="" title="spss多重反应下的频次分析方法（多项选择题分析">
+
+<ul>
+<li><p>我们来分析一下输出结果，N是选择对应选项的人数，百分比指的是在所有的选择中，该项占的百分比，个案百分比指的是选择该选项的人占所有人数的百分比</p>
+</li>
+<li></li>
+</ul>
+<img src="/2016/01/19/spss%E5%A4%9A%E9%87%8D%E5%8F%8D%E5%BA%94%E4%B8%8B%E7%9A%84%E9%A2%91%E6%AC%A1%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95%EF%BC%88%E5%A4%9A%E9%A1%B9%E9%80%89%E6%8B%A9%E9%A2%98%E5%88%86%E6%9E%90/359b033b5bb5c9ea8287f66cd539b6003bf3b3cd.jpg" class="" title="spss多重反应下的频次分析方法（多项选择题分析">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#x34;&#57;&#x35;&#55;&#56;&#55;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#54;&#x37;&#53;&#x34;&#57;&#x35;&#55;&#56;&#55;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/01/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B16%5D%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E5%AD%98%E5%8F%96/">
                 numpy函数：[16]多维数组切片存取
             </a>
@@ -972,82 +1052,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/01/03/spss20.0%E5%AE%89%E8%A3%85%E5%92%8C%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E3%80%90%E9%99%84%E8%AE%B8%E5%8F%AF%E8%AF%81%E3%80%91/">
-                spss20.0安装和破解方法【附许可证】
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年01月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>#####该方法已经失效#####大家不要骂街####<br>方法&#x2F;步骤</p>
-<ul>
-<li>下一步</li>
-</ul>
-<img src="/2016/01/03/spss20.0%E5%AE%89%E8%A3%85%E5%92%8C%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E3%80%90%E9%99%84%E8%AE%B8%E5%8F%AF%E8%AF%81%E3%80%91/7c1ed21b0ef41bd597c8467751da81cb38db3d9d.jpg" class="" title="spss20.0安装和破解方法【附许可证】">
-
-<ul>
-<li>准备安装</li>
-</ul>
-<img src="/2016/01/03/spss20.0%E5%AE%89%E8%A3%85%E5%92%8C%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E3%80%90%E9%99%84%E8%AE%B8%E5%8F%AF%E8%AF%81%E3%80%91/f636afc379310a55ecdf7077b74543a9832610bd.jpg" class="" title="spss20.0安装和破解方法【附许可证】">
-
-<ul>
-<li>下一步</li>
-</ul>
-<img src="/2016/01/03/spss20.0%E5%AE%89%E8%A3%85%E5%92%8C%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E3%80%90%E9%99%84%E8%AE%B8%E5%8F%AF%E8%AF%81%E3%80%91/0bd162d9f2d3572c9d19325f8a13632763d0c3be.jpg" class="" title="spss20.0安装和破解方法【附许可证】">
-
-<ul>
-<li>下一步</li>
-</ul>
-<img src="/2016/01/03/spss20.0%E5%AE%89%E8%A3%85%E5%92%8C%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E3%80%90%E9%99%84%E8%AE%B8%E5%8F%AF%E8%AF%81%E3%80%91/3c6d55fbb2fb4316f1e4d4f920a4462308f7d3be.jpg" class="" title="spss20.0安装和破解方法【附许可证】">
-
-<ul>
-<li>因为我们一般使用的就是中文，</li>
-</ul>
-<img src="/2016/01/03/spss20.0%E5%AE%89%E8%A3%85%E5%92%8C%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E3%80%90%E9%99%84%E8%AE%B8%E5%8F%AF%E8%AF%81%E3%80%91/5ab5c9ea15ce36d36b9f2db33af33a87e850b19e.jpg" class="" title="spss20.0安装和破解方法【附许可证】">
-
-<ul>
-<li>。点击图中所示按钮</li>
-</ul>
-<img src="/2016/01/03/spss20.0%E5%AE%89%E8%A3%85%E5%92%8C%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E3%80%90%E9%99%84%E8%AE%B8%E5%8F%AF%E8%AF%81%E3%80%91/c75c10385343fbf27ad708a0b07eca8064388fbe.jpg" class="" title="spss20.0安装和破解方法【附许可证】">
-
-<ul>
-<li>继续</li>
-</ul>
-<img src="/2016/01/03/spss20.0%E5%AE%89%E8%A3%85%E5%92%8C%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E3%80%90%E9%99%84%E8%AE%B8%E5%8F%AF%E8%AF%81%E3%80%91/4ec2d5628535e5dd0ab70b5c76c6a7efcf1b629e.jpg" class="" title="spss20.0安装和破解方法【附许可证】">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#109;">&#54;&#x37;&#53;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1093,6 +1097,10 @@
             </li>
             
             <li>
+                <a class="footer-post" href="/2022/12/05/%E5%80%92U%E5%85%B3%E7%B3%BB%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%92%8C%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90SPSS%E5%92%8CR%E8%AF%AD%E8%A8%80%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">U型关系回归分析中介效应和调节效应分析SPSS和R</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2022/10/26/2022%E5%B9%B4conda%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%89%8B%E5%86%8C/">2022年conda常用命令常见问题手册</a>
             </li>
             
@@ -1122,10 +1130,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/08/12/R%E4%B8%AD%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E6%95%B4%E7%90%86%E7%BB%93%E6%9E%9C%E4%B8%BA%E8%AE%BA%E6%96%87%E5%8F%AF%E7%94%A8%E6%A0%BC%E5%BC%8F/">R中如何自动整理结果为论文可用格式</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">R语言快速入门练习材料</a>
             </li>
             
         </ul>

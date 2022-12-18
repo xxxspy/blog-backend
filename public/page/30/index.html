@@ -246,6 +246,70 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2017/06/05/%E6%8A%BD%E6%A0%B7%E7%B3%BB%E7%BB%9F%E5%A4%87%E6%B3%A8%E6%96%87%E6%9C%AC%E4%BF%A1%E6%81%AF%E8%87%AA%E5%8A%A8%E5%8C%96%E5%88%86%E7%B1%BB%E5%99%A8/">
+                抽样系统备注文本信息自动化分类器
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017年06月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h2 id="第一步：-构建潜在语义空间"><a href="#第一步：-构建潜在语义空间" class="headerlink" title="第一步： 构建潜在语义空间"></a>第一步： 构建潜在语义空间</h2><ul>
+<li>分词：将备注信息切分成词</li>
+<li>清理：将标点符号清理掉</li>
+<li>构建词在备注信息中的词频矩阵, 如：</li>
+</ul>
+<p><code>\[     \begin&#123;array&#125;&#123;c | ccc&#125;     \text&#123;matrix&#125; &amp; \text&#123;备注1&#125; &amp; \text&#123;备注2&#125; &amp; \text&#123;备注n...&#125; \\     \hline     \text&#123;残疾&#125; &amp; 0 &amp; 1 &amp; \cdots \\     \text&#123;父母&#125; &amp; 1 &amp; 1 &amp; \cdots \\     \text&#123;建议&#125; &amp; 0 &amp; 2 &amp; \cdots \\     \vdots &amp; \vdots &amp; \vdots &amp; \vdots \\     \end&#123;array&#125; \]</code></p>
+<ul>
+<li><p>进行加权，用<code>tf-idf</code>方法</p>
+</li>
+<li><p>根据如下公式对矩阵进行svd分解</p>
+</li>
+</ul>
+<p><code>\[ \&#123;X\&#125;=\&#123;W\&#125;\&#123;S\&#125;\&#123;P\&#125; \]</code></p>
+<p>如果你使用python，你可以使用<code>numpy.linalg.SVD</code>函数来做这个分解。</p>
+<ul>
+<li><p>筛选对角矩阵<code>S</code>中最大的n个特征值，然后选出<code>W</code>和<code>P</code>中与特征值对应的特征向量，组合起来形成相应的<code>\(W&#39;\)</code>和<code>\(P&#39;\)</code></p>
+</li>
+<li><p>最后根据公式反向计算词文矩阵<code>X&#39;</code>，得到潜在语义空间：</p>
+</li>
+</ul>
+<p><code>\[ \&#123;W&#39;\&#125;\&#123;S&#39;\&#125;\&#123;P&#39;\&#125;=\&#123;X&#39;\&#125; \]</code></p>
+<p>得到的X’矩阵中，每一行都是一个词向量。</p>
+<ul>
+<li>求备注向量</li>
+</ul>
+<p>在原始的词频矩阵X中，每一列代表一个备注中，词的词频，我们把它叫做备注的词频向量——<code>\(V_i\)</code>，其中下标<code>i</code>表示第i<br>个备注。由于在上一步中我们求得了每个词的语义向量。所以备注的词频向量就可以转换成词所在的语义空间向量<code>\(V&#39;_i\)</code>。让向量<code>\(w_j\)</code>表示X’中j词的语义向量。假如矩阵中有n个词。</p>
+<p><code>\[ M = X&#39;.T * V_i = \left[ \begin&#123;array&#125; \vdots\\ w_j \\ \vdots \end&#123;array&#125; \right] * V_i  = \left[ \begin&#123;array&#125; \vdots\\ w&#39;_j \\ \vdots \end&#123;array&#125; \right] \]</code><br><code>\[ V&#39;_i = \sum_&#123;j=0&#125;^n w&#39;_j \]</code></p>
+<h2 id="第二步：使用机器学习算法预测备注是否能参加测试"><a href="#第二步：使用机器学习算法预测备注是否能参加测试" class="headerlink" title="第二步：使用机器学习算法预测备注是否能参加测试"></a>第二步：使用机器学习算法预测备注是否能参加测试</h2><ul>
+<li><code>\( V&#39;_i \)</code> 就是备注文档的语义向量，这样我们就得到了备注文档的语义。以此为输入，以该备注的被试是否能够参加测试为输出，使用适当的机器学习方法即可预测一个备注是否能够参加测试。</li>
+</ul>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/“python/">#“python"</a> <a href="/tags/lsa/">#lsa</a> <a href="/tags/潜在语义分析/">#潜在语义分析</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2017/06/02/MathJax%E5%85%A5%E9%97%A8/">
                 MathJax入门
             </a>
@@ -1045,72 +1109,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/10/15/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B17%5D%E8%BF%9B%E8%A1%8Csobel%E6%A3%80%E9%AA%8C(%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B)/">
-                SPSS实例：[17]进行sobel检验(小白教程)
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年10月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>通常我们在做中介效应的时候，遇到有一个系数没有达到显著性水平，我们需要进行sobel检验，但是sobel检验的公式非常麻烦，如果你按计算器就很麻烦了，更何况你还有很多中介效应去验证，所以今天我给大家分享一个Excel可以很快的计算。</p>
-<ul>
-<li>从下面的参考资料里下载一个Excel文件</li>
-</ul>
-<img src="/2016/10/15/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B17%5D%E8%BF%9B%E8%A1%8Csobel%E6%A3%80%E9%AA%8C(%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B)/d478a8003af33a879120f002c45c10385343b51e.jpg" class="" title="SPSS实例：[17]进行sobel检验(小白教程)">
-
-<ul>
-<li>下载下来以后，打开Excel，你会看到一个这样的表格</li>
-</ul>
-<img src="/2016/10/15/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B17%5D%E8%BF%9B%E8%A1%8Csobel%E6%A3%80%E9%AA%8C(%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B)/cdfe7281800a19d87b53741d31fa828ba61e4613.jpg" class="" title="SPSS实例：[17]进行sobel检验(小白教程)">
-
-<ul>
-<li>将你的三个模型的三线表粘贴过来</li>
-</ul>
-<img src="/2016/10/15/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B17%5D%E8%BF%9B%E8%A1%8Csobel%E6%A3%80%E9%AA%8C(%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B)/c856613e6709c93da9a2feef9d3df8dcd1005413.jpg" class="" title="SPSS实例：[17]进行sobel检验(小白教程)">
-
-<ul>
-<li>我们在对应的位置写入对应的值，soble值会自动的计算出来，是否显著这一栏会告诉是否显著，如果显著说明中介效应显著</li>
-</ul>
-<img src="/2016/10/15/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B17%5D%E8%BF%9B%E8%A1%8Csobel%E6%A3%80%E9%AA%8C(%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B)/bd7faf3533fa828b6d736dfbff1f4134970a5a13.jpg" class="" title="SPSS实例：[17]进行sobel检验(小白教程)">
-
-<ul>
-<li>跟大家分享一下各个单元格的公式，看下面的公示栏就知道了。</li>
-</ul>
-<img src="/2016/10/15/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B17%5D%E8%BF%9B%E8%A1%8Csobel%E6%A3%80%E9%AA%8C(%E5%B0%8F%E7%99%BD%E6%95%99%E7%A8%8B)/bbe0d311728b47105b7f0dd4c1cec3fdfc032313.jpg" class="" title="SPSS实例：[17]进行sobel检验(小白教程)">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#57;&#x35;&#x37;&#56;&#x37;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;">&#54;&#55;&#53;&#x34;&#57;&#x35;&#x37;&#56;&#x37;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1156,6 +1154,10 @@
             </li>
             
             <li>
+                <a class="footer-post" href="/2022/12/05/%E5%80%92U%E5%85%B3%E7%B3%BB%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%92%8C%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90SPSS%E5%92%8CR%E8%AF%AD%E8%A8%80%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">U型关系回归分析中介效应和调节效应分析SPSS和R</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2022/10/26/2022%E5%B9%B4conda%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%89%8B%E5%86%8C/">2022年conda常用命令常见问题手册</a>
             </li>
             
@@ -1185,10 +1187,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/08/12/R%E4%B8%AD%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E6%95%B4%E7%90%86%E7%BB%93%E6%9E%9C%E4%B8%BA%E8%AE%BA%E6%96%87%E5%8F%AF%E7%94%A8%E6%A0%BC%E5%BC%8F/">R中如何自动整理结果为论文可用格式</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">R语言快速入门练习材料</a>
             </li>
             
         </ul>

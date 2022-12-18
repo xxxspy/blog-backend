@@ -246,6 +246,41 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2017/10/12/scikit-learn%E5%AE%89%E8%A3%85%E5%92%8C%E5%85%A5%E9%97%A8-for-educationist/">
+                scikit-learn安装和入门(for_educationist)
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017年10月12日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>本篇文章介绍了如何安装scikit-learn, 并且如何用支持向量机(SVM)识别手写字. 作为一篇scikit-learn入门文章, 并没有深入讲解什么是支持向量机(SVM), 我们的目的仅仅是感受一下什么是机器学习.</p>
+        </div>
+        <a href="/2017/10/12/scikit-learn%E5%AE%89%E8%A3%85%E5%92%8C%E5%85%A5%E9%97%A8-for-educationist/" class="read-more">Read More</a>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/机器学习/">#机器学习</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2017/10/11/%E5%A4%A7%E6%95%B0%E6%8D%AE%E6%8A%80%E6%9C%AF%E8%83%BD%E4%B8%BA%E5%BF%83%E7%90%86%E5%AD%A6%E5%81%9A%E4%BB%80%E4%B9%88/">
                 大数据技术能为心理学做什么
             </a>
@@ -612,55 +647,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2017/09/07/python-selenium%E6%92%B0%E5%86%99%E8%87%AA%E5%8A%A8%E5%8C%96%E5%8A%9F%E8%83%BD%E6%B5%8B%E8%AF%95%E8%84%9A%E6%9C%AC/">
-                python-selenium撰写自动化功能测试脚本
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2017年09月07日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>你需要参考<a href="/2017/06/10/selenim%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%E5%85%A5%E9%97%A8-for-psychologist/">selenium入门</a><br>来指导你安装python和selenium，<br>同时你还需要安装chrome和chromedriver，在这篇文章中有详细的介绍。</p>
-<h2 id="撰写用例"><a href="#撰写用例" class="headerlink" title="撰写用例"></a>撰写用例</h2><p>在写功能测试脚本之前，需要先指导测什么。这就是用例的作用。用例要详细描述一个用户的操作行为，用到的数据，得到的反馈等。<br>比如我们想要测试网站的登录功能，我们可以这么写：</p>
-<blockquote>
-<p>打开网址<code>http://www.mlln.cn</code><br>点击<code>登录</code>按钮<br>输入用户名和密码<br>点击登录<br>验证登录是否成功</p>
-</blockquote>
-<p>用例要列出所有可能的反馈，测试也要测试到所有可能情况。比如简单的登录功能，首先要测试成功登录的情况，然后要测试用户名或密码错误的情况。<br>网站应当根据不同的用户操作给出不同的反馈。</p>
-<h2 id="编写脚本"><a href="#编写脚本" class="headerlink" title="编写脚本"></a>编写脚本</h2><p>脚本就是一段代码，用于执行一个特定的功能。通常一个<code>*.py</code>文件存放一个脚本，一个测试脚本的大体结构应当是这样的：</p>
-<blockquote>
-<blockquote>
-<p>文件中最上面写用例, 用三个引号表示。比如<code>&#39;&#39;&#39;这是一个测试用例的描述文字 &#39;&#39;&#39;</code><br>准备阶段：准备好测试用到的数据，比如你要测试的是登录功能，你需要提前写入数据一个账号和密码，用于测试，写入数据的过程就是准备过程<br>测试阶段：写代码执行测试<br>销毁阶段：在准备阶段写入的数据应当在销毁阶段销毁，也就是删除测试账号。关闭任何打开过的浏览器或其他软件。</p>
-</blockquote>
-</blockquote>
-<p>测试脚本文件名称以<code>test_</code>开头。</p>
-<p>下面是一个测试脚本的样例：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="string">这里描述测试用例</span></span><br><span class="line"><span class="string">&#x27;&#x27;&#x27;</span></span><br><span class="line"><span class="keyword">import</span> settings</span><br><span class="line"><span class="keyword">import</span> selenium</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">prepare</span>():</span><br><span class="line">	<span class="string">&#x27;&#x27;&#x27;准备阶段&#x27;&#x27;&#x27;</span></span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">test</span>():</span><br><span class="line">	<span class="string">&#x27;&#x27;&#x27;测试阶段&#x27;&#x27;&#x27;</span></span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">def</span> <span class="title function_">destroy</span>():</span><br><span class="line">	<span class="string">&#x27;&#x27;&#x27;销毁阶段&#x27;&#x27;&#x27;</span></span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/selenium/">#selenium</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -706,6 +692,10 @@
             </li>
             
             <li>
+                <a class="footer-post" href="/2022/12/05/%E5%80%92U%E5%85%B3%E7%B3%BB%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%92%8C%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90SPSS%E5%92%8CR%E8%AF%AD%E8%A8%80%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">U型关系回归分析中介效应和调节效应分析SPSS和R</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2022/10/26/2022%E5%B9%B4conda%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%89%8B%E5%86%8C/">2022年conda常用命令常见问题手册</a>
             </li>
             
@@ -735,10 +725,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/08/12/R%E4%B8%AD%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E6%95%B4%E7%90%86%E7%BB%93%E6%9E%9C%E4%B8%BA%E8%AE%BA%E6%96%87%E5%8F%AF%E7%94%A8%E6%A0%BC%E5%BC%8F/">R中如何自动整理结果为论文可用格式</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">R语言快速入门练习材料</a>
             </li>
             
         </ul>
