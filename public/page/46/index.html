@@ -226,6 +226,12 @@
             </a>
         </div>
     
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/12/05/倒U关系回归分析中介效应和调节效应分析SPSS和R语言应用视频教程/">
+                倒U关系回归分析中介效应和调节效应分析SPSS视频教程
+            </a>
+        </div>
+    
 </div>
 
     <!-- Main Content -->
@@ -241,6 +247,60 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/02/23/python%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF/">
+                python 字符串类型错误
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年02月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天调程序发现总出现错误TypeError: ‘str’ does not support the buffer interface，研究了很久才发现，错误在与python的版本不同，我们来看看如何更改。</p>
+<ul>
+<li>这是我的源码，是不是和你的挺像？红色方框的位置出现了错误。也就是在sendto函数这里，我们发送一个字符串，但是提示我们类型错误</li>
+</ul>
+<img src="/2016/02/23/python%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF/b6045da98226cffc9fd6d59ebb014a90f703eadb.jpg" class="" title="python 字符串类型错误">
+
+<ul>
+<li>新版本的python对字符串对象做了很大的更改，使得原先的函数产生了很大的不同，所以我们需要添加一个参数。这个问题就解决了。</li>
+</ul>
+<img src="/2016/02/23/python%20%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%B1%BB%E5%9E%8B%E9%94%99%E8%AF%AF/4651a712c8fcc3ce8812a31f9045d688d53f2088.jpg" class="" title="python 字符串类型错误">
+
+<ul>
+<li>但是，还有一个问题，这种方法发送的字符串发送的结果是b’hello，怎么办呢，我们使用转码函数试试。print(cs.recv(1024).decode(‘utf-8’))</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#x39;&#53;&#55;&#x38;&#55;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;">&#x36;&#55;&#53;&#x34;&#x39;&#53;&#55;&#x38;&#55;&#64;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -909,138 +969,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/">
-                Excel2013：[26]如何将ABCD替换成数字
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年02月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>经常给别人做数据分析，拿到的数据都是很不规范的，比如下面这个例子，单元格中的数据是ABCD而不是数字1234，这样的数据是无法放入到spss中进行处理的，所以我们需要对这个进行重新编码，在Excel中使用vba是比较快速的方法，这里我跟大家分享一下我的方法：</p>
-<ul>
-<li>明确目标：把ABCD转换成1234，如图所示，题目1这一列是我转换完成的，题目3这一列是还没有进行转换的。</li>
-</ul>
-<img src="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/a8362712b31bb051727be651347adab44aede029.jpg" class="" title="Excel2013：[26]如何将ABCD替换成数字">
-
-<ul>
-<li>我们使用快捷键alt + F11，打开vbe编辑窗口</li>
-</ul>
-<img src="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/8640bf8b87d6277f084d67412a381f30e924fc29.jpg" class="" title="Excel2013：[26]如何将ABCD替换成数字">
-
-<ul>
-<li>掺入一个模块：菜单上执行【插入】-【模块】</li>
-</ul>
-<img src="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/d1571724ab18972bb45255b3e4cd7b899e510a1b.jpg" class="" title="Excel2013：[26]如何将ABCD替换成数字">
-
-<ul>
-<li><p>将这段代码粘贴到模块中：</p>
-</li>
-<li><p>Sub 替换abcd()</p>
-</li>
-<li><pre><code>Dim iRng As Range
-</code></pre>
-</li>
-<li><pre><code>Set iRng = Selection
-</code></pre>
-</li>
-<li><pre><code>For Each icell In iRng
-</code></pre>
-</li>
-<li><pre><code>    txt = icell.Value
-</code></pre>
-</li>
-<li><pre><code>    Select Case txt
-</code></pre>
-</li>
-<li><pre><code>    Case &quot;A&quot;
-</code></pre>
-</li>
-<li><pre><code>        icell.Value = 1
-</code></pre>
-</li>
-<li><pre><code>    Case &quot;B&quot;
-</code></pre>
-</li>
-<li><pre><code>        icell.Value = 2
-</code></pre>
-</li>
-<li><pre><code>    Case &quot;C&quot;
-</code></pre>
-</li>
-<li><pre><code>        icell.Value = 3
-</code></pre>
-</li>
-<li><pre><code>    Case &quot;D&quot;
-</code></pre>
-</li>
-<li><pre><code>        icell.Value = 4
-</code></pre>
-</li>
-<li><pre><code>    Case &quot;E&quot;
-</code></pre>
-</li>
-<li><pre><code>        icell.Value = 5
-</code></pre>
-</li>
-<li><pre><code>    End Select
-</code></pre>
-</li>
-<li><pre><code>Next icell
-</code></pre>
-</li>
-<li><p>End Sub</p>
-</li>
-</ul>
-<img src="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/0b3a1c087bf40ad1c6bb929a552c11dfa9ecce29.jpg" class="" title="Excel2013：[26]如何将ABCD替换成数字">
-
-<ul>
-<li>保存并关闭vbe窗口，然后按下快捷键alt+F8，打开宏编辑窗口，选中这个唯一的宏，然后点击【选项】按钮</li>
-</ul>
-<img src="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/f392492c11dfa9ec2371036e60d0f703918fc129.jpg" class="" title="Excel2013：[26]如何将ABCD替换成数字">
-
-<ul>
-<li>设置快捷键为Ctrl+q，然后点击确定按钮</li>
-</ul>
-<img src="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/0b14ad19ebc4b7453efce26fcdfc1e178a82151b.jpg" class="" title="Excel2013：[26]如何将ABCD替换成数字">
-
-<ul>
-<li>下面开始使用这个宏来转化数据，如图，先选中要转换的这一列，然后按下快捷键【Ctrl+q】，你可以看到数据快速得到转换。abcd都变成了1234</li>
-</ul>
-<img src="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/58af236d55fbb2fbf5740d6b4d4a20a44623dc29.jpg" class="" title="Excel2013：[26]如何将ABCD替换成数字">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#x34;&#57;&#x35;&#x37;&#56;&#55;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;">&#54;&#x37;&#x35;&#x34;&#57;&#x35;&#x37;&#56;&#55;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1086,6 +1014,10 @@
             </li>
             
             <li>
+                <a class="footer-post" href="/2022/12/10/Transformer%E8%AF%A6%E7%BB%86%E8%A7%A3%E8%AF%BB%E5%92%8C%E4%BB%A3%E7%A0%81%E6%A1%88%E4%BE%8B/">Transformer详细解读和代码实现</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2022/12/05/%E5%80%92U%E5%85%B3%E7%B3%BB%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%92%8C%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90SPSS%E5%92%8CR%E8%AF%AD%E8%A8%80%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">U型关系回归分析中介效应和调节效应分析SPSS和R</a>
             </li>
             
@@ -1115,10 +1047,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/08/21/SPSS%E7%9A%84Process%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85/">SPSS的 Process v4.1 插件下载和安</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/08/12/R%E4%B8%AD%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E6%95%B4%E7%90%86%E7%BB%93%E6%9E%9C%E4%B8%BA%E8%AE%BA%E6%96%87%E5%8F%AF%E7%94%A8%E6%A0%BC%E5%BC%8F/">R中如何自动整理结果为论文可用格式</a>
             </li>
             
         </ul>
