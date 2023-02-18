@@ -270,7 +270,7 @@
 
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#conda-proxy%E8%AE%BE%E7%BD%AE%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">conda proxy设置问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conda-%E4%B8%8D%E6%94%AF%E6%8C%81powershell"><span class="toc-number">2.</span> <span class="toc-text">conda 不支持powershell</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#conda-proxy%E8%AE%BE%E7%BD%AE%E9%97%AE%E9%A2%98"><span class="toc-number">1.</span> <span class="toc-text">conda proxy设置问题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#conda-%E4%B8%8D%E6%94%AF%E6%8C%81powershell"><span class="toc-number">2.</span> <span class="toc-text">conda 不支持powershell</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%86python%E6%A8%A1%E5%9D%97%E8%B7%AF%E5%BE%84%E6%B7%BB%E5%8A%A0%E5%88%B0conda%E7%8E%AF%E5%A2%83"><span class="toc-number">3.</span> <span class="toc-text">将python模块路径添加到conda环境</span></a></li></ol>
     </div>
 
         <!-- Gallery -->
@@ -294,6 +294,10 @@
 <p>因为你本地的vpn可能不支持https的加密通讯。</p>
 <h3 id="conda-不支持powershell"><a href="#conda-不支持powershell" class="headerlink" title="conda 不支持powershell"></a>conda 不支持powershell</h3><p>在windows系统下， cmd已经逐渐被边缘， 现在更多人使用powershell，<br>那么， 很多人在powershell中使用conda 的时候发现激活不了某个环境，<br>运行<code>conda activate ...</code> 的时候没有任何反应，<br>这时候你需要这样设置，</p>
 <p>在菜单栏打开<code>Anaconda Powershell Prompt</code> ,<br>运行命令<code>conda init powershell</code>， conda会做一些更改， 然后你就可以正常使用你的 powershell+conda 了。</p>
+<h3 id="将python模块路径添加到conda环境"><a href="#将python模块路径添加到conda环境" class="headerlink" title="将python模块路径添加到conda环境"></a>将python模块路径添加到conda环境</h3><p>加入你正在开发一个python模块， 名字叫adjdata，<br>测试的时候， 你无法找到这个模块， 因为这个模块没有添加到python的环境中，<br>或者说没有安装该模块， 你可能看到如下错误提示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Traceback (most recent call last):</span><br><span class="line">  File &quot;d:\dev\adjdata\test\addModer.py&quot;, line 1, in &lt;module&gt;</span><br><span class="line">    from adjdata import spss</span><br><span class="line">ModuleNotFoundError: No module named &#x27;adjdata&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>解决方法是， 打开conda虚拟环境所在文件夹, 例如我的conda安装在<code>D:\conda</code>，<br>我希望在conda的基础虚拟环境（base）中添加模块adjdata， 那么打开这个路径：<code>D:\conda\Lib\site-packages</code>,<br>在里面添加一个文件名为<code>conda.pth</code>， 然后将adjdata的路径添加进去<code>D:\dev\adjdata</code>，<br>这样python就可以找到你的模块了。</p>
 
     </div>
 
@@ -486,7 +490,11 @@ setTimeout(()=>{
         <ul>
             
             <li>
-                <a class="footer-post" href="/2023/10/14/APIM%E4%B8%BB%E5%AE%A2%E4%BD%93%E7%9B%B8%E4%BE%9D%E6%A8%A1%E5%9E%8B%E6%88%90%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Amplus%E5%BA%94%E7%94%A8/">APIM主客体相依模型成对数据分析以及mplus应</a>
+                <a class="footer-post" href="/2023/02/14/rwg%E8%AF%84%E5%88%86%E8%80%85%E5%86%85%E9%83%A8%E4%B8%80%E8%87%B4%E6%80%A7%E6%8C%87%E6%A0%87%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">评分者内部一致性Rwg和Intraclass相关系</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/01/31/APIM%E4%B8%BB%E5%AE%A2%E4%BD%93%E7%9B%B8%E4%BE%9D%E6%A8%A1%E5%9E%8B%E6%88%90%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Amplus%E5%BA%94%E7%94%A8/">APIM主客体相依模型成对数据分析以及mplus应</a>
             </li>
             
             <li>
@@ -519,10 +527,6 @@ setTimeout(()=>{
             
             <li>
                 <a class="footer-post" href="/2022/08/24/JupyterNotebook%E4%B8%AD%E8%BF%90%E8%A1%8CR%E4%BB%A3%E7%A0%81/">Jupyter notebook中运行R代码</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/08/21/SPSS%E7%9A%84Process%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85/">SPSS的 Process v4.1 插件下载和安</a>
             </li>
             
         </ul>

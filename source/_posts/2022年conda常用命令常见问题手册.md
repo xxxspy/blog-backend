@@ -53,3 +53,21 @@ proxy_servers:
 
 在菜单栏打开`Anaconda Powershell Prompt` , 
 运行命令`conda init powershell`， conda会做一些更改， 然后你就可以正常使用你的 powershell+conda 了。
+
+### 将python模块路径添加到conda环境
+
+加入你正在开发一个python模块， 名字叫adjdata，
+测试的时候， 你无法找到这个模块， 因为这个模块没有添加到python的环境中，
+或者说没有安装该模块， 你可能看到如下错误提示：
+
+```
+Traceback (most recent call last):
+  File "d:\dev\adjdata\test\addModer.py", line 1, in <module>
+    from adjdata import spss
+ModuleNotFoundError: No module named 'adjdata'
+```
+
+解决方法是， 打开conda虚拟环境所在文件夹, 例如我的conda安装在`D:\conda`， 
+我希望在conda的基础虚拟环境（base）中添加模块adjdata， 那么打开这个路径：`D:\conda\Lib\site-packages`, 
+在里面添加一个文件名为`conda.pth`， 然后将adjdata的路径添加进去`D:\dev\adjdata`， 
+这样python就可以找到你的模块了。

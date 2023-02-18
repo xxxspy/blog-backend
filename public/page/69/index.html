@@ -252,6 +252,86 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/">
+                spss交叉设计如何进行方差分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>交叉设计是自身配对基础上发展的设计方法，是一种特殊的自身对照设计，通常的设计方案为被试分为两组，一组接受实验的顺序是AB，一组接受的实验顺序是BA，这样就形成了对照，这样的设计如何进行方差分析呢？下面是具体的方法：<br>工具&#x2F;原料</p>
+<ul>
+<li><p>spss20.0<br>方法&#x2F;步骤</p>
+</li>
+<li><p>首先要明白数据的录入方式，如图所示，stage就是接受条件AB的阶段</p>
+</li>
+</ul>
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/f603918fa0ec08faab3c106659ee3d6d55fbda37.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<ul>
+<li>在菜单栏上执行：analyse–GLM–univariate，打开方差分析对话框</li>
+</ul>
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/b8014a90f603738d79ee0fe3b31bb051f919ec4f.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<ul>
+<li>将自变量和因变量放入格子的框中，点击model按钮，开始设置模型</li>
+</ul>
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/e1fe9925bc315c605105682e8db1cb134854775a.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/024f78f0f736afc3b8283da4b319ebc4b64512ce.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<ul>
+<li>勾选“custom”，然后将三个变量放入右侧的模型框中</li>
+</ul>
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/03087bf40ad162d91cef60dd11dfa9ec8b13cdea.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/63d0f703918fa0ecf0c666cc269759ee3c6ddbea.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<ul>
+<li>将type设置为maineffect，意思是没有交互作用，回到主菜单，点击ok</li>
+</ul>
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/80cb39dbb6fd526675313ed5ab18972bd50736dc.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/34fae6cd7b899e51a19438d542a7d933c9950ddc.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<ul>
+<li>我们看到输出的结果，治疗方案treat边缘显著，但是质量的顺序stage是不显著的，判断标准就是sig值</li>
+</ul>
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/7dd98d1001e9390164138fff7bec54e737d196d9.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#x34;&#57;&#53;&#x37;&#56;&#55;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#109;">&#54;&#x37;&#x35;&#x34;&#57;&#53;&#x37;&#56;&#55;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/01/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B9%5D%E6%B1%82%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9/">
                 python 线性代数：[9]求矩阵的秩
             </a>
@@ -805,7 +885,11 @@
         <ul>
             
             <li>
-                <a class="footer-post" href="/2023/10/14/APIM%E4%B8%BB%E5%AE%A2%E4%BD%93%E7%9B%B8%E4%BE%9D%E6%A8%A1%E5%9E%8B%E6%88%90%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Amplus%E5%BA%94%E7%94%A8/">APIM主客体相依模型成对数据分析以及mplus应</a>
+                <a class="footer-post" href="/2023/02/14/rwg%E8%AF%84%E5%88%86%E8%80%85%E5%86%85%E9%83%A8%E4%B8%80%E8%87%B4%E6%80%A7%E6%8C%87%E6%A0%87%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">评分者内部一致性Rwg和Intraclass相关系</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/01/31/APIM%E4%B8%BB%E5%AE%A2%E4%BD%93%E7%9B%B8%E4%BE%9D%E6%A8%A1%E5%9E%8B%E6%88%90%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Amplus%E5%BA%94%E7%94%A8/">APIM主客体相依模型成对数据分析以及mplus应</a>
             </li>
             
             <li>
@@ -838,10 +922,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/08/24/JupyterNotebook%E4%B8%AD%E8%BF%90%E8%A1%8CR%E4%BB%A3%E7%A0%81/">Jupyter notebook中运行R代码</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/08/21/SPSS%E7%9A%84Process%E6%8F%92%E4%BB%B6%E4%B8%8B%E8%BD%BD%E5%92%8C%E5%AE%89%E8%A3%85/">SPSS的 Process v4.1 插件下载和安</a>
             </li>
             
         </ul>
