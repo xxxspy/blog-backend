@@ -252,6 +252,72 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/02/05/Excel2013%EF%BC%9A%5B32%5D%E5%A4%9A%E9%80%89%E9%A2%98%E5%BD%95%E5%85%A5%E5%88%B0%E4%B8%80%E4%B8%AA%E5%8D%95%E5%85%83%E6%A0%BC%E6%80%8E%E4%B9%88%E5%8A%9E/">
+                Excel2013：[32]多选题录入到一个单元格怎么办
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年02月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天处理了一个数据，录入格式非常不规范，他将一道多选题录入到了一个单元格，看下面图，一个单元格里放入了ABCD等多个选项，这样是无法做统计分析的，尤其是无法再spss做分析，必须要拆分单元格才可以，下面的教程就是教大家，多选题录入到了一个单元格，怎么将其重新编码成0和1构成的矩阵。</p>
+<ul>
+<li>在【题目24】单元格后面依次填入24个英文字符（ps，这个多选题有24个选项，如果你的多选题只有4个选项，可以只输入abcd四个字母）。你可以参考我以前的文章：【Excel2013 快速填充26个英文字母】</li>
+</ul>
+<img src="/2016/02/05/Excel2013%EF%BC%9A%5B32%5D%E5%A4%9A%E9%80%89%E9%A2%98%E5%BD%95%E5%85%A5%E5%88%B0%E4%B8%80%E4%B8%AA%E5%8D%95%E5%85%83%E6%A0%BC%E6%80%8E%E4%B9%88%E5%8A%9E/b94f65ec54e736d1f0bd3b7499504fc2d46269e5.jpg" class="" title="Excel2013：[32]多选题录入到一个单元格怎么办">
+
+<ul>
+<li>在AF2单元格，我们输入公式：&#x3D;IF(ISERROR(IF(FIND(AF$1,$AE2)&gt;0,1,0)),0,IF(FIND(AF$1,$AE2)&gt;0,1,0))</li>
+</ul>
+<img src="/2016/02/05/Excel2013%EF%BC%9A%5B32%5D%E5%A4%9A%E9%80%89%E9%A2%98%E5%BD%95%E5%85%A5%E5%88%B0%E4%B8%80%E4%B8%AA%E5%8D%95%E5%85%83%E6%A0%BC%E6%80%8E%E4%B9%88%E5%8A%9E/9dc3cf58ccbf6c8187019a94be3eb13533fa405c.jpg" class="" title="Excel2013：[32]多选题录入到一个单元格怎么办">
+
+<ul>
+<li>向下快速填充，填充满整列</li>
+</ul>
+<img src="/2016/02/05/Excel2013%EF%BC%9A%5B32%5D%E5%A4%9A%E9%80%89%E9%A2%98%E5%BD%95%E5%85%A5%E5%88%B0%E4%B8%80%E4%B8%AA%E5%8D%95%E5%85%83%E6%A0%BC%E6%80%8E%E4%B9%88%E5%8A%9E/2e6fa7389b504fc236380779e7dde71190ef6d2c.jpg" class="" title="Excel2013：[32]多选题录入到一个单元格怎么办">
+
+<ul>
+<li>选中AF整列，然后向右拖动右下角，快速填充24个列</li>
+</ul>
+<img src="/2016/02/05/Excel2013%EF%BC%9A%5B32%5D%E5%A4%9A%E9%80%89%E9%A2%98%E5%BD%95%E5%85%A5%E5%88%B0%E4%B8%80%E4%B8%AA%E5%8D%95%E5%85%83%E6%A0%BC%E6%80%8E%E4%B9%88%E5%8A%9E/e49cf91190ef76c64eb54c579f16fdfaaf51672c.jpg" class="" title="Excel2013：[32]多选题录入到一个单元格怎么办">
+
+<ul>
+<li>到此为止，我们就完成了所有将一个单元格的多选题答案转换成了0-1矩阵。这样就可以放入spss中进行分析了。</li>
+</ul>
+<img src="/2016/02/05/Excel2013%EF%BC%9A%5B32%5D%E5%A4%9A%E9%80%89%E9%A2%98%E5%BD%95%E5%85%A5%E5%88%B0%E4%B8%80%E4%B8%AA%E5%8D%95%E5%85%83%E6%A0%BC%E6%80%8E%E4%B9%88%E5%8A%9E/fcbbb151f3deb48f7c0e16a2f21f3a292df5782c.jpg" class="" title="Excel2013：[32]多选题录入到一个单元格怎么办">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#52;&#x39;&#53;&#55;&#56;&#55;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#x36;&#x37;&#53;&#52;&#x39;&#53;&#55;&#56;&#55;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/02/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B7%5DIF%E8%AF%AD%E5%8F%A5%E5%9F%BA%E6%9C%AC%E7%94%A8%E6%B3%95/">
                 Python教程：[7]IF语句基本用法
             </a>
@@ -1001,82 +1067,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/01/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B30%5Dkappa%E7%B3%BB%E6%95%B0%E6%80%8E%E4%B9%88%E8%AE%A1%E7%AE%97/">
-                SPSS实例：[30]kappa系数怎么计算
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年01月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>假如有两个评分者针对一批作文进行分级，分为好中差三级，分级结果见下表。你怎么判定这两个评分者的评分结果是否一致呢？这时候就要计算卡帕系数了。</p>
-<ul>
-<li>好中差分别用123来表示，将数据录入到spss中</li>
-</ul>
-<img src="/2016/01/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B30%5Dkappa%E7%B3%BB%E6%95%B0%E6%80%8E%E4%B9%88%E8%AE%A1%E7%AE%97/fab3ac119313b07ea149be440ed7912396dd8c43.jpg" class="" title="SPSS实例：[30]kappa系数怎么计算">
-
-<ul>
-<li>接着，我们再给数据加权，用频数作为加权变量，不会的可以参考我上一篇文章，这里不再重复。<a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/9f7e7ec050c3c36f28155434.html">http://jingyan.baidu.com/article/9f7e7ec050c3c36f28155434.html</a></li>
-</ul>
-<img src="/2016/01/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B30%5Dkappa%E7%B3%BB%E6%95%B0%E6%80%8E%E4%B9%88%E8%AE%A1%E7%AE%97/b25aae51f8198618261306c848ed2e738ad4e6e3.jpg" class="" title="SPSS实例：[30]kappa系数怎么计算">
-
-<ul>
-<li>接着，打开菜单：分析–描述统计-交叉表，将两个变量分别放入行和列变量</li>
-</ul>
-<img src="/2016/01/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B30%5Dkappa%E7%B3%BB%E6%95%B0%E6%80%8E%E4%B9%88%E8%AE%A1%E7%AE%97/2f3295d4b31c8701b6e25baa257f9e2f0608ffe3.jpg" class="" title="SPSS实例：[30]kappa系数怎么计算">
-
-<ul>
-<li>设置输出的描述性统计，这里就是输出kappa系数的地方</li>
-</ul>
-<img src="/2016/01/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B30%5Dkappa%E7%B3%BB%E6%95%B0%E6%80%8E%E4%B9%88%E8%AE%A1%E7%AE%97/fd428c45d688d43f541278be7f1ed21b0ff43b80.jpg" class="" title="SPSS实例：[30]kappa系数怎么计算">
-
-<ul>
-<li>勾选kappa系数，然后点击继续按钮</li>
-</ul>
-<img src="/2016/01/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B30%5Dkappa%E7%B3%BB%E6%95%B0%E6%80%8E%E4%B9%88%E8%AE%A1%E7%AE%97/29790130e924b899896890746c061d950b7bf6e3.jpg" class="" title="SPSS实例：[30]kappa系数怎么计算">
-
-<ul>
-<li>回到了主菜单，我们点击ok按钮</li>
-</ul>
-<img src="/2016/01/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B30%5Dkappa%E7%B3%BB%E6%95%B0%E6%80%8E%E4%B9%88%E8%AE%A1%E7%AE%97/4d4970061d950a7b2761a78808d162d9f3d3c9e3.jpg" class="" title="SPSS实例：[30]kappa系数怎么计算">
-
-<ul>
-<li>评分者一致性系数就到此计算出来了。</li>
-</ul>
-<img src="/2016/01/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B30%5Dkappa%E7%B3%BB%E6%95%B0%E6%80%8E%E4%B9%88%E8%AE%A1%E7%AE%97/1cd4147b02087bf42db8bea5f0d3572c10dfcfe3.jpg" class="" title="SPSS实例：[30]kappa系数怎么计算">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#x34;&#x39;&#53;&#55;&#56;&#55;&#x40;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#x36;&#55;&#x35;&#x34;&#x39;&#53;&#55;&#56;&#55;&#x40;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1118,6 +1108,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/02/16/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8ER%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型教程及R应用</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/02/14/rwg%E8%AF%84%E5%88%86%E8%80%85%E5%86%85%E9%83%A8%E4%B8%80%E8%87%B4%E6%80%A7%E6%8C%87%E6%A0%87%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">评分者内部一致性Rwg和Intraclass相关系</a>
             </li>
             
@@ -1151,10 +1145,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/08/31/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E5%88%86%E6%9E%90%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F/">结构方程模型多组比较分析调节变量</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/08/24/JupyterNotebook%E4%B8%AD%E8%BF%90%E8%A1%8CR%E4%BB%A3%E7%A0%81/">Jupyter notebook中运行R代码</a>
             </li>
             
         </ul>

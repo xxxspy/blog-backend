@@ -252,6 +252,109 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/08/11/SPSS%E8%87%AA%E5%8A%A8%E5%8C%96%EF%BC%9A%5B4%5D/">
+                SPSS自动化：[4]
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>syntax是spss中的命令，在spss有syntax文档对象，这个对象有哪些属性呢？</p>
+<ul>
+<li><p>1&gt;designated属性：为当前输出文档、语法文档或草稿文档返回或设置指定的窗口状态。指定的窗口（designatedwindow）是spss传送输出、粘贴或运行语法命令的窗口。当一个新的输出窗口打开以后它就成为了指定窗口。</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>Intcount&#x3D;objdocuments.outputdoccount</p>
+</li>
+<li><p>Set objoutputdoc&#x3D;objdocuments.getoutputdoc(intcount-1)</p>
+</li>
+<li><p>Objoutputdoc.designated&#x3D;true</p>
+</li>
+<li><p>‘本实例将最后一个输出文档设置成指定文档接收新的输出。</p>
+</li>
+<li><p>2&gt;height和width属性、left和top属性、modified属性在前面其他对象中有介绍，这里省略。</p>
+</li>
+<li><p>3&gt;papersource属性：设置打印时候纸张的来源，它有四个值：</p>
+</li>
+<li><p>1    Upper</p>
+</li>
+<li><p>2    Lower</p>
+</li>
+<li><p>3    Middle</p>
+</li>
+<li><p>4    envelop</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>Setobjprintoptions&#x3D;objoutputdoc.printoptions</p>
+</li>
+<li><p>‘设置打印选项</p>
+</li>
+<li><p>Printoptions.papersource-2</p>
+</li>
+<li><p>4&gt;rtftext属性：返回或设置语法窗口中的格式化文本，或rich文本框中的rtf文本编辑器。</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>String&#x3D;objsyntaxdoc.text</p>
+</li>
+<li><p>Objsyntaxdoc.rtftext&#x3D;string</p>
+</li>
+<li><p>Objsyntaxdoc.run</p>
+</li>
+<li><p>5&gt;text属性：在语法窗口或者激活的rtf文本编辑器中返回或设置文本，可以使用该属性写成或接收未格式化的文本。</p>
+</li>
+<li><p>用法：</p>
+</li>
+<li><p>Dim syntaxcommands as string</p>
+</li>
+<li><p>Syntaxcommands&#x3D;objdatadoc.invokedialogandreturnsyntax(“analyze&gt;compare means&gt;paired-samples t test”,1)</p>
+</li>
+<li><p>‘获取了syntax命令</p>
+</li>
+<li><p>Dim objsyntaxdoc as ispsssyntaxdoc</p>
+</li>
+<li><p>Set objsyntaxdoc&#x3D;objspssapp.newsyntaxdoc</p>
+</li>
+<li><p>Objsyntaxdoc.text&#x3D;syntaxcommands</p>
+</li>
+<li><p>6&gt;toolbarvisible属性、visible属性、windowstate属性略去。</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#x34;&#57;&#x35;&#x37;&#x38;&#55;&#64;&#113;&#113;&#46;&#99;&#x6f;&#109;">&#x36;&#x37;&#53;&#x34;&#57;&#x35;&#x37;&#x38;&#55;&#64;&#113;&#113;&#46;&#99;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/08/11/spss%E5%A6%82%E4%BD%95%E7%94%A8%E6%95%A3%E7%82%B9%E5%9B%BE%E6%A3%80%E9%AA%8C%E4%B8%A4%E4%B8%AA%E5%8F%98%E9%87%8F%E4%B9%8B%E9%97%B4%E7%9A%84%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8/">
                 spss如何用散点图检验两个变量之间的交互作用
             </a>
@@ -948,72 +1051,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/23/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E8%8F%9C%E5%8D%95%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%A0%87/">
-                wxpython教程：[4]菜单中的图标
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们看到的菜单中多半是有一个图标的，那么今天我们就来做一个菜单，菜单选项左侧有一个图标。要达到这个目的我们必须手动创建一个选项。下面是今天代码的全部：由于这些大部分代码在之前的文章中有讲解，所以这篇文章就着重讲不同的部分。</p>
-<ul>
-<li>先创建一个选项：注意第二个参数设定了该选项的id，以后绑定方法的时候可以用id来表示该选项</li>
-</ul>
-<img src="/2015/07/23/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E8%8F%9C%E5%8D%95%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%A0%87/0e655ca7d933c895c3031a14d21373f082020024.jpg" class="" title="wxpython教程：[4]菜单中的图标">
-
-<ul>
-<li>设置选项的图标用到了方法：SetBitmap，该方法需要传入一个Bitmap对象：exit.jpg是我自己做的一个图片</li>
-</ul>
-<img src="/2015/07/23/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E8%8F%9C%E5%8D%95%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%A0%87/c9d4cf43ad4bd11366b0355d59afa40f4bfb0524.jpg" class="" title="wxpython教程：[4]菜单中的图标">
-
-<ul>
-<li>将创建好的选项添加到菜单</li>
-</ul>
-<img src="/2015/07/23/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E8%8F%9C%E5%8D%95%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%A0%87/72b19c025aafa40f52bb4cb2a864034f78f01924.jpg" class="" title="wxpython教程：[4]菜单中的图标">
-
-<ul>
-<li>将选项与方法绑定，这样点击该菜单选项就能执行OnQuit动作。注意现在用id来表示跟哪个选项进行的绑定，因为我们在</li>
-</ul>
-<img src="/2015/07/23/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E8%8F%9C%E5%8D%95%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%A0%87/55a628d12f2eb9383071f89dd6628535e5dd6f06.jpg" class="" title="wxpython教程：[4]菜单中的图标">
-
-<ul>
-<li>这是最后做出来的效果图</li>
-</ul>
-<img src="/2015/07/23/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E8%8F%9C%E5%8D%95%E4%B8%AD%E7%9A%84%E5%9B%BE%E6%A0%87/b25d9901a18b87d61b3c2670040828381f30fd20.jpg" class="" title="wxpython教程：[4]菜单中的图标">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#57;&#x35;&#x37;&#56;&#x37;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">&#54;&#55;&#53;&#52;&#57;&#x35;&#x37;&#56;&#x37;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1055,6 +1092,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/02/16/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8ER%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型教程及R应用</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/02/14/rwg%E8%AF%84%E5%88%86%E8%80%85%E5%86%85%E9%83%A8%E4%B8%80%E8%87%B4%E6%80%A7%E6%8C%87%E6%A0%87%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">评分者内部一致性Rwg和Intraclass相关系</a>
             </li>
             
@@ -1088,10 +1129,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/08/31/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E5%88%86%E6%9E%90%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F/">结构方程模型多组比较分析调节变量</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/08/24/JupyterNotebook%E4%B8%AD%E8%BF%90%E8%A1%8CR%E4%BB%A3%E7%A0%81/">Jupyter notebook中运行R代码</a>
             </li>
             
         </ul>

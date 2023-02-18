@@ -1,0 +1,1943 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <!--Description-->
+    
+        <meta name="description" content="专注于数据开发, 数据分析, 数据采集, python教学">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xxxspy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="多层线性模型教程及R应用"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="专注于数据开发, 数据分析, 数据采集, python教学" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="DataSense"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>多层线性模型教程及R应用 - DataSense</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <style>
+    code{
+    color: #d7ecff;
+    font-size: 110%;
+    }
+    pre > code {
+        -webkit-border-before: black;
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        color: #f9f4f4;
+        word-break: break-all;
+        word-wrap: break-word;
+        background-color: #f5f5f500;
+        border: 1px solid #eff3f521;
+        border-radius: 0;
+    }
+    pre > code::before {
+        content:"- ";
+        z-index: -1;
+        left:-2px;
+    }
+    #feedAv{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #MZAD_POP_PLACEHOLDER{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #pop_ad{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    </style>
+
+    
+        <!-- mathjax -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        var maths = document.getElementsByTagName("code");
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+    </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: true,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"],["$","$"]],
+      displayMath: [["\\[", "\\]"],["$$", "$$"]],
+      skipTags: ['^(?!code).*$']
+    }
+  });
+  var maths = document.getElementsByTagName("code");
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+</script>
+
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [ ['\\(','\\)']]} });
+</script> -->
+
+<!-- <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script> -->
+
+    
+    
+    
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+    <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i>
+        
+            <p id="main-title" class="title">DataSense</p>
+        
+        </a>
+    </div>
+</header>
+<div class="page_list archive-container">
+        
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+            SPSS+AMOS数据分析案例教程-关于中介模
+        </a>
+    </div>
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+            SPSS视频教程内容目录和跳转链接
+        </a>
+    </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+                SPSS+AMOS数据分析案例教程-关于中介模
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+                SPSS视频教程内容目录和跳转链接
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="https://mlln.cn/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">
+                R语言快速入门视频教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a target="_blank" rel="noopener" href="https://space.bilibili.com/383752637/channel/collectiondetail?sid=778283">
+                Python智联招聘数据分析
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/07/24/潜在类别分析入门/">
+                LCA潜在类别分析和Mplus应用
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/06/12/Amos结构方程数据分析案例教程/">
+                Amos结构方程模型数据分析入门教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/12/05/倒U关系回归分析中介效应和调节效应分析SPSS和R语言应用视频教程/">
+                倒U关系回归分析中介效应和调节效应分析SPSS视频教程
+            </a>
+        </div>
+    
+</div>
+
+    <!-- Main Content -->
+    
+
+    
+        
+<div class="row">
+    <div class="col-md-9 col-sm-12">
+        <!--Title and Logo-->
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2023/02/16/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8ER%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">
+                多层线性模型教程及R应用
+            </a>
+
+        </h1>
+        <div class="weibo-share">
+            <p>微博@mlln-cn, 并附上文章url链接, 我就能回答你的问题奥!</p>
+        </div>
+        <div class="post-info">
+            
+                <span class="date">2023年02月16日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+    <!-- Table of Contents -->
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9C%AF%E8%AF%AD-multilevel-hierarchical-and-mixed-models"><span class="toc-number">1.</span> <span class="toc-text">术语 multilevel, hierarchical, and mixed models</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%B1%82%E6%AC%A1%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E8%BD%AF%E4%BB%B6%E6%8E%A8%E8%8D%90"><span class="toc-number">2.</span> <span class="toc-text">多层次线性模型软件推荐</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#R%E4%B8%AD%E4%B8%80%E8%88%AC%E7%94%A8%E5%93%AA%E4%BA%9B%E5%8C%85%E5%81%9A%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">R中一般用哪些包做多层线性模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E4%BB%8B%E7%BB%8D"><span class="toc-number">4.</span> <span class="toc-text">案例介绍</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%80%E5%8D%95%E6%88%AA%E8%B7%9D%E6%A8%A1%E5%9E%8B-Intercept-only-model"><span class="toc-number">5.</span> <span class="toc-text">简单截距模型 Intercept-only model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ICC%EF%BC%88Intraclass-correlation%EF%BC%89"><span class="toc-number">5.1.</span> <span class="toc-text">ICC（Intraclass correlation）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%AA%E8%B7%9D%E6%96%B9%E5%B7%AE%E7%9A%84%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C"><span class="toc-number">5.2.</span> <span class="toc-text">截距方差的显著性检验</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">5.3.</span> <span class="toc-text">可视化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%88%AA%E8%B7%9D%E6%A8%A1%E5%9E%8B-Random-intercept-model"><span class="toc-number">6.</span> <span class="toc-text">随机截距模型 Random intercept model</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E4%BC%B0%E8%AE%A1"><span class="toc-number">6.1.</span> <span class="toc-text">模型估计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#experience%E7%9A%84%E6%96%B9%E5%B7%AE%E8%A7%A3%E9%87%8A%E7%8E%87"><span class="toc-number">6.2.</span> <span class="toc-text">experience的方差解释率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%9A%8F%E6%9C%BA%E6%96%9C%E7%8E%87%E6%A8%A1%E5%9E%8B-Random-coefficients-modell"><span class="toc-number">7.</span> <span class="toc-text">随机斜率模型 Random coefficients modell</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A3%80%E9%AA%8C-sigma-2-upsilon-1-%E7%9A%84%E6%98%BE%E8%91%97%E6%80%A7%EF%BC%9A%E4%B8%8E%E9%9A%8F%E6%9C%BA%E6%88%AA%E8%B7%9D%E6%A8%A1%E5%9E%8B%E7%9B%B8%E6%AF%94"><span class="toc-number">7.1.</span> <span class="toc-text">检验$\sigma^2_{\upsilon_1}$的显著性：与随机截距模型相比</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96-1"><span class="toc-number">7.2.</span> <span class="toc-text">可视化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E5%B1%82%E5%8C%85%E5%90%AB%E8%87%AA%E5%8F%98%E9%87%8F%E7%9A%84%E6%A8%A1%E5%9E%8B-Models-including-level-2-predictors"><span class="toc-number">8.</span> <span class="toc-text">第二层包含自变量的模型 Models including level 2 predictors</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%AA%E8%B7%9D%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B-Intercept-as-outcome-model"><span class="toc-number">8.1.</span> <span class="toc-text">截距预测模型  Intercept-as-outcome model</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E7%BB%84%E5%9D%87%E5%80%BC"><span class="toc-number">8.1.1.</span> <span class="toc-text">如何计算组均值</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%B0%E8%AE%A1%E6%A8%A1%E5%9E%8B"><span class="toc-number">8.1.2.</span> <span class="toc-text">估计模型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%AA%E8%B7%9D%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B2-General-intercept-as-outcome-model"><span class="toc-number">8.2.</span> <span class="toc-text">截距预测模型2 General intercept-as-outcome model</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BC%B0%E8%AE%A1%E6%A8%A1%E5%9E%8B-1"><span class="toc-number">8.2.1.</span> <span class="toc-text">估计模型</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%96%9C%E7%8E%87%E9%A2%84%E6%B5%8B%E6%A8%A1%E5%9E%8B-Slope-as-outcome-model"><span class="toc-number">8.3.</span> <span class="toc-text">斜率预测模型 Slope-as-outcome model</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E4%BC%B0%E8%AE%A1-1"><span class="toc-number">8.3.1.</span> <span class="toc-text">模型估计</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E6%AF%94%E8%BE%83-%E6%96%9C%E7%8E%87%E6%AE%8B%E5%B7%AE%E7%9A%84%E6%98%BE%E8%91%97%E6%80%A7"><span class="toc-number">8.4.</span> <span class="toc-text">模型比较 斜率残差的显著性</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B7%A8%E5%B1%82%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E7%9A%84%E6%96%B9%E5%B7%AE%E8%A7%A3%E9%87%8A%E7%8E%87"><span class="toc-number">8.5.</span> <span class="toc-text">跨层交互效应的方差解释率</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%87%8D%E5%A4%8D%E6%B5%8B%E9%87%8F%E7%9A%84HLM"><span class="toc-number">9.</span> <span class="toc-text">重复测量的HLM</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A4%9A%E5%B1%82%E6%AC%A1%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E7%BC%BA%E7%82%B9"><span class="toc-number">10.</span> <span class="toc-text">多层次线性模型的缺点</span></a></li></ol>
+    </div>
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>多层线性模型(Hierarchical Linear Model, HLM) 是一种线性回归模型，<br>其中包括一组低层回归模型，以及一个高层回归模型。<br>低层模型预测每个观察单位的响应变量，而高层模型对低层模型的回归系数进行建模，<br>从而对其他观察单位的回归系数进行预测。<br>HLM可以用于探究不同单位间的关系，并且可以处理嵌套数据（例如，学生在不同班级的数据）的情况。</p>
+<span id="more"></span>
+
+<h2 id="术语-multilevel-hierarchical-and-mixed-models"><a href="#术语-multilevel-hierarchical-and-mixed-models" class="headerlink" title="术语 multilevel, hierarchical, and mixed models"></a>术语 multilevel, hierarchical, and mixed models</h2><p>multilevel和hierarchical都是多层的意思， 实际上我没有发现它两个之间的区别。<br>而混合效应模型（mixed effect models）MEM是一种随机效应模型，它与固定效应模型不同，<br>因为它考虑了观察单位之间的随机变化。在MEM中，因变量的响应与固定效应和随机效应相关。<br>固定效应可以解释观察单位固定的差异，而随机效应可以解释观察单位间的随机变化。<br>MEM通常用于分析观察单位之间具有随机变化的数据。</p>
+<p>说了这么多， 你可能不理解， 我们引用书《<a target="_blank" rel="noopener" href="https://stat.ethz.ch/~maechler/MEMo-pages/lMMwR.pdf">lme4: Mixed-effects modeling with R</a>》中的一句话来说明：</p>
+<pre><code>Some presentations of mixed-effects models, especially those related to multilevel modeling˜[Rasbash et˜al., 2000] or hierarchical linear models˜[Raudenbush and Bryk, 2002], leave the impression that one can only define random effects with respect to factors that are nested. This is the origin of the terms “multilevel”, referring to multiple, nested levels of variability, and “hierarchical”, also invoking the concept of a hierarchy of levels. To be fair, both those references do describe the use of models with random effects associated with non-nested factors, but such models tend to be treated as a special case.
+</code></pre>
+<p>上面这些话的意思是， 多层模型实际上是混合效应模型的应用，<br>是混合效应模型在嵌套数据上的应用，<br>多层模型是混合效应模型的子集，<br>混合效应模型不仅仅可以用在嵌套数据中。</p>
+<h2 id="多层次线性模型软件推荐"><a href="#多层次线性模型软件推荐" class="headerlink" title="多层次线性模型软件推荐"></a>多层次线性模型软件推荐</h2><p>以下是可以用来做多层线性模型的常用软件：</p>
+<ul>
+<li>R：R 是一个强大的开源统计计算和图形软件环境。它有几个用于多层建模的包，包括 lme4、nlme 和 lmerTest。</li>
+<li>SAS：SAS 是一个商业化的高级分析、数据管理和商业智能软件套件。它有多层建模的程序，如 PROC MIXED 和 PROC GLIMMIX。</li>
+<li>SPSS：SPSS 是一个商业化的统计分析软件包。它有一个混合效应建模模块，叫做通用线性混合模型（GLMM）。</li>
+<li>Stata：Stata 是一个数据管理和统计分析软件套件。它有一组用于多层建模的命令，包括 xtmixed 和 xtmelogit。</li>
+<li>HLM：HLM 是一个专门用于多层建模的软件包。它专门用于层次线性模型，具有用户友好的界面和用于模型估计和可视化的高级功能。实际用户体验比较差，不是免费软件。</li>
+</ul>
+<p>一般来说，软件的选择取决于分析的具体要求，包括模型的复杂程度、数据的大小以及个人偏好。</p>
+<h2 id="R中一般用哪些包做多层线性模型"><a href="#R中一般用哪些包做多层线性模型" class="headerlink" title="R中一般用哪些包做多层线性模型"></a>R中一般用哪些包做多层线性模型</h2><p>R 中有几个常用的包可以用于做多层线性模型，它们包括：</p>
+<ul>
+<li>lme4：这是一个常用的 R 包，用于处理多层数据。它提供了一种灵活的框架，允许建模不同数量的随机效应，并且支持多种模型实现，包括线性和非线性模型。</li>
+<li>nlme：这是一个 R 包，专门用于处理多层数据。它的功能与 lme4 类似，但它更强大，并且可以建模不同类型的模型，例如非线性和非正态模型。</li>
+<li>lmerTest：这是一个 R 包，用于提供统计学的检验以评估 lme4 模型的结果。</li>
+<li>multilevel：这是一个 R 包，专门用于多层建模。它提供了一种灵活的框架，允许建模不同数量的随机效应，并提供了许多可视化工具，以便对模型的结果进行诊断。</li>
+</ul>
+<p>我们的教程首先使用lme4这个包， 它比较简单， 而且它模型的定义脚本使用的是和”lm”一样的语法， “lm”这个函数已经在之前的教程中多次使用，<br>所以比较习惯了。比如定义一个回归模型：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lm<span class="punctuation">(</span>formula <span class="operator">=</span> DependentVariable <span class="operator">~</span> IndependentVariable<span class="punctuation">,</span> data <span class="operator">=</span> dataframe<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+<p>lme4 包中的 lmer 方法添加了 group&#x2F;subject 变量 及其 将要估计的随机效应，<br>比如“|”竖线符号代表嵌套或者分组变量， 1 代表随机截距。</p>
+<p>我们看一个模型：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">lmer<span class="punctuation">(</span>data <span class="operator">=</span> dataframe<span class="punctuation">,</span> DependentVariable <span class="operator">~</span> IndependentVariable <span class="operator">+</span> <span class="punctuation">(</span><span class="number">1</span> <span class="operator">|</span> GroupVariable<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<p>你知道这个模型的意义吗？ 不用着急我们下面会定义多种模型，并在视频教程中详细解释。</p>
+<p>（例子中， Subject 代表分组变量， 比如员工嵌套在公司当中， 公司就是Subject； 角标s表示随Subject变化的随机变量）</p>
+<ul>
+<li>一般的线性模型：<code>$Y_&#123;si&#125; = β_0 + β_&#123;1&#125;X_&#123;i&#125; + e_&#123;si&#125;$</code>  -&gt; <code>N/A (Not a mixed-effects model)</code></li>
+<li>随机截距模型： <code>$Y_&#123;si&#125; = β_0 + S_&#123;0s&#125; + β_&#123;1&#125;X_&#123;i&#125; + e_&#123;si&#125;$</code>  -&gt; <code>Y ∼ X+(1∣ Subject)</code></li>
+<li>随机截距和随机斜率模型： <code>$Y_&#123;si&#125; = β_0 + S_&#123;0s&#125; +  (β_&#123;1&#125; + S_&#123;1s&#125;)X_i + e_&#123;si&#125;$</code> -&gt; <code>Y ∼ X+(1 + X∣Subject)</code></li>
+<li>仅有随机斜率模型： <code>$Y_&#123;si&#125; = β_0 +  (β_&#123;1&#125; + S_&#123;1s&#125;)X_i + e_&#123;si&#125;$</code> -&gt; <code>Y ∼ X+(0 + X∣Subject)</code></li>
+<li>有两个分组变量： <code>$Y_&#123;si&#125; = β_0 + S_&#123;0s&#125; + I_&#123;0i&#125; +  (β_&#123;1&#125; + S_&#123;1s&#125;)X_i + e_&#123;si&#125;$</code> -&gt; <code>Y ∼ X+(1 + X∣Subject)+(1∣Item)</code></li>
+<li>和上面一样但是<code>$S_&#123;0s&#125;$</code>和<code>$S_&#123;1s&#125;独立$</code>： <code>$Y_&#123;si&#125; = β_0 + S_&#123;0s&#125; + I_&#123;0i&#125; +  (β_&#123;1&#125; + S_&#123;1s&#125;)X_i + e_&#123;si&#125;$</code> -&gt; <code>Y ∼ X+(1∣Subject)+(0 + X∣ Subject)+(1∣Item)</code></li>
+<li>有两个随机截距： <code>$Y_&#123;si&#125; = β_0 + S_&#123;0s&#125; + I_&#123;0i&#125; + β_&#123;1&#125;X_&#123;i&#125; + e_&#123;si&#125;$</code> -&gt; <code>Y ∼ X+(1∣Subject)+(1∣Item)</code></li>
+<li>截距和斜率来自两个随机效应： <code>$Y_&#123;si&#125; = β_0 + I_&#123;0i&#125; +  (β_&#123;1&#125; + S_&#123;1s&#125;)X_i + e_&#123;si&#125;$</code></li>
+</ul>
+<h2 id="案例介绍"><a href="#案例介绍" class="headerlink" title="案例介绍"></a>案例介绍</h2><p>人都是通过案例学习的， 我们先介绍我们的案例， 这些是来自 20 家公司的虚构工资数据，每家公司有 30 名员工。<br>对于每个员工，都可以获得有关他&#x2F;她的薪水（salary）、该人受雇于哪家公司（firma）以及该人在那里工作了多长时间（experience）的信息。<br>我们还有关于公司活跃的部门（公共或私人）的信息（sector）。</p>
+<p>加载数据， 我们大概浏览一下数据, 你可以从<a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/methodenlehre/data/master/salary-data.csv">这里</a>下载数据：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>tidyverse<span class="punctuation">)</span></span><br><span class="line">df <span class="operator">&lt;-</span> read_csv<span class="punctuation">(</span><span class="string">&quot;salary-data.csv&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">head<span class="punctuation">(</span>df<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+── [1mAttaching packages[22m ─────────────────────────────────────── tidyverse 1.3.2 ──
+[32m✔[39m [34mggplot2[39m 3.4.0      [32m✔[39m [34mpurrr  [39m 0.3.5 
+[32m✔[39m [34mtibble [39m 3.1.8      [32m✔[39m [34mdplyr  [39m 1.0.10
+[32m✔[39m [34mtidyr  [39m 1.2.1      [32m✔[39m [34mstringr[39m 1.5.0 
+[32m✔[39m [34mreadr  [39m 2.1.4      [32m✔[39m [34mforcats[39m 1.0.0 
+── [1mConflicts[22m ────────────────────────────────────────── tidyverse_conflicts() ──
+[31m✖[39m [34mdplyr[39m::[32mfilter()[39m masks [34mstats[39m::filter()
+[31m✖[39m [34mdplyr[39m::[32mlag()[39m    masks [34mstats[39m::lag()
+[1mRows: [22m[34m600[39m [1mColumns: [22m[34m4[39m
+[36m──[39m [1mColumn specification[22m [36m────────────────────────────────────────────────────────[39m
+[1mDelimiter:[22m ","
+[31mchr[39m (2): firma, sector
+[32mdbl[39m (2): experience, salary
+
+[36mℹ[39m Use `spec()` to retrieve the full column specification for this data.
+[36mℹ[39m Specify the column types or set `show_col_types = FALSE` to quiet this message.
+
+</div>
+
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<table class="dataframe">
+<caption>A tibble: 6 × 4</caption>
+<thead>
+	<tr><th scope=col>firma</th><th scope=col>experience</th><th scope=col>salary</th><th scope=col>sector</th></tr>
+	<tr><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>Firma 01</td><td>6.87</td><td> 8957.207</td><td>Privat</td></tr>
+	<tr><td>Firma 01</td><td>5.66</td><td> 9544.653</td><td>Privat</td></tr>
+	<tr><td>Firma 01</td><td>4.58</td><td> 7303.676</td><td>Privat</td></tr>
+	<tr><td>Firma 01</td><td>6.56</td><td> 8088.600</td><td>Privat</td></tr>
+	<tr><td>Firma 01</td><td>8.83</td><td>14302.672</td><td>Privat</td></tr>
+	<tr><td>Firma 01</td><td>7.73</td><td>10259.126</td><td>Privat</td></tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+<p>firma和sector是两个分类变量， 他们需要定义为“factor”:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">df <span class="operator">&lt;-</span> df <span class="operator">%&gt;%</span></span><br><span class="line">  mutate<span class="punctuation">(</span>firma <span class="operator">=</span> as.factor<span class="punctuation">(</span>firma<span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">         sector <span class="operator">=</span> as.factor<span class="punctuation">(</span>sector<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">tail<span class="punctuation">(</span>df<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<table class="dataframe">
+<caption>A tibble: 6 × 4</caption>
+<thead>
+	<tr><th scope=col>firma</th><th scope=col>experience</th><th scope=col>salary</th><th scope=col>sector</th></tr>
+	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>Firma 20</td><td>3.58</td><td> 6838.196</td><td>Privat</td></tr>
+	<tr><td>Firma 20</td><td>3.18</td><td> 7603.972</td><td>Privat</td></tr>
+	<tr><td>Firma 20</td><td>3.39</td><td> 5713.793</td><td>Privat</td></tr>
+	<tr><td>Firma 20</td><td>7.12</td><td>10089.086</td><td>Privat</td></tr>
+	<tr><td>Firma 20</td><td>2.98</td><td> 6939.708</td><td>Privat</td></tr>
+	<tr><td>Firma 20</td><td>6.45</td><td> 9330.324</td><td>Privat</td></tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">summary<span class="punctuation">(</span>df<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+          firma       experience         salary              sector   
+    <br /> Firma 01: 30   Min.   : 0.000   Min.   : 4587   Oeffentlich:300  
+    <br /> Firma 02: 30   1st Qu.: 4.027   1st Qu.: 7602   Privat     :300  
+    <br /> Firma 03: 30   Median : 5.170   Median : 8564                    
+    <br /> Firma 04: 30   Mean   : 5.190   Mean   : 8738                    
+    <br /> Firma 05: 30   3rd Qu.: 6.402   3rd Qu.: 9840                    
+    <br /> Firma 06: 30   Max.   :10.000   Max.   :15418                    
+    <br /> (Other) :420                                                     
+
+</div>
+
+
+
+<h2 id="简单截距模型-Intercept-only-model"><a href="#简单截距模型-Intercept-only-model" class="headerlink" title="简单截距模型 Intercept-only model"></a>简单截距模型 Intercept-only model</h2><ul>
+<li>Level-1 model: <ul>
+<li><code>$\boldsymbol &#123;y_&#123;mi&#125;=\beta_&#123;0i&#125;+\epsilon_&#123;mi&#125;&#125;$</code></li>
+</ul>
+</li>
+<li>Level-2 model: <ul>
+<li><code>$\boldsymbol &#123;\beta_&#123;0i&#125;=\gamma_&#123;00&#125; + \upsilon_&#123;0i&#125;&#125;$</code></li>
+</ul>
+</li>
+<li>Overall model:<ul>
+<li><code>$\boldsymbol &#123;y_&#123;mi&#125; = \gamma_&#123;00&#125; + \upsilon_&#123;0i&#125;+\epsilon_&#123;mi&#125;&#125; $</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>lme4<span class="punctuation">)</span></span><br><span class="line">intercept.only.model <span class="operator">&lt;-</span> lmer<span class="punctuation">(</span>salary <span class="operator">~</span> <span class="number">1</span> <span class="operator">+</span> <span class="punctuation">(</span><span class="number">1</span> <span class="operator">|</span> firma<span class="punctuation">)</span><span class="punctuation">,</span> data <span class="operator">=</span> df<span class="punctuation">,</span> REML <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 用每个公司的平均工资来预测个体的工资salary</span></span><br><span class="line"><span class="comment"># 我们将预测的结果保存到数据框中， 变量名是intercept.only.preds</span></span><br><span class="line">df<span class="operator">$</span>intercept.only.preds <span class="operator">&lt;-</span> predict<span class="punctuation">(</span>intercept.only.model<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Model output</span></span><br><span class="line">summary<span class="punctuation">(</span>intercept.only.model<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+Loading required package: Matrix
+
+
+Attaching package: 'Matrix'
+
+
+The following objects are masked from 'package:tidyr':
+
+    expand, pack, unpack
+
+
+
+</div>
+
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+    Linear mixed model fit by REML ['lmerMod']
+    <br />Formula: salary ~ 1 + (1 | firma)
+    <br />   Data: df
+    <br />
+    <br />REML criterion at convergence: 10433.5
+    <br />
+    <br />Scaled residuals: 
+    <br />    Min      1Q  Median      3Q     Max 
+    <br />-2.9816 -0.6506 -0.0494  0.5779  4.2131 
+    <br />
+    <br />Random effects:
+    <br /> Groups   Name        Variance Std.Dev.
+    <br /> firma    (Intercept)  851249   922.6  
+    <br /> Residual             1954745  1398.1  
+    <br />Number of obs: 600, groups:  firma, 20
+    <br />
+    <br />Fixed effects:
+    <br />            Estimate Std. Error t value
+    <br />(Intercept)   8737.6      214.1   40.82
+
+</div>
+
+
+
+<p>我们可以使用”ranef()”方法来获得模型中的第二层残差，也就是<code>$\upsilon_&#123;0i&#125;$</code></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ranef<span class="punctuation">(</span>intercept.only.model<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+    $firma
+    <br />         (Intercept)
+    <br />Firma 01   789.65416
+    <br />Firma 02  1105.01807
+    <br />Firma 03  1923.02618
+    <br />Firma 04 -1136.50080
+    <br />Firma 05   953.54595
+    <br />Firma 06  -958.93186
+    <br />Firma 07   -10.14627
+    <br />Firma 08  -254.84048
+    <br />Firma 09  -651.31802
+    <br />Firma 10   768.48590
+    <br />Firma 11  -506.26620
+    <br />Firma 12   940.40709
+    <br />Firma 13  -742.84383
+    <br />Firma 14  -975.45482
+    <br />Firma 15 -1161.36931
+    <br />Firma 16   -97.68008
+    <br />Firma 17   661.96052
+    <br />Firma 18  -168.11195
+    <br />Firma 19   351.23926
+    <br />Firma 20  -829.87351
+    <br />
+    <br />with conditional variances for "firma" 
+
+</div>
+
+
+
+<h3 id="ICC（Intraclass-correlation）"><a href="#ICC（Intraclass-correlation）" class="headerlink" title="ICC（Intraclass correlation）"></a>ICC（Intraclass correlation）</h3><p>ICC（Intraclass correlation）量化了因第二层系统性差异对依赖变量的“不独立性”的程度。<br>第二层方差（组均值的方差）相对于总方差（第二层方差和第一层或残差方差的总和）的比例越大，<br>第二层单位内的相似性与第二层单位间的相似性之间的差异就越大。</p>
+<p>ICC的计算公式是：</p>
+<p><code>$$ \boldsymbol &#123;\rho = \frac&#123;\sigma^2_&#123;Level-2&#125;&#125;&#123;\sigma^2_&#123;Level-2&#125;+ \sigma^2_&#123;Level-1&#125;&#125;&#125; $$</code></p>
+<p>ICC通过估计一个空模型（仅截距模型，详见上面）获得，在该模型中，截距（随机）方差（在没有预测变量的模型中，这对应于组均值的方差）和第一层残差方差都被输出。<br>所以， 从上面summary中输出的结果可以计算ICC：</p>
+<p><code>$$ \hat&#123;\rho&#125; = \frac&#123;\hat&#123;\sigma&#125;^2_&#123;\upsilon_0&#125;&#125;&#123;\hat&#123;\sigma&#125;^2_&#123;\upsilon_0&#125;+ \hat&#123;\sigma&#125;^2_\epsilon&#125; = \frac &#123;851249&#125;&#123;851249+1954745&#125; &#123;= 0.3034&#125; $$</code></p>
+<h3 id="截距方差的显著性检验"><a href="#截距方差的显著性检验" class="headerlink" title="截距方差的显著性检验"></a>截距方差的显著性检验</h3><p>现在，我们已经知道了因变量薪水的第二层方差，但我们尚未对该参数进行显著性检验。可以通过将截距模型与不包含随机截距的模型进行比较来获得显著性检验，<br>用没有预测变量的“正常”线性模型（只有总均值γ和第一层残差方差σ2作为模型参数）。这个模型也可以称为“绝对空模型”。我们不需要指定这样的模型，但可以将ranova（）应用于输出对象intercept.only.model。ranova（）（来自lme4辅助包lmerTest）自动执行模型比较（仅）对于随机效应，逐步删除现有随机效应，然后将输出模型与因此减少的模型进行比较。<br>在这种情况下，只能删除一个随机效应，即截距的随机效应。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#install.packages(&quot;lmerTest&quot;)</span></span><br><span class="line">library<span class="punctuation">(</span>lmerTest<span class="punctuation">)</span></span><br><span class="line">ranova<span class="punctuation">(</span>intercept.only.model<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+
+Attaching package: 'lmerTest'
+
+
+The following object is masked from 'package:lme4':
+
+    lmer
+
+
+The following object is masked from 'package:stats':
+
+    step
+
+
+
+</div>
+
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<table class="dataframe">
+<caption>A anova: 2 × 6</caption>
+<thead>
+	<tr><th></th><th scope=col>npar</th><th scope=col>logLik</th><th scope=col>AIC</th><th scope=col>LRT</th><th scope=col>Df</th><th scope=col>Pr(&gt;Chisq)</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>&lt;none&gt;</th><td>3</td><td>-5216.745</td><td>10439.49</td><td>      NA</td><td>NA</td><td>          NA</td></tr>
+	<tr><th scope=row>(1 | firma)</th><td>2</td><td>-5295.468</td><td>10594.94</td><td>157.4452</td><td> 1</td><td>4.091411e-36</td></tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+<p>从上面的结果中可以看出来， 模型的拟合度有显著差异<code>$(p&lt;0.001)$</code></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">head<span class="punctuation">(</span>df<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<table class="dataframe">
+<caption>A tibble: 6 × 5</caption>
+<thead>
+	<tr><th scope=col>firma</th><th scope=col>experience</th><th scope=col>salary</th><th scope=col>sector</th><th scope=col>intercept.only.preds</th></tr>
+	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>Firma 01</td><td>6.87</td><td> 8957.207</td><td>Privat</td><td>9527.256</td></tr>
+	<tr><td>Firma 01</td><td>5.66</td><td> 9544.653</td><td>Privat</td><td>9527.256</td></tr>
+	<tr><td>Firma 01</td><td>4.58</td><td> 7303.676</td><td>Privat</td><td>9527.256</td></tr>
+	<tr><td>Firma 01</td><td>6.56</td><td> 8088.600</td><td>Privat</td><td>9527.256</td></tr>
+	<tr><td>Firma 01</td><td>8.83</td><td>14302.672</td><td>Privat</td><td>9527.256</td></tr>
+	<tr><td>Firma 01</td><td>7.73</td><td>10259.126</td><td>Privat</td><td>9527.256</td></tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+<h3 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h3><p>将截距模型和空模型可视化， 先看下空模型，由于截距是固定的， 所以只有一条拟合线， 就是经过工资均值的那条线：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 空模型</span></span><br><span class="line">library<span class="punctuation">(</span>ggplot2<span class="punctuation">)</span></span><br><span class="line">ggplot<span class="punctuation">(</span>data <span class="operator">=</span> df<span class="punctuation">,</span> aes<span class="punctuation">(</span>x <span class="operator">=</span> experience<span class="punctuation">,</span> y <span class="operator">=</span> salary<span class="punctuation">,</span> color<span class="operator">=</span>firma<span class="punctuation">,</span> <span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">    ggtitle<span class="punctuation">(</span><span class="string">&quot;NULL model&quot;</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line">    geom_point<span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line">    geom_line<span class="punctuation">(</span>data<span class="operator">=</span>df<span class="punctuation">,</span> aes<span class="punctuation">(</span>x<span class="operator">=</span>experience<span class="punctuation">,</span> y<span class="operator">=</span>mean<span class="punctuation">(</span>df<span class="operator">$</span>salary<span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">,</span> color<span class="operator">=</span><span class="string">&#x27;blue&#x27;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+Warning message:
+"[1m[22mUse of `df$salary` is discouraged.
+[36mℹ[39m Use `salary` instead."
+
+</div>
+
+
+
+<p><img src="/output_19_1.png" alt="png"></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 简单截距模型</span></span><br><span class="line">ggplot<span class="punctuation">(</span>data <span class="operator">=</span> df<span class="punctuation">,</span> aes<span class="punctuation">(</span>x <span class="operator">=</span> experience<span class="punctuation">,</span> y <span class="operator">=</span> salary<span class="punctuation">,</span> color<span class="operator">=</span>firma<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">    ggtitle<span class="punctuation">(</span><span class="string">&quot;Intercept Only&quot;</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line">    geom_point<span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line">    geom_line<span class="punctuation">(</span>data<span class="operator">=</span>df<span class="punctuation">,</span> aes<span class="punctuation">(</span>x<span class="operator">=</span>experience<span class="punctuation">,</span> y<span class="operator">=</span>intercept.only.preds<span class="punctuation">,</span> group<span class="operator">=</span>firma<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/output_20_0.png" alt="png"></p>
+<h2 id="随机截距模型-Random-intercept-model"><a href="#随机截距模型-Random-intercept-model" class="headerlink" title="随机截距模型 Random intercept model"></a>随机截距模型 Random intercept model</h2><p>Level 1 model: </p>
+<ul>
+<li><code>$\boldsymbol &#123;y_&#123;mi&#125;=\beta_&#123;0i&#125; + \beta_&#123;1i&#125; \cdot x_&#123;mi&#125; + \epsilon_&#123;mi&#125;&#125;$</code></li>
+</ul>
+<p>Level 2 model:</p>
+<ul>
+<li><p><code>$\boldsymbol &#123;\beta_&#123;0i&#125;=\gamma_&#123;00&#125; + \upsilon_&#123;0i&#125;&#125;$</code></p>
+</li>
+<li><p><code>$\boldsymbol &#123;\beta_&#123;1i&#125;=\gamma_&#123;10&#125;&#125; $</code></p>
+</li>
+</ul>
+<p>Overall model: </p>
+<ul>
+<li><code>$\boldsymbol &#123;y_&#123;mi&#125;=\gamma_&#123;00&#125; + \gamma_&#123;10&#125; \cdot x_&#123;mi&#125; + \upsilon_&#123;0i&#125;+\epsilon_&#123;mi&#125;&#125;$</code></li>
+</ul>
+<h3 id="模型估计"><a href="#模型估计" class="headerlink" title="模型估计"></a>模型估计</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">random.intercept.model <span class="operator">&lt;-</span>  lmer<span class="punctuation">(</span>salary <span class="operator">~</span> experience <span class="operator">+</span> <span class="punctuation">(</span><span class="number">1</span> <span class="operator">|</span> firma<span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">                                data <span class="operator">=</span> df<span class="punctuation">,</span> REML <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">df<span class="operator">$</span>random.intercept.preds <span class="operator">&lt;-</span>  predict<span class="punctuation">(</span>random.intercept.model<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">summary<span class="punctuation">(</span>random.intercept.model<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+    Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+    <br />lmerModLmerTest]
+    <br />Formula: salary ~ experience + (1 | firma)
+    <br />   Data: df
+    <br />
+    <br />REML criterion at convergence: 10127.1
+    <br />
+    <br />Scaled residuals: 
+    <br />    Min      1Q  Median      3Q     Max 
+    <br />-2.8109 -0.6884  0.0005  0.5980  3.8833 
+    <br />
+    <br />Random effects:
+    <br /> Groups   Name        Variance Std.Dev.
+    <br /> firma    (Intercept)  614367   783.8  
+    <br /> Residual             1184502  1088.3  
+    <br />Number of obs: 600, groups:  firma, 20
+    <br />
+    <br />Fixed effects:
+    <br />            Estimate Std. Error      df t value Pr(>|t|)    
+    <br />(Intercept)  5964.18     229.41   48.00   26.00   <2e-16 ***
+    <br />experience    534.34      27.21  589.48   19.64   <2e-16 ***
+    <br />---
+    <br />Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    <br />
+    <br />Correlation of Fixed Effects:
+    <br />           (Intr)
+    <br />experience -0.615
+
+</div>
+
+
+
+<p>结果显示， experience的固定效应是显著的<code>$(\hat\gamma_&#123;10&#125; = 534.34, p &lt; 0.001)$</code>， 意味着经验可以显著正向预测工资收入。<br>对于所有人， 工作经验每增加一年， 工资增加534。</p>
+<p>使用”ranef()”方法可以获得公司的的随机效应<code>$\upsilon_&#123;0i&#125;$</code></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ranef<span class="punctuation">(</span>random.intercept.model<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+    $firma
+    <br />         (Intercept)
+    <br />Firma 01   204.30372
+    <br />Firma 02   646.14732
+    <br />Firma 03  1492.00151
+    <br />Firma 04  -910.78990
+    <br />Firma 05   389.16512
+    <br />Firma 06  -924.63977
+    <br />Firma 07   577.66959
+    <br />Firma 08  -516.51767
+    <br />Firma 09  -638.24646
+    <br />Firma 10   768.48113
+    <br />Firma 11  -619.55111
+    <br />Firma 12  1091.33530
+    <br />Firma 13  -773.67207
+    <br />Firma 14  -738.17926
+    <br />Firma 15  -652.94087
+    <br />Firma 16    57.33923
+    <br />Firma 17   458.05487
+    <br />Firma 18   -89.38416
+    <br />Firma 19   944.22822
+    <br />Firma 20  -764.80474
+    <br />
+    <br />with conditional variances for "firma" 
+
+</div>
+
+
+
+<p>与之前的截距模型相比，这些值似乎的降低了， 这代表模型解释力更高了。<br>下一部分，我们将要计算experience对因变量的方差解释率， 就能更清楚的说明问题。</p>
+<h3 id="experience的方差解释率"><a href="#experience的方差解释率" class="headerlink" title="experience的方差解释率"></a>experience的方差解释率</h3><p>我们使用<code>$R^2$</code>代表方差解释率，那么在模型的第一层，experience的方差解释率是：</p>
+<p><code>$$ R^2_&#123;Level-1&#125; = \frac &#123;\sigma^2_&#123;\epsilon_1&#125; - \sigma^2_&#123;\epsilon_2&#125;&#125;&#123;\sigma^2_&#123;\epsilon_1&#125;&#125; = \frac &#123;&#123;1954745&#125;-&#123;1184502&#125;&#125;&#123;1954745&#125; = &#123;0.394&#125; $$</code></p>
+<p>注意1954745是前面的截距模型（Intercept-Only)的残差方差。</p>
+<p>那么experience对方差的解释率为：</p>
+<p><code>$$ R^2_&#123;Gesamt&#125; = \frac &#123;(\sigma^2_&#123;\upsilon_01&#125; + \sigma^2_&#123;\epsilon_1&#125;) - (\sigma^2_&#123;\upsilon_02&#125; + \sigma^2_&#123;\epsilon_2&#125;)&#125;&#123;\sigma^2_&#123;\upsilon_01&#125; + \sigma^2_&#123;\epsilon_1&#125;&#125; = \frac&#123;(&#123;851249 + 1954745&#125;) - (&#123;614367 + 1184502&#125;) &#125; &#123; 851249 + 1954745&#125; = 0.3589 $$</code></p>
+<p>你可以看到啊， 由于experience的加入， 不仅仅第一层的残差减少， 第二层的残差方差也减少。</p>
+<p>你可以通过下面的可视化模型来理解这个问题， 由于experience的加入，虽然我们固定了experience的系数在各个公司中相同，<br>意味着下面每条回归线都是平行的（斜率相同）， 但是增加experience之后， 回归线发生了倾斜，斜率不再是0， 所以截距也更合理了， 截距的误差降低。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 简单截距模型</span></span><br><span class="line">ggplot<span class="punctuation">(</span>data <span class="operator">=</span> df<span class="punctuation">,</span> aes<span class="punctuation">(</span>x <span class="operator">=</span> experience<span class="punctuation">,</span> y <span class="operator">=</span> salary<span class="punctuation">,</span> color<span class="operator">=</span>firma<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">    ggtitle<span class="punctuation">(</span><span class="string">&quot;Intercept Only&quot;</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line">    geom_point<span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line">    geom_line<span class="punctuation">(</span>data<span class="operator">=</span>df<span class="punctuation">,</span> aes<span class="punctuation">(</span>x<span class="operator">=</span>experience<span class="punctuation">,</span> y<span class="operator">=</span>random.intercept.preds<span class="punctuation">,</span> group<span class="operator">=</span>firma<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/output_29_0.png" alt="png"></p>
+<h2 id="随机斜率模型-Random-coefficients-modell"><a href="#随机斜率模型-Random-coefficients-modell" class="headerlink" title="随机斜率模型 Random coefficients modell"></a>随机斜率模型 Random coefficients modell</h2><p>这个模型包括随机截距和随机斜率， 我们先看下模型：</p>
+<ul>
+<li>Level 1 Model： <ul>
+<li><code>$\boldsymbol &#123;y_&#123;mi&#125;=\beta_&#123;0i&#125; + \beta_&#123;1i&#125; \cdot x_&#123;mi&#125; + \epsilon_&#123;mi&#125;&#125;$</code></li>
+</ul>
+</li>
+<li>Level 2 model: <ul>
+<li><code>$\boldsymbol &#123;\beta_&#123;0i&#125;=\gamma_&#123;00&#125; + \upsilon_&#123;0i&#125;&#125;$</code></li>
+<li><code>$\boldsymbol &#123;\beta_&#123;1i&#125;=\gamma_&#123;10&#125; + \upsilon_&#123;1i&#125;&#125;$</code></li>
+</ul>
+</li>
+<li>Overall model:<ul>
+<li><code>$\boldsymbol &#123;y_&#123;mi&#125;=\gamma_&#123;00&#125; + \gamma_&#123;10&#125; \cdot x_&#123;mi&#125; + \upsilon_&#123;0i&#125; + \upsilon_&#123;1i&#125; \cdot x_&#123;mi&#125; + \epsilon_&#123;mi&#125;&#125;$</code></li>
+</ul>
+</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">random.coefficients.model <span class="operator">&lt;-</span>  lmer<span class="punctuation">(</span>salary <span class="operator">~</span> experience <span class="operator">+</span> <span class="punctuation">(</span>experience <span class="operator">|</span> firma<span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                                   data <span class="operator">=</span> df<span class="punctuation">,</span> REML <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">df<span class="operator">$</span>random.coefficients.preds <span class="operator">&lt;-</span>  predict<span class="punctuation">(</span>random.coefficients.model<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">summary<span class="punctuation">(</span>random.coefficients.model<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+    Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+    <br />lmerModLmerTest]
+    <br />Formula: salary ~ experience + (experience | firma)
+    <br />   Data: df
+    <br />
+    <br />REML criterion at convergence: 10117.1
+    <br />
+    <br />Scaled residuals: 
+    <br />    Min      1Q  Median      3Q     Max 
+    <br />-2.8308 -0.6804  0.0037  0.5999  3.3607 
+    <br />
+    <br />Random effects:
+    <br /> Groups   Name        Variance Std.Dev. Corr 
+    <br /> firma    (Intercept)  722929   850.3        
+    <br />          experience    18398   135.6   -0.51
+    <br /> Residual             1136284  1066.0        
+    <br />Number of obs: 600, groups:  firma, 20
+    <br />
+    <br />Fixed effects:
+    <br />            Estimate Std. Error      df t value Pr(>|t|)    
+    <br />(Intercept)  5933.70     240.41   18.88   24.68 7.86e-16 ***
+    <br />experience    530.85      40.59   18.94   13.08 6.23e-11 ***
+    <br />---
+    <br />Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    <br />
+    <br />Correlation of Fixed Effects:
+    <br />           (Intr)
+    <br />experience -0.690
+
+</div>
+
+
+
+<p>同样， 经验的固定效应是显著的<code>$(\hat\gamma_&#123;10&#125; = 530.85, p &lt; 0.001)$</code>，<br>然而这个模型的关注重点是是随机斜率的方差<code>$\hat\sigma^2_&#123;\upsilon_1&#125; = 18398$</code>,<br>即<code>$\hat\sigma_&#123;\upsilon_1&#125; = \sqrt&#123;18398&#125; = 135.6$</code>， 这个值如果显著大于0，<br>说明随机斜率是有意义的， 它允许斜率在不同组间变化， 使得模型对数据的解释率提高。</p>
+<p>但是怎样检验<code>$\hat\sigma^2_&#123;\upsilon_1&#125;$</code>的显著性呢？我们最好的方法是使用<code>ranova</code>方法进行LR test，<br>在此之前， 我们先要知道， 该模型与之前的模型(随机截距模型)相比，还有一个参数是截距与斜率的残差的相关： <code>$\hat\sigma_&#123;\upsilon_0\upsilon_1&#125;$</code>,<br>看结果里， 估计的参数值是<code>$r_&#123;\upsilon_0\upsilon_1&#125; = -0.51$</code>。<br>这怎么理解呢， 就是当员工经验为0（刚入门）的时候， 员工工资越高工资增长率越低。</p>
+<h3 id="检验-sigma-2-upsilon-1-的显著性：与随机截距模型相比"><a href="#检验-sigma-2-upsilon-1-的显著性：与随机截距模型相比" class="headerlink" title="检验$\sigma^2_{\upsilon_1}$的显著性：与随机截距模型相比"></a>检验<code>$\sigma^2_&#123;\upsilon_1&#125;$</code>的显著性：与随机截距模型相比</h3><p>这两个模型有两个参数的区别， 所以比较模型的时候其实是同时考虑两个参数的， 不仅仅是<code>$\sigma^2_&#123;\upsilon_1&#125;$</code></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ranova<span class="punctuation">(</span>random.coefficients.model<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<table class="dataframe">
+<caption>A anova: 2 × 6</caption>
+<thead>
+	<tr><th></th><th scope=col>npar</th><th scope=col>logLik</th><th scope=col>AIC</th><th scope=col>LRT</th><th scope=col>Df</th><th scope=col>Pr(&gt;Chisq)</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>&lt;none&gt;</th><td>6</td><td>-5058.539</td><td>10129.08</td><td>      NA</td><td>NA</td><td>         NA</td></tr>
+	<tr><th scope=row>experience in (experience | firma)</th><td>4</td><td>-5063.544</td><td>10135.09</td><td>10.01154</td><td> 2</td><td>0.006699176</td></tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+<p>另一个可选方法是使用<code>anova</code>：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">anova<span class="punctuation">(</span>random.coefficients.model<span class="punctuation">,</span> random.intercept.model<span class="punctuation">,</span> refit <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span> <span class="comment">#refit是否重新计算模型</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<table class="dataframe">
+<caption>A anova: 2 × 8</caption>
+<thead>
+	<tr><th></th><th scope=col>npar</th><th scope=col>AIC</th><th scope=col>BIC</th><th scope=col>logLik</th><th scope=col>deviance</th><th scope=col>Chisq</th><th scope=col>Df</th><th scope=col>Pr(&gt;Chisq)</th></tr>
+	<tr><th></th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>random.intercept.model</th><td>4</td><td>10135.09</td><td>10152.68</td><td>-5063.544</td><td>10127.09</td><td>      NA</td><td>NA</td><td>         NA</td></tr>
+	<tr><th scope=row>random.coefficients.model</th><td>6</td><td>10129.08</td><td>10155.46</td><td>-5058.539</td><td>10117.08</td><td>10.01154</td><td> 2</td><td>0.006699176</td></tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+<p>结果显示 LR test 是显著的， 意味着两个参数不为零。但是p值计算结果是有问题的，<br>因为这个双侧检验， 但是我们的其中一个参数是不能小于0的， 所以应该进行单侧检验，<br>正确的方法是重新计算p值， 考虑到 LR test 是联合卡方分布， 两个分布自由度分别是1和2。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 正确的p值是0.004, 略低于双侧检验的结果</span></span><br><span class="line"><span class="number">0.5</span> <span class="operator">*</span> pchisq<span class="punctuation">(</span><span class="number">10.011</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">,</span> lower.tail <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">  <span class="number">0.5</span> <span class="operator">*</span> pchisq<span class="punctuation">(</span><span class="number">10.011</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> lower.tail <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+0.00412853504863712
+</div>
+
+
+
+<h3 id="可视化-1"><a href="#可视化-1" class="headerlink" title="可视化"></a>可视化</h3><figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">ggplot<span class="punctuation">(</span>data <span class="operator">=</span> df<span class="punctuation">,</span> aes<span class="punctuation">(</span>x <span class="operator">=</span> experience<span class="punctuation">,</span> y <span class="operator">=</span> salary<span class="punctuation">,</span> color<span class="operator">=</span>firma<span class="punctuation">)</span><span class="punctuation">)</span> <span class="operator">+</span> </span><br><span class="line">    ggtitle<span class="punctuation">(</span><span class="string">&quot;Intercept Only&quot;</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line">    geom_point<span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line">    geom_line<span class="punctuation">(</span>data<span class="operator">=</span>df<span class="punctuation">,</span> aes<span class="punctuation">(</span>x<span class="operator">=</span>experience<span class="punctuation">,</span> y<span class="operator">=</span>random.coefficients.preds<span class="punctuation">,</span> group<span class="operator">=</span>firma<span class="punctuation">)</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/output_39_0.png" alt="png"></p>
+<h2 id="第二层包含自变量的模型-Models-including-level-2-predictors"><a href="#第二层包含自变量的模型-Models-including-level-2-predictors" class="headerlink" title="第二层包含自变量的模型 Models including level 2 predictors"></a>第二层包含自变量的模型 Models including level 2 predictors</h2><h3 id="截距预测模型-Intercept-as-outcome-model"><a href="#截距预测模型-Intercept-as-outcome-model" class="headerlink" title="截距预测模型  Intercept-as-outcome model"></a>截距预测模型  Intercept-as-outcome model</h3><p>在这个模型中你需要区分“experience_gm”和“experience_gc”， 在之前的模型中我们使用了“experience”， 而“experience_gm”就是经过组平均的变量， 比如组变量是团队， “experience_gm”就是求每个团队的平均“experience”， 而“experience_gc”不同， 是“experience-experience_gc”， 就是每个人的经验减去组均值， 这叫做组中心化后的变量。</p>
+<p>在这种模型中，第二层自变量是分组聚合的“experience_gm”， 第一层自变量是组中心化的“experience_gc”， 这两个变量都要事先准备好。</p>
+<p>我们直接用公式来表示比较清晰：</p>
+<ul>
+<li>Level 1 model:<ul>
+<li><code>$\boldsymbol &#123;y_&#123;mi&#125;=\beta_&#123;0i&#125; + \beta_&#123;1i&#125; \cdot (x_&#123;mi&#125; - \mu_&#123;\cdot i(X)&#125;) + \epsilon_&#123;mi&#125;&#125;$</code> <strong>注：<code>$(x_&#123;mi&#125; - \mu_&#123;\cdot i(X)&#125;)$</code>就是进行了组中心化</strong></li>
+</ul>
+</li>
+<li>Level 2 model:<ul>
+<li><code>$\boldsymbol &#123;\beta_&#123;0i&#125;=\gamma_&#123;00&#125; + \gamma_&#123;01&#125; \cdot \mu_&#123;\cdot i(X)&#125; + \upsilon_&#123;0i&#125;&#125;$</code></li>
+<li><code>$\boldsymbol &#123;\beta_&#123;1i&#125;=\gamma_&#123;10&#125;&#125;$</code></li>
+</ul>
+</li>
+<li>Overall model:<ul>
+<li><code>$\boldsymbol &#123;y_&#123;mi&#125;=\gamma_&#123;00&#125; + \gamma_&#123;10&#125; \cdot (x_&#123;mi&#125; - \mu_&#123;\cdot i(X)&#125;) + \gamma_&#123;01&#125; \cdot \mu_&#123;\cdot i(X)&#125; + \upsilon_&#123;0i&#125; + \epsilon_&#123;mi&#125;&#125;$</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="如何计算组均值"><a href="#如何计算组均值" class="headerlink" title="如何计算组均值"></a>如何计算组均值</h4><p>第二层的变量“experience_gm”是组均值， 那么如何R中计算组均值变量， 我们演示一下：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">df <span class="operator">&lt;-</span> df <span class="operator">%&gt;%</span> </span><br><span class="line">  group_by<span class="punctuation">(</span>firma<span class="punctuation">)</span> <span class="operator">%&gt;%</span> <span class="comment"># group_by和mutate 是 tidyverse的函数</span></span><br><span class="line">  mutate<span class="punctuation">(</span>experience_gm <span class="operator">=</span> mean<span class="punctuation">(</span>experience<span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">         experience_gc <span class="operator">=</span> experience <span class="operator">-</span> experience_gm<span class="punctuation">)</span> <span class="operator">%&gt;%</span></span><br><span class="line">  ungroup<span class="punctuation">(</span><span class="punctuation">)</span> <span class="operator">%&gt;%</span></span><br><span class="line">  dplyr<span class="operator">::</span>select<span class="punctuation">(</span>firma<span class="punctuation">,</span> sector<span class="punctuation">,</span> experience<span class="punctuation">,</span> experience_gm<span class="punctuation">,</span> experience_gc<span class="punctuation">,</span> salary<span class="punctuation">)</span></span><br><span class="line"><span class="comment"># select() 只是改变了变量顺序</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 查看数据</span></span><br><span class="line">head<span class="punctuation">(</span>df<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<table class="dataframe">
+<caption>A tibble: 6 × 6</caption>
+<thead>
+	<tr><th scope=col>firma</th><th scope=col>sector</th><th scope=col>experience</th><th scope=col>experience_gm</th><th scope=col>experience_gc</th><th scope=col>salary</th></tr>
+	<tr><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><td>Firma 01</td><td>Privat</td><td>6.87</td><td>6.374333</td><td> 0.4956667</td><td> 8957.207</td></tr>
+	<tr><td>Firma 01</td><td>Privat</td><td>5.66</td><td>6.374333</td><td>-0.7143333</td><td> 9544.653</td></tr>
+	<tr><td>Firma 01</td><td>Privat</td><td>4.58</td><td>6.374333</td><td>-1.7943333</td><td> 7303.676</td></tr>
+	<tr><td>Firma 01</td><td>Privat</td><td>6.56</td><td>6.374333</td><td> 0.1856667</td><td> 8088.600</td></tr>
+	<tr><td>Firma 01</td><td>Privat</td><td>8.83</td><td>6.374333</td><td> 2.4556667</td><td>14302.672</td></tr>
+	<tr><td>Firma 01</td><td>Privat</td><td>7.73</td><td>6.374333</td><td> 1.3556667</td><td>10259.126</td></tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+<h4 id="估计模型"><a href="#估计模型" class="headerlink" title="估计模型"></a>估计模型</h4><p>模型需要的变量准备好了， 接下来就是估计模型了：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">context.model <span class="operator">&lt;-</span> lmer<span class="punctuation">(</span>salary <span class="operator">~</span> experience_gc <span class="operator">+</span> experience_gm <span class="operator">+</span> <span class="punctuation">(</span><span class="number">1</span> <span class="operator">|</span> firma<span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                      data <span class="operator">=</span> df<span class="punctuation">,</span> REML <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">df<span class="operator">$</span>context.model.preds <span class="operator">&lt;-</span> predict<span class="punctuation">(</span>context.model<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">summary<span class="punctuation">(</span>context.model<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+    Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+    <br />lmerModLmerTest]
+    <br />Formula: salary ~ experience_gc + experience_gm + (1 | firma)
+    <br />   Data: df
+    <br />
+    <br />REML criterion at convergence: 10113.3
+    <br />
+    <br />Scaled residuals: 
+    <br />    Min      1Q  Median      3Q     Max 
+    <br />-2.7991 -0.6796  0.0043  0.6008  3.8752 
+    <br />
+    <br />Random effects:
+    <br /> Groups   Name        Variance Std.Dev.
+    <br /> firma    (Intercept)  622987   789.3  
+    <br /> Residual             1184508  1088.4  
+    <br />Number of obs: 600, groups:  firma, 20
+    <br />
+    <br />Fixed effects:
+    <br />              Estimate Std. Error      df t value Pr(>|t|)    
+    <br />(Intercept)    4779.25    1387.36   18.00   3.445  0.00289 ** 
+    <br />experience_gc   531.88      27.35  579.00  19.446  < 2e-16 ***
+    <br />experience_gm   762.64     264.99   18.00   2.878  0.01001 *  
+    <br />---
+    <br />Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    <br />
+    <br />Correlation of Fixed Effects:
+    <br />            (Intr) exprnc_gc
+    <br />experinc_gc  0.000          
+    <br />experinc_gm -0.991  0.000   
+
+</div>
+
+
+
+<p>“experience_gc”的固定效应是531.88， 并且是显著的，<br>说明在公司内部，与平均经验相比，每增加1个单位经验， 工资增加531.88；<br>“experience_gm”的固定效应是762.64， 并且是显著的，<br>说明一个员工工资有一部分由公司平均经验决定， 平均经验每增加一个单位工资增加762.64。</p>
+<h3 id="截距预测模型2-General-intercept-as-outcome-model"><a href="#截距预测模型2-General-intercept-as-outcome-model" class="headerlink" title="截距预测模型2 General intercept-as-outcome model"></a>截距预测模型2 General intercept-as-outcome model</h3><p>这个模型包含一个level2的自变量， 用于预测随机截距，<br>可以包含也可以不包含随机斜率。在这个模型中，<br>我们考虑我们的案例， sector（私企还是国企）可能会影响员工的工资。</p>
+<p>这个模型可以没有随机斜率， 但是为了更普遍起见， 我们纳入了随机的斜率， 模型如下：</p>
+<ul>
+<li>Level 1 model:<ul>
+<li><code>$\boldsymbol &#123;y_&#123;mi&#125;=\beta_&#123;0i&#125; + \beta_&#123;1i&#125; \cdot x_&#123;mi&#125; + \epsilon_&#123;mi&#125;&#125;$</code></li>
+</ul>
+</li>
+<li>Level 2 model:<ul>
+<li><code>$\boldsymbol &#123;\beta_&#123;0i&#125;=\gamma_&#123;00&#125; + \gamma_&#123;01&#125; \cdot z_i + \upsilon_&#123;0i&#125;&#125;$</code></li>
+<li><code>$\boldsymbol &#123;\beta_&#123;1i&#125;=\gamma_&#123;10&#125; + \upsilon_&#123;1i&#125;&#125;$</code></li>
+</ul>
+</li>
+<li>Overall model:<ul>
+<li><code>$\boldsymbol &#123;y_&#123;mi&#125;=\gamma_&#123;00&#125; + \gamma_&#123;10&#125; \cdot x_&#123;mi&#125; + \gamma_&#123;01&#125; \cdot z_i + \upsilon_&#123;0i&#125; \cdot x_&#123;mi&#125; + \epsilon_&#123;mi&#125;&#125;$</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="估计模型-1"><a href="#估计模型-1" class="headerlink" title="估计模型"></a>估计模型</h4><p>与“experience_gm ”不同的是， “sector”是一个分类变量，它在R中是一个factor类型的变量，<br>R中的“lme4”这个包会自动帮我们把factor转换为哑变量， 所以不需要我们特殊处理，<br>当前情况下， sector只有两个分类， 它本身可以被当作一个哑变量。</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">intercept.as.outcome.model <span class="operator">&lt;-</span> lmer<span class="punctuation">(</span>salary <span class="operator">~</span> experience <span class="operator">+</span> sector <span class="operator">+</span></span><br><span class="line">                                     <span class="punctuation">(</span>experience <span class="operator">|</span> firma<span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">                                   data <span class="operator">=</span> df<span class="punctuation">,</span> REML <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">df<span class="operator">$</span>intercept.as.outcome.preds <span class="operator">&lt;-</span> predict<span class="punctuation">(</span>intercept.as.outcome.model<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">summary<span class="punctuation">(</span>intercept.as.outcome.model<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+    Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+    <br />lmerModLmerTest]
+    <br />Formula: salary ~ experience + sector + (experience | firma)
+    <br />   Data: df
+    <br />
+    <br />REML criterion at convergence: 10102.1
+    <br />
+    <br />Scaled residuals: 
+    <br />    Min      1Q  Median      3Q     Max 
+    <br />-2.8397 -0.6713  0.0018  0.6041  3.3846 
+    <br />
+    <br />Random effects:
+    <br /> Groups   Name        Variance Std.Dev. Corr 
+    <br /> firma    (Intercept)  487110   697.9        
+    <br />          experience    18614   136.4   -0.31
+    <br /> Residual             1136311  1066.0        
+    <br />Number of obs: 600, groups:  firma, 20
+    <br />
+    <br />Fixed effects:
+    <br />             Estimate Std. Error      df t value Pr(>|t|)    
+    <br />(Intercept)   6187.38     263.80   15.64  23.455 1.30e-13 ***
+    <br />experience     532.42      40.77   19.06  13.060 5.86e-11 ***
+    <br />sectorPrivat  -529.51     343.42   18.15  -1.542     0.14    
+    <br />---
+    <br />Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    <br />
+    <br />Correlation of Fixed Effects:
+    <br />            (Intr) exprnc
+    <br />experience  -0.450       
+    <br />sectorPrivt -0.585 -0.062
+
+</div>
+
+
+
+<p>sectorPrivat  这个变量就是哑变量， 它的意思是当sector为Privat时，变量值为1， 否则值为0， 这时候我们是以Public为参照分类的；<br>它的固定效应是-529.51， 意味着私企（Privat）平均工资比国企（Public）平均工资低-529.51， 但是这个效应并不显著（p&#x3D;0.14）。<br><code>$\hat\gamma_&#123;00&#125; = 6187.38$</code></p>
+<h3 id="斜率预测模型-Slope-as-outcome-model"><a href="#斜率预测模型-Slope-as-outcome-model" class="headerlink" title="斜率预测模型 Slope-as-outcome model"></a>斜率预测模型 Slope-as-outcome model</h3><p>在这个模型中，我们想问一个问题，experience的对工资的效应是否受到企业性质（私企还是国企）的影响，<br>这是一个调节效应， 斜率预测模型就是用调节变量预测自变量的斜率。我们看下模型：</p>
+<ul>
+<li>Level 1 model:<ul>
+<li><code>$\boldsymbol &#123;y_&#123;mi&#125;=\beta_&#123;0i&#125; + \beta_&#123;1i&#125; \cdot x_&#123;mi&#125; + \epsilon_&#123;mi&#125;&#125;$</code></li>
+</ul>
+</li>
+<li>Level 2 model:<ul>
+<li><code>$\boldsymbol &#123;\beta_&#123;0i&#125;=\gamma_&#123;00&#125; + \gamma_&#123;01&#125; \cdot z_i + \upsilon_&#123;0i&#125;&#125;$</code></li>
+<li><code>$\boldsymbol &#123;\beta_&#123;1i&#125;=\gamma_&#123;10&#125; + \gamma_&#123;11&#125; \cdot z_i + \upsilon_&#123;1i&#125;&#125;$</code></li>
+</ul>
+</li>
+<li>Overall model:<ul>
+<li><code>$\boldsymbol &#123;y_&#123;mi&#125;=\gamma_&#123;00&#125; + \gamma_&#123;10&#125; \cdot x_&#123;mi&#125; + \gamma_&#123;01&#125; \cdot z_i + \gamma_&#123;11&#125; \cdot x_&#123;mi&#125; \cdot z_i + \upsilon_&#123;0i&#125; + \upsilon_&#123;1i&#125; \cdot x_&#123;mi&#125; + \epsilon_&#123;mi&#125;&#125;$</code></li>
+</ul>
+</li>
+</ul>
+<h4 id="模型估计-1"><a href="#模型估计-1" class="headerlink" title="模型估计"></a>模型估计</h4><p>注意在写公式的时候使用了星号， <code>experience*sector</code>代表公式中的<code>$\gamma_&#123;10&#125; \cdot x_&#123;mi&#125; + \gamma_&#123;01&#125; \cdot z_i + \gamma_&#123;11&#125; \cdot x_&#123;mi&#125; \cdot z_i$</code></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">slope.as.outcome.model <span class="operator">&lt;-</span> lmer<span class="punctuation">(</span>salary <span class="operator">~</span> experience<span class="operator">*</span>sector <span class="operator">+</span></span><br><span class="line">                         <span class="punctuation">(</span>experience <span class="operator">|</span> firma<span class="punctuation">)</span><span class="punctuation">,</span> </span><br><span class="line">                         data <span class="operator">=</span> df<span class="punctuation">,</span> REML <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">summary<span class="punctuation">(</span>slope.as.outcome.model<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+    Linear mixed model fit by REML. t-tests use Satterthwaite's method [
+    <br />lmerModLmerTest]
+    <br />Formula: salary ~ experience * sector + (experience | firma)
+    <br />   Data: df
+    <br />
+    <br />REML criterion at convergence: 10083.1
+    <br />
+    <br />Scaled residuals: 
+    <br />    Min      1Q  Median      3Q     Max 
+    <br />-2.8271 -0.6923 -0.0319  0.6088  3.4093 
+    <br />
+    <br />Random effects:
+    <br /> Groups   Name        Variance Std.Dev. Corr
+    <br /> firma    (Intercept)  341720   584.57      
+    <br />          experience     7713    87.82  0.13
+    <br /> Residual             1137612  1066.59      
+    <br />Number of obs: 600, groups:  firma, 20
+    <br />
+    <br />Fixed effects:
+    <br />                        Estimate Std. Error       df t value Pr(>|t|)    
+    <br />(Intercept)              6494.10     261.10    13.40  24.872 1.31e-12 ***
+    <br />experience                427.35      46.38    16.93   9.215 5.23e-08 ***
+    <br />sectorPrivat            -1212.69     394.05    17.30  -3.078  0.00672 ** 
+    <br />experience:sectorPrivat   216.95      66.66    18.05   3.255  0.00439 ** 
+    <br />---
+    <br />Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+    <br />
+    <br />Correlation of Fixed Effects:
+    <br />            (Intr) exprnc sctrPr
+    <br />experience  -0.479              
+    <br />sectorPrivt -0.663  0.317       
+    <br />exprnc:sctP  0.333 -0.696 -0.525
+
+</div>
+
+
+
+<p>结果显示交互效应是显著的（<code>$\hat\gamma_&#123;11&#125; =216.95,p= 0.0044$</code>）, sector 从 public 变成 privacy，<br>会增加experience 的斜率， 因此可以认为私营企业的工资随experience的增长较快。experience的固定效应（<code>$\hat\gamma_&#123;10&#125; =427.35,  p= 0$</code>）代表<br>国有企业的员工工资随experience的平均斜率， 那么私企的experience斜率是<code>$\hat\gamma_&#123;10&#125; + \hat\gamma_&#123;11&#125; = 427.35  +216.95  =644.3$</code>.</p>
+<p>结果还显示， 当experience为0时，也就是菜鸟，私企的入门工资较低（<code>$\hat\gamma_&#123;01&#125; = -1212.69, p= 0.0067$</code></p>
+<h3 id="模型比较-斜率残差的显著性"><a href="#模型比较-斜率残差的显著性" class="headerlink" title="模型比较 斜率残差的显著性"></a>模型比较 斜率残差的显著性</h3><p>当前的模型中， sector可以预测experience的斜率， 但是不是百分百准确，还有一部分误差，<br>如果这部分误差方差不显著， 说明我们对斜率的预测已经足够好了， 怎么做呢</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ranova<span class="punctuation">(</span>slope.as.outcome.model<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<table class="dataframe">
+<caption>A anova: 2 × 6</caption>
+<thead>
+	<tr><th></th><th scope=col>npar</th><th scope=col>logLik</th><th scope=col>AIC</th><th scope=col>LRT</th><th scope=col>Df</th><th scope=col>Pr(&gt;Chisq)</th></tr>
+	<tr><th></th><th scope=col>&lt;int&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th><th scope=col>&lt;dbl&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>&lt;none&gt;</th><td>8</td><td>-5041.550</td><td>10099.10</td><td>      NA</td><td>NA</td><td>        NA</td></tr>
+	<tr><th scope=row>experience in (experience | firma)</th><td>6</td><td>-5044.058</td><td>10100.12</td><td>5.015249</td><td> 2</td><td>0.08146154</td></tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+
+<p><code>ranova</code>计算一个类似 ANOVA 的表，用于检验模型中的随机效应。<br>每个随机效应项都被减少或删除，并且<br>以模型缩减的似然比来检验删除的随机效应是否显著。</p>
+<p>在上面的结果中显示， 删除 <code>(experience | firma)</code>	这个随机效应并没有显著的降低似然比，<br>这意味着斜率的残差方差不显著。</p>
+<p>对P值进行矫正后还是不显著：</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="number">0.5</span> <span class="operator">*</span> pchisq<span class="punctuation">(</span><span class="number">5.0152</span><span class="punctuation">,</span> <span class="number">1</span><span class="punctuation">,</span> lower.tail <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span> <span class="operator">+</span></span><br><span class="line">  <span class="number">0.5</span> <span class="operator">*</span> pchisq<span class="punctuation">(</span><span class="number">5.0152</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> lower.tail <span class="operator">=</span> <span class="literal">FALSE</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+0.0532946220108522
+</div>
+
+
+
+<h3 id="跨层交互效应的方差解释率"><a href="#跨层交互效应的方差解释率" class="headerlink" title="跨层交互效应的方差解释率"></a>跨层交互效应的方差解释率</h3><p>现在我们知道， 每个公司的experience斜率不同，主要是因为sector不同，<br>因为加入sector之后， 斜率的残差不显著了。但是我们还是不知道斜率的方差到底有多少可以被sector所解释？<br>为了解答这个问题， 我们可以将该模型与截距预测模型（intercept-as-outcome ）相比较，<br>我们可以对比一下第二层<code>$\beta_&#123;1i&#125;$</code>的预测函数：</p>
+<ul>
+<li>intercept-as-outcome： <code>$\boldsymbol &#123;\beta_&#123;1i&#125;=\gamma_&#123;10&#125;&#125;$</code></li>
+<li>Slope-as-outcome: <code>$\boldsymbol &#123;\beta_&#123;1i&#125;=\gamma_&#123;10&#125; + \gamma_&#123;11&#125; \cdot z_i + \upsilon_&#123;1i&#125;&#125;$</code></li>
+</ul>
+<p>两个函数主要的差异就是sector变量的加入， 因此我们比较两个模型experience的随机效应就可以知道sector的方差结实率：</p>
+<p><code>$R^2_&#123;Cross-level&#125; = \frac&#123;\sigma^2_&#123;\upsilon_14&#125; - \sigma^2_&#123;\upsilon_15&#125;&#125;&#123;\sigma^2_&#123;\upsilon_14&#125;&#125; = \frac&#123;&#123;18614&#125; - &#123;7713&#125;&#125;&#123;18614&#125; = &#123;0.5856&#125;$</code></p>
+<h2 id="重复测量的HLM"><a href="#重复测量的HLM" class="headerlink" title="重复测量的HLM"></a>重复测量的HLM</h2><p>由于这篇文章太长了， 我们后面会在下一篇文章中介绍重复测量的HLM（线性趋势模型），<br>使用R中nlme这个包来处理，等文章发出来， 我们就会在这里放链接， 如果你没看到链接， 请提醒我。</p>
+<h2 id="多层次线性模型的缺点"><a href="#多层次线性模型的缺点" class="headerlink" title="多层次线性模型的缺点"></a>多层次线性模型的缺点</h2><p>多层线性模型 (HLM) 的一些缺点如下：</p>
+<ul>
+<li>数据规模限制：当数据量很大时，计算多层线性模型可能会变得困难，并需要大量的计算资源。</li>
+<li>复杂的模型：多层线性模型的设计和实现可能非常复杂，特别是当建模的因素和随机效应较多时。</li>
+<li>参数估计困难：当数据有多个随机效应时，参数估计可能会变得困难。</li>
+<li>模型选择困难：对于多层线性模型，选择合适的模型结构可能是一项挑战，特别是当数据具有复杂的相关性结构时。</li>
+<li>数据质量问题：如果数据存在质量问题，例如缺失数据或异常值，那么多层线性模型的结果可能不准确。</li>
+</ul>
+<p>当然，对于任何统计模型来说，如果数据质量不好，那么模型的结果也不会准确。因此，在使用多层线性模型之前，需要确保数据质量较高。</p>
+<blockquote>
+<p><strong>注意</strong><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的, 不论什么模型都可以, 只限制于1个研究内.<br>跟我学统计可以代做分析, 每单几百元不等.<br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8ER%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B.ipynb">notebook</a><br>可以在微博上@mlln-cn向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
+</blockquote>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/多层线性模型/">#多层线性模型</a>
+        </div>
+    
+
+
+
+</div>
+        </section>
+        <section>
+            <div class="content" style="color: #d7ecff">
+                <h3 id="赞助"><a href="#赞助" class="headerlink" title="赞助"></a>赞助</h3>
+                <p>持续创造有价值的内容, 我需要你的帮助</p>
+                <p><img src="/img/收款二维码.png" class="img-thumbnail"></p>
+            </div>
+        </section>
+        <!-- changyan comments -->
+        <section class="main">
+            <!--PC版畅言-->
+
+<div class="container"><div id="SOHUCS" sid="2023/02/16/多层线性模型与R应用视频教程/"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cysqnjGqk',
+conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
+});
+setTimeout(()=>{
+    $('#closePoPBD').click()
+}, 2000)
+</script>
+</div>
+
+        </section>
+    </div>
+
+    <!-- rightside -->
+    <div class="col-md-3 col-sm-12 rightside">
+        <div class="related-posts">
+    <h3>
+        <a href="#">
+            赞助推荐
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://jupyter.cn/home/">问卷代填保证质量</a>
+            </div>
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=2013.1.w4023-21724689242.4.76085e0a2k46Ky&amp;id=601314051411">问卷代填保证质量</a>
+            </div>
+        
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        常用工具
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a href="/mplusoutput/">Mplus结果查看器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/drawio/">绘图软件</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2018/09/26/在线绘制中介效应图/">
+                在线绘制中介效应图
+            </a>
+        </div>
+        <div class="archive-post">
+            <a href="/neural/">神经网络可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/psychopy/">psychopy教程</a>
+        </div>
+        <div class="archive-post">
+            <a href="/vector/">[词向量]高维向量可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/demos/evolutionSimulator/">[tensorflow.js案例]进化算法演示</a>
+        </div>
+        <div class="archive-post">
+            <a href="/guideToPython/">[书]Python最佳实践</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/10/10/sobel检验原理和一键计算器/">Sobel检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">平均方差提取量AVE和组合信度CR计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">卡方检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">简单交互效应可视化工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/12/23/均值差异的效应量在线计算器/">两组均值差异的效应量在线计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="https://mlln.cn/2020/09/17/%E5%8D%A1%E6%96%B9%E5%B7%AE%E5%80%BC%E7%9A%84%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C/">卡方差值的显著性检验</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/多层线性模型/">
+            多层线性模型
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2023/02/16/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8ER%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">
+                    多层线性模型教程及R应用
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/02/14/rwg%E8%AF%84%E5%88%86%E8%80%85%E5%86%85%E9%83%A8%E4%B8%80%E8%87%B4%E6%80%A7%E6%8C%87%E6%A0%87%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">
+                    评分者内部一致性Rwg和Intraclass相关系数ICC指标计算方法
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts hidden-sm-down">
+    <h3>
+        <a href="#">
+            友商赞助
+        </a>
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a target="_blank" rel="noopener" href="http://jupyter.cn">
+                  问卷大全问卷案例下载
+            </a>
+            <a href="https://mlln.cn/2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/">
+                大学生互填问卷群推荐
+            </a>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 footer-about">
+                <h2>About</h2>
+                <p>
+                    这是<code>xxxspy</code>的个人博客
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2023/02/16/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8ER%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型教程及R应用</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/02/14/rwg%E8%AF%84%E5%88%86%E8%80%85%E5%86%85%E9%83%A8%E4%B8%80%E8%87%B4%E6%80%A7%E6%8C%87%E6%A0%87%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">评分者内部一致性Rwg和Intraclass相关系</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/01/31/APIM%E4%B8%BB%E5%AE%A2%E4%BD%93%E7%9B%B8%E4%BE%9D%E6%A8%A1%E5%9E%8B%E6%88%90%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Amplus%E5%BA%94%E7%94%A8/">APIM主客体相依模型成对数据分析以及mplus应</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/12/10/Transformer%E8%AF%A6%E7%BB%86%E8%A7%A3%E8%AF%BB%E5%92%8C%E4%BB%A3%E7%A0%81%E6%A1%88%E4%BE%8B/">Transformer详细解读和代码实现</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/12/05/%E5%80%92U%E5%85%B3%E7%B3%BB%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%92%8C%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90SPSS%E5%92%8CR%E8%AF%AD%E8%A8%80%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">U型关系回归分析中介效应和调节效应分析SPSS和R</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/10/26/2022%E5%B9%B4conda%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%89%8B%E5%86%8C/">2022年conda常用命令常见问题手册</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/10/24/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE%E6%A3%80%E6%9F%A5%E5%92%8C%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">共同方法偏差检查和控制方法大全</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/10/24/%E6%88%91%E5%A6%82%E4%BD%95%E4%B8%80%E5%A4%A9%E5%81%9A%E5%AE%8C%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E5%92%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷快速收集并做完数据分析的常用流程介绍</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/09/20/R%E8%AF%AD%E8%A8%80%E5%81%9A%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%85%A5%E9%97%A8/">R语言做结构方程模型入门</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/08/31/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E5%88%86%E6%9E%90%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F/">结构方程模型多组比较分析调节变量</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 footer-tags">
+    <h2>tags</h2>
+    <ul>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%87%E6%9C%AC%E6%8C%96%E6%8E%98/">文本挖掘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8A%A5%E5%91%8A%E7%B3%BB%E7%BB%9F/">报告系统</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/spss/">spss</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/python/">python</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/manim/">manim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/amos/">amos</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE/">共同方法偏差</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BF%A1%E5%BA%A6%E5%88%86%E6%9E%90/">信度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%88%E5%BA%A6%E5%88%86%E6%9E%90/">效度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB/">问卷互填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%98%9F/">问卷星</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BB%A3%E5%A1%AB/">问卷代填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E7%BD%91/">问卷网</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/conda/">conda</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B/">结构方程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/VBA/">VBA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mplus/">mplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/django/">django</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime/">eprime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/EM/">EM</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8E%A8%E8%8D%90%E4%B9%A6/">推荐书</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/">卡方检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/javascript/">javascript</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Latex/">Latex</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mysql/">mysql</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jupyter/">jupyter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R/">R</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%98%BE%E8%91%97%E6%80%A7/">显著性</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Q-learning/">Q-learning</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R%E8%AF%AD%E8%A8%80/">R语言</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/r/">r</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/process/">process</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94/">调节效应</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow-js/">tensorflow.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BD%9C%E6%96%87%E8%AF%84%E5%88%86/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/t%E6%A3%80%E9%AA%8C/">t检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/">方差分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/NLP/">NLP</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%AF%AD%E6%96%99%E5%BA%93/">语料库</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nodejs/">nodejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/electron/">electron</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/e-prime/">e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gensim/">gensim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/">摘要生成</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/git/">git</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gui/">gui</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jamovi/">jamovi</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/notebook/">notebook</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E6%95%99%E7%A8%8B/">keras教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E5%9F%BA%E7%A1%80/">keras基础</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongodb/">mongodb</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jieba/">jieba</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongoengine/">mongoengine</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/meta%E5%88%86%E6%9E%90/">meta分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nginx/">nginx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/networkx/">networkx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/dataframe/">dataframe</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pandas/">pandas</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%B8%8B%E8%BD%BD/">下载</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BD%91%E7%9B%98/">网盘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pychrome/">pychrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pydotplus/">pydotplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pymongo/">pymongo</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/graphviz/">graphviz</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/selenium/">selenium</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/">格式化字符串</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lru-cache/">lru_cache</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/os/">os</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">时间序列</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/print/">print</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pil/">pil</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tkinter/">tkinter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/js2py/">js2py</a>
+        </span>
+        
+    </ul>
+</div>
+
+            
+        </div>
+        <!-- links -->
+
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-about">
+        <h2>Links</h2>
+        <ul>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/baidusitemap.xml" target="_blank">网站地图</a><span> | </span>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/sitemap.xml" target="_blank">DataScience</a><span> | </span>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/xxxspy">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:675495787@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @感谢github免费托管，hexo的静态网站引擎和模板主题制作者<a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                    <br/>
+                    <a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">京ICP备16033873号-2</>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<!-- tweenmax -->
+<script src="/js/TweenMax.min.js">
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- bootstrap.js -->
+<script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Baidu link push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<!-- baidu_static -->
+
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?588f06b88af0ef575445f53432cd15ec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>

@@ -252,6 +252,95 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5Durlparse%E6%A8%A1%E5%9D%97/">
+                Python教程：[18]urlparse模块
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>使用urlparse模块可以对url进行分析，最主要的操作就是拆分和合并url的各个部件，那么url有哪些部件呢？下图列出了所有的部件。你可能不太理解，不要着急，我们在例子中看看每个部分都代表着什么。</p>
+<ul>
+<li>引入urlparse模块，这里只引入了urlparse方法，如果你想要用所有的方法，你需要import urlparse</li>
+</ul>
+<img src="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5Durlparse%E6%A8%A1%E5%9D%97/d7c9ca3f8794a4c23abdb8070cf41bd5ac6e39c4.jpg" class="" title="Python教程：[18]urlparse模块">
+
+<ul>
+<li>我们将下面的url地址进行拆解，将拆解的结果存放到parsed中</li>
+</ul>
+<img src="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5Durlparse%E6%A8%A1%E5%9D%97/f7426d8da9773912cd4fda4dfa198618367ae276.jpg" class="" title="Python教程：[18]urlparse模块">
+
+<ul>
+<li>之后，我们通过parsed的各个属性来访问不同的部分</li>
+</ul>
+<img src="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5Durlparse%E6%A8%A1%E5%9D%97/d5462bfae6cd7b89c4f265af0d2442a7d8330ec4.jpg" class="" title="Python教程：[18]urlparse模块">
+
+<ul>
+<li>我们看最后输出的结果：通过这样的方法我们可以快速的对url进行操作</li>
+</ul>
+<img src="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5Durlparse%E6%A8%A1%E5%9D%97/834344afa40f4bfb934ec178014f78f0f63618c4.jpg" class="" title="Python教程：[18]urlparse模块">
+
+<ul>
+<li><p>所有的源码都写在下面：</p>
+</li>
+<li><p>from urlparse import urlparse</p>
+</li>
+<li><p>parsed &#x3D; urlparse(‘url地址’)</p>
+</li>
+<li><p>print ‘scheme  :’+ parsed.scheme   #网络协议</p>
+</li>
+<li><p>print ‘netloc  :’+ parsed.netloc   #服务器位置（也可呢能有用户信息）</p>
+</li>
+<li><p>print ‘path    :’+ parsed.path     #网页文件在服务器中存放的位置</p>
+</li>
+<li><p>print ‘params  :’+ parsed.params   #可选参数</p>
+</li>
+<li><p>print ‘query   :’+ parsed.query    #连接符（&amp;）连接键值对</p>
+</li>
+<li><p>print ‘fragment:’+ parsed.fragment #拆分文档中的特殊猫</p>
+</li>
+<li><p>print ‘username:’+ parsed.username #用户名</p>
+</li>
+<li><p>print ‘password:’+ parsed.password #密码</p>
+</li>
+<li><p>print ‘hostname:’+ parsed.hostname #服务器名称或者地址</p>
+</li>
+<li><p>print ‘port    :’, parsed.port     #端口（默认是80</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#52;&#x39;&#53;&#55;&#56;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#54;&#x37;&#53;&#52;&#x39;&#53;&#55;&#56;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/">
                 spss交叉设计如何进行方差分析
             </a>
@@ -885,6 +974,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/02/16/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8ER%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型教程及R应用</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/02/14/rwg%E8%AF%84%E5%88%86%E8%80%85%E5%86%85%E9%83%A8%E4%B8%80%E8%87%B4%E6%80%A7%E6%8C%87%E6%A0%87%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">评分者内部一致性Rwg和Intraclass相关系</a>
             </li>
             
@@ -918,10 +1011,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/08/31/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E5%88%86%E6%9E%90%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F/">结构方程模型多组比较分析调节变量</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/08/24/JupyterNotebook%E4%B8%AD%E8%BF%90%E8%A1%8CR%E4%BB%A3%E7%A0%81/">Jupyter notebook中运行R代码</a>
             </li>
             
         </ul>
