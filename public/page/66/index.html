@@ -252,6 +252,87 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/03/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B79%5D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/">
+                python教程：[79]赋值运算中的条件语句
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在python中，我们经常用一些逻辑运算来实现复杂的赋值运算。在一些赋值语句，也就是包含等号的python语句中，通常附带一些条件语句，以便用更少的代码写更复杂的命令，并且增加了代码的可读性，因为这些语句往往看起来就像一个英文句子，读起来还朗朗上口，下面是一个简单的赋值，后面的代码都用到了这些值。</p>
+<ul>
+<li>在赋值中使用if语句，如果b等于c，返回a，否则返回c</li>
+</ul>
+<img src="/2015/03/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B79%5D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/2e6fa7389b504fc2a6947426e6dde71191ef6d8f.jpg" class="" title="python教程：[79]赋值运算中的条件语句">
+
+<ul>
+<li>and符号表示如果a为零则返回a，否则返回b，也就是and总是返回第一个为零的数，当然，如果都不为零，则返回最后一个数</li>
+</ul>
+<img src="/2015/03/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B79%5D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/9f1011b30f2442a70ffc3986d243ad4bd01302e0.jpg" class="" title="python教程：[79]赋值运算中的条件语句">
+
+<ul>
+<li>如果我们交换ab，返回的仍然是d&#x3D;0</li>
+</ul>
+<img src="/2015/03/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B79%5D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/8474fbdde71190ef0e3056fccd1b9d16fcfa608f.jpg" class="" title="python教程：[79]赋值运算中的条件语句">
+
+<ul>
+<li>如果换成两个不为零的数，总是返回后者</li>
+</ul>
+<img src="/2015/03/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B79%5D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/e6508eef76c6a7efb4ed6c05fefaaf51f2de668f.jpg" class="" title="python教程：[79]赋值运算中的条件语句">
+
+<ul>
+<li>返回后者</li>
+</ul>
+<img src="/2015/03/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B79%5D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/d002b34bd11373f05ecdabbca70f4bfbfaed04e0.jpg" class="" title="python教程：[79]赋值运算中的条件语句">
+
+<ul>
+<li>or语句总是返回第一个不为零的数，下面返回的是a</li>
+</ul>
+<img src="/2015/03/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B79%5D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/d0526df082025aaf7ac0bae8f8edab64024f1ae0.jpg" class="" title="python教程：[79]赋值运算中的条件语句">
+
+<ul>
+<li>下面返回的还是a（两个不为零的数）</li>
+</ul>
+<img src="/2015/03/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B79%5D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/7787b9efce1b9d16810c5e42f0deb48f8d54648f.jpg" class="" title="python教程：[79]赋值运算中的条件语句">
+
+<ul>
+<li>如果交换这两个数，则返回c</li>
+</ul>
+<img src="/2015/03/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B79%5D%E8%B5%8B%E5%80%BC%E8%BF%90%E7%AE%97%E4%B8%AD%E7%9A%84%E6%9D%A1%E4%BB%B6%E8%AF%AD%E5%8F%A5/ae10eddeb48f8c541518010c39292df5e1fe7f8f.jpg" class="" title="python教程：[79]赋值运算中的条件语句">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#52;&#x39;&#53;&#55;&#56;&#x37;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#x6d;">&#x36;&#x37;&#53;&#52;&#x39;&#53;&#55;&#56;&#x37;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/03/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5Damos%E4%BB%8B%E7%BB%8D%E4%BB%A5%E5%8F%8A%E4%B8%8B%E8%BD%BD%E6%96%B9%E6%B3%95/">
                 amos21.0教程：[1]amos介绍以及下载方法
             </a>
@@ -948,77 +1029,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/02/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B34%5D%E6%A0%B9%E6%8D%AE%E7%BD%91%E5%9D%80%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5/">
-                Python教程：[34]根据网址采集网页
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年02月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>做数据分析的工作，大部分时间不是在处理数据而是在收集数据，使用python可以手机网页数据，今天我们就教给大家如何使用python的urllib2来获取网页源码，这是最简单的获取网页源码的方法，以后我们会逐步加大难度。</p>
-<ul>
-<li>引入模块urllib2</li>
-</ul>
-<img src="/2015/02/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B34%5D%E6%A0%B9%E6%8D%AE%E7%BD%91%E5%9D%80%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5/d7c9ca3f8794a4c2634a413c0cf41bd5ad6e3978.jpg" class="" title="Python教程：[34]根据网址采集网页">
-
-<ul>
-<li>设置要采集的地址</li>
-</ul>
-<img src="/2015/02/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B34%5D%E6%A0%B9%E6%8D%AE%E7%BD%91%E5%9D%80%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5/0fb505d5ad6eddc4758e12ec3bdbb6fd52663378.jpg" class="" title="Python教程：[34]根据网址采集网页">
-
-<ul>
-<li>使用urlopen方法来返回网页文件</li>
-</ul>
-<img src="/2015/02/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B34%5D%E6%A0%B9%E6%8D%AE%E7%BD%91%E5%9D%80%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5/509b9fcb39dbb6fd7a3243310b24ab18972b3778.jpg" class="" title="Python教程：[34]根据网址采集网页">
-
-<ul>
-<li>只能使用read方法来获得网页文件的内容</li>
-</ul>
-<img src="/2015/02/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B34%5D%E6%A0%B9%E6%8D%AE%E7%BD%91%E5%9D%80%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5/ac0acf1373f0820266b9372849fbfbedab641bba.jpg" class="" title="Python教程：[34]根据网址采集网页">
-
-<ul>
-<li>看一下f的长度就知道是否真的返回了网页</li>
-</ul>
-<img src="/2015/02/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B34%5D%E6%A0%B9%E6%8D%AE%E7%BD%91%E5%9D%80%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5/a54e55fbfbedab644259ebd7f536afc379311eba.jpg" class="" title="Python教程：[34]根据网址采集网页">
-
-<ul>
-<li>避免这样去看f的内容，你会疯掉的。</li>
-</ul>
-<img src="/2015/02/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B34%5D%E6%A0%B9%E6%8D%AE%E7%BD%91%E5%9D%80%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5/d5462bfae6cd7b89af059c940d2442a7d9330e78.jpg" class="" title="Python教程：[34]根据网址采集网页">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#x34;&#57;&#x35;&#x37;&#x38;&#x37;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#109;">&#x36;&#55;&#x35;&#x34;&#57;&#x35;&#x37;&#x38;&#x37;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1060,6 +1070,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/03/25/SPSS-Process-%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7/">SPSS Process 调节效应绘图工具</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/02/28/%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%E6%A8%A1%E5%9E%8B%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B/">网络分析模型和R应用案例教程</a>
             </li>
             
@@ -1093,10 +1107,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/10/24/%E6%88%91%E5%A6%82%E4%BD%95%E4%B8%80%E5%A4%A9%E5%81%9A%E5%AE%8C%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E5%92%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷快速收集并做完数据分析的常用流程介绍</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/09/20/R%E8%AF%AD%E8%A8%80%E5%81%9A%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%85%A5%E9%97%A8/">R语言做结构方程模型入门</a>
             </li>
             
         </ul>
