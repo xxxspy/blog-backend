@@ -252,6 +252,78 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/">
+                pandas教程：[25]插值法填补缺失值
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>使用插值法可以计算缺失值的估计值，所谓的插值法就是通过两点（x0，y0），（x1，y1）估计中间点的值，假设y&#x3D;f(x)是一条直线，通过已知的两点来计算函数f(x),然后只要知道x就能求出y，以此方法来估计缺失值。当然我们也可以假设f（x)不是直线，二是其他函数。</p>
+<ul>
+<li>引入相关模块并创建一个数据框<br>数据框的内容为：<br>‘</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/62667cd0f703918f03ed62cd523d269759eec4be.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/0865b518972bd40763af8cfa78899e510fb30909.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<ul>
+<li>使用插值法估计缺失值<br>输出结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/b13fd48065380cd74f81fdeaa244ad34588281df.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/99636c0e0cf3d7cacdca6071f11fbe096b63a9be.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<ul>
+<li><p>我们可以计算一下缺失值实际上上前一个值和后一个值得平均数，因为interpolate（）假设函数是直线形式</p>
+</li>
+<li><p>假如index是数字，我们还可以根据数字来进行插值，用到参数method&#x3D;’values’<br>比较一下插值的结果与上一个结果的不同之处这时候索引的数值实际上就是用于估计y的x值</p>
+</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/dc854fda81cb39dbf9a83851d3160924ab183009.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/7a8a1446f21fbe09d1629c1368600c338744adbe.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<ul>
+<li>同样道理，如果index是时间，我们可以用method&#x3D;time来达到同样的效果<br>输出结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/54baacfb43166d22e24b4a93452309f79052d2be.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/f35ea0096b63f624d76166048444ebf81a4ca3be.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#52;&#57;&#x35;&#55;&#x38;&#55;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#x6d;">&#54;&#55;&#x35;&#52;&#57;&#x35;&#55;&#x38;&#55;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/05/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B22%5D%E5%A6%82%E4%BD%95%E5%B0%86%E5%87%A0%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9B%B8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4/">
                 SPSS实例：[22]如何将几个变量相加减乘除
             </a>
@@ -1147,94 +1219,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/">
-                pandas教程：[11]aggregate分组计算
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>一旦对数据分组，接下来一定是对各组数据进行计算，这是通过groupby.aggregate()实现的，我们来看一下今天的例子：</p>
-<ul>
-<li>先引入必要的模块，然后创建一个DataFrame对象，如果你看了前几篇文章，应该已经知道这个DataFrame了。<br>这是内部数据：</li>
-</ul>
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/bf487563f6246b602a038662e8f81a4c510fa253.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/9e7ce6dcd100baa16f0973ad4410b912c8fc2ebb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<ul>
-<li>根据两个索引color、food进行分组</li>
-</ul>
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/f76575600c338744c3c81b6a520fd9f9d72aa053.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<ul>
-<li>计算各组总和：<br>计算结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/310f3b1f95cad1c8309ec8317c3e6709c93d51bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/b853d6fcc3cec3fd551b9363d588d43f879427bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<ul>
-<li>计算结果默认使用了两个分组索引color和food作为新的DataFrame的索引（注意计算结果为一个DataFrame对象），可以使用reset_index()来将两个索引转化为列变量<br>结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/d66b7e59252dd42a180435bd003b5bb5c9eab853.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/3bb22487e950352afb6c111e5043fbf2b2118b53.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<ul>
-<li>在分组是也可以使用as_index参数达到reset_index()的效果：<br>计算结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/fd428c45d688d43f2a8ca5e47e1ed21b0ef43bbb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/1a94b36eddc451da37d338fdb5fd5266d01632bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<ul>
-<li>另外我们经常用到的一个方法为size()返回各组数据量<br>结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/dc854fda81cb39db0ee55340d3160924ab1830bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/aa59892bd40735fa26d57aaf9d510fb30f2408bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<ul>
-<li>最后，还有一个经常用到的方法为describe()，对各组数据进行描述性统计：<br>计算结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/34bbf8cd7b899e51ccab0e0241a7d933c8950dbb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/d872d695d143ad4b1b0b72d681025aafa40f06bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#x39;&#53;&#55;&#56;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#54;&#55;&#53;&#x34;&#x39;&#53;&#55;&#56;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1276,6 +1260,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/03/27/pls-sem%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%96%B9%E6%B3%95%E5%92%8C%E6%A1%88%E4%BE%8B/">pls-sem结果汇报方法和案例【以SmartPL</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/03/25/SPSS-Process-%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7/">SPSS Process 调节效应绘图工具</a>
             </li>
             
@@ -1309,10 +1297,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/10/24/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE%E6%A3%80%E6%9F%A5%E5%92%8C%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">共同方法偏差检查和控制方法大全</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/10/24/%E6%88%91%E5%A6%82%E4%BD%95%E4%B8%80%E5%A4%A9%E5%81%9A%E5%AE%8C%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E5%92%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷快速收集并做完数据分析的常用流程介绍</a>
             </li>
             
         </ul>

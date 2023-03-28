@@ -252,6 +252,96 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/">
+                pandas教程：[16]字符串操作
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年09月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>有些时候我们的数据是字符串形式的，pandas也能方便的处理，今天我们就举几个例子来操作字符串。</p>
+<ul>
+<li>先来创建一个Series<br>查看下其中的内容</li>
+</ul>
+<img src="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/58c3acb7d0a20cf4dce6a8db75094b36acaf9905.jpg" class="" title="pandas教程：[16]字符串操作">
+
+<img src="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/b29f8282d158ccbf49e5e33e1ad8bc3eb135411d.jpg" class="" title="pandas教程：[16]字符串操作">
+
+<ul>
+<li>将数据转换为小写<br>查看下是不是转换为了小写</li>
+</ul>
+<img src="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/adee30dda3cc7cd9785b62dd3a01213fb80e9105.jpg" class="" title="pandas教程：[16]字符串操作">
+
+<img src="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/6dc09e0a19d8bc3e985150ce818ba61ea8d3451d.jpg" class="" title="pandas教程：[16]字符串操作">
+
+<ul>
+<li>转换为大写</li>
+</ul>
+<img src="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/1899a23eb13533faa9efc52aabd3fd1f41345b1d.jpg" class="" title="pandas教程：[16]字符串操作">
+
+<img src="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/38403f3fb80e7becafac55e52c2eb9389b506b05.jpg" class="" title="pandas教程：[16]字符串操作">
+
+<ul>
+<li>获取字符串的长度，使用len<br>现在所有的字符串转换为了数字，也就是字符串的长度</li>
+</ul>
+<img src="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/a75fb6d3fd1f4134a76e537a261f95cad1c85e1d.jpg" class="" title="pandas教程：[16]字符串操作">
+
+<img src="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/a992e31f4134970a012a462b96cad1c8a7865d1d.jpg" class="" title="pandas教程：[16]字符串操作">
+
+<ul>
+<li>我们还可以切割字符串，将字符串转换为list<br>查看list构成的数据列</li>
+</ul>
+<img src="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/e49cf91190ef76c6a0a3ad2f9e16fdfaaf516705.jpg" class="" title="pandas教程：[16]字符串操作">
+
+<img src="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/c856613e6709c93d4aab58f39c3df8dcd100541d.jpg" class="" title="pandas教程：[16]字符串操作">
+
+<ul>
+<li>如果list构成的数据列比较怪，我们可以使用get方法获得列中的某个元素<br>结果为：</li>
+</ul>
+<img src="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/3a86813df8dcd10085c5ae25718b4710b9122f1d.jpg" class="" title="pandas教程：[16]字符串操作">
+
+<img src="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/73ca5910b912c8fc86aaa0c9ff039245d688211d.jpg" class="" title="pandas教程：[16]字符串操作">
+
+<ul>
+<li>替换字符串，使用replace，replace的第一个参数是正则表达式，第二个参数是要替换成的字符串。<br>输出：</li>
+</ul>
+<img src="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/c28fddfdfc0392459fecb70b8494a4c27d1e251d.jpg" class="" title="pandas教程：[16]字符串操作">
+
+<img src="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/d57e9994a4c27d1e9c7f6dc018d5ad6eddc4381d.jpg" class="" title="pandas教程：[16]字符串操作">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#x34;&#x39;&#x35;&#x37;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;">&#54;&#55;&#x35;&#x34;&#x39;&#x35;&#x37;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/09/01/spss%E5%81%9A%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E8%BE%93%E5%87%BA%E5%9B%A0%E7%B4%A0%E5%80%BC%E5%B9%B6%E5%BD%A2%E6%88%90%E5%8F%98%E9%87%8F/">
                 spss做因素分析的时候如何输出因素值并形成变量
             </a>
@@ -943,77 +1033,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/08/15/Excel2013%EF%BC%9A%5B16%5D%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81%E4%B8%AD%E9%97%B4%E6%95%B0%E5%AD%97/">
-                Excel2013：[16]加密手机号码中间数字
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年08月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>电话号码需要隐藏中间几位数字？经常看到电视上公布中奖电话的时候就是这么干的，你也可以这么干，使用replace方法，替换掉中间的数字就好了。下面是具体的方法：</p>
-<ul>
-<li>选中输入公式的单元格，使用函数replace，数据源设置成a2</li>
-</ul>
-<img src="/2015/08/15/Excel2013%EF%BC%9A%5B16%5D%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81%E4%B8%AD%E9%97%B4%E6%95%B0%E5%AD%97/1a94b36eddc451dafaaa04f4b4fd5266d0163215.jpg" class="" title="Excel2013：[16]加密手机号码中间数字">
-
-<ul>
-<li>我们介绍一下该函数的几个参数，分别是旧值，开始替换的位置，替换字母的个数。</li>
-</ul>
-<img src="/2015/08/15/Excel2013%EF%BC%9A%5B16%5D%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81%E4%B8%AD%E9%97%B4%E6%95%B0%E5%AD%97/0865b518972bd407b19bdbe279899e510fb30915.jpg" class="" title="Excel2013：[16]加密手机号码中间数字">
-
-<ul>
-<li>假如我们这样来输入一个公式</li>
-</ul>
-<img src="/2015/08/15/Excel2013%EF%BC%9A%5B16%5D%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81%E4%B8%AD%E9%97%B4%E6%95%B0%E5%AD%97/0ef2112442a7d93344f4ec6caf4bd11373f00115.jpg" class="" title="Excel2013：[16]加密手机号码中间数字">
-
-<ul>
-<li>得到的结果如下，假如我们换一个参数试试，让你感受一下参数的意义</li>
-</ul>
-<img src="/2015/08/15/Excel2013%EF%BC%9A%5B16%5D%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81%E4%B8%AD%E9%97%B4%E6%95%B0%E5%AD%97/5beeba0f4bfbfbed3d053e607af0f736afc31f15.jpg" class="" title="Excel2013：[16]加密手机号码中间数字">
-
-<ul>
-<li>将替换字母的数据改成5，看下图</li>
-</ul>
-<img src="/2015/08/15/Excel2013%EF%BC%9A%5B16%5D%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81%E4%B8%AD%E9%97%B4%E6%95%B0%E5%AD%97/020e66f0f736afc3e250377ab119ebc4b7451215.jpg" class="" title="Excel2013：[16]加密手机号码中间数字">
-
-<ul>
-<li>快速填充，完成所有的加密</li>
-</ul>
-<img src="/2015/08/15/Excel2013%EF%BC%9A%5B16%5D%E5%8A%A0%E5%AF%86%E6%89%8B%E6%9C%BA%E5%8F%B7%E7%A0%81%E4%B8%AD%E9%97%B4%E6%95%B0%E5%AD%97/0b14ad19ebc4b745e3c8bf09cdfc1e178a821515.jpg" class="" title="Excel2013：[16]加密手机号码中间数字">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#55;&#x40;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;">&#x36;&#x37;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#55;&#x40;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1055,6 +1074,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/03/27/pls-sem%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%96%B9%E6%B3%95%E5%92%8C%E6%A1%88%E4%BE%8B/">pls-sem结果汇报方法和案例【以SmartPL</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/03/25/SPSS-Process-%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7/">SPSS Process 调节效应绘图工具</a>
             </li>
             
@@ -1088,10 +1111,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/10/24/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE%E6%A3%80%E6%9F%A5%E5%92%8C%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">共同方法偏差检查和控制方法大全</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/10/24/%E6%88%91%E5%A6%82%E4%BD%95%E4%B8%80%E5%A4%A9%E5%81%9A%E5%AE%8C%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E5%92%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷快速收集并做完数据分析的常用流程介绍</a>
             </li>
             
         </ul>

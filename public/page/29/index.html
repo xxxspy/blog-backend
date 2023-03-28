@@ -252,6 +252,41 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2017/10/02/psychopy%E6%95%99%E7%A8%8B2-builder%E6%A6%82%E5%BF%B5%E4%BB%8B%E7%BB%8D/">
+                psychopy教程2-builder概念介绍
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017年10月02日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h3 id="概述"><a href="#概述" class="headerlink" title="概述"></a>概述</h3><p>Builder视图中两个最重要的概念就是Routines和Flow, 从英语的语义来说，Routines就是一些常用的环节，而在心理学实验中，刺激和反应是心理学家最关注的两个环节，所以psychopy中的环节也可以按照刺激和反应来分类。Flow的语义就是流程，他控制的就是Routines。每个实验程序只能有一个Flow但是可以有很多Routines。另外一个比Routines更小的单元叫做组件，组件组成Routine的各个零件，比如一个指导语页面包含至少两个组件，一个是文本组件一个是键盘反应组件，文本组件用于呈现指导语，键盘反应组件用于控制被试的键盘动作，这些概念后面还会介绍，不用深究。所以最后强调一点，多个组件构成一个Routine，而多个Routines形成一个FLow。</p>
+        </div>
+        <a href="/2017/10/02/psychopy%E6%95%99%E7%A8%8B2-builder%E6%A6%82%E5%BF%B5%E4%BB%8B%E7%BB%8D/" class="read-more">Read More</a>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/eprime/">#eprime</a> <a href="/tags/e-prime/">#e-prime</a> <a href="/tags/psychopy/">#psychopy</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2017/09/29/psychopy%E6%95%99%E7%A8%8B1-%E5%85%A5%E9%97%A8%E8%AE%A4%E8%AF%86psychopy/">
                 psychopy教程1-入门认识psychopy
             </a>
@@ -711,90 +746,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2017/06/14/%E8%BF%9C%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%9F%A5%E8%AF%A2%E6%95%99%E7%A8%8B/">
-                远程数据库下载和查询教程
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2017年06月14日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2 id="使用ssh登录Linux"><a href="#使用ssh登录Linux" class="headerlink" title="使用ssh登录Linux"></a>使用ssh登录Linux</h2><ul>
-<li>新建链接，输入以下信息</li>
-</ul>
-<img src="/2017/06/14/%E8%BF%9C%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%9F%A5%E8%AF%A2%E6%95%99%E7%A8%8B/enter-host-user.jpg" class="">
-
-<ul>
-<li>输入密码</li>
-</ul>
-<img src="/2017/06/14/%E8%BF%9C%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%9F%A5%E8%AF%A2%E6%95%99%E7%A8%8B/enter-password.jpg" class="">
-
-<ul>
-<li>点击文件管理按钮</li>
-</ul>
-<img src="/2017/06/14/%E8%BF%9C%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%9F%A5%E8%AF%A2%E6%95%99%E7%A8%8B/open-download-dialog.jpg" class="">
-
-<ul>
-<li>找到你要下载的文件，双击下载</li>
-</ul>
-<img src="/2017/06/14/%E8%BF%9C%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%9F%A5%E8%AF%A2%E6%95%99%E7%A8%8B/download.jpg" class="">
-
-<h2 id="在mysql中做查询"><a href="#在mysql中做查询" class="headerlink" title="在mysql中做查询"></a>在mysql中做查询</h2><p>在mysql中做查询需要进入muysql的交互环境。</p>
-<ul>
-<li>进入mysql</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql <span class="operator">-</span>h[ip地址] <span class="operator">-</span>u[用户名] <span class="operator">-</span>p[密码]</span><br></pre></td></tr></table></figure>
-
-<p>以下命令都是在mysql交互环境中运行</p>
-<ul>
-<li>查询有哪些数据库</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>选择一个数据库</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use name_of_databse;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>查询数据库</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> basic_child_info;</span><br></pre></td></tr></table></figure>
-
-<h2 id="下载数据库表"><a href="#下载数据库表" class="headerlink" title="下载数据库表"></a>下载数据库表</h2><ul>
-<li>把表下载到当前目录</li>
-</ul>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>h[ip地址] <span class="operator">-</span>u[username] <span class="operator">-</span>p[password] [databse name] [<span class="keyword">table</span> name] <span class="operator">&gt;</span> [filename].<span class="keyword">sql</span>;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>导出表到本地</li>
-</ul>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/mysql/">#mysql</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -836,6 +787,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/03/27/pls-sem%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%96%B9%E6%B3%95%E5%92%8C%E6%A1%88%E4%BE%8B/">pls-sem结果汇报方法和案例【以SmartPL</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/03/25/SPSS-Process-%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7/">SPSS Process 调节效应绘图工具</a>
             </li>
             
@@ -869,10 +824,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/10/24/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE%E6%A3%80%E6%9F%A5%E5%92%8C%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">共同方法偏差检查和控制方法大全</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/10/24/%E6%88%91%E5%A6%82%E4%BD%95%E4%B8%80%E5%A4%A9%E5%81%9A%E5%AE%8C%E6%95%B0%E6%8D%AE%E6%94%B6%E9%9B%86%E5%92%8C%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷快速收集并做完数据分析的常用流程介绍</a>
             </li>
             
         </ul>
