@@ -252,6 +252,81 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/05/15/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/">
+                wxpython教程：[6]简单布局管理
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>一个软件的界面又很多控件，这些控件是如何布局的？今天我们先来看一下简单的布局方式，之后我们再来看看一些复杂的布局（利用sizer）实现的布局。</p>
+<ul>
+<li><p>接着用之前写的代码，我们看一下代码：<br>很多内容都是之前的文章里介绍的，这里只是添加了两行代码：</p>
+</li>
+<li><pre><code>    panel=wx.Panel(self,-1)#创建一个面板对象
+</code></pre>
+</li>
+<li><pre><code>    wx.TextCtrl(panel,pos=(3,3),size=(250,250))#添加一个文本框，并设置它的位置和大小
+</code></pre>
+</li>
+</ul>
+<img src="/2015/05/15/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/3a86813df8dcd100a92c4274718b4710b8122ff7.jpg" class="" title="wxpython教程：[6]简单布局管理">
+
+<ul>
+<li><p>Panel是窗口的容器，通常其大小与Frame一样，在其上放置各种控件，比如放置按钮、文本框等。</p>
+</li>
+<li><p>创建文本框的时候，我们传入pos和size参数，顾名思义，就是位置和大小，这段代码：wx.TextCtrl(panel,pos&#x3D;(3,3),size&#x3D;(250,250))就是设置文本框的位置是x&#x3D;3，y&#x3D;3；大小是长宽都是250的正方形。</p>
+</li>
+<li><p>这就是我们看到的界面：<br>改变界面大小，文本框控件的位置和大小是不变的</p>
+</li>
+</ul>
+<img src="/2015/05/15/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/3bb22487e950352a687e805d5043fbf2b2118b0d.jpg" class="" title="wxpython教程：[6]简单布局管理">
+
+<img src="/2015/05/15/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/346bd85c103853434ad022749013b07eca80880d.jpg" class="" title="wxpython教程：[6]简单布局管理">
+
+<ul>
+<li>我们一眼就能看出这种方式布局的局限性，于是，也许下面这种方式更加简便与灵活：我们直接将文本框嫁接到Frame上，而不是利用Panel：</li>
+</ul>
+<img src="/2015/05/15/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/4e83cb628535e5dd30b3008a75c6a7efcf1b628d.jpg" class="" title="wxpython教程：[6]简单布局管理">
+
+<ul>
+<li>如此一来，文本框铺满整个Frame，大小与Fram相同，改变Frame大小，文本框也跟着变化：</li>
+</ul>
+<img src="/2015/05/15/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/0862c354564e9258228323bb9f82d158cdbf4ef5.jpg" class="" title="wxpython教程：[6]简单布局管理">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#52;&#57;&#53;&#55;&#56;&#55;&#64;&#113;&#113;&#46;&#99;&#x6f;&#x6d;">&#54;&#55;&#x35;&#52;&#57;&#53;&#55;&#56;&#55;&#64;&#113;&#113;&#46;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/">
                 pandas教程：[25]插值法填补缺失值
             </a>
@@ -996,229 +1071,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B10%5D%E6%B1%82%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/">
-                python 线性代数：[10]求方阵的特征值特征向量
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>求方阵（矩阵）的特征值和特征向量用的是python中的numpy.linagl.eig方法，它需要一个二维数组作为参数，输出一个一位数组（元素为特征值）和一个二维数组（特征向量组），我们还是在例子中学习一哈：</p>
-<ul>
-<li>先引入numpy模块</li>
-</ul>
-<img src="/2015/05/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B10%5D%E6%B1%82%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/a1ad16fa513d2697caee42aa57fbb2fb4216d8cd.jpg" class="" title="python 线性代数：[10]求方阵的特征值特征向量">
-
-<ul>
-<li>创建一个对角矩阵，关于diag的用法可以看我前几篇文章</li>
-</ul>
-<img src="/2015/05/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B10%5D%E6%B1%82%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/29752a9b033b5bb57ea46a0934d3d539b700bc93.jpg" class="" title="python 线性代数：[10]求方阵的特征值特征向量">
-
-<ul>
-<li>求矩阵x的特征值和特征向量，特征值保存在a中，特征向量保存在b中</li>
-</ul>
-<img src="/2015/05/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B10%5D%E6%B1%82%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/b3ba5d166d224f4abaa439e40bf790529922d1cd.jpg" class="" title="python 线性代数：[10]求方阵的特征值特征向量">
-
-<ul>
-<li><p>使用循环的方法，我们来验证一下特征值和特征向量，验证的方法是特征值和特征向量的定义法：</p>
-</li>
-<li><p>设A为n阶矩阵，若存在常数λ及非零的n维向量x，使得</p>
-</li>
-<li><p>Ax&#x3D;λx，</p>
-</li>
-<li><p>则称λ是矩阵A的特征值，x是A属于特征值λ的特征向量。</p>
-</li>
-</ul>
-<img src="/2015/05/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B10%5D%E6%B1%82%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/5202e5f2b21193137630b54767380cd790238d93.jpg" class="" title="python 线性代数：[10]求方阵的特征值特征向量">
-
-<ul>
-<li>这是我今天犯的错误：</li>
-</ul>
-<img src="/2015/05/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B10%5D%E6%B1%82%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/6a22e8246b600c332d44943f184c510fd8f9a1cd.jpg" class="" title="python 线性代数：[10]求方阵的特征值特征向量">
-
-<ul>
-<li><p>这是今天用到的所有代码：</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>import numpy</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>x&#x3D;numpy.diag((1,2,3))</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>x</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 0, 0],</p>
-</li>
-<li><pre><code>   [0, 2, 0],
-</code></pre>
-</li>
-<li><pre><code>   [0, 0, 3]])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a,b&#x3D;numpy.linalg.eig(x)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([ 1.,  2.,  3.])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>b</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1.,  0.,  0.],</p>
-</li>
-<li><pre><code>   [ 0.,  1.,  0.],
-</code></pre>
-</li>
-<li><pre><code>   [ 0.,  0.,  1.]])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>for i in range(3):</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>if numpy.dot(x,b[:][i])&#x3D;&#x3D;a[i]*b[:][i]:</p>
-</li>
-<li><p>print ‘正确’</p>
-</li>
-<li><p>else:print ‘错误‘</p>
-</li>
-<li><p>SyntaxError: EOL while scanning string literal</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>for i in range(3):</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>if numpy.dot(x,b[:][i])&#x3D;&#x3D;a[i]*b[:][i]:</p>
-</li>
-<li><p>print ‘正确’</p>
-</li>
-<li><p>else:print ‘错误’</p>
-</li>
-<li><p>Traceback (most recent call last):</p>
-</li>
-<li><p>File “&lt;pyshell#38&gt;”, line 2, in <module></p>
-</li>
-<li><pre><code>if numpy.dot(x,b[:][i])==a[i]*b[:][i]:
-</code></pre>
-</li>
-<li><p>ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>for i in range(3):</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>if (numpy.dot(x,b[:][i])&#x3D;&#x3D;a[i]*b[:][i]).all():</p>
-</li>
-<li><p>print ‘正确’</p>
-</li>
-<li><p>else:print ‘错误’</p>
-</li>
-<li><p>正确</p>
-</li>
-<li><p>正确</p>
-</li>
-<li><p>正确</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#52;&#x39;&#53;&#x37;&#56;&#55;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#109;">&#x36;&#x37;&#53;&#52;&#x39;&#53;&#x37;&#56;&#55;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1260,6 +1112,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/05/25/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E4%B8%AD%E5%9B%A0%E5%AD%90%E8%BD%BD%E8%8D%B7%E8%87%B3%E5%B0%91%E6%98%AF%E5%A4%9A%E5%B0%91/">结构方程中因子载荷至少是多少</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/03/27/pls-sem%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%96%B9%E6%B3%95%E5%92%8C%E6%A1%88%E4%BE%8B/">pls-sem结果汇报方法和案例【以SmartPL</a>
             </li>
             
@@ -1293,10 +1149,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/10/26/2022%E5%B9%B4conda%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%89%8B%E5%86%8C/">2022年conda常用命令常见问题手册</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/10/24/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE%E6%A3%80%E6%9F%A5%E5%92%8C%E6%8E%A7%E5%88%B6%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">共同方法偏差检查和控制方法大全</a>
             </li>
             
         </ul>
