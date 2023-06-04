@@ -252,6 +252,87 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/">
+                pandas教程：[5]读取csv数据
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>很多数据是从网上下载而来，数据的格式可能是csv，那么pandas可以很容易的从csv格式的文件中读取数据，下面我们来看看具体的过程：</p>
+<ul>
+<li>引入pandas</li>
+</ul>
+<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/7787b9efce1b9d161dd32272f0deb48f8c54644a.jpg" class="" title="pandas教程：[5]读取csv数据">
+
+<ul>
+<li>使用pandas下的read_csv方法，读取csv文件，参数是文件的路径，这是一个相对路径，是相对于当前工作目录的，那么如何知道当前的工作目录呢？</li>
+</ul>
+<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/bd7faf3533fa828ba41825f0fe1f4134970a5aae.jpg" class="" title="pandas教程：[5]读取csv数据">
+
+<ul>
+<li>使用os.getcwd()方法获取当前工作目录</li>
+</ul>
+<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/1cd4147b02087bf47fe5effaf1d3572c11dfcf5d.jpg" class="" title="pandas教程：[5]读取csv数据">
+
+<ul>
+<li>读取前三后数据，查看一下是否读取正确，显然都是乱码，这是什么问题呢？</li>
+</ul>
+<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/95afee1f3a292df509d71406bf315c6034a8734a.jpg" class="" title="pandas教程：[5]读取csv数据">
+
+<ul>
+<li>我们需要设定参数encoding，也就是编码方式，如果你不设定编码方式，默认是utf8，现在csv文件是gbk编码的，所以需要使用encoding&#x3D;’gbk’</li>
+</ul>
+<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/2cb4fefe9925bc31b049b98b5ddf8db1cb13704a.jpg" class="" title="pandas教程：[5]读取csv数据">
+
+<ul>
+<li>我用的编辑器是eric4，注意，eric4默认是不支持中文的，如果你想要显示中文，前提是设置正确的编码，在preferences中</li>
+</ul>
+<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/c87c6ecf3bc79f3debda5c23b9a1cd11728b29ae.jpg" class="" title="pandas教程：[5]读取csv数据">
+
+<ul>
+<li>设置成utf8即可</li>
+</ul>
+<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/d041a4a1cd11728b5f163431cbfcc3cec3fd2cae.jpg" class="" title="pandas教程：[5]读取csv数据">
+
+<ul>
+<li>回到pandas，我们可以有更多选项来设置打开数据时的操作：</li>
+</ul>
+<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/808a27dbb6fd5266fd228707a818972bd407365c.jpg" class="" title="pandas教程：[5]读取csv数据">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;">&#54;&#55;&#53;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/06/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B8%5D%E8%AE%A1%E7%AE%97%E7%9F%A9%E9%98%B5%E8%B7%9D%E7%A6%BB/">
                 python 线性代数：[8]计算矩阵距离
             </a>
@@ -1165,103 +1246,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B73%5D%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85eric4/">
-                python教程：[73]下载安装eric4
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>如何安装python的eric4包？因为python自带的IDLE不好用，我只好自己安装一个eric4，安装的过程较长，主要是找安装包和处理它的依赖包，所以我把你需要的资源都列在文章最下面，方便下载，跟着我的步骤做就可以了。</p>
-<ul>
-<li>首先我们需要下载需要用到的pyqt4和eric4，我的电脑是64位的win7，python版本是2.7，我提供的下载资源也是与我的电脑对应的，如果你的不合适，自行下载</li>
-</ul>
-<img src="/2015/06/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B73%5D%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85eric4/55a628d12f2eb93837a3f9c0d6628535e4dd6ff3.jpg" class="" title="python教程：[73]下载安装eric4">
-
-<ul>
-<li>先安装pyqt4，这个是exe安装包，双击就可以打开</li>
-</ul>
-<img src="/2015/06/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B73%5D%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85eric4/b87985504fc2d5622ac653dfe41190ef77c66cf3.jpg" class="" title="python教程：[73]下载安装eric4">
-
-<ul>
-<li>一路next就可以安装，但是你需要检查一下在这个步骤中，看看python的安装路径对不对，比如我是安装在D盘的，但是这里显示的不正确，回头检查错误发现，我应该下载python2.7对应的pyqt</li>
-</ul>
-<img src="/2015/06/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B73%5D%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85eric4/1899a23eb13533fa5591111cabd3fd1f41345b9a.jpg" class="" title="python教程：[73]下载安装eric4">
-
-<ul>
-<li>最后这里把c盘改为d盘就是正确得了</li>
-</ul>
-<img src="/2015/06/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B73%5D%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85eric4/9e7ce6dcd100baa1210bc5894410b912c8fc2e9a.jpg" class="" title="python教程：[73]下载安装eric4">
-
-<ul>
-<li>接着打开下载下来的eric4，将其解压到D盘下，当然你解压到哪里都没问题</li>
-</ul>
-<img src="/2015/06/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B73%5D%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85eric4/c9bdddcec3fdfc03665f618ad73f8794a4c2269a.jpg" class="" title="python教程：[73]下载安装eric4">
-
-<ul>
-<li>看到这个install.py在什么位置，记住他</li>
-</ul>
-<img src="/2015/06/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B73%5D%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85eric4/fd428c45d688d43f708e13c07e1ed21b0ef43b9a.jpg" class="" title="python教程：[73]下载安装eric4">
-
-<ul>
-<li>在dos下进入该目录</li>
-</ul>
-<img src="/2015/06/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B73%5D%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85eric4/a583631ed21b0ef4e7cf1a6cdec451da81cb3e9a.jpg" class="" title="python教程：[73]下载安装eric4">
-
-<ul>
-<li>然后运行python install.py，安装成功！</li>
-</ul>
-<img src="/2015/06/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B73%5D%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85eric4/ac2fc3c451da81cb38c001ff5166d0160924319a.jpg" class="" title="python教程：[73]下载安装eric4">
-
-<ul>
-<li>如果你看到这样的提示，说明你的pyqt安装失败，你需要检查你下载的pyqt版本是不是正确</li>
-</ul>
-<img src="/2015/06/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B73%5D%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85eric4/c856613e6709c93d973c8dc59c3df8dcd00054f3.jpg" class="" title="python教程：[73]下载安装eric4">
-
-<ul>
-<li>你最好在安装eric钱先验证一下是不是有pyqt4包</li>
-</ul>
-<img src="/2015/06/01/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B73%5D%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85eric4/cc506c8b4710b912390f75ccc0fdfc03934522f3.jpg" class="" title="python教程：[73]下载安装eric4">
-
-<ul>
-<li><p>这里是需要下载的安装包：PyQt4:链接: <a target="_blank" rel="noopener" href="http://pan.baidu.com/s/1bBrWE">http://pan.baidu.com/s/1bBrWE</a> 密码: 1lqs</p>
-</li>
-<li><p>Eric4: 链接: <a target="_blank" rel="noopener" href="http://pan.baidu.com/s/1o6Lof70">http://pan.baidu.com/s/1o6Lof70</a> 密码: qyfz</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#52;&#x39;&#53;&#55;&#56;&#55;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#109;">&#54;&#x37;&#53;&#52;&#x39;&#53;&#55;&#56;&#55;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1303,6 +1287,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/06/04/so-vits-svc%E6%9C%80%E5%BC%BA%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%8B%9F%E5%A3%B0%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">so-vits-svc最强声音克隆拟声软件使用教程</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/05/25/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E4%B8%AD%E5%9B%A0%E5%AD%90%E8%BD%BD%E8%8D%B7%E8%87%B3%E5%B0%91%E6%98%AF%E5%A4%9A%E5%B0%91/">结构方程中因子载荷至少是多少</a>
             </li>
             
@@ -1336,10 +1324,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/12/05/%E5%80%92U%E5%85%B3%E7%B3%BB%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%92%8C%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90SPSS%E5%92%8CR%E8%AF%AD%E8%A8%80%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">U型关系回归分析中介效应和调节效应分析SPSS和R</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/10/26/2022%E5%B9%B4conda%E5%B8%B8%E7%94%A8%E5%91%BD%E4%BB%A4%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%E6%89%8B%E5%86%8C/">2022年conda常用命令常见问题手册</a>
             </li>
             
         </ul>
