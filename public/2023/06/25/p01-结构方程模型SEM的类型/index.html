@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <!--Description-->
+    
+        <meta name="description" content="专注于数据开发, 数据分析, 数据采集, python教学">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xxxspy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="结构方程模型的种类协方差结构方程和最小二乘法"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="专注于数据开发, 数据分析, 数据采集, python教学" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="DataSense"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>结构方程模型的种类协方差结构方程和最小二乘法 - DataSense</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <style>
+    code{
+    color: #d7ecff;
+    font-size: 110%;
+    }
+    pre > code {
+        -webkit-border-before: black;
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        color: #f9f4f4;
+        word-break: break-all;
+        word-wrap: break-word;
+        background-color: #f5f5f500;
+        border: 1px solid #eff3f521;
+        border-radius: 0;
+    }
+    pre > code::before {
+        content:"- ";
+        z-index: -1;
+        left:-2px;
+    }
+    #feedAv{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #MZAD_POP_PLACEHOLDER{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #pop_ad{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    </style>
+
+    
+        <!-- mathjax -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        var maths = document.getElementsByTagName("code");
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+    </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: true,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"],["$","$"]],
+      displayMath: [["\\[", "\\]"],["$$", "$$"]],
+      skipTags: ['^(?!code).*$']
+    }
+  });
+  var maths = document.getElementsByTagName("code");
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+</script>
+
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [ ['\\(','\\)']]} });
+</script> -->
+
+<!-- <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script> -->
+
+    
+    
+    
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+    <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i>
+        
+            <p id="main-title" class="title">DataSense</p>
+        
+        </a>
+    </div>
+</header>
+<div class="page_list archive-container">
+        
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+            SPSS+AMOS数据分析案例教程-关于中介模
+        </a>
+    </div>
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+            SPSS视频教程内容目录和跳转链接
+        </a>
+    </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+                SPSS+AMOS数据分析案例教程-关于中介模
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+                SPSS视频教程内容目录和跳转链接
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="https://mlln.cn/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">
+                R语言快速入门视频教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a target="_blank" rel="noopener" href="https://space.bilibili.com/383752637/channel/collectiondetail?sid=778283">
+                Python智联招聘数据分析
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/07/24/潜在类别分析入门/">
+                LCA潜在类别分析和Mplus应用
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/06/12/Amos结构方程数据分析案例教程/">
+                Amos结构方程模型数据分析入门教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/12/05/倒U关系回归分析中介效应和调节效应分析SPSS和R语言应用视频教程/">
+                倒U关系回归分析中介效应和调节效应分析SPSS视频教程
+            </a>
+        </div>
+    
+</div>
+
+    <!-- Main Content -->
+    
+
+    
+        
+<div class="row">
+    <div class="col-md-9 col-sm-12">
+        <!--Title and Logo-->
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2023/06/25/p01-%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8BSEM%E7%9A%84%E7%B1%BB%E5%9E%8B/">
+                结构方程模型的种类协方差结构方程和最小二乘法
+            </a>
+
+        </h1>
+        <div class="weibo-share">
+            <p>微博@mlln-cn, 并附上文章url链接, 我就能回答你的问题奥!</p>
+        </div>
+        <div class="post-info">
+            
+                <span class="date">2023年06月25日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+    <!-- Table of Contents -->
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#CB-SEM-%E5%9F%BA%E4%BA%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5%E7%9A%84%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">1.</span> <span class="toc-text">CB-SEM 基于协方差矩阵的结构方程模型</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AE%97%E6%B3%95%E6%B5%81%E7%A8%8B"><span class="toc-number">1.1.</span> <span class="toc-text">算法流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5"><span class="toc-number">1.2.</span> <span class="toc-text">协方差矩阵</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E4%B8%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">1.3.</span> <span class="toc-text">结构方程与协方差矩阵的关系</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.3.1.</span> <span class="toc-text">结构方程是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8B%9F%E5%90%88%E6%8C%87%E6%95%B0"><span class="toc-number">1.3.2.</span> <span class="toc-text">拟合指数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%A1%E5%9E%8B%E7%9B%B8%E5%85%B3%E7%9F%A9%E9%98%B5%E4%B8%8E%E6%A0%B7%E6%9C%AC%E7%9B%B8%E5%85%B3%E7%9F%A9%E9%98%B5"><span class="toc-number">1.3.3.</span> <span class="toc-text">模型相关矩阵与样本相关矩阵</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#PLS-SEM-%E5%9F%BA%E4%BA%8E%E6%9C%80%E5%B0%8F%E4%BA%8C%E4%B9%98%E6%B3%95%E7%9A%84%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">PLS-SEM 基于最小二乘法的结构方程模型</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#CB-SEM%E4%B8%8EPLS-SEM%E7%9A%84%E5%AF%B9%E6%AF%94"><span class="toc-number">3.</span> <span class="toc-text">CB-SEM与PLS-SEM的对比</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8PLS%E8%80%8C%E4%B8%8D%E6%98%AFCB%E7%9A%84%E5%8E%9F%E5%9B%A0"><span class="toc-number">4.</span> <span class="toc-text">使用PLS而不是CB的原因</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">5.</span> <span class="toc-text">参考文献</span></a></li></ol>
+    </div>
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>本篇文章介绍了结构方程模型的两种算法， 一个是基于协方差矩阵的结构方程模型， 简称CB-SEM， 一个是基于最小二乘法的结构方程模型， 简称PLS-SEM， CB-SEM的代表软件是AMOS、MPLUS， PLS-SEM的代表软件是martpls。<br>本篇文章介绍两种结构方程模型的不同之处， 并在最后附有视频教程。</p>
+<span id="more"></span>
+
+
+
+
+
+<h1 id="CB-SEM-基于协方差矩阵的结构方程模型"><a href="#CB-SEM-基于协方差矩阵的结构方程模型" class="headerlink" title="CB-SEM 基于协方差矩阵的结构方程模型"></a>CB-SEM 基于协方差矩阵的结构方程模型</h1><h2 id="算法流程"><a href="#算法流程" class="headerlink" title="算法流程"></a>算法流程</h2><ul>
+<li>计算显变量、测量指标的协方差矩阵、相关矩阵</li>
+<li>构建SEM模型</li>
+<li>通过SEM模型反推协方差矩阵、相关矩阵</li>
+<li>通过算法让模型拟合的协方差矩阵与真实数据的协方差矩阵最像</li>
+</ul>
+<h2 id="协方差矩阵"><a href="#协方差矩阵" class="headerlink" title="协方差矩阵"></a>协方差矩阵</h2><p>协方差矩阵是一个方阵，其中每个元素表示两个随机变量之间的协方差。协方差矩阵的对角线上的元素是每个随机变量的方差，非对角线上的元素是两个随机变量之间的协方差。¹³⁵</p>
+<p>例如，如果有两个随机变量X和Y，它们的协方差矩阵为：</p>
+<p><code>$$\begin&#123;bmatrix&#125; \operatorname&#123;Var&#125;(X) &amp; \operatorname&#123;Cov&#125;(X,Y) \\ \operatorname&#123;Cov&#125;(X,Y) &amp; \operatorname&#123;Var&#125;(Y) \end&#123;bmatrix&#125;$$</code></p>
+<h2 id="结构方程与协方差矩阵的关系"><a href="#结构方程与协方差矩阵的关系" class="headerlink" title="结构方程与协方差矩阵的关系"></a>结构方程与协方差矩阵的关系</h2><h3 id="结构方程是什么"><a href="#结构方程是什么" class="headerlink" title="结构方程是什么"></a>结构方程是什么</h3><p>我们假定你知道回归分析和因子分析, 那么结构方程模型就很好理解, 结构方程模型就是回归+因子分析.</p>
+<p>因子分析就是用多个指标或者问卷题目代表一个因子, 或者说是用多个题目测量一个因子. 回归分析就是分析因子之间的关系.</p>
+<p>结构方程模型由两部分组成:测量和结构. 测量部分从概念上理解就是因子分析, 结构部分就可以理解为回归. 但是结构方程与因子分析和回归是完全不同的算法.</p>
+<p>结构方程模型（Structural Equation Model,简称SEM）是基于变量的协方差矩阵来分析变量之间关系的一种统计方法，因此也称为协方差结构分析¹。在 SEM 中，协方差矩阵是一个非常重要的概念，因为结构方程的输入数据就是协方差矩阵。协方差矩阵可以用来估计模型参数，从而得到模型的拟合度¹。</p>
+<p>我们知道协方差矩阵就是非常好的一个工具, 用于展现变量之间的关系, 变量相关越高协方差就越大. 那么为什么我们还需要做结构方程模型呢? 其实没有什么深奥的道理, 结构方程就是对协方差矩阵的一个简化和提炼, 因为人类无法理解大规模的矩阵, 而结构方程却可以用直观的图来展现变量关系, 对比一下:</p>
+<img src="imgs/协方差矩阵.png">
+
+<img src="imgs/结构方程.png">
+
+<p>结构方程建模的目的你应该感受到了, 我们从嘈杂的协方差矩阵中首先提炼出来了潜变量(因子), 这个叫做测量模型, 这些潜变量没有出现在协方差当中,<br>但是为了简化模型, 结构方程用潜变量代表几个测量指标, 用这个潜变量来计算与其他变量之间的关系, 这部分叫做结构模型,<br>经过模型的提炼, 我们就可以理解变量的关系了, 让人有直观的感受. </p>
+<h3 id="拟合指数"><a href="#拟合指数" class="headerlink" title="拟合指数"></a>拟合指数</h3><p>对协方差矩阵的提炼得到了结构方程, 结构方程是否能够反映你的协方差矩阵呢? 我们就提出了拟合指数, 说白了就是拟合指数达标意味着你的结构方程模型能够代表你的协方差矩阵. 如果拟合不达标, 意味着你构建的模型无法代表你的协方差矩阵, 即便这个模型多么符合你的预期或者符合理论的预期, 这个模型都是没用的, 因为它不能代表真实的数据.</p>
+<p>想要拟合达标是非常简单的, 我们可以让变量之间尽可能多的有连线, 这样拟合出来的模型就是接近完美的:</p>
+<img src="imgs/结构方程完美.png">
+
+<p>但是正如你所见, 这样的模型是无用的, 无法理解的, 因为它不够简约, 没有理论价值.</p>
+<p>所以, 我们结构方程最大的目的就是简化变量关系, 但是关系越简化拟合就会越差, 我们做结构方程就是要用最简约的模型达到最优的拟合, 需要找到一个平衡点.</p>
+<h3 id="模型相关矩阵与样本相关矩阵"><a href="#模型相关矩阵与样本相关矩阵" class="headerlink" title="模型相关矩阵与样本相关矩阵"></a>模型相关矩阵与样本相关矩阵</h3><p>这是样本相关矩阵:</p>
+<img src="imgs/sample-correlation.png">
+
+<p>这是模型拟合的相关矩阵:</p>
+<img src="imgs/model-correlation.png">
+
+<h1 id="PLS-SEM-基于最小二乘法的结构方程模型"><a href="#PLS-SEM-基于最小二乘法的结构方程模型" class="headerlink" title="PLS-SEM 基于最小二乘法的结构方程模型"></a>PLS-SEM 基于最小二乘法的结构方程模型</h1><img src="imgs/pls-sem.png">
+
+<ul>
+<li>Stage 0: 合成潜变量分数， 比如Yj由5个题目， 那么Yj就是5个题目得分的均值</li>
+<li>Stage 1： 循环下面四个步骤直到收敛<ul>
+<li>#1: 内部权重， 它指的是变量之间的关系， 当变量之间有直接连线时， 他们之间的内部权重就是这两个变量的协方差</li>
+<li>#2: 内部估计: 经过上一步， 我们已经求得变量的权重， 然后利用权重可以重新计算Yj的估计</li>
+<li>#3: 外部权重: 即潜变量与测量指标之间的权重，因为测量指标分为两种：反映性指标和形成性指标，根据他们的不同定义，形成性指标使用第一个公式，反映性指标使用第二个公式，利用公式可以得到权重w</li>
+<li>#4: 外部估计: 测量指标x是已知的， 上一部计算得到了权重w， 这一步可以使用这两个数据重新计算潜变量Y</li>
+<li>以上步骤重复进行， 直到收敛， 收敛的意思是参数和变量的变化很小。 收敛后最重要的是得到了潜变量的数据Y</li>
+</ul>
+</li>
+<li>Stage: 2 and 3: 以上步骤得到了潜变量的数据， 那么所有变量的数据就已经得到， 那么接下来就是求所有的模型参数，包括路径系数、权重等</li>
+</ul>
+<p>在2和3阶段使用的就是最小二乘法， 最小二乘法的优化目标就是自变量对因变量的预测误差最小化， 所以使用pls-sem的最大特点是可以对因变量进行预测， 并且得到最优的预测结果， 这是cb-sem所不具有的。</p>
+<h1 id="CB-SEM与PLS-SEM的对比"><a href="#CB-SEM与PLS-SEM的对比" class="headerlink" title="CB-SEM与PLS-SEM的对比"></a>CB-SEM与PLS-SEM的对比</h1><img src="imgs/plsVScbSEM.png">
+
+<h1 id="使用PLS而不是CB的原因"><a href="#使用PLS而不是CB的原因" class="headerlink" title="使用PLS而不是CB的原因"></a>使用PLS而不是CB的原因</h1><img src="imgs/whyUsePLS.png">
+
+<ul>
+<li>目标是变量预测</li>
+<li>模型太复杂</li>
+<li>模型中包含形成性指标</li>
+<li>样本量有限</li>
+<li>缺乏测量模型</li>
+<li>需要求得潜变量的分数用于后续分析</li>
+<li>当数据不满足CB-SEM的要求时，或者模型无法拟合时，不得不采用PLS-SEM</li>
+</ul>
+<h1 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h1><ul>
+<li>Sarstedt, Marko &amp; Ringle, Christian &amp; Hair, Joseph. (2021). Partial Least Squares Structural Equation Modeling. 10.1007&#x2F;978-3-319-05542-8_15-2.</li>
+</ul>
+<blockquote>
+<p><strong>注意</strong><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的, 不论什么模型都可以, 只限制于1个研究内.<br>跟我学统计可以代做分析, 每单几百元不等.<br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="p01-%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8BSEM%E7%9A%84%E7%B1%BB%E5%9E%8B.ipynb">notebook</a><br>可以在微博上@mlln-cn向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
+</blockquote>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/结构方程/">#结构方程</a>
+        </div>
+    
+
+
+
+</div>
+        </section>
+        <section>
+            <div class="content" style="color: #d7ecff">
+                <h3 id="赞助"><a href="#赞助" class="headerlink" title="赞助"></a>赞助</h3>
+                <p>持续创造有价值的内容, 我需要你的帮助</p>
+                <p><img src="/img/收款二维码.png" class="img-thumbnail"></p>
+            </div>
+        </section>
+        <!-- changyan comments -->
+        <section class="main">
+            <!--PC版畅言-->
+
+<div class="container"><div id="SOHUCS" sid="2023/06/25/p01-结构方程模型SEM的类型/"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cysqnjGqk',
+conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
+});
+setInterval(()=>{
+    $('#closePoPBD').click()
+}, 2000)
+</script>
+</div>
+
+        </section>
+    </div>
+
+    <!-- rightside -->
+    <div class="col-md-3 col-sm-12 rightside">
+        <div class="related-posts">
+    <h3>
+        <a href="#">
+            赞助推荐
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://jupyter.cn/home/">问卷代填保证质量</a>
+            </div>
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=2013.1.w4023-21724689242.4.76085e0a2k46Ky&amp;id=601314051411">问卷代填保证质量</a>
+            </div>
+        
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        常用工具
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a href="/mplusoutput/">Mplus结果查看器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/drawio/">绘图软件</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2018/09/26/在线绘制中介效应图/">
+                在线绘制中介效应图
+            </a>
+        </div>
+        <div class="archive-post">
+            <a href="/neural/">神经网络可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/psychopy/">psychopy教程</a>
+        </div>
+        <div class="archive-post">
+            <a href="/vector/">[词向量]高维向量可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/demos/evolutionSimulator/">[tensorflow.js案例]进化算法演示</a>
+        </div>
+        <div class="archive-post">
+            <a href="/guideToPython/">[书]Python最佳实践</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/10/10/sobel检验原理和一键计算器/">Sobel检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">平均方差提取量AVE和组合信度CR计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">卡方检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">简单交互效应可视化工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/12/23/均值差异的效应量在线计算器/">两组均值差异的效应量在线计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="https://mlln.cn/2020/09/17/%E5%8D%A1%E6%96%B9%E5%B7%AE%E5%80%BC%E7%9A%84%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C/">卡方差值的显著性检验</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/结构方程/">
+            结构方程
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2023/06/25/p01-%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8BSEM%E7%9A%84%E7%B1%BB%E5%9E%8B/">
+                    结构方程模型的种类协方差结构方程和最小二乘法
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/09/20/R%E8%AF%AD%E8%A8%80%E5%81%9A%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%85%A5%E9%97%A8/">
+                    R语言做结构方程模型入门
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/08/31/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E5%88%86%E6%9E%90%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F/">
+                    结构方程模型多组比较分析调节变量
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/">
+                    潜在类别分析LCA入门
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/06/12/Amos%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B/">
+                    Amos结构方程模型数据分析入门教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/01/12/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+                    结构方程模型最佳实践
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts hidden-sm-down">
+    <h3>
+        <a href="#">
+            友商赞助
+        </a>
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a target="_blank" rel="noopener" href="http://jupyter.cn">
+                  问卷大全问卷案例下载
+            </a>
+            <a href="https://mlln.cn/2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/">
+                大学生互填问卷群推荐
+            </a>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 footer-about">
+                <h2>About</h2>
+                <p>
+                    这是<code>xxxspy</code>的个人博客
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2023/06/25/p01-%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8BSEM%E7%9A%84%E7%B1%BB%E5%9E%8B/">结构方程模型的种类协方差结构方程和最小二乘法</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/06/04/so-vits-svc%E6%9C%80%E5%BC%BA%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%8B%9F%E5%A3%B0%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">so-vits-svc最强声音克隆拟声软件使用教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/05/25/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E4%B8%AD%E5%9B%A0%E5%AD%90%E8%BD%BD%E8%8D%B7%E8%87%B3%E5%B0%91%E6%98%AF%E5%A4%9A%E5%B0%91/">结构方程中因子载荷至少是多少</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/03/27/pls-sem%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%96%B9%E6%B3%95%E5%92%8C%E6%A1%88%E4%BE%8B/">pls-sem结果汇报方法和案例【以SmartPL</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/03/25/SPSS-Process-%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7/">SPSS Process 调节效应绘图工具</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/02/28/%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%E6%A8%A1%E5%9E%8B%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B/">网络分析模型和R应用案例教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/02/16/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8ER%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型教程及R应用</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/02/14/rwg%E8%AF%84%E5%88%86%E8%80%85%E5%86%85%E9%83%A8%E4%B8%80%E8%87%B4%E6%80%A7%E6%8C%87%E6%A0%87%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">评分者内部一致性Rwg和Intraclass相关系</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/01/31/APIM%E4%B8%BB%E5%AE%A2%E4%BD%93%E7%9B%B8%E4%BE%9D%E6%A8%A1%E5%9E%8B%E6%88%90%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Amplus%E5%BA%94%E7%94%A8/">APIM主客体相依模型成对数据分析以及mplus应</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2022/12/10/Transformer%E8%AF%A6%E7%BB%86%E8%A7%A3%E8%AF%BB%E5%92%8C%E4%BB%A3%E7%A0%81%E6%A1%88%E4%BE%8B/">Transformer详细解读和代码实现</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 footer-tags">
+    <h2>tags</h2>
+    <ul>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%87%E6%9C%AC%E6%8C%96%E6%8E%98/">文本挖掘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8A%A5%E5%91%8A%E7%B3%BB%E7%BB%9F/">报告系统</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/spss/">spss</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/python/">python</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/manim/">manim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/amos/">amos</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE/">共同方法偏差</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BF%A1%E5%BA%A6%E5%88%86%E6%9E%90/">信度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%88%E5%BA%A6%E5%88%86%E6%9E%90/">效度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB/">问卷互填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%98%9F/">问卷星</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BB%A3%E5%A1%AB/">问卷代填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E7%BD%91/">问卷网</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/conda/">conda</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B/">结构方程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/VBA/">VBA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mplus/">mplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/django/">django</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime/">eprime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/EM/">EM</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8E%A8%E8%8D%90%E4%B9%A6/">推荐书</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/">卡方检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/javascript/">javascript</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Latex/">Latex</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mysql/">mysql</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jupyter/">jupyter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R/">R</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%98%BE%E8%91%97%E6%80%A7/">显著性</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Q-learning/">Q-learning</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R%E8%AF%AD%E8%A8%80/">R语言</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/r/">r</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/process/">process</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94/">调节效应</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow-js/">tensorflow.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BD%9C%E6%96%87%E8%AF%84%E5%88%86/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/t%E6%A3%80%E9%AA%8C/">t检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/">方差分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/NLP/">NLP</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%AF%AD%E6%96%99%E5%BA%93/">语料库</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nodejs/">nodejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/electron/">electron</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/e-prime/">e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gensim/">gensim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/">摘要生成</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/git/">git</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gui/">gui</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jamovi/">jamovi</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/notebook/">notebook</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E6%95%99%E7%A8%8B/">keras教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E5%9F%BA%E7%A1%80/">keras基础</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongodb/">mongodb</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jieba/">jieba</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongoengine/">mongoengine</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/meta%E5%88%86%E6%9E%90/">meta分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nginx/">nginx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/networkx/">networkx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/dataframe/">dataframe</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pandas/">pandas</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%B8%8B%E8%BD%BD/">下载</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BD%91%E7%9B%98/">网盘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pychrome/">pychrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pydotplus/">pydotplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pymongo/">pymongo</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/graphviz/">graphviz</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/selenium/">selenium</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/">格式化字符串</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lru-cache/">lru_cache</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/os/">os</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">时间序列</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/print/">print</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pil/">pil</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tkinter/">tkinter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/js2py/">js2py</a>
+        </span>
+        
+    </ul>
+</div>
+
+            
+        </div>
+        <!-- links -->
+
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-about">
+        <h2>Links</h2>
+        <ul>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/baidusitemap.xml" target="_blank">网站地图</a><span> | </span>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/sitemap.xml" target="_blank">DataScience</a><span> | </span>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/xxxspy">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:675495787@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @感谢github免费托管，hexo的静态网站引擎和模板主题制作者<a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                    <br/>
+                    <a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">京ICP备16033873号-2</>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<!-- tweenmax -->
+<script src="/js/TweenMax.min.js">
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- bootstrap.js -->
+<script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Baidu link push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<!-- baidu_static -->
+
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?588f06b88af0ef575445f53432cd15ec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>

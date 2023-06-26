@@ -252,6 +252,73 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/03/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B24%5D%E5%88%A0%E9%99%A4%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/">
+                pandas教程：[24]删除缺失数据
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>假如数据量比较大或者有冗余，我们可以删掉有缺失值的数据，你可以选择删除行或者删除列，用的都是DataFrame.dropna()，当然Series也有dropna方法，用法相同。</p>
+<ul>
+<li>引入相关模块</li>
+</ul>
+<img src="/2015/03/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B24%5D%E5%88%A0%E9%99%A4%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/e78c65899e510fb36d342190da33c895d1430c4c.jpg" class="" title="pandas教程：[24]删除缺失数据">
+
+<ul>
+<li>创建一个带有缺失值的数据框：<br>查看一下数据内容：</li>
+</ul>
+<img src="/2015/03/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B24%5D%E5%88%A0%E9%99%A4%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/5af4d7ea15ce36d30012d53739f33a87e950b160.jpg" class="" title="pandas教程：[24]删除缺失数据">
+
+<img src="/2015/03/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B24%5D%E5%88%A0%E9%99%A4%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/0b907cd9f2d3572cb2cfcadb8913632762d0c34d.jpg" class="" title="pandas教程：[24]删除缺失数据">
+
+<ul>
+<li>通常情况下，我们选择删除行，使用参数axis&#x3D;0，这是最常用的方法<br>删除后的结果为：</li>
+</ul>
+<img src="/2015/03/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B24%5D%E5%88%A0%E9%99%A4%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/a84052086e061d95966b613f78f40ad162d9ca4d.jpg" class="" title="pandas教程：[24]删除缺失数据">
+
+<img src="/2015/03/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B24%5D%E5%88%A0%E9%99%A4%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/906289dda144ad34b0a9d180d3a20cf431ad8560.jpg" class="" title="pandas教程：[24]删除缺失数据">
+
+<ul>
+<li>还有可能的是，我们选择删除列，这种情况不多，因为通常我们选择用列表示一个变量或者指标，我们通常不会因为有几个缺失值就删除一个变量<br>输出结果为：</li>
+</ul>
+<img src="/2015/03/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B24%5D%E5%88%A0%E9%99%A4%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/0b3a1c087bf40ad1c2c991e4542c11dfa9ecce4d.jpg" class="" title="pandas教程：[24]删除缺失数据">
+
+<img src="/2015/03/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B24%5D%E5%88%A0%E9%99%A4%E7%BC%BA%E5%A4%B1%E6%95%B0%E6%8D%AE/90cebeec08fa513d8b873ad93e6d55fbb2fbd94d.jpg" class="" title="pandas教程：[24]删除缺失数据">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#52;&#57;&#x35;&#x37;&#56;&#55;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;">&#x36;&#x37;&#53;&#52;&#57;&#x35;&#x37;&#56;&#55;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/03/01/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5DURLpattern%E7%9A%84%E8%AF%AD%E6%B3%95%20-%20%E5%89%AF%E6%9C%AC/">
                 Django教程：[5]URLpattern的语法
             </a>
@@ -875,81 +942,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/02/19/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90amos21%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E9%99%84%E5%B8%A6%E5%AF%86%E9%92%A5%E6%B3%A8%E5%86%8C%E7%A0%81/">
-                统计分析amos21安装破解方法附带密钥注册码
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年02月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>amos是出色的统计分析软件, 通常我们使用amos进行结构方程的分析,因为它有强大而又简单的绘图功能,所以受到很多社会学者的青睐。下面我们分享一个破解该软件的方法,希望对各个研究者有所帮助。</p>
-<ul>
-<li>首先我们去下载amos软件,下面的链接上有这个软件的下载链接,里面还有一个破解文件,这个文件是最重要的。先安装amos,一直点击下一步,到下面这个界面的时候,选择下面第二个选项,也就是临时版本</li>
-</ul>
-<img src="/2015/02/19/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90amos21%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E9%99%84%E5%B8%A6%E5%AF%86%E9%92%A5%E6%B3%A8%E5%86%8C%E7%A0%81/6648d73d70cf3bc778b342c2d000baa1cd112a2a.jpg" class="" title="统计分析amos21安装破解方法附带密钥注册码">
-
-<ul>
-<li>接着我们要设置临时文件夹,我们使用软件默认的安装文件夹就可以了,点击右面的浏览按钮</li>
-</ul>
-<img src="/2015/02/19/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90amos21%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E9%99%84%E5%B8%A6%E5%AF%86%E9%92%A5%E6%B3%A8%E5%86%8C%E7%A0%81/0ef2112442a7d933d8546b5dac4bd11372f001e4.jpg" class="" title="统计分析amos21安装破解方法附带密钥注册码">
-
-<ul>
-<li>在打开的对话框中,有一个temp的文件,双击这个文件即可</li>
-</ul>
-<img src="/2015/02/19/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90amos21%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E9%99%84%E5%B8%A6%E5%AF%86%E9%92%A5%E6%B3%A8%E5%86%8C%E7%A0%81/d872d695d143ad4bc2d2c9ee83025aafa50f06e4.jpg" class="" title="统计分析amos21安装破解方法附带密钥注册码">
-
-<ul>
-<li>接着打开开始菜单，找到ibm spss amos，里面有一个注册快捷方式，点击它，如图所示</li>
-</ul>
-<img src="/2015/02/19/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90amos21%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E9%99%84%E5%B8%A6%E5%AF%86%E9%92%A5%E6%B3%A8%E5%86%8C%E7%A0%81/d56b3634349b033b27c073f414ce36d3d539bd11.jpg" class="" title="统计分析amos21安装破解方法附带密钥注册码">
-
-<ul>
-<li>打开这个授予许可对话框，点击下一步，选择立即授予产品许可</li>
-</ul>
-<img src="/2015/02/19/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90amos21%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E9%99%84%E5%B8%A6%E5%AF%86%E9%92%A5%E6%B3%A8%E5%86%8C%E7%A0%81/72b19c025aafa40f535c41f3aa64034f79f019c2.jpg" class="" title="统计分析amos21安装破解方法附带密钥注册码">
-
-<img src="/2015/02/19/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90amos21%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E9%99%84%E5%B8%A6%E5%AF%86%E9%92%A5%E6%B3%A8%E5%86%8C%E7%A0%81/78701455b319ebc49484f9b78326cffc1f1716e4.jpg" class="" title="统计分析amos21安装破解方法附带密钥注册码">
-
-<ul>
-<li>从下面的参考文献中下载下来的压缩包里有一个注册码，将注册码填写进去，然后点击下一步即可完成注册</li>
-</ul>
-<img src="/2015/02/19/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90amos21%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E9%99%84%E5%B8%A6%E5%AF%86%E9%92%A5%E6%B3%A8%E5%86%8C%E7%A0%81/3bc6f750352ac65c974de95dfaf2b21193138a11.jpg" class="" title="统计分析amos21安装破解方法附带密钥注册码">
-
-<img src="/2015/02/19/%E7%BB%9F%E8%AE%A1%E5%88%86%E6%9E%90amos21%E5%AE%89%E8%A3%85%E7%A0%B4%E8%A7%A3%E6%96%B9%E6%B3%95%E9%99%84%E5%B8%A6%E5%AF%86%E9%92%A5%E6%B3%A8%E5%86%8C%E7%A0%81/c71d0e385343fbf23864290db17eca8065388f11.jpg" class="" title="统计分析amos21安装破解方法附带密钥注册码">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#52;&#x39;&#53;&#55;&#56;&#x37;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#x36;&#x37;&#x35;&#52;&#x39;&#53;&#55;&#56;&#x37;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/amos/">#amos</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -991,6 +983,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/06/25/p01-%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8BSEM%E7%9A%84%E7%B1%BB%E5%9E%8B/">结构方程模型的种类协方差结构方程和最小二乘法</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/06/04/so-vits-svc%E6%9C%80%E5%BC%BA%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%8B%9F%E5%A3%B0%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">so-vits-svc最强声音克隆拟声软件使用教程</a>
             </li>
             
@@ -1024,10 +1020,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/12/10/Transformer%E8%AF%A6%E7%BB%86%E8%A7%A3%E8%AF%BB%E5%92%8C%E4%BB%A3%E7%A0%81%E6%A1%88%E4%BE%8B/">Transformer详细解读和代码实现</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/12/05/%E5%80%92U%E5%85%B3%E7%B3%BB%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%92%8C%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90SPSS%E5%92%8CR%E8%AF%AD%E8%A8%80%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">U型关系回归分析中介效应和调节效应分析SPSS和R</a>
             </li>
             
         </ul>

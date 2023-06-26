@@ -252,6 +252,117 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/">
+                DataNitro：[2]调用Python的方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>作为入门的第二篇文章，我们还是要讲一些基础的东西，这篇文章我们介绍一下如何在datanitro下使用Python来操作excel。</p>
+<ul>
+<li>第一种方式，我们可以在Python shell里面运行Python代码，点击它打开</li>
+</ul>
+<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/5327ce160924ab1887e97a6636fae6cd7a890ba0.jpg" class="" title="DataNitro：[2]调用Python的方法">
+
+<ul>
+<li>一开始我们会看到这个界面，出现了欢迎信息，说明你的datanitro Python shell是可以工作的。</li>
+</ul>
+<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/b3f6cea20cf431ad6860d8684836acaf2fdd98f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
+
+<ul>
+<li>输入一个简单的命令：Cell(1,1).value&#x3D;’hello world’（注意大小写）；按回车就可以执行</li>
+</ul>
+<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/adee30dda3cc7cd9279faf883a01213fb90e91f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
+
+<ul>
+<li>这段代码的效果就是单元格A1赋值为hello world</li>
+</ul>
+<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/d002b34bd11373f09dc0f4cea70f4bfbfaed04a0.jpg" class="" title="DataNitro：[2]调用Python的方法">
+
+<ul>
+<li>我们可以使用Python中已经安装的包：</li>
+</ul>
+<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/7aad4ae736d12f2e0ab735314cc2d562843568f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
+
+<ul>
+<li>我们可以先建立一个Python的脚本文件**.py，然后引入该文件：点击import</li>
+</ul>
+<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/e49cf91190ef76c61b60607a9e16fdfaae5167f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
+
+<ul>
+<li>找到该Python文件并打开</li>
+</ul>
+<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/42e89c26cffc1e17b84017604990f603728de9a1.jpg" class="" title="DataNitro：[2]调用Python的方法">
+
+<ul>
+<li>你会看到这个文件已经被引入，点击editor就可以编辑该文件</li>
+</ul>
+<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/8bc3a7014a90f603454f07163a12b31bb151eda1.jpg" class="" title="DataNitro：[2]调用Python的方法">
+
+<ul>
+<li>编辑器也是够难看的！但是我们可以先输入以下代码试试：注意#号表示注释，没有任何作用，实质上只有一句话有用：Cell(1,3).value&#x3D;u’中文’</li>
+</ul>
+<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/8cf0d513495409230fdbf82f9158d109b2de49f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
+
+<ul>
+<li>然后回到excel，点击run，就可以执行命令</li>
+</ul>
+<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/570f8c58d109b3de4b0d7f39cfbf6c81810a4cf6.jpg" class="" title="DataNitro：[2]调用Python的方法">
+
+<ul>
+<li>用过excel函数的都知道它有多么强大，现在我们有机会写自己的函数了，我们需要先建立一个名字为functions.py的文件</li>
+</ul>
+<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/d048adde9c82d1581530c2e0830a19d8bd3e42f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
+
+<ul>
+<li>在里面写入一个function并保存</li>
+</ul>
+<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/a84052086e061d955bb9ac6978f40ad163d9caa1.jpg" class="" title="DataNitro：[2]调用Python的方法">
+
+<ul>
+<li>记得检查在设置里面是否有允许使用Python自定义函数，如果你没有选，你需要选上他，然后重启excel</li>
+</ul>
+<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/4075890a304e251f7d457fa9a486c9177e3e53f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
+
+<ul>
+<li>现在在单元格里使用一下该函数，你可以看到效果：</li>
+</ul>
+<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/964b2e4e251f95ca384709e7ca177f3e660952f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#109;">&#54;&#x37;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/datanitro/">#datanitro</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/10/01/excel2007%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E8%AE%BF%E9%97%AE%E6%9D%83%E9%99%90/">
                 excel2007如何设置访问权限
             </a>
@@ -962,102 +1073,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/09/17/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E8%BF%9B%E8%A1%8C%E8%BF%90%E7%AE%97%E5%B9%B6%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%8F%98%E9%87%8F/">
-                spss如何分组进行运算并生成新的变量
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年09月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>spss中如果要给原始的分数加上相应的分数需要使用compute，我们看一个例子，下面是不同的班级的不同的分数，因为某些原因，我们要给1班的学生的分数加上三分，给二班的学生分数加上两分，这该怎么做呢？下面是具体的方法。<br>方法&#x2F;步骤</p>
-<ul>
-<li>拿到数据以后，我们在菜单栏上执行：transform–compute variables</li>
-</ul>
-<img src="/2015/09/17/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E8%BF%9B%E8%A1%8C%E8%BF%90%E7%AE%97%E5%B9%B6%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%8F%98%E9%87%8F/09fa513d269759ee4a1de947b2fb43166c22dfe9.jpg" class="" title="spss如何分组进行运算并生成新的变量">
-
-<ul>
-<li>打开一个对话框，我们在目标变量中输入新的变量的名称，我们这里输入新成绩</li>
-</ul>
-<img src="/2015/09/17/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E8%BF%9B%E8%A1%8C%E8%BF%90%E7%AE%97%E5%B9%B6%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%8F%98%E9%87%8F/c75c10385343fbf215422fafb07eca8064388fd4.jpg" class="" title="spss如何分组进行运算并生成新的变量">
-
-<ul>
-<li>接着，因为不同的班级要加上不同的分数，所以我们需要添加条件，点击左下角的if按钮</li>
-</ul>
-<img src="/2015/09/17/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E8%BF%9B%E8%A1%8C%E8%BF%90%E7%AE%97%E5%B9%B6%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%8F%98%E9%87%8F/a044ad345982b2b763f1b04831adcbef77099bd4.jpg" class="" title="spss如何分组进行运算并生成新的变量">
-
-<ul>
-<li>在这里，选择班级这个变量，添加到右侧的条件框中，记得要先勾选【include if case satisfies condition】。然后输入&#x3D;1，也就是班级&#x3D;1.最后点击continue按钮</li>
-</ul>
-<img src="/2015/09/17/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E8%BF%9B%E8%A1%8C%E8%BF%90%E7%AE%97%E5%B9%B6%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%8F%98%E9%87%8F/7acb0a46f21fbe09e2134a986b600c338644ade9.jpg" class="" title="spss如何分组进行运算并生成新的变量">
-
-<ul>
-<li>回到数据转换对话框，将成绩这个变量添加到右侧的公式中，输入+3，这样我们基本完成了一个任务，就是当班级为1的时候，成绩加上1就形成了新成绩。但是，当班级为2的时候怎么办呢？</li>
-</ul>
-<img src="/2015/09/17/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E8%BF%9B%E8%A1%8C%E8%BF%90%E7%AE%97%E5%B9%B6%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%8F%98%E9%87%8F/adaf2edda3cc7cd93043bd553901213fb90e91d4.jpg" class="" title="spss如何分组进行运算并生成新的变量">
-
-<img src="/2015/09/17/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E8%BF%9B%E8%A1%8C%E8%BF%90%E7%AE%97%E5%B9%B6%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%8F%98%E9%87%8F/d8f9d72a6059252d415a9488349b033b5ab5b9e9.jpg" class="" title="spss如何分组进行运算并生成新的变量">
-
-<ul>
-<li>我们点击paste按钮，打开syntax窗口</li>
-</ul>
-<img src="/2015/09/17/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E8%BF%9B%E8%A1%8C%E8%BF%90%E7%AE%97%E5%B9%B6%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%8F%98%E9%87%8F/e4dde71190ef76c668bc72a79d16fdfaae5167d4.jpg" class="" title="spss如何分组进行运算并生成新的变量">
-
-<ul>
-<li>这是我们看到的代码，模仿第二行的代码，我们写当班级为2的时候，新成绩等于成绩加上2.</li>
-</ul>
-<img src="/2015/09/17/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E8%BF%9B%E8%A1%8C%E8%BF%90%E7%AE%97%E5%B9%B6%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%8F%98%E9%87%8F/2cf5e0fe9925bc31823388145edf8db1ca1370d4.jpg" class="" title="spss如何分组进行运算并生成新的变量">
-
-<ul>
-<li>这是我们写好的代码。</li>
-</ul>
-<img src="/2015/09/17/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E8%BF%9B%E8%A1%8C%E8%BF%90%E7%AE%97%E5%B9%B6%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%8F%98%E9%87%8F/b90e7bec54e736d1ea5e05849b504fc2d46269e9.jpg" class="" title="spss如何分组进行运算并生成新的变量">
-
-<ul>
-<li>在菜单栏上执行：run–all，运行命令</li>
-</ul>
-<img src="/2015/09/17/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E8%BF%9B%E8%A1%8C%E8%BF%90%E7%AE%97%E5%B9%B6%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%8F%98%E9%87%8F/ca1349540923dd54b01d2ee4d109b3de9d8248d4.jpg" class="" title="spss如何分组进行运算并生成新的变量">
-
-<ul>
-<li><p>这是最后的结果，你看到了，这里生成了新的变量。</p>
-</li>
-<li></li>
-<li></li>
-</ul>
-<img src="/2015/09/17/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E8%BF%9B%E8%A1%8C%E8%BF%90%E7%AE%97%E5%B9%B6%E7%94%9F%E6%88%90%E6%96%B0%E7%9A%84%E5%8F%98%E9%87%8F/8c1001e93901213f797ec75054e736d12e2e95e9.jpg" class="" title="spss如何分组进行运算并生成新的变量">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#x38;&#x37;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#x6d;">&#54;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#x38;&#x37;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1099,6 +1114,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/06/25/p01-%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8BSEM%E7%9A%84%E7%B1%BB%E5%9E%8B/">结构方程模型的种类协方差结构方程和最小二乘法</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/06/04/so-vits-svc%E6%9C%80%E5%BC%BA%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%8B%9F%E5%A3%B0%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">so-vits-svc最强声音克隆拟声软件使用教程</a>
             </li>
             
@@ -1132,10 +1151,6 @@
             
             <li>
                 <a class="footer-post" href="/2022/12/10/Transformer%E8%AF%A6%E7%BB%86%E8%A7%A3%E8%AF%BB%E5%92%8C%E4%BB%A3%E7%A0%81%E6%A1%88%E4%BE%8B/">Transformer详细解读和代码实现</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/12/05/%E5%80%92U%E5%85%B3%E7%B3%BB%E5%9B%9E%E5%BD%92%E5%88%86%E6%9E%90%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%92%8C%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90SPSS%E5%92%8CR%E8%AF%AD%E8%A8%80%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">U型关系回归分析中介效应和调节效应分析SPSS和R</a>
             </li>
             
         </ul>
