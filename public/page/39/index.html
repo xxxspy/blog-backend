@@ -50,10 +50,10 @@
     <title>page - DataSense</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 
     <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -247,6 +247,92 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/07/11/Excel2013%EF%BC%9A%5B45%5D%E5%A6%82%E4%BD%95%E6%8C%89%E6%9C%88%20%E5%B9%B4%E6%B1%87%E6%80%BB%E6%97%A5%E6%9C%9F%E6%95%B0%E6%8D%AE/">
+                Excel2013：[45]如何按月 年汇总日期数据
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年07月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>很多数据都是需要按照日期来分类汇总的，比如下面我要做的一个数据透视表就是需要用日期来分类汇总，但是呢，我需要按照月、季度、年来汇总，而原始数据是精确到日的（也就是年月日都有的数据），那么这种情况下，怎么进行按照月、年来分类汇总呢？看看具体的教程吧。</p>
+<ul>
+<li>首先来看一哈我的原始数据，日期一列都是精确到日的，日了</li>
+</ul>
+<img src="/2016/07/11/Excel2013%EF%BC%9A%5B45%5D%E5%A6%82%E4%BD%95%E6%8C%89%E6%9C%88%20%E5%B9%B4%E6%B1%87%E6%80%BB%E6%97%A5%E6%9C%9F%E6%95%B0%E6%8D%AE/a8ad9413632762d0a8d53cd2a2ec08fa503dc6b1.jpg" class="" title="Excel2013：[45]如何按月 年汇总日期数据">
+
+<ul>
+<li>插入数据透视表</li>
+</ul>
+<img src="/2016/07/11/Excel2013%EF%BC%9A%5B45%5D%E5%A6%82%E4%BD%95%E6%8C%89%E6%9C%88%20%E5%B9%B4%E6%B1%87%E6%80%BB%E6%97%A5%E6%9C%9F%E6%95%B0%E6%8D%AE/0fb505d5ad6eddc45b2b2c963bdbb6fd5366334b.jpg" class="" title="Excel2013：[45]如何按月 年汇总日期数据">
+
+<ul>
+<li>在弹出的对话框中，选对数据源，点击确定按钮</li>
+</ul>
+<img src="/2016/07/11/Excel2013%EF%BC%9A%5B45%5D%E5%A6%82%E4%BD%95%E6%8C%89%E6%9C%88%20%E5%B9%B4%E6%B1%87%E6%80%BB%E6%97%A5%E6%9C%9F%E6%95%B0%E6%8D%AE/90cebeec08fa513d4241f4b33f6d55fbb3fbd9b1.jpg" class="" title="Excel2013：[45]如何按月 年汇总日期数据">
+
+<ul>
+<li>我们将日期、种类、销量放入数据透视表中</li>
+</ul>
+<img src="/2016/07/11/Excel2013%EF%BC%9A%5B45%5D%E5%A6%82%E4%BD%95%E6%8C%89%E6%9C%88%20%E5%B9%B4%E6%B1%87%E6%80%BB%E6%97%A5%E6%9C%9F%E6%95%B0%E6%8D%AE/5327ce160924ab1885da795a37fae6cd7a890b4b.jpg" class="" title="Excel2013：[45]如何按月 年汇总日期数据">
+
+<ul>
+<li>这就是做好的数据透视表，接下来就到了关键的地方，怎么按照月来汇总呢？</li>
+</ul>
+<img src="/2016/07/11/Excel2013%EF%BC%9A%5B45%5D%E5%A6%82%E4%BD%95%E6%8C%89%E6%9C%88%20%E5%B9%B4%E6%B1%87%E6%80%BB%E6%97%A5%E6%9C%9F%E6%95%B0%E6%8D%AE/507c389759ee3d6d322d1fa641166d224e4adeb1.jpg" class="" title="Excel2013：[45]如何按月 年汇总日期数据">
+
+<ul>
+<li>选中数据透视表中的一个日期的单元格，记得一定是日期</li>
+</ul>
+<img src="/2016/07/11/Excel2013%EF%BC%9A%5B45%5D%E5%A6%82%E4%BD%95%E6%8C%89%E6%9C%88%20%E5%B9%B4%E6%B1%87%E6%80%BB%E6%97%A5%E6%9C%9F%E6%95%B0%E6%8D%AE/1f569482b9014a90c07dddd0ab773912b21beed9.jpg" class="" title="Excel2013：[45]如何按月 年汇总日期数据">
+
+<ul>
+<li>然后在【分析】标签下，找到【组选择】</li>
+</ul>
+<img src="/2016/07/11/Excel2013%EF%BC%9A%5B45%5D%E5%A6%82%E4%BD%95%E6%8C%89%E6%9C%88%20%E5%B9%B4%E6%B1%87%E6%80%BB%E6%97%A5%E6%9C%9F%E6%95%B0%E6%8D%AE/bd70426034a85edf42d5654e4b540923dc5475c7.jpg" class="" title="Excel2013：[45]如何按月 年汇总日期数据">
+
+<ul>
+<li>在打开的对话框中，我们选择【月】，点击确定按钮。（当然你可以选择【季度】啊，【年】啊，按照你的意愿来，你又不傻！额。。）</li>
+</ul>
+<img src="/2016/07/11/Excel2013%EF%BC%9A%5B45%5D%E5%A6%82%E4%BD%95%E6%8C%89%E6%9C%88%20%E5%B9%B4%E6%B1%87%E6%80%BB%E6%97%A5%E6%9C%9F%E6%95%B0%E6%8D%AE/29790130e924b899e77fe2556c061d950b7bf6d9.jpg" class="" title="Excel2013：[45]如何按月 年汇总日期数据">
+
+<ul>
+<li>我们来看一下，现在就是按照月份来汇总了！小伙伴们，喜欢的话赶快去分享，感谢支持！</li>
+</ul>
+<img src="/2016/07/11/Excel2013%EF%BC%9A%5B45%5D%E5%A6%82%E4%BD%95%E6%8C%89%E6%9C%88%20%E5%B9%B4%E6%B1%87%E6%80%BB%E6%97%A5%E6%9C%9F%E6%95%B0%E6%8D%AE/dc15484e9258d10964ba32dfd358ccbf6d814dc7.jpg" class="" title="Excel2013：[45]如何按月 年汇总日期数据">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#x34;&#x39;&#x35;&#55;&#56;&#55;&#x40;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;">&#54;&#x37;&#53;&#x34;&#x39;&#x35;&#55;&#56;&#55;&#x40;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -974,101 +1060,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/">
-                网页数据采集：[3]python如何利用抓包数据
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年06月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>上次我们教大家如何使用httpwatch来进行抓包，其实这不重要，重要的是如何使用获得的数据包，你能读懂数据包吗？好吧，我们今天就是用python来示范一下如何使用数据包。</p>
-<ul>
-<li>先来设置两个url地址，第一个用于第一次访问，这样可以获得网站服务器发来的cookie，第二个网址是用于登陆的地址</li>
-</ul>
-<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/fcbbb151f3deb48fd18981f0f21f3a292cf578f8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
-
-<ul>
-<li>引入两个模块，cookielib和urllib2</li>
-</ul>
-<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/8d158aeef01f3a294c28f5e09b25bc315d607cf8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
-
-<ul>
-<li>接着，我们安装一个cookie处理器，代码如下，这个代码很多人不太能读懂，其实你会用就可以了，他们就是这个固定的形式，顶多改改变量的名字。你复制下来以后自己用就可以了，用多了，你再去看代码的意义，你就都懂了。</li>
-</ul>
-<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/58c3acb7d0a20cf40d6edef174094b36adaf99e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
-
-<ul>
-<li>然后我们先访问一下网站，获得一个cookie，你不用管这个cookie该怎么弄，前面设置的cookie处理器会自动处理。</li>
-</ul>
-<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/9864a2315c6034a8390298afc9134954082376f8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
-
-<ul>
-<li>接着，我们写一下postdata，也就是你要post的数据，因为我们打算登陆网站，所以postdata里肯定有用户名和密码，那么怎么知道该怎么写postdata呢？看你抓包得到的post数据。下面第一幅图是httpwatch抓包截图，点击postdata，看到post的数据，然后我们看第二幅图，就是python的写法。你自己感受一下。</li>
-</ul>
-<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/d041a4a1cd11728bd7faaf0ccafcc3cec2fd2c8d.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
-
-<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/35e940df8db1cb1323891c3ddf54564e93584bf8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
-
-<ul>
-<li>写完postdata以后，我们 要将postdata转码一下，让服务器可以解读postdata数据</li>
-</ul>
-<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/2f9cbdcc7cd98d10442a2c1f233fb80e7aec90e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
-
-<ul>
-<li>接着设置headers信息，headers也是抓包得到的。同样的方式，你去写header内的信息</li>
-</ul>
-<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/0b907cd9f2d3572ce14cbef28813632762d0c337.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
-
-<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/7d98931001e9390166fcad1079ec54e737d196e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
-
-<ul>
-<li>然后我们通过request方法来登陆网站，并返回数据，返回的数据存储在request中</li>
-</ul>
-<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/00a82701213fb80e322f41f934d12f2eb83894e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
-
-<ul>
-<li>通过rulopen方法和read方法来读取数据，并打印出来。</li>
-</ul>
-<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/32bb9c8ba61ea8d380c2542a950a304e241f58f8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
-
-<ul>
-<li>我们看到输出的结果，这说明我们虽然正确的模拟了登陆网站需要的post信息，但是没有考虑到登陆网站是需要验证码的，后期我们会看到如何处理验证码，如果你拿这个教程去处理没有验证码的登陆问题，那么你现在已经成功了。</li>
-</ul>
-<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/4e83cb628535e5ddb4d285f174c6a7efcf1b62e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#52;&#x39;&#x35;&#55;&#x38;&#55;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#x36;&#x37;&#53;&#52;&#x39;&#x35;&#55;&#x38;&#55;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1110,6 +1101,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/07/08/spss%E6%95%B0%E6%8D%AEsav%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88%E5%9C%A8%E7%BA%BF%EF%BC%89/">spss和Excel数据格式转mplus格式数据（</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/06/25/p01-%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8BSEM%E7%9A%84%E7%B1%BB%E5%9E%8B/">结构方程模型的种类协方差结构方程和最小二乘法</a>
             </li>
             
@@ -1143,10 +1138,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/01/31/APIM%E4%B8%BB%E5%AE%A2%E4%BD%93%E7%9B%B8%E4%BE%9D%E6%A8%A1%E5%9E%8B%E6%88%90%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Amplus%E5%BA%94%E7%94%A8/">APIM主客体相依模型成对数据分析以及mplus应</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/12/10/Transformer%E8%AF%A6%E7%BB%86%E8%A7%A3%E8%AF%BB%E5%92%8C%E4%BB%A3%E7%A0%81%E6%A1%88%E4%BE%8B/">Transformer详细解读和代码实现</a>
             </li>
             
         </ul>

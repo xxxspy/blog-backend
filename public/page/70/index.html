@@ -50,10 +50,10 @@
     <title>page - DataSense</title>
 
     <!-- Bootstrap Core CSS -->
-    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+    <link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 
     <!-- Custom Fonts -->
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -247,6 +247,82 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/">
+                Excel2013：[52]月日年格式的日期转换为年月日
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>数据在录入的时候录入的是文本格式的日期“1&#x2F;1&#x2F;09”，直接转换数据格式为日期行不通，因为它是一个字符串，Excel也不知道那是月日年，所以我们需要设置分列，还好，非常简单，大家跟我来做。</p>
+<ul>
+<li>先来看看我的原始数据，日期是文本格式的月日年</li>
+</ul>
+<img src="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/f15e24292df5e0fe252b005e5e6034a85edf727b.jpg" class="" title="Excel2013：[52]月日年格式的日期转换为年月日">
+
+<ul>
+<li>选中日期一列</li>
+</ul>
+<img src="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/507c389759ee3d6d0c01099441166d224e4ade6f.jpg" class="" title="Excel2013：[52]月日年格式的日期转换为年月日">
+
+<ul>
+<li>打开数据选项下的【分列】</li>
+</ul>
+<img src="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/54baacfb43166d2212b09bcb442309f79152d26f.jpg" class="" title="Excel2013：[52]月日年格式的日期转换为年月日">
+
+<ul>
+<li>选择【分隔符号】，点击下一步按钮</li>
+</ul>
+<img src="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/6c63514a20a44623690d2b3d9a22720e0df3d76f.jpg" class="" title="Excel2013：[52]月日年格式的日期转换为年月日">
+
+<ul>
+<li>接着，选择第一个选项，然后点击下一步</li>
+</ul>
+<img src="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/814b07d8bc3eb135e1f43ee4a41ea8d3fd1f447b.jpg" class="" title="Excel2013：[52]月日年格式的日期转换为年月日">
+
+<ul>
+<li>这是关键，我们要告诉Excel第一位是月，然后是日，然后是年，于是选择格式为“MDY”，点击完成</li>
+</ul>
+<img src="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/d8b8c92a6059252da2d0935b369b033b5ab5b96f.jpg" class="" title="Excel2013：[52]月日年格式的日期转换为年月日">
+
+<ul>
+<li>这是转换以后得到的日期</li>
+</ul>
+<img src="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/964b2e4e251f95ca0dc61be9cb177f3e6709527b.jpg" class="" title="Excel2013：[52]月日年格式的日期转换为年月日">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#x34;&#57;&#53;&#x37;&#56;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#x36;&#x37;&#53;&#x34;&#57;&#53;&#x37;&#56;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -508,6 +584,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/07/08/spss%E6%95%B0%E6%8D%AEsav%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88%E5%9C%A8%E7%BA%BF%EF%BC%89/">spss和Excel数据格式转mplus格式数据（</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/06/25/p01-%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8BSEM%E7%9A%84%E7%B1%BB%E5%9E%8B/">结构方程模型的种类协方差结构方程和最小二乘法</a>
             </li>
             
@@ -541,10 +621,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/01/31/APIM%E4%B8%BB%E5%AE%A2%E4%BD%93%E7%9B%B8%E4%BE%9D%E6%A8%A1%E5%9E%8B%E6%88%90%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Amplus%E5%BA%94%E7%94%A8/">APIM主客体相依模型成对数据分析以及mplus应</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2022/12/10/Transformer%E8%AF%A6%E7%BB%86%E8%A7%A3%E8%AF%BB%E5%92%8C%E4%BB%A3%E7%A0%81%E6%A1%88%E4%BE%8B/">Transformer详细解读和代码实现</a>
             </li>
             
         </ul>
