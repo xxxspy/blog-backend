@@ -252,6 +252,307 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/">
+                spss交叉设计如何进行方差分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>交叉设计是自身配对基础上发展的设计方法，是一种特殊的自身对照设计，通常的设计方案为被试分为两组，一组接受实验的顺序是AB，一组接受的实验顺序是BA，这样就形成了对照，这样的设计如何进行方差分析呢？下面是具体的方法：<br>工具&#x2F;原料</p>
+<ul>
+<li><p>spss20.0<br>方法&#x2F;步骤</p>
+</li>
+<li><p>首先要明白数据的录入方式，如图所示，stage就是接受条件AB的阶段</p>
+</li>
+</ul>
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/f603918fa0ec08faab3c106659ee3d6d55fbda37.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<ul>
+<li>在菜单栏上执行：analyse–GLM–univariate，打开方差分析对话框</li>
+</ul>
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/b8014a90f603738d79ee0fe3b31bb051f919ec4f.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<ul>
+<li>将自变量和因变量放入格子的框中，点击model按钮，开始设置模型</li>
+</ul>
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/e1fe9925bc315c605105682e8db1cb134854775a.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/024f78f0f736afc3b8283da4b319ebc4b64512ce.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<ul>
+<li>勾选“custom”，然后将三个变量放入右侧的模型框中</li>
+</ul>
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/03087bf40ad162d91cef60dd11dfa9ec8b13cdea.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/63d0f703918fa0ecf0c666cc269759ee3c6ddbea.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<ul>
+<li>将type设置为maineffect，意思是没有交互作用，回到主菜单，点击ok</li>
+</ul>
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/80cb39dbb6fd526675313ed5ab18972bd50736dc.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/34fae6cd7b899e51a19438d542a7d933c9950ddc.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<ul>
+<li>我们看到输出的结果，治疗方案treat边缘显著，但是质量的顺序stage是不显著的，判断标准就是sig值</li>
+</ul>
+<img src="/2015/01/05/spss%E4%BA%A4%E5%8F%89%E8%AE%BE%E8%AE%A1%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/7dd98d1001e9390164138fff7bec54e737d196d9.jpg" class="" title="spss交叉设计如何进行方差分析">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#x34;&#57;&#53;&#x37;&#56;&#55;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#109;">&#54;&#x37;&#x35;&#x34;&#57;&#53;&#x37;&#56;&#55;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/01/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B9%5D%E6%B1%82%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9/">
+                python 线性代数：[9]求矩阵的秩
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>矩阵的秩，课本上是这么定义的：</p>
+<ul>
+<li>先引入numpy模块</li>
+</ul>
+<img src="/2015/01/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B9%5D%E6%B1%82%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9/834344afa40f4bfba7e0dda3014f78f0f63618d1.jpg" class="" title="python 线性代数：[9]求矩阵的秩">
+
+<ul>
+<li>创建一个单位矩阵i</li>
+</ul>
+<img src="/2015/01/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B9%5D%E6%B1%82%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9/020e66f0f736afc31b3c7c92b119ebc4b64512d1.jpg" class="" title="python 线性代数：[9]求矩阵的秩">
+
+<ul>
+<li>计算单位矩阵i的秩</li>
+</ul>
+<img src="/2015/01/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B9%5D%E6%B1%82%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9/a84052086e061d95802574cf79f40ad163d9caa3.jpg" class="" title="python 线性代数：[9]求矩阵的秩">
+
+<ul>
+<li>改变一下i右下角元素的值，设置为0</li>
+</ul>
+<img src="/2015/01/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B9%5D%E6%B1%82%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9/1cd4147b02087bf4878f141ef0d3572c10dfcfa3.jpg" class="" title="python 线性代数：[9]求矩阵的秩">
+
+<ul>
+<li>重新计算矩阵的秩，得到3</li>
+</ul>
+<img src="/2015/01/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B9%5D%E6%B1%82%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9/f392492c11dfa9ec194d15e060d0f703908fc1a3.jpg" class="" title="python 线性代数：[9]求矩阵的秩">
+
+<ul>
+<li><p>以下是我们用到的所有代码：</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>import numpy</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>i&#x3D;numpy.eye(4)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>i</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[ 1.,  0.,  0.,  0.],</p>
+</li>
+<li><pre><code>   [ 0.,  1.,  0.,  0.],
+</code></pre>
+</li>
+<li><pre><code>   [ 0.,  0.,  1.,  0.],
+</code></pre>
+</li>
+<li><pre><code>   [ 0.,  0.,  0.,  1.]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>numpy.matrix_rank(i)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>Traceback (most recent call last):</p>
+</li>
+<li><p>File “&lt;pyshell#6&gt;”, line 1, in <module></p>
+</li>
+<li><pre><code>numpy.matrix_rank(i)
+</code></pre>
+</li>
+<li><p>AttributeError: ‘module’ object has no attribute ‘matrix_rank’</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>numpy.linalg.matrix_rank(i)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>4</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>i[-1,-1]&#x3D;0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>i</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[ 1.,  0.,  0.,  0.],</p>
+</li>
+<li><pre><code>   [ 0.,  1.,  0.,  0.],
+</code></pre>
+</li>
+<li><pre><code>   [ 0.,  0.,  1.,  0.],
+</code></pre>
+</li>
+<li><pre><code>   [ 0.,  0.,  0.,  0.]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>i[1,1]</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>1.0</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>numpy.linalg.matrix_rank(i)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>3</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#57;&#53;&#55;&#x38;&#55;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;">&#54;&#55;&#53;&#52;&#57;&#53;&#55;&#x38;&#55;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/">
                 Excel2013：[52]月日年格式的日期转换为年月日
             </a>
@@ -584,6 +885,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/07/26/%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC%E8%AF%81%E6%98%8E%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E7%AD%89%E4%BA%8E%E5%86%B3%E5%AE%9A%E7%B3%BB%E6%95%B0R%E6%96%B9/">公式推导证明相关系数等于决定系数R方</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/07/25/%E5%9B%9E%E5%BD%92%E7%B3%BB%E6%95%B0%E5%92%8C%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E8%81%94%E7%B3%BB/">如何证明相关系数等于标准化回归系数</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/07/08/spss%E6%95%B0%E6%8D%AEsav%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88%E5%9C%A8%E7%BA%BF%EF%BC%89/">spss和Excel数据格式转mplus格式数据（</a>
             </li>
             
@@ -613,14 +922,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/02/16/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8ER%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型教程及R应用</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/02/14/rwg%E8%AF%84%E5%88%86%E8%80%85%E5%86%85%E9%83%A8%E4%B8%80%E8%87%B4%E6%80%A7%E6%8C%87%E6%A0%87%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">评分者内部一致性Rwg和Intraclass相关系</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/01/31/APIM%E4%B8%BB%E5%AE%A2%E4%BD%93%E7%9B%B8%E4%BE%9D%E6%A8%A1%E5%9E%8B%E6%88%90%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Amplus%E5%BA%94%E7%94%A8/">APIM主客体相依模型成对数据分析以及mplus应</a>
             </li>
             
         </ul>

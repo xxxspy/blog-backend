@@ -252,6 +252,180 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/10/03/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B74%5D%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/">
+                python教程：[74]列表排序
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>列表排序，做数据经常用到的一个方法，在python中想实现排序有时候觉得挺难，比如按照行排序或按照列排序，写起来都不简单，今天在这里总结一下在python中实现排序的所有方法，如有不全，请下面留言。</p>
+<ul>
+<li>最简单的排序莫过于直接使用sort对一维的列表排序，创建一个列表</li>
+</ul>
+<img src="/2015/10/03/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B74%5D%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/1cd4147b02087bf4bfd92fddf1d3572c11dfcf8a.jpg" class="" title="python教程：[74]列表排序">
+
+<ul>
+<li>使用sort就地排序（就地排序就是改变了原始list的排序，而sorted不改变原始list数据）</li>
+</ul>
+<img src="/2015/10/03/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B74%5D%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/29790130e924b899073c010c6d061d950a7bf647.jpg" class="" title="python教程：[74]列表排序">
+
+<ul>
+<li>可以使用reverse参数进行反向排序。</li>
+</ul>
+<img src="/2015/10/03/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B74%5D%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/a84052086e061d95b8464f0c78f40ad162d9ca47.jpg" class="" title="python教程：[74]列表排序">
+
+<ul>
+<li>创建一个二维列表</li>
+</ul>
+<img src="/2015/10/03/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B74%5D%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/425773224f4a20a48a2b44f393529822720ed08a.jpg" class="" title="python教程：[74]列表排序">
+
+<ul>
+<li>使用operator进行排序，还是sort方法，使用key参数，下面根据第二列数据排序</li>
+</ul>
+<img src="/2015/10/03/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B74%5D%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/8b527d2762d0f7032eb2ede80bfa513d2697c547.jpg" class="" title="python教程：[74]列表排序">
+
+<ul>
+<li>多维排序，先根据第一列排序，然而第二列，然后第三列</li>
+</ul>
+<img src="/2015/10/03/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B74%5D%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/425773224f4a20a48a1e44f393529822720ed047.jpg" class="" title="python教程：[74]列表排序">
+
+<ul>
+<li>lambda用于写匿名函数，根据第二列数据排序，x表示列表中的元素，x[1]表示元素中的第二个值</li>
+</ul>
+<img src="/2015/10/03/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B74%5D%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/eab9044c510fd9f937222d5d262dd42a2834a48a.jpg" class="" title="python教程：[74]列表排序">
+
+<ul>
+<li>反向排序</li>
+</ul>
+<img src="/2015/10/03/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B74%5D%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/d56b3634349b033bbcbd84ee16ce36d3d539bd8a.jpg" class="" title="python教程：[74]列表排序">
+
+<ul>
+<li>元组排序和list排序一样，当然还可以对object构成的列表排序，下面创建一个元组构成的列表</li>
+</ul>
+<img src="/2015/10/03/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B74%5D%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/3792cb39b6003af3d48fa454362ac65c1038b68a.jpg" class="" title="python教程：[74]列表排序">
+
+<ul>
+<li>使用operator</li>
+</ul>
+<img src="/2015/10/03/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B74%5D%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/3bc6f750352ac65ce2301e47f8f2b21193138a8a.jpg" class="" title="python教程：[74]列表排序">
+
+<ul>
+<li>使用lambda</li>
+</ul>
+<img src="/2015/10/03/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B74%5D%E5%88%97%E8%A1%A8%E6%8E%92%E5%BA%8F/35da1d3b5bb5c9eafcf37bd7d639b6003af3b347.jpg" class="" title="python教程：[74]列表排序">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#x36;&#x37;&#x35;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#64;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/">
+                Excel2013：[2]从单元格批量创建文件夹
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天要给每个一学生整理一个文件夹，存放他们的资料，我看了看Excel里的名单，好家伙，100多个名单，要创建100多个文件夹，累挺。我只能用程序来创建了，其实Excel可以帮助我们干很多事情，现在就让你知道，它还能写程序。当然你不懂代码也能做啦，不信就看看。</p>
+<ul>
+<li>假如，我们要给每个一名字创建一个文件夹</li>
+</ul>
+<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/83cab81ea8d3fd1f6383e629324e251f94ca5fdf.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
+
+<ul>
+<li>在B1输入公式&#x3D;”MD “ &amp; A1  ，注意这个公式中，MD后面还有一个额空格，公式的意思就是在名字前面增加了一个MD和空格</li>
+</ul>
+<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/faacb564034f78f092e4dee07b310a55b2191cf2.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
+
+<ul>
+<li>向下拖拽，快速填充所有的行</li>
+</ul>
+<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/c856613e6709c93d5d784ae49d3df8dcd00054df.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
+
+<ul>
+<li>我们会看到生成这么一列，我们需要将其复制下来</li>
+</ul>
+<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/4bd1e803738da9774fc0c238b251f8198718e3f3.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
+
+<ul>
+<li>粘贴到文本文件里，然后保存为bat文件</li>
+</ul>
+<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/310f3b1f95cad1c88f62b8347d3e6709c83d518c.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
+
+<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/6648d73d70cf3bc7b0d989ffd300baa1cc112a8c.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
+
+<ul>
+<li>我们看到这个文件就在这里呢，双击打开运行</li>
+</ul>
+<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/e78c65899e510fb35b243084db33c895d1430ca0.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
+
+<ul>
+<li>批量创建的文件夹就在这里喽。</li>
+</ul>
+<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/43e6c733c895d143f44ba33071f082025aaf07a0.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#52;&#57;&#53;&#x37;&#x38;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#54;&#55;&#x35;&#52;&#57;&#53;&#x37;&#x38;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/10/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B11%5D%E5%88%A4%E6%96%AD%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5/">
                 python 线性代数：[11]判断正定矩阵
             </a>
@@ -1197,163 +1371,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/09/19/excel%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E7%89%B9%E5%AE%9A%E7%9A%84%E8%A1%8C/">
-                excel如何打印特定的行
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年09月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>在excel打印的时候，有些行我们不想要打印，我们有两个办法，一是隐藏行，二是给行建立组合，下面提供了这两种方法的具体操作，你会发现第二种方法更加的简单。<br>方法&#x2F;步骤</p>
-<ul>
-<li>我们看到，黄色的行是不需要打印的，怎么办</li>
-</ul>
-<img src="/2015/09/19/excel%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E7%89%B9%E5%AE%9A%E7%9A%84%E8%A1%8C/7e3e6709c93d70cf965a8df2f8dcd100bba12ba8.jpg" class="" title="excel如何打印特定的行">
-
-<ul>
-<li>我们先选中一行，比如选中第二行，然后在菜单栏上执行：经典菜单–格式–行–隐藏行</li>
-</ul>
-<img src="/2015/09/19/excel%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E7%89%B9%E5%AE%9A%E7%9A%84%E8%A1%8C/6f061d950a7b02086b97181e62d9f2d3562cc8f6.jpg" class="" title="excel如何打印特定的行">
-
-<ul>
-<li>行隐藏了以后，我们接着选中第二个要隐藏的行，然后按下F4即可重复上面的操作，这样我们可以快速的隐藏所有的行</li>
-</ul>
-<img src="/2015/09/19/excel%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E7%89%B9%E5%AE%9A%E7%9A%84%E8%A1%8C/a044ad345982b2b78d0e1e3b31adcbef77099bbf.jpg" class="" title="excel如何打印特定的行">
-
-<ul>
-<li>通过打印预览你可以看到，隐藏的行都不能被打印了。</li>
-</ul>
-<img src="/2015/09/19/excel%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E7%89%B9%E5%AE%9A%E7%9A%84%E8%A1%8C/42a98226cffc1e176503abce4a90f603728de995.jpg" class="" title="excel如何打印特定的行">
-
-<ul>
-<li>想要恢复隐藏的行可以选中所有的行以后，在菜单栏上执行：格式–行–取消隐藏</li>
-</ul>
-<img src="/2015/09/19/excel%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E7%89%B9%E5%AE%9A%E7%9A%84%E8%A1%8C/b151f8198618367a212958222e738bd4b21ce5a9.jpg" class="" title="excel如何打印特定的行">
-
-<ul>
-<li>上面这种方法有一个弊端，就是你每次都得隐藏和取消隐藏行，非常麻烦，下面我们讲个更加简单的方法，比如下面的数据，我们仍然要隐藏黄色的行，可以选中这一行，然后同时按下alt+shift+→   ，这样就可以看到左侧多了一个空白区域</li>
-</ul>
-<img src="/2015/09/19/excel%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E7%89%B9%E5%AE%9A%E7%9A%84%E8%A1%8C/4bed2e738bd4b31c879fb34487d6277f9f2ff8a9.jpg" class="" title="excel如何打印特定的行">
-
-<ul>
-<li>同样的方法，给所有的行都添加一个组合</li>
-</ul>
-<img src="/2015/09/19/excel%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E7%89%B9%E5%AE%9A%E7%9A%84%E8%A1%8C/c75c10385343fbf2e37281dcb07eca8064388ff6.jpg" class="" title="excel如何打印特定的行">
-
-<ul>
-<li>想要隐藏黄色的行，你只要点击按钮1，如图所示</li>
-</ul>
-<img src="/2015/09/19/excel%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E7%89%B9%E5%AE%9A%E7%9A%84%E8%A1%8C/3c6d55fbb2fb431648bc5d8520a4462308f7d3a9.jpg" class="" title="excel如何打印特定的行">
-
-<ul>
-<li><p>想要展开所有的行你只要点击按钮2，这样你就可以快速的转换两种模式了</p>
-</li>
-<li></li>
-</ul>
-<img src="/2015/09/19/excel%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E7%89%B9%E5%AE%9A%E7%9A%84%E8%A1%8C/f603918fa0ec08fa4fa3345859ee3d6d54fbdaa9.jpg" class="" title="excel如何打印特定的行">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#52;&#x39;&#53;&#55;&#x38;&#x37;&#64;&#x71;&#113;&#46;&#99;&#x6f;&#x6d;">&#x36;&#x37;&#53;&#52;&#x39;&#53;&#55;&#x38;&#x37;&#64;&#x71;&#113;&#46;&#99;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/09/19/spss%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%AE%8B%E5%B7%AE%E7%9A%84%E6%96%B9%E5%B7%AE%E9%BD%90%E6%80%A7/">
-                spss如何检验残差的方差齐性
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年09月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>残差的方差齐性是回归分析要满足的一个条件， 通常我们要用散点图来检验残差的方差齐性，根据散点图可以看到标准化的残差随着估计值的变化趋势，下面是具体的分析方法：<br>工具&#x2F;原料</p>
-<ul>
-<li><p>spss20.0<br>方法&#x2F;步骤</p>
-</li>
-<li><p>打开线性回归的对话框：analyse–regression–linear</p>
-</li>
-</ul>
-<img src="/2015/09/19/spss%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%AE%8B%E5%B7%AE%E7%9A%84%E6%96%B9%E5%B7%AE%E9%BD%90%E6%80%A7/35a85edf8db1cb137eac61d7dd54564e93584b28.jpg" class="" title="spss如何检验残差的方差齐性">
-
-<ul>
-<li>在回归分析中， 将GDP作为因变量，其他的变量可以作为自变量，将这些变量放入各自的框中</li>
-</ul>
-<img src="/2015/09/19/spss%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%AE%8B%E5%B7%AE%E7%9A%84%E6%96%B9%E5%B7%AE%E9%BD%90%E6%80%A7/f11f3a292df5e0feb66ad5c55c6034a85fdf7287.jpg" class="" title="spss如何检验残差的方差齐性">
-
-<ul>
-<li>点击plot按钮，打开图标的设置对话框</li>
-</ul>
-<img src="/2015/09/19/spss%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%AE%8B%E5%B7%AE%E7%9A%84%E6%96%B9%E5%B7%AE%E9%BD%90%E6%80%A7/34fae6cd7b899e5173eb66d042a7d933c9950d88.jpg" class="" title="spss如何检验残差的方差齐性">
-
-<ul>
-<li>将如图所示的选项勾选，这是散点图，我们可以看到残差随着估计值的变化趋势</li>
-</ul>
-<img src="/2015/09/19/spss%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%AE%8B%E5%B7%AE%E7%9A%84%E6%96%B9%E5%B7%AE%E9%BD%90%E6%80%A7/3b87e950352ac65ce7413ab7fbf2b21192138aaa.jpg" class="" title="spss如何检验残差的方差齐性">
-
-<ul>
-<li>我们看到这就是需要的散点图，纵坐标是标准化的参差值，横坐标是估计值，如果散点图拟合的直线平行于横坐标，那么就可以认为残差是齐性的。</li>
-</ul>
-<img src="/2015/09/19/spss%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%AE%8B%E5%B7%AE%E7%9A%84%E6%96%B9%E5%B7%AE%E9%BD%90%E6%80%A7/9922720e0cf3d7caa34f63b2f21fbe096a63a9bd.jpg" class="" title="spss如何检验残差的方差齐性">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#52;&#x39;&#x35;&#55;&#56;&#x37;&#x40;&#113;&#113;&#46;&#99;&#111;&#x6d;">&#54;&#x37;&#x35;&#52;&#x39;&#x35;&#55;&#56;&#x37;&#x40;&#113;&#113;&#46;&#99;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1395,6 +1412,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/07/26/%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC%E8%AF%81%E6%98%8E%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E7%AD%89%E4%BA%8E%E5%86%B3%E5%AE%9A%E7%B3%BB%E6%95%B0R%E6%96%B9/">公式推导证明相关系数等于决定系数R方</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/07/25/%E5%9B%9E%E5%BD%92%E7%B3%BB%E6%95%B0%E5%92%8C%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E8%81%94%E7%B3%BB/">如何证明相关系数等于标准化回归系数</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/07/08/spss%E6%95%B0%E6%8D%AEsav%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88%E5%9C%A8%E7%BA%BF%EF%BC%89/">spss和Excel数据格式转mplus格式数据（</a>
             </li>
             
@@ -1424,14 +1449,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/02/16/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8ER%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型教程及R应用</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/02/14/rwg%E8%AF%84%E5%88%86%E8%80%85%E5%86%85%E9%83%A8%E4%B8%80%E8%87%B4%E6%80%A7%E6%8C%87%E6%A0%87%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">评分者内部一致性Rwg和Intraclass相关系</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/01/31/APIM%E4%B8%BB%E5%AE%A2%E4%BD%93%E7%9B%B8%E4%BE%9D%E6%A8%A1%E5%9E%8B%E6%88%90%E5%AF%B9%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E4%BB%A5%E5%8F%8Amplus%E5%BA%94%E7%94%A8/">APIM主客体相依模型成对数据分析以及mplus应</a>
             </li>
             
         </ul>
