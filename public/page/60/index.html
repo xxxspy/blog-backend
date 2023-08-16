@@ -252,6 +252,160 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/06/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B19%5Durlunparse()%E7%94%A8%E6%B3%95/">
+                Python教程：[19]urlunparse()用法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>前一篇文章我们讲了urlparse函数，我在这里补充一点，在python的新版本中，urlparse模块已经不能用了，想要使用rulparse函数只能是在低版本中使用，我这里示范的代码是在python2.7中测试的，这也是目前比较稳定的版本。其实从前面的文章中看到urlparse函数，你就知道urlunparse函数的用法，下面是具体的例子。</p>
+<ul>
+<li>先引入两个方法，urlparse和urlunparse</li>
+</ul>
+<img src="/2015/06/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B19%5Durlunparse()%E7%94%A8%E6%B3%95/29752a9b033b5bb51e9f4ad334d3d539b600bc10.jpg" class="" title="Python教程：[19]urlunparse()用法">
+
+<ul>
+<li>我们将一个url分割成不同的部分，用的是urlparse，然后将不同的部分在合并成url，用的是urlunparse方法。</li>
+</ul>
+<img src="/2015/06/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B19%5Durlunparse()%E7%94%A8%E6%B3%95/7787b9efce1b9d16f269f04cf1deb48f8c546435.jpg" class="" title="Python教程：[19]urlunparse()用法">
+
+<ul>
+<li>我们看到分割后的parsed，他被分成不同的部分，这个上一篇文章就讲过</li>
+</ul>
+<img src="/2015/06/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B19%5Durlunparse()%E7%94%A8%E6%B3%95/d478a8003af33a8737256a37c45c10385343b510.jpg" class="" title="Python教程：[19]urlunparse()用法">
+
+<ul>
+<li>使用urlparse分割过的可以用urlunparse来合并，重新形成url</li>
+</ul>
+<img src="/2015/06/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B19%5Durlunparse()%E7%94%A8%E6%B3%95/3bc6f750352ac65cf14d0c5ef9f2b21193138a10.jpg" class="" title="Python教程：[19]urlunparse()用法">
+
+<ul>
+<li><p>所有的代码如下：</p>
+</li>
+<li><p>from urlparse import urlparse</p>
+</li>
+<li><p>from urlparse import urlunparse</p>
+</li>
+<li><p>parsed&#x3D;urlparse(‘<a target="_blank" rel="noopener" href="http://user:pass@netloc/path;parameters?query=argument#fragment&#39;">http://user:pass@NetLoc:80/path;parameters?query=argument#fragment&#39;</a>)</p>
+</li>
+<li><p>url&#x3D;urlunparse(parsed)</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#52;&#x39;&#x35;&#55;&#56;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#x36;&#55;&#x35;&#52;&#x39;&#x35;&#55;&#56;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/">
+                Excel2013：[22]禁止录入重复值
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>当我们录入数据的时候，有些内容是不允许重复的，比如身份证号码，电话号码，我们可以使用设置数据有效性来禁止录入重复的数据，在Excel2013中，数据有效性又叫做数据验证，下面我们来看看如何在Excel2013中限制录入重复数据。</p>
+<ul>
+<li>我们先来选中A2单元格，也就是空单元格最上面的一个</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/a992e31f4134970ac104815b97cad1c8a7865d14.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<ul>
+<li>我们切换到【数据】标签，打开【数据验证】对话框</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/dc15484e9258d109529438c6d358ccbf6c814d14.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<ul>
+<li>在设置标签下，找到验证条件为【自定义】<br>、</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/9dc3cf58ccbf6c816640bd9cbe3eb13533fa4014.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<ul>
+<li>我们在公式这一栏，输入公式&#x3D;countif($A$2:A2,A2)&#x3D;1</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/b3f6cea20cf431ad65bcd24d4936acaf2edd981d.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<ul>
+<li>切换到【出错警告】标签下面</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/00a82701213fb80ec1bff0a334d12f2eb938941d.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<ul>
+<li>我们设置出错时的提示信息，如下图所示，点击确定按钮，完成设置</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/207ea60e7bec54e78a828b6abb389b504fc26a1d.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<ul>
+<li>拖转A2单元格，快速填充其他单元格</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/2f9cbdcc7cd98d10b7ba9d45233fb80e7bec901d.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<ul>
+<li>我们来测试一下是否设置成功，录入一个重复的数据，看到错误提示信息</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/718e25c79f3df8dc2f4a1ee5cf11728b47102814.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#x36;&#x37;&#x35;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/06/11/DataNitro%EF%BC%9A%5B9%5D%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0/">
                 DataNitro：[9]自定义函数
             </a>
@@ -925,173 +1079,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/23/DataNitro%EF%BC%9A%5B1%5D%E6%80%8E%E6%A0%B7%E5%9C%A8Excel%E4%B8%AD%E4%BD%BF%E7%94%A8python%E8%84%9A%E6%9C%AC/">
-                DataNitro：[1]怎样在Excel中使用python脚本
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>怎么在Excel中运行python脚本？这个问题由来已久，很多pythoner都希望直接用python控制Excel，但是只能从外部调用，有没有一个VBA的东西可以直接在Excel中运行呢？答案是有，DataNitro就是这么一个东西，看看下面Excel中的界面，他就是了，可以直接点击‘run’来运行一个Python脚本。下面我们来看看它是如何安装与配置的。</p>
-<ul>
-<li>先安装python2.7，其他版本不知道行不行，但是这个肯定行，然后配置环境变量，保证python在该环境中，打开开始菜单，找到计算机，然后右键单击它，选择【属性】</li>
-</ul>
-<img src="/2015/05/23/DataNitro%EF%BC%9A%5B1%5D%E6%80%8E%E6%A0%B7%E5%9C%A8Excel%E4%B8%AD%E4%BD%BF%E7%94%A8python%E8%84%9A%E6%9C%AC/00a82701213fb80e416877e135d12f2eb938940f.jpg" class="" title="DataNitro：[1]怎样在Excel中使用python脚本">
-
-<ul>
-<li>找到高级系统设置</li>
-</ul>
-<img src="/2015/05/23/DataNitro%EF%BC%9A%5B1%5D%E6%80%8E%E6%A0%B7%E5%9C%A8Excel%E4%B8%AD%E4%BD%BF%E7%94%A8python%E8%84%9A%E6%9C%AC/4e83cb628535e5dda375b3e975c6a7efce1b626f.jpg" class="" title="DataNitro：[1]怎样在Excel中使用python脚本">
-
-<ul>
-<li>找到环境变量，点击该按钮，打开环境变量设置窗口</li>
-</ul>
-<img src="/2015/05/23/DataNitro%EF%BC%9A%5B1%5D%E6%80%8E%E6%A0%B7%E5%9C%A8Excel%E4%B8%AD%E4%BD%BF%E7%94%A8python%E8%84%9A%E6%9C%AC/ae10eddeb48f8c54db6ad31939292df5e0fe7f0f.jpg" class="" title="DataNitro：[1]怎样在Excel中使用python脚本">
-
-<ul>
-<li>找到Path系统变量，然后点击【编辑】</li>
-</ul>
-<img src="/2015/05/23/DataNitro%EF%BC%9A%5B1%5D%E6%80%8E%E6%A0%B7%E5%9C%A8Excel%E4%B8%AD%E4%BD%BF%E7%94%A8python%E8%84%9A%E6%9C%AC/3b6833f5e0fe9925e9557f6637a85edf8db1716f.jpg" class="" title="DataNitro：[1]怎样在Excel中使用python脚本">
-
-<ul>
-<li>在这里，确保python的安装目录在，没有的话，添加进去</li>
-</ul>
-<img src="/2015/05/23/DataNitro%EF%BC%9A%5B1%5D%E6%80%8E%E6%A0%B7%E5%9C%A8Excel%E4%B8%AD%E4%BD%BF%E7%94%A8python%E8%84%9A%E6%9C%AC/5d212aa85edf8db191976a520a23dd54564e740f.jpg" class="" title="DataNitro：[1]怎样在Excel中使用python脚本">
-
-<ul>
-<li>下面就可以安装该插件了，去官网下载一个；或者百度一下，各大下载网站都有</li>
-</ul>
-<img src="/2015/05/23/DataNitro%EF%BC%9A%5B1%5D%E6%80%8E%E6%A0%B7%E5%9C%A8Excel%E4%B8%AD%E4%BD%BF%E7%94%A8python%E8%84%9A%E6%9C%AC/8cf0d51349540923803775489158d109b3de496e.jpg" class="" title="DataNitro：[1]怎样在Excel中使用python脚本">
-
-<ul>
-<li>双击即可安装，安装过程就是一路点击’下一步，不过有一步需要注意</li>
-</ul>
-<img src="/2015/05/23/DataNitro%EF%BC%9A%5B1%5D%E6%80%8E%E6%A0%B7%E5%9C%A8Excel%E4%B8%AD%E4%BD%BF%E7%94%A8python%E8%84%9A%E6%9C%AC/b13fd48065380cd7b447b4dba244ad345982816f.jpg" class="" title="DataNitro：[1]怎样在Excel中使用python脚本">
-
-<img src="/2015/05/23/DataNitro%EF%BC%9A%5B1%5D%E6%80%8E%E6%A0%B7%E5%9C%A8Excel%E4%B8%AD%E4%BD%BF%E7%94%A8python%E8%84%9A%E6%9C%AC/c87c6ecf3bc79f3d85bff206b9a1cd11728b296e.jpg" class="" title="DataNitro：[1]怎样在Excel中使用python脚本">
-
-<img src="/2015/05/23/DataNitro%EF%BC%9A%5B1%5D%E6%80%8E%E6%A0%B7%E5%9C%A8Excel%E4%B8%AD%E4%BD%BF%E7%94%A8python%E8%84%9A%E6%9C%AC/78701455b319ebc40f2660af8126cffc1e17166e.jpg" class="" title="DataNitro：[1]怎样在Excel中使用python脚本">
-
-<img src="/2015/05/23/DataNitro%EF%BC%9A%5B1%5D%E6%80%8E%E6%A0%B7%E5%9C%A8Excel%E4%B8%AD%E4%BD%BF%E7%94%A8python%E8%84%9A%E6%9C%AC/29790130e924b89971826f0e6d061d950a7bf60f.jpg" class="" title="DataNitro：[1]怎样在Excel中使用python脚本">
-
-<ul>
-<li>在这里，不要勾选python，如果通过这种方式安装python，你原先安装的python就无法使用了</li>
-</ul>
-<img src="/2015/05/23/DataNitro%EF%BC%9A%5B1%5D%E6%80%8E%E6%A0%B7%E5%9C%A8Excel%E4%B8%AD%E4%BD%BF%E7%94%A8python%E8%84%9A%E6%9C%AC/eab9044c510fd9f9ddae435f262dd42a2834a40f.jpg" class="" title="DataNitro：[1]怎样在Excel中使用python脚本">
-
-<ul>
-<li>最后安装完成，打开Excel就可以看到datanitro了</li>
-</ul>
-<img src="/2015/05/23/DataNitro%EF%BC%9A%5B1%5D%E6%80%8E%E6%A0%B7%E5%9C%A8Excel%E4%B8%AD%E4%BD%BF%E7%94%A8python%E8%84%9A%E6%9C%AC/969cbf44ad34598298d3f3a40ff431adcbef846f.jpg" class="" title="DataNitro：[1]怎样在Excel中使用python脚本">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#x34;&#x39;&#53;&#55;&#56;&#x37;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;">&#54;&#x37;&#x35;&#x34;&#x39;&#53;&#55;&#56;&#x37;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/excel/">#excel</a> <a href="/tags/datanitro/">#datanitro</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/">
-                pandas教程：[6]计数统计
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>经过之前的学习，我们现在可以做一个简单的统计了，比如计数，这是最简单的统计，我们现在就使用pandas统计一下数据中各个专业学生的数目：</p>
-<ul>
-<li>先来引入pandas，并且从csv文件中读取数据</li>
-</ul>
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/8640bf8b87d6277fc3b99f2b2b381f30e924fc3f.jpg" class="" title="pandas教程：[6]计数统计">
-
-<ul>
-<li>查看一下前三行数据，看读取数据是否正确</li>
-</ul>
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/29790130e924b899ca97d42b6d061d950a7bf63f.jpg" class="" title="pandas教程：[6]计数统计">
-
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/8697397f9e2f070877d28713ea24b899a801f28b.jpg" class="" title="pandas教程：[6]计数统计">
-
-<ul>
-<li>选择数据：之前也有相关的教程，假如现在我们要统计【专业名称】这一列，那么需要学会选择它：</li>
-</ul>
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/6391e903918fa0ec7e27c91e259759ee3c6ddb86.jpg" class="" title="pandas教程：[6]计数统计">
-
-<ul>
-<li>计数统计我们使用：save_counts()，打印这个结果，查看一下</li>
-</ul>
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/09bb4f3d269759ee47b0cdd8b1fb43166c22df86.jpg" class="" title="pandas教程：[6]计数统计">
-
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/d872d695d143ad4be32dead381025aafa40f0666.jpg" class="" title="pandas教程：[6]计数统计">
-
-<ul>
-<li>绘制柱形图，使用plot方法，如果想要输出该图，使用get_figure()和savefig()</li>
-</ul>
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/27d647ee3d6d55fbce26db356e224f4a21a4dd86.jpg" class="" title="pandas教程：[6]计数统计">
-
-<ul>
-<li>最后我们可以在D盘下找到plot.png，这就是绘制好的bar图了。</li>
-</ul>
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/b3ba5d166d224f4aa079de000af790529922d186.jpg" class="" title="pandas教程：[6]计数统计">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#52;&#57;&#x35;&#x37;&#x38;&#x37;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#109;">&#x36;&#x37;&#53;&#52;&#57;&#x35;&#x37;&#x38;&#x37;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1133,6 +1120,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/08/16/CR%E5%92%8CAVE%E8%AE%A1%E7%AE%97%E5%99%A8Excel%E7%89%88%E4%B8%8B%E8%BD%BD%E5%92%8C%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">CR和AVE计算器Excel版下载和使用教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/07/27/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E4%B8%AD%E5%B9%B3%E5%9D%87%E6%96%B9%E5%B7%AE%E6%8F%90%E5%8F%96%E9%87%8FAVE%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3/">结构方程中平均方差提取量AVE怎么理解</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/07/26/%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC%E8%AF%81%E6%98%8E%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E7%AD%89%E4%BA%8E%E5%86%B3%E5%AE%9A%E7%B3%BB%E6%95%B0R%E6%96%B9/">公式推导证明相关系数等于决定系数R方</a>
             </li>
             
@@ -1162,14 +1157,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/03/25/SPSS-Process-%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7/">SPSS Process 调节效应绘图工具</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/02/28/%E7%BD%91%E7%BB%9C%E5%88%86%E6%9E%90%E6%A8%A1%E5%9E%8B%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B/">网络分析模型和R应用案例教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/02/16/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E4%B8%8ER%E5%BA%94%E7%94%A8%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型教程及R应用</a>
             </li>
             
         </ul>
