@@ -11,6 +11,8 @@ tags: [spss, ]
 
 这篇文章主要介绍了如何使用SPSS计算平均提取方差值AVE(Average Variance Extracted)和组合信度CR( Composite Reliability)的方法, 并且提供了计算他们的小程序, 帮助你在线计算。
 
+如果你是使用Mplus做结构方程或者验证性因子分析， 你可以使用这个 [Excel版本的AVE和CR计算器](/2023/08/16/CR和AVE计算器Excel版下载和使用教程/)。
+
 <!-- more -->
 
 在统计学（经典测量理论）中，提取的平均方差（AVE）是因子包含题目的的方差量的量度，与测量误差引起的方差量有关。  在下图中`$\lambda$`

@@ -18,7 +18,7 @@ CR指的是组合信度（Composite Reliability）， AVE指的是平均方差�
 所以我们决定对这些资源提供小偿下载，
 这里我们提示， 网页版计算器是免费的，
 大家可以直接打开网页使用，
-Excel版在这里下载： [CR和AVE计算器Excel版下载]()
+Excel版在这里下载： [CR和AVE计算器Excel版下载](https://gf.bilibili.com/item/detail/1103271046)
 
 # 使用方法
 
@@ -47,4 +47,4 @@ Excel版在这里下载： [CR和AVE计算器Excel版下载]()
 
 https://www.bilibili.com/video/BV1fN411z78X/
 
-<iframe src="//player.bilibili.com/player.html?aid=669598505&bvid=BV1fN411z78X&cid=234252503&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  style="width:800px;height:600px"> </iframe>
+<iframe src="//player.bilibili.com/player.html?bvid=BV1fN411z78X&page=1" style="width:800px;height:600px" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"> </iframe>
