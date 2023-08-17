@@ -252,6 +252,97 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B28%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E4%B8%8E%E7%90%86%E8%AE%BA%E5%80%BC%E5%B7%AE%E5%BC%82/">
+                SPSS实例：[28]卡方检验百分比与理论值差异
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年04月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>我们有一个研究检验某种疗法的有效性，统计了实施前后的人数，我们想要比较实施前和实施后人数是否有差异，怎么比较？有两种数据结构，得使用不同的方法，下面将要介绍的是这种数据没有原始数据，只有计数数据，如下图。变量9表示人数，实施前后表示该方法实施前用0表示，实施后用1表示。另外一种数据结构是你有原始数据，而不是计数数据，你可以参考我以前的文章：<a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/d8072ac4587f6dec95cefd9a.html">http://jingyan.baidu.com/article/d8072ac4587f6dec95cefd9a.html</a></p>
+<ul>
+<li>首先要给数据加权，我们在data菜单下，选择case加权</li>
+</ul>
+<img src="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B28%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E4%B8%8E%E7%90%86%E8%AE%BA%E5%80%BC%E5%B7%AE%E5%BC%82/c71d0e385343fbf213af316fb27eca8064388fb8.jpg" class="" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+
+<ul>
+<li>将变量9放入频数变量框，点击【ok】，完成加权（如果有原始数据，则不需要加权）</li>
+</ul>
+<img src="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B28%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E4%B8%8E%E7%90%86%E8%AE%BA%E5%80%BC%E5%B7%AE%E5%BC%82/29790130e924b899f378ee746c061d950b7bf6f3.jpg" class="" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+
+<ul>
+<li>接着我们来做卡方检验，在菜单栏上执行：分析–非参检验–遗留选项–卡方检验</li>
+</ul>
+<img src="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B28%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E4%B8%8E%E7%90%86%E8%AE%BA%E5%80%BC%E5%B7%AE%E5%BC%82/906289dda144ad34f23c10cbd2a20cf430ad85b8.jpg" class="" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+
+<ul>
+<li>将实施前后变量放入检验变量框。</li>
+</ul>
+<img src="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B28%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E4%B8%8E%E7%90%86%E8%AE%BA%E5%80%BC%E5%B7%AE%E5%BC%82/0db52fadcbef7609f9880ed32cdda3cc7dd99eb8.jpg" class="" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+
+<ul>
+<li>这里有一个问题，如果你的数据有一个单元格频数小于5，你得使用精确卡方检验，需要点击【exact】进行设置</li>
+</ul>
+<img src="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B28%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E4%B8%8E%E7%90%86%E8%AE%BA%E5%80%BC%E5%B7%AE%E5%BC%82/f99dcf00baa1cd117002e46cbb12c8fcc2ce2d82.jpg" class="" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+
+<ul>
+<li>勾选这个选项，点击继续</li>
+</ul>
+<img src="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B28%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E4%B8%8E%E7%90%86%E8%AE%BA%E5%80%BC%E5%B7%AE%E5%BC%82/c9bdddcec3fdfc039bcc75f4d63f8794a5c22682.jpg" class="" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+
+<ul>
+<li>接着设置这里，我们可以检验不同组人数是否相同，使用【所有分类相同】；</li>
+</ul>
+<img src="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B28%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E4%B8%8E%E7%90%86%E8%AE%BA%E5%80%BC%E5%B7%AE%E5%BC%82/27d647ee3d6d55fbc02fe06a6f224f4a21a4dd56.jpg" class="" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+
+<ul>
+<li>也可以自己设定频数，比如我设定为2和6，当然今天我们只讲上面的【所有分类相同】的情况。</li>
+</ul>
+<img src="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B28%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E4%B8%8E%E7%90%86%E8%AE%BA%E5%80%BC%E5%B7%AE%E5%BC%82/1cd4147b02087bf46a59c1a5f0d3572c10dfcf82.jpg" class="" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+
+<ul>
+<li>这里就是检验结果了，sig值大于0.05，结果不显著，说明两组之间没有差异。</li>
+</ul>
+<img src="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B28%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E4%B8%8E%E7%90%86%E8%AE%BA%E5%80%BC%E5%B7%AE%E5%BC%82/30ecd5ef76094b361f118ca1a1cc7cd98c109db8.jpg" class="" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+
+<ul>
+<li>如果你用的是精确检验就会看大有一个精确sig值</li>
+</ul>
+<img src="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B28%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E4%B8%8E%E7%90%86%E8%AE%BA%E5%80%BC%E5%B7%AE%E5%BC%82/91138622720e0cf3abe7dfb70846f21fbe09aa2f.jpg" class="" title="SPSS实例：[28]卡方检验百分比与理论值差异">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#52;&#57;&#53;&#x37;&#x38;&#55;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#109;">&#x36;&#55;&#53;&#52;&#57;&#53;&#x37;&#x38;&#55;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/04/19/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B12%5D%E6%B1%82%E5%8D%8F%E6%96%B9%E5%B7%AE%E7%9F%A9%E9%98%B5/">
                 python 线性代数：[12]求协方差矩阵
             </a>
@@ -1181,108 +1272,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/">
-                pandas教程：[26]值替换
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年04月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>有时候我们需要将数据中的某些值替换为其他值，replace()方法就是干这个用的，不同的情况下使用replace的方法也不同，下面我们用离子来说明一下：</p>
-<ul>
-<li>引入相关模块并创建一个Series</li>
-</ul>
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/00a82701213fb80ee7b595d035d12f2eb9389416.jpg" class="" title="pandas教程：[26]值替换">
-
-<ul>
-<li>具体数值的替换，方法很简单：将0替换为6<br>输出结果为：</li>
-</ul>
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/9a1151c2d56285354084262693ef76c6a7ef6316.jpg" class="" title="pandas教程：[26]值替换">
-
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/346bd85c103853437bc173269013b07eca808868.jpg" class="" title="pandas教程：[26]值替换">
-
-<ul>
-<li>列表到列表的替换，这种方法经常用到，有些问卷的题目是反向计分，所以要在处理数据的时候将分数再翻转一下：<br>输出结果为：</li>
-</ul>
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/91ae68c6a7efce1b364f3ccdac51f3deb48f6516.jpg" class="" title="pandas教程：[26]值替换">
-
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/5d212aa85edf8db1774a88630a23dd54564e7416.jpg" class="" title="pandas教程：[26]值替换">
-
-<ul>
-<li>还可以使用字典映射：将1替换为11，将2替换为12<br>输出结果为：</li>
-</ul>
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/fcbbb151f3deb48f3c0d55d9f31f3a292df57816.jpg" class="" title="pandas教程：[26]值替换">
-
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/cbc17b380cd791231fee6073ae345982b2b78068.jpg" class="" title="pandas教程：[26]值替换">
-
-<ul>
-<li>以上方法同样适用于DataFrame对象<br>输出结果为：</li>
-</ul>
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/d66b7e59252dd42a5807f5ac003b5bb5c9eab868.jpg" class="" title="pandas教程：[26]值替换">
-
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/570f8c58d109b3de58db106fcfbf6c81800a4c16.jpg" class="" title="pandas教程：[26]值替换">
-
-<ul>
-<li>假如DataFrame中只有一列数据需要替换数值，我们可以单独操作者一列<br>输出结果为：</li>
-</ul>
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/d56b3634349b033b288608dd16ce36d3d539bd68.jpg" class="" title="pandas教程：[26]值替换">
-
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/adee30dda3cc7cd91a23c0de3a01213fb80e9168.jpg" class="" title="pandas教程：[26]值替换">
-
-<ul>
-<li>假如有多个列进行相同的替换操作，我们可以同时选择多个列：<br>输出结果为：</li>
-</ul>
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/3792cb39b6003af340b42867362ac65c1038b668.jpg" class="" title="pandas教程：[26]值替换">
-
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/814b07d8bc3eb135ffa343bca51ea8d3fd1f4416.jpg" class="" title="pandas教程：[26]值替换">
-
-<ul>
-<li>若多个列中不同的值都要替换为一个相同的值，可以使用字典的方法表示所有需要被替换的值：<br>输出结果为：</li>
-</ul>
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/3b6833f5e0fe99250b689d5737a85edf8db17116.jpg" class="" title="pandas教程：[26]值替换">
-
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/32bb9c8ba61ea8d32d468003940a304e251f5816.jpg" class="" title="pandas教程：[26]值替换">
-
-<ul>
-<li>插值法同样可以用于替换数值，只要使用参数method即可</li>
-</ul>
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/b74124f33a87e9504e97046b13385343faf2b4f2.jpg" class="" title="pandas教程：[26]值替换">
-
-<img src="/2015/04/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B26%5D%E5%80%BC%E6%9B%BF%E6%8D%A2/346bd85c10385343844f70269013b07ecb8088f2.jpg" class="" title="pandas教程：[26]值替换">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#x40;&#x71;&#113;&#x2e;&#x63;&#x6f;&#x6d;">&#54;&#x37;&#53;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#x40;&#x71;&#113;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1324,6 +1313,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/08/17/%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%A8%A1%E6%9D%BF/">验证性因子分析CFA结果汇报模板</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/08/16/CR%E5%92%8CAVE%E8%AE%A1%E7%AE%97%E5%99%A8Excel%E7%89%88%E4%B8%8B%E8%BD%BD%E5%92%8C%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">CR和AVE计算器Excel版下载和使用教程</a>
             </li>
             
@@ -1357,10 +1350,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/03/27/pls-sem%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%96%B9%E6%B3%95%E5%92%8C%E6%A1%88%E4%BE%8B/">pls-sem结果汇报方法和案例【以SmartPL</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/03/25/SPSS-Process-%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E7%BB%98%E5%9B%BE%E5%B7%A5%E5%85%B7/">SPSS Process 调节效应绘图工具</a>
             </li>
             
         </ul>
