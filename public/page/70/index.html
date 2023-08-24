@@ -252,6 +252,75 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/01/11/Excel2013%EF%BC%9A%5B37%5Dmmult%E5%87%BD%E6%95%B0%E6%B1%82%E8%A7%A3%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B/">
+                Excel2013：[37]mmult函数求解二元一次方程
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>已知一个二元一次方程，怎样求出方程的解？我们可以规划求解，也可以使用矩阵函数，这里就用mmult函数求解二元一次方程，还用到的辅助函数MINVERSE，下面看看具体的求解过程吧。</p>
+<ul>
+<li>已知条件是两个方程，我们需要进行调整，使方程的形式如图所示，常数项在等号的右边，未知数在等号的左边，且未知数XY的顺序是一致的。</li>
+</ul>
+<img src="/2015/01/11/Excel2013%EF%BC%9A%5B37%5Dmmult%E5%87%BD%E6%95%B0%E6%B1%82%E8%A7%A3%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B/a28d62d98d1001e95c5dd76aba0e7bec54e79737.jpg" class="" title="Excel2013：[37]mmult函数求解二元一次方程">
+
+<ul>
+<li>建立一个表格，我们整理一下各个系数和常数，如图所示，注意它是如何同方程一一对应的</li>
+</ul>
+<img src="/2015/01/11/Excel2013%EF%BC%9A%5B37%5Dmmult%E5%87%BD%E6%95%B0%E6%B1%82%E8%A7%A3%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B/8759287adab44aedd7427d81b11c8701a18bfb0d.jpg" class="" title="Excel2013：[37]mmult函数求解二元一次方程">
+
+<ul>
+<li>在解这一栏，我们选中这两个单元格，注意是两个啊哦！</li>
+</ul>
+<img src="/2015/01/11/Excel2013%EF%BC%9A%5B37%5Dmmult%E5%87%BD%E6%95%B0%E6%B1%82%E8%A7%A3%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B/2e6fa7389b504fc2ba3e7360e7dde71190ef6d37.jpg" class="" title="Excel2013：[37]mmult函数求解二元一次方程">
+
+<ul>
+<li>在公式栏输入公式&#x3D;MMULT(MINVERSE(A8:B9),C8:C9)，注意两个参数A8：B9 和C8：C9代表那两个区域</li>
+</ul>
+<img src="/2015/01/11/Excel2013%EF%BC%9A%5B37%5Dmmult%E5%87%BD%E6%95%B0%E6%B1%82%E8%A7%A3%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B/62667cd0f703918fb8defeaf533d269759eec40d.jpg" class="" title="Excel2013：[37]mmult函数求解二元一次方程">
+
+<ul>
+<li>按下Ctrl+shift+回车键，这样就得到了公式的解</li>
+</ul>
+<img src="/2015/01/11/Excel2013%EF%BC%9A%5B37%5Dmmult%E5%87%BD%E6%95%B0%E6%B1%82%E8%A7%A3%E4%BA%8C%E5%85%83%E4%B8%80%E6%AC%A1%E6%96%B9%E7%A8%8B/d56b3634349b033b64873fbf17ce36d3d539bd0d.jpg" class="" title="Excel2013：[37]mmult函数求解二元一次方程">
+
+<ul>
+<li>你可以验证一下，这个解是不是正确，将求得的解带入方程，看等式是否成立</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#57;&#53;&#55;&#56;&#55;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#109;">&#54;&#55;&#53;&#52;&#57;&#53;&#55;&#56;&#55;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B71%5D%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/">
                 Python教程：[71]类的继承
             </a>
@@ -1151,6 +1220,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/08/23/Johnson-Neyman%E5%9B%BE%E5%8E%9F%E7%90%86%E5%92%8C%E5%88%B6%E4%BD%9CExcel%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/">Johnson-Neyman图原理和制作Excel</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/08/17/%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%A8%A1%E6%9D%BF/">验证性因子分析CFA结果汇报模板</a>
             </li>
             
@@ -1184,10 +1257,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/05/25/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E4%B8%AD%E5%9B%A0%E5%AD%90%E8%BD%BD%E8%8D%B7%E8%87%B3%E5%B0%91%E6%98%AF%E5%A4%9A%E5%B0%91/">结构方程中因子载荷至少是多少</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/03/27/pls-sem%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%96%B9%E6%B3%95%E5%92%8C%E6%A1%88%E4%BE%8B/">pls-sem结果汇报方法和案例【以SmartPL</a>
             </li>
             
         </ul>

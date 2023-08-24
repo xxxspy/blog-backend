@@ -252,6 +252,94 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/">
+                pandas教程：[11]aggregate分组计算
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>一旦对数据分组，接下来一定是对各组数据进行计算，这是通过groupby.aggregate()实现的，我们来看一下今天的例子：</p>
+<ul>
+<li>先引入必要的模块，然后创建一个DataFrame对象，如果你看了前几篇文章，应该已经知道这个DataFrame了。<br>这是内部数据：</li>
+</ul>
+<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/bf487563f6246b602a038662e8f81a4c510fa253.jpg" class="" title="pandas教程：[11]aggregate分组计算">
+
+<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/9e7ce6dcd100baa16f0973ad4410b912c8fc2ebb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
+
+<ul>
+<li>根据两个索引color、food进行分组</li>
+</ul>
+<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/f76575600c338744c3c81b6a520fd9f9d72aa053.jpg" class="" title="pandas教程：[11]aggregate分组计算">
+
+<ul>
+<li>计算各组总和：<br>计算结果为：</li>
+</ul>
+<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/310f3b1f95cad1c8309ec8317c3e6709c93d51bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
+
+<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/b853d6fcc3cec3fd551b9363d588d43f879427bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
+
+<ul>
+<li>计算结果默认使用了两个分组索引color和food作为新的DataFrame的索引（注意计算结果为一个DataFrame对象），可以使用reset_index()来将两个索引转化为列变量<br>结果为：</li>
+</ul>
+<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/d66b7e59252dd42a180435bd003b5bb5c9eab853.jpg" class="" title="pandas教程：[11]aggregate分组计算">
+
+<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/3bb22487e950352afb6c111e5043fbf2b2118b53.jpg" class="" title="pandas教程：[11]aggregate分组计算">
+
+<ul>
+<li>在分组是也可以使用as_index参数达到reset_index()的效果：<br>计算结果为：</li>
+</ul>
+<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/fd428c45d688d43f2a8ca5e47e1ed21b0ef43bbb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
+
+<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/1a94b36eddc451da37d338fdb5fd5266d01632bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
+
+<ul>
+<li>另外我们经常用到的一个方法为size()返回各组数据量<br>结果为：</li>
+</ul>
+<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/dc854fda81cb39db0ee55340d3160924ab1830bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
+
+<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/aa59892bd40735fa26d57aaf9d510fb30f2408bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
+
+<ul>
+<li>最后，还有一个经常用到的方法为describe()，对各组数据进行描述性统计：<br>计算结果为：</li>
+</ul>
+<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/34bbf8cd7b899e51ccab0e0241a7d933c8950dbb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
+
+<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/d872d695d143ad4b1b0b72d681025aafa40f06bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#x39;&#53;&#55;&#56;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#54;&#55;&#53;&#x34;&#x39;&#53;&#55;&#56;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/05/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B38%5Dspss22.0%E5%AE%89%E8%A3%85%E6%95%99%E7%A8%8B/">
                 SPSS实例：[38]spss22.0安装教程
             </a>
@@ -1057,168 +1145,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/">
-                Excel2013：[59]匹配不同工作表记录
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年04月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>如何匹配不同工作表中的记录？假如有多个工作表，第一个工作表作为基本表，用于和其他几个表匹配记录，假如一条记录同时出现在了基本表和其他表中，我们就在基本表中标识出来。怎么实现这个过程？</p>
-<ul>
-<li>首先将Excel文件存为可以执行vba的格式，xlsm格式</li>
-</ul>
-<img src="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/caae68094b36acaf906a34eb7fd98d1000e99ce4.jpg" class="" title="Excel2013：[59]匹配不同工作表记录">
-
-<ul>
-<li>我们利用SN号作为一条记录是否重复的指标，假如两条记录SN号相同，则认为两条记录匹配</li>
-</ul>
-<img src="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/d002b34bd11373f0b4cccd88a70f4bfbfaed04f2.jpg" class="" title="Excel2013：[59]匹配不同工作表记录">
-
-<ul>
-<li>打开开发工具下的visual basic，或者可以按下快捷键alt+F11</li>
-</ul>
-<img src="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/7d98931001e93901e5882f2978ec54e737d196e4.jpg" class="" title="Excel2013：[59]匹配不同工作表记录">
-
-<ul>
-<li>打开vb界面，我们双击 thisworkbook，大概一个代码界面</li>
-</ul>
-<img src="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/a54e55fbfbedab643f81efd7f436afc378311ef2.jpg" class="" title="Excel2013：[59]匹配不同工作表记录">
-
-<ul>
-<li>复制以下代码到代码界面</li>
-</ul>
-<img src="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/d019d2bf6c81800aeb562419b23533fa828b4733.jpg" class="" title="Excel2013：[59]匹配不同工作表记录">
-
-<ul>
-<li>将鼠标光标移动到代码的任意位置，按下快捷键F5即可执行代码，执行结果可见：在第一个工作表的最后一列标志出了某条记录出现在哪一个工作表中，如果所有工作表都没有匹配，则输出无匹配。</li>
-</ul>
-<img src="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/f15e24292df5e0fe79922b165f6034a85fdf72e4.jpg" class="" title="Excel2013：[59]匹配不同工作表记录">
-
-<ul>
-<li>注意基本工作表总是位于最前面。也是Excel认为的第一个工作表，代码总是用第一个表中的数据与其他表中的数据去匹配，匹配成功则输出工作表的名称。</li>
-</ul>
-<img src="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/148f28d3d539b600985ba2a0ea50352ac75cb7d5.jpg" class="" title="Excel2013：[59]匹配不同工作表记录">
-
-<ul>
-<li><p>本教程用到的代码：复制可用。</p>
-</li>
-<li><p>Sub pipei()</p>
-</li>
-<li><pre><code>Set d = CreateObject(&quot;scripting.dictionary&quot;)
-</code></pre>
-</li>
-<li><pre><code>For i = 2 To Worksheets.Count
-</code></pre>
-</li>
-<li><pre><code>    For j = 1 To Sheets(i).Cells(1, 300).End(xlToLeft).Column
-</code></pre>
-</li>
-<li><pre><code>        If Sheets(i).Cells(1, j).Text = &quot;SN号&quot; Then
-</code></pre>
-</li>
-<li><pre><code>            For r = 2 To Sheets(i).Cells(65536, j).End(xlUp).Row
-</code></pre>
-</li>
-<li><pre><code>                If Not (Sheets(i).Cells(r, j).Value = 0 Or Sheets(i).Cells(r, j).Text = &quot;&quot;) Then
-</code></pre>
-</li>
-<li><pre><code>                    d.Add Sheets(i).Cells(r, j).Text, Sheets(i).Name
-</code></pre>
-</li>
-<li><pre><code>                End If
-</code></pre>
-</li>
-<li><pre><code>            Next r
-</code></pre>
-</li>
-<li><pre><code>        End If
-</code></pre>
-</li>
-<li><pre><code>    Next j
-</code></pre>
-</li>
-<li><pre><code>Next i
-</code></pre>
-</li>
-<li><pre><code>Sheets(1).Activate
-</code></pre>
-</li>
-<li><pre><code>max_col = Cells(1, 300).End(xlToLeft).Column
-</code></pre>
-</li>
-<li><pre><code>For c = 1 To max_col
-</code></pre>
-</li>
-<li><pre><code>    If Cells(1, c).Text = &quot;SN号&quot; Then
-</code></pre>
-</li>
-<li><pre><code>        For r = 2 To Cells(65536, c).End(xlUp).Row
-</code></pre>
-</li>
-<li><pre><code>            If d.exists(Cells(r, c).Text) Then
-</code></pre>
-</li>
-<li><pre><code>                Cells(r, max_col + 1) = d.Item(Cells(r, c).Text)
-</code></pre>
-</li>
-<li><pre><code>            Else
-</code></pre>
-</li>
-<li><pre><code>                Cells(r, max_col + 1) = &quot;无匹配&quot;
-</code></pre>
-</li>
-<li><pre><code>            End If
-</code></pre>
-</li>
-<li><pre><code>        Next r
-</code></pre>
-</li>
-<li><pre><code>    End If
-</code></pre>
-</li>
-<li><pre><code>Next c
-</code></pre>
-</li>
-<li><pre><code>MsgBox &quot;ok&quot;
-</code></pre>
-</li>
-<li><p>End Sub</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x36;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1260,6 +1186,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/08/23/Johnson-Neyman%E5%9B%BE%E5%8E%9F%E7%90%86%E5%92%8C%E5%88%B6%E4%BD%9CExcel%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/">Johnson-Neyman图原理和制作Excel</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/08/17/%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%A8%A1%E6%9D%BF/">验证性因子分析CFA结果汇报模板</a>
             </li>
             
@@ -1293,10 +1223,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/05/25/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E4%B8%AD%E5%9B%A0%E5%AD%90%E8%BD%BD%E8%8D%B7%E8%87%B3%E5%B0%91%E6%98%AF%E5%A4%9A%E5%B0%91/">结构方程中因子载荷至少是多少</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/03/27/pls-sem%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%96%B9%E6%B3%95%E5%92%8C%E6%A1%88%E4%BE%8B/">pls-sem结果汇报方法和案例【以SmartPL</a>
             </li>
             
         </ul>
