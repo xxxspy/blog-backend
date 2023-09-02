@@ -252,6 +252,77 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/02/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B56%5D%E5%86%99%E5%85%A5txt/">
+                Python教程：[56]写入txt
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年02月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天写一个系列，记录一下如何用python来操作txt文件，包括写入txt、读取txt等，我们今天作为入门先来看看比较简单的创建和写入txt，下面来看看具体的例子：</p>
+<ul>
+<li>使用open方法打开一个txt文件，句柄保存在f中。注意第二个参数w，表明是可写模式，只有这种模式你才可以写入文字。第一个参数大家都知道，就是文件路径，如果文件不存在，那么会自动创建一个该目录下的txt文件。</li>
+</ul>
+<img src="/2016/02/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B56%5D%E5%86%99%E5%85%A5txt/c9bdddcec3fdfc03a129af38d63f8794a5c22699.jpg" class="" title="Python教程：[56]写入txt">
+
+<img src="/2016/02/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B56%5D%E5%86%99%E5%85%A5txt/d7c9ca3f8794a4c24572abab0cf41bd5ac6e3999.jpg" class="" title="Python教程：[56]写入txt">
+
+<ul>
+<li>写入文字，用write</li>
+</ul>
+<img src="/2016/02/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B56%5D%E5%86%99%E5%85%A5txt/bd7faf3533fa828bb02ed263ff1f4134960a5ae5.jpg" class="" title="Python教程：[56]写入txt">
+
+<ul>
+<li>如果你一次有多行要写入，你可以用一个列表作为参数：</li>
+</ul>
+<img src="/2016/02/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B56%5D%E5%86%99%E5%85%A5txt/fd428c45d688d43fb2c4de727f1ed21b0ff43b85.jpg" class="" title="Python教程：[56]写入txt">
+
+<ul>
+<li>如果写入完毕，我们需要关闭文件，用到的close方法。</li>
+</ul>
+<img src="/2016/02/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B56%5D%E5%86%99%E5%85%A5txt/1cd4147b02087bf483e71869f0d3572c10dfcfec.jpg" class="" title="Python教程：[56]写入txt">
+
+<ul>
+<li>最后看一下，已经写入到tt记事本了。</li>
+</ul>
+<img src="/2016/02/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B56%5D%E5%86%99%E5%85%A5txt/dc854fda81cb39dbf79d2bd6d2160924aa183095.jpg" class="" title="Python教程：[56]写入txt">
+
+<ul>
+<li>open(path,’w’)：w模式下，写入内容会覆盖掉原来的内容，所以我们还有另一个模式叫做追加模式，就是a模式。下一篇介绍。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#57;&#53;&#x37;&#56;&#55;&#x40;&#113;&#x71;&#x2e;&#x63;&#111;&#109;">&#54;&#55;&#53;&#x34;&#57;&#53;&#x37;&#56;&#55;&#x40;&#113;&#x71;&#x2e;&#x63;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/02/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E5%AD%97%E5%85%B8%E7%9A%84%E7%94%A8%E6%B3%95/">
                 Python教程：[6]字典的用法
             </a>
@@ -987,99 +1058,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/">
-                python 线性代数：[16]线性组合均值协方差阵
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年02月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>这里从《实用多元统计分析》（理查德~约翰逊)这本书里摘出一个例子，看题目：</p>
-<ul>
-<li>引入相关模块</li>
-</ul>
-<img src="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/09bb4f3d269759ee2a25ae8ab1fb43166d22df3f.jpg" class="" title="python 线性代数：[16]线性组合均值协方差阵">
-
-<ul>
-<li>创建几个符号，代码已知量</li>
-</ul>
-<img src="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/58af236d55fbb2fb595e96534c4a20a44623dc3f.jpg" class="" title="python 线性代数：[16]线性组合均值协方差阵">
-
-<ul>
-<li>sigma代表已知的X矩阵的协方差矩阵<br>sigma &#x3D;</li>
-</ul>
-<img src="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/e6508eef76c6a7efbffe6767fefaaf51f2de665c.jpg" class="" title="python 线性代数：[16]线性组合均值协方差阵">
-
-<img src="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/61183b2dd42a283403d3f84a58b5c9ea15cebf3f.jpg" class="" title="python 线性代数：[16]线性组合均值协方差阵">
-
-<ul>
-<li>u代表已知的x矩阵的均值向量<br>这是均值向量</li>
-</ul>
-<img src="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/99636c0e0cf3d7ca5e83f137f11fbe096b63a93f.jpg" class="" title="python 线性代数：[16]线性组合均值协方差阵">
-
-<img src="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/5af4d7ea15ce36d3e8714d7139f33a87e950b13f.jpg" class="" title="python 线性代数：[16]线性组合均值协方差阵">
-
-<ul>
-<li>、这是线性组合的系数矩阵</li>
-</ul>
-<img src="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/f15e24292df5e0fee4c046405f6034a85fdf725c.jpg" class="" title="python 线性代数：[16]线性组合均值协方差阵">
-
-<img src="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/570f8c58d109b3de17672b29cfbf6c81810a4c5c.jpg" class="" title="python 线性代数：[16]线性组合均值协方差阵">
-
-<ul>
-<li>计算均值向量，利用均值向量的计算公式：<br>代码为：<br>求得：</li>
-</ul>
-<img src="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/9304c888d43f8794105b866fd11b0ef41ad53a88.jpg" class="" title="python 线性代数：[16]线性组合均值协方差阵">
-
-<img src="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/1b0d4f0fd9f9d72a5311de5cd72a2834349bbb3f.jpg" class="" title="python 线性代数：[16]线性组合均值协方差阵">
-
-<img src="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/cdfe7281800a19d82ddb4b4430fa828ba71e465c.jpg" class="" title="python 线性代数：[16]线性组合均值协方差阵">
-
-<ul>
-<li><p>同样，我们利用协方差矩阵的公式：<br>代码为：</p>
-</li>
-<li><p>求得结果为：</p>
-</li>
-</ul>
-<img src="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/b29f8282d158ccbfe14b7b7b1ad8bc3eb03541b9.jpg" class="" title="python 线性代数：[16]线性组合均值协方差阵">
-
-<img src="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/e1bf8725bc315c60b44da4ae8eb1cb134854775c.jpg" class="" title="python 线性代数：[16]线性组合均值协方差阵">
-
-<img src="/2016/02/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B16%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E5%9D%87%E5%80%BC%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5/b13fd48065380cd7dc6b6caca244ad345982813f.jpg" class="" title="python 线性代数：[16]线性组合均值协方差阵">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#52;&#57;&#x35;&#x37;&#x38;&#55;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#x6d;">&#x36;&#x37;&#53;&#52;&#57;&#x35;&#x37;&#x38;&#55;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1121,6 +1099,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/09/02/%E5%A4%9A%E5%B1%82%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">多层模型及其交互效应入门教程</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/08/23/Johnson-Neyman%E5%9B%BE%E5%8E%9F%E7%90%86%E5%92%8C%E5%88%B6%E4%BD%9CExcel%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/">Johnson-Neyman图原理和制作Excel</a>
             </li>
             
@@ -1154,10 +1136,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/06/04/so-vits-svc%E6%9C%80%E5%BC%BA%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%8B%9F%E5%A3%B0%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">so-vits-svc最强声音克隆拟声软件使用教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/05/25/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E4%B8%AD%E5%9B%A0%E5%AD%90%E8%BD%BD%E8%8D%B7%E8%87%B3%E5%B0%91%E6%98%AF%E5%A4%9A%E5%B0%91/">结构方程中因子载荷至少是多少</a>
             </li>
             
         </ul>
