@@ -252,6 +252,170 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/">
+                SPSS二因素完全随机设计的简单效应检验方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>spss在做简单效应的时候没有现成的菜单选项，需要你自己编写syntax，所以比较麻烦，在这个教程了，我交给大家一个办法，不用学太多的syntax就能自己做简单效应，下面是具体的方法：<br>工具&#x2F;原料</p>
+<ul>
+<li><p>spss20.0<br>方法&#x2F;步骤</p>
+</li>
+<li><p>在菜单栏上执行：analyse–GLM–univariate，打开方差分析对话框</p>
+</li>
+</ul>
+<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/6a600c338744ebf8b74dcffdd9f9d72a6059a730.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
+
+<ul>
+<li>将自变量、因变量放入各自的框中，如图所示，B和Z是两个自变量，他们是完全随机设计，点击ok按钮，开始运行数据</li>
+</ul>
+<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/a08b87d6277f9e2f7e17b6ca1f30e924b999f3d6.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
+
+<ul>
+<li>我们看到数据的处理效果，交互作用显著，所以我们需要进一步做简单效益的检验</li>
+</ul>
+<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/4d086e061d950a7b8140e5060ad162d9f3d3c9ff.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
+
+<ul>
+<li>如图所示，点击菜单栏上的按钮，打开刚才用过的univariate对话框</li>
+</ul>
+<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/4ec2d5628535e5dd0d5d0e1d76c6a7efcf1b62fb.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
+
+<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/203fb80e7bec54e7d481b1dcb9389b504ec26a87.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
+
+<ul>
+<li>点击下面的paste按钮，来到syntax的编辑窗口</li>
+</ul>
+<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/f3d3572c11dfa9ec016afdd562d0f703908fc1a8.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
+
+<ul>
+<li><p>在如图所示的位置，添加一个命令：&#x2F;EMMEANS&#x3D;TABLES(B*Z)COMPARE(B)ADJ(SIDAK)</p>
+</li>
+<li><p>其中：EMMEANSE是estimated marginal means subcommand的缩写，意思是估计边际平均数  </p>
+</li>
+<li><p>ADJ是比较的方法，还可以用lsd ，bonferroni和sidak这三种方法。</p>
+</li>
+<li><p>单击运行按钮，开始处理数据并输出结果</p>
+</li>
+</ul>
+<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/8694a4c27d1ed21b3fe6b927ad6eddc450da3fc0.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
+
+<ul>
+<li>我们看到，简单主效应的分析已经出来，通过这个表格我们就能对自变量B各个水平进行精细比较</li>
+</ul>
+<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/1ad5ad6eddc451dab7dd9b29b6fd5266d11632cc.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#x36;&#x37;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/">
+                wxpython教程：[2]窗口风格
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>这篇文章接着介绍wxpython.Frame，我们需要设置一下窗口的大小、位置等。下面看一下今天要写的所有代码。</p>
+<ul>
+<li>代码的前两行就不说了，引入了相关模块并创建了一个app</li>
+</ul>
+<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/0d968f2397dda1440ba4fcddb1b7d0a20df486f5.jpg" class="" title="wxpython教程：[2]窗口风格">
+
+<ul>
+<li>接着是Frame的设置，我们先来看看style，他有很多可以设置的属性，不同的属性用竖线“|”连接，比如我们想要窗口上有最大化按钮，就设置wx.MAXIMIZE_BOX，如果想要增加最小化按钮，就写成style&#x3D;wx.MAXIMIZE_BOX|wx.MINIMIZE_BOX ，写一连串属性很麻烦，我们可以用wx.DEFAULT_FRAME_STYLE默认设置，它等于wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX | wx.RESIZE_BORDER | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN<br>其他属性的意义我们直接从官网上看就可以，如下图：</li>
+</ul>
+<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/4abae5edab64034f575f5269acc379310b551d8b.jpg" class="" title="wxpython教程：[2]窗口风格">
+
+<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/109eb7ec8a136327064f515c928fa0ec09fac784.jpg" class="" title="wxpython教程：[2]窗口风格">
+
+<ul>
+<li><p>接着我们想要设置窗口的大小，用size参数，Frame（…size&#x3D;(200,250))，这样就将窗口大小设置为200长，250高。</p>
+</li>
+<li><p>使用Move方法可以设置窗口的位置，比如（它表示窗口的左上角在屏幕上的位置）</p>
+</li>
+</ul>
+<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/ac754782b2b7d0a2a66494f2c8ef76094a369af5.jpg" class="" title="wxpython教程：[2]窗口风格">
+
+<ul>
+<li>如果我们需要将窗口置于屏幕中央，可以使用Center方法</li>
+</ul>
+<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/b6045da98226cffc24b82fddba014a90f703ea94.jpg" class="" title="wxpython教程：[2]窗口风格">
+
+<ul>
+<li>还有其他很多方法设置窗口位置，这里就不演示了：</li>
+</ul>
+<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/4e83cb628535e5dd279737b075c6a7efcf1b62e3.jpg" class="" title="wxpython教程：[2]窗口风格">
+
+<ul>
+<li>最后就不用解释了，可以看看你创建的一个窗口</li>
+</ul>
+<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/8bc3a7014a90f6034c220c283a12b31bb151ed94.jpg" class="" title="wxpython教程：[2]窗口风格">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;">&#x36;&#55;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/06/23/Excel2013%EF%BC%9A%5B43%5D%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%89%B9%E6%B3%A8/">
                 Excel2013：[43]如何打印批注
             </a>
@@ -854,183 +1018,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B17%5DUDP%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A8%8B%E5%BA%8F/">
-                Python教程：[17]UDP客户端程序
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>python可以快速的写成一个udp客户端程序，前面的文章中我们介绍了如何写udp服务器，服务器其实和客户端的程序时非常类似的，你看了下面的代码就知道了。</p>
-<ul>
-<li>先引入socket模块</li>
-</ul>
-<img src="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B17%5DUDP%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A8%8B%E5%BA%8F/9e7ce6dcd100baa195843e974510b912c8fc2e36.jpg" class="" title="Python教程：[17]UDP客户端程序">
-
-<ul>
-<li>设置几个参数：host主机地址，Port端口，bufsiz缓存大小</li>
-</ul>
-<img src="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B17%5DUDP%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A8%8B%E5%BA%8F/e1bf8725bc315c601b4e12c38fb1cb1348547787.jpg" class="" title="Python教程：[17]UDP客户端程序">
-
-<ul>
-<li>创建一个udp套接字类型，如图所示，关键参数是第二个SOCK_DGRAM</li>
-</ul>
-<img src="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B17%5DUDP%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A8%8B%E5%BA%8F/c28fddfdfc039245b71d98238594a4c27d1e2536.jpg" class="" title="Python教程：[17]UDP客户端程序">
-
-<ul>
-<li>下面的代码用于向服务器发送数据，并接受服务器传来的数据</li>
-</ul>
-<img src="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B17%5DUDP%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A8%8B%E5%BA%8F/9319cf09b3de9c82eabe80a36e81800a18d84387.jpg" class="" title="Python教程：[17]UDP客户端程序">
-
-<ul>
-<li><p>下面是完整的代码。</p>
-</li>
-<li><p>from socket import *</p>
-</li>
-<li><p>host&#x3D;’localhost’  #本地服务器地址</p>
-</li>
-<li><p>port&#x3D;12345  #客户端端口(确保和服务器的端口一致</p>
-</li>
-<li><p>bufsiz&#x3D;2048 #缓存大小</p>
-</li>
-<li><p>addc&#x3D;(host, port) #地址+端口</p>
-</li>
-<li><p>udpclisock&#x3D;socket(AF_INET,SOCK_DGRAM)  #创建UDP的套接字类型。</p>
-</li>
-<li><p>while True:</p>
-</li>
-<li><pre><code>udpclisock.sendto(b&#39;hello&#39;, addc)
-</code></pre>
-</li>
-<li><pre><code>data,adds=udpclisock.recvfrom(bufsiz)
-</code></pre>
-</li>
-<li><pre><code>if not data:
-</code></pre>
-</li>
-<li><pre><code>    break
-</code></pre>
-</li>
-<li><pre><code>print(data)
-</code></pre>
-</li>
-<li><p>udpclisock.close()</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#52;&#x39;&#53;&#55;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;">&#x36;&#55;&#53;&#52;&#x39;&#53;&#55;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/">
-                pandas教程：[5]读取csv数据
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>很多数据是从网上下载而来，数据的格式可能是csv，那么pandas可以很容易的从csv格式的文件中读取数据，下面我们来看看具体的过程：</p>
-<ul>
-<li>引入pandas</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/7787b9efce1b9d161dd32272f0deb48f8c54644a.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<ul>
-<li>使用pandas下的read_csv方法，读取csv文件，参数是文件的路径，这是一个相对路径，是相对于当前工作目录的，那么如何知道当前的工作目录呢？</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/bd7faf3533fa828ba41825f0fe1f4134970a5aae.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<ul>
-<li>使用os.getcwd()方法获取当前工作目录</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/1cd4147b02087bf47fe5effaf1d3572c11dfcf5d.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<ul>
-<li>读取前三后数据，查看一下是否读取正确，显然都是乱码，这是什么问题呢？</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/95afee1f3a292df509d71406bf315c6034a8734a.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<ul>
-<li>我们需要设定参数encoding，也就是编码方式，如果你不设定编码方式，默认是utf8，现在csv文件是gbk编码的，所以需要使用encoding&#x3D;’gbk’</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/2cb4fefe9925bc31b049b98b5ddf8db1cb13704a.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<ul>
-<li>我用的编辑器是eric4，注意，eric4默认是不支持中文的，如果你想要显示中文，前提是设置正确的编码，在preferences中</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/c87c6ecf3bc79f3debda5c23b9a1cd11728b29ae.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<ul>
-<li>设置成utf8即可</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/d041a4a1cd11728b5f163431cbfcc3cec3fd2cae.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<ul>
-<li>回到pandas，我们可以有更多选项来设置打开数据时的操作：</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/808a27dbb6fd5266fd228707a818972bd407365c.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;">&#54;&#55;&#53;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1072,6 +1059,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/09/19/SEM%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%87%AA%E7%94%B1%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%A9%BA%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%9F%BA%E7%BA%BF%E6%A8%A1%E5%9E%8B/">SEM如何理解自由度以及空模型和基线模型</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/09/18/mplus%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%B3%A8%E9%87%8A%E5%92%8C%E8%A7%A3%E8%AF%BB/">mplus验证性因子分析结果的详细注释和解读</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/09/02/%E5%A4%9A%E5%B1%82%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">多层模型及其交互效应入门教程</a>
             </li>
             
@@ -1101,14 +1096,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/07/08/spss%E6%95%B0%E6%8D%AEsav%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88%E5%9C%A8%E7%BA%BF%EF%BC%89/">spss和Excel数据格式转mplus格式数据（</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/06/25/p01-%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8BSEM%E7%9A%84%E7%B1%BB%E5%9E%8B/">结构方程模型的种类协方差结构方程和最小二乘法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/06/04/so-vits-svc%E6%9C%80%E5%BC%BA%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%8B%9F%E5%A3%B0%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">so-vits-svc最强声音克隆拟声软件使用教程</a>
             </li>
             
         </ul>

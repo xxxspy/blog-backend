@@ -1,0 +1,250 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+09/19/2023  11:28 AM
+
+INPUT INSTRUCTIONS
+
+  Title: Degrees of freedom example - Empty model
+
+  Data:   File is data.txt;
+          Type is correlation;
+          nobservations are 350;
+
+
+  Variable: Names are X1 X2 X3 Y1 Y2;
+
+  Analysis:
+  Model:
+      Y1 on X1 X2;
+      Y2 on X1 X2 X3;
+      Y1 with Y2;
+
+
+
+  Output: samp stand;
+
+
+
+INPUT READING TERMINATED NORMALLY
+
+
+
+Degrees of freedom example - Empty model
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         350
+
+Number of dependent variables                                    2
+Number of independent variables                                  3
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   Y1          Y2
+
+Observed independent variables
+   X1          X2          X3
+
+
+Estimator                                                       ML
+Information matrix                                        EXPECTED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+
+Input data file(s)
+  data.txt
+
+Input data format  FREE
+
+
+SAMPLE STATISTICS
+
+
+     SAMPLE STATISTICS
+
+
+           Covariances/Correlations/Residual Correlations
+              Y1            Y2            X1            X2            X3
+              ________      ________      ________      ________      ________
+ Y1             1.000
+ Y2             0.190         1.000
+ X1             0.440         0.240         1.000
+ X2             0.160         0.400         0.100         1.000
+ X3             0.150         0.270         0.320         0.220         1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        8
+
+Loglikelihood
+
+          H0 Value                        -908.176
+          H1 Value                        -908.134
+
+Information Criteria
+
+          Akaike (AIC)                    1832.352
+          Bayesian (BIC)                  1863.216
+          Sample-Size Adjusted BIC        1837.837
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                              0.084
+          Degrees of Freedom                     1
+          P-Value                           0.7716
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.000
+          90 Percent C.I.                    0.000  0.094
+          Probability RMSEA <= .05           0.851
+
+CFI/TLI
+
+          CFI                                1.000
+          TLI                                1.040
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            168.243
+          Degrees of Freedom                     7
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.004
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ Y1       ON
+    X1                 0.428      0.048      8.953      0.000
+    X2                 0.117      0.048      2.449      0.014
+
+ Y2       ON
+    X1                 0.159      0.050      3.190      0.001
+    X2                 0.353      0.048      7.276      0.000
+    X3                 0.142      0.051      2.795      0.005
+
+ Y1       WITH
+    Y2                 0.042      0.042      1.000      0.317
+
+ Residual Variances
+    Y1                 0.791      0.060     13.229      0.000
+    Y2                 0.780      0.059     13.229      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ Y1       ON
+    X1                 0.428      0.043      9.878      0.000
+    X2                 0.117      0.048      2.462      0.014
+
+ Y2       ON
+    X1                 0.159      0.049      3.219      0.001
+    X2                 0.353      0.046      7.711      0.000
+    X3                 0.142      0.050      2.815      0.005
+
+ Y1       WITH
+    Y2                 0.054      0.053      1.005      0.315
+
+ Residual Variances
+    Y1                 0.793      0.039     20.551      0.000
+    Y2                 0.782      0.039     20.047      0.000
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ Y1       ON
+    X1                 0.429      0.042     10.329      0.000
+    X2                 0.117      0.047      2.473      0.013
+
+ Y2       ON
+    X1                 0.159      0.049      3.240      0.001
+    X2                 0.353      0.044      7.944      0.000
+    X3                 0.142      0.050      2.828      0.005
+
+ Y1       WITH
+    Y2                 0.054      0.053      1.005      0.315
+
+ Residual Variances
+    Y1                 0.793      0.039     20.551      0.000
+    Y2                 0.782      0.039     20.047      0.000
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ Y1       ON
+    X1                 0.428      0.048      8.953      0.000
+    X2                 0.117      0.048      2.449      0.014
+
+ Y2       ON
+    X1                 0.159      0.050      3.190      0.001
+    X2                 0.353      0.048      7.276      0.000
+    X3                 0.142      0.051      2.795      0.005
+
+ Y1       WITH
+    Y2                 0.042      0.042      1.000      0.317
+
+ Residual Variances
+    Y1                 0.791      0.060     13.229      0.000
+    Y2                 0.780      0.059     13.229      0.000
+
+
+R-SQUARE
+
+    Observed                                        Two-Tailed
+    Variable        Estimate       S.E.  Est./S.E.    P-Value
+
+    Y1                 0.207      0.039      5.370      0.000
+    Y2                 0.218      0.039      5.581      0.000
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.428E+00
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  11:28:40
+        Ending Time:  11:28:40
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

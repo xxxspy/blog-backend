@@ -252,6 +252,148 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/01/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B16%5D%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E5%AD%98%E5%8F%96/">
+                numpy函数：[16]多维数组切片存取
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年01月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>多维数组和一维数组的存取方法类似，我们这篇文章介绍使用切片来存取一个二维数组，多维数组道理一样，你自己尝试一下即可。</p>
+<ul>
+<li>先从numpy中引入所有</li>
+</ul>
+<img src="/2016/01/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B16%5D%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E5%AD%98%E5%8F%96/6a22e8246b600c335b90a648184c510fd8f9a102.jpg" class="" title="numpy函数：[16]多维数组切片存取">
+
+<ul>
+<li>创建一个一维数组</li>
+</ul>
+<img src="/2016/01/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B16%5D%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E5%AD%98%E5%8F%96/eab9044c510fd9f936fe2de9272dd42a2934a402.jpg" class="" title="numpy函数：[16]多维数组切片存取">
+
+<ul>
+<li>将一维数组重新组织成一个二维数组</li>
+</ul>
+<img src="/2016/01/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B16%5D%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E5%AD%98%E5%8F%96/f9589818367adab4eaff60c389d4b31c8601e4c0.jpg" class="" title="numpy函数：[16]多维数组切片存取">
+
+<ul>
+<li>使用切片来读取第一行中的第二和第三个数，我们看下标【0,2:4】,其中逗号前的数字表示第0轴下标取值范围，逗号之后表示第1维下标取值范围，2:4就表示2-4之间</li>
+</ul>
+<img src="/2016/01/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B16%5D%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E5%AD%98%E5%8F%96/8a95ad1c8701a18b21c469cf9c2f07082938fec0.jpg" class="" title="numpy函数：[16]多维数组切片存取">
+
+<ul>
+<li>我们可以返回一个二维的数组</li>
+</ul>
+<img src="/2016/01/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B16%5D%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E5%AD%98%E5%8F%96/e8112b2ac65c1038a797b642b0119313b17e8902.jpg" class="" title="numpy函数：[16]多维数组切片存取">
+
+<ul>
+<li>只读取第3列的元素（逗号前只有一个冒号，表示所有）</li>
+</ul>
+<img src="/2016/01/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B16%5D%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E5%AD%98%E5%8F%96/9252ae7eca806538f703dc9395dda144ac348202.jpg" class="" title="numpy函数：[16]多维数组切片存取">
+
+<ul>
+<li>也可以设置步长（两个逗号后面的2表示步长为2）</li>
+</ul>
+<img src="/2016/01/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B16%5D%E5%A4%9A%E7%BB%B4%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87%E5%AD%98%E5%8F%96/647912d7912397dd5f90e0845b82b2b7d1a28702.jpg" class="" title="numpy函数：[16]多维数组切片存取">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#52;&#57;&#x35;&#x37;&#x38;&#55;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#109;">&#54;&#x37;&#53;&#52;&#57;&#x35;&#x37;&#x38;&#55;&#x40;&#x71;&#113;&#46;&#x63;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/01/17/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA/">
+                Django教程：[9]如何设置时区
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年01月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>Django站点的时区和你电脑上的时区必须是一致的，我在北京，所以我们通常设置时区为北京的时区，那么我们怎么具体的设置呢？下面看具体的过程：</p>
+<ul>
+<li>从下面的参考资料里找到时区代码的链接，打开链接</li>
+</ul>
+<img src="/2016/01/17/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA/ac0acf1373f08202182e294549fbfbedaa641bc8.jpg" class="" title="Django教程：[9]如何设置时区">
+
+<ul>
+<li>在打开的页面中，找到中国的时区，或者找到你自己想要的一个时区</li>
+</ul>
+<img src="/2016/01/17/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA/346bd85c103853434ed43f5b9113b07eca808876.jpg" class="" title="Django教程：[9]如何设置时区">
+
+<ul>
+<li>接着回到你站点文件夹，打开settings文件，设置时区</li>
+</ul>
+<img src="/2016/01/17/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA/d041a4a1cd11728b5b423358cafcc3cec3fd2c19.jpg" class="" title="Django教程：[9]如何设置时区">
+
+<ul>
+<li>搜索TIME_ZONE，我们看默认的时区是UTC，也就是国际协调时，不是任何的时区，而是一个国际通用时间。</li>
+</ul>
+<img src="/2016/01/17/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA/72ccb7773912b31beffb72538418367adbb4e1f2.jpg" class="" title="Django教程：[9]如何设置时区">
+
+<ul>
+<li>将其修改为上海时区，就这样就ok了。保存settings文件</li>
+</ul>
+<img src="/2016/01/17/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%97%B6%E5%8C%BA/c9d4cf43ad4bd11330a2084858afa40f4bfb0519.jpg" class="" title="Django教程：[9]如何设置时区">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#x39;&#53;&#55;&#x38;&#x37;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;">&#54;&#55;&#53;&#52;&#x39;&#53;&#55;&#x38;&#x37;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/django/">#django</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/01/15/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B21%5D%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/">
                 SPSS实例：[21]调节效应检验方法
             </a>
@@ -912,185 +1054,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/01/03/%E6%80%8E%E6%A0%B7%E5%B0%86excel%E4%B8%AD%E7%9A%84%E8%81%94%E7%B3%BB%E4%BA%BA%E5%AF%BC%E5%85%A5%E5%88%B0%E9%82%AE%E7%AE%B1/">
-                怎样将excel中的联系人导入到邮箱
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年01月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>在日常的办公中，我们整理客户资料的时候经常是使用excel，如果要想给这些客服发邮件，我们就得将他们的邮件地址一个一个的输入到邮箱里，不过，还有更简单的做法，那就是利用批量导入联系人的方法实现一键导入，下面是具体的方法，本人用的是126邮箱，经测试，其他邮箱导入的方法也是一样的。<br>方法&#x2F;步骤</p>
-<ul>
-<li></li>
-<li><p>先打开要导入的excel文件，格式不正确的文件是无法导入的，我们要对其进行修改。首先你要检查这个文件是不是有标题栏，没有标题栏的话，很多邮箱都不能导入，所以我们最好先插入标题栏，如图所示，右键单击第一行，然后再打开的菜单中选择【插入】</p>
-</li>
-</ul>
-<img src="/2016/01/03/%E6%80%8E%E6%A0%B7%E5%B0%86excel%E4%B8%AD%E7%9A%84%E8%81%94%E7%B3%BB%E4%BA%BA%E5%AF%BC%E5%85%A5%E5%88%B0%E9%82%AE%E7%AE%B1/71cf3bc79f3df8dc7f79ae0fcd11728b461028e3.jpg" class="" title="怎样将excel中的联系人导入到邮箱">
-
-<ul>
-<li>导入到标题栏以后，我们按照‘联系组   姓名   邮件地址   联系地址   邮政编码   联系电话   移动电话   公司   ’这样的顺序整理你的联系人的信息，当然，如果你的联系人的信息没有这么多，你可以空着不填，比如没有电话，你就空着这一栏就可以了，如下图所示就是整理好的联系人的信息</li>
-</ul>
-<img src="/2016/01/03/%E6%80%8E%E6%A0%B7%E5%B0%86excel%E4%B8%AD%E7%9A%84%E8%81%94%E7%B3%BB%E4%BA%BA%E5%AF%BC%E5%85%A5%E5%88%B0%E9%82%AE%E7%AE%B1/aa64034f78f0f7364ca66d9f0a55b319eac413d7.jpg" class="" title="怎样将excel中的联系人导入到邮箱">
-
-<ul>
-<li>点击excel的开始按钮，打开开始菜单，然后执行：另存为–其他格式</li>
-</ul>
-<img src="/2016/01/03/%E6%80%8E%E6%A0%B7%E5%B0%86excel%E4%B8%AD%E7%9A%84%E8%81%94%E7%B3%BB%E4%BA%BA%E5%AF%BC%E5%85%A5%E5%88%B0%E9%82%AE%E7%AE%B1/f9dcd100baa1cd11c3f253beb912c8fcc2ce2de3.jpg" class="" title="怎样将excel中的联系人导入到邮箱">
-
-<ul>
-<li>在打开的另存为对话框中，我们将保存的格式设置为csv，这是个大邮箱都承认的导入格式，然后选择一个保存的位置，点击‘保存’</li>
-</ul>
-<img src="/2016/01/03/%E6%80%8E%E6%A0%B7%E5%B0%86excel%E4%B8%AD%E7%9A%84%E8%81%94%E7%B3%BB%E4%BA%BA%E5%AF%BC%E5%85%A5%E5%88%B0%E9%82%AE%E7%AE%B1/962bd40735fae6cdb4ec8aff0fb30f2443a70fd7.jpg" class="" title="怎样将excel中的联系人导入到邮箱">
-
-<ul>
-<li>弹出一个警告消息，不用管它，点击‘是’</li>
-</ul>
-<img src="/2016/01/03/%E6%80%8E%E6%A0%B7%E5%B0%86excel%E4%B8%AD%E7%9A%84%E8%81%94%E7%B3%BB%E4%BA%BA%E5%AF%BC%E5%85%A5%E5%88%B0%E9%82%AE%E7%AE%B1/4610b912c8fcc3ce7584e8ad9245d688d53f20e3.jpg" class="" title="怎样将excel中的联系人导入到邮箱">
-
-<ul>
-<li>来到你的邮箱，在菜单栏上选择【通讯录】，打开联系人的列表</li>
-</ul>
-<img src="/2016/01/03/%E6%80%8E%E6%A0%B7%E5%B0%86excel%E4%B8%AD%E7%9A%84%E8%81%94%E7%B3%BB%E4%BA%BA%E5%AF%BC%E5%85%A5%E5%88%B0%E9%82%AE%E7%AE%B1/a5c27d1ed21b0ef4dbb0b9c0ddc451da80cb3ed7.jpg" class="" title="怎样将excel中的联系人导入到邮箱">
-
-<ul>
-<li>在标题栏，找到【更多】选项，点击它可以打开一个下拉列表，在该下拉列表里，找到【导入通讯录】这个选项</li>
-</ul>
-<img src="/2016/01/03/%E6%80%8E%E6%A0%B7%E5%B0%86excel%E4%B8%AD%E7%9A%84%E8%81%94%E7%B3%BB%E4%BA%BA%E5%AF%BC%E5%85%A5%E5%88%B0%E9%82%AE%E7%AE%B1/d31b0ef41bd5ad6e1fa1457481cb39dbb7fd3cd7.jpg" class="" title="怎样将excel中的联系人导入到邮箱">
-
-<ul>
-<li>打开导入通讯录页面，点击浏览按钮，查找你刚才保存的文件</li>
-</ul>
-<img src="/2016/01/03/%E6%80%8E%E6%A0%B7%E5%B0%86excel%E4%B8%AD%E7%9A%84%E8%81%94%E7%B3%BB%E4%BA%BA%E5%AF%BC%E5%85%A5%E5%88%B0%E9%82%AE%E7%AE%B1/e7cd7b899e510fb3dd415609d933c895d0430cd7.jpg" class="" title="怎样将excel中的联系人导入到邮箱">
-
-<ul>
-<li>选择你要上传的文件，然后点击【打开】</li>
-</ul>
-<img src="/2016/01/03/%E6%80%8E%E6%A0%B7%E5%B0%86excel%E4%B8%AD%E7%9A%84%E8%81%94%E7%B3%BB%E4%BA%BA%E5%AF%BC%E5%85%A5%E5%88%B0%E9%82%AE%E7%AE%B1/fd039245d688d43f3cedb06c7d1ed21b0ff43be3.jpg" class="" title="怎样将excel中的联系人导入到邮箱">
-
-<ul>
-<li><p>设置遇到重复的邮件地址的时候是该覆盖还是不导入，也就是跳过该记录，按照你需要的自己进行设定，一般就是选择【不导入】。点击确定按钮，完成导入。</p>
-</li>
-<li></li>
-<li></li>
-</ul>
-<img src="/2016/01/03/%E6%80%8E%E6%A0%B7%E5%B0%86excel%E4%B8%AD%E7%9A%84%E8%81%94%E7%B3%BB%E4%BA%BA%E5%AF%BC%E5%85%A5%E5%88%B0%E9%82%AE%E7%AE%B1/d833c895d143ad4b0976675e82025aafa50f06d7.jpg" class="" title="怎样将excel中的联系人导入到邮箱">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#52;&#57;&#x35;&#x37;&#x38;&#55;&#x40;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;">&#x36;&#55;&#53;&#52;&#57;&#x35;&#x37;&#x38;&#55;&#x40;&#113;&#x71;&#x2e;&#x63;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/01/01/DataNitro%EF%BC%9A%5B5%5DCell%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/">
-                DataNitro：[5]Cell对象方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年01月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>这篇文章介绍一下Datanitro常用的一些方法。我们还是用例子来说明，大家比较容易理解，另外想要学习一门计算机语言，一定要亲手实验你的代码，否则学起来很慢。</p>
-<ul>
-<li><p>clear()：清空Cell，例如：</p>
-</li>
-<li><p>#clear()</p>
-</li>
-<li><p>Cell(1,1).clear()</p>
-</li>
-<li><p>copy_from():复制单元格：下面的代码将A21单元格的内容和格式复制到了A22</p>
-</li>
-</ul>
-<img src="/2016/01/01/DataNitro%EF%BC%9A%5B5%5DCell%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/389aa8fd5266d01634b4d47a942bd40734fa35f7.jpg" class="" title="DataNitro：[5]Cell对象方法">
-
-<ul>
-<li>copy_format_from()：仅仅复制单元格格式</li>
-</ul>
-<img src="/2016/01/01/DataNitro%EF%BC%9A%5B5%5DCell%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/99636c0e0cf3d7cada757524f11fbe096a63a9a6.jpg" class="" title="DataNitro：[5]Cell对象方法">
-
-<ul>
-<li>is_empty():判断单元格是否为空，如果为空则返回True，否则返回False</li>
-</ul>
-<img src="/2016/01/01/DataNitro%EF%BC%9A%5B5%5DCell%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/3b6833f5e0fe9925443edc0237a85edf8db17177.jpg" class="" title="DataNitro：[5]Cell对象方法">
-
-<ul>
-<li>offset()：移动：下面的代码将返回A1单元格右边的单元格A2</li>
-</ul>
-<img src="/2016/01/01/DataNitro%EF%BC%9A%5B5%5DCell%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/6648d73d70cf3bc7801478bed200baa1cd112a08.jpg" class="" title="DataNitro：[5]Cell对象方法">
-
-<ul>
-<li>print,这不是cell的方法，但是使用print可以返回cell的名字，注意Cell的参数，有一个sheet1，它明确的指明了是在sheet1中的单元格A1</li>
-</ul>
-<img src="/2016/01/01/DataNitro%EF%BC%9A%5B5%5DCell%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/dc15484e9258d109b7ce1ce0d258ccbf6c814d77.jpg" class="" title="DataNitro：[5]Cell对象方法">
-
-<ul>
-<li>rename()我们还可以给单元格起一个个性化名字，然后使用改名字就可以调用该单元格</li>
-</ul>
-<img src="/2016/01/01/DataNitro%EF%BC%9A%5B5%5DCell%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/b29f8282d158ccbf649100681ad8bc3eb1354177.jpg" class="" title="DataNitro：[5]Cell对象方法">
-
-<ul>
-<li>active_cell():返回当前活动单元格，如果你输入一个参数，比如：active_cell(Cell(‘A1’))，就可以设定A1为活动单元格</li>
-</ul>
-<img src="/2016/01/01/DataNitro%EF%BC%9A%5B5%5DCell%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95/d7c9ca3f8794a4c24d3752790df41bd5ad6e3908.jpg" class="" title="DataNitro：[5]Cell对象方法">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#x39;&#x35;&#55;&#x38;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#109;">&#54;&#55;&#53;&#x34;&#x39;&#x35;&#55;&#x38;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/datanitro/">#datanitro</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1132,6 +1095,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/09/19/SEM%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%87%AA%E7%94%B1%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%A9%BA%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%9F%BA%E7%BA%BF%E6%A8%A1%E5%9E%8B/">SEM如何理解自由度以及空模型和基线模型</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/09/18/mplus%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%B3%A8%E9%87%8A%E5%92%8C%E8%A7%A3%E8%AF%BB/">mplus验证性因子分析结果的详细注释和解读</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/09/02/%E5%A4%9A%E5%B1%82%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">多层模型及其交互效应入门教程</a>
             </li>
             
@@ -1161,14 +1132,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/07/08/spss%E6%95%B0%E6%8D%AEsav%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88%E5%9C%A8%E7%BA%BF%EF%BC%89/">spss和Excel数据格式转mplus格式数据（</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/06/25/p01-%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8BSEM%E7%9A%84%E7%B1%BB%E5%9E%8B/">结构方程模型的种类协方差结构方程和最小二乘法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/06/04/so-vits-svc%E6%9C%80%E5%BC%BA%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%8B%9F%E5%A3%B0%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">so-vits-svc最强声音克隆拟声软件使用教程</a>
             </li>
             
         </ul>

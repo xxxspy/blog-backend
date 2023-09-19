@@ -252,6 +252,585 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/07/17/gitignore%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/">
+                gitignore配置详解
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>如果你使用git来管理代码版本，你必须懂得如何使用.gitignore文件，该文件可以指定git忽略哪些文件，在git中的作用非常重要。在理解gitignore的配置之前，我们要先看看这些规则都可以来自哪里。通常git可以从多个地方获取忽略规则，优先级从上到下依次为：</p>
+<ul>
+<li><p>.gitignore文件适合写于项目有关的规则，并且这些规则需要与合作者分享。</p>
+</li>
+<li><p><code>$GIT_DIR/info/exclude</code>适用于与项目有关，但是你不想分享给其他作者，这些规则可能只适用于你自己。</p>
+</li>
+<li><p><code>core.excludesFile</code>适用于你在任何情况下都需要忽略的规则。这种情况不常用。</p>
+</li>
+<li><p>空行不匹配任何文件，所以空行通常是规则分组的分隔符，只是在视觉上将不同的规则分组。</p>
+</li>
+</ul>
+<img src="/2015/07/17/gitignore%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/21e5582309f790527c5640f005f3d7ca7acbd570.jpg" class="" title="gitignore配置详解">
+
+<ul>
+<li>以<code>#</code>开始的行代表注释，所以也不匹配任何文件。</li>
+</ul>
+<img src="/2015/07/17/gitignore%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/73ca5910b912c8fcb345f103f5039245d788210e.jpg" class="" title="gitignore配置详解">
+
+<ul>
+<li><p>末尾的空格没有任何意义，如果你想匹配空格，你需要在空格前加转义字符&#96;&#96;。</p>
+</li>
+<li><p>例如：<code>a </code>这种写法可以匹配<code>a </code></p>
+</li>
+</ul>
+<img src="/2015/07/17/gitignore%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/d7c9ca3f8794a4c20583e0e507f41bd5ac6e3918.jpg" class="" title="gitignore配置详解">
+
+<ul>
+<li><p>感叹号<code>!</code>的作用是从已有的忽略规则里排除一部分文件。注意想要让感叹号起作用，必须在前规则中使用通配符<code>*</code>。例如：</p>
+</li>
+<li><p>前规则写成：<code>.env/*</code></p>
+</li>
+<li><p>想要追踪<code>.env</code>文件夹下的<code>data.txt</code>，需要追加一个规则：<code>!.env/data.txt</code></p>
+</li>
+<li><p>如果前规则写成<code>.env</code>，则<code>!.env/data.txt</code>不起作用。</p>
+</li>
+<li><p>如果规则以<code>/</code>结尾，则表示匹配文件夹, 类似的文件和链接都不会匹配。</p>
+</li>
+</ul>
+<img src="/2015/07/17/gitignore%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/4bd1e803738da977974181e5b951f8198718e357.jpg" class="" title="gitignore配置详解">
+
+<ul>
+<li>如果规则中不包含<code>/</code>，则规则即可匹配文件夹也可以匹配文件和链接，类似于linux shell中的通配符，可以匹配任何可以与通配符匹配的路径。</li>
+</ul>
+<img src="/2015/07/17/gitignore%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/ae8267310a55b31949fc85bb4aa98226cefc17b3.jpg" class="" title="gitignore配置详解">
+
+<ul>
+<li>通配符无法匹配符号<code>/</code>，所以类似这样的规则<code>foo/*.html</code>不能匹配<code>foo/bar/test.html</code>。</li>
+</ul>
+<img src="/2015/07/17/gitignore%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/61183b2dd42a2834ceef31c552b5c9ea14cebf70.jpg" class="" title="gitignore配置详解">
+
+<ul>
+<li>规则以<code>/</code>开头表示匹配<code>.gitignore</code>文件所在的目录。也就是说规则<code>/*.txt</code>只能匹配.gitignore所在目录下的所有txt文件，不能匹配其他目录下的txt文件。</li>
+</ul>
+<img src="/2015/07/17/gitignore%E9%85%8D%E7%BD%AE%E8%AF%A6%E8%A7%A3/dc854fda81cb39db37766098d9160924aa18300e.jpg" class="" title="gitignore配置详解">
+
+<ul>
+<li><p>以<code>**/</code>开头的规则表示匹配所有文件夹，规则<code>**/a/b</code>能匹配<code>foo/a/b</code>也能匹配<code>foo/bar/a/b</code></p>
+</li>
+<li><p>以<code>/**</code>结尾的规则表示匹配目录下所有文件和文件夹，规则<code>a/b/**</code>能匹配<code>/a/b/c</code>也能匹配<code>a/b/c/d/e</code></p>
+</li>
+<li><p>规则中间包含<code>/**/</code>表示匹配任意路径，比如规则<code>a/**/b</code>可以匹配<code>a/foo/bar/b</code>和<code>a/e/m/c/b</code>。</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#x34;&#x39;&#53;&#55;&#56;&#55;&#x40;&#113;&#x71;&#46;&#99;&#111;&#109;">&#54;&#55;&#x35;&#x34;&#x39;&#53;&#55;&#56;&#55;&#x40;&#113;&#x71;&#46;&#99;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/07/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B3%5D%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE/">
+                python 线性代数：[3]矩阵转置
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>矩阵的转置很简单，就是将矩阵的行变为列，将列变为行，我们先通过例子看一下矩阵转置是怎么做的。然后验证几个规律。</p>
+<ul>
+<li>先创建一个矩阵A</li>
+</ul>
+<img src="/2015/07/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B3%5D%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE/faacb564034f78f014b75c027b310a55b2191c40.jpg" class="" title="python 线性代数：[3]矩阵转置">
+
+<ul>
+<li>我们使用属性T来得到矩阵A的转置矩阵</li>
+</ul>
+<img src="/2015/07/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B3%5D%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE/5327ce160924ab185b0727c637fae6cd7a890beb.jpg" class="" title="python 线性代数：[3]矩阵转置">
+
+<ul>
+<li>我们验证第一个性质：(A’)’&#x3D;A</li>
+</ul>
+<img src="/2015/07/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B3%5D%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE/d019d2bf6c81800a81044fffb33533fa838b471b.jpg" class="" title="python 线性代数：[3]矩阵转置">
+
+<ul>
+<li>再创建两个尺寸相同的矩阵</li>
+</ul>
+<img src="/2015/07/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B3%5D%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE/1899a23eb13533fa1e5755dfaad3fd1f40345b1b.jpg" class="" title="python 线性代数：[3]矩阵转置">
+
+<ul>
+<li>验证矩阵转置的第二个性质：(A±B)’&#x3D;A’±B’</li>
+</ul>
+<img src="/2015/07/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B3%5D%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE/dbf554ed2e738bd44d9c74c0a38b87d6267ff940.jpg" class="" title="python 线性代数：[3]矩阵转置">
+
+<ul>
+<li>验证矩阵转置的第三个性质：(KA)’&#x3D;KA’</li>
+</ul>
+<img src="/2015/07/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B3%5D%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE/2f3295d4b31c8701a10a7417257f9e2f0608ff40.jpg" class="" title="python 线性代数：[3]矩阵转置">
+
+<ul>
+<li>验证矩阵转置的第四个性质：(A×B)’&#x3D; B’×A’</li>
+</ul>
+<img src="/2015/07/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B3%5D%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE/c87c6ecf3bc79f3d560022c1b8a1cd11738b291b.jpg" class="" title="python 线性代数：[3]矩阵转置">
+
+<img src="/2015/07/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B3%5D%E7%9F%A9%E9%98%B5%E8%BD%AC%E7%BD%AE/6648d73d70cf3bc733560c1dd300baa1cc112aaa.jpg" class="" title="python 线性代数：[3]矩阵转置">
+
+<ul>
+<li><p>本文用到的所有代码如下：</p>
+</li>
+<li></li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 2, 3],</p>
+</li>
+<li><pre><code>   [4, 5, 6]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A.T</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 4],</p>
+</li>
+<li><pre><code>   [2, 5],
+</code></pre>
+</li>
+<li><pre><code>   [3, 6]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A.T.T</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 2, 3],</p>
+</li>
+<li><pre><code>   [4, 5, 6]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>B</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 4],</p>
+</li>
+<li><pre><code>   [2, 5],
+</code></pre>
+</li>
+<li><pre><code>   [3, 6]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>D</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[0, 3],</p>
+</li>
+<li><pre><code>   [1, 4],
+</code></pre>
+</li>
+<li><pre><code>   [2, 5]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>(B+D).T</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[ 1,  3,  5],</p>
+</li>
+<li><pre><code>   [ 7,  9, 11]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>B.T+D.T</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[ 1,  3,  5],</p>
+</li>
+<li><pre><code>   [ 7,  9, 11]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>10*A.T</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[10, 40],</p>
+</li>
+<li><pre><code>   [20, 50],
+</code></pre>
+</li>
+<li><pre><code>   [30, 60]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>(10*A).T</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[10, 40],</p>
+</li>
+<li><pre><code>   [20, 50],
+</code></pre>
+</li>
+<li><pre><code>   [30, 60]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>np.dot(A,B).T</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[14, 32],</p>
+</li>
+<li><pre><code>   [32, 77]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>np.dot(A.T,B.T)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[17, 22, 27],</p>
+</li>
+<li><pre><code>   [22, 29, 36],
+</code></pre>
+</li>
+<li><pre><code>   [27, 36, 45]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>np.dot(B.T,A.T)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[14, 32],</p>
+</li>
+<li><pre><code>   [32, 77]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#57;&#x35;&#55;&#x38;&#x37;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#54;&#55;&#53;&#52;&#57;&#x35;&#55;&#x38;&#x37;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/07/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5D%E6%AD%A3%E5%88%99%E8%A1%A8%E8%BE%BE%E5%BC%8Fmatch()%E5%87%BD%E6%95%B0/">
                 Python教程：[11]正则表达式match()函数
             </a>
@@ -854,170 +1433,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/">
-                SPSS二因素完全随机设计的简单效应检验方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>spss在做简单效应的时候没有现成的菜单选项，需要你自己编写syntax，所以比较麻烦，在这个教程了，我交给大家一个办法，不用学太多的syntax就能自己做简单效应，下面是具体的方法：<br>工具&#x2F;原料</p>
-<ul>
-<li><p>spss20.0<br>方法&#x2F;步骤</p>
-</li>
-<li><p>在菜单栏上执行：analyse–GLM–univariate，打开方差分析对话框</p>
-</li>
-</ul>
-<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/6a600c338744ebf8b74dcffdd9f9d72a6059a730.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
-
-<ul>
-<li>将自变量、因变量放入各自的框中，如图所示，B和Z是两个自变量，他们是完全随机设计，点击ok按钮，开始运行数据</li>
-</ul>
-<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/a08b87d6277f9e2f7e17b6ca1f30e924b999f3d6.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
-
-<ul>
-<li>我们看到数据的处理效果，交互作用显著，所以我们需要进一步做简单效益的检验</li>
-</ul>
-<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/4d086e061d950a7b8140e5060ad162d9f3d3c9ff.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
-
-<ul>
-<li>如图所示，点击菜单栏上的按钮，打开刚才用过的univariate对话框</li>
-</ul>
-<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/4ec2d5628535e5dd0d5d0e1d76c6a7efcf1b62fb.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
-
-<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/203fb80e7bec54e7d481b1dcb9389b504ec26a87.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
-
-<ul>
-<li>点击下面的paste按钮，来到syntax的编辑窗口</li>
-</ul>
-<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/f3d3572c11dfa9ec016afdd562d0f703908fc1a8.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
-
-<ul>
-<li><p>在如图所示的位置，添加一个命令：&#x2F;EMMEANS&#x3D;TABLES(B*Z)COMPARE(B)ADJ(SIDAK)</p>
-</li>
-<li><p>其中：EMMEANSE是estimated marginal means subcommand的缩写，意思是估计边际平均数  </p>
-</li>
-<li><p>ADJ是比较的方法，还可以用lsd ，bonferroni和sidak这三种方法。</p>
-</li>
-<li><p>单击运行按钮，开始处理数据并输出结果</p>
-</li>
-</ul>
-<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/8694a4c27d1ed21b3fe6b927ad6eddc450da3fc0.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
-
-<ul>
-<li>我们看到，简单主效应的分析已经出来，通过这个表格我们就能对自变量B各个水平进行精细比较</li>
-</ul>
-<img src="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/1ad5ad6eddc451dab7dd9b29b6fd5266d11632cc.jpg" class="" title="SPSS二因素完全随机设计的简单效应检验方法">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#x36;&#x37;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/">
-                wxpython教程：[2]窗口风格
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>这篇文章接着介绍wxpython.Frame，我们需要设置一下窗口的大小、位置等。下面看一下今天要写的所有代码。</p>
-<ul>
-<li>代码的前两行就不说了，引入了相关模块并创建了一个app</li>
-</ul>
-<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/0d968f2397dda1440ba4fcddb1b7d0a20df486f5.jpg" class="" title="wxpython教程：[2]窗口风格">
-
-<ul>
-<li>接着是Frame的设置，我们先来看看style，他有很多可以设置的属性，不同的属性用竖线“|”连接，比如我们想要窗口上有最大化按钮，就设置wx.MAXIMIZE_BOX，如果想要增加最小化按钮，就写成style&#x3D;wx.MAXIMIZE_BOX|wx.MINIMIZE_BOX ，写一连串属性很麻烦，我们可以用wx.DEFAULT_FRAME_STYLE默认设置，它等于wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX | wx.RESIZE_BORDER | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN<br>其他属性的意义我们直接从官网上看就可以，如下图：</li>
-</ul>
-<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/4abae5edab64034f575f5269acc379310b551d8b.jpg" class="" title="wxpython教程：[2]窗口风格">
-
-<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/109eb7ec8a136327064f515c928fa0ec09fac784.jpg" class="" title="wxpython教程：[2]窗口风格">
-
-<ul>
-<li><p>接着我们想要设置窗口的大小，用size参数，Frame（…size&#x3D;(200,250))，这样就将窗口大小设置为200长，250高。</p>
-</li>
-<li><p>使用Move方法可以设置窗口的位置，比如（它表示窗口的左上角在屏幕上的位置）</p>
-</li>
-</ul>
-<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/ac754782b2b7d0a2a66494f2c8ef76094a369af5.jpg" class="" title="wxpython教程：[2]窗口风格">
-
-<ul>
-<li>如果我们需要将窗口置于屏幕中央，可以使用Center方法</li>
-</ul>
-<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/b6045da98226cffc24b82fddba014a90f703ea94.jpg" class="" title="wxpython教程：[2]窗口风格">
-
-<ul>
-<li>还有其他很多方法设置窗口位置，这里就不演示了：</li>
-</ul>
-<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/4e83cb628535e5dd279737b075c6a7efcf1b62e3.jpg" class="" title="wxpython教程：[2]窗口风格">
-
-<ul>
-<li>最后就不用解释了，可以看看你创建的一个窗口</li>
-</ul>
-<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/8bc3a7014a90f6034c220c283a12b31bb151ed94.jpg" class="" title="wxpython教程：[2]窗口风格">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;">&#x36;&#55;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1059,6 +1474,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/09/19/SEM%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%87%AA%E7%94%B1%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%A9%BA%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%9F%BA%E7%BA%BF%E6%A8%A1%E5%9E%8B/">SEM如何理解自由度以及空模型和基线模型</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/09/18/mplus%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%B3%A8%E9%87%8A%E5%92%8C%E8%A7%A3%E8%AF%BB/">mplus验证性因子分析结果的详细注释和解读</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/09/02/%E5%A4%9A%E5%B1%82%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">多层模型及其交互效应入门教程</a>
             </li>
             
@@ -1088,14 +1511,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/07/08/spss%E6%95%B0%E6%8D%AEsav%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88%E5%9C%A8%E7%BA%BF%EF%BC%89/">spss和Excel数据格式转mplus格式数据（</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/06/25/p01-%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8BSEM%E7%9A%84%E7%B1%BB%E5%9E%8B/">结构方程模型的种类协方差结构方程和最小二乘法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/06/04/so-vits-svc%E6%9C%80%E5%BC%BA%E5%A3%B0%E9%9F%B3%E5%85%8B%E9%9A%86%E6%8B%9F%E5%A3%B0%E8%BD%AF%E4%BB%B6%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">so-vits-svc最强声音克隆拟声软件使用教程</a>
             </li>
             
         </ul>
