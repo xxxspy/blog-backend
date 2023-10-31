@@ -252,6 +252,70 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/04/05/SPSS%E8%87%AA%E5%8A%A8%E5%8C%96%EF%BC%9A%5B1%5D%E5%BA%94%E7%94%A8%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E5%8F%8A%E5%85%B6%E7%94%A8%E6%B3%95/">
+                SPSS自动化：[1]应用对象的属性及其用法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年04月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在上一篇经验《vba控制spss处理数据》中，我们介绍了vba使用spss对象来控制spss，下面我们接着来讲如何使用spss对象的属性，因为spss对象的属性有十几个（见下图），下面的列表呈现了spss对象所具有的属性，可能不全，希望指正。我们来一一介绍这些属性的用法和功能。</p>
+<ul>
+<li>alerts属性：语法格式为spss.alerts&#x3D;boolean。boolean值可以是1或者0，如果值为1，则spss程序允许弹出警告窗口，如果值为0，则spss程序不会弹出警告窗口。该属性可读可写，下面是我在vba中调用alerts属性的方法。</li>
+</ul>
+<img src="/2016/04/05/SPSS%E8%87%AA%E5%8A%A8%E5%8C%96%EF%BC%9A%5B1%5D%E5%BA%94%E7%94%A8%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E5%8F%8A%E5%85%B6%E7%94%A8%E6%B3%95/b9d8b7014c086e06f3031b7e00087bf40ad1cb19.jpg" class="" title="SPSS自动化：[1]应用对象的属性及其用法">
+
+<ul>
+<li>currentdirectory属性：设置文件存放目录。该属性可读可写，下面是在vba中读取当前目录的代码。当然你可以使用该属性来设置当前目录。</li>
+</ul>
+<img src="/2016/04/05/SPSS%E8%87%AA%E5%8A%A8%E5%8C%96%EF%BC%9A%5B1%5D%E5%BA%94%E7%94%A8%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E5%8F%8A%E5%85%B6%E7%94%A8%E6%B3%95/7e7f7909c93d70cfb61c8d38fadcd100bba12be5.jpg" class="" title="SPSS自动化：[1]应用对象的属性及其用法">
+
+<ul>
+<li>options属性：利用该属性可以获取options对象，它提供了与spss选项设置的链接，选项设置我们并不陌生，以后我们会详细的介绍使用options对spss进行设置，现在你只要知道读取options属性的方法，下面是代码实例：首先要把变量opt声明为选项对象，然后在读取选项对象。</li>
+</ul>
+<img src="/2016/04/05/SPSS%E8%87%AA%E5%8A%A8%E5%8C%96%EF%BC%9A%5B1%5D%E5%BA%94%E7%94%A8%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E5%8F%8A%E5%85%B6%E7%94%A8%E6%B3%95/9252ae7eca8065383c2f892695dda144ac3482fa.jpg" class="" title="SPSS自动化：[1]应用对象的属性及其用法">
+
+<ul>
+<li>spssifo属性：这个属性可以获得当前spss打开的数据文件中的变量信息。示例代码如下：</li>
+</ul>
+<img src="/2016/04/05/SPSS%E8%87%AA%E5%8A%A8%E5%8C%96%EF%BC%9A%5B1%5D%E5%BA%94%E7%94%A8%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E5%8F%8A%E5%85%B6%E7%94%A8%E6%B3%95/8a95ad1c8701a18b5dc43d7a9c2f07082838fe9d.jpg" class="" title="SPSS自动化：[1]应用对象的属性及其用法">
+
+<ul>
+<li>还有很多属性，未完待续。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#52;&#x39;&#x35;&#55;&#56;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#54;&#x37;&#x35;&#52;&#x39;&#x35;&#55;&#56;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/04/03/Excel2013%EF%BC%9A%5B30%5Dsubtotal%E5%87%BD%E6%95%B0%E6%8C%89%E7%85%A7%E5%AD%97%E4%BD%93%E9%A2%9C%E8%89%B2%E6%B1%82%E5%92%8C/">
                 Excel2013：[30]subtotal函数按照字体颜色求和
             </a>
@@ -1044,93 +1108,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/03/15/spss%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%A3%80%E9%AA%8C/">
-                spss聚类分析如何对分类结果进行检验
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年03月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>聚类分析的结果都知道，就是获得几个类别，那么我们怎么知道这些类别是合理的呢？这里提供一个方法，就是利用means方法，检验各个类别在所有变量上的差异，如果差异显著，我们就可以认为分类结果是可靠的。<br>方法&#x2F;步骤</p>
-<ul>
-<li>假设我们现在已经得到了聚类的结果，所有的case都已经分类了，我们看到在数据窗口已经形成了若干个新的变量，显示了case的分类结果，如图所示，这里显示了三个聚类的结果，分别是把数据分为3、4、5类的结果</li>
-</ul>
-<img src="/2016/03/15/spss%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%A3%80%E9%AA%8C/f7246b600c338744ad481ea9510fd9f9d62aa051.jpg" class="" title="spss聚类分析如何对分类结果进行检验">
-
-<img src="/2016/03/15/spss%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%A3%80%E9%AA%8C/b7003af33a87e9506ff8c2b910385343faf2b473.jpg" class="" title="spss聚类分析如何对分类结果进行检验">
-
-<ul>
-<li>在菜单栏上执行：analyse–compare means–means，打开平均数对话框</li>
-</ul>
-<img src="/2016/03/15/spss%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%A3%80%E9%AA%8C/6d81800a19d8bc3e18e6371f828ba61ea9d3457c.jpg" class="" title="spss聚类分析如何对分类结果进行检验">
-
-<ul>
-<li>将指标变量都放入因变量框中，然后将分组变量（聚类分析得到的变量）放入因变量中</li>
-</ul>
-<img src="/2016/03/15/spss%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%A3%80%E9%AA%8C/b17eca8065380cd7f4db9338a144ad3458828119.jpg" class="" title="spss聚类分析如何对分类结果进行检验">
-
-<ul>
-<li>点击ok按钮，开始运行数据，并显示结果</li>
-</ul>
-<img src="/2016/03/15/spss%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%A3%80%E9%AA%8C/5ab5c9ea15ce36d380dbb2e53af33a87e850b103.jpg" class="" title="spss聚类分析如何对分类结果进行检验">
-
-<ul>
-<li>我们会看到三种分类结果各自的平均数，下面的三个表格分别是将case分为5、4、3类的结果，当然这种方法只能计算出各组平均数，如何检验平均数的差异就要用到下面的方法</li>
-</ul>
-<img src="/2016/03/15/spss%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%A3%80%E9%AA%8C/902397dda144ad3431eab752d0a20cf430ad8589.jpg" class="" title="spss聚类分析如何对分类结果进行检验">
-
-<img src="/2016/03/15/spss%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%A3%80%E9%AA%8C/622762d0f703918f89c40d1f513d269758eec4c9.jpg" class="" title="spss聚类分析如何对分类结果进行检验">
-
-<img src="/2016/03/15/spss%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%A3%80%E9%AA%8C/d53f8794a4c27d1e1f510b111bd5ad6edcc438eb.jpg" class="" title="spss聚类分析如何对分类结果进行检验">
-
-<ul>
-<li>在菜单栏上执行：analyse–compare means–one way anova</li>
-</ul>
-<img src="/2016/03/15/spss%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%A3%80%E9%AA%8C/d01373f082025aaf4f5a4e1efbedab64024f1afe.jpg" class="" title="spss聚类分析如何对分类结果进行检验">
-
-<ul>
-<li>将指标变量放到因变量列表，将分组变量放入factor中，然后点击ok，开始处理数据</li>
-</ul>
-<img src="/2016/03/15/spss%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%A3%80%E9%AA%8C/b17eca8065380cd7f5a69238a144ad34588281ae.jpg" class="" title="spss聚类分析如何对分类结果进行检验">
-
-<ul>
-<li>我们看到下面的这个表格就是对平均数的差异的检验了，看sig这一列，除了一个指标，其他指标都达到了显著的水平，这说明这种分类还是比较有效的。</li>
-</ul>
-<img src="/2016/03/15/spss%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%A3%80%E9%AA%8C/503d269759ee3d6d7a57b71e43166d224e4ade55.jpg" class="" title="spss聚类分析如何对分类结果进行检验">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#x34;&#x39;&#53;&#55;&#56;&#55;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#109;">&#x36;&#x37;&#53;&#x34;&#x39;&#53;&#55;&#56;&#55;&#x40;&#113;&#113;&#46;&#x63;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1172,6 +1149,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/10/31/heckman%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%E5%92%8C%E5%AE%9E%E4%BE%8B%E6%9C%89%E6%BC%94%E7%A4%BA/">heckman两阶段完整讲解和实例有演示</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/10/12/%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E4%B8%AD%E7%AE%80%E5%8D%95%E6%96%9C%E7%8E%87%E7%BB%98%E5%88%B6%E6%9C%80%E5%BC%BAexcel%E6%A8%A1%E6%9D%BF%E6%95%99%E7%A8%8B%E5%92%8C%E4%B8%8B%E8%BD%BD/">交互效应中简单斜率绘制最强excel模板教程和下载</a>
             </li>
             
@@ -1205,10 +1186,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/07/26/%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC%E8%AF%81%E6%98%8E%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E7%AD%89%E4%BA%8E%E5%86%B3%E5%AE%9A%E7%B3%BB%E6%95%B0R%E6%96%B9/">公式推导证明相关系数等于决定系数R方</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/07/25/%E5%9B%9E%E5%BD%92%E7%B3%BB%E6%95%B0%E5%92%8C%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E8%81%94%E7%B3%BB/">如何证明相关系数等于标准化回归系数</a>
             </li>
             
         </ul>

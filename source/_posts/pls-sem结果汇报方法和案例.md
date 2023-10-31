@@ -138,10 +138,20 @@ f方的计算公式如下:
 
 <img src="imgs/gof拟合指标.png">
 
+“与 CB-SEM 不同，PLS-SEM 并没有优化全局函数。一些学者传统上认为 PLS-SEM 缺乏全局标量函数，导致缺乏全局拟合优度，但很多学者不采取这种立场。使用 PLS-SEM 时，重要的是要认识到术语“拟合”在 CB-SEM 和 PLS-SEM 的上下文中具有不同的含义（Hair、Hollingsworth、Randolph 和 Chong，2017 年；Rigdon、Sarstedt  & Ringle, 2017 ). CB-SEM 的拟合统计量源自实际数据和模型隐含协方差矩阵的差距，而 PLS-SEM 则侧重于因变量的预测效果（Hair, Sarstedt, & Ringle, 2019; Henseler et al., 2014）。虽然研究人员提出了各种模型拟合 PLS-SEM 的测量（Schuberth、Henseler 和 Dijkstra，2018； Tenenhaus 等人，2005），它们识别错误模型的功效非常有限（有关措施及其局限性的讨论，请参见图表 6.2）。 因此，为了判断模型的质量，研究人员使用 PLS-SEM 依赖于评估模型对因变量的预测能力（Shmueli, Ray, Velasquez Estrada, & Chatla, 2016；Shmueli et al., 2019（Hair，2020）。”（Hair 等人，2022 年，第 92-93 页）。
+
 ## 补充提问
 
 如果有对本教程有什么疑问可以留言，如果你认为我缺少了某些你需要部分，可以留言告诉我，我会很快补充。
 
+
+## 参考文献
+
+Hair, J. F., Hult, G. T. M., Ringle, C. M., and Sarstedt, M. (2022). A Primer on Partial Least Squares Structural Equation Modeling (PLS-SEM), 3^rd^ Ed., Sage: Thousand Oaks.
+
+Henseler, J., and Sarstedt, M. (2013). Goodness-of-Fit Indices for Partial Least Squares Path Modeling, Computational Statistics, 28(2), 565-580.
+
+Tenenhaus, M., Amato, S., and Esposito Vinzi, V. (2004). A Global Goodness-of-Fit Index for PLS Structural Equation Modeling, Proceedings of the XLII SIS Scientific Meeting. Padova: CLEUP, 739-742.
 
 > **注意**
 > 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的, 不论什么模型都可以, 只限制于1个研究内. 

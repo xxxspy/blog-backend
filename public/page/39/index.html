@@ -252,6 +252,80 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/08/01/Excel2013%EF%BC%9A%5B54%5D%E8%AE%A1%E7%AE%97%E6%9C%88%E9%BE%84/">
+                Excel2013：[54]计算月龄
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年08月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在心理学的研究中，经常要计算被试的月龄，也就是从出生到现在经历的月的个数。那么在Excel中是如何计算月龄的呢？用到了一个函数DateDif函数，下面是具体的用法：</p>
+<ul>
+<li>我们现在有一列生日和一个测试日期，要计算月龄其实就是他俩相减</li>
+</ul>
+<img src="/2016/08/01/Excel2013%EF%BC%9A%5B54%5D%E8%AE%A1%E7%AE%97%E6%9C%88%E9%BE%84/caae68094b36acafa3046a0f7ed98d1000e99c1a.jpg" class="" title="Excel2013：[54]计算月龄">
+
+<ul>
+<li>首先，我们要保证上面这两列数据都是日期格式</li>
+</ul>
+<img src="/2016/08/01/Excel2013%EF%BC%9A%5B54%5D%E8%AE%A1%E7%AE%97%E6%9C%88%E9%BE%84/9304c888d43f8794434eb4ddd01b0ef41ad53a55.jpg" class="" title="Excel2013：[54]计算月龄">
+
+<ul>
+<li>接着选中月龄的第一行，然后输入公式</li>
+</ul>
+<img src="/2016/08/01/Excel2013%EF%BC%9A%5B54%5D%E8%AE%A1%E7%AE%97%E6%9C%88%E9%BE%84/d35a10f41bd5ad6e3048981983cb39dbb7fd3c55.jpg" class="" title="Excel2013：[54]计算月龄">
+
+<ul>
+<li>公式的写法是：</li>
+</ul>
+<img src="/2016/08/01/Excel2013%EF%BC%9A%5B54%5D%E8%AE%A1%E7%AE%97%E6%9C%88%E9%BE%84/8474fbdde71190efd71f6e2ccc1b9d16fcfa601a.jpg" class="" title="Excel2013：[54]计算月龄">
+
+<ul>
+<li><p>DATEDIF的第一个参数是N2，也就是开始时间；第二个参数是结束时间O2，之所以添加了$符号是因为这样可以在公式快速填充的时候保持该单元格地址不变；第三个参数是单位m，也就是month的意思，如果你想要计算年龄，可以使用单位“Y”，如果想要计算天数可以使用单位“D”</p>
+</li>
+<li><p>写好了以后，拖动右下角可以快速填充，得到其他月龄</p>
+</li>
+</ul>
+<img src="/2016/08/01/Excel2013%EF%BC%9A%5B54%5D%E8%AE%A1%E7%AE%97%E6%9C%88%E9%BE%84/b7bc4c66d01609245e945ee8d60735fae7cd3455.jpg" class="" title="Excel2013：[54]计算月龄">
+
+<ul>
+<li>这就是计算好的月龄了。</li>
+</ul>
+<img src="/2016/08/01/Excel2013%EF%BC%9A%5B54%5D%E8%AE%A1%E7%AE%97%E6%9C%88%E9%BE%84/e1bf8725bc315c608671971c8fb1cb134854771a.jpg" class="" title="Excel2013：[54]计算月龄">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#x34;&#57;&#x35;&#55;&#56;&#55;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;">&#x36;&#55;&#x35;&#x34;&#57;&#x35;&#55;&#56;&#55;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/08/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B4%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%BF%B9/">
                 python 线性代数：[4]方阵的迹
             </a>
@@ -1194,92 +1268,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/07/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B17%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE/">
-                python 线性代数：[17]线性组合的协方差
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年07月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们先来看这个练习题：</p>
-<ul>
-<li>先来创建这个X矩阵</li>
-</ul>
-<img src="/2016/07/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B17%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE/425773224f4a20a490994a8593529822730ed0aa.jpg" class="" title="python 线性代数：[17]线性组合的协方差">
-
-<ul>
-<li>创建两个系数向量</li>
-</ul>
-<img src="/2016/07/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B17%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE/6c63514a20a44623de4dd3209b22720e0df3d7aa.jpg" class="" title="python 线性代数：[17]线性组合的协方差">
-
-<ul>
-<li>先计算X的协方差矩阵<br>结果为：</li>
-</ul>
-<img src="/2016/07/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B17%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE/54baacfb43166d229b9163d6452309f79152d24b.jpg" class="" title="python 线性代数：[17]线性组合的协方差">
-
-<img src="/2016/07/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B17%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE/fab3ac119313b07ec83b264a0fd7912396dd8caa.jpg" class="" title="python 线性代数：[17]线性组合的协方差">
-
-<ul>
-<li>计算X的均值向量，注意设置axis为0<br>求得结果为：</li>
-</ul>
-<img src="/2016/07/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B17%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE/f35ea0096b63f62488da4f418444ebf81b4ca3aa.jpg" class="" title="python 线性代数：[17]线性组合的协方差">
-
-<img src="/2016/07/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B17%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE/3792cb39b6003af3c25caa22362ac65c1138b64b.jpg" class="" title="python 线性代数：[17]线性组合的协方差">
-
-<ul>
-<li>求得两个线性组合的均值：<br>结果为：</li>
-</ul>
-<img src="/2016/07/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B17%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE/6a2112338744ebf8fdf6127ddaf9d72a6159a7aa.jpg" class="" title="python 线性代数：[17]线性组合的协方差">
-
-<img src="/2016/07/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B17%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE/3bb22487e950352a3d87534a5043fbf2b3118b4b.jpg" class="" title="python 线性代数：[17]线性组合的协方差">
-
-<ul>
-<li>求两个线性组合的方差<br>结果为：</li>
-</ul>
-<img src="/2016/07/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B17%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE/734f12f3d7ca7bcbd49db16dbd096b63f724a84b.jpg" class="" title="python 线性代数：[17]线性组合的协方差">
-
-<img src="/2016/07/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B17%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE/fab3ac119313b07ec85c264a0fd7912396dd8c4b.jpg" class="" title="python 线性代数：[17]线性组合的协方差">
-
-<ul>
-<li>求两个线性组合的协方差：<br>结果为：</li>
-</ul>
-<img src="/2016/07/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B17%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE/504ec7f9d72a6059c9f697582b34349b023bba4b.jpg" class="" title="python 线性代数：[17]线性组合的协方差">
-
-<img src="/2016/07/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B17%5D%E7%BA%BF%E6%80%A7%E7%BB%84%E5%90%88%E7%9A%84%E5%8D%8F%E6%96%B9%E5%B7%AE/0d968f2397dda144a5e81af0b1b7d0a20df4864b.jpg" class="" title="python 线性代数：[17]线性组合的协方差">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#52;&#x39;&#x35;&#55;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#109;">&#54;&#x37;&#x35;&#52;&#x39;&#x35;&#55;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1321,6 +1309,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/10/31/heckman%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%E5%92%8C%E5%AE%9E%E4%BE%8B%E6%9C%89%E6%BC%94%E7%A4%BA/">heckman两阶段完整讲解和实例有演示</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/10/12/%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E4%B8%AD%E7%AE%80%E5%8D%95%E6%96%9C%E7%8E%87%E7%BB%98%E5%88%B6%E6%9C%80%E5%BC%BAexcel%E6%A8%A1%E6%9D%BF%E6%95%99%E7%A8%8B%E5%92%8C%E4%B8%8B%E8%BD%BD/">交互效应中简单斜率绘制最强excel模板教程和下载</a>
             </li>
             
@@ -1354,10 +1346,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/07/26/%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC%E8%AF%81%E6%98%8E%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E7%AD%89%E4%BA%8E%E5%86%B3%E5%AE%9A%E7%B3%BB%E6%95%B0R%E6%96%B9/">公式推导证明相关系数等于决定系数R方</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/07/25/%E5%9B%9E%E5%BD%92%E7%B3%BB%E6%95%B0%E5%92%8C%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E7%9A%84%E5%8C%BA%E5%88%AB%E5%92%8C%E8%81%94%E7%B3%BB/">如何证明相关系数等于标准化回归系数</a>
             </li>
             
         </ul>
