@@ -252,6 +252,299 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/09/11/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B/">
+                amos21.0教程：[2]结构方程模型中的测量模型
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年09月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>为了让大家尽快掌握amos的操作和分析方法，我们尽量少讲理论知识，而是专注于软件的理解和应用。今天我们介绍两个基本模型，他们构成了我们的结构方程模型，是学习amos必须知道的，否则你连绘图都不知道如何绘。结构方程模型分为测量模型和结构模型。我们先来学习什么是测量模型。</p>
+<ul>
+<li>首先来看测量模型（如下图所示），测量模型由观察变量和潜在变量构成。观察变量也叫指标变量，就是我们可以直接测量的变量，比如下面的测量模型中，课业压力可以直接测量，我们可以直接问“请给你的课业压力打分”，这样就得到了课业压力的得分；但是生活压力时无法直接测量的，我们需要将“课业压力”“情感压力”“升学压力”这三个指标的综合分来评价生活压力，所以生活压力就是潜在变量。正如图中所示，潜在变量是用圆形表示，指标变量用矩形表示。</li>
+</ul>
+<img src="/2015/09/11/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B/5202e5f2b211931311486f3364380cd790238def.jpg" class="" title="amos21.0教程：[2]结构方程模型中的测量模型">
+
+<ul>
+<li>测量模型的构成图：接下来我们看看一般的测量模型是如何画的。通常测量模型有三个基本元素，误差、观察变量、潜在变量，三个元素用单向箭头链接起来，箭头指向的方向是被影响的变量，通常来说潜变量影响观察变量的大小，所以箭头都是由潜在变量指向观察变量。误差也是影响观察变量大小的指标，所以箭头也是由误差指向观察变量。</li>
+</ul>
+<img src="/2015/09/11/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B/a005b3345982b2b77a43aa4730adcbef77099b12.jpg" class="" title="amos21.0教程：[2]结构方程模型中的测量模型">
+
+<ul>
+<li>测量模型回归方程怎么写：下图所示就是一个测量模型，我们可以使用三个回归方程来表示，下面第二幅图就是三个回归方程。注意看观察变量在方程等号的左边。</li>
+</ul>
+<img src="/2015/09/11/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B/d68b65cb0a46f21fda4caad0f7246b600d33aefe.jpg" class="" title="amos21.0教程：[2]结构方程模型中的测量模型">
+
+<img src="/2015/09/11/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B/b87985504fc2d5622319246ee61190ef77c66ce5.jpg" class="" title="amos21.0教程：[2]结构方程模型中的测量模型">
+
+<ul>
+<li>反映性指标与构成性指标：下图中，左图中的观察变量叫做反映性指标，即当一个以上指标变量为果、潜在变量为因时，指标变量（观察变量）就叫做反映性指标；反之，如果指标变量为因，它们共同觉醒一个潜在变量时，指标变量就叫做构成性指标，如下面右边的图。需要你注意的是，在amos中和lisrel中，很难对构成性指标进行分析，所以我们以后的结构方程模型中都是使用反映性指标。</li>
+</ul>
+<img src="/2015/09/11/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B/3790312eb9389b50df7b00d18435e5dde6116e6a.jpg" class="" title="amos21.0教程：[2]结构方程模型中的测量模型">
+
+<ul>
+<li>测量模型与验证性因素分析：其实我们做验证性因素分析就是使用测量模型进行的，验证性因素分析的目的就是要查看几个观察变量在潜变量上的载荷的大小和显著性。在做效度分析的时候，我们通常期望得到的结果就是用验证性因素分析发现观察变量在理论上相关的潜变量上载荷显著，而在不相关的潜在变量上的载荷不显著。</li>
+</ul>
+<img src="/2015/09/11/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B/b853d6fcc3cec3fd2a2844f6d788d43f869427e4.jpg" class="" title="amos21.0教程：[2]结构方程模型中的测量模型">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#57;&#53;&#55;&#56;&#55;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;">&#54;&#55;&#53;&#52;&#57;&#53;&#55;&#56;&#55;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/amos/">#amos</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/09/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B34%5D%E4%BA%8C%E5%88%86%E7%B1%BB%E5%8F%98%E9%87%8F%E5%85%B3%E8%81%94%E7%A8%8B%E5%BA%A6%E7%9A%84%E5%BA%A6%E9%87%8F/">
+                SPSS实例：[34]二分类变量关联程度的度量
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年09月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>现在有一个食物中毒的问题，我们想要知道吃了某种食物的人是否更容易中毒呢？看一下现在的数据。看food变量，我用数字0代表没吃食物，用数字1代表吃了某种食物；看posion变量，我使用0表示没中毒，用1表示中毒了。频率就不解释了，你懂。</p>
+<ul>
+<li>使用频率对case进行加权。这个说过很多遍了，不懂的人去看这里的加权部分：<a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/9113f81b2e988c2b3214c70f.html">http://jingyan.baidu.com/article/9113f81b2e988c2b3214c70f.html</a></li>
+</ul>
+<img src="/2015/09/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B34%5D%E4%BA%8C%E5%88%86%E7%B1%BB%E5%8F%98%E9%87%8F%E5%85%B3%E8%81%94%E7%A8%8B%E5%BA%A6%E7%9A%84%E5%BA%A6%E9%87%8F/a84052086e061d959af7728f79f40ad163d9ca91.jpg" class="" title="SPSS实例：[34]二分类变量关联程度的度量">
+
+<ul>
+<li>加权ok以后，我们找到交叉表分析</li>
+</ul>
+<img src="/2015/09/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B34%5D%E4%BA%8C%E5%88%86%E7%B1%BB%E5%8F%98%E9%87%8F%E5%85%B3%E8%81%94%E7%A8%8B%E5%BA%A6%E7%9A%84%E5%BA%A6%E9%87%8F/1e71f724b899a901c1501e811f950a7b0308f5e5.jpg" class="" title="SPSS实例：[34]二分类变量关联程度的度量">
+
+<ul>
+<li>把两个变量分别放入不同的框中</li>
+</ul>
+<img src="/2015/09/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B34%5D%E4%BA%8C%E5%88%86%E7%B1%BB%E5%8F%98%E9%87%8F%E5%85%B3%E8%81%94%E7%A8%8B%E5%BA%A6%E7%9A%84%E5%BA%A6%E9%87%8F/6391e903918fa0ec977621ba249759ee3c6ddb91.jpg" class="" title="SPSS实例：[34]二分类变量关联程度的度量">
+
+<ul>
+<li>点击统计量按钮，我们来设置一下输出的统计量</li>
+</ul>
+<img src="/2015/09/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B34%5D%E4%BA%8C%E5%88%86%E7%B1%BB%E5%8F%98%E9%87%8F%E5%85%B3%E8%81%94%E7%A8%8B%E5%BA%A6%E7%9A%84%E5%BA%A6%E9%87%8F/507c389759ee3d6df1a3c27c41166d224e4adee5.jpg" class="" title="SPSS实例：[34]二分类变量关联程度的度量">
+
+<ul>
+<li>我们选择Risk指数，也就是风险评估，当然你也得选择卡方</li>
+</ul>
+<img src="/2015/09/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B34%5D%E4%BA%8C%E5%88%86%E7%B1%BB%E5%8F%98%E9%87%8F%E5%85%B3%E8%81%94%E7%A8%8B%E5%BA%A6%E7%9A%84%E5%BA%A6%E9%87%8F/08b68e529822720ea37fa74d79cb0a46f31fab91.jpg" class="" title="SPSS实例：[34]二分类变量关联程度的度量">
+
+<ul>
+<li>回到主界面，点击ok按钮，开始处理数据</li>
+</ul>
+<img src="/2015/09/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B34%5D%E4%BA%8C%E5%88%86%E7%B1%BB%E5%8F%98%E9%87%8F%E5%85%B3%E8%81%94%E7%A8%8B%E5%BA%A6%E7%9A%84%E5%BA%A6%E9%87%8F/bf487563f6246b60b4bff7c3e9f81a4c500fa291.jpg" class="" title="SPSS实例：[34]二分类变量关联程度的度量">
+
+<ul>
+<li>先看卡方检验结果，卡方显示显著，表示是否吃某种食物与中毒与否是相关的。</li>
+</ul>
+<img src="/2015/09/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B34%5D%E4%BA%8C%E5%88%86%E7%B1%BB%E5%8F%98%E9%87%8F%E5%85%B3%E8%81%94%E7%A8%8B%E5%BA%A6%E7%9A%84%E5%BA%A6%E9%87%8F/1b0d4f0fd9f9d72adfd555aad62a2834359bbb91.jpg" class="" title="SPSS实例：[34]二分类变量关联程度的度量">
+
+<ul>
+<li>接着看风险评估，OR值如图所示，它表示吃了某种食物的人比没有吃该事物的人中毒的概率高出24倍</li>
+</ul>
+<img src="/2015/09/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B34%5D%E4%BA%8C%E5%88%86%E7%B1%BB%E5%8F%98%E9%87%8F%E5%85%B3%E8%81%94%E7%A8%8B%E5%BA%A6%E7%9A%84%E5%BA%A6%E9%87%8F/f76575600c33874451a06acb530fd9f9d62aa0e5.jpg" class="" title="SPSS实例：[34]二分类变量关联程度的度量">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#57;&#53;&#55;&#x38;&#55;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#109;">&#54;&#55;&#53;&#52;&#57;&#53;&#55;&#x38;&#55;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/09/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B50%5D%E5%8D%95%E8%A1%8C%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A/">
+                Python教程：[50]单行多行注释
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年09月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>python注释用的是符号#，但只能注释一行，如果要写一大片文字，最好还是使用三个单引号进行注释，另外，如果你用的是中文注释，还需要在文件头部声明编码方式，下面我们看看几个例子：</p>
+<ul>
+<li>首先在第一行必须声明编码方式</li>
+</ul>
+<img src="/2015/09/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B50%5D%E5%8D%95%E8%A1%8C%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A/3bc6f750352ac65cc7bb3ae3f9f2b21192138aa1.jpg" class="" title="Python教程：[50]单行多行注释">
+
+<ul>
+<li>单行注释，用一个#就可以了，同时被注释的文字显示为红色（不一样的编辑器显示的颜色不同）</li>
+</ul>
+<img src="/2015/09/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B50%5D%E5%8D%95%E8%A1%8C%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A/570f8c58d109b3de81f4b8f8cebf6c81810a4c93.jpg" class="" title="Python教程：[50]单行多行注释">
+
+<ul>
+<li>多行注释就用三个单引号，注意要在注释首位都用三个单引号</li>
+</ul>
+<img src="/2015/09/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B50%5D%E5%8D%95%E8%A1%8C%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A/b3508d13b07eca80bbbb6577932397dda04483a1.jpg" class="" title="Python教程：[50]单行多行注释">
+
+<ul>
+<li>现在我写了这些代码，按下F5运行一下</li>
+</ul>
+<img src="/2015/09/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B50%5D%E5%8D%95%E8%A1%8C%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A/814b07d8bc3eb135168ceb2ba41ea8d3fc1f4493.jpg" class="" title="Python教程：[50]单行多行注释">
+
+<ul>
+<li>你会看到只输出了ok</li>
+</ul>
+<img src="/2015/09/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B50%5D%E5%8D%95%E8%A1%8C%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A/58c3acb7d0a20cf4d92ea24f74094b36adaf99a1.jpg" class="" title="Python教程：[50]单行多行注释">
+
+<ul>
+<li>假如我们删掉首行的编码声明</li>
+</ul>
+<img src="/2015/09/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B50%5D%E5%8D%95%E8%A1%8C%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A/2f9cbdcc7cd98d10f06a50a1233fb80e7aec90a1.jpg" class="" title="Python教程：[50]单行多行注释">
+
+<ul>
+<li>再按下F5就会提示你生命编码方式，点击edit my file就会自动添加一个编码方式。</li>
+</ul>
+<img src="/2015/09/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B50%5D%E5%8D%95%E8%A1%8C%E5%A4%9A%E8%A1%8C%E6%B3%A8%E9%87%8A/c87c6ecf3bc79f3dc0aab8a0b8a1cd11738b2993.jpg" class="" title="Python教程：[50]单行多行注释">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#x34;&#57;&#x35;&#55;&#56;&#55;&#x40;&#x71;&#x71;&#46;&#x63;&#x6f;&#109;">&#54;&#x37;&#53;&#x34;&#57;&#x35;&#55;&#56;&#55;&#x40;&#x71;&#x71;&#46;&#x63;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/09/05/Excel2013%EF%BC%9A%5B15%5D%E7%BB%99%E5%8D%95%E5%85%83%E6%A0%BC%E6%B7%BB%E5%8A%A0%E8%BF%B7%E4%BD%A0%E5%9B%BE%E8%A1%A8/">
+                Excel2013：[15]给单元格添加迷你图表
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年09月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>Excel2013中，可以将图图表（折线图、柱状图、盈亏图）添加到单元格中显示，这样你可以概括性的了解一行数据或者一列数据的总体趋势，也显得你的表格非常高端大气上档次，下面我来具体演示 一下：</p>
+<ul>
+<li>这里有一堆数据，我要在趋势图里显示我们的折线图</li>
+</ul>
+<img src="/2015/09/05/Excel2013%EF%BC%9A%5B15%5D%E7%BB%99%E5%8D%95%E5%85%83%E6%A0%BC%E6%B7%BB%E5%8A%A0%E8%BF%B7%E4%BD%A0%E5%9B%BE%E8%A1%A8/a28d62d98d1001e90fa20414ba0e7bec55e797cb.jpg" class="" title="Excel2013：[15]给单元格添加迷你图表">
+
+<ul>
+<li>选中F2单元格，点击：插入–（迷你图）折线图</li>
+</ul>
+<img src="/2015/09/05/Excel2013%EF%BC%9A%5B15%5D%E7%BB%99%E5%8D%95%E5%85%83%E6%A0%BC%E6%B7%BB%E5%8A%A0%E8%BF%B7%E4%BD%A0%E5%9B%BE%E8%A1%A8/0b14ad19ebc4b745fbc2a70dcdfc1e178a821513.jpg" class="" title="Excel2013：[15]给单元格添加迷你图表">
+
+<ul>
+<li>打开迷你图对话框，我们将红色方框内的数据设置成【数据范围】，点击确定按钮</li>
+</ul>
+<img src="/2015/09/05/Excel2013%EF%BC%9A%5B15%5D%E7%BB%99%E5%8D%95%E5%85%83%E6%A0%BC%E6%B7%BB%E5%8A%A0%E8%BF%B7%E4%BD%A0%E5%9B%BE%E8%A1%A8/ea85a94543a9822675973b3c8882b9014a90eb1c.jpg" class="" title="Excel2013：[15]给单元格添加迷你图表">
+
+<img src="/2015/09/05/Excel2013%EF%BC%9A%5B15%5D%E7%BB%99%E5%8D%95%E5%85%83%E6%A0%BC%E6%B7%BB%E5%8A%A0%E8%BF%B7%E4%BD%A0%E5%9B%BE%E8%A1%A8/7aad4ae736d12f2e849bbe7b4dc2d562843568cb.jpg" class="" title="Excel2013：[15]给单元格添加迷你图表">
+
+<ul>
+<li>第一个趋势图就看到了，然后拖动右下角，可以将其他单元格的趋势图添加进来</li>
+</ul>
+<img src="/2015/09/05/Excel2013%EF%BC%9A%5B15%5D%E7%BB%99%E5%8D%95%E5%85%83%E6%A0%BC%E6%B7%BB%E5%8A%A0%E8%BF%B7%E4%BD%A0%E5%9B%BE%E8%A1%A8/8367d1fc1e178a82046a6fbbf403738da977e81c.jpg" class="" title="Excel2013：[15]给单元格添加迷你图表">
+
+<ul>
+<li>同样的方法我们还可以设置柱状图。</li>
+</ul>
+<img src="/2015/09/05/Excel2013%EF%BC%9A%5B15%5D%E7%BB%99%E5%8D%95%E5%85%83%E6%A0%BC%E6%B7%BB%E5%8A%A0%E8%BF%B7%E4%BD%A0%E5%9B%BE%E8%A1%A8/2e6fa7389b504fc295c1a01ee7dde71191ef6dcb.jpg" class="" title="Excel2013：[15]给单元格添加迷你图表">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#x38;&#55;&#x40;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">&#x36;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#x38;&#55;&#x40;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/09/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B58%5D%E5%86%99%E5%85%A5%E5%B9%B6%E5%85%B3%E9%97%ADtxt/">
                 Python教程：[58]写入并关闭txt
             </a>
@@ -711,300 +1004,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/09/01/spss%E5%81%9A%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E8%BE%93%E5%87%BA%E5%9B%A0%E7%B4%A0%E5%80%BC%E5%B9%B6%E5%BD%A2%E6%88%90%E5%8F%98%E9%87%8F/">
-                spss做因素分析的时候如何输出因素值并形成变量
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年09月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>假如因素分析的时候我们会用到因素的值，比如根据因素的值进行排序，那么我们就需要用到save as variables过程。下面我们就要介绍一下如何使用这个过程。<br>工具&#x2F;原料</p>
-<ul>
-<li><p>spss 20.0<br>方法&#x2F;步骤</p>
-</li>
-<li><p>准备好spss中的数据，然后在菜单栏上执行：analyse–dimension reduction–factor</p>
-</li>
-</ul>
-<img src="/2015/09/01/spss%E5%81%9A%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E8%BE%93%E5%87%BA%E5%9B%A0%E7%B4%A0%E5%80%BC%E5%B9%B6%E5%BD%A2%E6%88%90%E5%8F%98%E9%87%8F/b03533fa828ba61e01a6f5f84134970a314e5998.jpg" class="" title="spss做因素分析的时候如何输出因素值并形成变量">
-
-<ul>
-<li>将用于因素分析的变量放入variables框中</li>
-</ul>
-<img src="/2015/09/01/spss%E5%81%9A%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E8%BE%93%E5%87%BA%E5%9B%A0%E7%B4%A0%E5%80%BC%E5%B9%B6%E5%BD%A2%E6%88%90%E5%8F%98%E9%87%8F/e824b899a9014c08787915720a7b02087af4f4a2.jpg" class="" title="spss做因素分析的时候如何输出因素值并形成变量">
-
-<ul>
-<li>点击scores按钮，设置要输出的变量</li>
-</ul>
-<img src="/2015/09/01/spss%E5%81%9A%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E8%BE%93%E5%87%BA%E5%9B%A0%E7%B4%A0%E5%80%BC%E5%B9%B6%E5%BD%A2%E6%88%90%E5%8F%98%E9%87%8F/a686c9177f3e67097c9f78283bc79f3df9dc554d.jpg" class="" title="spss做因素分析的时候如何输出因素值并形成变量">
-
-<ul>
-<li>打开score对话框，勾选save as variables，就是这个选项用于输出因素分数，点击continue按钮</li>
-</ul>
-<img src="/2015/09/01/spss%E5%81%9A%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E8%BE%93%E5%87%BA%E5%9B%A0%E7%B4%A0%E5%80%BC%E5%B9%B6%E5%BD%A2%E6%88%90%E5%8F%98%E9%87%8F/cf1b9d16fdfaaf517b28bc688c5494eef11f7a19.jpg" class="" title="spss做因素分析的时候如何输出因素值并形成变量">
-
-<ul>
-<li>点击ok开始输出数据，并在变量视图输出三个新的变量</li>
-</ul>
-<img src="/2015/09/01/spss%E5%81%9A%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E8%BE%93%E5%87%BA%E5%9B%A0%E7%B4%A0%E5%80%BC%E5%B9%B6%E5%BD%A2%E6%88%90%E5%8F%98%E9%87%8F/0ff41bd5ad6eddc49fda882c39dbb6fd52663323.jpg" class="" title="spss做因素分析的时候如何输出因素值并形成变量">
-
-<ul>
-<li>如图所示，你会看到三个多出来的变量</li>
-</ul>
-<img src="/2015/09/01/spss%E5%81%9A%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E8%BE%93%E5%87%BA%E5%9B%A0%E7%B4%A0%E5%80%BC%E5%B9%B6%E5%BD%A2%E6%88%90%E5%8F%98%E9%87%8F/6159252dd42a28347e930adc5bb5c9ea15cebf2b.jpg" class="" title="spss做因素分析的时候如何输出因素值并形成变量">
-
-<ul>
-<li>通常我们要根据因素的值来对case进行排序，方法是选中一个因素的所有值，然后右键单击，选择sort descending，你会看到数据从大到小的排序</li>
-</ul>
-<img src="/2015/09/01/spss%E5%81%9A%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E7%9A%84%E6%97%B6%E5%80%99%E5%A6%82%E4%BD%95%E8%BE%93%E5%87%BA%E5%9B%A0%E7%B4%A0%E5%80%BC%E5%B9%B6%E5%BD%A2%E6%88%90%E5%8F%98%E9%87%8F/5ab5c9ea15ce36d38535bfe73af33a87e950b137.jpg" class="" title="spss做因素分析的时候如何输出因素值并形成变量">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#52;&#57;&#x35;&#x37;&#56;&#55;&#64;&#x71;&#113;&#46;&#x63;&#x6f;&#109;">&#x36;&#55;&#53;&#52;&#57;&#x35;&#x37;&#56;&#55;&#64;&#x71;&#113;&#46;&#x63;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/08/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B29%5D%E6%9F%B1%E5%BD%A2%E5%9B%BE/">
-                pandas教程：[29]柱形图
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年08月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>上一篇文章做了一个散点图以及散点图的趋势线，这篇文章转向柱形图，柱形图一般适用于离散数据，而直方图更多用于连续数据。下面是具体绘制过程：</p>
-<ul>
-<li>引入相关模块<br>创建一个10x4的DataFrame</li>
-</ul>
-<img src="/2015/08/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B29%5D%E6%9F%B1%E5%BD%A2%E5%9B%BE/6dc09e0a19d8bc3e8ed97ebb818ba61ea9d345aa.jpg" class="" title="pandas教程：[29]柱形图">
-
-<img src="/2015/08/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B29%5D%E6%9F%B1%E5%BD%A2%E5%9B%BE/83cab81ea8d3fd1f04d8da4b334e251f94ca5faa.jpg" class="" title="pandas教程：[29]柱形图">
-
-<ul>
-<li>绘制一个柱形图很简单，只要在plot里指定kind为bar<br>这是输出的图plot1.png,有没有发现这个图很难看？</li>
-</ul>
-<img src="/2015/08/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B29%5D%E6%9F%B1%E5%BD%A2%E5%9B%BE/e865a699a9014c08ded650d4097b02087af4f497.jpg" class="" title="pandas教程：[29]柱形图">
-
-<img src="/2015/08/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B29%5D%E6%9F%B1%E5%BD%A2%E5%9B%BE/d7c9ca3f8794a4c21ef29f5a0df41bd5ac6e39aa.jpg" class="" title="pandas教程：[29]柱形图">
-
-<ul>
-<li>可以如此设置柱形图的样式：<br>现在这个图变成了这个样式，如果你还是喜欢上一个图，你就设置mpl_style为none即可</li>
-</ul>
-<img src="/2015/08/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B29%5D%E6%9F%B1%E5%BD%A2%E5%9B%BE/1cd4147b02087bf4bf012f98f1d3572c10dfcf97.jpg" class="" title="pandas教程：[29]柱形图">
-
-<img src="/2015/08/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B29%5D%E6%9F%B1%E5%BD%A2%E5%9B%BE/0fb505d5ad6eddc43836cc8a3adbb6fd536633aa.jpg" class="" title="pandas教程：[29]柱形图">
-
-<ul>
-<li>堆积直方图只需要设置stacked&#x3D;True<br>绘制出来的堆积柱形图：</li>
-</ul>
-<img src="/2015/08/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B29%5D%E6%9F%B1%E5%BD%A2%E5%9B%BE/7ab514d162d9f2d3effc5c9eaaec8a136227cc97.jpg" class="" title="pandas教程：[29]柱形图">
-
-<img src="/2015/08/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B29%5D%E6%9F%B1%E5%BD%A2%E5%9B%BE/ac2fc3c451da81cb5237fbbc5166d016082431aa.jpg" class="" title="pandas教程：[29]柱形图">
-
-<ul>
-<li>很多时候我们的柱形图是延水平方向的，这时候需要设置kind&#x3D;‘barh’<br>现在该图变成了水平方向的柱形图</li>
-</ul>
-<img src="/2015/08/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B29%5D%E6%9F%B1%E5%BD%A2%E5%9B%BE/f99dcf00baa1cd1125670a51ba12c8fcc2ce2daa.jpg" class="" title="pandas教程：[29]柱形图">
-
-<img src="/2015/08/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B29%5D%E6%9F%B1%E5%BD%A2%E5%9B%BE/bf487563f6246b60d6e3ca05e8f81a4c500fa297.jpg" class="" title="pandas教程：[29]柱形图">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#109;">&#54;&#55;&#53;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/08/23/spss%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%AF%B9%E5%9B%A0%E5%AD%90%E8%BD%BD%E8%8D%B7%E7%9F%A9%E9%98%B5%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/">
-                spss因素分析如何对对因子载荷矩阵进行排序
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年08月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>在确定因子意义的时候需要看变量和因子的关系，如果比如某个因子在某个变量上的载荷为0.9，我们可以认为这个变量和因子的关系很紧密，可以用这个变量来解释这个因子，对载荷进行排序就可以帮助我们一眼看到因子之间的不同。<br>方法&#x2F;步骤</p>
-<ul>
-<li>在spss中准备好数据，然后在菜单栏上执行analyse–dimension reduction–factor，打开factor analyse对话框</li>
-</ul>
-<img src="/2015/08/23/spss%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%AF%B9%E5%9B%A0%E5%AD%90%E8%BD%BD%E8%8D%B7%E7%9F%A9%E9%98%B5%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/024f78f0f736afc3d61343b1b319ebc4b64512c2.jpg" class="" title="spss因素分析如何对对因子载荷矩阵进行排序">
-
-<ul>
-<li>将所有需要分析的变量放到variables框中，点击箭头按钮可以添加变量</li>
-</ul>
-<img src="/2015/08/23/spss%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%AF%B9%E5%9B%A0%E5%AD%90%E8%BD%BD%E8%8D%B7%E7%9F%A9%E9%98%B5%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/838ba61ea8d3fd1f2b45deee304e251f94ca5f91.jpg" class="" title="spss因素分析如何对对因子载荷矩阵进行排序">
-
-<ul>
-<li>点击option按钮，打开选项对话框</li>
-</ul>
-<img src="/2015/08/23/spss%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%AF%B9%E5%9B%A0%E5%AD%90%E8%BD%BD%E8%8D%B7%E7%9F%A9%E9%98%B5%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/0df3d7ca7bcb0a460845f7ed6b63f6246a60affb.jpg" class="" title="spss因素分析如何对对因子载荷矩阵进行排序">
-
-<ul>
-<li>在选项对话框中，找到coefficient display format，勾选下面的sorted by size，这样设置就是为了让输出的因素载荷矩阵按照因素载荷的大小进行排序，方便我们查看结果</li>
-</ul>
-<img src="/2015/08/23/spss%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%AF%B9%E5%9B%A0%E5%AD%90%E8%BD%BD%E8%8D%B7%E7%9F%A9%E9%98%B5%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/bd315c6034a85edfd9ca82f749540923dc54759b.jpg" class="" title="spss因素分析如何对对因子载荷矩阵进行排序">
-
-<ul>
-<li>我们看到下面的两个表格，都是旋转因子以后的载荷矩阵，他们的区别是，第二个表格中的载荷已经经过了排序，我们可以直观的看到不同的变量在各个因子上的载荷，并将变量分类。</li>
-</ul>
-<img src="/2015/08/23/spss%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%AF%B9%E5%9B%A0%E5%AD%90%E8%BD%BD%E8%8D%B7%E7%9F%A9%E9%98%B5%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/b999a9014c086e06cb72439f02087bf40bd1cb08.jpg" class="" title="spss因素分析如何对对因子载荷矩阵进行排序">
-
-<img src="/2015/08/23/spss%E5%9B%A0%E7%B4%A0%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%AF%B9%E5%9B%A0%E5%AD%90%E8%BD%BD%E8%8D%B7%E7%9F%A9%E9%98%B5%E8%BF%9B%E8%A1%8C%E6%8E%92%E5%BA%8F/1c950a7b02087bf4d0362b3df2d3572c10dfcf08.jpg" class="" title="spss因素分析如何对对因子载荷矩阵进行排序">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#52;&#57;&#53;&#x37;&#56;&#55;&#64;&#113;&#113;&#x2e;&#99;&#111;&#x6d;">&#x36;&#55;&#x35;&#52;&#57;&#53;&#x37;&#56;&#55;&#64;&#113;&#113;&#x2e;&#99;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/08/19/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B13%5D%E6%B1%82%E7%9B%B8%E5%85%B3%E7%9F%A9%E9%98%B5/">
-                python 线性代数：[13]求相关矩阵
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年08月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>求n个变量之间的相关系数，我们直接求这几个变量之间的相关矩阵即可。上一篇讲了求身高体重之间的协方差，我们现在就来求他们之间的相关系数矩阵。</p>
-<ul>
-<li>引入numpy模块</li>
-</ul>
-<img src="/2015/08/19/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B13%5D%E6%B1%82%E7%9B%B8%E5%85%B3%E7%9F%A9%E9%98%B5/0d729944ebf81a4ccb294b3ed52a6059242da6eb.jpg" class="" title="python 线性代数：[13]求相关矩阵">
-
-<ul>
-<li>身高用s表示，体重用t表示，采集了三个人的数据，如下</li>
-</ul>
-<img src="/2015/08/19/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B13%5D%E6%B1%82%E7%9B%B8%E5%85%B3%E7%9F%A9%E9%98%B5/29752a9b033b5bb56dcc870934d3d539b700bceb.jpg" class="" title="python 线性代数：[13]求相关矩阵">
-
-<ul>
-<li>创建矩阵y</li>
-</ul>
-<img src="/2015/08/19/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B13%5D%E6%B1%82%E7%9B%B8%E5%85%B3%E7%9F%A9%E9%98%B5/346bd85c103853434bd420d69113b07ecb8088eb.jpg" class="" title="python 线性代数：[13]求相关矩阵">
-
-<ul>
-<li>我们使用numpy.corrcoef方法求相关矩阵，左下角或者右上角就是身高与体重的相关系数，而对角线上元素是t与t或者s与s的相关系数</li>
-</ul>
-<img src="/2015/08/19/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B13%5D%E6%B1%82%E7%9B%B8%E5%85%B3%E7%9F%A9%E9%98%B5/adee30dda3cc7cd94a36932e3b01213fb90e91eb.jpg" class="" title="python 线性代数：[13]求相关矩阵">
-
-<ul>
-<li>再增加一个变量</li>
-</ul>
-<img src="/2015/08/19/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B13%5D%E6%B1%82%E7%9B%B8%E5%85%B3%E7%9F%A9%E9%98%B5/dc15484e9258d10940a80e45d358ccbf6d814dbb.jpg" class="" title="python 线性代数：[13]求相关矩阵">
-
-<ul>
-<li>求相关矩阵：</li>
-</ul>
-<img src="/2015/08/19/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B13%5D%E6%B1%82%E7%9B%B8%E5%85%B3%E7%9F%A9%E9%98%B5/2e6fa7389b504fc2064417f2e7dde71191ef6deb.jpg" class="" title="python 线性代数：[13]求相关矩阵">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#52;&#57;&#53;&#55;&#x38;&#x37;&#64;&#x71;&#113;&#46;&#x63;&#111;&#x6d;">&#54;&#x37;&#53;&#52;&#57;&#53;&#55;&#x38;&#x37;&#64;&#x71;&#113;&#46;&#x63;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1046,7 +1045,23 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/12/17/Cronbach's%20Alpha%E7%B3%BB%E6%95%B0%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">Cronbach&#39;s Alpha系数定义和用法</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于Jöreskog的组合信度ρ_c定义和用法</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EDijkstra%E7%9A%84%E4%BF%A1%E5%BA%A6%E7%B3%BB%E6%95%B0%CF%81A%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于 Dijkstra 的信度系数ρ_A定义和用法</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/10/31/heckman%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%E5%92%8C%E5%AE%9E%E4%BE%8B%E6%9C%89%E6%BC%94%E7%A4%BA/">heckman两阶段完整讲解和实例有演示</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/10/23/%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90%E6%97%B6%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E5%81%9A%E5%8F%98%E9%87%8F%E4%B8%AD%E5%BF%83%E5%8C%96/">A调节效应分析时是否需要做变量中心化</a>
             </li>
             
             <li>
@@ -1067,22 +1082,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/08/23/Johnson-Neyman%E5%9B%BE%E5%8E%9F%E7%90%86%E5%92%8C%E5%88%B6%E4%BD%9CExcel%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/">Johnson-Neyman图原理和制作Excel</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/08/17/%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%A8%A1%E6%9D%BF/">验证性因子分析CFA结果汇报模板</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/08/16/CR%E5%92%8CAVE%E8%AE%A1%E7%AE%97%E5%99%A8Excel%E7%89%88%E4%B8%8B%E8%BD%BD%E5%92%8C%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">CR和AVE计算器Excel版下载和使用教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/07/27/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E4%B8%AD%E5%B9%B3%E5%9D%87%E6%96%B9%E5%B7%AE%E6%8F%90%E5%8F%96%E9%87%8FAVE%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3/">结构方程中平均方差提取量AVE怎么理解</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/07/26/%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC%E8%AF%81%E6%98%8E%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E7%AD%89%E4%BA%8E%E5%86%B3%E5%AE%9A%E7%B3%BB%E6%95%B0R%E6%96%B9/">公式推导证明相关系数等于决定系数R方</a>
             </li>
             
         </ul>

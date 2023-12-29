@@ -252,6 +252,445 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/09/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B5%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">
+                python 线性代数：[5]方阵的行列式计算方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>如何计算方阵的行列式，用到的是numpy模块的linalg.det方法，关于行列式的定义你应该懂，但是其实也不用记住，以后直接用numpy计算就可以了。下面我们看看如何使用numpy计算矩阵的行列式吧：</p>
+<ul>
+<li>行列式的算法：这是二阶方阵行列式</li>
+</ul>
+<img src="/2016/09/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B5%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/a992e31f4134970ab41e34dd97cad1c8a6865d97.jpg" class="" title="python 线性代数：[5]方阵的行列式计算方法">
+
+<ul>
+<li>行列式的算法：这是三阶行列式</li>
+</ul>
+<img src="/2016/09/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B5%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/0db52fadcbef76090899bd6d2cdda3cc7dd99e76.jpg" class="" title="python 线性代数：[5]方阵的行列式计算方法">
+
+<ul>
+<li>先引入numpy模块</li>
+</ul>
+<img src="/2016/09/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B5%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/b3f6cea20cf431ad986a89c84936acaf2fdd984c.jpg" class="" title="python 线性代数：[5]方阵的行列式计算方法">
+
+<ul>
+<li>创建两个方阵</li>
+</ul>
+<img src="/2016/09/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B5%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/1f569482b9014a9013248c4cab773912b21beeef.jpg" class="" title="python 线性代数：[5]方阵的行列式计算方法">
+
+<ul>
+<li>使用det方法求得方阵E和方阵F的行列式</li>
+</ul>
+<img src="/2016/09/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B5%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/3853ad1bb051f8196a3fc9bbd8b44aed2f73e7ef.jpg" class="" title="python 线性代数：[5]方阵的行列式计算方法">
+
+<img src="/2016/09/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B5%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/373bc4b44aed2e737af34cdd8501a18b86d6faef.jpg" class="" title="python 线性代数：[5]方阵的行列式计算方法">
+
+<ul>
+<li><p>这是今天用到的所有代码</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>E</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 2, 3],</p>
+</li>
+<li><pre><code>   [4, 5, 6],
+</code></pre>
+</li>
+<li><pre><code>   [7, 8, 9]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>F</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[-1,  0,  1],</p>
+</li>
+<li><pre><code>   [ 2,  3,  4],
+</code></pre>
+</li>
+<li><pre><code>   [ 5,  6,  7]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>np.linalg.det(E)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>6.6613381477509402e-16</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>np.linalg.det(F)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>2.664535259100367e-15</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>C</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 2],</p>
+</li>
+<li><pre><code>   [1, 3]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>np.linalg.det(C)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>1.0</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#56;&#55;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#109;">&#x36;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#56;&#55;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/11/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E8%8F%9C%E5%8D%95%E6%A0%8F/">
+                wxpython教程：[3]菜单栏
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>窗口中通常有菜单栏，菜单栏中包括很多菜单，每一个菜单中包括很多选项，比如一个简单的记事本：里面菜单有：文件、编辑、格式等等。下面我们就来亲手制作一个菜单栏——以便让我们退出程序。</p>
+<ul>
+<li>先看一下我们所有的代码</li>
+</ul>
+<img src="/2016/09/11/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E8%8F%9C%E5%8D%95%E6%A0%8F/9319cf09b3de9c82072a7ce06f81800a18d843d7.jpg" class="" title="wxpython教程：[3]菜单栏">
+
+<ul>
+<li>重点要说的首先是这句：创建菜单栏<br>这就是菜单栏：</li>
+</ul>
+<img src="/2016/09/11/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E8%8F%9C%E5%8D%95%E6%A0%8F/9dc3cf58ccbf6c815978a987bf3eb13532fa40d7.jpg" class="" title="wxpython教程：[3]菜单栏">
+
+<img src="/2016/09/11/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E8%8F%9C%E5%8D%95%E6%A0%8F/a75fb6d3fd1f413474788011261f95cad0c85ed7.jpg" class="" title="wxpython教程：[3]菜单栏">
+
+<ul>
+<li>创建一个菜单<br>这是一个菜单：</li>
+</ul>
+<img src="/2016/09/11/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E8%8F%9C%E5%8D%95%E6%A0%8F/dbf554ed2e738bd4f348375ea28b87d6277ff931.jpg" class="" title="wxpython教程：[3]菜单栏">
+
+<img src="/2016/09/11/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E8%8F%9C%E5%8D%95%E6%A0%8F/948bcfc8a786c917954cd756ca3d70cf3ac757d7.jpg" class="" title="wxpython教程：[3]菜单栏">
+
+<ul>
+<li>向菜单中添加一个选项：<br>也就是这个选项：</li>
+</ul>
+<img src="/2016/09/11/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E8%8F%9C%E5%8D%95%E6%A0%8F/1e71f724b899a901005cde591e950a7b0208f531.jpg" class="" title="wxpython教程：[3]菜单栏">
+
+<img src="/2016/09/11/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E8%8F%9C%E5%8D%95%E6%A0%8F/72ccb7773912b31b880548468518367adab4e131.jpg" class="" title="wxpython教程：[3]菜单栏">
+
+<ul>
+<li>现在我们将创建好的菜单添加到菜单栏</li>
+</ul>
+<img src="/2016/09/11/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E8%8F%9C%E5%8D%95%E6%A0%8F/d57e9994a4c27d1ed368beab18d5ad6edcc438d7.jpg" class="" title="wxpython教程：[3]菜单栏">
+
+<ul>
+<li>最后，我们将设置好的菜单栏添加到窗口：<br>将菜单中的选项与命令绑定，这样才能在点击选项的时候执行某个动作：<br>到此我们的菜单栏就做好了，运行程序可以看到效果</li>
+</ul>
+<img src="/2016/09/11/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E8%8F%9C%E5%8D%95%E6%A0%8F/0fb505d5ad6eddc457a931943adbb6fd536633d7.jpg" class="" title="wxpython教程：[3]菜单栏">
+
+<img src="/2016/09/11/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E8%8F%9C%E5%8D%95%E6%A0%8F/dc854fda81cb39dbbf8ee239d3160924aa1830d7.jpg" class="" title="wxpython教程：[3]菜单栏">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#x34;&#57;&#53;&#55;&#56;&#x37;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#109;">&#54;&#x37;&#53;&#x34;&#57;&#53;&#55;&#56;&#x37;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/05/spss%E5%8D%95%E5%9B%A0%E7%B4%A0%E9%87%8D%E5%A4%8D%E6%B5%8B%E9%87%8F%E7%9A%84%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E6%93%8D%E4%BD%9C%E5%92%8C%E8%A7%A3%E9%87%8A/">
+                spss单因素重复测量的方差分析操作和解释
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>方法&#x2F;步骤</p>
+<ul>
+<li>首先需要整理数据，数据文件结构对重复测量方差分析很重要，一定要把每次测量作为一个变量（把每个实验处理作为一个变量）!!!</li>
+</ul>
+<img src="/2016/09/05/spss%E5%8D%95%E5%9B%A0%E7%B4%A0%E9%87%8D%E5%A4%8D%E6%B5%8B%E9%87%8F%E7%9A%84%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E6%93%8D%E4%BD%9C%E5%92%8C%E8%A7%A3%E9%87%8A/4e4a20a4462309f71ed536d0720e0cf3d6cad6be.jpg" class="" title="spss单因素重复测量的方差分析操作和解释">
+
+<ul>
+<li>在spss中执行：菜单栏–analyse–GLM–repeated measured，打开重复测量对话框</li>
+</ul>
+<img src="/2016/09/05/spss%E5%8D%95%E5%9B%A0%E7%B4%A0%E9%87%8D%E5%A4%8D%E6%B5%8B%E9%87%8F%E7%9A%84%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E6%93%8D%E4%BD%9C%E5%92%8C%E8%A7%A3%E9%87%8A/caef76094b36acafe6fa0d3e7cd98d1000e99cde.jpg" class="" title="spss单因素重复测量的方差分析操作和解释">
+
+<ul>
+<li>我们给变量写入一个名称，这个名称随便填，然后输入变量的水平数，这个要看你的研究了，在我的研究中，变量只有四个水平，所以就填4，如图所示</li>
+</ul>
+<img src="/2016/09/05/spss%E5%8D%95%E5%9B%A0%E7%B4%A0%E9%87%8D%E5%A4%8D%E6%B5%8B%E9%87%8F%E7%9A%84%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E6%93%8D%E4%BD%9C%E5%92%8C%E8%A7%A3%E9%87%8A/5d6034a85edf8db13b6fe7a60923dd54574e74ab.jpg" class="" title="spss单因素重复测量的方差分析操作和解释">
+
+<ul>
+<li>点击add按钮，将变量添加到下面的框，然后点击define按钮，打开一个新的对话框</li>
+</ul>
+<img src="/2016/09/05/spss%E5%8D%95%E5%9B%A0%E7%B4%A0%E9%87%8D%E5%A4%8D%E6%B5%8B%E9%87%8F%E7%9A%84%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E6%93%8D%E4%BD%9C%E5%92%8C%E8%A7%A3%E9%87%8A/c8177f3e6709c93d607d95359f3df8dcd0005460.jpg" class="" title="spss单因素重复测量的方差分析操作和解释">
+
+<ul>
+<li>将四个水平的变量放入右侧的框中，然后点击ok，开始处理数据</li>
+</ul>
+<img src="/2016/09/05/spss%E5%8D%95%E5%9B%A0%E7%B4%A0%E9%87%8D%E5%A4%8D%E6%B5%8B%E9%87%8F%E7%9A%84%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E6%93%8D%E4%BD%9C%E5%92%8C%E8%A7%A3%E9%87%8A/7acb0a46f21fbe09fcd458d66b600c338644ad6e.jpg" class="" title="spss单因素重复测量的方差分析操作和解释">
+
+<ul>
+<li>我们要看的第一个表格是球星检验的结果，如果sig值大于0.05，就认为符合球星检验</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#52;&#57;&#x35;&#x37;&#56;&#55;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;">&#54;&#55;&#x35;&#52;&#57;&#x35;&#x37;&#56;&#55;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/05/Excel2013%EF%BC%9A%5B34%5D%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E9%9A%90%E8%97%8F%E5%8D%95%E5%85%83%E6%A0%BC/">
+                Excel2013：[34]禁止复制隐藏单元格
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>如图所示，假如我隐藏了B列，而A咧和C列是可以选中的，那么我们复制A:C就可以将ABC三列复制下来，那么隐藏的单元格也就暴露了。所以今天我教给大家两个方法保护工作表，都可以防止复制。</p>
+<ul>
+<li>将需要隐藏的单元格先隐藏，这里就省略了隐藏的过程，然后我们点击菜单上的：审阅–保护工作表</li>
+</ul>
+<img src="/2016/09/05/Excel2013%EF%BC%9A%5B34%5D%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E9%9A%90%E8%97%8F%E5%8D%95%E5%85%83%E6%A0%BC/8c511fe93901213f7a53e0a056e736d12f2e952f.jpg" class="" title="Excel2013：[34]禁止复制隐藏单元格">
+
+<ul>
+<li>输入密码，勾选前两个选项，然后点击确定按钮。</li>
+</ul>
+<img src="/2016/09/05/Excel2013%EF%BC%9A%5B34%5D%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E9%9A%90%E8%97%8F%E5%8D%95%E5%85%83%E6%A0%BC/8697397f9e2f0708757e847ceb24b899a901f210.jpg" class="" title="Excel2013：[34]禁止复制隐藏单元格">
+
+<ul>
+<li>提示你重新输入密码，重新输入密码，点击确定按钮</li>
+</ul>
+<img src="/2016/09/05/Excel2013%EF%BC%9A%5B34%5D%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E9%9A%90%E8%97%8F%E5%8D%95%E5%85%83%E6%A0%BC/91ae68c6a7efce1b4f4b66b6ad51f3deb48f652f.jpg" class="" title="Excel2013：[34]禁止复制隐藏单元格">
+
+<ul>
+<li><p>当别人尝试复制你的Excel的时候就会看到无法选中你的单元格，也就无法取消隐藏的单元格。</p>
+</li>
+<li><p>先选中所有单元格</p>
+</li>
+</ul>
+<img src="/2016/09/05/Excel2013%EF%BC%9A%5B34%5D%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E9%9A%90%E8%97%8F%E5%8D%95%E5%85%83%E6%A0%BC/4bd1e803738da97775542857b251f8198618e310.jpg" class="" title="Excel2013：[34]禁止复制隐藏单元格">
+
+<ul>
+<li>按下快捷键Ctrl+1，打开【设置单元格格式】对话框，切换到【保护】标签，取消这两个选项，点击确定</li>
+</ul>
+<img src="/2016/09/05/Excel2013%EF%BC%9A%5B34%5D%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E9%9A%90%E8%97%8F%E5%8D%95%E5%85%83%E6%A0%BC/8759287adab44aed7a351098b11c8701a18bfb10.jpg" class="" title="Excel2013：[34]禁止复制隐藏单元格">
+
+<ul>
+<li>接着，我们将B列移动到A列，方法是：剪切B列，然后在A列上右键单击，选择【插入复制的列】，这样B列就移动到了A第一列，这很重要，我们这一步的关键点就是：【将要隐藏的列移动到第一列（A列）】。。。</li>
+</ul>
+<img src="/2016/09/05/Excel2013%EF%BC%9A%5B34%5D%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E9%9A%90%E8%97%8F%E5%8D%95%E5%85%83%E6%A0%BC/1cd4147b02087bf46297f995f0d3572c11dfcf10.jpg" class="" title="Excel2013：[34]禁止复制隐藏单元格">
+
+<ul>
+<li><p>选中A列，按下快捷键Ctrl+1，打开【设置单元格格式】对话框，切换到【保护】标签，勾选【锁定】和【隐藏】，点击确定</p>
+</li>
+<li><p>隐藏A列：右键单击A列，然后选择【隐藏】</p>
+</li>
+</ul>
+<img src="/2016/09/05/Excel2013%EF%BC%9A%5B34%5D%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E9%9A%90%E8%97%8F%E5%8D%95%E5%85%83%E6%A0%BC/a005b3345982b2b7622e91b833adcbef77099bde.jpg" class="" title="Excel2013：[34]禁止复制隐藏单元格">
+
+<ul>
+<li>接着我们保护一下工作表，点击【保护工作表】</li>
+</ul>
+<img src="/2016/09/05/Excel2013%EF%BC%9A%5B34%5D%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E9%9A%90%E8%97%8F%E5%8D%95%E5%85%83%E6%A0%BC/4e83cb628535e5dd2d240ea374c6a7efce1b6207.jpg" class="" title="Excel2013：[34]禁止复制隐藏单元格">
+
+<ul>
+<li>输入密码，记得勾选下面的前两项，点击确定按钮。</li>
+</ul>
+<img src="/2016/09/05/Excel2013%EF%BC%9A%5B34%5D%E7%A6%81%E6%AD%A2%E5%A4%8D%E5%88%B6%E9%9A%90%E8%97%8F%E5%8D%95%E5%85%83%E6%A0%BC/ae10eddeb48f8c5441db6e5338292df5e0fe7f07.jpg" class="" title="Excel2013：[34]禁止复制隐藏单元格">
+
+<ul>
+<li>现在已经完成了设置，别人无法复制隐藏的第一列数据，可以修改编辑复制其他列数据。如果你打算隐藏的数据不仅仅是一列还有很多列，你可以将所有隐藏列放到表格的最前面，然后隐藏、在保护单元格。这样最前面隐藏的单元格都是无法被选中的，也即是无法被复制查看修改的。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#55;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;">&#54;&#55;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#55;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/09/05/spss%E7%94%A8%E5%8D%95%E6%A0%B7%E6%9C%ACk-s%E6%A3%80%E9%AA%8C%E9%AA%8C%E8%AF%81%E6%AD%A3%E6%80%81%E5%88%86%E5%B8%83%E7%9A%84%E6%96%B9%E6%B3%95/">
                 spss用单样本k-s检验验证正态分布的方法
             </a>
@@ -732,316 +1171,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/08/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B15%5D%E5%A6%82%E4%BD%95%E8%A7%A3%E8%AF%BB%E7%8B%AC%E7%AB%8B%E6%A0%B7%E6%9C%ACT%E6%A3%80%E9%AA%8C%E7%9A%84%E7%BB%93%E6%9E%9C/">
-                SPSS实例：[15]如何解读独立样本T检验的结果
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年08月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>下面这幅图是从网页上搜索得到的一个结果，我们就拿这个结果来解读一下如何分析独立样本T检验的结果。</p>
-<ul>
-<li>第一个看第一个sig值，它是对方差齐性的假设的检验，假如sig&lt;0.05，说明不满足方差齐性，我们认为方差是不齐的</li>
-</ul>
-<img src="/2016/08/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B15%5D%E5%A6%82%E4%BD%95%E8%A7%A3%E8%AF%BB%E7%8B%AC%E7%AB%8B%E6%A0%B7%E6%9C%ACT%E6%A3%80%E9%AA%8C%E7%9A%84%E7%BB%93%E6%9E%9C/3bb22487e950352af27a1b1f5143fbf2b2118b4a.jpg" class="" title="SPSS实例：[15]如何解读独立样本T检验的结果">
-
-<ul>
-<li>这种情况下，我们只能看第二行数据，也就是看下图所示的sig值来判断是否有组间差异。第二个sig值说明，差异不显著，因为它大于了.05。我们得出的结论是没有差异。</li>
-</ul>
-<img src="/2016/08/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B15%5D%E5%A6%82%E4%BD%95%E8%A7%A3%E8%AF%BB%E7%8B%AC%E7%AB%8B%E6%A0%B7%E6%9C%ACT%E6%A3%80%E9%AA%8C%E7%9A%84%E7%BB%93%E6%9E%9C/734f12f3d7ca7bcb1d6af938bc096b63f624a850.jpg" class="" title="SPSS实例：[15]如何解读独立样本T检验的结果">
-
-<ul>
-<li>我们看第二行数据，sig值&gt;0.05，说明方差是齐性的。</li>
-</ul>
-<img src="/2016/08/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B15%5D%E5%A6%82%E4%BD%95%E8%A7%A3%E8%AF%BB%E7%8B%AC%E7%AB%8B%E6%A0%B7%E6%9C%ACT%E6%A3%80%E9%AA%8C%E7%9A%84%E7%BB%93%E6%9E%9C/4651a712c8fcc3ce5c58f7249045d688d53f20c9.jpg" class="" title="SPSS实例：[15]如何解读独立样本T检验的结果">
-
-<ul>
-<li>这时候，我们需要看另一个sig值，这个值仍然是没有达到显著水平（0.05)，我们认为两组是没有差异的。</li>
-</ul>
-<img src="/2016/08/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B15%5D%E5%A6%82%E4%BD%95%E8%A7%A3%E8%AF%BB%E7%8B%AC%E7%AB%8B%E6%A0%B7%E6%9C%ACT%E6%A3%80%E9%AA%8C%E7%9A%84%E7%BB%93%E6%9E%9C/5af4d7ea15ce36d3fb95bd2738f33a87e850b1d0.jpg" class="" title="SPSS实例：[15]如何解读独立样本T检验的结果">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#52;&#x39;&#53;&#55;&#x38;&#55;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#54;&#x37;&#53;&#52;&#x39;&#53;&#55;&#x38;&#55;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/08/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B2%5D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/">
-                python 线性代数：[2]矩阵乘法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年08月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>今天我们来使用Python的numpy包进行矩阵的乘法运算，用到了一些矩阵乘法的基本知识，这里我们就不再说矩阵，我们假设你对矩阵都有一定的了解，下面看我们具体的例子。</p>
-<ul>
-<li>使用二维数组创建两个矩阵A和B</li>
-</ul>
-<img src="/2016/08/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B2%5D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/43e6c733c895d143723b3dd271f082025baf07b7.jpg" class="" title="python 线性代数：[2]矩阵乘法">
-
-<ul>
-<li>先来一个矩阵的数乘，其实见识矩阵的每一个元素乘以该数</li>
-</ul>
-<img src="/2016/08/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B2%5D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/9304c888d43f8794605d91dfd01b0ef41ad53a66.jpg" class="" title="python 线性代数：[2]矩阵乘法">
-
-<ul>
-<li>dot函数用于矩阵乘法，对于二维数组，它计算的是矩阵乘积，对于一维数组，它计算的是内积。注意交换矩阵的前后位置会导致不同的结果，看下面的例子</li>
-</ul>
-<img src="/2016/08/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B2%5D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/1a94b36eddc451da4d54d51ab4fd5266d1163266.jpg" class="" title="python 线性代数：[2]矩阵乘法">
-
-<img src="/2016/08/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B2%5D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/964b2e4e251f95ca7c3a4c47cb177f3e66095231.jpg" class="" title="python 线性代数：[2]矩阵乘法">
-
-<ul>
-<li>再创建一个二维数组</li>
-</ul>
-<img src="/2016/08/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B2%5D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/647912d7912397ddc19e46f55b82b2b7d1a28719.jpg" class="" title="python 线性代数：[2]矩阵乘法">
-
-<ul>
-<li>我们验证一个矩阵乘法的结合性 （AB)C&#x3D;A(BC）</li>
-</ul>
-<img src="/2016/08/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B2%5D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/a005b3345982b2b7b478e73533adcbef77099b19.jpg" class="" title="python 线性代数：[2]矩阵乘法">
-
-<ul>
-<li>接着看一下对加法的分配性 （A+B)C&#x3D;AC+BC，C(A+B）&#x3D;CA+CB</li>
-</ul>
-<img src="/2016/08/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B2%5D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/d041a4a1cd11728bfce252d3cafcc3cec2fd2c31.jpg" class="" title="python 线性代数：[2]矩阵乘法">
-
-<img src="/2016/08/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B2%5D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/4651a712c8fcc3ce7c0f17c29045d688d53f2031.jpg" class="" title="python 线性代数：[2]矩阵乘法">
-
-<ul>
-<li>数乘的结合性，也一样啦：</li>
-</ul>
-<img src="/2016/08/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B2%5D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/8c511fe93901213fcad4902d56e736d12e2e9519.jpg" class="" title="python 线性代数：[2]矩阵乘法">
-
-<img src="/2016/08/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B2%5D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/d7c9ca3f8794a4c2bbec39da0cf41bd5ac6e3931.jpg" class="" title="python 线性代数：[2]矩阵乘法">
-
-<img src="/2016/08/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B2%5D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/a005b3345982b2b7b479e73533adcbef77099b1a.jpg" class="" title="python 线性代数：[2]矩阵乘法">
-
-<ul>
-<li>接着我们用到一个新知识，使用eye创建一个单位矩阵，单位矩阵的定义就是看下面的步骤</li>
-</ul>
-<img src="/2016/08/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B2%5D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/adee30dda3cc7cd9e3cbea283b01213fb90e911a.jpg" class="" title="python 线性代数：[2]矩阵乘法">
-
-<ul>
-<li>我们看一下，一个矩阵A乘以一个单位矩阵，还是它本身</li>
-</ul>
-<img src="/2016/08/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B2%5D%E7%9F%A9%E9%98%B5%E4%B9%98%E6%B3%95/00a82701213fb80e0837bf2634d12f2eb838941a.jpg" class="" title="python 线性代数：[2]矩阵乘法">
-
-<ul>
-<li>好了，乘法就到这里了，我们下面接着继续讲矩阵的转置</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;">&#x36;&#x37;&#x35;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/08/19/excel%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8A%A4%E5%85%AC%E5%BC%8F%E4%B8%8D%E8%A2%AB%E4%BF%AE%E6%94%B9/">
-                excel如何保护公式不被修改
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年08月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>在做好excel表格里的公式以后，我们不希望别人对公式进行修改，那样的话会容易出现错误，为了保护公式，我们需要进行下列复杂的操作，希望你耐心一点啦。<br>步骤&#x2F;方法</p>
-<ul>
-<li>点击数据表的左上角，选中整个数据表，使其呈现出浅蓝色</li>
-</ul>
-<img src="/2016/08/19/excel%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8A%A4%E5%85%AC%E5%BC%8F%E4%B8%8D%E8%A2%AB%E4%BF%AE%E6%94%B9/023b5bb5c9ea15ce65a2d0aeb6003af33b87b2cc.jpg" class="" title="excel如何保护公式不被修改">
-
-<ul>
-<li>右键单击数据表，然后在右键菜单中，选择【设置单元格格式】</li>
-</ul>
-<img src="/2016/08/19/excel%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8A%A4%E5%85%AC%E5%BC%8F%E4%B8%8D%E8%A2%AB%E4%BF%AE%E6%94%B9/9825bc315c6034a8c95f8826cb134954082376d3.jpg" class="" title="excel如何保护公式不被修改">
-
-<ul>
-<li>在菜单栏上执行：开始–查找和选择–公式，选中所有的公式</li>
-</ul>
-<img src="/2016/08/19/excel%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8A%A4%E5%85%AC%E5%BC%8F%E4%B8%8D%E8%A2%AB%E4%BF%AE%E6%94%B9/3ac79f3df8dcd1000421c886728b4710b8122fd3.jpg" class="" title="excel如何保护公式不被修改">
-
-<ul>
-<li>右键单击选中的单元格，然后在右键菜单中选择【设置单元格格式】</li>
-</ul>
-<img src="/2016/08/19/excel%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8A%A4%E5%85%AC%E5%BC%8F%E4%B8%8D%E8%A2%AB%E4%BF%AE%E6%94%B9/4ec2d5628535e5dd6460957876c6a7efcf1b62cc.jpg" class="" title="excel如何保护公式不被修改">
-
-<ul>
-<li>在弹出的对话框中，切换到【保护】选项，然后勾选【锁定】，点击确定按钮</li>
-</ul>
-<img src="/2016/08/19/excel%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8A%A4%E5%85%AC%E5%BC%8F%E4%B8%8D%E8%A2%AB%E4%BF%AE%E6%94%B9/a5c27d1ed21b0ef4d455a8f9ddc451da80cb3ed3.jpg" class="" title="excel如何保护公式不被修改">
-
-<ul>
-<li>接着在菜单栏上执行：审阅–保护工作表</li>
-</ul>
-<img src="/2016/08/19/excel%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8A%A4%E5%85%AC%E5%BC%8F%E4%B8%8D%E8%A2%AB%E4%BF%AE%E6%94%B9/d50735fae6cd7b8941d10a240f2442a7d8330ed3.jpg" class="" title="excel如何保护公式不被修改">
-
-<ul>
-<li>在打开的对话框中，我们设置参数如图所示，然后输入密码，点击确定</li>
-</ul>
-<img src="/2016/08/19/excel%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8A%A4%E5%85%AC%E5%BC%8F%E4%B8%8D%E8%A2%AB%E4%BF%AE%E6%94%B9/4034970a304e251f2758d45fa786c9177e3e53ed.jpg" class="" title="excel如何保护公式不被修改">
-
-<ul>
-<li>弹出确认密码对话框，输入刚才输入的密码，然后点击确定。这样单元格内的公式就无法修改了。</li>
-</ul>
-<img src="/2016/08/19/excel%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8A%A4%E5%85%AC%E5%BC%8F%E4%B8%8D%E8%A2%AB%E4%BF%AE%E6%94%B9/32fa828ba61ea8d3506e44a3970a304e241f58cc.jpg" class="" title="excel如何保护公式不被修改">
-
-<ul>
-<li>当你试图修改公式的时候，你就会看到这样的提示消息。</li>
-</ul>
-<img src="/2016/08/19/excel%E5%A6%82%E4%BD%95%E4%BF%9D%E6%8A%A4%E5%85%AC%E5%BC%8F%E4%B8%8D%E8%A2%AB%E4%BF%AE%E6%94%B9/f636afc379310a554699ee53b74543a9832610d3.jpg" class="" title="excel如何保护公式不被修改">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#52;&#57;&#53;&#x37;&#56;&#x37;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#109;">&#x36;&#55;&#x35;&#52;&#57;&#53;&#x37;&#56;&#x37;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/08/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E6%88%90%E6%97%B6%E9%97%B4%E6%88%B3/">
-                Python教程：[27]字符串时间转换成时间戳
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年08月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们使用time模块来实现数据格式的转换，假如我想要读取现在的时间，我们得到的是一个时间戳，那么如何转换格式，得到你能看懂的时间呢，下面的代码可以帮助你。</p>
-<ul>
-<li>引入时间模块</li>
-</ul>
-<img src="/2016/08/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E6%88%90%E6%97%B6%E9%97%B4%E6%88%B3/7d98931001e93901ec4a372b79ec54e736d19618.jpg" class="" title="Python教程：[27]字符串时间转换成时间戳">
-
-<ul>
-<li>使用time.time方法可以生成时间戳，这个时间戳是自1970年以后经过的秒数，精确到小数后3位，也就是微秒。</li>
-</ul>
-<img src="/2016/08/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E6%88%90%E6%97%B6%E9%97%B4%E6%88%B3/2e6fa7389b504fc203170a10e7dde71190ef6d18.jpg" class="" title="Python教程：[27]字符串时间转换成时间戳">
-
-<ul>
-<li>我们把时间戳赋值给t，然后使用localtime函数来转换成可以读懂的格式时间对象</li>
-</ul>
-<img src="/2016/08/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E6%88%90%E6%97%B6%E9%97%B4%E6%88%B3/6391e903918fa0ec883dde18249759ee3c6ddbea.jpg" class="" title="Python教程：[27]字符串时间转换成时间戳">
-
-<ul>
-<li>我们设置一下时间格式，然后使用strftime函数来转换，得到字符串。关于时间的格式，下面有详细的讲。</li>
-</ul>
-<img src="/2016/08/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E6%88%90%E6%97%B6%E9%97%B4%E6%88%B3/5d212aa85edf8db12466c6710b23dd54564e7418.jpg" class="" title="Python教程：[27]字符串时间转换成时间戳">
-
-<ul>
-<li>你怎么知道哪个字符代表的是年月还是日，下面的表格可以告诉你。</li>
-</ul>
-<img src="/2016/08/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E6%88%90%E6%97%B6%E9%97%B4%E6%88%B3/c2bce2039245d688ca6117b1a6c27d1ed21b2400.jpg" class="" title="Python教程：[27]字符串时间转换成时间戳">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#x34;&#57;&#x35;&#55;&#56;&#55;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#x36;&#x37;&#x35;&#x34;&#57;&#x35;&#55;&#56;&#55;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1083,7 +1212,23 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2023/12/17/Cronbach's%20Alpha%E7%B3%BB%E6%95%B0%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">Cronbach&#39;s Alpha系数定义和用法</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于Jöreskog的组合信度ρ_c定义和用法</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EDijkstra%E7%9A%84%E4%BF%A1%E5%BA%A6%E7%B3%BB%E6%95%B0%CF%81A%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于 Dijkstra 的信度系数ρ_A定义和用法</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/10/31/heckman%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%E5%92%8C%E5%AE%9E%E4%BE%8B%E6%9C%89%E6%BC%94%E7%A4%BA/">heckman两阶段完整讲解和实例有演示</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/10/23/%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90%E6%97%B6%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E5%81%9A%E5%8F%98%E9%87%8F%E4%B8%AD%E5%BF%83%E5%8C%96/">A调节效应分析时是否需要做变量中心化</a>
             </li>
             
             <li>
@@ -1104,22 +1249,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/08/23/Johnson-Neyman%E5%9B%BE%E5%8E%9F%E7%90%86%E5%92%8C%E5%88%B6%E4%BD%9CExcel%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/">Johnson-Neyman图原理和制作Excel</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/08/17/%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%A8%A1%E6%9D%BF/">验证性因子分析CFA结果汇报模板</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/08/16/CR%E5%92%8CAVE%E8%AE%A1%E7%AE%97%E5%99%A8Excel%E7%89%88%E4%B8%8B%E8%BD%BD%E5%92%8C%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">CR和AVE计算器Excel版下载和使用教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/07/27/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E4%B8%AD%E5%B9%B3%E5%9D%87%E6%96%B9%E5%B7%AE%E6%8F%90%E5%8F%96%E9%87%8FAVE%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3/">结构方程中平均方差提取量AVE怎么理解</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/07/26/%E5%85%AC%E5%BC%8F%E6%8E%A8%E5%AF%BC%E8%AF%81%E6%98%8E%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0%E7%AD%89%E4%BA%8E%E5%86%B3%E5%AE%9A%E7%B3%BB%E6%95%B0R%E6%96%B9/">公式推导证明相关系数等于决定系数R方</a>
             </li>
             
         </ul>
