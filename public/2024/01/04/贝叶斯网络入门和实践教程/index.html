@@ -1,0 +1,1776 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <!--Description-->
+    
+        <meta name="description" content="专注于数据开发, 数据分析, 数据采集, python教学">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xxxspy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="贝叶斯网络入门和R代码实践视频教程"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="专注于数据开发, 数据分析, 数据采集, python教学" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="DataSense"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>贝叶斯网络入门和R代码实践视频教程 - DataSense</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <style>
+    code{
+    color: #d7ecff;
+    font-size: 110%;
+    }
+    pre > code {
+        -webkit-border-before: black;
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        color: #f9f4f4;
+        word-break: break-all;
+        word-wrap: break-word;
+        background-color: #f5f5f500;
+        border: 1px solid #eff3f521;
+        border-radius: 0;
+    }
+    pre > code::before {
+        content:"- ";
+        z-index: -1;
+        left:-2px;
+    }
+    #feedAv{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #MZAD_POP_PLACEHOLDER{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #pop_ad{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    </style>
+
+    
+        <!-- mathjax -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        var maths = document.getElementsByTagName("code");
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+    </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: true,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"],["$","$"]],
+      displayMath: [["\\[", "\\]"],["$$", "$$"]],
+      skipTags: ['^(?!code).*$']
+    }
+  });
+  var maths = document.getElementsByTagName("code");
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+</script>
+
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [ ['\\(','\\)']]} });
+</script> -->
+
+<!-- <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script> -->
+
+    
+    
+    
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+    <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i>
+        
+            <p id="main-title" class="title">DataSense</p>
+        
+        </a>
+    </div>
+</header>
+<div class="page_list archive-container">
+        
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+            SPSS+AMOS数据分析案例教程-关于中介模
+        </a>
+    </div>
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+            SPSS视频教程内容目录和跳转链接
+        </a>
+    </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+                SPSS+AMOS数据分析案例教程-关于中介模
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+                SPSS视频教程内容目录和跳转链接
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="https://mlln.cn/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">
+                R语言快速入门视频教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a target="_blank" rel="noopener" href="https://space.bilibili.com/383752637/channel/collectiondetail?sid=778283">
+                Python智联招聘数据分析
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/07/24/潜在类别分析入门/">
+                LCA潜在类别分析和Mplus应用
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/06/12/Amos结构方程数据分析案例教程/">
+                Amos结构方程模型数据分析入门教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/12/05/倒U关系回归分析中介效应和调节效应分析SPSS和R语言应用视频教程/">
+                倒U关系回归分析中介效应和调节效应分析SPSS视频教程
+            </a>
+        </div>
+    
+</div>
+
+    <!-- Main Content -->
+    
+
+    
+        
+<div class="row">
+    <div class="col-md-9 col-sm-12">
+        <!--Title and Logo-->
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">
+                贝叶斯网络入门和R代码实践视频教程
+            </a>
+
+        </h1>
+        <div class="weibo-share">
+            <p>在B站@mlln-cn, 我就能回答你的问题奥!</p>
+        </div>
+        <div class="post-info">
+            
+                <span class="date">2024年01月04日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+    <!-- Table of Contents -->
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A6%82%E7%8E%87%E5%8E%9F%E7%90%86"><span class="toc-number">1.</span> <span class="toc-text">概率原理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%8E%9F%E7%90%86"><span class="toc-number">2.</span> <span class="toc-text">贝叶斯网络原理</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%AE%9A%E4%B9%89"><span class="toc-number">2.1.</span> <span class="toc-text">定义</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AD%A6%E4%B9%A0"><span class="toc-number">3.</span> <span class="toc-text">学习</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8E%A8%E6%96%AD"><span class="toc-number">4.</span> <span class="toc-text">推断</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B7%A5%E5%85%B7"><span class="toc-number">5.</span> <span class="toc-text">工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#bnlearn-%E5%85%A5%E9%97%A8"><span class="toc-number">6.</span> <span class="toc-text">bnlearn 入门</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#bnlearn%E5%AE%89%E8%A3%85"><span class="toc-number">6.1.</span> <span class="toc-text">bnlearn安装</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E6%95%B0%E6%8D%AE%E9%9B%86"><span class="toc-number">6.2.</span> <span class="toc-text">案例数据集</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E7%BD%91%E7%BB%9C%E7%BB%93%E6%9E%84"><span class="toc-number">6.3.</span> <span class="toc-text">创建一个网络结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E7%BD%91%E7%BB%9C%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">6.4.</span> <span class="toc-text">网络可视化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E6%A0%B9%E6%8D%AE%E6%95%B0%E6%8D%AE%E6%B1%82%E8%A7%A3%E5%9B%BE%E7%BB%93%E6%9E%84"><span class="toc-number">6.5.</span> <span class="toc-text">根据数据求解图结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E5%AD%A6%E4%B9%A0"><span class="toc-number">6.6.</span> <span class="toc-text">参数学习</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BB%8E%E6%A8%A1%E5%9E%8B%E4%B8%AD%E9%87%87%E6%A0%B7"><span class="toc-number">6.7.</span> <span class="toc-text">从模型中采样</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E9%A2%84%E6%B5%8B%E8%8A%82%E7%82%B9"><span class="toc-number">6.8.</span> <span class="toc-text">预测节点</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B"><span class="toc-number">7.</span> <span class="toc-text">高级教程</span></a></li></ol>
+    </div>
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>本教程旨在介绍使用贝叶斯网络学习和推理的基础知识，<br>如何使用R语言（bnlearn）完成一个贝叶斯网络结构建立和参数学习，<br>以介绍图算法建模的典型数据分析工作流程。 要点包括：</p>
+<ul>
+<li>数据处理</li>
+<li>贝叶斯网络原理（结构和参数）</li>
+<li>将贝叶斯网络用于预测分析</li>
+<li>将贝叶斯网络用于推理分析</li>
+</ul>
+<span id="more"></span>
+
+<h3 id="概率原理"><a href="#概率原理" class="headerlink" title="概率原理"></a>概率原理</h3><p>在介绍贝叶斯网络之前， 需要先理解几个概念：</p>
+<ul>
+<li>先验概率： （Prior Probability）是指根据以往经验和分析得到的概率，通常作为“由因求果”问题中的“因”（自变量、解释变量）出现的概率。通常使用P(A)表示A的先验概率</li>
+<li>联合概率是指在多元的概率分布中，多个随机变量同时满足各自条件的概率。联合概率表示两个或多个事件共同发生的概率。在概率论中，联合概率可以用符号P(A∩B)表示，也可以用P(AB)表示</li>
+<li>条件概率是指事件A在另外一个事件B已经发生条件下的发生概率。条件概率表示为P（A|B），读作“在B的条件下A的概率”。如果只有两个事件A和B，那么条件概率的计算公式为：P(A|B) &#x3D; P(AB) &#x2F; P(B)。</li>
+<li>后验概率： 后验概率是指在某个结果发生之后，重新修正该结果的概率。它是贝叶斯定理中的概念，用于根据新的信息更新先验概率。后验概率的计算需要先了解先验概率和似然函数，然后通过贝叶斯公式计算得出。在理解后验概率时，需要注意它与先验概率的关系。先验概率是指在某个结果发生之前，根据经验和数据得到的概率估计。后验概率则是根据新的信息修正先验概率后得到的更接近实际情况的概率估计。</li>
+<li>全概率： 全概率是指一个事件发生的总概率，可以通过多个互不相交的事件的概率之和来计算。全概率公式通常用于计算条件概率，在这种情况下，我们需要考虑所有可能发生的情况，这些情况通常是互不相交的。通过计算每种情况的概率之和，我们可以得出一个事件发生的总概率</li>
+</ul>
+<h3 id="贝叶斯网络原理"><a href="#贝叶斯网络原理" class="headerlink" title="贝叶斯网络原理"></a>贝叶斯网络原理</h3><h4 id="定义"><a href="#定义" class="headerlink" title="定义"></a>定义</h4><p>如果你对数学公式不感兴趣， 你可以跳转到下面的实战部分。</p>
+<p>贝叶斯网络（Bayesian network）的定义：</p>
+<ul>
+<li>网络是由节点和连线构成， 这个网络具体说是一个有向无环图， 无环指的是没有环形的结构， 有向指的是节点之间的连线是有箭头的。</li>
+<li>节点代表变量， 连线代表变量之间的关系， 箭头往往指向被预测的变量， 在图算法里， 箭头指向的节点是子节点， 箭尾就是父节点， </li>
+<li>一个网络可能非常复杂， 但是网络可以分解为每个节点及其父节点这种局部结构</li>
+</ul>
+<p>所以， 一个网络的分布就是：</p>
+<img src="imgs/eq1.svg" style="background-color:white">
+
+<p>一个典型的有向无环图就是：</p>
+<img src="imgs/贝叶斯网络图.png">
+
+<p>根据上面的公式， 我们的这个图暗含的概率是：</p>
+<img src="imgs/eq2.svg" style="background-color:white">
+
+<p>因为A节点没有父节点， 那么A发生的概率就是P(A)它是一个先验概率， 而节点E有两个父节点， 那么E的值的分布概率就是一个条件概率P(E|AS).</p>
+<h3 id="学习"><a href="#学习" class="headerlink" title="学习"></a>学习</h3><p>所谓的学习就是从数据中学习网络的结构和参数， 所以学习分为两个阶段， 结构的学习和参数的学习。</p>
+<p>节点就是变量， 哪个节点连接哪个节点， 这就是结构， 在贝叶斯网络构建之前， 我们不知道如何构建这个网络， 这用到的方法就是结构学习。<br>一旦有了网络结构， 下一步就是决定网络的参数是多少， 所谓的参数就是所有节点的联合概率分布。</p>
+<h3 id="推断"><a href="#推断" class="headerlink" title="推断"></a>推断</h3><p>贝叶斯网络的推断就是当你知道网络中某个节点的取值时， 你可以推断其他节点的取值。这其实就是贝叶斯网络的用武之地。<br>通常我们有两种推断， 一种是条件概率的推断， 一种是极大后验概率的推断。</p>
+<p>条件概率的推断（conditional probability）可以参考下图：</p>
+<img src="imgs/cp-query.png">
+
+<p>当你知道E节点的取值为uni时， 那么可以推断其他节点的条件概率。</p>
+<p>极大后验概率推断可以参考下图：</p>
+<img src="imgs/map-query.png">
+
+<p>当你知道某个节点的取值时， 你找到所有节点的取值， 使得这种组合发生的概率最大。</p>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>我们这个教程主要是教大家如何使用R语言的“bnlearn”完成一个贝叶斯网络， 主要工具就是“bnlearn”。<br>bnlearn是一个专门用来学习贝叶斯网络的Python包，包含贝叶斯网络的结构学习、参数学习和推理三个方面的功能。其中，结构学习包含基于约束的算法、基于得分的算法和混合算法，参数学习包括最大似然估计和贝叶斯估计两种方法。此外，bnlearn还提供了自助法（bootstrap）、交叉验证（cross-validation）和随机模拟（stochastic simulation）等功能，附加的绘图功能需要调用前述的Rgraphviz和lattice包。</p>
+<h3 id="bnlearn-入门"><a href="#bnlearn-入门" class="headerlink" title="bnlearn 入门"></a>bnlearn 入门</h3><h4 id="bnlearn安装"><a href="#bnlearn安装" class="headerlink" title="bnlearn安装"></a>bnlearn安装</h4><p>使用R studio 或者任何其他R代码的编辑器, 运行如下命令进行安装:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;bnlearn&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+Warning message:
+"package 'bnlearn' is in use and will not be installed"
+
+</div>
+
+
+<p>加载bnlearn到工作空间, 这样你才可以使用bnlearn:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span>bnlearn<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+<h4 id="案例数据集"><a href="#案例数据集" class="headerlink" title="案例数据集"></a>案例数据集</h4><p>这篇教程基于数据集”transportation_survey”, 这个数据集可以在下面下载, 如果找不到可以联系我.</p>
+<p>这个数据集非常简单, 每个变量解释如下:</p>
+<ul>
+<li>A 代表 Age, 它有三个水平, young(低于30岁) adult(30-60岁) old(大于60岁)</li>
+<li>S 代表 Sex, 有两种性别, Male 和 Female</li>
+<li>E 代表 education, 有两个水平, high 代表高中及以下, uni 代表大学及以上</li>
+<li>O 代表 Occupation , 有两个分类, emp 就是职工(employee), self 代表自雇(self-employed)</li>
+<li>R 代表 Residence, 城市规模, 分为 大(big) 和 小(small)</li>
+<li>T 代表 Tranvel, 旅行方式, 就是个人偏爱什么交通方式, 有三个分类, Car &#x2F; Train &#x2F; other</li>
+</ul>
+<p>看到这些变量, 你应该能想到, 这项研究的目的是探讨旅行方式受到哪些因素的影响, 我们经通过今天的教程, 探讨这个问题.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 读取数据, 保存到survey这个数据框里</span></span><br><span class="line">survey <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;transportation_survey.csv&quot;</span><span class="punctuation">,</span> header <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>survey<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<table class="dataframe">
+<caption>A data.frame: 6 × 6</caption>
+<thead>
+	<tr><th></th><th scope=col>A</th><th scope=col>S</th><th scope=col>E</th><th scope=col>O</th><th scope=col>R</th><th scope=col>T</th></tr>
+	<tr><th></th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th><th scope=col>&lt;chr&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>adult</td><td>F</td><td>high</td><td>emp</td><td>small</td><td>train</td></tr>
+	<tr><th scope=row>2</th><td>young</td><td>M</td><td>high</td><td>emp</td><td>big  </td><td>car  </td></tr>
+	<tr><th scope=row>3</th><td>adult</td><td>M</td><td>uni </td><td>emp</td><td>big  </td><td>other</td></tr>
+	<tr><th scope=row>4</th><td>old  </td><td>F</td><td>uni </td><td>emp</td><td>big  </td><td>car  </td></tr>
+	<tr><th scope=row>5</th><td>young</td><td>F</td><td>uni </td><td>emp</td><td>big  </td><td>car  </td></tr>
+	<tr><th scope=row>6</th><td>young</td><td>F</td><td>uni </td><td>emp</td><td>big  </td><td>car  </td></tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+<h4 id="创建一个网络结构"><a href="#创建一个网络结构" class="headerlink" title="创建一个网络结构"></a>创建一个网络结构</h4><p>创建一个网络, 使用字符来表示一个网络, 下面这段字符”[A][S][E|A:S][O|E][R|E][T|O:R]”看起来比较复杂, 我们解释一下:</p>
+<ul>
+<li><code>[A]</code>表示一个节点, 它没有父节点, 也就是说没有别的节点指向A节点</li>
+<li><code>[S]</code>也表示一个没有父节点的节点</li>
+<li><code>[E|A:S]</code>表示一个节点E, 同时有两个父节点A和S</li>
+<li><code>[O|E]</code>表示节点O, 同时它的父节点是E</li>
+<li>其他节点都是类似的表示手法</li>
+</ul>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">dag <span class="operator">=</span> model2network<span class="punctuation">(</span><span class="string">&quot;[A][S][E|A:S][O|E][R|E][T|O:R]&quot;</span><span class="punctuation">)</span></span><br><span class="line">dag</span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+    
+    <br />  Random/Generated Bayesian network
+    <br />
+    <br />  model:
+    <br />   [A][S][E|A:S][O|E][R|E][T|O:R] 
+    <br />  nodes:                                 6 
+    <br />  arcs:                                  6 
+    <br />    undirected arcs:                     0 
+    <br />    directed arcs:                       6 
+    <br />  average markov blanket size:           2.67 
+    <br />  average neighbourhood size:            2.00 
+    <br />  average branching factor:              1.00 
+    <br />
+    <br />  generation algorithm:                  Empty 
+    <br />
+
+</div>
+
+
+
+<p>除了使用字符串的方法构建网络, 还可以使用节点之间的关系, 例如下面的代码,<br><code>arc.set</code>是一个矩阵, 每一行表示一个关系, 第一列表示父节点, 第二列表示子节点, 下面的代码与上面的代码表示的相同的网络:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">arc.set <span class="operator">=</span> matrix<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;A&quot;</span><span class="punctuation">,</span> <span class="string">&quot;E&quot;</span><span class="punctuation">,</span></span><br><span class="line">                   <span class="string">&quot;S&quot;</span><span class="punctuation">,</span> <span class="string">&quot;E&quot;</span><span class="punctuation">,</span></span><br><span class="line">                   <span class="string">&quot;E&quot;</span><span class="punctuation">,</span> <span class="string">&quot;O&quot;</span><span class="punctuation">,</span></span><br><span class="line">                   <span class="string">&quot;E&quot;</span><span class="punctuation">,</span> <span class="string">&quot;R&quot;</span><span class="punctuation">,</span></span><br><span class="line">                   <span class="string">&quot;O&quot;</span><span class="punctuation">,</span> <span class="string">&quot;T&quot;</span><span class="punctuation">,</span></span><br><span class="line">                   <span class="string">&quot;R&quot;</span><span class="punctuation">,</span> <span class="string">&quot;T&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">            byrow <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">,</span> ncol <span class="operator">=</span> <span class="number">2</span><span class="punctuation">,</span></span><br><span class="line">            <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span><span class="literal">NULL</span><span class="punctuation">,</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;from&quot;</span><span class="punctuation">,</span> <span class="string">&quot;to&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">dag <span class="operator">=</span> empty.graph<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;A&quot;</span><span class="punctuation">,</span> <span class="string">&quot;S&quot;</span><span class="punctuation">,</span> <span class="string">&quot;E&quot;</span><span class="punctuation">,</span> <span class="string">&quot;O&quot;</span><span class="punctuation">,</span> <span class="string">&quot;R&quot;</span><span class="punctuation">,</span> <span class="string">&quot;T&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">arcs<span class="punctuation">(</span>dag<span class="punctuation">)</span> <span class="operator">=</span> arc.set</span><br><span class="line">dag</span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+    
+    <br />  Random/Generated Bayesian network
+    <br />
+    <br />  model:
+    <br />   [A][S][E|A:S][O|E][R|E][T|O:R] 
+    <br />  nodes:                                 6 
+    <br />  arcs:                                  6 
+    <br />    undirected arcs:                     0 
+    <br />    directed arcs:                       6 
+    <br />  average markov blanket size:           2.67 
+    <br />  average neighbourhood size:            2.00 
+    <br />  average branching factor:              1.00 
+    <br />
+    <br />  generation algorithm:                  Empty 
+    <br />
+
+</div>
+
+
+
+<h4 id="网络可视化"><a href="#网络可视化" class="headerlink" title="网络可视化"></a>网络可视化</h4><p>我们可以使用 plot 函数可视化一个网络, 但是如下你看到的, 这个图看起来没有规律,<br>比较乱, 这就是为什么我们不推荐使用 plot. </p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot<span class="punctuation">(</span>dag<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/output_19_0.png" alt="png"></p>
+<p>那么我们还可以使用 graphviz.plot 这个函数,<br>这个函数不是来自于bnlearn, 它来自于 Rgraphviz , 所以我们先安装一下.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;BiocManager&quot;</span><span class="punctuation">)</span></span><br><span class="line">BiocManager<span class="operator">::</span>install<span class="punctuation">(</span><span class="string">&quot;Rgraphviz&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+package 'BiocManager' successfully unpacked and MD5 sums checked
+
+The downloaded binary packages are in
+	C:\Users\syd\AppData\Local\Temp\RtmpK8WHs0\downloaded_packages
+
+</div>
+
+
+
+<div class="output" contenteditable="true">
+输出(stream):<br>
+'getOption("repos")' replaces Bioconductor standard repositories, see
+'help("repositories", package = "BiocManager")' for details.
+Replacement repositories:
+    CRAN: https://cran.r-project.org
+
+Bioconductor version 3.18 (BiocManager 1.30.22), R 4.3.1 (2023-06-16 ucrt)
+
+Warning message:
+"package(s) not installed when version(s) same as or greater than current; use
+  `force = TRUE` to re-install: 'Rgraphviz'"
+Old packages: 'askpass', 'bookdown', 'brio', 'bslib', 'cli', 'cluster',
+  'cowplot', 'cpp11', 'curl', 'data.table', 'datawizard', 'DBI', 'dbplyr',
+  'desc', 'dplyr', 'effectsize', 'emmeans', 'evaluate', 'fansi', 'fontawesome',
+  'foreign', 'ggplot2', 'ggrepel', 'glue', 'gtable', 'haven', 'htmltools',
+  'insight', 'jsonlite', 'KernSmooth', 'knitr', 'labeling', 'lattice',
+  'lifecycle', 'lme4', 'lubridate', 'markdown', 'Matrix', 'MatrixModels',
+  'mgcv', 'minqa', 'mvtnorm', 'nlme', 'openssl', 'parameters', 'performance',
+  'pkgload', 'plyr', 'prettyunits', 'processx', 'progress', 'psych', 'ragg',
+  'Rcpp', 'RcppEigen', 'rematch', 'rlang', 'rmarkdown', 'rpart', 'rprojroot',
+  'sass', 'scales', 'spatial', 'stringi', 'stringr', 'survival', 'systemfonts',
+  'testthat', 'textshaping', 'tinytex', 'utf8', 'vctrs', 'vroom', 'waldo',
+  'withr', 'xfun', 'xml2', 'yaml'
+
+
+</div>
+
+
+<p>加载 Rgraphviz:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">library<span class="punctuation">(</span><span class="string">&quot;Rgraphviz&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可视化</span></span><br><span class="line"></span><br><span class="line">graphviz.plot<span class="punctuation">(</span>dag<span class="punctuation">,</span> layout <span class="operator">=</span> <span class="string">&quot;dot&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/output_24_0.png" alt="png"></p>
+<p>你现在看到的图是不是已经好多了, 你还可以更改布局:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">graphviz.plot<span class="punctuation">(</span>dag<span class="punctuation">,</span> layout <span class="operator">=</span> <span class="string">&quot;fdp&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/output_26_0.png" alt="png"></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">graphviz.plot<span class="punctuation">(</span>dag<span class="punctuation">,</span> layout <span class="operator">=</span> <span class="string">&quot;circo&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/output_27_0.png" alt="png"></p>
+<p>更改颜色:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hlight <span class="operator">&lt;-</span> <span class="built_in">list</span><span class="punctuation">(</span>nodes <span class="operator">=</span> nodes<span class="punctuation">(</span>dag<span class="punctuation">)</span><span class="punctuation">,</span> arcs <span class="operator">=</span> arcs<span class="punctuation">(</span>dag<span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">               col <span class="operator">=</span> <span class="string">&quot;blue&quot;</span><span class="punctuation">,</span> textCol <span class="operator">=</span> <span class="string">&quot;blue&quot;</span><span class="punctuation">)</span></span><br><span class="line">pp <span class="operator">&lt;-</span> graphviz.plot<span class="punctuation">(</span>dag<span class="punctuation">,</span> highlight <span class="operator">=</span> hlight<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/output_29_0.png" alt="png"></p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 箭头颜色也可以更改:</span></span><br><span class="line"></span><br><span class="line">edgeRenderInfo<span class="punctuation">(</span>pp<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">list</span><span class="punctuation">(</span>col <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;S~E&quot;</span> <span class="operator">=</span> <span class="string">&quot;black&quot;</span><span class="punctuation">,</span> <span class="string">&quot;E~R&quot;</span> <span class="operator">=</span> <span class="string">&quot;black&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                           lwd <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;S~E&quot;</span> <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> <span class="string">&quot;E~R&quot;</span> <span class="operator">=</span> <span class="number">3</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 需要重新渲染才能看到图</span></span><br><span class="line"></span><br><span class="line">renderGraph<span class="punctuation">(</span>pp<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/output_30_0.png" alt="png"></p>
+<h4 id="根据数据求解图结构"><a href="#根据数据求解图结构" class="headerlink" title="根据数据求解图结构"></a>根据数据求解图结构</h4><p>图结构是可以由数据学习而来, 研究者可能对最初是的图结构没有预先定义,<br>他也不知道使用什么图结构比较好, 那么这时候可是用函数 hc 来求解图结构:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">survey<span class="operator">$</span>A <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>A<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>R <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>R<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>E <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>E<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>O <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>O<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>S <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>S<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span><span class="built_in">T</span> <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span><span class="built_in">T</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">dag <span class="operator">=</span> hc<span class="punctuation">(</span>survey<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">dag</span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+    
+    <br />  Bayesian network learned via Score-based methods
+    <br />
+    <br />  model:
+    <br />   [A][S][O][E|A:S][R|E][T|R] 
+    <br />  nodes:                                 6 
+    <br />  arcs:                                  4 
+    <br />    undirected arcs:                     0 
+    <br />    directed arcs:                       4 
+    <br />  average markov blanket size:           1.67 
+    <br />  average neighbourhood size:            1.33 
+    <br />  average branching factor:              0.67 
+    <br />
+    <br />  learning algorithm:                    Hill-Climbing 
+    <br />  score:                                 BIC (disc.) 
+    <br />  penalization coefficient:              3.107304 
+    <br />  tests used in the learning procedure:  35 
+    <br />  optimized:                             TRUE 
+    <br />
+
+</div>
+
+
+
+
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可视化</span></span><br><span class="line"></span><br><span class="line">graphviz.plot<span class="punctuation">(</span>dag<span class="punctuation">,</span> layout <span class="operator">=</span> <span class="string">&quot;dot&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/output_33_0.png" alt="png"></p>
+<p>你可以看到, 这个网络结构与我们预先定义的网络结构有些相似, 但是O节点没啥用,<br>也就是这个变量似乎与其他变量没什么关系, 这时候你注意,<br>如果研究者认为O变量很重要, 可以重新加入到你的模型中,<br>如果O可有可无, 就应该从模型中删除,<br>不必完全相信算法给你的结果.</p>
+<h4 id="参数学习"><a href="#参数学习" class="headerlink" title="参数学习"></a>参数学习</h4><p>在继续讲解bnlearn的函数之前, 需要先理解今天的案例用到的图模型是分类节点构成的模型,<br>那么模型的参数就是分类变量的条件分布概率, 如果你学过概率论应该知道, 我们可以用表格来表示条件分布概率:</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">##       E</span><br><span class="line">## O      high  uni</span><br><span class="line">##   emp  0.98 0.92</span><br><span class="line">##   self 0.04 0.08</span><br></pre></td></tr></table></figure>
+
+<p>上面的概率是如何计算的呢, 请看公式:</p>
+<p><code>$$ \hat&#123;Pr&#125;(O = emp | E = high) = \frac&#123;\hat&#123;Pr&#125;(O = emp, E = high)&#125;&#123;\hat&#123;Pr&#125;(E = high)&#125;= \frac&#123;\text&#123;number of observations for which O = emp and E = high&#125;&#125;&#123;\text&#123;number of observations for which E = high&#125;&#125; $$</code></p>
+<p>用通俗的语言来说就是, 在 E为high的条件下, O为emp的概率是0.98, 在你的数据中, E为high同时O为emp的样本数除以E为high的样本数就是这个条件概率.<br>手动计算这个概率就是:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">N.E.high <span class="operator">=</span> nrow<span class="punctuation">(</span>subset<span class="punctuation">(</span>survey<span class="punctuation">,</span> E<span class="operator">==</span><span class="string">&quot;high&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">N.E.high.O.emp <span class="operator">=</span> nrow<span class="punctuation">(</span>subset<span class="punctuation">(</span>survey<span class="punctuation">,</span> E<span class="operator">==</span><span class="string">&quot;high&quot;</span> <span class="operator">&amp;</span> O<span class="operator">==</span><span class="string">&quot;emp&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">N.E.high.O.emp <span class="operator">/</span> N.E.high</span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+0.982758620689655
+</div>
+
+
+
+<p>bnlearn 提供了 函数 bn.fit 帮助我们求所有的条件概率:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">fitted <span class="operator">=</span> bn.fit<span class="punctuation">(</span>dag<span class="punctuation">,</span> survey<span class="punctuation">)</span></span><br><span class="line">fitted</span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+    
+    <br />  Bayesian network parameters
+    <br />
+    <br />  Parameters of node A (multinomial distribution)
+    <br />
+    <br />Conditional probability table:
+    <br /> adult   old young 
+    <br />0.388 0.138 0.474 
+    <br />
+    <br />  Parameters of node S (multinomial distribution)
+    <br />
+    <br />Conditional probability table:
+    <br />     F     M 
+    <br />0.522 0.478 
+    <br />
+    <br />  Parameters of node E (multinomial distribution)
+    <br />
+    <br />Conditional probability table:
+    <br /> 
+    <br />, , S = F
+    <br />
+    <br />      A
+    <br />E          adult       old     young
+    <br />  high 0.5188679 0.8717949 0.1206897
+    <br />  uni  0.4811321 0.1282051 0.8793103
+    <br />
+    <br />, , S = M
+    <br />
+    <br />      A
+    <br />E          adult       old     young
+    <br />  high 0.7613636 0.9000000 0.7685950
+    <br />  uni  0.2386364 0.1000000 0.2314050
+    <br />
+    <br />
+    <br />  Parameters of node O (multinomial distribution)
+    <br />
+    <br />Conditional probability table:
+    <br />  emp self 
+    <br />0.98 0.02 
+    <br />
+    <br />  Parameters of node R (multinomial distribution)
+    <br />
+    <br />Conditional probability table:
+    <br /> 
+    <br />       E
+    <br />R             high        uni
+    <br />  big   0.75862069 0.93809524
+    <br />  small 0.24137931 0.06190476
+    <br />
+    <br />  Parameters of node T (multinomial distribution)
+    <br />
+    <br />Conditional probability table:
+    <br /> 
+    <br />       R
+    <br />T              big      small
+    <br />  car   0.69784173 0.53012048
+    <br />  other 0.13908873 0.08433735
+    <br />  train 0.16306954 0.38554217
+    <br />
+
+</div>
+
+
+
+<p>这个 fitted 包含了所有条件概率, 从输出中你已经看到.<br>下面我们可以看下这个模型的预测效果:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 使用fitted 得到的参数预测survey中的T节点, 可以看下预测效果</span></span><br><span class="line">pred <span class="operator">=</span> predict<span class="punctuation">(</span>fitted<span class="punctuation">,</span> data<span class="operator">=</span>survey<span class="punctuation">,</span> node<span class="operator">=</span><span class="string">&quot;T&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">table<span class="punctuation">(</span>pred<span class="punctuation">,</span> survey<span class="operator">$</span><span class="built_in">T</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+           
+    <br />pred    car other train
+    <br />  car   335    65   100
+    <br />  other   0     0     0
+    <br />  train   0     0     0
+
+</div>
+
+
+
+<p>结果是挺差的, 但是这个结果可以看出, 我们的模型把所有样本都预测为car, 因为T是一个分布很不均匀的变量,<br>car占的比例过高, 导致模型倾向于预测分布概率较高的分类. 另外导致这个问题的还有模型的结构, 你可以看下模型的结构:</p>
+<p>对T有直接影响的就只有R, 也就是说预测T的时候, 只用到了R的取值, 信息损失严重, 所以我们有必要对模型进行修正.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">graphviz.plot<span class="punctuation">(</span>dag<span class="punctuation">,</span> layout <span class="operator">=</span> <span class="string">&quot;dot&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/output_44_0.png" alt="png"></p>
+<p>hc 函数提供了白名单功能, 也就是白名单之中的关系将被保留到模型中, 不受算法的影响, 我们为了保留尽量多的信息,<br>将所有节点对T的关系都加入白名单, 看代码:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">survey <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;transportation_survey.csv&quot;</span><span class="punctuation">,</span> header <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">whitelist <span class="operator">=</span> data.frame<span class="punctuation">(</span>from<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;A&quot;</span><span class="punctuation">,</span> <span class="string">&quot;E&quot;</span><span class="punctuation">,</span> <span class="string">&quot;O&quot;</span><span class="punctuation">,</span> <span class="string">&quot;S&quot;</span><span class="punctuation">,</span> <span class="string">&quot;R&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span> to<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;T&quot;</span><span class="punctuation">,</span> <span class="string">&quot;T&quot;</span><span class="punctuation">,</span> <span class="string">&quot;T&quot;</span><span class="punctuation">,</span> <span class="string">&quot;T&quot;</span><span class="punctuation">,</span> <span class="string">&quot;T&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>A <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>A<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>R <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>R<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>E <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>E<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>O <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>O<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>S <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>S<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span><span class="built_in">T</span> <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span><span class="built_in">T</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">dag <span class="operator">=</span> hc<span class="punctuation">(</span>survey<span class="punctuation">,</span> whitelist<span class="operator">=</span>whitelist<span class="punctuation">)</span></span><br><span class="line">plot<span class="punctuation">(</span>dag<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+<p><img src="/output_46_0.png" alt="png"></p>
+<p>新的模型结构好多了, 我们看下模型预测的结果, 已经有很多样本被预测为非car意外的类别,<br>当然模型还有很大的提升空间, 但是我们先到此位置, 作为一个入门级教程, 不适于再深入.</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fitted <span class="operator">=</span> bn.fit<span class="punctuation">(</span>dag<span class="punctuation">,</span> data<span class="operator">=</span>survey<span class="punctuation">)</span></span><br><span class="line">pred <span class="operator">=</span> predict<span class="punctuation">(</span>fitted<span class="punctuation">,</span> data<span class="operator">=</span>survey<span class="punctuation">,</span> node<span class="operator">=</span><span class="string">&quot;T&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">table<span class="punctuation">(</span>pred<span class="punctuation">,</span> survey<span class="operator">$</span><span class="built_in">T</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+           
+    <br />pred    car other train
+    <br />  car   323    60    78
+    <br />  other   1     3     1
+    <br />  train  11     2    21
+
+</div>
+
+
+
+
+
+<p>除了从数据中学习模型参数,<br>研究者可以自己提供参数, 使用 custom.fit 函数, 这个需要你手动设定所有的条件概率, 例如下面代码</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">dag2 <span class="operator">=</span> model2network<span class="punctuation">(</span><span class="string">&quot;[A][S][E|A:S][O|E][R|E][T|O:R]&quot;</span><span class="punctuation">)</span></span><br><span class="line">A.lv <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;young&quot;</span><span class="punctuation">,</span> <span class="string">&quot;adult&quot;</span><span class="punctuation">,</span> <span class="string">&quot;old&quot;</span><span class="punctuation">)</span></span><br><span class="line">S.lv <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;M&quot;</span><span class="punctuation">,</span> <span class="string">&quot;F&quot;</span><span class="punctuation">)</span></span><br><span class="line">E.lv <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;high&quot;</span><span class="punctuation">,</span> <span class="string">&quot;uni&quot;</span><span class="punctuation">)</span></span><br><span class="line">O.lv <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;emp&quot;</span><span class="punctuation">,</span> <span class="string">&quot;self&quot;</span><span class="punctuation">)</span></span><br><span class="line">R.lv <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;big&quot;</span><span class="punctuation">,</span><span class="string">&quot;small&quot;</span><span class="punctuation">)</span></span><br><span class="line">T.lv <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;car&quot;</span><span class="punctuation">,</span> <span class="string">&quot;other&quot;</span><span class="punctuation">,</span> <span class="string">&quot;train&quot;</span><span class="punctuation">)</span></span><br><span class="line">A.prob <span class="operator">=</span> array<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.30</span><span class="punctuation">,</span> <span class="number">0.50</span><span class="punctuation">,</span> <span class="number">0.20</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">dim</span> <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span>A <span class="operator">=</span> A.lv<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">S.prob <span class="operator">=</span> array<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.60</span><span class="punctuation">,</span> <span class="number">0.40</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">dim</span> <span class="operator">=</span> <span class="number">2</span><span class="punctuation">,</span> <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span>S <span class="operator">=</span> S.lv<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">O.prob <span class="operator">=</span> array<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.96</span><span class="punctuation">,</span> <span class="number">0.04</span><span class="punctuation">,</span> <span class="number">0.92</span><span class="punctuation">,</span> <span class="number">0.08</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">dim</span> <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">2</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">            <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span>O <span class="operator">=</span> O.lv<span class="punctuation">,</span> E <span class="operator">=</span> E.lv<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">R.prob <span class="operator">=</span> array<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.25</span><span class="punctuation">,</span> <span class="number">0.75</span><span class="punctuation">,</span> <span class="number">0.20</span><span class="punctuation">,</span> <span class="number">0.80</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">dim</span> <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">2</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">            <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span>R <span class="operator">=</span> R.lv<span class="punctuation">,</span> E <span class="operator">=</span> E.lv<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">E.prob <span class="operator">=</span> array<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.75</span><span class="punctuation">,</span> <span class="number">0.25</span><span class="punctuation">,</span> <span class="number">0.72</span><span class="punctuation">,</span> <span class="number">0.28</span><span class="punctuation">,</span> <span class="number">0.88</span><span class="punctuation">,</span> <span class="number">0.12</span><span class="punctuation">,</span> <span class="number">0.64</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">0.36</span><span class="punctuation">,</span> <span class="number">0.70</span><span class="punctuation">,</span> <span class="number">0.30</span><span class="punctuation">,</span> <span class="number">0.90</span><span class="punctuation">,</span> <span class="number">0.10</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">dim</span> <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">2</span><span class="punctuation">,</span> <span class="number">3</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">            <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span>E <span class="operator">=</span> E.lv<span class="punctuation">,</span> A <span class="operator">=</span> A.lv<span class="punctuation">,</span> S <span class="operator">=</span> S.lv<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">T.prob <span class="operator">=</span> array<span class="punctuation">(</span><span class="built_in">c</span><span class="punctuation">(</span><span class="number">0.48</span><span class="punctuation">,</span> <span class="number">0.42</span><span class="punctuation">,</span> <span class="number">0.10</span><span class="punctuation">,</span> <span class="number">0.56</span><span class="punctuation">,</span> <span class="number">0.36</span><span class="punctuation">,</span> <span class="number">0.08</span><span class="punctuation">,</span> <span class="number">0.58</span><span class="punctuation">,</span></span><br><span class="line">            <span class="number">0.24</span><span class="punctuation">,</span> <span class="number">0.18</span><span class="punctuation">,</span> <span class="number">0.70</span><span class="punctuation">,</span> <span class="number">0.21</span><span class="punctuation">,</span> <span class="number">0.09</span><span class="punctuation">)</span><span class="punctuation">,</span> <span class="built_in">dim</span> <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="number">3</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">,</span> <span class="number">2</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">            <span class="built_in">dimnames</span> <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span><span class="built_in">T</span> <span class="operator">=</span> T.lv<span class="punctuation">,</span> O <span class="operator">=</span> O.lv<span class="punctuation">,</span> R <span class="operator">=</span> R.lv<span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">cpt <span class="operator">=</span> <span class="built_in">list</span><span class="punctuation">(</span>A <span class="operator">=</span> A.prob<span class="punctuation">,</span> S <span class="operator">=</span> S.prob<span class="punctuation">,</span> E <span class="operator">=</span> E.prob<span class="punctuation">,</span> O <span class="operator">=</span> O.prob<span class="punctuation">,</span> R <span class="operator">=</span> R.prob<span class="punctuation">,</span> <span class="built_in">T</span> <span class="operator">=</span> T.prob<span class="punctuation">)</span></span><br><span class="line">custom.fitted <span class="operator">=</span> custom.fit<span class="punctuation">(</span>dag2<span class="punctuation">,</span> cpt<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">custom.fitted</span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+    
+    <br />  Bayesian network parameters
+    <br />
+    <br />  Parameters of node A (multinomial distribution)
+    <br />
+    <br />Conditional probability table:
+    <br /> A
+    <br />young adult   old 
+    <br />  0.3   0.5   0.2 
+    <br />
+    <br />  Parameters of node E (multinomial distribution)
+    <br />
+    <br />Conditional probability table:
+    <br /> 
+    <br />, , S = M
+    <br />
+    <br />      A
+    <br />E      young adult  old
+    <br />  high  0.75  0.72 0.88
+    <br />  uni   0.25  0.28 0.12
+    <br />
+    <br />, , S = F
+    <br />
+    <br />      A
+    <br />E      young adult  old
+    <br />  high  0.64  0.70 0.90
+    <br />  uni   0.36  0.30 0.10
+    <br />
+    <br />
+    <br />  Parameters of node O (multinomial distribution)
+    <br />
+    <br />Conditional probability table:
+    <br /> 
+    <br />      E
+    <br />O      high  uni
+    <br />  emp  0.96 0.92
+    <br />  self 0.04 0.08
+    <br />
+    <br />  Parameters of node R (multinomial distribution)
+    <br />
+    <br />Conditional probability table:
+    <br /> 
+    <br />       E
+    <br />R       high  uni
+    <br />  big   0.25 0.20
+    <br />  small 0.75 0.80
+    <br />
+    <br />  Parameters of node S (multinomial distribution)
+    <br />
+    <br />Conditional probability table:
+    <br /> S
+    <br />  M   F 
+    <br />0.6 0.4 
+    <br />
+    <br />  Parameters of node T (multinomial distribution)
+    <br />
+    <br />Conditional probability table:
+    <br /> 
+    <br />, , R = big
+    <br />
+    <br />       O
+    <br />T        emp self
+    <br />  car   0.48 0.56
+    <br />  other 0.42 0.36
+    <br />  train 0.10 0.08
+    <br />
+    <br />, , R = small
+    <br />
+    <br />       O
+    <br />T        emp self
+    <br />  car   0.58 0.70
+    <br />  other 0.24 0.21
+    <br />  train 0.18 0.09
+    <br />
+    <br />
+
+</div>
+
+
+
+<p>这个预测的效果也不咋地:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">pred <span class="operator">=</span> predict<span class="punctuation">(</span>custom.fitted<span class="punctuation">,</span> data<span class="operator">=</span>survey<span class="punctuation">,</span> node<span class="operator">=</span><span class="string">&quot;T&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">table<span class="punctuation">(</span>pred<span class="punctuation">,</span> survey<span class="operator">$</span><span class="built_in">T</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output">
+输出(plain):<br/>
+
+           
+    <br />pred    car other train
+    <br />  car   335    65   100
+    <br />  other   0     0     0
+    <br />  train   0     0     0
+
+</div>
+
+
+
+<h4 id="从模型中采样"><a href="#从模型中采样" class="headerlink" title="从模型中采样"></a>从模型中采样</h4><p>当你得到了包含参数的网络模型, 例如上面代码中的 fitted, 你可以做很多事情,<br>例如, 你可以从这个网络中生成样本, 使用 rbn 函数生成10个样本:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sample.data <span class="operator">=</span> rbn<span class="punctuation">(</span>fitted<span class="punctuation">,</span> n <span class="operator">=</span> <span class="number">100</span><span class="punctuation">)</span></span><br><span class="line">head<span class="punctuation">(</span>sample.data<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<table class="dataframe">
+<caption>A data.frame: 6 × 6</caption>
+<thead>
+	<tr><th></th><th scope=col>A</th><th scope=col>S</th><th scope=col>E</th><th scope=col>O</th><th scope=col>R</th><th scope=col>T</th></tr>
+	<tr><th></th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th><th scope=col>&lt;fct&gt;</th></tr>
+</thead>
+<tbody>
+	<tr><th scope=row>1</th><td>young</td><td>M</td><td>high</td><td>emp</td><td>small</td><td>train</td></tr>
+	<tr><th scope=row>2</th><td>young</td><td>M</td><td>high</td><td>emp</td><td>big  </td><td>car  </td></tr>
+	<tr><th scope=row>3</th><td>young</td><td>F</td><td>high</td><td>emp</td><td>big  </td><td>car  </td></tr>
+	<tr><th scope=row>4</th><td>adult</td><td>F</td><td>high</td><td>emp</td><td>small</td><td>car  </td></tr>
+	<tr><th scope=row>5</th><td>adult</td><td>F</td><td>high</td><td>emp</td><td>big  </td><td>other</td></tr>
+	<tr><th scope=row>6</th><td>young</td><td>F</td><td>uni </td><td>emp</td><td>big  </td><td>car  </td></tr>
+</tbody>
+</table>
+
+</div>
+
+
+
+<h4 id="预测节点"><a href="#预测节点" class="headerlink" title="预测节点"></a>预测节点</h4><p>我们可以对节点(变量)的取值进行预测, 例如, 假设知道了除T以外的所有节点(变量)的取值,<br>可以对T变量进行预测:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">bn.bayes <span class="operator">&lt;-</span> bn.fit<span class="punctuation">(</span>dag<span class="punctuation">,</span> data <span class="operator">=</span> survey<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">pred <span class="operator">=</span> predict<span class="punctuation">(</span>bn.bayes<span class="punctuation">,</span> node <span class="operator">=</span> <span class="string">&quot;T&quot;</span><span class="punctuation">,</span> data <span class="operator">=</span> survey<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">pred</span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+<style>
+.list-inline {list-style: none; margin:0; padding: 0}
+.list-inline>li {display: inline-block}
+.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+</style>
+<ol class=list-inline><li>car</li><li>car</li><li>car</li><li>other</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>⋯</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>other</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>other</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>other</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>car</li><li>train</li><li>train</li><li>car</li></ol>
+
+<details>
+	<summary style=display:list-item;cursor:pointer>
+		<strong>Levels</strong>:
+	</summary>
+	<style>
+	.list-inline {list-style: none; margin:0; padding: 0}
+	.list-inline>li {display: inline-block}
+	.list-inline>li:not(:last-child)::after {content: "\00b7"; padding: 0 .5ex}
+	</style>
+	<ol class=list-inline><li>'car'</li><li>'other'</li><li>'train'</li></ol>
+</details>
+</div>
+
+
+
+<p>或者可以计算某种情况发生的概率, 例如 当节点E取值为high, 想要知道 S &#x3D;&#x3D; “M” 并且 T &#x3D;&#x3D; “car” 这种情况的概率:</p>
+<figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">cpquery<span class="punctuation">(</span>fitted<span class="punctuation">,</span> event <span class="operator">=</span> <span class="punctuation">(</span>S <span class="operator">==</span> <span class="string">&quot;M&quot;</span><span class="punctuation">)</span> <span class="operator">&amp;</span> <span class="punctuation">(</span><span class="built_in">T</span> <span class="operator">==</span> <span class="string">&quot;car&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span> evidence <span class="operator">=</span> <span class="punctuation">(</span>E <span class="operator">==</span> <span class="string">&quot;high&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+<div class="output" contenteditable="true">
+输出(html):<br>
+0.451535012073129
+</div>
+
+
+
+<h3 id="高级教程"><a href="#高级教程" class="headerlink" title="高级教程"></a>高级教程</h3><p>这篇教程就是一个贝叶斯网络的基础入门教程,<br>为了让童鞋们在真实研究中使用贝叶斯网络,<br>并且可以撰写高质量的分析报告,<br>我们还开发了贝叶斯网络的高阶视频教程,<br>这篇教程以论文&lt;贝叶斯网络在老年抑郁症危险…HARLS数据库的实证分析&gt;为模板,<br>视频演示了论文中用到的所有技术, 并且教你如何整理成论文中用到的数据格式.</p>
+<blockquote>
+<p><strong>注意</strong><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的, 不论什么模型都可以, 只限制于1个研究内.<br>跟我学统计可以代做分析, 每单几百元不等.<br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B.ipynb">notebook</a><br>可以在微博上@mlln-cn向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
+</blockquote>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/R语言/">#R语言</a> <a href="/tags/贝叶斯网络/">#贝叶斯网络</a> <a href="/tags/bnlearn/">#bnlearn</a>
+        </div>
+    
+
+
+
+</div>
+        </section>
+        <section>
+            <div class="content" style="color: #d7ecff">
+                <h3 id="赞助"><a href="#赞助" class="headerlink" title="赞助"></a>赞助</h3>
+                <p>持续创造有价值的内容, 我需要你的帮助</p>
+                <p><img src="/img/收款二维码.png" class="img-thumbnail"></p>
+            </div>
+        </section>
+        <!-- changyan comments -->
+        <section class="main">
+            <!--PC版畅言-->
+
+<div class="container"><div id="SOHUCS" sid="2024/01/04/贝叶斯网络入门和实践教程/"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cysqnjGqk',
+conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
+});
+setInterval(()=>{
+    $('#closePoPBD').click()
+}, 2000)
+</script>
+</div>
+
+        </section>
+    </div>
+
+    <!-- rightside -->
+    <div class="col-md-3 col-sm-12 rightside">
+        <div class="related-posts">
+    <h3>
+        <a href="#">
+            赞助推荐
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://jupyter.cn/home/">问卷代填保证质量</a>
+            </div>
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=2013.1.w4023-21724689242.4.76085e0a2k46Ky&amp;id=601314051411">问卷代填保证质量</a>
+            </div>
+        
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        常用工具
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a href="/2023/07/08/spss数据sav格式转换器（在线）/">Excel和SPSS转Mplus数据格式工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/mplusoutput/">Mplus结果查看器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/drawio/">绘图软件</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2018/09/26/在线绘制中介效应图/">
+                在线绘制中介效应图
+            </a>
+        </div>
+        <div class="archive-post">
+            <a href="/neural/">神经网络可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/psychopy/">psychopy教程</a>
+        </div>
+        <div class="archive-post">
+            <a href="/vector/">[词向量]高维向量可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/demos/evolutionSimulator/">[tensorflow.js案例]进化算法演示</a>
+        </div>
+        <div class="archive-post">
+            <a href="/guideToPython/">[书]Python最佳实践</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/10/10/sobel检验原理和一键计算器/">Sobel检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">平均方差提取量AVE和组合信度CR计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">卡方检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">简单交互效应可视化工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/12/23/均值差异的效应量在线计算器/">两组均值差异的效应量在线计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="https://mlln.cn/2020/09/17/%E5%8D%A1%E6%96%B9%E5%B7%AE%E5%80%BC%E7%9A%84%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C/">卡方差值的显著性检验</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/R语言/">
+            R语言
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">
+                    贝叶斯网络入门和R代码实践视频教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/09/02/%E5%A4%9A%E5%B1%82%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">
+                    多层模型及其交互效应入门教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/08/12/R%E4%B8%AD%E5%A6%82%E4%BD%95%E8%87%AA%E5%8A%A8%E6%95%B4%E7%90%86%E7%BB%93%E6%9E%9C%E4%B8%BA%E8%AE%BA%E6%96%87%E5%8F%AF%E7%94%A8%E6%A0%BC%E5%BC%8F/">
+                    R中如何自动整理结果为论文可用格式
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">
+                    R语言快速入门练习材料
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/贝叶斯网络/">
+            贝叶斯网络
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">
+                    贝叶斯网络入门和R代码实践视频教程
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/bnlearn/">
+            bnlearn
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">
+                    贝叶斯网络入门和R代码实践视频教程
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts hidden-sm-down">
+    <h3>
+        <a href="#">
+            友商赞助
+        </a>
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a target="_blank" rel="noopener" href="http://jupyter.cn">
+                  问卷大全问卷案例下载
+            </a>
+            <a href="https://mlln.cn/2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/">
+                大学生互填问卷群推荐
+            </a>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 footer-about">
+                <h2>About</h2>
+                <p>
+                    这是<code>xxxspy</code>的个人博客
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">贝叶斯网络入门和R代码实践视频教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/12/17/Cronbach's%20Alpha%E7%B3%BB%E6%95%B0%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">Cronbach&#39;s Alpha系数定义和用法</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于Jöreskog的组合信度ρ_c定义和用法</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EDijkstra%E7%9A%84%E4%BF%A1%E5%BA%A6%E7%B3%BB%E6%95%B0%CF%81A%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于 Dijkstra 的信度系数ρ_A定义和用法</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/10/31/heckman%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%E5%92%8C%E5%AE%9E%E4%BE%8B%E6%9C%89%E6%BC%94%E7%A4%BA/">heckman两阶段完整讲解和实例有演示</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/10/23/%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90%E6%97%B6%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E5%81%9A%E5%8F%98%E9%87%8F%E4%B8%AD%E5%BF%83%E5%8C%96/">A调节效应分析时是否需要做变量中心化</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/10/12/%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E4%B8%AD%E7%AE%80%E5%8D%95%E6%96%9C%E7%8E%87%E7%BB%98%E5%88%B6%E6%9C%80%E5%BC%BAexcel%E6%A8%A1%E6%9D%BF%E6%95%99%E7%A8%8B%E5%92%8C%E4%B8%8B%E8%BD%BD/">交互效应中简单斜率绘制最强excel模板教程和下载</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/09/19/SEM%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%87%AA%E7%94%B1%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%A9%BA%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%9F%BA%E7%BA%BF%E6%A8%A1%E5%9E%8B/">SEM如何理解自由度以及空模型和基线模型</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/09/18/mplus%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%B3%A8%E9%87%8A%E5%92%8C%E8%A7%A3%E8%AF%BB/">mplus验证性因子分析结果的详细注释和解读</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2023/09/02/%E5%A4%9A%E5%B1%82%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">多层模型及其交互效应入门教程</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 footer-tags">
+    <h2>tags</h2>
+    <ul>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%87%E6%9C%AC%E6%8C%96%E6%8E%98/">文本挖掘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8A%A5%E5%91%8A%E7%B3%BB%E7%BB%9F/">报告系统</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/spss/">spss</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/python/">python</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/manim/">manim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/amos/">amos</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE/">共同方法偏差</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BF%A1%E5%BA%A6%E5%88%86%E6%9E%90/">信度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%88%E5%BA%A6%E5%88%86%E6%9E%90/">效度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB/">问卷互填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%98%9F/">问卷星</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BB%A3%E5%A1%AB/">问卷代填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E7%BD%91/">问卷网</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/conda/">conda</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B/">结构方程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/VBA/">VBA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mplus/">mplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/django/">django</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime/">eprime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/EM/">EM</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8E%A8%E8%8D%90%E4%B9%A6/">推荐书</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/">卡方检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/javascript/">javascript</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Latex/">Latex</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mysql/">mysql</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jupyter/">jupyter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R/">R</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%98%BE%E8%91%97%E6%80%A7/">显著性</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Q-learning/">Q-learning</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R%E8%AF%AD%E8%A8%80/">R语言</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/r/">r</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/process/">process</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94/">调节效应</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow-js/">tensorflow.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BD%9C%E6%96%87%E8%AF%84%E5%88%86/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/t%E6%A3%80%E9%AA%8C/">t检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/">方差分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/NLP/">NLP</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%AF%AD%E6%96%99%E5%BA%93/">语料库</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nodejs/">nodejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/electron/">electron</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/e-prime/">e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gensim/">gensim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/">摘要生成</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/git/">git</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gui/">gui</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jamovi/">jamovi</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/notebook/">notebook</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E6%95%99%E7%A8%8B/">keras教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E5%9F%BA%E7%A1%80/">keras基础</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongodb/">mongodb</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jieba/">jieba</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongoengine/">mongoengine</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/meta%E5%88%86%E6%9E%90/">meta分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nginx/">nginx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/networkx/">networkx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/dataframe/">dataframe</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pandas/">pandas</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%B8%8B%E8%BD%BD/">下载</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BD%91%E7%9B%98/">网盘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pychrome/">pychrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pydotplus/">pydotplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pymongo/">pymongo</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/graphviz/">graphviz</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/selenium/">selenium</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/">格式化字符串</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lru-cache/">lru_cache</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/os/">os</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">时间序列</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/print/">print</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pil/">pil</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tkinter/">tkinter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/js2py/">js2py</a>
+        </span>
+        
+    </ul>
+</div>
+
+            
+        </div>
+        <!-- links -->
+
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-about">
+        <h2>Links</h2>
+        <ul>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/baidusitemap.xml" target="_blank">网站地图</a><span> | </span>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/sitemap.xml" target="_blank">DataScience</a><span> | </span>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/xxxspy">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:675495787@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @感谢github免费托管，hexo的静态网站引擎和模板主题制作者<a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                    <br/>
+                    <a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">京ICP备16033873号-2</>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<!-- tweenmax -->
+<script src="/js/TweenMax.min.js">
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- bootstrap.js -->
+<script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Baidu link push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<!-- baidu_static -->
+
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?588f06b88af0ef575445f53432cd15ec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>
