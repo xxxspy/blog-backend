@@ -252,6 +252,312 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/05/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B17%5Ddiag%E5%87%BD%E6%95%B0/">
+                numpy函数：[17]diag函数
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年05月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>numpy.diag()返回一个矩阵的对角线元素，或者创建一个对角阵（ diagonal array.）。我们还是用例子来说明问题：</p>
+<ul>
+<li>先引入numpy</li>
+</ul>
+<img src="/2016/05/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B17%5Ddiag%E5%87%BD%E6%95%B0/f6428f8fa0ec08fac9b55e505bee3d6d54fbda55.jpg" class="" title="numpy函数：[17]diag函数">
+
+<ul>
+<li>创建一个对角阵，如下</li>
+</ul>
+<img src="/2016/05/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B17%5Ddiag%E5%87%BD%E6%95%B0/54baacfb43166d22efc25863442309f79152d255.jpg" class="" title="numpy函数：[17]diag函数">
+
+<ul>
+<li>创建一个二维数组x</li>
+</ul>
+<img src="/2016/05/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B17%5Ddiag%E5%87%BD%E6%95%B0/55a628d12f2eb93870383705d7628535e4dd6fb5.jpg" class="" title="numpy函数：[17]diag函数">
+
+<ul>
+<li>提起二维数组的对角元素的值，构成一个一位数组</li>
+</ul>
+<img src="/2016/05/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B17%5Ddiag%E5%87%BD%E6%95%B0/476217f790529822d4867434d5ca7bcb0b46d455.jpg" class="" title="numpy函数：[17]diag函数">
+
+<ul>
+<li>或者，我们可以使用第二个参数，获取其他元素，请自行观察这个值在x数组中的位置</li>
+</ul>
+<img src="/2016/05/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B17%5Ddiag%E5%87%BD%E6%95%B0/4e83cb628535e5dd1779e82874c6a7efcf1b62b5.jpg" class="" title="numpy函数：[17]diag函数">
+
+<ul>
+<li>接着，你换一个参数试试</li>
+</ul>
+<img src="/2016/05/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B17%5Ddiag%E5%87%BD%E6%95%B0/e49cf91190ef76c65487b6dc9f16fdfaae5167b5.jpg" class="" title="numpy函数：[17]diag函数">
+
+<ul>
+<li>连续使用两个diag，可以得到一个对角阵，除对角线以外的元素均为零</li>
+</ul>
+<img src="/2016/05/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B17%5Ddiag%E5%87%BD%E6%95%B0/cf5a8316fdfaaf510bb6cc488e5494eef11f7ab5.jpg" class="" title="numpy函数：[17]diag函数">
+
+<ul>
+<li><p>今天用到的所有代码：</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>numpy.diag((1,2,3))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 0, 0],</p>
+</li>
+<li><pre><code>   [0, 2, 0],
+</code></pre>
+</li>
+<li><pre><code>   [0, 0, 3]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>x&#x3D;numpy.arange(9).reshape((3,3))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>x</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[0, 1, 2],</p>
+</li>
+<li><pre><code>   [3, 4, 5],
+</code></pre>
+</li>
+<li><pre><code>   [6, 7, 8]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>x&#x3D;numpy.arange(10,19).reshape((3,3))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>x</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[10, 11, 12],</p>
+</li>
+<li><pre><code>   [13, 14, 15],
+</code></pre>
+</li>
+<li><pre><code>   [16, 17, 18]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>y&#x3D;numpy.diag(x)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>y</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([10, 14, 18])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>numpy.diag(x,1)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([11, 15])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>numpy.diag(x,-1)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([13, 17])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>numpy.diag(np.diag(x))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>Traceback (most recent call last):</p>
+</li>
+<li><p>File “&lt;pyshell#38&gt;”, line 1, in <module></p>
+</li>
+<li><pre><code>numpy.diag(np.diag(x))
+</code></pre>
+</li>
+<li><p>NameError: name ‘np’ is not defined</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>numpy.diag(numpy.diag(x))</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[10,  0,  0],</p>
+</li>
+<li><pre><code>   [ 0, 14,  0],
+</code></pre>
+</li>
+<li><pre><code>   [ 0,  0, 18]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#52;&#x39;&#x35;&#x37;&#56;&#55;&#64;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#x36;&#x37;&#x35;&#52;&#x39;&#x35;&#x37;&#56;&#55;&#64;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/05/17/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B27%5D%E5%9B%9B%E4%B8%AA%E8%A1%A8%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/">
                 SPSS实例：[27]四个表卡方检验
             </a>
@@ -964,77 +1270,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/05/05/Python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%9A%5B1%5D%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E5%99%A8/">
-                Python机器学习：[1]贝叶斯文本分类器
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年05月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>最近在我的网站骂我的人比较多，想写一个语义分类器，让电脑自动屏蔽那些骂人的评论，怎么办呢？这就用到了一个机器学习的算法——贝叶斯文本分类器。这个算法很有用处，可以让电脑识别人类语言，如果加上一点心理学的知识，可以让电脑理解人类的文章并让电脑判断作者的个性特征，这就复杂了，现在我们先做一个简单的示范。</p>
-<ul>
-<li>首先是需要一个样本集，用于训练文本分类器：这里面用到了一个分词算法【cs.perse】，其实是一个机械分词算法，cs.py 文件的代码粘贴在最下面。</li>
-</ul>
-<img src="/2016/05/05/Python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%9A%5B1%5D%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E5%99%A8/35da1d3b5bb5c9ea8a85a169d639b6003bf3b383.jpg" class="" title="Python机器学习：[1]贝叶斯文本分类器">
-
-<ul>
-<li>下面的函数利用样本创建一个词表，也就是所有词的集合</li>
-</ul>
-<img src="/2016/05/05/Python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%9A%5B1%5D%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E5%99%A8/b3508d13b07eca80ca739b6d922397dda0448383.jpg" class="" title="Python机器学习：[1]贝叶斯文本分类器">
-
-<ul>
-<li>下面的函数将一个词表转换成词向量</li>
-</ul>
-<img src="/2016/05/05/Python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%9A%5B1%5D%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E5%99%A8/647912d7912397dd12243a8e5a82b2b7d1a28798.jpg" class="" title="Python机器学习：[1]贝叶斯文本分类器">
-
-<ul>
-<li>训练样本得到脏话&#x2F;非脏话的词分布概率</li>
-</ul>
-<img src="/2016/05/05/Python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%9A%5B1%5D%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E5%99%A8/9c57e3faaf51f3de6dc41bee97eef01f3b297983.jpg" class="" title="Python机器学习：[1]贝叶斯文本分类器">
-
-<ul>
-<li>利用贝叶斯条件概率，计算输入的一句话到底是不是骂人的话，如果是骂人的话，就返回1，否则返回0</li>
-</ul>
-<img src="/2016/05/05/Python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%9A%5B1%5D%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E5%99%A8/5f9e93b1cb134954e1684aee554e9258d0094a83.jpg" class="" title="Python机器学习：[1]贝叶斯文本分类器">
-
-<ul>
-<li>最后测试一下【’fuck you! mother fucker!’】这句话，输出结果为：1</li>
-</ul>
-<img src="/2016/05/05/Python%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0%EF%BC%9A%5B1%5D%E8%B4%9D%E5%8F%B6%E6%96%AF%E6%96%87%E6%9C%AC%E5%88%86%E7%B1%BB%E5%99%A8/718e25c79f3df8dcdb612d1bce11728b46102898.jpg" class="" title="Python机器学习：[1]贝叶斯文本分类器">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#x34;&#57;&#53;&#55;&#56;&#55;&#x40;&#113;&#x71;&#x2e;&#x63;&#111;&#109;">&#x36;&#x37;&#x35;&#x34;&#57;&#53;&#55;&#56;&#55;&#x40;&#113;&#x71;&#x2e;&#x63;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1076,6 +1311,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">贝叶斯网络入门和R代码实践视频教程</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/12/17/Cronbach's%20Alpha%E7%B3%BB%E6%95%B0%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">Cronbach&#39;s Alpha系数定义和用法</a>
             </li>
             
@@ -1109,10 +1348,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/09/02/%E5%A4%9A%E5%B1%82%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">多层模型及其交互效应入门教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/08/23/Johnson-Neyman%E5%9B%BE%E5%8E%9F%E7%90%86%E5%92%8C%E5%88%B6%E4%BD%9CExcel%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/">Johnson-Neyman图原理和制作Excel</a>
             </li>
             
         </ul>

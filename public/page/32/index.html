@@ -252,6 +252,90 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2017/06/14/%E8%BF%9C%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%9F%A5%E8%AF%A2%E6%95%99%E7%A8%8B/">
+                远程数据库下载和查询教程
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017年06月14日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h2 id="使用ssh登录Linux"><a href="#使用ssh登录Linux" class="headerlink" title="使用ssh登录Linux"></a>使用ssh登录Linux</h2><ul>
+<li>新建链接，输入以下信息</li>
+</ul>
+<img src="/2017/06/14/%E8%BF%9C%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%9F%A5%E8%AF%A2%E6%95%99%E7%A8%8B/enter-host-user.jpg" class="">
+
+<ul>
+<li>输入密码</li>
+</ul>
+<img src="/2017/06/14/%E8%BF%9C%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%9F%A5%E8%AF%A2%E6%95%99%E7%A8%8B/enter-password.jpg" class="">
+
+<ul>
+<li>点击文件管理按钮</li>
+</ul>
+<img src="/2017/06/14/%E8%BF%9C%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%9F%A5%E8%AF%A2%E6%95%99%E7%A8%8B/open-download-dialog.jpg" class="">
+
+<ul>
+<li>找到你要下载的文件，双击下载</li>
+</ul>
+<img src="/2017/06/14/%E8%BF%9C%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E4%B8%8B%E8%BD%BD%E5%92%8C%E6%9F%A5%E8%AF%A2%E6%95%99%E7%A8%8B/download.jpg" class="">
+
+<h2 id="在mysql中做查询"><a href="#在mysql中做查询" class="headerlink" title="在mysql中做查询"></a>在mysql中做查询</h2><p>在mysql中做查询需要进入muysql的交互环境。</p>
+<ul>
+<li>进入mysql</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysql <span class="operator">-</span>h[ip地址] <span class="operator">-</span>u[用户名] <span class="operator">-</span>p[密码]</span><br></pre></td></tr></table></figure>
+
+<p>以下命令都是在mysql交互环境中运行</p>
+<ul>
+<li>查询有哪些数据库</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">show</span> databases;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>选择一个数据库</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">use name_of_databse;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>查询数据库</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">select</span> <span class="built_in">count</span>(<span class="operator">*</span>) <span class="keyword">from</span> basic_child_info;</span><br></pre></td></tr></table></figure>
+
+<h2 id="下载数据库表"><a href="#下载数据库表" class="headerlink" title="下载数据库表"></a>下载数据库表</h2><ul>
+<li>把表下载到当前目录</li>
+</ul>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mysqldump <span class="operator">-</span>h[ip地址] <span class="operator">-</span>u[username] <span class="operator">-</span>p[password] [databse name] [<span class="keyword">table</span> name] <span class="operator">&gt;</span> [filename].<span class="keyword">sql</span>;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>导出表到本地</li>
+</ul>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/mysql/">#mysql</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2017/06/13/%E4%BD%9C%E6%96%87%E8%87%AA%E5%8A%A8%E5%88%86%E7%B1%BB%E6%96%B9%E6%A1%88%E8%AE%BE%E8%AE%A1/">
                 作文自动分类方案设计
             </a>
@@ -1253,82 +1337,6 @@ if ('d3' in window){
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/">
-                Django教程：[4]制作第一个网页
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年10月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>通过前面的三篇文章，我们现在已经有能力创建一个网页了。Django就是那么的有效率。我们创建第一个页面的目的是让你理解Django是如何工作的。不信往下看。进行下面的教程之前，如果你没有看我以前写的文章，可能会有疑惑。我前面的文章创建了一个站点djangoweb文件夹，下面要用到</p>
-<ul>
-<li>第一步要在我们创建的站点文件夹下面新建一个view.py文件，如图所示。当然你创建文件的名称是任意的，你可以叫别的名字。但是要跟后面要写的代码一致，后面还会用到view.py，如果你的文件名不是view，后面你需要做出相应的调整</li>
-</ul>
-<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/b3508d13b07eca80277f099d932397dda1448316.jpg" class="" title="Django教程：[4]制作第一个网页">
-
-<ul>
-<li>我们将该文件写入代码：如图所示。代码的意义是，首先引入HttpResponse类，后面我们会详细介绍这个类，现在我们只知道它用于返回网页中显示的代码。接着我们定义了一个名为hello的函数，它有一个参数为req，这个参数是django.http.HttpRequest的一个实例，我们暂时用不到这个参数，但是它却是一个必须的参数，参数的名称可以任意。hello函数它仅仅返回一个HttpResponse对象，这个对象包含了文本“Hello world”</li>
-</ul>
-<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/d8b8c92a6059252df86d2d7e369b033b5bb5b916.jpg" class="" title="Django教程：[4]制作第一个网页">
-
-<ul>
-<li>现在保存好这个view文件</li>
-</ul>
-<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/148f28d3d539b6000cb43fcdeb50352ac65cb716.jpg" class="" title="Django教程：[4]制作第一个网页">
-
-<ul>
-<li>接下来我们需要修改urls.py文件，这个文件可以将url和调用的函数对应起来。比如，我想当我在浏览器地址栏输入<a target="_blank" rel="noopener" href="http://127.0.0.1:8001/hello/%E7%9A%84%E6%97%B6%E5%80%99%E5%B0%B1%E8%83%BD%E8%B0%83%E7%94%A8view.hello%E6%96%B9%E6%B3%95%EF%BC%8C%E9%82%A3%E4%B9%88%E6%88%91%E4%BB%AC%E5%BF%85%E9%A1%BB%E5%9C%A8urls.py%E4%B8%AD%E8%BF%9B%E8%A1%8C%E6%B7%BB%E5%8A%A0">http://127.0.0.1:8001/hello/的时候就能调用view.hello方法，那么我们必须在urls.py中进行添加</a></li>
-</ul>
-<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/8b527d2762d0f7039674a6a60afa513d2797c542.jpg" class="" title="Django教程：[4]制作第一个网页">
-
-<ul>
-<li>首先要引用我们企图调用的方法，然后在urlpatterns中添加url(r’^hello&#x2F;$’,hello),；注意最后面的逗号不能省略。这个代码就是将url同调用的函数联系起来。</li>
-</ul>
-<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/0db2c9ca7bcb0a46efc6b8436963f6246a60afa0.jpg" class="" title="Django教程：[4]制作第一个网页">
-
-<ul>
-<li>最后，我们在dos下开启开发服务器，如果你还不知道如何开启开发服务器，你需要看下面的参考资料里的传送门。</li>
-</ul>
-<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/08b68e529822720e1677d28079cb0a46f31fabcb.jpg" class="" title="Django教程：[4]制作第一个网页">
-
-<ul>
-<li>打开浏览器，地址栏输入地址：127.0.0.1:8001&#x2F;hello&#x2F;，你就会看到我们制作的第一个页面了。你学会了吗？</li>
-</ul>
-<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/21e5582309f7905280a677440ef3d7ca7acbd5cb.jpg" class="" title="Django教程：[4]制作第一个网页">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x36;&#55;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/django/">#django</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1370,6 +1378,10 @@ if ('d3' in window){
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">贝叶斯网络入门和R代码实践视频教程</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2023/12/17/Cronbach's%20Alpha%E7%B3%BB%E6%95%B0%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">Cronbach&#39;s Alpha系数定义和用法</a>
             </li>
             
@@ -1403,10 +1415,6 @@ if ('d3' in window){
             
             <li>
                 <a class="footer-post" href="/2023/09/02/%E5%A4%9A%E5%B1%82%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">多层模型及其交互效应入门教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/08/23/Johnson-Neyman%E5%9B%BE%E5%8E%9F%E7%90%86%E5%92%8C%E5%88%B6%E4%BD%9CExcel%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/">Johnson-Neyman图原理和制作Excel</a>
             </li>
             
         </ul>
