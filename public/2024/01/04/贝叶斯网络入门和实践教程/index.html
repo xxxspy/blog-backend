@@ -498,7 +498,9 @@ Warning message:
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">plot<span class="punctuation">(</span>dag<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/output_19_0.png" alt="png"></p>
+<img src="output_19_0.png">
+
+
 <p>那么我们还可以使用 graphviz.plot 这个函数,<br>这个函数不是来自于bnlearn, 它来自于 Rgraphviz , 所以我们先安装一下.</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">install.packages<span class="punctuation">(</span><span class="string">&quot;BiocManager&quot;</span><span class="punctuation">)</span></span><br><span class="line">BiocManager<span class="operator">::</span>install<span class="punctuation">(</span><span class="string">&quot;Rgraphviz&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
@@ -550,25 +552,37 @@ Old packages: 'askpass', 'bookdown', 'brio', 'bslib', 'cli', 'cluster',
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可视化</span></span><br><span class="line"></span><br><span class="line">graphviz.plot<span class="punctuation">(</span>dag<span class="punctuation">,</span> layout <span class="operator">=</span> <span class="string">&quot;dot&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/output_24_0.png" alt="png"></p>
+<img src="output_24_0.png">
+
+
 <p>你现在看到的图是不是已经好多了, 你还可以更改布局:</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">graphviz.plot<span class="punctuation">(</span>dag<span class="punctuation">,</span> layout <span class="operator">=</span> <span class="string">&quot;fdp&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/output_26_0.png" alt="png"></p>
+<img src="output_26_0.png">
+
+
+
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">graphviz.plot<span class="punctuation">(</span>dag<span class="punctuation">,</span> layout <span class="operator">=</span> <span class="string">&quot;circo&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/output_27_0.png" alt="png"></p>
+<img src="output_27_0.png">
+
+
 <p>更改颜色:</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hlight <span class="operator">&lt;-</span> <span class="built_in">list</span><span class="punctuation">(</span>nodes <span class="operator">=</span> nodes<span class="punctuation">(</span>dag<span class="punctuation">)</span><span class="punctuation">,</span> arcs <span class="operator">=</span> arcs<span class="punctuation">(</span>dag<span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">               col <span class="operator">=</span> <span class="string">&quot;blue&quot;</span><span class="punctuation">,</span> textCol <span class="operator">=</span> <span class="string">&quot;blue&quot;</span><span class="punctuation">)</span></span><br><span class="line">pp <span class="operator">&lt;-</span> graphviz.plot<span class="punctuation">(</span>dag<span class="punctuation">,</span> highlight <span class="operator">=</span> hlight<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/output_29_0.png" alt="png"></p>
+<img src="output_29_0.png">
+
+
+
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 箭头颜色也可以更改:</span></span><br><span class="line"></span><br><span class="line">edgeRenderInfo<span class="punctuation">(</span>pp<span class="punctuation">)</span> <span class="operator">&lt;-</span> <span class="built_in">list</span><span class="punctuation">(</span>col <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;S~E&quot;</span> <span class="operator">=</span> <span class="string">&quot;black&quot;</span><span class="punctuation">,</span> <span class="string">&quot;E~R&quot;</span> <span class="operator">=</span> <span class="string">&quot;black&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span></span><br><span class="line">                           lwd <span class="operator">=</span> <span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;S~E&quot;</span> <span class="operator">=</span> <span class="number">3</span><span class="punctuation">,</span> <span class="string">&quot;E~R&quot;</span> <span class="operator">=</span> <span class="number">3</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line"><span class="comment"># 需要重新渲染才能看到图</span></span><br><span class="line"></span><br><span class="line">renderGraph<span class="punctuation">(</span>pp<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/output_30_0.png" alt="png"></p>
+<img src="output_30_0.png">
+
+
 <h4 id="根据数据求解图结构"><a href="#根据数据求解图结构" class="headerlink" title="根据数据求解图结构"></a>根据数据求解图结构</h4><p>图结构是可以由数据学习而来, 研究者可能对最初是的图结构没有预先定义,<br>他也不知道使用什么图结构比较好, 那么这时候可是用函数 hc 来求解图结构:</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">survey<span class="operator">$</span>A <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>A<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>R <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>R<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>E <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>E<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>O <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>O<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>S <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>S<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span><span class="built_in">T</span> <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span><span class="built_in">T</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">dag <span class="operator">=</span> hc<span class="punctuation">(</span>survey<span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">dag</span><br></pre></td></tr></table></figure>
 
@@ -605,7 +619,9 @@ Old packages: 'askpass', 'bookdown', 'brio', 'bslib', 'cli', 'cluster',
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 可视化</span></span><br><span class="line"></span><br><span class="line">graphviz.plot<span class="punctuation">(</span>dag<span class="punctuation">,</span> layout <span class="operator">=</span> <span class="string">&quot;dot&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/output_33_0.png" alt="png"></p>
+<img src="output_33_0.png">
+
+
 <p>你可以看到, 这个网络结构与我们预先定义的网络结构有些相似, 但是O节点没啥用,<br>也就是这个变量似乎与其他变量没什么关系, 这时候你注意,<br>如果研究者认为O变量很重要, 可以重新加入到你的模型中,<br>如果O可有可无, 就应该从模型中删除,<br>不必完全相信算法给你的结果.</p>
 <h4 id="参数学习"><a href="#参数学习" class="headerlink" title="参数学习"></a>参数学习</h4><p>在继续讲解bnlearn的函数之前, 需要先理解今天的案例用到的图模型是分类节点构成的模型,<br>那么模型的参数就是分类变量的条件分布概率, 如果你学过概率论应该知道, 我们可以用表格来表示条件分布概率:</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">##       E</span><br><span class="line">## O      high  uni</span><br><span class="line">##   emp  0.98 0.92</span><br><span class="line">##   self 0.04 0.08</span><br></pre></td></tr></table></figure>
@@ -719,12 +735,16 @@ Old packages: 'askpass', 'bookdown', 'brio', 'bslib', 'cli', 'cluster',
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">graphviz.plot<span class="punctuation">(</span>dag<span class="punctuation">,</span> layout <span class="operator">=</span> <span class="string">&quot;dot&quot;</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/output_44_0.png" alt="png"></p>
+<img src="output_44_0.png">
+
+
 <p>hc 函数提供了白名单功能, 也就是白名单之中的关系将被保留到模型中, 不受算法的影响, 我们为了保留尽量多的信息,<br>将所有节点对T的关系都加入白名单, 看代码:</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">survey <span class="operator">&lt;-</span> read.csv<span class="punctuation">(</span><span class="string">&quot;transportation_survey.csv&quot;</span><span class="punctuation">,</span> header <span class="operator">=</span> <span class="literal">TRUE</span><span class="punctuation">)</span></span><br><span class="line">whitelist <span class="operator">=</span> data.frame<span class="punctuation">(</span>from<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;A&quot;</span><span class="punctuation">,</span> <span class="string">&quot;E&quot;</span><span class="punctuation">,</span> <span class="string">&quot;O&quot;</span><span class="punctuation">,</span> <span class="string">&quot;S&quot;</span><span class="punctuation">,</span> <span class="string">&quot;R&quot;</span><span class="punctuation">)</span><span class="punctuation">,</span> to<span class="operator">=</span><span class="built_in">c</span><span class="punctuation">(</span><span class="string">&quot;T&quot;</span><span class="punctuation">,</span> <span class="string">&quot;T&quot;</span><span class="punctuation">,</span> <span class="string">&quot;T&quot;</span><span class="punctuation">,</span> <span class="string">&quot;T&quot;</span><span class="punctuation">,</span> <span class="string">&quot;T&quot;</span><span class="punctuation">)</span><span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>A <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>A<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>R <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>R<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>E <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>E<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>O <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>O<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span>S <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span>S<span class="punctuation">)</span></span><br><span class="line">survey<span class="operator">$</span><span class="built_in">T</span> <span class="operator">=</span> as.factor<span class="punctuation">(</span>survey<span class="operator">$</span><span class="built_in">T</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">dag <span class="operator">=</span> hc<span class="punctuation">(</span>survey<span class="punctuation">,</span> whitelist<span class="operator">=</span>whitelist<span class="punctuation">)</span></span><br><span class="line">plot<span class="punctuation">(</span>dag<span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
 
-<p><img src="/output_46_0.png" alt="png"></p>
+<img src="output_46_0.png">
+
+
 <p>新的模型结构好多了, 我们看下模型预测的结果, 已经有很多样本被预测为非car意外的类别,<br>当然模型还有很大的提升空间, 但是我们先到此位置, 作为一个入门级教程, 不适于再深入.</p>
 <figure class="highlight r"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">fitted <span class="operator">=</span> bn.fit<span class="punctuation">(</span>dag<span class="punctuation">,</span> data<span class="operator">=</span>survey<span class="punctuation">)</span></span><br><span class="line">pred <span class="operator">=</span> predict<span class="punctuation">(</span>fitted<span class="punctuation">,</span> data<span class="operator">=</span>survey<span class="punctuation">,</span> node<span class="operator">=</span><span class="string">&quot;T&quot;</span><span class="punctuation">)</span></span><br><span class="line"></span><br><span class="line">table<span class="punctuation">(</span>pred<span class="punctuation">,</span> survey<span class="operator">$</span><span class="built_in">T</span><span class="punctuation">)</span></span><br></pre></td></tr></table></figure>
 
@@ -1194,6 +1214,10 @@ setInterval(()=>{
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/">Mplus潜在截面分析LPA教程代码结果解读</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">贝叶斯网络入门和R代码实践视频教程</a>
             </li>
             
@@ -1227,10 +1251,6 @@ setInterval(()=>{
             
             <li>
                 <a class="footer-post" href="/2023/09/18/mplus%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%B3%A8%E9%87%8A%E5%92%8C%E8%A7%A3%E8%AF%BB/">mplus验证性因子分析结果的详细注释和解读</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/09/02/%E5%A4%9A%E5%B1%82%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">多层模型及其交互效应入门教程</a>
             </li>
             
         </ul>

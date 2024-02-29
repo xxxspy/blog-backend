@@ -252,6 +252,80 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/09/01/Excel2013%E6%95%99%E7%A8%8B-%E5%BD%BB%E5%BA%95%E9%9A%90%E8%97%8F%E5%B7%A5%E4%BD%9C%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%8F%96%E6%B6%88%E7%9A%84%E6%96%B9%E6%B3%95/">
+                Excel2013教程-彻底隐藏工作表不能取消的方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年09月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>我们都知道Excel工作表可以隐藏也可以显示，就是在工作表上右键单击–选择隐藏（取消隐藏），但是对于一个Excel高手来说，你隐藏的还不够，我们可以轻易的查看隐藏的工作表，那么怎么做才能彻底隐藏呢？这里交给大家一个方法，那就是使用vba加密的方法，这里不需要任何vba知识，都是手工操作，没有代码。</p>
+<ul>
+<li><p>首先我们打开Ｅｘｃｅｌ，按下ａｌｔ＋Ｆ１１打开ｖｂａ界面</p>
+</li>
+<li><p>接着我们选中要隐藏的工作表，然后点击菜单栏上的【视图】</p>
+</li>
+</ul>
+<img src="/2015/09/01/Excel2013%E6%95%99%E7%A8%8B-%E5%BD%BB%E5%BA%95%E9%9A%90%E8%97%8F%E5%B7%A5%E4%BD%9C%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%8F%96%E6%B6%88%E7%9A%84%E6%96%B9%E6%B3%95/507c389759ee3d6d216e13c742166d224e4aded7.jpg" class="" title="Excel2013教程-彻底隐藏工作表不能取消的方法">
+
+<ul>
+<li>视图菜单下找到【属性窗口】打开属性窗口</li>
+</ul>
+<img src="/2015/09/01/Excel2013%E6%95%99%E7%A8%8B-%E5%BD%BB%E5%BA%95%E9%9A%90%E8%97%8F%E5%B7%A5%E4%BD%9C%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%8F%96%E6%B6%88%E7%9A%84%E6%96%B9%E6%B3%95/d68b65cb0a46f21f3ab6ca5ff7246b600d33aef9.jpg" class="" title="Excel2013教程-彻底隐藏工作表不能取消的方法">
+
+<ul>
+<li>在属性窗口中找到ｖｉｓｉｂｌｅ选项，我们将其设置为２，如图所示</li>
+</ul>
+<img src="/2015/09/01/Excel2013%E6%95%99%E7%A8%8B-%E5%BD%BB%E5%BA%95%E9%9A%90%E8%97%8F%E5%B7%A5%E4%BD%9C%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%8F%96%E6%B6%88%E7%9A%84%E6%96%B9%E6%B3%95/6a22e8246b600c330efb4ac41b4c510fd8f9a1f9.jpg" class="" title="Excel2013教程-彻底隐藏工作表不能取消的方法">
+
+<ul>
+<li>接着我们在菜单栏上设置【工具】－－ｖｂａ属性</li>
+</ul>
+<img src="/2015/09/01/Excel2013%E6%95%99%E7%A8%8B-%E5%BD%BB%E5%BA%95%E9%9A%90%E8%97%8F%E5%B7%A5%E4%BD%9C%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%8F%96%E6%B6%88%E7%9A%84%E6%96%B9%E6%B3%95/d66b7e59252dd42aba8b95a7023b5bb5c8eab8f9.jpg" class="" title="Excel2013教程-彻底隐藏工作表不能取消的方法">
+
+<ul>
+<li>切换到保护选项下，我们输入密码和确认密码，然后点击确定按钮</li>
+</ul>
+<img src="/2015/09/01/Excel2013%E6%95%99%E7%A8%8B-%E5%BD%BB%E5%BA%95%E9%9A%90%E8%97%8F%E5%B7%A5%E4%BD%9C%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%8F%96%E6%B6%88%E7%9A%84%E6%96%B9%E6%B3%95/35da1d3b5bb5c9ea827197efd439b6003bf3b3f9.jpg" class="" title="Excel2013教程-彻底隐藏工作表不能取消的方法">
+
+<ul>
+<li>好了，我们看看，右键单击工作表，取消隐藏的选项已经变成灰色了。如果你想要显示工作表，还是要在ｖｂａ中设置属性就可以了，只不过打开ｖｂａ的时候需要输入你刚才设置的密码</li>
+</ul>
+<img src="/2015/09/01/Excel2013%E6%95%99%E7%A8%8B-%E5%BD%BB%E5%BA%95%E9%9A%90%E8%97%8F%E5%B7%A5%E4%BD%9C%E8%A1%A8%E4%B8%8D%E8%83%BD%E5%8F%96%E6%B6%88%E7%9A%84%E6%96%B9%E6%B3%95/504ec7f9d72a6059b5b875162934349b023bbad7.jpg" class="" title="Excel2013教程-彻底隐藏工作表不能取消的方法">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#x36;&#55;&#x35;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/09/01/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B16%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C/">
                 pandas教程：[16]字符串操作
             </a>
@@ -957,82 +1031,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/08/17/spss%E5%A6%82%E4%BD%95%E7%94%BB%E5%87%BA%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E5%9B%BE/">
-                spss如何画出交互作用图
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年08月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>如图所示，在研究中我们经常会用到这样一个线形图，如果两条线相互平行，我们就认为他们是没有交互作用的，如图相互交叉就认为是有交互作用的。下面我就交给大家如何画这个图：<br>工具&#x2F;原料</p>
-<ul>
-<li><p>spss20.0<br>方法&#x2F;步骤</p>
-</li>
-<li><p>首先要打开主对话框，如图所示，在菜单栏上执行：analyse–GLM–univariate</p>
-</li>
-</ul>
-<img src="/2015/08/17/spss%E5%A6%82%E4%BD%95%E7%94%BB%E5%87%BA%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E5%9B%BE/8326cffc1e178a827ed87161f603738da877e80f.jpg" class="" title="spss如何画出交互作用图">
-
-<ul>
-<li>将自变量和因变量放入格子的狂，如图所示，上面的框是因变量，点击plots按钮，我们来设置输出的图</li>
-</ul>
-<img src="/2015/08/17/spss%E5%A6%82%E4%BD%95%E7%94%BB%E5%87%BA%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E5%9B%BE/d0c8a786c9177f3ee754f5cc70cf3bc79e3d568a.jpg" class="" title="spss如何画出交互作用图">
-
-<img src="/2015/08/17/spss%E5%A6%82%E4%BD%95%E7%94%BB%E5%87%BA%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E5%9B%BE/eaf81a4c510fd9f9c5485ca8252dd42a2934a497.jpg" class="" title="spss如何画出交互作用图">
-
-<ul>
-<li>将两个自变量分别放入两个框中，如图所示，上面代表横坐标，下面的代表不同的曲线，</li>
-</ul>
-<img src="/2015/08/17/spss%E5%A6%82%E4%BD%95%E7%94%BB%E5%87%BA%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E5%9B%BE/9d82d158ccbf6c81ee412529bc3eb13532fa40f8.jpg" class="" title="spss如何画出交互作用图">
-
-<ul>
-<li>点击add按钮，然后点击continue按钮，返回主对话框</li>
-</ul>
-<img src="/2015/08/17/spss%E5%A6%82%E4%BD%95%E7%94%BB%E5%87%BA%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E5%9B%BE/f9dcd100baa1cd11fbd17be1b912c8fcc2ce2d8f.jpg" class="" title="spss如何画出交互作用图">
-
-<ul>
-<li>返回主菜单， 点击ok按钮，开始处理数据并输出结果</li>
-</ul>
-<img src="/2015/08/17/spss%E5%A6%82%E4%BD%95%E7%94%BB%E5%87%BA%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E5%9B%BE/2cf5e0fe9925bc3102df08595edf8db1ca137074.jpg" class="" title="spss如何画出交互作用图">
-
-<ul>
-<li>如图所示，这就是输出的线形图了，很明显这个图证明两个自变量之间存在交互作用。当然要想得到确切的结果还得看输出的交互作用sig值</li>
-</ul>
-<img src="/2015/08/17/spss%E5%A6%82%E4%BD%95%E7%94%BB%E5%87%BA%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E5%9B%BE/a1ec08fa513d2697af33019c55fbb2fb4216d80b.jpg" class="" title="spss如何画出交互作用图">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#x34;&#57;&#x35;&#55;&#x38;&#55;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#54;&#55;&#x35;&#x34;&#57;&#x35;&#55;&#x38;&#55;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1074,6 +1072,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/">Mplus潜在截面分析LPA教程代码结果解读</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">贝叶斯网络入门和R代码实践视频教程</a>
             </li>
             
@@ -1107,10 +1109,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/09/18/mplus%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%B3%A8%E9%87%8A%E5%92%8C%E8%A7%A3%E8%AF%BB/">mplus验证性因子分析结果的详细注释和解读</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/09/02/%E5%A4%9A%E5%B1%82%E6%A8%A1%E5%9E%8B%E5%8F%8A%E5%85%B6%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">多层模型及其交互效应入门教程</a>
             </li>
             
         </ul>
