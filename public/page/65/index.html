@@ -252,6 +252,94 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B6%5Dvba%E6%8E%A7%E5%88%B6spss%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/">
+                SPSS实例：[6]vba控制spss处理数据
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年04月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>使用vba来控制spss处理数据，使得我们可以批量进行spss操作，大大加快我们的工作速度。比如，前两天有网友问我如何进行一万次回归分析，我直接写了一段vba代码，很快就能处理完，并整理成分析报告。这就是vba与spss合作所带来的效果，因为篇幅有限，下面只给大家概述一下如何在vba中调用spss对象，并进行数据处理，想要了解更详细的教程，希望您持续关注我写的教程。转载请注明出处（作者百度ID为：qq675495787）</p>
+<ul>
+<li>概述spss对象：spss对象是控制spss程序的对象集合。spss对象的指令变换点是ISpssApp对象，它是所有对象的容器，内含所有对象。下面的树形图介绍了spss对象所包含的属性和方法，这些属性和方法会在以后的教程中跟大家介绍。</li>
+</ul>
+<img src="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B6%5Dvba%E6%8E%A7%E5%88%B6spss%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/9f1011b30f2442a74f8bfa94d343ad4bd113023e.jpg" class="" title="SPSS实例：[6]vba控制spss处理数据">
+
+<ul>
+<li><p>引用spss类库：如果你想要写spss脚本，你必然要用到spss对象。在spss脚本中，你可以使用objSPSSApp为全局变量来调用spss对象，在此之前要确保这个对象已经被创建好了（实际上，创建了spss对象就使spss程序开始运行了，只不过你看不到程序界面，说实话，你什么都看不到）。</p>
+</li>
+<li><p>换一种说法，如果你想要在其他编程语言中使用spss，你需要首先创建ISpssApp对象。例如，在微软的VB编辑器中（使用vba），首先你必须在VBA工程中引用spss对象类库（也就是：spsstype library，spss pivot table<br>type library和spss RTF type library）。操作方法是，在vbe中，点击工具–引用；找到这几个类库，然后勾选他们，点击确定按钮。</p>
+</li>
+</ul>
+<img src="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B6%5Dvba%E6%8E%A7%E5%88%B6spss%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/0db52fadcbef76096a269fae2cdda3cc7cd99e96.jpg" class="" title="SPSS实例：[6]vba控制spss处理数据">
+
+<img src="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B6%5Dvba%E6%8E%A7%E5%88%B6spss%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/4a77b2af2edda3cc59c9be1103e93901213f9296.jpg" class="" title="SPSS实例：[6]vba控制spss处理数据">
+
+<ul>
+<li><p>声明spss对象变量：引用了spss类库以后，我们可以在vba中声明spss对象变量了。代码如下：</p>
+</li>
+<li><p>Dimspss as object</p>
+</li>
+<li><p>Set<br>spss&#x3D;createobject(“spss.application16”)</p>
+</li>
+<li><p>实际上我们更建议使用对象类来声明变量，所以上面的语句应当写成：</p>
+</li>
+<li><p>Dimspss as ispssapp</p>
+</li>
+<li><p>Set spss&#x3D;new<br>spsswinlib.application16</p>
+</li>
+<li><p>这样的写法可以加快你的代码编写速度。</p>
+</li>
+<li><p>设置spss程序可见性：以上两个小代码可以启动spss程序，当你不需要看到这个程序的时候，你应该让其保持隐身，在后台运行，你看不到spss程序。如果你想要看到spss程序，你应该设置spss对象的可见性属性为true。如下图所示，我们打开一个数据文件“卡方检验”，然后设置数据文件的可见性为1，这样就可以看到spss程序了，否则是看不到的，但是即便看不到他们也是运行中的。</p>
+</li>
+</ul>
+<img src="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B6%5Dvba%E6%8E%A7%E5%88%B6spss%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/35da1d3b5bb5c9ea117f05d2d739b6003af3b337.jpg" class="" title="SPSS实例：[6]vba控制spss处理数据">
+
+<ul>
+<li><p>小试牛刀：我们试试如何读取spss的版本号，输入代码</p>
+</li>
+<li><pre><code>    a = spss.GetSPSSVersion
+</code></pre>
+</li>
+<li><pre><code>     MsgBox a
+</code></pre>
+</li>
+<li><p>这段代码就是用变量a存放spss的版本号，然后用消息框显示a的数值。</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#x34;&#57;&#x35;&#55;&#56;&#55;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#x6d;">&#54;&#x37;&#x35;&#x34;&#57;&#x35;&#55;&#56;&#55;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/04/19/Statsmodels%EF%BC%9A%5B1%5D%E6%A8%A1%E5%9D%97%E7%AE%80%E4%BB%8B/">
                 Statsmodels：[1]模块简介
             </a>
@@ -1228,134 +1316,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/">
-                spss协方差分析的操作过程和结果分析方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年04月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>协方差分析就是当研究中出现一个变量不是我们想要研究的变量，但是却会影响到我们的研究结果，我们不得不对其进行控制，这时候就可以用协方差分析的方法来控制，协方差分析一个最重要的假设是斜率同质假设，下面就要先检验斜率同质假设，然后才能进行协方差分析。<br>方法&#x2F;步骤</p>
-<ul>
-<li>协方差分析之前，要先检验一下数据是否满足斜率同质假设，也就是检验自变量和斜变量之间有木有交互作用，如图所示，在菜单栏上执行：analyze–general linear model–univariate</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/9e3df8dcd100baa1d766d84c4710b912c9fc2efa.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li>在打开的对话框中，将因变量、自变量、斜变量都放到各自的位置，如图所示，评定得分为因变量，培训方式为自变量，家庭指数为斜变量，点击options按钮，进入子对话框</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/b219ebc4b74543a9d684653b1e178a82b80114ad.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/d31b0ef41bd5ad6ef1fafb1d81cb39dbb7fd3cc1.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li>在这里将培训方式，也就是自变量移动到display means for中，并且勾选描述统计和方差齐性检验，点击continue按钮继续</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/dcc451da81cb39db86c3f8a1d0160924aa1830c1.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li>点击model按钮，选择模型</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/4b90f603738da97764b019dcb051f8198718e3ae.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li>刚打开这个对话框的时候，默认是full factorial模式，但是我们要检验交互作用，所以要选中custom</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/f703738da9773912edb91a96f8198618377ae2ae.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li>将培训方式和家庭指数都放到model里</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/34fae6cd7b899e51348da5e342a7d933c9950dc1.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li>同时选中培训方式和家庭指数，将type设置为interaction，点击添加按钮，添加到model中，点击continue按钮</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/0b46f21fbe096b636ab9c1a70c338744eaf8aca1.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/34fae6cd7b899e5134c4a5e342a7d933c9950dfa.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li>点击ok按钮，开始处理数据</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/faedab64034f78f0bb08050479310a55b2191cc1.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li>在出来的结果中，我们主要是看自变量和斜变量的交互作用，如图所示，sig值大于0.05，所以交互作用不显著，这就满足了斜率同质性假设</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/8601a18b87d6277ff28dadcf28381f30e824fcae.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li>接着我们来进行协方差分析，在菜单栏上执行：analyse–general linear model–univariate</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/6159252dd42a28349d06a9fc5bb5c9ea14cebfa1.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li>将各个变量都放到各自的位置，和上面的步骤一样，点击options按钮</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/1f178a82b9014a90ac3dd94aa9773912b21beec2.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li>将培训方式移动到display means for列表里，勾选描述统计、方差齐性、效应值，点击continue继续</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/5ab5c9ea15ce36d37aa41cc73af33a87e850b1a1.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li>点击model，选择模型</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/a8773912b31bb05198272cdf367adab44bede0c2.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li>选择full factorial，点击continue</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/eac4b74543a982269a8bb4d08a82b9014b90ebfb.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li>点击ok按钮，开始处理数据</li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/03087bf40ad162d98971fdeb11dfa9ec8b13cdae.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<ul>
-<li><p>最后看分析的结果培训方式的效应显著，这说明不同的培训方式会影响到学生最后的分数</p>
-</li>
-<li></li>
-<li></li>
-</ul>
-<img src="/2015/04/11/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E7%9A%84%E6%93%8D%E4%BD%9C%E8%BF%87%E7%A8%8B%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/10dfa9ec8a1363271dc75bc4918fa0ec08fac71b.jpg" class="" title="spss协方差分析的操作过程和结果分析方法">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#57;&#x35;&#x37;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;">&#54;&#55;&#53;&#x34;&#57;&#x35;&#x37;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1397,6 +1357,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">回聚类分析最佳实践</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/">Mplus潜在截面分析LPA教程代码结果解读</a>
             </li>
             
@@ -1430,10 +1394,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/09/19/SEM%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%87%AA%E7%94%B1%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%A9%BA%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%9F%BA%E7%BA%BF%E6%A8%A1%E5%9E%8B/">SEM如何理解自由度以及空模型和基线模型</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/09/18/mplus%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%B3%A8%E9%87%8A%E5%92%8C%E8%A7%A3%E8%AF%BB/">mplus验证性因子分析结果的详细注释和解读</a>
             </li>
             
         </ul>

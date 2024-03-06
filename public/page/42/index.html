@@ -252,6 +252,81 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/06/19/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B75%5DHTMLParser%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE/">
+                python教程：[75]HTMLParser采集网页数据
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年06月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>HTMLParser是python自带的处理html文件的模块，用起来非常简单，但很有实用价值，下面我们通过一个简单的例子来说明它的工作机制，然后对它所包含的所有方法进行一个说明。</p>
+<ul>
+<li>先看一个简单的例子，我们先引入HTMLParser，然后声明一个类，继承自HTMLPaerser，然后定义了一个方法，这个方法继承自HTMLParser</li>
+</ul>
+<img src="/2016/06/19/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B75%5DHTMLParser%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE/5beeba0f4bfbfbedc8be6c497bf0f736aec31fe5.jpg" class="" title="python教程：[75]HTMLParser采集网页数据">
+
+<ul>
+<li>这一段代码的运行结果是：从结果中我们可以看到feed方法是将要处理的html字符串传递给HTMLParser，处理的过程是从前到后逐个处理html文件的标签，当遇到一个标签的时候，就调用handle_starttag方法，我们写的这个方法就是将tag名打印出来，所以就出现了下面这个结果：</li>
+</ul>
+<img src="/2016/06/19/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B75%5DHTMLParser%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE/718e25c79f3df8dce066caa7ce11728b47102869.jpg" class="" title="python教程：[75]HTMLParser采集网页数据">
+
+<ul>
+<li><p>feed()和handle_starttag()已经说了，这里不再重复</p>
+</li>
+<li><p>handle_endtag()：处理结束标签，比如</a>就是一个结束标签，当遇到结束标签的时候调用该方法</p>
+</li>
+<li><p>handle_data():处理数据，比如<a>这是数据</a>，“这是数据”就是data，当遇到data的时候调用该方法。</p>
+</li>
+<li><p>handle_entityref()：处理“&gt;”“&amp;#62;”“&amp;#x3E;”这样的字符串，他们各有自己指代的字符，处理的方法是使用name2codepoint将其转换，就可以知道gt原来是&gt;的意思</p>
+</li>
+</ul>
+<img src="/2016/06/19/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B75%5DHTMLParser%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE/b25aae51f81986184ee3a9b249ed2e738bd4e625.jpg" class="" title="python教程：[75]HTMLParser采集网页数据">
+
+<img src="/2016/06/19/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B75%5DHTMLParser%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE/29790130e924b89921983f0e6d061d950a7bf625.jpg" class="" title="python教程：[75]HTMLParser采集网页数据">
+
+<ul>
+<li><p>handle_charref()处理十进制或十六进制“&amp;#x3E;”这样的字符串，可以将其转换为&amp;gt</p>
+</li>
+<li><p>handle_comment()处理<!--comment-->内的内容</p>
+</li>
+<li><p>handle_decl()处理html文档类型声明，例如<!coctype html></p>
+</li>
+<li><p>大部分方法都列在上面了，还有一些不常用就没有写，这些相信已经够你用了。</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#x38;&#x37;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;">&#x36;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#x38;&#x37;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/06/15/Excel2013%EF%BC%9A%5B20%5D%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/">
                 Excel2013：[20]如何删除数据透视表
             </a>
@@ -987,70 +1062,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/06/01/Excel2013%EF%BC%9A%5B12%5D%E5%85%AC%E5%BC%8F%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AE%A1%E7%AE%97%E5%92%8C%E6%89%8B%E5%8A%A8%E8%AE%A1%E7%AE%97/">
-                Excel2013：[12]公式的自动计算和手动计算
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年06月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>假如你的工作表公式比较多，假如你修改一个数据，大量公式就要重新计算，那么你需要这篇文章，你需要将公式的自动计算设置成手动计算，修改数据以后，按下F9就能计算，下面是具体的教程：</p>
-<ul>
-<li>我们点击文件选项，打开开始页面</li>
-</ul>
-<img src="/2016/06/01/Excel2013%EF%BC%9A%5B12%5D%E5%85%AC%E5%BC%8F%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AE%A1%E7%AE%97%E5%92%8C%E6%89%8B%E5%8A%A8%E8%AE%A1%E7%AE%97/1899a23eb13533faa4f4cf34aad3fd1f41345b2e.jpg" class="" title="Excel2013：[12]公式的自动计算和手动计算">
-
-<ul>
-<li>在这里，找到选项按钮，点击</li>
-</ul>
-<img src="/2016/06/01/Excel2013%EF%BC%9A%5B12%5D%E5%85%AC%E5%BC%8F%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AE%A1%E7%AE%97%E5%92%8C%E6%89%8B%E5%8A%A8%E8%AE%A1%E7%AE%97/00a82701213fb80e8e783dcd34d12f2eb83894c4.jpg" class="" title="Excel2013：[12]公式的自动计算和手动计算">
-
-<ul>
-<li>在公式选项下，找到工作簿计算：自动重算、手动重算，按照你的需要自己进行切换</li>
-</ul>
-<img src="/2016/06/01/Excel2013%EF%BC%9A%5B12%5D%E5%85%AC%E5%BC%8F%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AE%A1%E7%AE%97%E5%92%8C%E6%89%8B%E5%8A%A8%E8%AE%A1%E7%AE%97/55a628d12f2eb93861c426e8d7628535e4dd6fc4.jpg" class="" title="Excel2013：[12]公式的自动计算和手动计算">
-
-<ul>
-<li>或者你还可以在公式标签下，设置计算选项，取消勾选【自动】</li>
-</ul>
-<img src="/2016/06/01/Excel2013%EF%BC%9A%5B12%5D%E5%85%AC%E5%BC%8F%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AE%A1%E7%AE%97%E5%92%8C%E6%89%8B%E5%8A%A8%E8%AE%A1%E7%AE%97/b87985504fc2d56278a18cf7e51190ef77c66cc4.jpg" class="" title="Excel2013：[12]公式的自动计算和手动计算">
-
-<ul>
-<li>在你修改了原数据以后，需要按下F9才能计算公式</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#x34;&#57;&#53;&#55;&#56;&#55;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#109;">&#x36;&#55;&#x35;&#x34;&#57;&#53;&#55;&#56;&#55;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1092,6 +1103,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">回聚类分析最佳实践</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/">Mplus潜在截面分析LPA教程代码结果解读</a>
             </li>
             
@@ -1125,10 +1140,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/09/19/SEM%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%87%AA%E7%94%B1%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%A9%BA%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%9F%BA%E7%BA%BF%E6%A8%A1%E5%9E%8B/">SEM如何理解自由度以及空模型和基线模型</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/09/18/mplus%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%B3%A8%E9%87%8A%E5%92%8C%E8%A7%A3%E8%AF%BB/">mplus验证性因子分析结果的详细注释和解读</a>
             </li>
             
         </ul>
