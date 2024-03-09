@@ -252,6 +252,38 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2024/03/09/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
+                Untitled
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2024年03月09日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <h2 id="None"><a href="#None" class="headerlink" title="None"></a>None</h2><p>title: 结构方程模型R语言实战教程<br>date: 2024-02-28 12:44:03<br>tags: [结构方程, R, mplus, amos]<br>mathjax: true</p>
+<hr>
+<p>SEMinR 为创建和估计结构方程模型 (SEM) 非常容易的使用方法。  SEMinR 集成了 SmartPLS 具有的偏最小二乘路径建模 (PLS-PM) 进行估计，也可以使用 LISREL 和 AMOS 的基于协方差的结构方程模型 (CBSEM) 进行估计， 还支持反应性测量模型的验证性因素分析 (CFA)。SEMinR 中 CBSEM 和 CFA 估计都使用 Lavaan 软件包。</p>
+        </div>
+        <a href="/2024/03/09/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/" class="read-more">Read More</a>
+    
+
+    
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
                 回聚类分析最佳实践
             </a>
@@ -303,86 +335,8 @@
     
         <div class="content">
             <p>本教程提供了在 Mplus 软件系统中进行潜在剖面分析 (LPA) 的实用指南。 本指南适用于熟悉某些潜在变量建模但不熟悉 LPA 的研究人员。 进行 LPA 的一般程序分为六个步骤：(a) 数据检查，(b) 模型的迭代评估，(c) 模型拟合和可解释性，(d) 调查保留模型中的剖面模式，(e) 协变量分析，以及 (f) 结果呈现。<br>本教程提供了代码和结果解读, 以及帮助理解的示例来举例。</p>
-<p>关键词: Latent Profile Analysis, Mplus</p>
-<h2 id="Latent-Profile-Analysis-潜在剖面分析的概述"><a href="#Latent-Profile-Analysis-潜在剖面分析的概述" class="headerlink" title="Latent Profile Analysis 潜在剖面分析的概述"></a>Latent Profile Analysis 潜在剖面分析的概述</h2><p>潜在剖面分析 (LPA) 和潜在类别分析 (LCA) 是通过个体属于不同组的概率来揭示数据中潜在组的技术。<br>这是通过检查数据中各组的分布并确定这些分布是否有意义来实现的。<br> 事实上，LCA 和 LPA 经常使用广义术语“混合模型”来提及。 LCA 和 LPA 之间的区别在于根据观测指标的类型来定义。<br> 在 LCA 中，观测指标是类别变量，类似于二项式模型（有关更多信息，请参阅 Masyn，2013 和 Nylund-Gibson &amp; Choi，2018）。<br> 在 LPA 中，观察到的变量是连续的，类似于高斯模型（Oberski，2016）。<br> 此外，还有潜在转换分析（LTA），它是包含两个或多个潜在类或潜在构念构造的任何模型；<br> 这些构造可以通过不同的指标或在不同时间点测量的相同指标作为纵向延伸来了解（有关工作示例，请参见 NylundGibson、Grimm、Quirk 和 Furlong，2014）。</p>
-<p>刚接触 LPA 的研究人员可以将LPA类比于常见的模型（例如验证性因子分析 (CFA)），因为 LPA 也是使用协方差矩阵来探索观测数据和潜在变量之间的关系（Bauer &amp; Curran，2004；Bergman &amp; Magnusson，1997） , 但是CFA是将题目分组, 而LPA是将被试分组,  CFA 使用项目协方差矩阵来揭示潜在结构，而 LPA 使用个体矩阵来揭示潜在人群。 在项目协方差矩阵中每个数字是题目之间的协方差(相关), 而在个体矩阵中, 每个数字是个体之间的协方差(相关)（Bauer &amp; Curran，2004，第 6 页）。</p>
-<p>LPA 分多个步骤进行，类似于结构方程建模 (SEM) 分析。 例如，在 SEM 中，研究人员通常会拟合概念模型，检查测量模型，拟合一系列结构模型以确定数据与其理论模型的最佳拟合（Bauer &amp; Curran，2004；Kline， 2011）。 对于 LPA，该过程类似，研究人员通过迭代建模过程来确定要分类的数量，拟合协变量模型以探索这些分类变量对研究中其他变量的影响（Masyn， 2013 年；斯特巴，2013 年）。 如果研究人员还有一个分类变量想要比较剖面结构，他们可以进行多组 LPA，包括测量不变性（Morin、Meyer、Creusier 和 Bietry，2016）。 </p>
-<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>本胶层提供了一个使用 LPA 分析数据的案例，以引导读者完成 LPA 过程。 此示例的数据来自其他地方发表的一项更大规模的实证研究（参见作者，2018 年）。 此处的数据仅用作演示 LPA 的示例，而不是结果的理论含义。 数据收集自美国南部一个公立学区 295 名 11 年级和 12 年级的高中生。</p>
-<p>LPA 被用作本研究的主要推断分析方法。 所有潜在特征分析均使用 Mplus 8（Muthén &amp; Muthén，1998-2017）和最大似然估计进行。<br>LPA 用于两个应用：第一个是用于探索科学职业偏好的潜在分类, 第二个是用于检验这个分类的组间差异.</p>
-<p>这个研究的研究问题是:</p>
-<ul>
-<li><ol>
-<li>基于科学动机、科学态度、科学兴趣和科学成就的测量，如何定义潜在类别来代表科学职业选择的职业偏好？</li>
-</ol>
-</li>
-<li><ol start="2">
-<li>按性别、社会经济地位、性格和认知能力划分的科学职业偏好的群体差异有多大？</li>
-</ol>
-</li>
-</ul>
-<h2 id="LPA具体步骤"><a href="#LPA具体步骤" class="headerlink" title="LPA具体步骤"></a>LPA具体步骤</h2><img src="imgs/lpa steps.png">
-
-<h3 id="第一步-数据清理"><a href="#第一步-数据清理" class="headerlink" title="第一步, 数据清理"></a>第一步, 数据清理</h3><p>与所有分析一样，应清理数据以进行分析，并检查基本的统计假设（例如，连续变量的正态性、样本之间的独立性；参见 Osborne，2012）。 在题目层面上的缺失数据可以使用Mplus的最大似然估计值。 如果一个变量下的所有题目都是缺失, 可以使用全信息最大似然 (FIML) （即复合水平缺失）的情况。如果你想学习这些缺失处理的方法 , 可以在下方留言, 我们有专门的教程. 如果所有变量下的所有题目都是缺失, 那毫无疑问就该把这个样本删除. 与其他潜在变量分析一样，缺失数据可以通过 FIML 或多重插补来处理，具体取决于哪种情况最适合。 当使用大型数据集来回答不同的研究问题，或者在估计模型时使用估算数据集而不是最大似然估计来处理缺失值以减轻模型收敛的计算负担时，建议使用多重插补 （巴拉尔迪和恩德斯，2010）。  在本案例中, 我们使用的是FIML, 它往往可以处理较小的数据集, 使用mplus处理缺失值时, 你往往可以参考Osborne (2012) 或者 Mplus手册的 Chapter 11  (Muthén &amp; Muthén, 1998-2017) . 另外需要注意的是, 本研究在做LPA的时候, 观测指标是合成的变量, 而不是题目级别的变量. </p>
-<h3 id="第二步-分析一系列假设合理的-LPA-模型"><a href="#第二步-分析一系列假设合理的-LPA-模型" class="headerlink" title="第二步, 分析一系列假设合理的 LPA 模型"></a>第二步, 分析一系列假设合理的 LPA 模型</h3><p>从只有一个类别的的模型开始，直到估计 5 或 6 个分类的模型结束（Masyn，2013 年；Tein 等人，2013 年）。在下面的代码块中我们列出了本研究中使用的mplus代码. 你需要知道, 首先 CLASSES 命令出现在 USEVARIABLES 后面, 用于设定想要分类的类别数. 所以对于1个分类的模型, CLASSES 设定为 c(1), 对于两分类模型, CLASSES 设定为 c(2). 其次, 分析的方法指定的是 mixture , 因为LPA LCA 都属于 混合模型.</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br></pre></td><td class="code"><pre><span class="line">TITLE: LPA generic 2 profile syntax example</span><br><span class="line">DATA:</span><br><span class="line">FILE IS data.dat;</span><br><span class="line">! 设定数据文件的位置, 主要不要使用错误的数据格式</span><br><span class="line">! 你可以使用数据转换工具来得到正确的数据格式, 参考: https://mlln.cn/2023/07/08/spss%E6%95%B0%E6%8D%AEsav%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88%E5%9C%A8%E7%BA%BF%EF%BC%89/</span><br><span class="line"></span><br><span class="line">VARIABLE:</span><br><span class="line">NAMES ARE Y1-Y5 X1-X3;</span><br><span class="line">! 数据中所有变量都需要有一个名字, 不要遗漏</span><br><span class="line">!X1-X3 代表 X1 到 X3.</span><br><span class="line">USEVARIABLES ARE Y1-Y5;</span><br><span class="line">! 这里设定的是模型中使用的变量, 没有使用的变量不要出现在这里</span><br><span class="line">CLASSES = c (2);</span><br><span class="line">! 这里设定需要分几类</span><br><span class="line">! 如果模型只分一类, 你可以写 CLASSES = c (1). </span><br><span class="line">! 你可以逐渐增加这个数字以便找到最佳的分类数</span><br><span class="line">! 这里的c是你为分类变量起的名字, 所以原理上说任何合法的变量名都可使用</span><br><span class="line"></span><br><span class="line">MISSING ARE .;</span><br><span class="line">! 设定数据中的缺失值的代码, 这里使用的是 “.” </span><br><span class="line"></span><br><span class="line">ANALYSIS:</span><br><span class="line">TYPE = MIXTURE;</span><br><span class="line">! LPA 和 LCA 都是 混合模型, 使用mixture</span><br><span class="line">ESTIMATOR = MLR;</span><br><span class="line">!FIML robust to non-normal data</span><br><span class="line">STARTS = 1000 250;</span><br><span class="line">STITERATIONS = 500;</span><br><span class="line">!STARTS, 也许你不该关心这个问题, 因为它涉及了算法的细节,并且当你吧设置这个参数, mplus会使用默认值, 这也不会有什么问题</span><br><span class="line">!STARTS的第一个数字1000指的是模型在估计的初始状态时, 使用1000个初始值, 你不理解因为你不知道mplus估计参数使用的方法就是</span><br><span class="line">!先给参数设定初始值, 然后再逐渐逼近&quot;真实&quot;值, 而设置这么多初始值的目的就是防止不同初始值导致不同的结果</span><br><span class="line">!也就是我们想证明不同的初始值都会逼近相同的结果,进而证明我们结果的稳定性</span><br><span class="line">!250代表的时模型估计的最后使用的初始值数量, 因为模型估计的后期参数比较稳定了, 不需要太多的初始值</span><br><span class="line">!STITERATIONS是最大的迭代次数, 每次迭代就是参数逐渐逼近真实值的过程, 最大迭代是为了防止程序一直运行无法停止, 当然如果你不设置这个 参数, mplus有默认的数值, 也不必担心</span><br><span class="line"></span><br><span class="line">LRTSTARTS = 2 1 50 10;</span><br><span class="line">LRTBOOSTRAP = 250;</span><br><span class="line">!这个参数是LRT算法用到的,我们有专门的教程介绍LRT算法,如果你不关心, 这两个不需要设置, mplus会使用默认值</span><br><span class="line">!这个参数是你需要在 OUTPUT 中输出 TECH11  TECH14 的时候用到的</span><br><span class="line"></span><br><span class="line">MODEL:</span><br><span class="line">!LPA算法不需要设定 MODEL,但是如果你想, 你可以</span><br><span class="line">!每个潜在类别下各个观测指标的均值和方差都是参数</span><br><span class="line">!mplus默认会自由估计各组均值,但是限定各组方差相同, 下面的代码是mplus的默认设置, 你可以不写</span><br><span class="line">%OVERALL%</span><br><span class="line">[Y1-Y5]; !每个类别的5个观测指标均值自由估计. 不要在括号后面设定标签</span><br><span class="line">Y1-Y5 (Var1-Var5); !这句设定的是观测指标的方差,每个指标都设定了标签, 限定各组同一个指标的方差相同</span><br><span class="line"></span><br><span class="line">OUTPUT:</span><br><span class="line">TECH1 TECH8 TECH11 TECH14;</span><br><span class="line">! TECH1 提供了参数的设定/初始值</span><br><span class="line">! TECH8 provides optimization history for this analysis type</span><br><span class="line">! TECH8 提供了优化过程信息</span><br><span class="line">!TECH11 LRT 结果</span><br><span class="line">!TECH14  bootstrapped LRT test 结果</span><br><span class="line"></span><br><span class="line">SAVEDATA:</span><br><span class="line">FILE IS LPA2.dat;</span><br><span class="line">! 你的分类结果是需要保存的,这里告诉mplus将结果保存到LPA2.dat文件</span><br><span class="line">SAVE = CPROBABILITIES;</span><br><span class="line">! 上面的命令用于保存样本的最佳归类</span><br><span class="line">! 以及该归类的后验概率</span><br></pre></td></tr></table></figure>
-
-
-<h3 id="步骤三-模型拟合和解释"><a href="#步骤三-模型拟合和解释" class="headerlink" title="步骤三, 模型拟合和解释"></a>步骤三, 模型拟合和解释</h3><p>在示例中， 模型 1 仅使用一个类别进行估计，模型 2 使用两个类别进行估计，依此类推，模型 5 使用五个类别进行估计。 下表提供了模型拟合统计数据。</p>
-<img src="imgs/lpa-lmr-blrt-results.png">
-
-<p>表格里面的数据都是来自 TECH11 和 TECH14 , 这些指标解释如下:</p>
-<ul>
-<li>信息评价指标（AIC, BIC, aBIC）：越小越好。</li>
-<li>Entropy指数：表示分类精确程度，取值范围为0到1，越接近1表明分类越精确。</li>
-<li>似然比指标（LMR, BLRT）：显著的LMR、BLRT值表明K个类别的模型优于K-1个类别的模型。</li>
-</ul>
-<img src="imgs/lpa-blrt.png">
-<img src="imgs/lpa-lmr.png">
-
-<p>根据表格中的结果, 模型4(有4个分类)的结果是最优的, 理由如下:</p>
-<ul>
-<li>分类数越小越好,因为类别越少我们人类越容易理解</li>
-<li>AIC BIC aBIC 都是越小越好, 综合来看, 最小的应该是模型5, 但是模型4和模型5比较, 三个指标差别很小</li>
-<li>从LMR检验来看, 模型5与模型4的差别不显著, 意味着尽量选择分类数较少的比较好, 而模型4与模型3的差别显著, 所以还必须得选模型4</li>
-<li>模型5的最小分类只占总样本的2%(n&#x3D;6), 这是一个非常小的占比, 这种小众的分类可能是不稳定的</li>
-</ul>
-<h3 id="第四步-解释各组的模式"><a href="#第四步-解释各组的模式" class="headerlink" title="第四步, 解释各组的模式"></a>第四步, 解释各组的模式</h3><p>这种解释可以利用下面的表格:表格中的数字是各组在各个题目和变量上的均值+标准差.</p>
-<img src="imgs/lpa-means-vars.png">
-
-<p>为每个类别计算变量的平均值和标准差，并且发现所有这些变量在模型中都具有统计显着性。 请注意，标准差与默认情况下限制在 Mplus 中的标准差相同。 四个潜在群体之间的差异很大程度上是由于兴趣、动机和对科学的态度的差异，这与研究中使用的理论方法是一致的.</p>
-<p>下面这个折线图非常清楚的说明了各个潜在群体的差异:</p>
-<img src="imgs/lpa-plot.png">
-
-<h3 id="第五步是协变量分析"><a href="#第五步是协变量分析" class="headerlink" title="第五步是协变量分析"></a>第五步是协变量分析</h3><p>当出现以下情况时，应进行协变量分析：</p>
-<ul>
-<li>a) LPA 分析表明存在值得进一步解释的类别</li>
-<li>b) 有理论上的理由来评估协变量对类别潜变量的影响。</li>
-</ul>
-<p>要将协变量添加到模型中, 可以在 Mplus 中进行并发分析，请从第二步中的代码开始。 不过，这次将协变量的变量信息添加到 NAMES 和 USEVARIABLES 行。</p>
-<p>此外，在语法的 MODEL 部分中，指定模型关系。 根本本研究的实例，原始研究中使用了两步方法（有关所有方法的 Mplus 语法示例，请参阅补充文件）。 语法子命令“%OVERALL%”通知 Mplus 以下几行描述了整体模型，而不是 %class label%，后者可用于指示对模型的特定于类部分的调整（Muthén &amp; Muthén，1998-2017）。 协变量作为 c 的预测变量输入到模型中，位于“c ON X1 X2 X3”行中。</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">TITLE: LPA generic syntax example with covariates</span><br><span class="line">DATA:</span><br><span class="line">FILE IS data.dat;</span><br><span class="line"></span><br><span class="line">VARIABLE:</span><br><span class="line">NAMES ARE Y1-Y5 X1-X3;</span><br><span class="line"></span><br><span class="line">USEVARIABLES ARE Y1-Y5 X1-X3;</span><br><span class="line"></span><br><span class="line">CLASSES = c (4);</span><br><span class="line"></span><br><span class="line">MISSING ARE .;</span><br><span class="line"></span><br><span class="line">ANALYSIS:</span><br><span class="line">TYPE = MIXTURE;</span><br><span class="line"></span><br><span class="line">MODEL:</span><br><span class="line"> %OVERALL%</span><br><span class="line"> c ON X1 X2 X3;</span><br><span class="line">! X1-X3作为潜变量c的预测变量</span><br><span class="line">OUTPUT:</span><br><span class="line">TECH1 TECH8 TECH11 TECH14;</span><br><span class="line"></span><br><span class="line">SAVEDATA:</span><br><span class="line">FILE IS LPA4Cov.dat;</span><br><span class="line">! 保存结果到这俄格文件</span><br><span class="line">SAVE = CPROBABILITIES;</span><br><span class="line">! 保存后验概率</span><br></pre></td></tr></table></figure>
-
-<p>mplus 输出的结果如下表:</p>
-<img src="imgs/lpa-covariates-analysis.png">
-
-<p>这个结果有些类似于逻辑回归, 以第二个分类为参照类别, 其他结果都是对照第二个分类而言的, 具体来说:</p>
-<p>对于第一个分类, Shipley-2 Vocabulary 的效应值是-0.19(p&lt;.05), 说明个体的Shipley-2 Vocabulary越小, 越可能归属于第1个分类.<br>对四个分类, Shipley-2 Vocabulary 的效应值是-0.23(p&lt;.05), 说明个体的Shipley-2 Vocabulary越小, 越可能归属于第4个分类.<br>Personality 只对第一个分类有显著效应, 而对第四个分类没有, 说明Personality得分越低, 越可能归属与第一个分类.</p>
-<h2 id="第六步-结果的呈现"><a href="#第六步-结果的呈现" class="headerlink" title="第六步, 结果的呈现"></a>第六步, 结果的呈现</h2><p>LPA 的呈现通常应遵循与分析相同的顺序。 首先，进行详细的数据清理，检查前提假设和结果，以及如何处理丢失的数据。<br>包括有关用于分析的软件（例如 Mplus 8）和做出的估计决策（例如随机STARTS的更改、估计方法）的信息。<br>其次，报告估计 LPA 模型所采取的步骤。 分析中包含了多少个模型，为什么？ 是否有任何模型未收敛？<br>最后，详细说明此步骤中发生的所有决策和问题以及如何解决这些问题。</p>
-<p>第三，在表格中报告所有估计的模型, 以及根据哪些指标来判断最优的模型。 我们建议包括对数似然值、AIC、BIC、SABIC、LMR 检验和 BLRT。<br>根据前面讨论的模拟研究，模型保留应优先考虑 SABIC、BIC 和 BLRT，但通过多个信息之间的一致可以增强你的说服力(Kim, 2014; Masyn, 2013; Morgan, 2014; Nylund, Asparouhov, &amp; Muthén, 2007)</p>
-<p>第四，描述保留模型的分类结果。 注意那些最能区分分类结果的的指标变量，并为读者突出显示差异。<br>表格和图表都可以用来帮助读者理解分类和指标之间的关系。 给分类命名不是必需的，但可以帮助读者区分不同的组并了解哪些指标看起来有意义。 作为研究员，引导读者解释所观察到的差异和含义</p>
-<p>第五，如果适用，请详细说明所使用的协变量分析。 如果将协变量添加到 LPA 模型中并同时或以三步方法进行检查，请报告此分析的结果。</p>
-<img src="imgs/lpa-plot.png">
-
-
-
-<h2 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h2><ul>
-<li>Finding Latent Groups in Observed Data_ A Primer on Latent Profil</li>
-</ul>
-<blockquote>
-<p><strong>注意</strong><br>统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的, 不论什么模型都可以, 只限制于1个研究内.<br>跟我学统计可以代做分析, 每单几百元不等.<br>本文由jupyter notebook转换而来, 您可以在这里下载<a href="Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB.ipynb">notebook</a><br>可以在微博上@mlln-cn向我免费题问<br>请记住我的网址: mlln.cn 或者 jupyter.cn</p>
-</blockquote>
-
         </div>
+        <a href="/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/" class="read-more">Read More</a>
     
 
     
@@ -648,41 +602,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2023/09/19/SEM%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%87%AA%E7%94%B1%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%A9%BA%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%9F%BA%E7%BA%BF%E6%A8%A1%E5%9E%8B/">
-                SEM如何理解自由度以及空模型和基线模型
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2023年09月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>做结构方程（SEM）的时候，通常会进行卡方检验， 它是用来检验模型是否符合数据的。<br>意思是当卡方检验不显著的时候， 我们认为我们的模型是良好的， 能够反映数据的。<br>卡方检验的自由度是比较难以理解的， 但是又往往受到很多学生的关注， 每次被问到自由度是什么的时候，<br>往往我们需要很长的解释， 所以在这里我就尝试用一个例子来解答一下什么是结构方程的自由度。</p>
-        </div>
-        <a href="/2023/09/19/SEM%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%87%AA%E7%94%B1%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%A9%BA%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%9F%BA%E7%BA%BF%E6%A8%A1%E5%9E%8B/" class="read-more">Read More</a>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/结构方程/">#结构方程</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -724,6 +643,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/03/09/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">Untitled</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">回聚类分析最佳实践</a>
             </li>
             
@@ -757,10 +680,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/10/12/%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E4%B8%AD%E7%AE%80%E5%8D%95%E6%96%9C%E7%8E%87%E7%BB%98%E5%88%B6%E6%9C%80%E5%BC%BAexcel%E6%A8%A1%E6%9D%BF%E6%95%99%E7%A8%8B%E5%92%8C%E4%B8%8B%E8%BD%BD/">交互效应中简单斜率绘制最强excel模板教程和下载</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/09/19/SEM%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%87%AA%E7%94%B1%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%A9%BA%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%9F%BA%E7%BA%BF%E6%A8%A1%E5%9E%8B/">SEM如何理解自由度以及空模型和基线模型</a>
             </li>
             
         </ul>
