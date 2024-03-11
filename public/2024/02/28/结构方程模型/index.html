@@ -23,7 +23,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="DataSense"/>
+        <meta property="og:title" content="结构方程模型R语言实战教程"/>
     
 
     <!--Open Graph Description-->
@@ -36,7 +36,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -47,7 +47,7 @@
 
     <!-- Title -->
     
-    <title>DataSense</title>
+    <title>结构方程模型R语言实战教程 - DataSense</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -100,6 +100,62 @@
     #pop_ad{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
 
     </style>
+
+    
+        <!-- mathjax -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        var maths = document.getElementsByTagName("code");
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+    </script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    menuSettings: {
+      zoom: "None"
+    },
+    showMathMenu: true,
+    jax: ["input/TeX","output/CommonHTML"],
+    extensions: ["tex2jax.js"],
+    TeX: {
+      extensions: ["AMSmath.js","AMSsymbols.js"],
+      equationNumbers: {
+        autoNumber: "AMS"
+      }
+    },
+    tex2jax: {
+      inlineMath: [["\\(", "\\)"],["$","$"]],
+      displayMath: [["\\[", "\\]"],["$$", "$$"]],
+      skipTags: ['^(?!code).*$']
+    }
+  });
+  var maths = document.getElementsByTagName("code");
+  MathJax.Hub.Queue(["Typeset",MathJax.Hub,maths]);
+</script>
+
+<!-- <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [ ['\\(','\\)']]} });
+</script> -->
+
+<!-- <script type="text/javascript" src="//cdn.mathjax.org/mathjax/latest/MathJax.js"></script> -->
+<!-- <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/mathjax/2.6.1/MathJax.js"></script> -->
 
     
     
@@ -248,8 +304,8 @@
 
     <div class="post-header">
         <h1 class="title">
-            <a href="/2024/03/09/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
-                Untitled
+            <a href="/2024/02/28/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
+                结构方程模型R语言实战教程
             </a>
 
         </h1>
@@ -258,7 +314,7 @@
         </div>
         <div class="post-info">
             
-                <span class="date">2024年03月09日</span>
+                <span class="date">2024年02月28日</span>
             
             
             
@@ -270,16 +326,14 @@
 
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#None"><span class="toc-number">1.</span> <span class="toc-text">None</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">2.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">3.</span> <span class="toc-text">数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%BE%E5%AE%9A"><span class="toc-number">4.</span> <span class="toc-text">测量模型的设定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%BE%E5%AE%9A"><span class="toc-number">5.</span> <span class="toc-text">结构模型的设定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%B0%E8%AE%A1%E7%BB%93%E6%9E%9C"><span class="toc-number">6.</span> <span class="toc-text">估计结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bootstrapping%E6%96%B9%E6%B3%95%E7%94%A8%E4%BA%8E%E4%BC%B0%E8%AE%A1%E5%8F%82%E6%95%B0%E7%9A%84%E6%98%BE%E8%91%97%E6%80%A7"><span class="toc-number">7.</span> <span class="toc-text">Bootstrapping方法用于估计参数的显著性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E6%8A%A5%E7%BB%93%E6%9E%9C"><span class="toc-number">8.</span> <span class="toc-text">汇报结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1"><span class="toc-number">9.</span> <span class="toc-text">描述性统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">10.</span> <span class="toc-text">参考文献</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%89%E8%A3%85"><span class="toc-number">1.</span> <span class="toc-text">安装</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE"><span class="toc-number">2.</span> <span class="toc-text">数据</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%BE%E5%AE%9A"><span class="toc-number">3.</span> <span class="toc-text">测量模型的设定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%84%E6%A8%A1%E5%9E%8B%E7%9A%84%E8%AE%BE%E5%AE%9A"><span class="toc-number">4.</span> <span class="toc-text">结构模型的设定</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BC%B0%E8%AE%A1%E7%BB%93%E6%9E%9C"><span class="toc-number">5.</span> <span class="toc-text">估计结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Bootstrapping%E6%96%B9%E6%B3%95%E7%94%A8%E4%BA%8E%E4%BC%B0%E8%AE%A1%E5%8F%82%E6%95%B0%E7%9A%84%E6%98%BE%E8%91%97%E6%80%A7"><span class="toc-number">6.</span> <span class="toc-text">Bootstrapping方法用于估计参数的显著性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B1%87%E6%8A%A5%E7%BB%93%E6%9E%9C"><span class="toc-number">7.</span> <span class="toc-text">汇报结果</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8F%8F%E8%BF%B0%E6%80%A7%E7%BB%9F%E8%AE%A1"><span class="toc-number">8.</span> <span class="toc-text">描述性统计</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83%E6%96%87%E7%8C%AE"><span class="toc-number">9.</span> <span class="toc-text">参考文献</span></a></li></ol>
     </div>
 
         <!-- Gallery -->
         
 
         <!-- Post Content -->
-        <h2 id="None"><a href="#None" class="headerlink" title="None"></a>None</h2><p>title: 结构方程模型R语言实战教程<br>date: 2024-02-28 12:44:03<br>tags: [结构方程, R, mplus, amos]<br>mathjax: true</p>
-<hr>
-<p>SEMinR 为创建和估计结构方程模型 (SEM) 非常容易的使用方法。  SEMinR 集成了 SmartPLS 具有的偏最小二乘路径建模 (PLS-PM) 进行估计，也可以使用 LISREL 和 AMOS 的基于协方差的结构方程模型 (CBSEM) 进行估计， 还支持反应性测量模型的验证性因素分析 (CFA)。SEMinR 中 CBSEM 和 CFA 估计都使用 Lavaan 软件包。</p>
+        <p>SEMinR 为创建和估计结构方程模型 (SEM) 非常容易的使用方法。  SEMinR 集成了 SmartPLS 具有的偏最小二乘路径建模 (PLS-PM) 进行估计，也可以使用 LISREL 和 AMOS 的基于协方差的结构方程模型 (CBSEM) 进行估计， 还支持反应性测量模型的验证性因素分析 (CFA)。SEMinR 中 CBSEM 和 CFA 估计都使用 Lavaan 软件包。</p>
 <span id="more"></span>
 
 <p>SEMinR 有如下特点：</p>
@@ -1012,6 +1066,11 @@ SEMinR Model successfully bootstrapped
     
 
     
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/amos/">#amos</a> <a href="/tags/结构方程/">#结构方程</a> <a href="/tags/mplus/">#mplus</a> <a href="/tags/R/">#R</a>
+        </div>
+    
 
 
 
@@ -1028,7 +1087,7 @@ SEMinR Model successfully bootstrapped
         <section class="main">
             <!--PC版畅言-->
 
-<div class="container"><div id="SOHUCS" sid="2024/03/09/结构方程模型/"></div>
+<div class="container"><div id="SOHUCS" sid="2024/02/28/结构方程模型/"></div>
 <script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
 <script type="text/javascript">
 window.changyan.api.config({
@@ -1125,6 +1184,356 @@ setInterval(()=>{
 
 
 
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/amos/">
+            amos
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2024/02/28/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
+                    结构方程模型R语言实战教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/12/17/Cronbach's%20Alpha%E7%B3%BB%E6%95%B0%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">
+                    Cronbach&#39;s Alpha系数定义和用法
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">
+                    关于Jöreskog的组合信度ρ_c定义和用法
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/12/05/%E5%85%B3%E4%BA%8EDijkstra%E7%9A%84%E4%BF%A1%E5%BA%A6%E7%B3%BB%E6%95%B0%CF%81A%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">
+                    关于 Dijkstra 的信度系数ρ_A定义和用法
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/10/12/%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E4%B8%AD%E7%AE%80%E5%8D%95%E6%96%9C%E7%8E%87%E7%BB%98%E5%88%B6%E6%9C%80%E5%BC%BAexcel%E6%A8%A1%E6%9D%BF%E6%95%99%E7%A8%8B%E5%92%8C%E4%B8%8B%E8%BD%BD/">
+                    交互效应中简单斜率绘制最强excel模板教程和下载
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/09/18/mplus%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%B3%A8%E9%87%8A%E5%92%8C%E8%A7%A3%E8%AF%BB/">
+                    mplus验证性因子分析结果的详细注释和解读
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/08/17/%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%A8%A1%E6%9D%BF/">
+                    验证性因子分析CFA结果汇报模板
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/">
+                    潜在类别分析LCA入门
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/06/12/Amos%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B/">
+                    Amos结构方程模型数据分析入门教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/05/17/SPSS-AMOS%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B-%E5%85%B3%E4%BA%8E%E4%B8%AD%E4%BB%8B%E6%A8%A1%E5%9E%8B/">
+                    SPSS+AMOS数据分析案例教程-关于中介模型
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/05/17/%E5%A4%A7%E7%BA%B2/">
+                    SPSS+AMOS数据分析案例分析报告
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/01/12/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+                    结构方程模型最佳实践
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2020/09/17/05-%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE%E7%9A%84%E8%AF%8A%E6%96%AD/">
+                    SPSS+Amos共同方法偏差的诊断
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2019/02/26/Amos%E5%92%8CMplus%E4%B8%AD%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8BSEM%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E6%8B%9F%E5%90%88%E6%8C%87%E6%A0%87%E8%AF%A6%E8%A7%A3/">
+                    Amos和Mplus中结构方程SEM因子分析CFA拟合指标详解
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/">
+                    amos21.0教程：[5]结构方程图中的符号意义
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/结构方程/">
+            结构方程
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2024/02/28/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
+                    结构方程模型R语言实战教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">
+                    关于Jöreskog的组合信度ρ_c定义和用法
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/12/05/%E5%85%B3%E4%BA%8EDijkstra%E7%9A%84%E4%BF%A1%E5%BA%A6%E7%B3%BB%E6%95%B0%CF%81A%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">
+                    关于 Dijkstra 的信度系数ρ_A定义和用法
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/09/19/SEM%E5%A6%82%E4%BD%95%E7%90%86%E8%A7%A3%E8%87%AA%E7%94%B1%E5%BA%A6%E4%BB%A5%E5%8F%8A%E7%A9%BA%E6%A8%A1%E5%9E%8B%E5%92%8C%E5%9F%BA%E7%BA%BF%E6%A8%A1%E5%9E%8B/">
+                    SEM如何理解自由度以及空模型和基线模型
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/09/18/mplus%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%B3%A8%E9%87%8A%E5%92%8C%E8%A7%A3%E8%AF%BB/">
+                    mplus验证性因子分析结果的详细注释和解读
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/08/23/Johnson-Neyman%E5%9B%BE%E5%8E%9F%E7%90%86%E5%92%8C%E5%88%B6%E4%BD%9CExcel%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB/">
+                    Johnson-Neyman图原理和制作Excel工具分享
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/08/17/%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%A8%A1%E6%9D%BF/">
+                    验证性因子分析CFA结果汇报模板
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/07/27/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E4%B8%AD%E5%B9%B3%E5%9D%87%E6%96%B9%E5%B7%AE%E6%8F%90%E5%8F%96%E9%87%8FAVE%E6%80%8E%E4%B9%88%E7%90%86%E8%A7%A3/">
+                    结构方程中平均方差提取量AVE怎么理解
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/06/25/p01-%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8BSEM%E7%9A%84%E7%B1%BB%E5%9E%8B/">
+                    结构方程模型的种类协方差结构方程和最小二乘法
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/09/20/R%E8%AF%AD%E8%A8%80%E5%81%9A%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%85%A5%E9%97%A8/">
+                    R语言做结构方程模型入门
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/08/31/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E5%88%86%E6%9E%90%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F/">
+                    结构方程模型多组比较分析调节变量
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/">
+                    潜在类别分析LCA入门
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/06/12/Amos%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B/">
+                    Amos结构方程模型数据分析入门教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/01/12/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+                    结构方程模型最佳实践
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/mplus/">
+            mplus
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2024/02/28/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
+                    结构方程模型R语言实战教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/">
+                    Mplus潜在截面分析LPA教程代码结果解读
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">
+                    关于Jöreskog的组合信度ρ_c定义和用法
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/12/05/%E5%85%B3%E4%BA%8EDijkstra%E7%9A%84%E4%BF%A1%E5%BA%A6%E7%B3%BB%E6%95%B0%CF%81A%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">
+                    关于 Dijkstra 的信度系数ρ_A定义和用法
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/10/12/%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E4%B8%AD%E7%AE%80%E5%8D%95%E6%96%9C%E7%8E%87%E7%BB%98%E5%88%B6%E6%9C%80%E5%BC%BAexcel%E6%A8%A1%E6%9D%BF%E6%95%99%E7%A8%8B%E5%92%8C%E4%B8%8B%E8%BD%BD/">
+                    交互效应中简单斜率绘制最强excel模板教程和下载
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/09/18/mplus%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%B3%A8%E9%87%8A%E5%92%8C%E8%A7%A3%E8%AF%BB/">
+                    mplus验证性因子分析结果的详细注释和解读
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/08/17/%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%A8%A1%E6%9D%BF/">
+                    验证性因子分析CFA结果汇报模板
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/07/08/spss%E6%95%B0%E6%8D%AEsav%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88%E5%9C%A8%E7%BA%BF%EF%BC%89/">
+                    spss和Excel数据格式转mplus格式数据（在线）
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/08/31/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E5%88%86%E6%9E%90%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F/">
+                    结构方程模型多组比较分析调节变量
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2019/02/26/Amos%E5%92%8CMplus%E4%B8%AD%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8BSEM%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E6%8B%9F%E5%90%88%E6%8C%87%E6%A0%87%E8%AF%A6%E8%A7%A3/">
+                    Amos和Mplus中结构方程SEM因子分析CFA拟合指标详解
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2019/01/15/Mplus%E5%AE%89%E8%A3%85%E5%92%8C%E5%85%A5%E9%97%A8%E4%B8%80%E6%96%87%E6%90%9E%E5%AE%9A/">
+                    Mplus教程-Mplus安装和入门一文搞定
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/R/">
+            R
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+                    回聚类分析最佳实践
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/02/28/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
+                    结构方程模型R语言实战教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/08/24/JupyterNotebook%E4%B8%AD%E8%BF%90%E8%A1%8CR%E4%BB%A3%E7%A0%81/">
+                    Jupyter notebook中运行R代码
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
 <div class="related-posts hidden-sm-down">
     <h3>
         <a href="#">
@@ -1167,11 +1576,11 @@ setInterval(()=>{
         <ul>
             
             <li>
-                <a class="footer-post" href="/2024/03/09/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">Untitled</a>
+                <a class="footer-post" href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">回聚类分析最佳实践</a>
             </li>
             
             <li>
-                <a class="footer-post" href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">回聚类分析最佳实践</a>
+                <a class="footer-post" href="/2024/02/28/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">结构方程模型R语言实战教程</a>
             </li>
             
             <li>
