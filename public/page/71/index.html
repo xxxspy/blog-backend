@@ -252,6 +252,152 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/01/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B66%5Dsorted()%E6%8E%92%E5%BA%8F%E8%AF%A6%E8%A7%A3/">
+                Python教程：[66]sorted()排序详解
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>使用python对列表（list）进行排序，说简单也简单，说复杂也复杂，我一开始学的时候也搞不懂在说什么，只能搜索一些英文文章看看讲解，现在积累了一些经验，写在这里跟大家分享，我们通过例子来详细解释一下函数sorted的具体用法：</p>
+<ul>
+<li>先创建一个列表a</li>
+</ul>
+<img src="/2015/01/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B66%5Dsorted()%E6%8E%92%E5%BA%8F%E8%AF%A6%E8%A7%A3/58af236d55fbb2fb18b1d6924d4a20a44723dc5d.jpg" class="" title="Python教程：[66]sorted()排序详解">
+
+<ul>
+<li>直接使用sorted方法，返回一个列表b，b就是排序好了的</li>
+</ul>
+<img src="/2015/01/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B66%5Dsorted()%E6%8E%92%E5%BA%8F%E8%AF%A6%E8%A7%A3/72ccb7773912b31b9ec043a98418367adbb4e147.jpg" class="" title="Python教程：[66]sorted()排序详解">
+
+<ul>
+<li>假如a是一个由元组构成的列表，这时候就麻烦了。</li>
+</ul>
+<img src="/2015/01/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B66%5Dsorted()%E6%8E%92%E5%BA%8F%E8%AF%A6%E8%A7%A3/425773224f4a20a41984b24792529822730ed05d.jpg" class="" title="Python教程：[66]sorted()排序详解">
+
+<ul>
+<li>我们需要用到参数key，也就是关键词，看下面这句命令，lambda是一个隐函数，是固定写法，不要写成别的单词；a_tuple表示列表中的一个元素，在这里，表示一个元组，a_tuple只是临时起的一个名字，你可以使用任意的名字；a_tuple[0]表示元组里的第一个元素，当然第二个元素就是a_tuple[1]；所以这句命令的意思就是按照列表中元组里的第一个元素进行排序。</li>
+</ul>
+<img src="/2015/01/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B66%5Dsorted()%E6%8E%92%E5%BA%8F%E8%AF%A6%E8%A7%A3/109eb7ec8a13632732414cb3938fa0ec09fac747.jpg" class="" title="Python教程：[66]sorted()排序详解">
+
+<ul>
+<li>按照元组里的第二个元素排序</li>
+</ul>
+<img src="/2015/01/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B66%5Dsorted()%E6%8E%92%E5%BA%8F%E8%AF%A6%E8%A7%A3/08b68e529822720e68546c7a79cb0a46f31fab5d.jpg" class="" title="Python教程：[66]sorted()排序详解">
+
+<ul>
+<li>除了key参数可以实现这个功能外，还可以使用cmp参数，注意看，这里不同之处是使用了x和y两个元组，他俩都是临时起的名字，你可以任意更改，我们用x表示列表里第一个元素，y表示列表里第二个元素，x[1]表示第一个元组的第二个元素，同理y[1]也是，而cmp()就是比较函数，也就是说，比较x[1]和y[1]的大小。</li>
+</ul>
+<img src="/2015/01/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B66%5Dsorted()%E6%8E%92%E5%BA%8F%E8%AF%A6%E8%A7%A3/90cebeec08fa513d7006e25e3f6d55fbb3fbd947.jpg" class="" title="Python教程：[66]sorted()排序详解">
+
+<ul>
+<li>我们还可以使用reverse参数实现倒序排列</li>
+</ul>
+<img src="/2015/01/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B66%5Dsorted()%E6%8E%92%E5%BA%8F%E8%AF%A6%E8%A7%A3/0b07ec1fbe096b639d83d0d00e338744eaf8ac5d.jpg" class="" title="Python教程：[66]sorted()排序详解">
+
+<ul>
+<li><p>如果你现在还不能理解，先记住他们的固定写法，写多了自然就懂了。</p>
+</li>
+<li><p>下一篇文章讲更加深入的一个排序方法，在写法上更见简单，请看传送门：<a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/f3ad7d0ffe8e1409c2345b48.html">http://jingyan.baidu.com/article/f3ad7d0ffe8e1409c2345b48.html</a></p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;">&#54;&#55;&#53;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/01/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B13%5D%E6%A3%80%E9%AA%8C%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F%E7%9A%84%E8%B0%83%E8%8A%82%E6%96%B9%E5%90%91/">
+                SPSS实例：[13]检验调节变量的调节方向
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>上一篇文章中我们讲了【SPSS实例：[11]如何检验调节作用】，这篇文章呢，我们要深入分析调节变量到底是如何调节自变量对因变量的作用的。我们先来看一下上一篇文章中得到的结果：在模型3中，我们可以看到红色方框中，交互项的系数是显著的，而其他系数是不显著的。</p>
+<ul>
+<li><p>我们根据上图中的模型3，可以得到一个回归方程：Y&#x3D;1.12-0.008<em>A</em>B；其中Y是因变量，A是自变量，B是调节变量。</p>
+</li>
+<li><p>因为我们在做调节效应的验证之前，首先做了数据的中心化，如果你没有做中心化，你可以看这篇文章【数据中心化的手工操作】先将数据中心化然后，再进行层次回归，最后才能对调节变量的调节方向进行探索。</p>
+</li>
+<li><p>我们使用描述性统计计算出调节变量B的标准差</p>
+</li>
+</ul>
+<img src="/2015/01/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B13%5D%E6%A3%80%E9%AA%8C%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F%E7%9A%84%E8%B0%83%E8%8A%82%E6%96%B9%E5%90%91/8c511fe93901213ffda563cf56e736d12e2e95cb.jpg" class="" title="SPSS实例：[13]检验调节变量的调节方向">
+
+<ul>
+<li>然后设B的值分别为一个正标准差或一个负标准差，得到两个方程：</li>
+</ul>
+<img src="/2015/01/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B13%5D%E6%A3%80%E9%AA%8C%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F%E7%9A%84%E8%B0%83%E8%8A%82%E6%96%B9%E5%90%91/91ae68c6a7efce1bc988e4d9ad51f3deb58f65c6.jpg" class="" title="SPSS实例：[13]检验调节变量的调节方向">
+
+<ul>
+<li>然后取B两个真实的值，从你的数据库里面挑两个，然后带入方程，求得Y值，你就可以在Excel里绘制出散点图。</li>
+</ul>
+<img src="/2015/01/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B13%5D%E6%A3%80%E9%AA%8C%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F%E7%9A%84%E8%B0%83%E8%8A%82%E6%96%B9%E5%90%91/cf5a8316fdfaaf51a45aadac8e5494eef01f7a2c.jpg" class="" title="SPSS实例：[13]检验调节变量的调节方向">
+
+<ul>
+<li>从上面的散点图中我们就可以看到，调节变量取不同的值得时候，自变量和因变量之间的斜率是不同的。这样你就可以看到，再什么情况下斜率比较大，也就是红色的那条线。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#52;&#57;&#x35;&#55;&#x38;&#55;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#x6d;">&#54;&#x37;&#x35;&#52;&#57;&#x35;&#55;&#x38;&#55;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/01/19/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B15%5D%E7%A7%BB%E5%8A%A8%E5%A4%8D%E5%88%B6%E5%88%A0%E9%99%A4%E5%88%97/">
                 pandas教程：[15]移动复制删除列
             </a>
@@ -910,303 +1056,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/01/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B9%5D%E6%B1%82%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9/">
-                python 线性代数：[9]求矩阵的秩
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年01月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>矩阵的秩，课本上是这么定义的：</p>
-<ul>
-<li>先引入numpy模块</li>
-</ul>
-<img src="/2015/01/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B9%5D%E6%B1%82%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9/834344afa40f4bfba7e0dda3014f78f0f63618d1.jpg" class="" title="python 线性代数：[9]求矩阵的秩">
-
-<ul>
-<li>创建一个单位矩阵i</li>
-</ul>
-<img src="/2015/01/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B9%5D%E6%B1%82%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9/020e66f0f736afc31b3c7c92b119ebc4b64512d1.jpg" class="" title="python 线性代数：[9]求矩阵的秩">
-
-<ul>
-<li>计算单位矩阵i的秩</li>
-</ul>
-<img src="/2015/01/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B9%5D%E6%B1%82%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9/a84052086e061d95802574cf79f40ad163d9caa3.jpg" class="" title="python 线性代数：[9]求矩阵的秩">
-
-<ul>
-<li>改变一下i右下角元素的值，设置为0</li>
-</ul>
-<img src="/2015/01/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B9%5D%E6%B1%82%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9/1cd4147b02087bf4878f141ef0d3572c10dfcfa3.jpg" class="" title="python 线性代数：[9]求矩阵的秩">
-
-<ul>
-<li>重新计算矩阵的秩，得到3</li>
-</ul>
-<img src="/2015/01/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B9%5D%E6%B1%82%E7%9F%A9%E9%98%B5%E7%9A%84%E7%A7%A9/f392492c11dfa9ec194d15e060d0f703908fc1a3.jpg" class="" title="python 线性代数：[9]求矩阵的秩">
-
-<ul>
-<li><p>以下是我们用到的所有代码：</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>import numpy</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>i&#x3D;numpy.eye(4)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>i</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1.,  0.,  0.,  0.],</p>
-</li>
-<li><pre><code>   [ 0.,  1.,  0.,  0.],
-</code></pre>
-</li>
-<li><pre><code>   [ 0.,  0.,  1.,  0.],
-</code></pre>
-</li>
-<li><pre><code>   [ 0.,  0.,  0.,  1.]])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>numpy.matrix_rank(i)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>Traceback (most recent call last):</p>
-</li>
-<li><p>File “&lt;pyshell#6&gt;”, line 1, in <module></p>
-</li>
-<li><pre><code>numpy.matrix_rank(i)
-</code></pre>
-</li>
-<li><p>AttributeError: ‘module’ object has no attribute ‘matrix_rank’</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>numpy.linalg.matrix_rank(i)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>4</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>i[-1,-1]&#x3D;0</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>i</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1.,  0.,  0.,  0.],</p>
-</li>
-<li><pre><code>   [ 0.,  1.,  0.,  0.],
-</code></pre>
-</li>
-<li><pre><code>   [ 0.,  0.,  1.,  0.],
-</code></pre>
-</li>
-<li><pre><code>   [ 0.,  0.,  0.,  0.]])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>i[1,1]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>1.0</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>numpy.linalg.matrix_rank(i)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>3</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#57;&#53;&#55;&#x38;&#55;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;">&#54;&#55;&#53;&#52;&#57;&#53;&#55;&#x38;&#55;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/">
-                Excel2013：[52]月日年格式的日期转换为年月日
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年01月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>数据在录入的时候录入的是文本格式的日期“1&#x2F;1&#x2F;09”，直接转换数据格式为日期行不通，因为它是一个字符串，Excel也不知道那是月日年，所以我们需要设置分列，还好，非常简单，大家跟我来做。</p>
-<ul>
-<li>先来看看我的原始数据，日期是文本格式的月日年</li>
-</ul>
-<img src="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/f15e24292df5e0fe252b005e5e6034a85edf727b.jpg" class="" title="Excel2013：[52]月日年格式的日期转换为年月日">
-
-<ul>
-<li>选中日期一列</li>
-</ul>
-<img src="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/507c389759ee3d6d0c01099441166d224e4ade6f.jpg" class="" title="Excel2013：[52]月日年格式的日期转换为年月日">
-
-<ul>
-<li>打开数据选项下的【分列】</li>
-</ul>
-<img src="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/54baacfb43166d2212b09bcb442309f79152d26f.jpg" class="" title="Excel2013：[52]月日年格式的日期转换为年月日">
-
-<ul>
-<li>选择【分隔符号】，点击下一步按钮</li>
-</ul>
-<img src="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/6c63514a20a44623690d2b3d9a22720e0df3d76f.jpg" class="" title="Excel2013：[52]月日年格式的日期转换为年月日">
-
-<ul>
-<li>接着，选择第一个选项，然后点击下一步</li>
-</ul>
-<img src="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/814b07d8bc3eb135e1f43ee4a41ea8d3fd1f447b.jpg" class="" title="Excel2013：[52]月日年格式的日期转换为年月日">
-
-<ul>
-<li>这是关键，我们要告诉Excel第一位是月，然后是日，然后是年，于是选择格式为“MDY”，点击完成</li>
-</ul>
-<img src="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/d8b8c92a6059252da2d0935b369b033b5ab5b96f.jpg" class="" title="Excel2013：[52]月日年格式的日期转换为年月日">
-
-<ul>
-<li>这是转换以后得到的日期</li>
-</ul>
-<img src="/2015/01/05/Excel2013%EF%BC%9A%5B52%5D%E6%9C%88%E6%97%A5%E5%B9%B4%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%97%A5%E6%9C%9F%E8%BD%AC%E6%8D%A2%E4%B8%BA%E5%B9%B4%E6%9C%88%E6%97%A5/964b2e4e251f95ca0dc61be9cb177f3e6709527b.jpg" class="" title="Excel2013：[52]月日年格式的日期转换为年月日">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#x34;&#57;&#53;&#x37;&#56;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#x36;&#x37;&#53;&#x34;&#57;&#53;&#x37;&#56;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1248,6 +1097,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/03/18/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90/">多水平验证性因子分析CFA理论和应用教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/03/16/%E6%95%88%E5%BA%A6%E9%AA%8C%E8%AF%81%E7%94%A8EFA%E8%BF%98%E6%98%AFCFA/">效度验证用EFA还是CFA</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">回聚类分析最佳实践</a>
             </li>
             
@@ -1277,14 +1134,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/10/31/heckman%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%E5%92%8C%E5%AE%9E%E4%BE%8B%E6%9C%89%E6%BC%94%E7%A4%BA/">heckman两阶段完整讲解和实例有演示</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/10/23/%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90%E6%97%B6%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E5%81%9A%E5%8F%98%E9%87%8F%E4%B8%AD%E5%BF%83%E5%8C%96/">A调节效应分析时是否需要做变量中心化</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/10/12/%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E4%B8%AD%E7%AE%80%E5%8D%95%E6%96%9C%E7%8E%87%E7%BB%98%E5%88%B6%E6%9C%80%E5%BC%BAexcel%E6%A8%A1%E6%9D%BF%E6%95%99%E7%A8%8B%E5%92%8C%E4%B8%8B%E8%BD%BD/">交互效应中简单斜率绘制最强excel模板教程和下载</a>
             </li>
             
         </ul>

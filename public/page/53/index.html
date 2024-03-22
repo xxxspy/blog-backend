@@ -252,6 +252,165 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/10/17/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B14%5D%E6%8C%89%E6%9C%88%E5%88%86%E7%BB%84/">
+                pandas教程：[14]按月分组
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>我们经常处理的数据是不规范的，尤其是包含日期的数据，通常需要做一些转换，今天我们就做一个按月分组的实例，具体过程如下：</p>
+<ul>
+<li>引入相关模块</li>
+</ul>
+<img src="/2015/10/17/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B14%5D%E6%8C%89%E6%9C%88%E5%88%86%E7%BB%84/0865b518972bd4075882b5eb78899e510fb3091b.jpg" class="" title="pandas教程：[14]按月分组">
+
+<ul>
+<li>创建一个DataFrame对象，索引为日期<br>查看一下数据的前5行</li>
+</ul>
+<img src="/2015/10/17/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B14%5D%E6%8C%89%E6%9C%88%E5%88%86%E7%BB%84/7ac880510fb30f2431df8a15cb95d143ad4b031b.jpg" class="" title="pandas教程：[14]按月分组">
+
+<img src="/2015/10/17/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B14%5D%E6%8C%89%E6%9C%88%E5%88%86%E7%BB%84/b5ce925494eef01f1b827ed3e3fe9925bd317dd6.jpg" class="" title="pandas教程：[14]按月分组">
+
+<ul>
+<li>假如索引为日期Series，按月分组很简单，用到了一个lambda函数<br>分组后的情况：</li>
+</ul>
+<img src="/2015/10/17/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B14%5D%E6%8C%89%E6%9C%88%E5%88%86%E7%BB%84/4abae5edab64034ff988a410acc379310a551d1b.jpg" class="" title="pandas教程：[14]按月分组">
+
+<img src="/2015/10/17/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B14%5D%E6%8C%89%E6%9C%88%E5%88%86%E7%BB%84/3b6833f5e0fe9925999a0f4637a85edf8cb171d6.jpg" class="" title="pandas教程：[14]按月分组">
+
+<ul>
+<li>但是有时候，索引不是日期，但是有一列数据为日期格式，因此，我们同样可以使用一个lambda函数来进行分组：<br>分组结果为：</li>
+</ul>
+<img src="/2015/10/17/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B14%5D%E6%8C%89%E6%9C%88%E5%88%86%E7%BB%84/b258f5c4b74543a9085e9cda1d178a82b901141b.jpg" class="" title="pandas教程：[14]按月分组">
+
+<img src="/2015/10/17/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B14%5D%E6%8C%89%E6%9C%88%E5%88%86%E7%BB%84/8367d1fc1e178a82377919b6f503738da977e824.jpg" class="" title="pandas教程：[14]按月分组">
+
+<ul>
+<li>但实际上，我们还可以将日期数据列设置为索引就可以使用上一种方法啦：<br>输出结果：</li>
+</ul>
+<img src="/2015/10/17/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B14%5D%E6%8C%89%E6%9C%88%E5%88%86%E7%BB%84/b8405490f603738d3b0f6a34b01bb051f819ec24.jpg" class="" title="pandas教程：[14]按月分组">
+
+<img src="/2015/10/17/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B14%5D%E6%8C%89%E6%9C%88%E5%88%86%E7%BB%84/0862c354564e9258e1a2e0f89f82d158cdbf4ed6.jpg" class="" title="pandas教程：[14]按月分组">
+
+<ul>
+<li>假如，我们的日期数据是以字符串的形式存储的，也不必着急，我们可以轻松的将其转换为Date<br>数据结果为：</li>
+</ul>
+<img src="/2015/10/17/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B14%5D%E6%8C%89%E6%9C%88%E5%88%86%E7%BB%84/d048adde9c82d158f8143fa7830a19d8bd3e42d6.jpg" class="" title="pandas教程：[14]按月分组">
+
+<img src="/2015/10/17/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B14%5D%E6%8C%89%E6%9C%88%E5%88%86%E7%BB%84/9dc3cf58ccbf6c81b6a14afebf3eb13532fa40d6.jpg" class="" title="pandas教程：[14]按月分组">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#x39;&#53;&#55;&#x38;&#55;&#64;&#x71;&#113;&#46;&#99;&#x6f;&#109;">&#54;&#55;&#53;&#52;&#x39;&#53;&#55;&#x38;&#55;&#64;&#x71;&#113;&#46;&#99;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/10/15/SVN%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5DSAE%E4%B8%8A%E9%83%A8%E7%BD%B2django/">
+                SVN教程：[4]SAE上部署django
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>这篇文章写的不是很详细，所以我又补充了一个详细版教程，你可以相互结合着看：<a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/7082dc1c569f18e40a89bd21.html">http://jingyan.baidu.com/article/7082dc1c569f18e40a89bd21.html</a></p>
+<ul>
+<li>我们先来创建一个文件夹deltatest（这是我在sae上创建的应用名称），如图所示，用于存放我们的django创建的站点</li>
+</ul>
+<img src="/2015/10/15/SVN%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5DSAE%E4%B8%8A%E9%83%A8%E7%BD%B2django/cc506c8b4710b9124dbfe0bbc1fdfc039245223d.jpg" class="" title="SVN教程：[4]SAE上部署django">
+
+<ul>
+<li>在deltatest文件夹上面右键单击，然后选择SVN检出，建立与SAE的链接</li>
+</ul>
+<img src="/2015/10/15/SVN%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5DSAE%E4%B8%8A%E9%83%A8%E7%BD%B2django/b13fd48065380cd7b755b4a8a344ad34588281e8.jpg" class="" title="SVN教程：[4]SAE上部署django">
+
+<ul>
+<li>这里大家都应该知道怎么设置，不会的看我上一篇文章【SVN教程[3]SEA代码部署】，点击确定</li>
+</ul>
+<img src="/2015/10/15/SVN%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5DSAE%E4%B8%8A%E9%83%A8%E7%BD%B2django/263e802f07082838c90dca51ba99a9014c08f130.jpg" class="" title="SVN教程：[4]SAE上部署django">
+
+<ul>
+<li>我们使用django在deltatest文件夹下面创建一个站点，用了下面两个命令。如果你不会，可以参考这篇经验：Django教程：[2]创建一个站点</li>
+</ul>
+<img src="/2015/10/15/SVN%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5DSAE%E4%B8%8A%E9%83%A8%E7%BD%B2django/90cebeec08fa513dc8ec7a9b3f6d55fbb3fbd9f6.jpg" class="" title="SVN教程：[4]SAE上部署django">
+
+<ul>
+<li>这样就在deltatest文件夹下面多了一个文件夹deltatest，将这个文件夹重命名为1</li>
+</ul>
+<img src="/2015/10/15/SVN%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5DSAE%E4%B8%8A%E9%83%A8%E7%BD%B2django/61183b2dd42a283424ed204e59b5c9ea14cebfe8.jpg" class="" title="SVN教程：[4]SAE上部署django">
+
+<img src="/2015/10/15/SVN%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5DSAE%E4%B8%8A%E9%83%A8%E7%BD%B2django/346bd85c10385343e48491649113b07ecb8088e8.jpg" class="" title="SVN教程：[4]SAE上部署django">
+
+<ul>
+<li>我们右键单击文件夹，然后选择提交</li>
+</ul>
+<img src="/2015/10/15/SVN%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5DSAE%E4%B8%8A%E9%83%A8%E7%BD%B2django/8474fbdde71190ef31b0849acc1b9d16fcfa60e8.jpg" class="" title="SVN教程：[4]SAE上部署django">
+
+<ul>
+<li>打开浏览器，输入你的应用的域名，这个在你申请应用的时候设置的，你会看到django的欢迎界面，这说明django部署成功，还是不会的请在下面留言。</li>
+</ul>
+<img src="/2015/10/15/SVN%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5DSAE%E4%B8%8A%E9%83%A8%E7%BD%B2django/c87c6ecf3bc79f3d86aaf275b8a1cd11738b29e8.jpg" class="" title="SVN教程：[4]SAE上部署django">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#57;&#53;&#55;&#56;&#55;&#64;&#x71;&#x71;&#46;&#99;&#x6f;&#x6d;">&#x36;&#55;&#53;&#x34;&#57;&#53;&#55;&#56;&#55;&#64;&#x71;&#x71;&#46;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/django/">#django</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/10/11/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B18%5Dall()%E5%92%8Cany()%E6%AF%94%E8%BE%83%E7%9F%A9%E9%98%B5/">
                 numpy函数：[18]all()和any()比较矩阵
             </a>
@@ -1279,451 +1438,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/">
-                Excel2013：[2]从单元格批量创建文件夹
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年10月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>今天要给每个一学生整理一个文件夹，存放他们的资料，我看了看Excel里的名单，好家伙，100多个名单，要创建100多个文件夹，累挺。我只能用程序来创建了，其实Excel可以帮助我们干很多事情，现在就让你知道，它还能写程序。当然你不懂代码也能做啦，不信就看看。</p>
-<ul>
-<li>假如，我们要给每个一名字创建一个文件夹</li>
-</ul>
-<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/83cab81ea8d3fd1f6383e629324e251f94ca5fdf.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
-
-<ul>
-<li>在B1输入公式&#x3D;”MD “ &amp; A1  ，注意这个公式中，MD后面还有一个额空格，公式的意思就是在名字前面增加了一个MD和空格</li>
-</ul>
-<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/faacb564034f78f092e4dee07b310a55b2191cf2.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
-
-<ul>
-<li>向下拖拽，快速填充所有的行</li>
-</ul>
-<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/c856613e6709c93d5d784ae49d3df8dcd00054df.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
-
-<ul>
-<li>我们会看到生成这么一列，我们需要将其复制下来</li>
-</ul>
-<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/4bd1e803738da9774fc0c238b251f8198718e3f3.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
-
-<ul>
-<li>粘贴到文本文件里，然后保存为bat文件</li>
-</ul>
-<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/310f3b1f95cad1c88f62b8347d3e6709c83d518c.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
-
-<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/6648d73d70cf3bc7b0d989ffd300baa1cc112a8c.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
-
-<ul>
-<li>我们看到这个文件就在这里呢，双击打开运行</li>
-</ul>
-<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/e78c65899e510fb35b243084db33c895d1430ca0.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
-
-<ul>
-<li>批量创建的文件夹就在这里喽。</li>
-</ul>
-<img src="/2015/10/03/Excel2013%EF%BC%9A%5B2%5D%E4%BB%8E%E5%8D%95%E5%85%83%E6%A0%BC%E6%89%B9%E9%87%8F%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9/43e6c733c895d143f44ba33071f082025aaf07a0.jpg" class="" title="Excel2013：[2]从单元格批量创建文件夹">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#52;&#57;&#53;&#x37;&#x38;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#54;&#55;&#x35;&#52;&#57;&#53;&#x37;&#x38;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/10/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B11%5D%E5%88%A4%E6%96%AD%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5/">
-                python 线性代数：[11]判断正定矩阵
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年10月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>正定矩阵的定义是：设M是n阶方阵，如果对任何非零向量z，都有 z’Mz &gt; 0，其中z’ 表示z的转置，就称M正定矩阵。这个定义你先搞懂，不懂的看课本去，我这里就直接用python来检验某个方阵是不是正定矩阵（用二维数组表示矩阵）。</p>
-<ul>
-<li><p>我们用到的一个重要性质是：判定定理1：对称阵A为正定的充分必要条件是：A的特征值全为正。所以我们只要求得对称阵A的所有特征值即可。</p>
-</li>
-<li><p>引入numpy模块</p>
-</li>
-</ul>
-<img src="/2015/10/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B11%5D%E5%88%A4%E6%96%AD%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5/d7c9ca3f8794a4c2561254dc0cf41bd5ac6e39d0.jpg" class="" title="python 线性代数：[11]判断正定矩阵">
-
-<ul>
-<li>创建一个方阵A</li>
-</ul>
-<img src="/2015/10/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B11%5D%E5%88%A4%E6%96%AD%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5/b5ce925494eef01fcac0a832e2fe9925bd317d36.jpg" class="" title="python 线性代数：[11]判断正定矩阵">
-
-<img src="/2015/10/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B11%5D%E5%88%A4%E6%96%AD%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5/1a94b36eddc451dab3c7bf1cb4fd5266d11632d0.jpg" class="" title="python 线性代数：[11]判断正定矩阵">
-
-<ul>
-<li>将方阵转换成对称阵的方法是：</li>
-</ul>
-<img src="/2015/10/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B11%5D%E5%88%A4%E6%96%AD%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5/fab3ac119313b07e75a3e2ff0ed7912396dd8ce8.jpg" class="" title="python 线性代数：[11]判断正定矩阵">
-
-<ul>
-<li>求对称阵A的特征值</li>
-</ul>
-<img src="/2015/10/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B11%5D%E5%88%A4%E6%96%AD%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5/00a82701213fb80eac8fd32034d12f2eb83894a8.jpg" class="" title="python 线性代数：[11]判断正定矩阵">
-
-<ul>
-<li>判断是不是所有的特征值都大于0，用到了all函数，显然对称阵A不是正定的</li>
-</ul>
-<img src="/2015/10/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B11%5D%E5%88%A4%E6%96%AD%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5/389aa8fd5266d0163e282ddf952bd40734fa35d0.jpg" class="" title="python 线性代数：[11]判断正定矩阵">
-
-<ul>
-<li>我们来创建一个单位矩阵，它肯定是对称的，同样的方法检验是不是正定矩阵</li>
-</ul>
-<img src="/2015/10/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B11%5D%E5%88%A4%E6%96%AD%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5/9dc3cf58ccbf6c8185e09c1fbe3eb13532fa4036.jpg" class="" title="python 线性代数：[11]判断正定矩阵">
-
-<ul>
-<li>网上查到更简便的方法是对对称阵进行cholesky分解，如果像这样没有提示出错，就说明它是正定的</li>
-</ul>
-<img src="/2015/10/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B11%5D%E5%88%A4%E6%96%AD%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5/aa59892bd40735fadac1fd4e9c510fb30e2408d0.jpg" class="" title="python 线性代数：[11]判断正定矩阵">
-
-<ul>
-<li>如果提示出错，就说明它不是正定矩阵，你可以使用try函数捕获错误值</li>
-</ul>
-<img src="/2015/10/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B11%5D%E5%88%A4%E6%96%AD%E6%AD%A3%E5%AE%9A%E7%9F%A9%E9%98%B5/a992e31f4134970a20a4a0d897cad1c8a6865d36.jpg" class="" title="python 线性代数：[11]判断正定矩阵">
-
-<ul>
-<li><p>以下是今天用到的部分代码：</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>import numpy</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A&#x3D;range(16)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A&#x3D;numpy.array(A).reshape(4,4)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 0,  1,  2,  3],</p>
-</li>
-<li><pre><code>   [ 4,  5,  6,  7],
-</code></pre>
-</li>
-<li><pre><code>   [ 8,  9, 10, 11],
-</code></pre>
-</li>
-<li><pre><code>   [12, 13, 14, 15]])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A&#x3D;A+A.T</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 0,  5, 10, 15],</p>
-</li>
-<li><pre><code>   [ 5, 10, 15, 20],
-</code></pre>
-</li>
-<li><pre><code>   [10, 15, 20, 25],
-</code></pre>
-</li>
-<li><pre><code>   [15, 20, 25, 30]])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>B&#x3D;numpy.linalg.eigvals(A)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>B</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([  6.74165739e+01 +0.00000000e+00j,</p>
-</li>
-<li><pre><code>    -7.41657387e+00 +0.00000000e+00j,
-</code></pre>
-</li>
-<li><pre><code>    -8.88285420e-17 +1.82759332e-15j,  -8.88285420e-17 -1.82759332e-15j])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>if numpy.all(B&gt;0):print ‘是正定矩阵’</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>C&#x3D;numpy.linalg.cholesky(A)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>Traceback (most recent call last):</p>
-</li>
-<li><p>File “&lt;pyshell#41&gt;”, line 1, in <module></p>
-</li>
-<li><pre><code>C=numpy.linalg.cholesky(A)
-</code></pre>
-</li>
-<li><p>File “D:Python27libsite-packages<br>umpy-1.8.0-py2.7-win-amd64.egg<br>umpylinalglinalg.py”, line 603, in cholesky</p>
-</li>
-<li><pre><code>return wrap(gufunc(a, signature=signature, extobj=extobj).astype(result_t))
-</code></pre>
-</li>
-<li><p>File “D:Python27libsite-packages<br>umpy-1.8.0-py2.7-win-amd64.egg<br>umpylinalglinalg.py”, line 93, in _raise_linalgerror_nonposdef</p>
-</li>
-<li><pre><code>raise LinAlgError(&quot;Matrix is not positive definite&quot;)
-</code></pre>
-</li>
-<li><p>LinAlgError: Matrix is not positive definite</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A&#x3D;numpy.eye(4)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>A</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1.,  0.,  0.,  0.],</p>
-</li>
-<li><pre><code>   [ 0.,  1.,  0.,  0.],
-</code></pre>
-</li>
-<li><pre><code>   [ 0.,  0.,  1.,  0.],
-</code></pre>
-</li>
-<li><pre><code>   [ 0.,  0.,  0.,  1.]])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>B&#x3D;numpy.linalg.eigvals(A)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>B</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([ 1.,  1.,  1.,  1.])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>if numpy.all(B&gt;0):print ‘是正定矩阵’</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>是正定矩阵</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>C&#x3D;numpy.linalg.cholesky(A)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>C</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1.,  0.,  0.,  0.],</p>
-</li>
-<li><pre><code>   [ 0.,  1.,  0.,  0.],
-</code></pre>
-</li>
-<li><pre><code>   [ 0.,  0.,  1.,  0.],
-</code></pre>
-</li>
-<li><pre><code>   [ 0.,  0.,  0.,  1.]])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#x34;&#57;&#x35;&#x37;&#x38;&#x37;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#109;">&#54;&#x37;&#x35;&#x34;&#57;&#x35;&#x37;&#x38;&#x37;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1765,6 +1479,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/03/18/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90/">多水平验证性因子分析CFA理论和应用教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/03/16/%E6%95%88%E5%BA%A6%E9%AA%8C%E8%AF%81%E7%94%A8EFA%E8%BF%98%E6%98%AFCFA/">效度验证用EFA还是CFA</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">回聚类分析最佳实践</a>
             </li>
             
@@ -1794,14 +1516,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/10/31/heckman%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%E5%92%8C%E5%AE%9E%E4%BE%8B%E6%9C%89%E6%BC%94%E7%A4%BA/">heckman两阶段完整讲解和实例有演示</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/10/23/%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90%E6%97%B6%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E5%81%9A%E5%8F%98%E9%87%8F%E4%B8%AD%E5%BF%83%E5%8C%96/">A调节效应分析时是否需要做变量中心化</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/10/12/%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E4%B8%AD%E7%AE%80%E5%8D%95%E6%96%9C%E7%8E%87%E7%BB%98%E5%88%B6%E6%9C%80%E5%BC%BAexcel%E6%A8%A1%E6%9D%BF%E6%95%99%E7%A8%8B%E5%92%8C%E4%B8%8B%E8%BD%BD/">交互效应中简单斜率绘制最强excel模板教程和下载</a>
             </li>
             
         </ul>

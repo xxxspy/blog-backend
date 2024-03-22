@@ -252,6 +252,176 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/06/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B20%5Durlsplit%E5%92%8Curlparse%E7%9A%84%E5%8C%BA%E5%88%AB/">
+                Python教程：[20]urlsplit和urlparse的区别
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年06月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>urlsplit和urlparse非常相像，用法基本一致，但是他们有略微的不同，split函数在分割的时候，path和params属性是在一起的，我们看下面的例子。</p>
+<ul>
+<li>先用urlparse函数来分割url</li>
+</ul>
+<img src="/2016/06/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B20%5Durlsplit%E5%92%8Curlparse%E7%9A%84%E5%8C%BA%E5%88%AB/55a628d12f2eb938980b2fdfd7628535e5dd6f7d.jpg" class="" title="Python教程：[20]urlsplit和urlparse的区别">
+
+<img src="/2016/06/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B20%5Durlsplit%E5%92%8Curlparse%E7%9A%84%E5%8C%BA%E5%88%AB/d4239b35e5dde71199b416dba5efce1b9d16617d.jpg" class="" title="Python教程：[20]urlsplit和urlparse的区别">
+
+<ul>
+<li>将结果打印出来</li>
+</ul>
+<img src="/2016/06/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B20%5Durlsplit%E5%92%8Curlparse%E7%9A%84%E5%8C%BA%E5%88%AB/cf5a8316fdfaaf51e385d4928e5494eef01f7a7d.jpg" class="" title="Python教程：[20]urlsplit和urlparse的区别">
+
+<ul>
+<li>我们看到输出的结果，有params这一项</li>
+</ul>
+<img src="/2016/06/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B20%5Durlsplit%E5%92%8Curlparse%E7%9A%84%E5%8C%BA%E5%88%AB/ae10eddeb48f8c5487b5900238292df5e0fe7f7d.jpg" class="" title="Python教程：[20]urlsplit和urlparse的区别">
+
+<ul>
+<li>接着使用urlsplit函数，可选参数不能输出，所以只能再前面加了以井号</li>
+</ul>
+<img src="/2016/06/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B20%5Durlsplit%E5%92%8Curlparse%E7%9A%84%E5%8C%BA%E5%88%AB/a75fb6d3fd1f4134a32e5053271f95cad1c85e46.jpg" class="" title="Python教程：[20]urlsplit和urlparse的区别">
+
+<ul>
+<li><p>我们比较一下两个结果</p>
+</li>
+<li><p>urlparse函数</p>
+</li>
+<li><p>urlsplit函数</p>
+</li>
+</ul>
+<img src="/2016/06/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B20%5Durlsplit%E5%92%8Curlparse%E7%9A%84%E5%8C%BA%E5%88%AB/310f3b1f95cad1c89ea2a90a7d3e6709c93d5146.jpg" class="" title="Python教程：[20]urlsplit和urlparse的区别">
+
+<img src="/2016/06/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B20%5Durlsplit%E5%92%8Curlparse%E7%9A%84%E5%8C%BA%E5%88%AB/7e7f7909c93d70cf04e3ff20fadcd100baa12b46.jpg" class="" title="Python教程：[20]urlsplit和urlparse的区别">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#57;&#53;&#x37;&#x38;&#x37;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#109;">&#54;&#55;&#53;&#x34;&#57;&#53;&#x37;&#x38;&#x37;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/">
+                网页数据采集：[3]python如何利用抓包数据
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年06月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>上次我们教大家如何使用httpwatch来进行抓包，其实这不重要，重要的是如何使用获得的数据包，你能读懂数据包吗？好吧，我们今天就是用python来示范一下如何使用数据包。</p>
+<ul>
+<li>先来设置两个url地址，第一个用于第一次访问，这样可以获得网站服务器发来的cookie，第二个网址是用于登陆的地址</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/fcbbb151f3deb48fd18981f0f21f3a292cf578f8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>引入两个模块，cookielib和urllib2</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/8d158aeef01f3a294c28f5e09b25bc315d607cf8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>接着，我们安装一个cookie处理器，代码如下，这个代码很多人不太能读懂，其实你会用就可以了，他们就是这个固定的形式，顶多改改变量的名字。你复制下来以后自己用就可以了，用多了，你再去看代码的意义，你就都懂了。</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/58c3acb7d0a20cf40d6edef174094b36adaf99e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>然后我们先访问一下网站，获得一个cookie，你不用管这个cookie该怎么弄，前面设置的cookie处理器会自动处理。</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/9864a2315c6034a8390298afc9134954082376f8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>接着，我们写一下postdata，也就是你要post的数据，因为我们打算登陆网站，所以postdata里肯定有用户名和密码，那么怎么知道该怎么写postdata呢？看你抓包得到的post数据。下面第一幅图是httpwatch抓包截图，点击postdata，看到post的数据，然后我们看第二幅图，就是python的写法。你自己感受一下。</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/d041a4a1cd11728bd7faaf0ccafcc3cec2fd2c8d.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/35e940df8db1cb1323891c3ddf54564e93584bf8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>写完postdata以后，我们 要将postdata转码一下，让服务器可以解读postdata数据</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/2f9cbdcc7cd98d10442a2c1f233fb80e7aec90e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>接着设置headers信息，headers也是抓包得到的。同样的方式，你去写header内的信息</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/0b907cd9f2d3572ce14cbef28813632762d0c337.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/7d98931001e9390166fcad1079ec54e737d196e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>然后我们通过request方法来登陆网站，并返回数据，返回的数据存储在request中</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/00a82701213fb80e322f41f934d12f2eb83894e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>通过rulopen方法和read方法来读取数据，并打印出来。</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/32bb9c8ba61ea8d380c2542a950a304e241f58f8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>我们看到输出的结果，这说明我们虽然正确的模拟了登陆网站需要的post信息，但是没有考虑到登陆网站是需要验证码的，后期我们会看到如何处理验证码，如果你拿这个教程去处理没有验证码的登陆问题，那么你现在已经成功了。</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/4e83cb628535e5ddb4d285f174c6a7efcf1b62e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#52;&#x39;&#x35;&#55;&#x38;&#55;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#x36;&#x37;&#53;&#52;&#x39;&#x35;&#55;&#x38;&#55;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/06/19/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B31%5D%E7%AE%B1%E5%BD%A2%E5%9B%BE/">
                 pandas教程：[31]箱形图
             </a>
@@ -894,178 +1064,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/06/01/DataNitro%EF%BC%9A%5B7%5Dsheet%E6%93%8D%E4%BD%9C(B)/">
-                DataNitro：[7]sheet操作(B)
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年06月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>接着上一篇的sheet操作（A篇），下面讲不那么性感的B篇。</p>
-<ul>
-<li>clear_sheet：清空工作表，可以清空当前工作簿，也可以指定其他工作表</li>
-</ul>
-<img src="/2016/06/01/DataNitro%EF%BC%9A%5B7%5Dsheet%E6%93%8D%E4%BD%9C(B)/9304c888d43f8794a4eed27dd11b0ef41bd53a14.jpg" class="" title="DataNitro：[7]sheet操作(B)">
-
-<ul>
-<li>all_sheets：可以返回所有非隐藏sheet，也可以返回包含隐藏的sheet</li>
-</ul>
-<img src="/2016/06/01/DataNitro%EF%BC%9A%5B7%5Dsheet%E6%93%8D%E4%BD%9C(B)/a992e31f4134970ad5088a7c96cad1c8a7865d2f.jpg" class="" title="DataNitro：[7]sheet操作(B)">
-
-<ul>
-<li>new_sheet：新建一个sheet，可以指定新建sheet的名称，也可以不指定，你是自由的</li>
-</ul>
-<img src="/2016/06/01/DataNitro%EF%BC%9A%5B7%5Dsheet%E6%93%8D%E4%BD%9C(B)/d35a10f41bd5ad6edbe8feb982cb39dbb6fd3c14.jpg" class="" title="DataNitro：[7]sheet操作(B)">
-
-<ul>
-<li>remove_sheet：删除sheet，可以删除当前活动sheet也可以选择其他sheet</li>
-</ul>
-<img src="/2016/06/01/DataNitro%EF%BC%9A%5B7%5Dsheet%E6%93%8D%E4%BD%9C(B)/948bcfc8a786c9179478c86aca3d70cf3bc7572f.jpg" class="" title="DataNitro：[7]sheet操作(B)">
-
-<ul>
-<li>hide_sheet&#x2F;is_hidden:用法基本也是一样的，你畜类旁通一下</li>
-</ul>
-<img src="/2016/06/01/DataNitro%EF%BC%9A%5B7%5Dsheet%E6%93%8D%E4%BD%9C(B)/7e7f7909c93d70cfd481305efbdcd100baa12b2f.jpg" class="" title="DataNitro：[7]sheet操作(B)">
-
-<ul>
-<li>recalc_sheet：重新计算sheet，适用于工作表中有公式，需要更新的。</li>
-</ul>
-<img src="/2016/06/01/DataNitro%EF%BC%9A%5B7%5Dsheet%E6%93%8D%E4%BD%9C(B)/509b9fcb39dbb6fd594a7f750a24ab18972b3714.jpg" class="" title="DataNitro：[7]sheet操作(B)">
-
-<ul>
-<li>rename_sheet:重命名，第一个参数表示被重命名的sheet，第二个参数表示新名称</li>
-</ul>
-<img src="/2016/06/01/DataNitro%EF%BC%9A%5B7%5Dsheet%E6%93%8D%E4%BD%9C(B)/389aa8fd5266d0160408047b942bd40735fa3514.jpg" class="" title="DataNitro：[7]sheet操作(B)">
-
-<ul>
-<li>all_cells：返回所有非空单元格（CellRange）对象，你可以通过遍历的方式对这些单元格进行操作</li>
-</ul>
-<img src="/2016/06/01/DataNitro%EF%BC%9A%5B7%5Dsheet%E6%93%8D%E4%BD%9C(B)/aa59892bd40735faf4e1d4ea9d510fb30f240814.jpg" class="" title="DataNitro：[7]sheet操作(B)">
-
-<ul>
-<li>merge_cells&#x2F;unmerge_cells：合并和拆分单元格。</li>
-</ul>
-<img src="/2016/06/01/DataNitro%EF%BC%9A%5B7%5Dsheet%E6%93%8D%E4%BD%9C(B)/4651a712c8fcc3ce39bb53609145d688d43f202f.jpg" class="" title="DataNitro：[7]sheet操作(B)">
-
-<ul>
-<li>get_merged_range:返回合并单元格的范围</li>
-</ul>
-<img src="/2016/06/01/DataNitro%EF%BC%9A%5B7%5Dsheet%E6%93%8D%E4%BD%9C(B)/43e6c733c895d143b6677e7070f082025aaf0714.jpg" class="" title="DataNitro：[7]sheet操作(B)">
-
-<ul>
-<li>last_cell_in_col&#x2F;last_cell_in_row：返回某个列或者行中最后一个非空单元格，这个方法非常有用，经常用来判断一个sheet中的数据有多少行和多少列</li>
-</ul>
-<img src="/2016/06/01/DataNitro%EF%BC%9A%5B7%5Dsheet%E6%93%8D%E4%BD%9C(B)/9304c888d43f8794a485d27dd11b0ef41bd53a2f.jpg" class="" title="DataNitro：[7]sheet操作(B)">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#x34;&#57;&#x35;&#55;&#56;&#55;&#x40;&#113;&#113;&#46;&#99;&#x6f;&#109;">&#x36;&#x37;&#53;&#x34;&#57;&#x35;&#55;&#56;&#55;&#x40;&#113;&#113;&#46;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/datanitro/">#datanitro</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/">
-                amos21.0教程：[5]结构方程图中的符号意义
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年06月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>结构方程模型中使用很多符号，要想看懂模型必须知道这些符号代表的意义，所以我在这里总结一下在结构方程模型中出现的符号到底是什么意义。以后你看到不懂得符号都可以来这里查询，不懂得还可以在下面提问。</p>
-<ul>
-<li>ξ（可习）和η（伊塔）都是潜变量的符号，前者是外因潜变量，是事物发生的原因；后者是内因潜变量是事物发生的结果。</li>
-</ul>
-<img src="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/6a22e8246b600c3361b2af431b4c510fd8f9a137.jpg" class="" title="amos21.0教程：[5]结构方程图中的符号意义">
-
-<ul>
-<li>X和Y：前者是外因潜变量的观察变量或者指标变量，后者是内因潜变量的观察变量或者指标变量。</li>
-</ul>
-<img src="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/7d98931001e939013929fdb57aec54e737d196d6.jpg" class="" title="amos21.0教程：[5]结构方程图中的符号意义">
-
-<ul>
-<li>δ和ε：前者是X的测量误差，后者是Y的测量误差。</li>
-</ul>
-<img src="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/4e83cb628535e5ddc307d55477c6a7efcf1b62d6.jpg" class="" title="amos21.0教程：[5]结构方程图中的符号意义">
-
-<ul>
-<li>ζ（zeta）内因潜变量的误差。</li>
-</ul>
-<img src="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/e8112b2ac65c1038adb5bf49b3119313b17e8937.jpg" class="" title="amos21.0教程：[5]结构方程图中的符号意义">
-
-<ul>
-<li>β（beta）和γ（gamma）：前者是内因潜变量间的关联系数；后者是内因潜变量与外因潜变量之间的关联系数。</li>
-</ul>
-<img src="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/fab3ac119313b07ec97721830dd7912396dd8c37.jpg" class="" title="amos21.0教程：[5]结构方程图中的符号意义">
-
-<ul>
-<li>Φ（phi）和Ψ（psi）：前者是外因潜变量的变异协方差矩阵；后者是内因潜变量残差项的变异协方差矩阵。</li>
-</ul>
-<img src="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/cbc17b380cd79123902ae5ffac345982b3b78037.jpg" class="" title="amos21.0教程：[5]结构方程图中的符号意义">
-
-<ul>
-<li>λ（lambda）：可以表示X与外因潜变量之间的系数矩阵，也可以表示Y与内因潜变量之间的系数矩阵。</li>
-</ul>
-<img src="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/58c3acb7d0a20cf43f5a8f5477094b36adaf9937.jpg" class="" title="amos21.0教程：[5]结构方程图中的符号意义">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#x71;&#113;&#46;&#99;&#111;&#109;">&#54;&#x37;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#x71;&#113;&#46;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/amos/">#amos</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1107,6 +1105,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/03/18/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90/">多水平验证性因子分析CFA理论和应用教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/03/16/%E6%95%88%E5%BA%A6%E9%AA%8C%E8%AF%81%E7%94%A8EFA%E8%BF%98%E6%98%AFCFA/">效度验证用EFA还是CFA</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">回聚类分析最佳实践</a>
             </li>
             
@@ -1136,14 +1142,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/10/31/heckman%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%E5%92%8C%E5%AE%9E%E4%BE%8B%E6%9C%89%E6%BC%94%E7%A4%BA/">heckman两阶段完整讲解和实例有演示</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/10/23/%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%88%86%E6%9E%90%E6%97%B6%E6%98%AF%E5%90%A6%E9%9C%80%E8%A6%81%E5%81%9A%E5%8F%98%E9%87%8F%E4%B8%AD%E5%BF%83%E5%8C%96/">A调节效应分析时是否需要做变量中心化</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/10/12/%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E4%B8%AD%E7%AE%80%E5%8D%95%E6%96%9C%E7%8E%87%E7%BB%98%E5%88%B6%E6%9C%80%E5%BC%BAexcel%E6%A8%A1%E6%9D%BF%E6%95%99%E7%A8%8B%E5%92%8C%E4%B8%8B%E8%BD%BD/">交互效应中简单斜率绘制最强excel模板教程和下载</a>
             </li>
             
         </ul>
