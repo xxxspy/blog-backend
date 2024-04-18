@@ -252,6 +252,78 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/04/05/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DgetValuesFromXml/">
+                SPSS python教程：[9]getValuesFromXml
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年04月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>前两篇文章介绍了如何获取透视表中的平均数，现在更深入的探讨一下其中用到的spssaux.GetValuesFromXMLWorkspace方法。在这篇文章中【<a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/c275f6bac03a22e33c75674c.html%E3%80%91%EF%BC%8C%E5%8F%AF%E4%BB%A5%E7%9C%8B%E5%88%B0%E6%88%91%E4%BD%BF%E7%94%A8%E8%AF%A5%E6%96%B9%E6%B3%95%E3%80%82%E7%8E%B0%E5%9C%A8%E6%88%91%E4%BB%AC%E5%85%B7%E4%BD%93%E6%8E%A2%E8%AE%A8%E4%B8%80%E4%B8%8B%EF%BC%9A">http://jingyan.baidu.com/article/c275f6bac03a22e33c75674c.html】，可以看到我使用该方法。现在我们具体探讨一下：</a></p>
+<ul>
+<li>先看一个数据透视表，想办法获取IAI的平均数</li>
+</ul>
+<img src="/2016/04/05/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DgetValuesFromXml/9304c888d43f8794096a7eafd01b0ef41ad53a5e.jpg" class="" title="SPSS python教程：[9]getValuesFromXml">
+
+<ul>
+<li>我们使用spssaux.GetValuesFromXMLWorkspace，如下图那样写一段代码就能得到IAI的平均数。其中用到了很多参数，下面我们分析一下这些参数都是什么：</li>
+</ul>
+<img src="/2016/04/05/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DgetValuesFromXml/99636c0e0cf3d7ca66ea0ef7f01fbe096a63a9d7.jpg" class="" title="SPSS python教程：[9]getValuesFromXml">
+
+<ul>
+<li><p>首先是handle参数，它是结果项目的句柄，也就是上面的透视表的句柄。你要从中获取数据。而你怎么知道它的句柄的？是在创建该透视表的时候得到的，具体请看上篇文章【<a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/cb5d6105088fe2005d2fe04d.html%E3%80%91">http://jingyan.baidu.com/article/cb5d6105088fe2005d2fe04d.html】</a></p>
+</li>
+<li><p>其次是tablesubtype参数，我们可以在这里看到透视表的subtype</p>
+</li>
+</ul>
+<img src="/2016/04/05/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DgetValuesFromXml/cc506c8b4710b9126b11c67fc1fdfc039345221b.jpg" class="" title="SPSS python教程：[9]getValuesFromXml">
+
+<ul>
+<li>rowcategory参数：行类别，它标识出行坐标，rowcategory&#x3D;”IAI”就表示成下图</li>
+</ul>
+<img src="/2016/04/05/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DgetValuesFromXml/9e7ce6dcd100baa15390743a4510b912c9fc2eb7.jpg" class="" title="SPSS python教程：[9]getValuesFromXml">
+
+<ul>
+<li>columncategory参数：列类别，标志出列坐标，colCategory&#x3D;’Mean’可以表示为下图</li>
+</ul>
+<img src="/2016/04/05/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DgetValuesFromXml/bf487563f6246b602ece81f5e9f81a4c500fa22b.jpg" class="" title="SPSS python教程：[9]getValuesFromXml">
+
+<ul>
+<li>cellAttrib单元格属性：任何一个单元格都有text和number两个属性，我们想要获得text的值就用cellAttrib&#x3D;’text’</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#x34;&#57;&#53;&#x37;&#56;&#x37;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#x6d;">&#54;&#x37;&#53;&#x34;&#57;&#53;&#x37;&#56;&#x37;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a> <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/04/05/SPSS%E8%87%AA%E5%8A%A8%E5%8C%96%EF%BC%9A%5B1%5D%E5%BA%94%E7%94%A8%E5%AF%B9%E8%B1%A1%E7%9A%84%E5%B1%9E%E6%80%A7%E5%8F%8A%E5%85%B6%E7%94%A8%E6%B3%95/">
                 SPSS自动化：[1]应用对象的属性及其用法
             </a>
@@ -1037,77 +1109,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/03/17/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E6%A3%80%E9%AA%8C/">
-                spss协方差分析中如何进行交互作用的检验
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年03月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>协方差分析前必须进行交互作用的检验，为的是满足协方差分析的平行性假设，存在交互作用就无法进行协方差分析了。下面是具体的过程：<br>工具&#x2F;原料</p>
-<ul>
-<li><p>spss20.0<br>方法&#x2F;步骤</p>
-</li>
-<li><p>打开数据，在菜单栏上点击analyse–GML–univariate，打开协方差的对话框</p>
-</li>
-</ul>
-<img src="/2016/03/17/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E6%A3%80%E9%AA%8C/d31b0ef41bd5ad6e9d14c72981cb39dbb7fd3c07.jpg" class="" title="spss协方差分析中如何进行交互作用的检验">
-
-<ul>
-<li>在打开的这个对话框中，我们要将因变量、固定因素、斜变量放入各自的框中，点击model按钮，设置模型</li>
-</ul>
-<img src="/2016/03/17/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E6%A3%80%E9%AA%8C/e824b899a9014c08e9518a660a7b02087af4f48f.jpg" class="" title="spss协方差分析中如何进行交互作用的检验">
-
-<img src="/2016/03/17/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E6%A3%80%E9%AA%8C/d439b6003af33a872fcea2d9c65c10385243b556.jpg" class="" title="spss协方差分析中如何进行交互作用的检验">
-
-<ul>
-<li>在这，需要将两个自变量和他们的交互项放入到模型框中，点击continue按钮</li>
-</ul>
-<img src="/2016/03/17/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E6%A3%80%E9%AA%8C/f636afc379310a55d0bc7c37b74543a98326105c.jpg" class="" title="spss协方差分析中如何进行交互作用的检验">
-
-<ul>
-<li>回到主对话框，点击ok按钮开始处理数据，等待几分钟才能出现图，因为绘图需要一些时间</li>
-</ul>
-<img src="/2016/03/17/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E6%A3%80%E9%AA%8C/91529822720e0cf37e00ec380a46f21fbf09aa7a.jpg" class="" title="spss协方差分析中如何进行交互作用的检验">
-
-<ul>
-<li>我们看到这两个变量的交互作用并不显著，这说明协方差分析是可行的</li>
-</ul>
-<img src="/2016/03/17/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E6%A3%80%E9%AA%8C/4ec2d5628535e5dd16df071c76c6a7efcf1b6206.jpg" class="" title="spss协方差分析中如何进行交互作用的检验">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#x34;&#57;&#53;&#55;&#56;&#55;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;">&#x36;&#x37;&#x35;&#x34;&#57;&#53;&#55;&#56;&#55;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1149,6 +1150,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/03/23/mplus%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%BC%BC%E7%84%B6%E5%80%BC%E8%AE%A1%E7%AE%97%E4%B8%A4%E4%B8%AA%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8B%9F%E5%90%88%E5%B7%AE%E5%BC%82%E6%98%AF%E5%90%A6%E6%98%BE%E8%91%97/">mplus中如何计算两个模型的拟合差异是否显著</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/03/18/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90/">多水平验证性因子分析CFA理论和应用教程</a>
             </li>
             
@@ -1182,10 +1187,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EDijkstra%E7%9A%84%E4%BF%A1%E5%BA%A6%E7%B3%BB%E6%95%B0%CF%81A%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于 Dijkstra 的信度系数ρ_A定义和用法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/10/31/heckman%E4%B8%A4%E9%98%B6%E6%AE%B5%E5%AE%8C%E6%95%B4%E8%AE%B2%E8%A7%A3%E5%92%8C%E5%AE%9E%E4%BE%8B%E6%9C%89%E6%BC%94%E7%A4%BA/">heckman两阶段完整讲解和实例有演示</a>
             </li>
             
         </ul>
