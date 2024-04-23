@@ -252,6 +252,87 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/">
+                Excel2013：[22]禁止录入重复值
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>当我们录入数据的时候，有些内容是不允许重复的，比如身份证号码，电话号码，我们可以使用设置数据有效性来禁止录入重复的数据，在Excel2013中，数据有效性又叫做数据验证，下面我们来看看如何在Excel2013中限制录入重复数据。</p>
+<ul>
+<li>我们先来选中A2单元格，也就是空单元格最上面的一个</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/a992e31f4134970ac104815b97cad1c8a7865d14.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<ul>
+<li>我们切换到【数据】标签，打开【数据验证】对话框</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/dc15484e9258d109529438c6d358ccbf6c814d14.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<ul>
+<li>在设置标签下，找到验证条件为【自定义】<br>、</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/9dc3cf58ccbf6c816640bd9cbe3eb13533fa4014.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<ul>
+<li>我们在公式这一栏，输入公式&#x3D;countif($A$2:A2,A2)&#x3D;1</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/b3f6cea20cf431ad65bcd24d4936acaf2edd981d.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<ul>
+<li>切换到【出错警告】标签下面</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/00a82701213fb80ec1bff0a334d12f2eb938941d.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<ul>
+<li>我们设置出错时的提示信息，如下图所示，点击确定按钮，完成设置</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/207ea60e7bec54e78a828b6abb389b504fc26a1d.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<ul>
+<li>拖转A2单元格，快速填充其他单元格</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/2f9cbdcc7cd98d10b7ba9d45233fb80e7bec901d.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<ul>
+<li>我们来测试一下是否设置成功，录入一个重复的数据，看到错误提示信息</li>
+</ul>
+<img src="/2015/06/11/Excel2013%EF%BC%9A%5B22%5D%E7%A6%81%E6%AD%A2%E5%BD%95%E5%85%A5%E9%87%8D%E5%A4%8D%E5%80%BC/718e25c79f3df8dc2f4a1ee5cf11728b47102814.jpg" class="" title="Excel2013：[22]禁止录入重复值">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#x36;&#x37;&#x35;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/06/11/DataNitro%EF%BC%9A%5B9%5D%E8%87%AA%E5%AE%9A%E4%B9%89%E5%87%BD%E6%95%B0/">
                 DataNitro：[9]自定义函数
             </a>
@@ -1017,81 +1098,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/">
-                pandas教程：[6]计数统计
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>经过之前的学习，我们现在可以做一个简单的统计了，比如计数，这是最简单的统计，我们现在就使用pandas统计一下数据中各个专业学生的数目：</p>
-<ul>
-<li>先来引入pandas，并且从csv文件中读取数据</li>
-</ul>
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/8640bf8b87d6277fc3b99f2b2b381f30e924fc3f.jpg" class="" title="pandas教程：[6]计数统计">
-
-<ul>
-<li>查看一下前三行数据，看读取数据是否正确</li>
-</ul>
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/29790130e924b899ca97d42b6d061d950a7bf63f.jpg" class="" title="pandas教程：[6]计数统计">
-
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/8697397f9e2f070877d28713ea24b899a801f28b.jpg" class="" title="pandas教程：[6]计数统计">
-
-<ul>
-<li>选择数据：之前也有相关的教程，假如现在我们要统计【专业名称】这一列，那么需要学会选择它：</li>
-</ul>
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/6391e903918fa0ec7e27c91e259759ee3c6ddb86.jpg" class="" title="pandas教程：[6]计数统计">
-
-<ul>
-<li>计数统计我们使用：save_counts()，打印这个结果，查看一下</li>
-</ul>
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/09bb4f3d269759ee47b0cdd8b1fb43166c22df86.jpg" class="" title="pandas教程：[6]计数统计">
-
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/d872d695d143ad4be32dead381025aafa40f0666.jpg" class="" title="pandas教程：[6]计数统计">
-
-<ul>
-<li>绘制柱形图，使用plot方法，如果想要输出该图，使用get_figure()和savefig()</li>
-</ul>
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/27d647ee3d6d55fbce26db356e224f4a21a4dd86.jpg" class="" title="pandas教程：[6]计数统计">
-
-<ul>
-<li>最后我们可以在D盘下找到plot.png，这就是绘制好的bar图了。</li>
-</ul>
-<img src="/2015/05/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AE%A1%E6%95%B0%E7%BB%9F%E8%AE%A1/b3ba5d166d224f4aa079de000af790529922d186.jpg" class="" title="pandas教程：[6]计数统计">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#52;&#57;&#x35;&#x37;&#x38;&#x37;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#109;">&#x36;&#x37;&#53;&#52;&#57;&#x35;&#x37;&#x38;&#x37;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1133,6 +1139,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/04/23/%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E4%B8%8D%E5%8F%98%E6%80%A7%E5%9C%A8%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E7%9A%84%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E4%B8%AD/">如何检验测量模型不变性在结构方程的多组比较中</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/03/23/mplus%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%BC%BC%E7%84%B6%E5%80%BC%E8%AE%A1%E7%AE%97%E4%B8%A4%E4%B8%AA%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8B%9F%E5%90%88%E5%B7%AE%E5%BC%82%E6%98%AF%E5%90%A6%E6%98%BE%E8%91%97/">mplus中如何计算两个模型的拟合差异是否显著</a>
             </li>
             
@@ -1166,10 +1176,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于Jöreskog的组合信度ρ_c定义和用法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EDijkstra%E7%9A%84%E4%BF%A1%E5%BA%A6%E7%B3%BB%E6%95%B0%CF%81A%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于 Dijkstra 的信度系数ρ_A定义和用法</a>
             </li>
             
         </ul>

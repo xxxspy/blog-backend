@@ -252,6 +252,69 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/05/11/ipython%E6%95%99%E7%A8%8B%EF%BC%9A%E8%AE%BE%E7%BD%AENotebook/">
+                ipython教程：设置Notebook
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>我们有两种方式来设置你的ipython notebook，一种方式是通过命令行启动notebook服务器的时候，在ipython notebook后面添加一个参数来设置notebook服务器；另一种方式是创建一个ipython_notebook_config.py文件来写入你的设置参数。今天我们就讲一下后者。</p>
+<ul>
+<li>这个文件应该放在你的ipython的文件夹下的profile文件夹。通过命令ipython locate来找到这个ipython_notebook_config.py文件放在哪里。</li>
+</ul>
+<img src="/2015/05/11/ipython%E6%95%99%E7%A8%8B%EF%BC%9A%E8%AE%BE%E7%BD%AENotebook/f35ea0096b63f6248d5e328a8244ebf81b4ca3fd.jpg" class="" title="ipython教程：设置Notebook">
+
+<ul>
+<li>这样你可以打开这个文件夹，看看里面都有什么：所有的配置文件都放在了profile_default文件夹。如果没有看到这个文件夹，你可以使用ipython prifile create来创建</li>
+</ul>
+<img src="/2015/05/11/ipython%E6%95%99%E7%A8%8B%EF%BC%9A%E8%AE%BE%E7%BD%AENotebook/7c5fcc1b0ef41bd5d9a4e37d54da81cb38db3d00.jpg" class="" title="ipython教程：设置Notebook">
+
+<img src="/2015/05/11/ipython%E6%95%99%E7%A8%8B%EF%BC%9A%E8%AE%BE%E7%BD%AENotebook/9f1011b30f2442a75c22882cd443ad4bd01302cf.jpg" class="" title="ipython教程：设置Notebook">
+
+<ul>
+<li>当然你可以给你的profile文件夹起个名字，比如就叫profile_aaa，你可以这样写命令：ipython profile create aaa</li>
+</ul>
+<img src="/2015/05/11/ipython%E6%95%99%E7%A8%8B%EF%BC%9A%E8%AE%BE%E7%BD%AENotebook/d872d695d143ad4b5802334987025aafa50f06cf.jpg" class="" title="ipython教程：设置Notebook">
+
+<img src="/2015/05/11/ipython%E6%95%99%E7%A8%8B%EF%BC%9A%E8%AE%BE%E7%BD%AENotebook/dbf554ed2e738bd41da1c7b8a48b87d6267ff97c.jpg" class="" title="ipython教程：设置Notebook">
+
+<ul>
+<li>如果你想要使用aaa这个profile，我们在启动ipython notebook的时候使用命令：ipython notebook –profile&#x3D;&#x3D;aaa</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#57;&#53;&#55;&#56;&#x37;&#64;&#113;&#113;&#46;&#99;&#x6f;&#x6d;">&#54;&#55;&#53;&#x34;&#57;&#53;&#55;&#56;&#x37;&#64;&#113;&#113;&#46;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/05/05/Excel2013%EF%BC%9A%5B50%5Dpowerview%E6%8A%A5%E5%91%8A%E6%80%8E%E4%B9%88%E5%81%9A/">
                 Excel2013：[50]powerview报告怎么做
             </a>
@@ -1210,77 +1273,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/01/Python%E6%93%8D%E4%BD%9CWord%EF%BC%9A%5B1%5D%E5%B8%B8%E7%94%A8%E5%AF%B9%E8%B1%A1%E4%BB%8B%E7%BB%8D/">
-                Python操作Word：[1]常用对象介绍
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>前面已经介绍过了试用win32com类库来进行Word开发，系列文章《Python操作Word》是继承了前面的文章，所以，你应该先查看前面的文章，其实只有两篇，文章地址列在最下面的参考资料了。</p>
-<ul>
-<li>段落：这是我蕞常用的类，可以给不同的段落设置格式，也可以插入内容，比如读取段落的数目，使用Paragraph.Count。选择特定的锻炼可使用Paragraph[]</li>
-</ul>
-<img src="/2015/05/01/Python%E6%93%8D%E4%BD%9CWord%EF%BC%9A%5B1%5D%E5%B8%B8%E7%94%A8%E5%AF%B9%E8%B1%A1%E4%BB%8B%E7%BB%8D/0db52fadcbef7609263e4b902cdda3cc7cd99e4d.jpg" class="" title="Python操作Word：[1]常用对象介绍">
-
-<ul>
-<li>图片、图表：Shapes对象，获取图片的数目使用Count，获取第N个图片使用Shapes[N]</li>
-</ul>
-<img src="/2015/05/01/Python%E6%93%8D%E4%BD%9CWord%EF%BC%9A%5B1%5D%E5%B8%B8%E7%94%A8%E5%AF%B9%E8%B1%A1%E4%BB%8B%E7%BB%8D/bd70426034a85edf1a4b2d2c4b540923dc5475bf.jpg" class="" title="Python操作Word：[1]常用对象介绍">
-
-<ul>
-<li>表格：Tables对象，获取Tables的数目使用Count,获取第N个表格使用Tables[N]</li>
-</ul>
-<img src="/2015/05/01/Python%E6%93%8D%E4%BD%9CWord%EF%BC%9A%5B1%5D%E5%B8%B8%E7%94%A8%E5%AF%B9%E8%B1%A1%E4%BB%8B%E7%BB%8D/8474fbdde71190eff5ce40d0cc1b9d16fdfa604d.jpg" class="" title="Python操作Word：[1]常用对象介绍">
-
-<ul>
-<li>范围：Range对象是最重要的对象，我们经常使用range()来取得文档的所有范围；使用rang(i,j)可以获得第i行第j个字的位置；</li>
-</ul>
-<img src="/2015/05/01/Python%E6%93%8D%E4%BD%9CWord%EF%BC%9A%5B1%5D%E5%B8%B8%E7%94%A8%E5%AF%B9%E8%B1%A1%E4%BB%8B%E7%BB%8D/95afee1f3a292df570f67e1abe315c6034a8734d.jpg" class="" title="Python操作Word：[1]常用对象介绍">
-
-<ul>
-<li>还可以使用Start 和End来标注开始和结尾。</li>
-</ul>
-<img src="/2015/05/01/Python%E6%93%8D%E4%BD%9CWord%EF%BC%9A%5B1%5D%E5%B8%B8%E7%94%A8%E5%AF%B9%E8%B1%A1%E4%BB%8B%E7%BB%8D/bbe0d311728b471078e82ec3c1cec3fdfd0323bf.jpg" class="" title="Python操作Word：[1]常用对象介绍">
-
-<ul>
-<li>文字：Words对象，想要知道有多少个字？看下面。</li>
-</ul>
-<img src="/2015/05/01/Python%E6%93%8D%E4%BD%9CWord%EF%BC%9A%5B1%5D%E5%B8%B8%E7%94%A8%E5%AF%B9%E8%B1%A1%E4%BB%8B%E7%BB%8D/d57e9994a4c27d1e1ee1e8cb19d5ad6edcc438bf.jpg" class="" title="Python操作Word：[1]常用对象介绍">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#x34;&#57;&#x35;&#55;&#56;&#55;&#64;&#x71;&#113;&#46;&#99;&#111;&#x6d;">&#54;&#x37;&#53;&#x34;&#57;&#x35;&#55;&#56;&#55;&#64;&#x71;&#113;&#46;&#99;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1322,6 +1314,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/04/23/%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E4%B8%8D%E5%8F%98%E6%80%A7%E5%9C%A8%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E7%9A%84%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E4%B8%AD/">如何检验测量模型不变性在结构方程的多组比较中</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/03/23/mplus%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%BC%BC%E7%84%B6%E5%80%BC%E8%AE%A1%E7%AE%97%E4%B8%A4%E4%B8%AA%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8B%9F%E5%90%88%E5%B7%AE%E5%BC%82%E6%98%AF%E5%90%A6%E6%98%BE%E8%91%97/">mplus中如何计算两个模型的拟合差异是否显著</a>
             </li>
             
@@ -1355,10 +1351,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于Jöreskog的组合信度ρ_c定义和用法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EDijkstra%E7%9A%84%E4%BF%A1%E5%BA%A6%E7%B3%BB%E6%95%B0%CF%81A%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于 Dijkstra 的信度系数ρ_A定义和用法</a>
             </li>
             
         </ul>

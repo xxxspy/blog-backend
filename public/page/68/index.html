@@ -252,6 +252,108 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/">
+                Statsmodels：[2]快速入门
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年03月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>这是Python.statsmodels系列文章的第二篇，为了让大家快速入门，理解statsmodels工作的整个过程，我找到了一个很好的例子，在这里介绍给大家。下面我们来一步步介绍这个例子。</p>
+<ul>
+<li>引入相关模块，pandas主要用到了他的DataFrame，sm用到了回归分析，patsy.dmatrices用于生成design matrix</li>
+</ul>
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/7a8a1446f21fbe09d996846668600c338644adbd.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<ul>
+<li>先获取数据，本例子用到的数据保存在网上的csv文件，我们可以使用pandas.read_csv方便的读取数据（url&#x3D;’<a target="_blank" rel="noopener" href="http://vincentarelbundock.github.com/Rdatasets/csv/HistData/Guerry.csv&#39;%EF%BC%89">http://vincentarelbundock.github.com/Rdatasets/csv/HistData/Guerry.csv&#39;）</a></li>
+</ul>
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/6a22e8246b600c3331b199ba194c510fd8f9a1bd.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<ul>
+<li>查看一下数据的前五行，有很多列，显示有点混乱</li>
+</ul>
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/eab9044c510fd9f96cdf121b262dd42a2934a4bd.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/b25d9901a18b87d6a669ed6d040828381f30fd5e.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<ul>
+<li>下面筛选出我们需要的列：<br>这是最后得到的数据：</li>
+</ul>
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/246cca2a2834349bc2ce29f7caea15ce37d3bebd.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/91ae68c6a7efce1b67e38fb8ac51f3deb58f65bd.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<ul>
+<li>由于最后一行有NaN值，所以需要使用dropna删除该行数据</li>
+</ul>
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/718e25c79f3df8dcff16c9e3ce11728b4710285d.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<ul>
+<li>生成design matrix，我们建立的模型是y&#x3D;BX，因此需要分别求得y和X矩阵，而dmatrices就是干这个的<br>这是y<br>这是X矩阵：我们会发现分类变量自动的转换成了哑变量</li>
+</ul>
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/3792cb39b6003af3f3729b12362ac65c1138b6bd.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/b5ce925494eef01f38df5fb7e3fe9925bd317dbd.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/109eb7ec8a136327f5c68441928fa0ec08fac75e.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<ul>
+<li>OLS指的是一般最小二乘，fit方法对回归方程进行估计，summary保存着计算的结果<br>这是输出的模型的估计结果：</li>
+</ul>
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/a583631ed21b0ef45bc3de2cdec451da81cb3e5d.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/27d647ee3d6d55fb13ed30546e224f4a20a4dd5e.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/4e0b3ea4462309f73844eb60710e0cf3d7cad65e.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<ul>
+<li>现在我们要进一步检验数据是不是适合使用OLS，我们暂且先检验一下数据是否为线性，虚无假设是线性的，采用Rainbow test<br>输出结果为：第一个为F值，第二个为P值，显然未能拒绝虚无假设</li>
+</ul>
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/0e655ca7d933c8958755de09d21373f08202005d.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/6648d73d70cf3bc7b2cb8a9ed200baa1cc112abd.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<ul>
+<li>接着，我们绘制偏回归线观察数据点是否分布在估计得到的直线的附近（图为控制了Rgion和Literacy后wealth对lottery的回归关系）</li>
+</ul>
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/b258f5c4b74543a9e830bcbe1d178a82b901145d.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<img src="/2015/03/11/Statsmodels%EF%BC%9A%5B2%5D%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8/b110e6198618367aa3a239af2d738bd4b31ce55e.jpg" class="" title="Statsmodels：[2]快速入门">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#57;&#53;&#55;&#56;&#55;&#64;&#113;&#113;&#46;&#99;&#111;&#109;">&#54;&#55;&#53;&#x34;&#57;&#53;&#55;&#56;&#55;&#64;&#113;&#113;&#46;&#99;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/statsmodels/">#statsmodels</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/03/11/spss%E4%BA%8C%E5%88%86%E7%B1%BB%E7%9A%84logistic%E5%9B%9E%E5%BD%92%E7%9A%84%E6%93%8D%E4%BD%9C%E5%92%8C%E5%88%86%E6%9E%90%E6%96%B9%E6%B3%95/">
                 spss二分类的logistic回归的操作和分析方法
             </a>
@@ -912,87 +1014,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/03/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B21%5D1.5%E8%A7%A3%E6%96%B9%E7%A8%8B/">
-                python 线性代数：[21]1.5解方程
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年03月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>接着用Python来做线性代数，我们今天要用Python来做的练习题是来自于《线性代数.同济大学.第五版》第一章课后题第五题，题目如下：</p>
-<ul>
-<li>先把这个矩阵录入到excel里</li>
-</ul>
-<img src="/2015/03/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B21%5D1.5%E8%A7%A3%E6%96%B9%E7%A8%8B/54baacfb43166d22c527acbe422309f79052d20d.jpg" class="" title="python 线性代数：[21]1.5解方程">
-
-<ul>
-<li>引入相关模块</li>
-</ul>
-<img src="/2015/03/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B21%5D1.5%E8%A7%A3%E6%96%B9%E7%A8%8B/d68b65cb0a46f21f2864e779f2246b600c33ae0d.jpg" class="" title="python 线性代数：[21]1.5解方程">
-
-<ul>
-<li>读取并整理数据</li>
-</ul>
-<img src="/2015/03/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B21%5D1.5%E8%A7%A3%E6%96%B9%E7%A8%8B/a28d62d98d1001e9f491ad25bc0e7bec54e79728.jpg" class="" title="python 线性代数：[21]1.5解方程">
-
-<ul>
-<li><p>第一个方法是将求得的行列式进行因子分解，输出的结果为：</p>
-</li>
-<li><p>根据这个式子我们可以知道方程的解</p>
-</li>
-</ul>
-<img src="/2015/03/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B21%5D1.5%E8%A7%A3%E6%96%B9%E7%A8%8B/0d729944ebf81a4ccfe155e3d32a6059242da68e.jpg" class="" title="python 线性代数：[21]1.5解方程">
-
-<img src="/2015/03/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B21%5D1.5%E8%A7%A3%E6%96%B9%E7%A8%8B/d4239b35e5dde7114b7ffadca3efce1b9d166128.jpg" class="" title="python 线性代数：[21]1.5解方程">
-
-<ul>
-<li>或者我们 可以直接让程序输出结果：</li>
-</ul>
-<img src="/2015/03/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B21%5D1.5%E8%A7%A3%E6%96%B9%E7%A8%8B/7787b9efce1b9d161d6a234bf7deb48f8c546428.jpg" class="" title="python 线性代数：[21]1.5解方程">
-
-<ul>
-<li>同样的方法我们来解第二小题：</li>
-</ul>
-<img src="/2015/03/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B21%5D1.5%E8%A7%A3%E6%96%B9%E7%A8%8B/5af4d7ea15ce36d37251261a3ef33a87e950b100.jpg" class="" title="python 线性代数：[21]1.5解方程">
-
-<ul>
-<li>代码是：</li>
-</ul>
-<img src="/2015/03/01/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B21%5D1.5%E8%A7%A3%E6%96%B9%E7%A8%8B/9f6e190828381f30815d2883ad014c086e06f011.jpg" class="" title="python 线性代数：[21]1.5解方程">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#57;&#x35;&#x37;&#56;&#x37;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;">&#x36;&#55;&#53;&#x34;&#57;&#x35;&#x37;&#56;&#x37;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1034,6 +1055,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/04/23/%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E4%B8%8D%E5%8F%98%E6%80%A7%E5%9C%A8%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E7%9A%84%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E4%B8%AD/">如何检验测量模型不变性在结构方程的多组比较中</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/03/23/mplus%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%BC%BC%E7%84%B6%E5%80%BC%E8%AE%A1%E7%AE%97%E4%B8%A4%E4%B8%AA%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8B%9F%E5%90%88%E5%B7%AE%E5%BC%82%E6%98%AF%E5%90%A6%E6%98%BE%E8%91%97/">mplus中如何计算两个模型的拟合差异是否显著</a>
             </li>
             
@@ -1067,10 +1092,6 @@
             
             <li>
                 <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于Jöreskog的组合信度ρ_c定义和用法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EDijkstra%E7%9A%84%E4%BF%A1%E5%BA%A6%E7%B3%BB%E6%95%B0%CF%81A%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于 Dijkstra 的信度系数ρ_A定义和用法</a>
             </li>
             
         </ul>
