@@ -252,6 +252,183 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B71%5D%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/">
+                Python教程：[71]类的继承
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>类（class），可以继承基类以便形成具有自己独特属性的类，我们在面向对象的编程中，经常用到类及其继承，可以说没有什么不是类的，今天我们就来详细探讨一下在python中，类的继承是如何做的。</p>
+<ul>
+<li>我们假设有一个类叫做point，顾名思义，point就是一个点，它有横坐标和纵坐标。我们在python中创建一个point类（书上说类名称都要开头字母大写，这是国际惯例）</li>
+</ul>
+<img src="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B71%5D%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/0e655ca7d933c895234d75f3d31373f0830200cc.jpg" class="" title="Python教程：[71]类的继承">
+
+<ul>
+<li>最简单的继承类的方式是这样：只需要在生命类的时候加一个括号和基类</li>
+</ul>
+<img src="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B71%5D%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/4e0b3ea4462309f7d403409a700e0cf3d6cad68f.jpg" class="" title="Python教程：[71]类的继承">
+
+<ul>
+<li><p>这种方法并没有声明该类的构造器，这样它会隐性调用基类的构造器，所以，在实例化的时候，也要注意基类的构造器需要哪些参数，不要出现这样的错误：这种错误容易发生是因为我们在子类的声明中并没有看到什么参数，在使用的时候就容易忘记基类中需要的参数</p>
+</li>
+<li><p>Traceback (most recent call last):</p>
+</li>
+<li><p>File “&lt;pyshell#11&gt;”, line 1, in <module></p>
+</li>
+<li><pre><code>a=point1()
+</code></pre>
+</li>
+<li><p>TypeError: <strong>init</strong>() takes exactly 3 arguments (1 given)</p>
+</li>
+</ul>
+<img src="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B71%5D%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/d35a10f41bd5ad6e0302896283cb39dbb7fd3c04.jpg" class="" title="Python教程：[71]类的继承">
+
+<ul>
+<li>这样来用就没问题了。</li>
+</ul>
+<img src="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B71%5D%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/a84052086e061d952d27dbb079f40ad163d9ca92.jpg" class="" title="Python教程：[71]类的继承">
+
+<ul>
+<li>类的继承一般情况下，我们都是要重写类的构造器，然后再调用基类的构造器，不然基类的构造器在这种情况下不会自动调用。应该这样写：类point2比基类增加了一个属性z</li>
+</ul>
+<img src="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B71%5D%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/a992e31f4134970a8cc0fca797cad1c8a6865d4c.jpg" class="" title="Python教程：[71]类的继承">
+
+<ul>
+<li>实例化：</li>
+</ul>
+<img src="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B71%5D%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/30ecd5ef76094b36d019f765a1cc7cd98c109d74.jpg" class="" title="Python教程：[71]类的继承">
+
+<ul>
+<li><p>我们看这样一个写法特别容易出错：你能看出哪里错了吗？<br>错误代码：</p>
+</li>
+<li><p>Traceback (most recent call last):</p>
+</li>
+<li><p>File “&lt;pyshell#50&gt;”, line 1, in <module></p>
+</li>
+<li><pre><code>b=point2(1,2,3)
+</code></pre>
+</li>
+<li><p>File “&lt;pyshell#45&gt;”, line 3, in <strong>init</strong></p>
+</li>
+<li><pre><code>point.__init__(x,y)
+</code></pre>
+</li>
+<li><p>TypeError: unbound method <strong>init</strong>() must be called with point instance as first argument (got int instance instead)</p>
+</li>
+</ul>
+<img src="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B71%5D%E7%B1%BB%E7%9A%84%E7%BB%A7%E6%89%BF/bd7faf3533fa828b103c726bff1f4134960a5ad8.jpg" class="" title="Python教程：[71]类的继承">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#x34;&#x39;&#x35;&#55;&#x38;&#x37;&#x40;&#113;&#113;&#46;&#99;&#x6f;&#109;">&#54;&#x37;&#x35;&#x34;&#x39;&#x35;&#55;&#x38;&#x37;&#x40;&#113;&#113;&#46;&#99;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/01/11/DataNitro%EF%BC%9A%5B11%5D%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/">
+                DataNitro：[11]自动换行
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>本篇文章原创于《百度经验》，如果转载此文章，需要注明出处、链接地址和作者名称，否则侵权。</p>
+<ul>
+<li>我们知道只要点击这里就可以实现自动换行</li>
+</ul>
+<img src="/2015/01/11/DataNitro%EF%BC%9A%5B11%5D%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/d4239b35e5dde71132ecb0b4a4efce1b9d166173.jpg" class="" title="DataNitro：[11]自动换行">
+
+<ul>
+<li>换行后就会实现这个效果：</li>
+</ul>
+<img src="/2015/01/11/DataNitro%EF%BC%9A%5B11%5D%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/a992e31f4134970afe44e36d96cad1c8a7865d7a.jpg" class="" title="DataNitro：[11]自动换行">
+
+<ul>
+<li>但是现在我们需要使用datanitro来实现这个效果，而在datanitro里面没有直接的模块可以用，这时候我们想到用vba，在vbe里面的vba1模块里，写入一个过程：wraptext</li>
+</ul>
+<img src="/2015/01/11/DataNitro%EF%BC%9A%5B11%5D%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/8367d1fc1e178a82a3268de2f503738da977e81f.jpg" class="" title="DataNitro：[11]自动换行">
+
+<ul>
+<li>接着，我们打开Python shell</li>
+</ul>
+<img src="/2015/01/11/DataNitro%EF%BC%9A%5B11%5D%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/ae10eddeb48f8c543f78376d39292df5e1fe7f8e.jpg" class="" title="DataNitro：[11]自动换行">
+
+<ul>
+<li>写入如下代码，然后按下回车，注意参数是vba过程的名称</li>
+</ul>
+<img src="/2015/01/11/DataNitro%EF%BC%9A%5B11%5D%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/245e8bcad1c8a7861beeb84c6409c93d71cf5069.jpg" class="" title="DataNitro：[11]自动换行">
+
+<ul>
+<li>这样就实现了自动换行</li>
+</ul>
+<img src="/2015/01/11/DataNitro%EF%BC%9A%5B11%5D%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/245e8bcad1c8a786182cb74c6409c93d70cf502b.jpg" class="" title="DataNitro：[11]自动换行">
+
+<ul>
+<li>再运行一遍，就可以回到没有自动换行的状态。</li>
+</ul>
+<img src="/2015/01/11/DataNitro%EF%BC%9A%5B11%5D%E8%87%AA%E5%8A%A8%E6%8D%A2%E8%A1%8C/373bc4b44aed2e73acd67b6e8401a18b87d6fa72.jpg" class="" title="DataNitro：[11]自动换行">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#52;&#x39;&#x35;&#55;&#x38;&#x37;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#x36;&#55;&#53;&#52;&#x39;&#x35;&#55;&#x38;&#x37;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/datanitro/">#datanitro</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/01/11/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5Durlparse%E6%A8%A1%E5%9D%97/">
                 Python教程：[18]urlparse模块
             </a>
@@ -974,6 +1151,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/06/03/%E5%93%8D%E5%BA%94%E6%80%A7%E5%92%8C%E5%8F%8D%E6%98%A0%E6%80%A7%E6%8C%87%E6%A0%87%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E8%A7%A3%E9%87%8A%E6%B8%85%E6%A5%9A/">响应性和反映性指标一篇文章解释清楚</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/05/20/mplus%E4%B8%AD%E4%BB%8B%E3%80%81%E8%B0%83%E8%8A%82%E5%92%8C%E6%9C%89%E8%B0%83%E8%8A%82%E7%9A%84%E4%B8%AD%E4%BB%8B%E6%95%99%E7%A8%8B/">mplus中介、调节和有调节的中介教程</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/04/23/%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E4%B8%8D%E5%8F%98%E6%80%A7%E5%9C%A8%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E7%9A%84%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E4%B8%AD/">如何检验测量模型不变性在结构方程的多组比较中</a>
             </li>
             
@@ -1003,14 +1188,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">贝叶斯网络入门和R代码实践视频教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/12/17/Cronbach's%20Alpha%E7%B3%BB%E6%95%B0%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">Cronbach&#39;s Alpha系数定义和用法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于Jöreskog的组合信度ρ_c定义和用法</a>
             </li>
             
         </ul>

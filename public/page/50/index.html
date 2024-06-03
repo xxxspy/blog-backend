@@ -252,6 +252,187 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/">
+                spss中k-means聚类的操作方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年02月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>k-means聚类是聚类方法中的一种，通常我们要预先确定case到底可以分为几类，然后才能进行这个聚类分析。另外，注意查看各个变量的量纲、平均数、方差齐性，如果不满足同质性，需要进行正太化转变，当然，数据要满足正态分布才可以啊哦。<br>工具&#x2F;原料</p>
+<ul>
+<li><p>这种聚类方法不能自动的计算变量的Z分数，如果数据差异过大，量纲不同，需要进行z分数的转换，下面的操作没有告诉你如何转换z分数，你需要注意</p>
+</li>
+<li><p>k-means的聚类的原理是迭代，迭代本身是无限的过程，如果没有命令，计算机就一直迭代下去，这样计算会很慢，所以我们设置一个迭代次数，比如100，那么迭代100次就必须停止。活着spss中有迭代停止的标准</p>
+</li>
+<li><p>spss20.0<br>方法&#x2F;步骤</p>
+</li>
+<li><p>准备好数据，在菜单栏上执行：analyse–classify–k-means cluster，打开k平均数对话框</p>
+</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/f636afc379310a5527e38d21b74543a98326101b.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>将聚类用到的指标变量放入variables，将客户的编码放到label cases by当中，把客户编号作为case的标签</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/7c1ed21b0ef41bd5c367ba2151da81cb39db3d2a.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>接着要设置聚类的类别数目，如图所示，这个数目不是随便给的，他有两个来源：要么是你根据工作经验，认为数据分为几类是最合理的；要么是你有前人的研究证明分为几类。</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/d50735fae6cd7b89e3a368560f2442a7d8330e13.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>在主对话框中，点击iterate按钮，打开迭代对话框</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/29381f30e924b8991cff2bed6e061d950b7bf620.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>将最大迭代次数设置为100，下图你看到的默认的迭代次数为10，但是数据量越大，迭代次数就应该越多，所以我们设置为100.点击continue按钮，返回到主对话框。</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/902397dda144ad345c32da52d0a20cf430ad8551.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>点击save按钮，因为我们想要保存分类的结果，并将结果保存到一个变量当中</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/95eef01f3a292df5cefcf0c0bc315c6034a87323.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>打开一个自对话框，勾选cluster membership，点击continue返回到主对话框</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/5bafa40f4bfbfbed216e6aaa78f0f736afc31f2b.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>点击ok，开始运行数据，并输出数据结果</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/0eb30f2442a7d93348dbb8a6ad4bd11372f001f7.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>我们看到的第一个表格叫做初始聚类中心，它列出每一个类别初始的中心点，这些中心点都是spss自动生成的。因为case的顺序会影响到中心点的位置，所以我们需要让case的顺序是随机的，有必要的时候要进行随机化处理</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/3812b31bb051f819244a5f9fdab44aed2f73e7fc.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>下面的两个表格是迭代过程表，你可以看到每一次迭代中心点的变化值，当中心点的变化小于初始类别中心最小距离的2%的时候，迭代就停止了，你看到的第二幅图在迭代35次以后就停止了迭代</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/79f0f736afc379319a9ddafcebc4b74542a91169.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/7dd98d1001e939013292d1eb7bec54e737d19656.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>下面这个表格叫做最终聚类中心，也就是各个类别在各个变量上的平均值，它可以帮助我们根据变量的平均值来给分类赋予实际的意义</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/dcc451da81cb39dbc6cc3883d0160924aa1830d2.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>最后的表格叫做各个类别case数，你可以读出在每一个类别中有多少case</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/b3b7d0a20cf431adc32d1cec4b36acaf2fdd9863.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#52;&#x39;&#53;&#x37;&#56;&#55;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;">&#x36;&#55;&#x35;&#52;&#x39;&#53;&#x37;&#56;&#55;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/02/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B4%5D%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E4%B8%AD%E5%8F%98%E9%87%8F%E6%AD%A3%E5%90%91%E5%8C%96%E6%96%B9%E6%B3%95/">
+                SPSS实例：[4]因子分析中变量正向化方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年02月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>因子分析算是spss高级进阶的内容了，一般缺少统计基础的人很难理解因子分析的数据基础，导致在数据分析的时候忽略很多细节，导致错误的发生。在因子分析中最容易发生的一个错误就是某些变量的因子载荷出现负数而没有对其进行处理，有的研究直接删除因子载荷为负数的变量，这不是一个可取的方法。</p>
+<ul>
+<li>什么条件下需要进行指标正向化：在因子载荷绝对值很大而符号为负的时候，我们要将其正向化；或者我们在数据分析之前就已经知道哪几个变量是负向变量，我举一个例子，如下图所示，这是8个城市的7个环境指标，其中X1–X4是正向指标，值越大环境越好；而剩下的指标就是负向指标，值越大环境越差。那么对于负向指标我们需要进行正向化。</li>
+</ul>
+<img src="/2016/02/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B4%5D%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E4%B8%AD%E5%8F%98%E9%87%8F%E6%AD%A3%E5%90%91%E5%8C%96%E6%96%B9%E6%B3%95/f9589818367adab4ea7d61868ad4b31c8601e403.jpg" class="" title="SPSS实例：[4]因子分析中变量正向化方法">
+
+<ul>
+<li>无法判定是否需要正向化怎么办？我们可以预先进行一次因子分析，使用上面表格中的数据，进行一次因素分析，并进行正交旋转。旋转后的成分矩阵，如图所示：我们看到权重最大的因子是成分1，5–7变量为负数，且绝对值很大，所以这三个变量有必要进行正向化。</li>
+</ul>
+<img src="/2016/02/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B4%5D%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E4%B8%AD%E5%8F%98%E9%87%8F%E6%AD%A3%E5%90%91%E5%8C%96%E6%96%B9%E6%B3%95/245e8bcad1c8a78683782ecb6609c93d71cf5061.jpg" class="" title="SPSS实例：[4]因子分析中变量正向化方法">
+
+<ul>
+<li>spss中变量正向化的方法：在spss中，我们一般采用原始变量的负数或者倒数来进行正向化。在spss菜单中选择：转换–计算变量</li>
+</ul>
+<img src="/2016/02/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B4%5D%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E4%B8%AD%E5%8F%98%E9%87%8F%E6%AD%A3%E5%90%91%E5%8C%96%E6%96%B9%E6%B3%95/b3ba5d166d224f4ae83f14d608f790529922d116.jpg" class="" title="SPSS实例：[4]因子分析中变量正向化方法">
+
+<ul>
+<li>打开计算变量对话框，输入一个变量名，然后输入公式，公式中的V5是原始的变量名，前面加一个符号就可以实现转换了，点击ok按钮</li>
+</ul>
+<img src="/2016/02/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B4%5D%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E4%B8%AD%E5%8F%98%E9%87%8F%E6%AD%A3%E5%90%91%E5%8C%96%E6%96%B9%E6%B3%95/4a77b2af2edda3cc7b6ddfe500e93901203f922e.jpg" class="" title="SPSS实例：[4]因子分析中变量正向化方法">
+
+<ul>
+<li>转换后得到的就是一个新变量b5，如图所示，以此方法你可以实现所有的变量的正向化。</li>
+</ul>
+<img src="/2016/02/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B4%5D%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E4%B8%AD%E5%8F%98%E9%87%8F%E6%AD%A3%E5%90%91%E5%8C%96%E6%96%B9%E6%B3%95/38403f3fb80e7bec5a5364242e2eb9389a506b2e.jpg" class="" title="SPSS实例：[4]因子分析中变量正向化方法">
+
+<ul>
+<li>使用新的变量进行因子分析：关于因子分析的方法你可以参考我以前写的文章，这里不是重点，这里的重点是如何进行变量的正太化。好了，教程到此了。欢迎大家关注我的后续文章。</li>
+</ul>
+<img src="/2016/02/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B4%5D%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E4%B8%AD%E5%8F%98%E9%87%8F%E6%AD%A3%E5%90%91%E5%8C%96%E6%96%B9%E6%B3%95/58af236d55fbb2fb875c3ed74e4a20a44723dc45.jpg" class="" title="SPSS实例：[4]因子分析中变量正向化方法">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#x39;&#53;&#x37;&#x38;&#55;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#109;">&#54;&#55;&#53;&#52;&#x39;&#53;&#x37;&#x38;&#55;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/02/05/Excel2013%EF%BC%9A%5B32%5D%E5%A4%9A%E9%80%89%E9%A2%98%E5%BD%95%E5%85%A5%E5%88%B0%E4%B8%80%E4%B8%AA%E5%8D%95%E5%85%83%E6%A0%BC%E6%80%8E%E4%B9%88%E5%8A%9E/">
                 Excel2013：[32]多选题录入到一个单元格怎么办
             </a>
@@ -938,135 +1119,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/02/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B18%5D%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%8D%A0%E6%80%BB%E6%95%88%E5%BA%94%E7%99%BE%E5%88%86%E6%AF%94/">
-                SPSS实例：[18]中介效应占总效应百分比
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年02月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>今天跟大家分享的是一个用Excel计算中介效应占总效应的百分比的方法。这个百分比我们都知道，就是中介效应比总效应，看过我前面文章的人应该都知道如何进行中介效应的检验了，假如我们得出的结论是部分中介效应，那么我们需要计算总效应中的百分之多少是中介效应，所以我就做了一个Excel文件，可以帮助大家快速计算，下面是方法：</p>
-<ul>
-<li>从下面的参考资料里现在我在百度网盘里的文件</li>
-</ul>
-<img src="/2016/02/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B18%5D%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%8D%A0%E6%80%BB%E6%95%88%E5%BA%94%E7%99%BE%E5%88%86%E6%AF%94/d68b65cb0a46f21fe423a14bf4246b600c33ae50.jpg" class="" title="SPSS实例：[18]中介效应占总效应百分比">
-
-<ul>
-<li>打开里面的Excel文件，我们看到这样一个表格</li>
-</ul>
-<img src="/2016/02/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B18%5D%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%8D%A0%E6%80%BB%E6%95%88%E5%BA%94%E7%99%BE%E5%88%86%E6%AF%94/00a82701213fb80eee0a9dcf34d12f2eb8389494.jpg" class="" title="SPSS实例：[18]中介效应占总效应百分比">
-
-<ul>
-<li>我们举一个例子来说明如何使用，下面的三线表格就是我们中介效应检验的三个方程，看不懂的可以去翻我前面的文章</li>
-</ul>
-<img src="/2016/02/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B18%5D%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%8D%A0%E6%80%BB%E6%95%88%E5%BA%94%E7%99%BE%E5%88%86%E6%AF%94/f677b1c379310a55a34921ecb54543a98226107d.jpg" class="" title="SPSS实例：[18]中介效应占总效应百分比">
-
-<ul>
-<li>将对应的值放入表格中的对应位置，在D2单元格就会出现百分比，那就是你需要的中介效应占总效应的百分比。</li>
-</ul>
-<img src="/2016/02/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B18%5D%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%8D%A0%E6%80%BB%E6%95%88%E5%BA%94%E7%99%BE%E5%88%86%E6%AF%94/72ccb7773912b31baf0132318418367adab4e17e.jpg" class="" title="SPSS实例：[18]中介效应占总效应百分比">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#x34;&#57;&#x35;&#x37;&#x38;&#x37;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;">&#54;&#x37;&#53;&#x34;&#57;&#x35;&#x37;&#x38;&#x37;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/01/23/spss20.0%E5%A4%9A%E9%87%8D%E7%BA%BF%E5%9E%8B%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90/">
-                spss20.0多重线型回归模型的操作方法和结果分析
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年01月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>为了能够简要的说明操作方法，我们这里只用两个自变量和一个因变量，使用进入的方法进行多重线性回归分析，下面有操作的方法和对结果的分析方法。<br>方法&#x2F;步骤</p>
-<ul>
-<li>在确定你的数据已经进行了线性关系的验证以后，再进行回归分析，因为前面的文章有讲如何验证线型关系，所以这里就不说了，直接进行回归分析，在菜单栏上执行：分析–回归</li>
-</ul>
-<img src="/2016/01/23/spss20.0%E5%A4%9A%E9%87%8D%E7%BA%BF%E5%9E%8B%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90/d1a20cf431adcbefd5879bf9acaf2edda2cc9f9a.jpg" class="" title="spss20.0多重线型回归模型的操作方法和结果分析">
-
-<ul>
-<li>打开线性回归对话框，将因变量和自变量都放到各自的位置，如图所示</li>
-</ul>
-<img src="/2016/01/23/spss20.0%E5%A4%9A%E9%87%8D%E7%BA%BF%E5%9E%8B%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90/3b87e950352ac65c8069838cfbf2b21192138ae5.jpg" class="" title="spss20.0多重线型回归模型的操作方法和结果分析">
-
-<ul>
-<li>记得选择方法为进入，因为你的自变量只有两个，在自变量较少的时候使用进入这个方法是最常用的，点击确定，去看结果输出窗口</li>
-</ul>
-<img src="/2016/01/23/spss20.0%E5%A4%9A%E9%87%8D%E7%BA%BF%E5%9E%8B%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90/8435e5dde71190efcc487720ce1b9d16fcfa609a.jpg" class="" title="spss20.0多重线型回归模型的操作方法和结果分析">
-
-<ul>
-<li>要分析的结果主要有两个，一个是方差分析，如图所示，我们要看sig值是否显著，如果值小于0.01我们就认为它是显著的，这就证明我们建立的模型是可行的，至少一个自变量的回归系数不为零</li>
-</ul>
-<img src="/2016/01/23/spss20.0%E5%A4%9A%E9%87%8D%E7%BA%BF%E5%9E%8B%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90/fcfaaf51f3deb48f4eda4421f01f3a292cf5789a.jpg" class="" title="spss20.0多重线型回归模型的操作方法和结果分析">
-
-<ul>
-<li><p>接着看系数的检验，这个主要是看回归系数是否达到了显著水平，结果显示系数是显著的</p>
-</li>
-<li></li>
-</ul>
-<img src="/2016/01/23/spss20.0%E5%A4%9A%E9%87%8D%E7%BA%BF%E5%9E%8B%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E5%92%8C%E7%BB%93%E6%9E%9C%E5%88%86%E6%9E%90/0dd7912397dda1443165894db2b7d0a20df486e5.jpg" class="" title="spss20.0多重线型回归模型的操作方法和结果分析">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#52;&#x39;&#53;&#55;&#x38;&#55;&#x40;&#x71;&#113;&#46;&#99;&#x6f;&#109;">&#x36;&#55;&#53;&#52;&#x39;&#53;&#55;&#x38;&#55;&#x40;&#x71;&#113;&#46;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1108,6 +1160,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/06/03/%E5%93%8D%E5%BA%94%E6%80%A7%E5%92%8C%E5%8F%8D%E6%98%A0%E6%80%A7%E6%8C%87%E6%A0%87%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E8%A7%A3%E9%87%8A%E6%B8%85%E6%A5%9A/">响应性和反映性指标一篇文章解释清楚</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/05/20/mplus%E4%B8%AD%E4%BB%8B%E3%80%81%E8%B0%83%E8%8A%82%E5%92%8C%E6%9C%89%E8%B0%83%E8%8A%82%E7%9A%84%E4%B8%AD%E4%BB%8B%E6%95%99%E7%A8%8B/">mplus中介、调节和有调节的中介教程</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/04/23/%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E4%B8%8D%E5%8F%98%E6%80%A7%E5%9C%A8%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E7%9A%84%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E4%B8%AD/">如何检验测量模型不变性在结构方程的多组比较中</a>
             </li>
             
@@ -1137,14 +1197,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">贝叶斯网络入门和R代码实践视频教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/12/17/Cronbach's%20Alpha%E7%B3%BB%E6%95%B0%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">Cronbach&#39;s Alpha系数定义和用法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于Jöreskog的组合信度ρ_c定义和用法</a>
             </li>
             
         </ul>

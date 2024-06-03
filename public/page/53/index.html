@@ -252,6 +252,159 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/10/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B54%5Dmatplotlib%E5%BC%95%E7%94%A8%E9%94%99%E8%AF%AF/">
+                Python教程：[54]matplotlib引用错误
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>安装好了matplotlib，但是引入的时候出现问题，无法引用，提示引用错误：ImportError: matplotlib requires pyparsing。然后通过安装pyparsing模块解决了这个问题，为了让大家都解决这个问题，我把我遇到问题描述在这里：</p>
+<ul>
+<li>首先，我用的是exe文件装的matplotlib模块：</li>
+</ul>
+<img src="/2015/10/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B54%5Dmatplotlib%E5%BC%95%E7%94%A8%E9%94%99%E8%AF%AF/54baacfb43166d2221538a0e442309f79152d2c1.jpg" class="" title="Python教程：[54]matplotlib引用错误">
+
+<ul>
+<li><p>安装过程没有任何提示错误，但是引用的时候出现问题：提示错误</p>
+</li>
+<li><p>Traceback (most recent call last):</p>
+</li>
+<li><p>File “&lt;pyshell#0&gt;”, line 1, in <module></p>
+</li>
+<li><pre><code>import matplotlib
+</code></pre>
+</li>
+<li><p>File “D:\Python27\lib\site-packages\matplotlib_<em>init</em>_.py”, line 125, in <module></p>
+</li>
+<li><pre><code>raise ImportError(&quot;matplotlib requires pyparsing&quot;)
+</code></pre>
+</li>
+<li><p>ImportError: matplotlib requires pyparsing</p>
+</li>
+<li><p>解决问题的方法是安装pyparsing，用到setuptools，如果你没有安装setuptools，你可以在这里安装：<a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/b907e627dd80df46e7891c2c.html">http://jingyan.baidu.com/article/b907e627dd80df46e7891c2c.html</a></p>
+</li>
+<li><p>接着我们打开命令窗口，输入命令easy_install pyparsing</p>
+</li>
+</ul>
+<img src="/2015/10/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B54%5Dmatplotlib%E5%BC%95%E7%94%A8%E9%94%99%E8%AF%AF/fc5e5f34970a304ec9993f60d3c8a786c8175cb6.jpg" class="" title="Python教程：[54]matplotlib引用错误">
+
+<ul>
+<li>接着，我们引入matplotlib，就成功了</li>
+</ul>
+<img src="/2015/10/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B54%5Dmatplotlib%E5%BC%95%E7%94%A8%E9%94%99%E8%AF%AF/c9bdddcec3fdfc03902a7c22d63f8794a5c2269e.jpg" class="" title="Python教程：[54]matplotlib引用错误">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#52;&#57;&#53;&#x37;&#56;&#x37;&#64;&#113;&#x71;&#46;&#x63;&#x6f;&#x6d;">&#x36;&#55;&#x35;&#52;&#57;&#53;&#x37;&#56;&#x37;&#64;&#113;&#x71;&#46;&#x63;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/10/23/spss%E5%88%A9%E7%94%A8%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E6%B1%82%E5%92%8C%E7%9A%84%E6%96%B9%E6%B3%95/">
+                spss利用数据聚合求和的方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>有时候我们拿到的数据是不规范的，比如从数据库中直接导出的数据就是。我们举个例子，每个记者每发一篇文章就会增加一条记录，在统计每个月的工作绩效的时候，需要统计每个记者到底发了多少稿件，我们就用到了数据聚合aggregate。<br>方法&#x2F;步骤</p>
+<ul>
+<li>打开数据以后，我们在菜单栏上执行：data–aggregate，打开数据聚合对话框</li>
+</ul>
+<img src="/2015/10/23/spss%E5%88%A9%E7%94%A8%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E6%B1%82%E5%92%8C%E7%9A%84%E6%96%B9%E6%B3%95/0824ab18972bd407592d93707b899e510eb30950.jpg" class="" title="spss利用数据聚合求和的方法">
+
+<ul>
+<li>将记者姓名放到分组变量，然后将稿件数量和字数都放到聚合变量里，这时候你看到了，系统默认是求均值，我们要求的其实是总和，所以，先选中其中一个变量，比如选中稿件数量，然后点击function</li>
+</ul>
+<img src="/2015/10/23/spss%E5%88%A9%E7%94%A8%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E6%B1%82%E5%92%8C%E7%9A%84%E6%96%B9%E6%B3%95/7dd98d1001e9390126a9cdb37bec54e737d19697.jpg" class="" title="spss利用数据聚合求和的方法">
+
+<ul>
+<li>在打开的function对话框中，勾选sum，然后点击continue，这样就将均值转换成了求和</li>
+</ul>
+<img src="/2015/10/23/spss%E5%88%A9%E7%94%A8%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E6%B1%82%E5%92%8C%E7%9A%84%E6%96%B9%E6%B3%95/203fb80e7bec54e73d475a93b9389b504ec26a97.jpg" class="" title="spss利用数据聚合求和的方法">
+
+<ul>
+<li>同样的方法，勾选字数，点击function按钮</li>
+</ul>
+<img src="/2015/10/23/spss%E5%88%A9%E7%94%A8%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E6%B1%82%E5%92%8C%E7%9A%84%E6%96%B9%E6%B3%95/43a7d933c895d143db9ca4ae73f082025baf0750.jpg" class="" title="spss利用数据聚合求和的方法">
+
+<ul>
+<li>勾选sum，然后点击continue，返回数据聚合对话框</li>
+</ul>
+<img src="/2015/10/23/spss%E5%88%A9%E7%94%A8%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E6%B1%82%E5%92%8C%E7%9A%84%E6%96%B9%E6%B3%95/203fb80e7bec54e73d475a93b9389b504ec26a97.jpg" class="" title="spss利用数据聚合求和的方法">
+
+<ul>
+<li>这时候我们所有的设置已经基本完成，点击ok即可开始转换数据</li>
+</ul>
+<img src="/2015/10/23/spss%E5%88%A9%E7%94%A8%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E6%B1%82%E5%92%8C%E7%9A%84%E6%96%B9%E6%B3%95/c995d143ad4bd1130b27f7bf5aafa40f4afb0550.jpg" class="" title="spss利用数据聚合求和的方法">
+
+<ul>
+<li><p>最后看到数据结果了，最后生成了两列变量，分别求出了每个记者的稿件数量和字数总数</p>
+</li>
+<li></li>
+</ul>
+<img src="/2015/10/23/spss%E5%88%A9%E7%94%A8%E6%95%B0%E6%8D%AE%E8%81%9A%E5%90%88%E6%B1%82%E5%92%8C%E7%9A%84%E6%96%B9%E6%B3%95/72f082025aafa40f372c8e50ab64034f79f01950.jpg" class="" title="spss利用数据聚合求和的方法">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#x34;&#x39;&#x35;&#55;&#56;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#54;&#x37;&#x35;&#x34;&#x39;&#x35;&#55;&#56;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/10/23/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5DDataFrame%E5%85%A5%E9%97%A8/">
                 pandas教程：[1]DataFrame入门
             </a>
@@ -1325,158 +1478,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/">
-                spss按照3个标准差筛选数据的方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年10月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>在数据处理的时候，一般来说数据都是正态分布的，按照正态分布的性质，三个标准差以外的数据都，可以被看作是错误的数据从而排除掉，现在跟大家分享一下如何根据标准差来筛选数据。<br>方法&#x2F;步骤</p>
-<ul>
-<li>要想按照标准差筛选数据，必须先要求出每个数据的Z分数，如图所示，在菜单栏上执行analyze–descriptive statistic–descriptive，打开描述统计对话框</li>
-</ul>
-<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/a1ec08fa513d26976bba3d8c55fbb2fb4216d8f1.jpg" class="" title="spss按照3个标准差筛选数据的方法">
-
-<ul>
-<li>将我们要筛选的数据放入到变量对话框中，勾选save standardized values as variables，这样就能输出Z分数了，点击ok按钮，输出结果</li>
-</ul>
-<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/cc11728b4710b9120051c32fc3fdfc039345224a.jpg" class="" title="spss按照3个标准差筛选数据的方法">
-
-<ul>
-<li>我们看到，在数据窗口中多了一列数据，这就是我们求得的z分数，接下来要根据这组数据。来筛选数据</li>
-</ul>
-<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/a08b87d6277f9e2f10d528d91f30e924b999f37a.jpg" class="" title="spss按照3个标准差筛选数据的方法">
-
-<ul>
-<li>在菜单栏上执行data—select cases，打开数据筛选对话框</li>
-</ul>
-<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/43a7d933c895d1434761d0f273f082025baf07cf.jpg" class="" title="spss按照3个标准差筛选数据的方法">
-
-<ul>
-<li>我们对case按照标准差进行选择，需要根据条件来选择，所以选择if conditions is satisfied，点击if来设置条件</li>
-</ul>
-<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/cb8065380cd79123fe93a0a5ad345982b3b780eb.jpg" class="" title="spss按照3个标准差筛选数据的方法">
-
-<ul>
-<li>在这里我们输入公式Zx2  &lt;&#x3D; 3 &amp; Zx2  &gt;&#x3D;  -3 ，这个条件的意思就是选择数值在3和-3之间。点击continue按钮，返回到主对话框</li>
-</ul>
-<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/b2de9c82d158ccbfcba582eb19d8bc3eb03541c1.jpg" class="" title="spss按照3个标准差筛选数据的方法">
-
-<ul>
-<li>在主对话框中，点击ok按钮，开始处理数据</li>
-</ul>
-<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/5ab5c9ea15ce36d38268b4e13af33a87e850b1f6.jpg" class="" title="spss按照3个标准差筛选数据的方法">
-
-<ul>
-<li>最后我们看一下处理的效果，超过三个标准差的数据在前面都有一个斜杠表示删除了。以后处理数据的时候他们就不参与了</li>
-</ul>
-<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/b8389b504fc2d562010ce73ce71190ef77c66cde.jpg" class="" title="spss按照3个标准差筛选数据的方法">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#57;&#53;&#x37;&#56;&#55;&#64;&#113;&#113;&#46;&#x63;&#111;&#x6d;">&#x36;&#55;&#53;&#x34;&#57;&#53;&#x37;&#56;&#55;&#64;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/10/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B36%5D%E5%88%86%E5%B1%82%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/">
-                SPSS实例：[36]分层卡方检验
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年10月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>现在我手头有一个研究数据，数据描述的是不同的年龄组儿童、不同的阅读顺序对是否受到干扰的影响。我们来看一下数据你就懂了。有两个年龄组分别为0和1代表；图书顺序也是两个分别为1和2，是否受到了干扰我们用0和1表示。我们想知道在不同的年龄组下图书顺序是否影响干扰。这时候用到了分层卡方检验，以年龄组作为分层变量。</p>
-<ul>
-<li>首先打开交叉表分析对话框</li>
-</ul>
-<img src="/2015/10/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B36%5D%E5%88%86%E5%B1%82%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/7d98931001e93901c59ec08979ec54e737d196ae.jpg" class="" title="SPSS实例：[36]分层卡方检验">
-
-<ul>
-<li>将年龄组放入到分层变量框</li>
-</ul>
-<img src="/2015/10/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B36%5D%E5%88%86%E5%B1%82%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/55a628d12f2eb93870f13745d7628535e4dd6fae.jpg" class="" title="SPSS实例：[36]分层卡方检验">
-
-<ul>
-<li>打开【statistics】对话框，勾选卡方和CMH统计量，点击继续</li>
-</ul>
-<img src="/2015/10/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B36%5D%E5%88%86%E5%B1%82%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/d4239b35e5dde711614e0e41a5efce1b9c1661ae.jpg" class="" title="SPSS实例：[36]分层卡方检验">
-
-<ul>
-<li>我们看统计结果，首先是层间一致性检验。sig值显示差异不显著，说明不同年龄组中，图书顺序与干扰的关系是相同的。</li>
-</ul>
-<img src="/2015/10/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B36%5D%E5%88%86%E5%B1%82%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/faacb564034f78f0a967d7447b310a55b2191cdd.jpg" class="" title="SPSS实例：[36]分层卡方检验">
-
-<ul>
-<li>接着看分层卡方检验结果，即考虑到年龄因素后，图书顺序与干扰的影响。这里显示图书顺序与干扰是无关的。隐私sig值均大于.05</li>
-</ul>
-<img src="/2015/10/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B36%5D%E5%88%86%E5%B1%82%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/78701455b319ebc4d3143b2e8026cffc1f1716dd.jpg" class="" title="SPSS实例：[36]分层卡方检验">
-
-<ul>
-<li>最后要看的是优势比，主要看Estimate对应的值.861，关于优势比的概念，我们可以看我之前的一篇文章<a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/bea41d437dbcb7b4c51be6be.html">http://jingyan.baidu.com/article/bea41d437dbcb7b4c51be6be.html</a></li>
-</ul>
-<img src="/2015/10/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B36%5D%E5%88%86%E5%B1%82%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/cdfe7281800a19d8a89cc9b231fa828ba71e46ae.jpg" class="" title="SPSS实例：[36]分层卡方检验">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#52;&#x39;&#53;&#55;&#56;&#55;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#109;">&#54;&#55;&#x35;&#52;&#x39;&#53;&#55;&#56;&#55;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1518,6 +1519,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/06/03/%E5%93%8D%E5%BA%94%E6%80%A7%E5%92%8C%E5%8F%8D%E6%98%A0%E6%80%A7%E6%8C%87%E6%A0%87%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E8%A7%A3%E9%87%8A%E6%B8%85%E6%A5%9A/">响应性和反映性指标一篇文章解释清楚</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/05/20/mplus%E4%B8%AD%E4%BB%8B%E3%80%81%E8%B0%83%E8%8A%82%E5%92%8C%E6%9C%89%E8%B0%83%E8%8A%82%E7%9A%84%E4%B8%AD%E4%BB%8B%E6%95%99%E7%A8%8B/">mplus中介、调节和有调节的中介教程</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/04/23/%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E4%B8%8D%E5%8F%98%E6%80%A7%E5%9C%A8%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E7%9A%84%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E4%B8%AD/">如何检验测量模型不变性在结构方程的多组比较中</a>
             </li>
             
@@ -1547,14 +1556,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">贝叶斯网络入门和R代码实践视频教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/12/17/Cronbach's%20Alpha%E7%B3%BB%E6%95%B0%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">Cronbach&#39;s Alpha系数定义和用法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于Jöreskog的组合信度ρ_c定义和用法</a>
             </li>
             
         </ul>

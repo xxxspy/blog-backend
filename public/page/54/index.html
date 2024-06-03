@@ -252,6 +252,158 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/">
+                spss按照3个标准差筛选数据的方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在数据处理的时候，一般来说数据都是正态分布的，按照正态分布的性质，三个标准差以外的数据都，可以被看作是错误的数据从而排除掉，现在跟大家分享一下如何根据标准差来筛选数据。<br>方法&#x2F;步骤</p>
+<ul>
+<li>要想按照标准差筛选数据，必须先要求出每个数据的Z分数，如图所示，在菜单栏上执行analyze–descriptive statistic–descriptive，打开描述统计对话框</li>
+</ul>
+<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/a1ec08fa513d26976bba3d8c55fbb2fb4216d8f1.jpg" class="" title="spss按照3个标准差筛选数据的方法">
+
+<ul>
+<li>将我们要筛选的数据放入到变量对话框中，勾选save standardized values as variables，这样就能输出Z分数了，点击ok按钮，输出结果</li>
+</ul>
+<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/cc11728b4710b9120051c32fc3fdfc039345224a.jpg" class="" title="spss按照3个标准差筛选数据的方法">
+
+<ul>
+<li>我们看到，在数据窗口中多了一列数据，这就是我们求得的z分数，接下来要根据这组数据。来筛选数据</li>
+</ul>
+<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/a08b87d6277f9e2f10d528d91f30e924b999f37a.jpg" class="" title="spss按照3个标准差筛选数据的方法">
+
+<ul>
+<li>在菜单栏上执行data—select cases，打开数据筛选对话框</li>
+</ul>
+<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/43a7d933c895d1434761d0f273f082025baf07cf.jpg" class="" title="spss按照3个标准差筛选数据的方法">
+
+<ul>
+<li>我们对case按照标准差进行选择，需要根据条件来选择，所以选择if conditions is satisfied，点击if来设置条件</li>
+</ul>
+<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/cb8065380cd79123fe93a0a5ad345982b3b780eb.jpg" class="" title="spss按照3个标准差筛选数据的方法">
+
+<ul>
+<li>在这里我们输入公式Zx2  &lt;&#x3D; 3 &amp; Zx2  &gt;&#x3D;  -3 ，这个条件的意思就是选择数值在3和-3之间。点击continue按钮，返回到主对话框</li>
+</ul>
+<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/b2de9c82d158ccbfcba582eb19d8bc3eb03541c1.jpg" class="" title="spss按照3个标准差筛选数据的方法">
+
+<ul>
+<li>在主对话框中，点击ok按钮，开始处理数据</li>
+</ul>
+<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/5ab5c9ea15ce36d38268b4e13af33a87e850b1f6.jpg" class="" title="spss按照3个标准差筛选数据的方法">
+
+<ul>
+<li>最后我们看一下处理的效果，超过三个标准差的数据在前面都有一个斜杠表示删除了。以后处理数据的时候他们就不参与了</li>
+</ul>
+<img src="/2015/10/03/spss%E6%8C%89%E7%85%A73%E4%B8%AA%E6%A0%87%E5%87%86%E5%B7%AE%E7%AD%9B%E9%80%89%E6%95%B0%E6%8D%AE%E7%9A%84%E6%96%B9%E6%B3%95/b8389b504fc2d562010ce73ce71190ef77c66cde.jpg" class="" title="spss按照3个标准差筛选数据的方法">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#57;&#53;&#x37;&#56;&#55;&#64;&#113;&#113;&#46;&#x63;&#111;&#x6d;">&#x36;&#55;&#53;&#x34;&#57;&#53;&#x37;&#56;&#55;&#64;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/10/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B36%5D%E5%88%86%E5%B1%82%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/">
+                SPSS实例：[36]分层卡方检验
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>现在我手头有一个研究数据，数据描述的是不同的年龄组儿童、不同的阅读顺序对是否受到干扰的影响。我们来看一下数据你就懂了。有两个年龄组分别为0和1代表；图书顺序也是两个分别为1和2，是否受到了干扰我们用0和1表示。我们想知道在不同的年龄组下图书顺序是否影响干扰。这时候用到了分层卡方检验，以年龄组作为分层变量。</p>
+<ul>
+<li>首先打开交叉表分析对话框</li>
+</ul>
+<img src="/2015/10/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B36%5D%E5%88%86%E5%B1%82%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/7d98931001e93901c59ec08979ec54e737d196ae.jpg" class="" title="SPSS实例：[36]分层卡方检验">
+
+<ul>
+<li>将年龄组放入到分层变量框</li>
+</ul>
+<img src="/2015/10/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B36%5D%E5%88%86%E5%B1%82%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/55a628d12f2eb93870f13745d7628535e4dd6fae.jpg" class="" title="SPSS实例：[36]分层卡方检验">
+
+<ul>
+<li>打开【statistics】对话框，勾选卡方和CMH统计量，点击继续</li>
+</ul>
+<img src="/2015/10/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B36%5D%E5%88%86%E5%B1%82%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/d4239b35e5dde711614e0e41a5efce1b9c1661ae.jpg" class="" title="SPSS实例：[36]分层卡方检验">
+
+<ul>
+<li>我们看统计结果，首先是层间一致性检验。sig值显示差异不显著，说明不同年龄组中，图书顺序与干扰的关系是相同的。</li>
+</ul>
+<img src="/2015/10/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B36%5D%E5%88%86%E5%B1%82%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/faacb564034f78f0a967d7447b310a55b2191cdd.jpg" class="" title="SPSS实例：[36]分层卡方检验">
+
+<ul>
+<li>接着看分层卡方检验结果，即考虑到年龄因素后，图书顺序与干扰的影响。这里显示图书顺序与干扰是无关的。隐私sig值均大于.05</li>
+</ul>
+<img src="/2015/10/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B36%5D%E5%88%86%E5%B1%82%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/78701455b319ebc4d3143b2e8026cffc1f1716dd.jpg" class="" title="SPSS实例：[36]分层卡方检验">
+
+<ul>
+<li>最后要看的是优势比，主要看Estimate对应的值.861，关于优势比的概念，我们可以看我之前的一篇文章<a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/bea41d437dbcb7b4c51be6be.html">http://jingyan.baidu.com/article/bea41d437dbcb7b4c51be6be.html</a></li>
+</ul>
+<img src="/2015/10/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B36%5D%E5%88%86%E5%B1%82%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/cdfe7281800a19d8a89cc9b231fa828ba71e46ae.jpg" class="" title="SPSS实例：[36]分层卡方检验">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#52;&#x39;&#53;&#55;&#56;&#55;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#109;">&#54;&#55;&#x35;&#52;&#x39;&#53;&#55;&#56;&#55;&#x40;&#113;&#113;&#x2e;&#99;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5DSpssClient%E7%AE%80%E4%BB%8B/">
                 SPSS python教程：[5]SpssClient简介
             </a>
@@ -1237,141 +1389,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/09/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B40%5D%E5%88%97%E8%A1%A8%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/">
-                Python教程：[40]列表与字符串相互转换
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年09月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>以前玩vb没有体会到python这么强大的功能，列表与字符串可以直接的相互转换，非常方便，我们就好好的来享受一把吧！</p>
-<ul>
-<li>首先我们来初始化一个list（列表）</li>
-</ul>
-<img src="/2015/09/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B40%5D%E5%88%97%E8%A1%A8%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/11794d43fbf2b211f7135056c88065380cd78eae.jpg" class="" title="Python教程：[40]列表与字符串相互转换">
-
-<ul>
-<li>使用join方法来转换列表，将列表转换成字符串，注意join是字符串的方法，前面必须是字符串，我用的是“;”,也就是分号，然后连接成的字符串就是用分号来进行元素的分割的。</li>
-</ul>
-<img src="/2015/09/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B40%5D%E5%88%97%E8%A1%A8%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/9252ae7eca80653864d7710b95dda144ad3482ae.jpg" class="" title="Python教程：[40]列表与字符串相互转换">
-
-<ul>
-<li>我们再试试其他的字符串，你感受一下</li>
-</ul>
-<img src="/2015/09/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B40%5D%E5%88%97%E8%A1%A8%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/4bd1e803738da97731d76c33b251f8198718e3eb.jpg" class="" title="Python教程：[40]列表与字符串相互转换">
-
-<ul>
-<li>当然，我们还有能力将字符串转换回去，看下面，设置叹号为分隔符，然后对字符串进行切割，得到列表</li>
-</ul>
-<img src="/2015/09/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B40%5D%E5%88%97%E8%A1%A8%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/a8362712b31bb051f3dc5930347adab44bede0eb.jpg" class="" title="Python教程：[40]列表与字符串相互转换">
-
-<ul>
-<li>split函数还有第二个参数，你猜猜这是干什么用的，对了，它指的是分割的次数</li>
-</ul>
-<img src="/2015/09/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B40%5D%E5%88%97%E8%A1%A8%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/b110e6198618367ad47195c52c738bd4b21ce5eb.jpg" class="" title="Python教程：[40]列表与字符串相互转换">
-
-<ul>
-<li>假如我们分割两次呢，你看看效果。</li>
-</ul>
-<img src="/2015/09/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B40%5D%E5%88%97%E8%A1%A8%E4%B8%8E%E5%AD%97%E7%AC%A6%E4%B8%B2%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2/30ecd5ef76094b36d9afcef5a1cc7cd98d109dae.jpg" class="" title="Python教程：[40]列表与字符串相互转换">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#x34;&#57;&#53;&#55;&#56;&#x37;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;">&#x36;&#x37;&#53;&#x34;&#57;&#53;&#55;&#56;&#x37;&#64;&#x71;&#x71;&#x2e;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/09/23/python%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5Dyield%E7%94%9F%E6%88%90%E5%99%A8/">
-                python高级教程：[3]yield生成器
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年09月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>基于yield这个指令，Python可以挂起一个程序并返回中间结果，被挂起的程序会保持自己的执行环境，在必要的时候再重启它。</p>
-<ul>
-<li>先看看yield的简单用法：yield_example表示一个2的n次方的无穷数列，我们想要它输出前10项，就用[ye.next() for a in range(10)]</li>
-</ul>
-<img src="/2015/09/23/python%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5Dyield%E7%94%9F%E6%88%90%E5%99%A8/9864a2315c6034a8fd2d583fcd13495408237606.jpg" class="" title="python高级教程：[3]yield生成器">
-
-<ul>
-<li><p>一个生成器的next()方法可以让程序运行，并输出yield的值，然后再次被挂起，直到下一个next被调用。这句I是一个生成器。我们经常使用生成器来表示一个无穷数列，下面看一个复杂的例子。</p>
-</li>
-<li><p>用yield写一个分组数列，分组数列的定义是：</p>
-</li>
-</ul>
-<img src="/2015/09/23/python%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5Dyield%E7%94%9F%E6%88%90%E5%99%A8/034965f40ad162d9db928fa217dfa9ec8b13cdd5.jpg" class="" title="python高级教程：[3]yield生成器">
-
-<img src="/2015/09/23/python%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5Dyield%E7%94%9F%E6%88%90%E5%99%A8/43e6c733c895d1435df9069d75f082025baf0746.jpg" class="" title="python高级教程：[3]yield生成器">
-
-<ul>
-<li>实现分组数列的代码：</li>
-</ul>
-<img src="/2015/09/23/python%E9%AB%98%E7%BA%A7%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5Dyield%E7%94%9F%E6%88%90%E5%99%A8/570f8c58d109b3de377306d6cabf6c81810a4c05.jpg" class="" title="python高级教程：[3]yield生成器">
-
-<ul>
-<li>为什么使用字典作为sublist函数的参数，这是因为在传参的时候，如果参数是字典，那么传递的是一个指针，而不是字典的数据，因此当sublist改变了字典的数据的时候，位于fenqunlist函数中的kwargs字典的数据也会发生改变，这是我所希望的。</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#52;&#x39;&#53;&#x37;&#56;&#x37;&#x40;&#113;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#x36;&#55;&#x35;&#52;&#x39;&#53;&#x37;&#56;&#x37;&#x40;&#113;&#x71;&#x2e;&#x63;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1413,6 +1430,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/06/03/%E5%93%8D%E5%BA%94%E6%80%A7%E5%92%8C%E5%8F%8D%E6%98%A0%E6%80%A7%E6%8C%87%E6%A0%87%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E8%A7%A3%E9%87%8A%E6%B8%85%E6%A5%9A/">响应性和反映性指标一篇文章解释清楚</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/05/20/mplus%E4%B8%AD%E4%BB%8B%E3%80%81%E8%B0%83%E8%8A%82%E5%92%8C%E6%9C%89%E8%B0%83%E8%8A%82%E7%9A%84%E4%B8%AD%E4%BB%8B%E6%95%99%E7%A8%8B/">mplus中介、调节和有调节的中介教程</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/04/23/%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E4%B8%8D%E5%8F%98%E6%80%A7%E5%9C%A8%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E7%9A%84%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E4%B8%AD/">如何检验测量模型不变性在结构方程的多组比较中</a>
             </li>
             
@@ -1442,14 +1467,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">贝叶斯网络入门和R代码实践视频教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/12/17/Cronbach's%20Alpha%E7%B3%BB%E6%95%B0%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">Cronbach&#39;s Alpha系数定义和用法</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">关于Jöreskog的组合信度ρ_c定义和用法</a>
             </li>
             
         </ul>
