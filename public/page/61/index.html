@@ -252,6 +252,214 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/">
+                wxpython教程：[2]窗口风格
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>这篇文章接着介绍wxpython.Frame，我们需要设置一下窗口的大小、位置等。下面看一下今天要写的所有代码。</p>
+<ul>
+<li>代码的前两行就不说了，引入了相关模块并创建了一个app</li>
+</ul>
+<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/0d968f2397dda1440ba4fcddb1b7d0a20df486f5.jpg" class="" title="wxpython教程：[2]窗口风格">
+
+<ul>
+<li>接着是Frame的设置，我们先来看看style，他有很多可以设置的属性，不同的属性用竖线“|”连接，比如我们想要窗口上有最大化按钮，就设置wx.MAXIMIZE_BOX，如果想要增加最小化按钮，就写成style&#x3D;wx.MAXIMIZE_BOX|wx.MINIMIZE_BOX ，写一连串属性很麻烦，我们可以用wx.DEFAULT_FRAME_STYLE默认设置，它等于wx.MINIMIZE_BOX | wx.MAXIMIZE_BOX | wx.RESIZE_BORDER | wx.SYSTEM_MENU | wx.CAPTION | wx.CLOSE_BOX | wx.CLIP_CHILDREN<br>其他属性的意义我们直接从官网上看就可以，如下图：</li>
+</ul>
+<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/4abae5edab64034f575f5269acc379310b551d8b.jpg" class="" title="wxpython教程：[2]窗口风格">
+
+<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/109eb7ec8a136327064f515c928fa0ec09fac784.jpg" class="" title="wxpython教程：[2]窗口风格">
+
+<ul>
+<li><p>接着我们想要设置窗口的大小，用size参数，Frame（…size&#x3D;(200,250))，这样就将窗口大小设置为200长，250高。</p>
+</li>
+<li><p>使用Move方法可以设置窗口的位置，比如（它表示窗口的左上角在屏幕上的位置）</p>
+</li>
+</ul>
+<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/ac754782b2b7d0a2a66494f2c8ef76094a369af5.jpg" class="" title="wxpython教程：[2]窗口风格">
+
+<ul>
+<li>如果我们需要将窗口置于屏幕中央，可以使用Center方法</li>
+</ul>
+<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/b6045da98226cffc24b82fddba014a90f703ea94.jpg" class="" title="wxpython教程：[2]窗口风格">
+
+<ul>
+<li>还有其他很多方法设置窗口位置，这里就不演示了：</li>
+</ul>
+<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/4e83cb628535e5dd279737b075c6a7efcf1b62e3.jpg" class="" title="wxpython教程：[2]窗口风格">
+
+<ul>
+<li>最后就不用解释了，可以看看你创建的一个窗口</li>
+</ul>
+<img src="/2015/07/01/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B2%5D%E7%AA%97%E5%8F%A3%E9%A3%8E%E6%A0%BC/8bc3a7014a90f6034c220c283a12b31bb151ed94.jpg" class="" title="wxpython教程：[2]窗口风格">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;">&#x36;&#55;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/06/23/Excel2013%EF%BC%9A%5B43%5D%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%89%B9%E6%B3%A8/">
+                Excel2013：[43]如何打印批注
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>怎样打印批注？我在Excel的某个单元格里插入了一个批注，但是打印的时候不显示，那么我改怎么办？怎样才能把批注打印出来？好吧，废话少说，看看下面的教程：如何打印Excel的批注：</p>
+<ul>
+<li>默认插入的批注是隐藏的，你的鼠标离开批注所在的单元格就是隐藏批注，所以要想打印批注，先要显示批注，右键单击该单元格，选择【显示&#x2F;隐藏批注】</li>
+</ul>
+<img src="/2015/06/23/Excel2013%EF%BC%9A%5B43%5D%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%89%B9%E6%B3%A8/bd70426034a85edf860eb9444b540923dc547593.jpg" class="" title="Excel2013：[43]如何打印批注">
+
+<ul>
+<li>现在你的鼠标随便放，批注都会是显示的</li>
+</ul>
+<img src="/2015/06/23/Excel2013%EF%BC%9A%5B43%5D%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%89%B9%E6%B3%A8/6f4703950a7b0208eb56788660d9f2d3562cc8ff.jpg" class="" title="Excel2013：[43]如何打印批注">
+
+<ul>
+<li>切换到【页面布局】下，找到【打印标题】，点击它</li>
+</ul>
+<img src="/2015/06/23/Excel2013%EF%BC%9A%5B43%5D%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%89%B9%E6%B3%A8/570f8c58d109b3de883da30fcebf6c81810a4c93.jpg" class="" title="Excel2013：[43]如何打印批注">
+
+<ul>
+<li>在打开的对话框中，我们切换到【工作表】标签，找到【批注】选项，我们设置为【如同工作表中的显示】，当然你也可以设置成【工作表末尾】，as you like，点击确定按钮</li>
+</ul>
+<img src="/2015/06/23/Excel2013%EF%BC%9A%5B43%5D%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%89%B9%E6%B3%A8/cdfe7281800a19d8a681c36231fa828ba71e4693.jpg" class="" title="Excel2013：[43]如何打印批注">
+
+<ul>
+<li>在开始菜单中，点击【打印】可以预览一下打印效果</li>
+</ul>
+<img src="/2015/06/23/Excel2013%EF%BC%9A%5B43%5D%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%89%B9%E6%B3%A8/6dc09e0a19d8bc3eaa8a41ad808ba61ea9d34593.jpg" class="" title="Excel2013：[43]如何打印批注">
+
+<ul>
+<li>至此我们看到了，这是打印的效果图，显然批注已经被打印出来了。</li>
+</ul>
+<img src="/2015/06/23/Excel2013%EF%BC%9A%5B43%5D%E5%A6%82%E4%BD%95%E6%89%93%E5%8D%B0%E6%89%B9%E6%B3%A8/99636c0e0cf3d7cad4697811f01fbe096a63a9ff.jpg" class="" title="Excel2013：[43]如何打印批注">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#x34;&#x39;&#53;&#x37;&#x38;&#x37;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;">&#x36;&#55;&#x35;&#x34;&#x39;&#53;&#x37;&#x38;&#x37;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/06/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B3%5D%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1/">
+                numpy函数：[3]数组对象
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>数组是numpy中最重要的对象，我们通常使用array()方法来创建对象，他的参数是一个list对象，我们来看看具体的方法：</p>
+<ul>
+<li>首先强调一点，我们将numpy引入，名称为np</li>
+</ul>
+<img src="/2015/06/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B3%5D%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1/ac0acf1373f0820220f9f19849fbfbedaa641bea.jpg" class="" title="numpy函数：[3]数组对象">
+
+<ul>
+<li>我们使用一个列表作为array的参数，然后看一下这个array输出的结果，就是一个数组对象，而且是一维的</li>
+</ul>
+<img src="/2015/06/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B3%5D%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1/0db2c9ca7bcb0a463c27eb9e6963f6246a60afd5.jpg" class="" title="numpy函数：[3]数组对象">
+
+<ul>
+<li>假如我们要创建一个二维数组，我们就要用到一个列表的嵌套，看下面的ab列表就是一个嵌套。</li>
+</ul>
+<img src="/2015/06/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B3%5D%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1/0b14ad19ebc4b745cbffd7b1cdfc1e178b8215ea.jpg" class="" title="numpy函数：[3]数组对象">
+
+<ul>
+<li>通过array()将ab列表转换成一个二维数组。</li>
+</ul>
+<img src="/2015/06/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B3%5D%E6%95%B0%E7%BB%84%E5%AF%B9%E8%B1%A1/d66b7e59252dd42af50c610c013b5bb5c8eab8d5.jpg" class="" title="numpy函数：[3]数组对象">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#52;&#57;&#x35;&#x37;&#56;&#55;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;">&#x36;&#x37;&#x35;&#52;&#57;&#x35;&#x37;&#56;&#55;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/06/19/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B78%5Dtype()%E5%88%9B%E5%BB%BA%E7%B1%BB/">
                 python教程：[78]type()创建类
             </a>
@@ -818,450 +1026,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/">
-                pandas教程：[5]读取csv数据
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>很多数据是从网上下载而来，数据的格式可能是csv，那么pandas可以很容易的从csv格式的文件中读取数据，下面我们来看看具体的过程：</p>
-<ul>
-<li>引入pandas</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/7787b9efce1b9d161dd32272f0deb48f8c54644a.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<ul>
-<li>使用pandas下的read_csv方法，读取csv文件，参数是文件的路径，这是一个相对路径，是相对于当前工作目录的，那么如何知道当前的工作目录呢？</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/bd7faf3533fa828ba41825f0fe1f4134970a5aae.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<ul>
-<li>使用os.getcwd()方法获取当前工作目录</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/1cd4147b02087bf47fe5effaf1d3572c11dfcf5d.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<ul>
-<li>读取前三后数据，查看一下是否读取正确，显然都是乱码，这是什么问题呢？</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/95afee1f3a292df509d71406bf315c6034a8734a.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<ul>
-<li>我们需要设定参数encoding，也就是编码方式，如果你不设定编码方式，默认是utf8，现在csv文件是gbk编码的，所以需要使用encoding&#x3D;’gbk’</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/2cb4fefe9925bc31b049b98b5ddf8db1cb13704a.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<ul>
-<li>我用的编辑器是eric4，注意，eric4默认是不支持中文的，如果你想要显示中文，前提是设置正确的编码，在preferences中</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/c87c6ecf3bc79f3debda5c23b9a1cd11728b29ae.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<ul>
-<li>设置成utf8即可</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/d041a4a1cd11728b5f163431cbfcc3cec3fd2cae.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<ul>
-<li>回到pandas，我们可以有更多选项来设置打开数据时的操作：</li>
-</ul>
-<img src="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/808a27dbb6fd5266fd228707a818972bd407365c.jpg" class="" title="pandas教程：[5]读取csv数据">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;">&#54;&#55;&#53;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#x40;&#113;&#113;&#46;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B8%5D%E8%AE%A1%E7%AE%97%E7%9F%A9%E9%98%B5%E8%B7%9D%E7%A6%BB/">
-                python 线性代数：[8]计算矩阵距离
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>矩阵的距离，这里是的是欧几里得距离，其他距离表示方法我们以后再谈，今天进说一下如何计算两个形状相同矩阵之间的距离。</p>
-<ul>
-<li>创建一个矩阵a和b</li>
-</ul>
-<img src="/2015/06/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B8%5D%E8%AE%A1%E7%AE%97%E7%9F%A9%E9%98%B5%E8%B7%9D%E7%A6%BB/bd70426034a85edfa4889fd44b540923dc547585.jpg" class="" title="python 线性代数：[8]计算矩阵距离">
-
-<img src="/2015/06/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B8%5D%E8%AE%A1%E7%AE%97%E7%9F%A9%E9%98%B5%E8%B7%9D%E7%A6%BB/35e940df8db1cb13626d5de4df54564e93584b85.jpg" class="" title="python 线性代数：[8]计算矩阵距离">
-
-<ul>
-<li>先计算得到他俩的距离矩阵c</li>
-</ul>
-<img src="/2015/06/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B8%5D%E8%AE%A1%E7%AE%97%E7%9F%A9%E9%98%B5%E8%B7%9D%E7%A6%BB/0862c354564e9258e130e7199e82d158cdbf4e85.jpg" class="" title="python 线性代数：[8]计算矩阵距离">
-
-<ul>
-<li>距离矩阵的平方，得到矩阵d</li>
-</ul>
-<img src="/2015/06/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B8%5D%E8%AE%A1%E7%AE%97%E7%9F%A9%E9%98%B5%E8%B7%9D%E7%A6%BB/e8112b2ac65c1038be14af35b0119313b17e89a4.jpg" class="" title="python 线性代数：[8]计算矩阵距离">
-
-<ul>
-<li>计算矩阵d的迹</li>
-</ul>
-<img src="/2015/06/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B8%5D%E8%AE%A1%E7%AE%97%E7%9F%A9%E9%98%B5%E8%B7%9D%E7%A6%BB/6dc09e0a19d8bc3e880c673d808ba61ea9d34585.jpg" class="" title="python 线性代数：[8]计算矩阵距离">
-
-<ul>
-<li>然后将得到的e进行开方得到距离：你可以手动算一下是不是正确。</li>
-</ul>
-<img src="/2015/06/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B8%5D%E8%AE%A1%E7%AE%97%E7%9F%A9%E9%98%B5%E8%B7%9D%E7%A6%BB/814b07d8bc3eb13509c3d64ca41ea8d3fc1f4485.jpg" class="" title="python 线性代数：[8]计算矩阵距离">
-
-<ul>
-<li><p>我们用到的原理就是矩阵的迹的性质，在numpy或者scipy中还有计算距离的函数，我们以后再说</p>
-</li>
-<li><p>今天用到的所有代码如下：</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a&#x3D;[[0,1],[1,0]]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a&#x3D;np.array(a)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[0, 1],</p>
-</li>
-<li><pre><code>   [1, 0]])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>b&#x3D;[[1,1],[1,1]]</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>b&#x3D;np.array(b)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>b</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 1],</p>
-</li>
-<li><pre><code>   [1, 1]])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>c&#x3D;a-b</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>c</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[-1,  0],</p>
-</li>
-<li><pre><code>   [ 0, -1]])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>d&#x3D;np.dot(c,c)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>d</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 0],</p>
-</li>
-<li><pre><code>   [0, 1]])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>e&#x3D;np.trace(d)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>e</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>2</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>e**0.5</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>1.4142135623730951</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#x34;&#x39;&#53;&#55;&#x38;&#x37;&#x40;&#113;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#x36;&#x37;&#53;&#x34;&#x39;&#53;&#55;&#x38;&#x37;&#x40;&#113;&#x71;&#x2e;&#x63;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/11/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E6%9D%A1%E5%BD%A2%E5%9B%BE%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95/">
-                SPSS绘图教程：[3]条形图绘制方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>和上一篇文章一样，开始先打开【图表构建程序】，通常会弹出变量属性校验窗口，不用管它，因为我们在上一篇文章中介绍了如何使用它<br>可以直接点击确定即可。</p>
-<ul>
-<li>首先在库中找到条形图，然后用鼠标将你想要的样式拖拽到预览区域</li>
-</ul>
-<img src="/2015/06/11/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E6%9D%A1%E5%BD%A2%E5%9B%BE%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95/207ea60e7bec54e79a3a9ba6bb389b504ec26a71.jpg" class="" title="SPSS绘图教程：[3]条形图绘制方法">
-
-<ul>
-<li>然后将变量拖拽到相应的坐标轴，比如年龄组为横轴，干扰与否为纵轴</li>
-</ul>
-<img src="/2015/06/11/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E6%9D%A1%E5%BD%A2%E5%9B%BE%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95/d4239b35e5dde7112504c24ea5efce1b9c166171.jpg" class="" title="SPSS绘图教程：[3]条形图绘制方法">
-
-<ul>
-<li>在窗口右侧，有一个属性窗口，我们设置统计量，也就是条形图中显示的统计量，用的最多的就是均值。</li>
-</ul>
-<img src="/2015/06/11/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E6%9D%A1%E5%BD%A2%E5%9B%BE%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95/ae10eddeb48f8c542b05449738292df5e1fe7f71.jpg" class="" title="SPSS绘图教程：[3]条形图绘制方法">
-
-<ul>
-<li>接着，我们可以添加一个误差项，你不知道啥叫误差项？好吧，接着往下看。我们设置误差条形图的显示95%的区间</li>
-</ul>
-<img src="/2015/06/11/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E6%9D%A1%E5%BD%A2%E5%9B%BE%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95/48151723dd54564e5d976581b1de9c82d0584f5d.jpg" class="" title="SPSS绘图教程：[3]条形图绘制方法">
-
-<ul>
-<li>在条形统的上面就会出现两一条横线，表示95%的区间</li>
-</ul>
-<img src="/2015/06/11/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E6%9D%A1%E5%BD%A2%E5%9B%BE%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95/1899a23eb13533fa59441296aad3fd1f40345b5d.jpg" class="" title="SPSS绘图教程：[3]条形图绘制方法">
-
-<ul>
-<li>当然，我们还可以设置n个标准差或者标准误作为条形图的误差项</li>
-</ul>
-<img src="/2015/06/11/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E6%9D%A1%E5%BD%A2%E5%9B%BE%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95/cdfe7281800a19d864d505bd31fa828ba71e4671.jpg" class="" title="SPSS绘图教程：[3]条形图绘制方法">
-
-<ul>
-<li>假如你没有看到属性窗口，或者不小心关闭了，你可以右键单击这个图，选择【属性窗口】，这样就打开它了。</li>
-</ul>
-<img src="/2015/06/11/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E6%9D%A1%E5%BD%A2%E5%9B%BE%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95/c28fddfdfc0392452f4760b78594a4c27c1e255d.jpg" class="" title="SPSS绘图教程：[3]条形图绘制方法">
-
-<ul>
-<li>点击确定，你就可以看到你绘制好的条形图了。</li>
-</ul>
-<img src="/2015/06/11/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E6%9D%A1%E5%BD%A2%E5%9B%BE%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95/a6c7d7177f3e670920d6c44739c79f3df9dc5571.jpg" class="" title="SPSS绘图教程：[3]条形图绘制方法">
-
-<ul>
-<li>OH！！不小心出现了错误，你应该能猜到为什么会出错。</li>
-</ul>
-<img src="/2015/06/11/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E6%9D%A1%E5%BD%A2%E5%9B%BE%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95/9e7ce6dcd100baa13dfac6034510b912c9fc2e71.jpg" class="" title="SPSS绘图教程：[3]条形图绘制方法">
-
-<ul>
-<li>我们把变量名从中文改成英文就好了！就是对中文支持不够好。其实spss22.0已经能够支持中文变量名了。我现在还是spss20.0，该升级了。</li>
-</ul>
-<img src="/2015/06/11/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E6%9D%A1%E5%BD%A2%E5%9B%BE%E7%BB%98%E5%88%B6%E6%96%B9%E6%B3%95/9f1011b30f2442a7cde37c1dd343ad4bd013025d.jpg" class="" title="SPSS绘图教程：[3]条形图绘制方法">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#x34;&#x39;&#x35;&#55;&#x38;&#55;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;">&#54;&#55;&#x35;&#x34;&#x39;&#x35;&#55;&#x38;&#55;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1303,6 +1067,18 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/07/17/mplus%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E7%BB%84%E5%86%85%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0ICC/">mplus如何计算组内相关系数ICC</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/10/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%80%E9%94%AE%E8%BD%AClatex%E6%88%96mathjax/">工具分享图片格式的数学公式识别一键转latex或m</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/09/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E5%BB%BA%E6%A8%A1%E5%85%A5%E9%97%A8-%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%80%BB%E8%BE%91/">多水平建模入门-多层线性模型的逻辑</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/06/03/%E5%93%8D%E5%BA%94%E6%80%A7%E5%92%8C%E5%8F%8D%E6%98%A0%E6%80%A7%E6%8C%87%E6%A0%87%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E8%A7%A3%E9%87%8A%E6%B8%85%E6%A5%9A/">响应性和反映性指标一篇文章解释清楚</a>
             </li>
             
@@ -1328,18 +1104,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">回聚类分析最佳实践</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/02/28/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">结构方程模型R语言实战教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/">Mplus潜在截面分析LPA教程代码结果解读</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">贝叶斯网络入门和R代码实践视频教程</a>
             </li>
             
         </ul>

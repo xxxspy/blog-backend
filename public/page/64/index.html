@@ -252,6 +252,247 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/">
+                pandas教程：[9]MultiIndex用法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在pandas的DataFrame中经常使用多个索引，在pandas中成为MultiIndex对象，这篇文章介绍一下MultiIndex创建和使用方法：</p>
+<ul>
+<li>引入所有需要的模块</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/1f569482b9014a90cb5cd5a8aa773912b31bee02.jpg" class="" title="pandas教程：[9]MultiIndex用法">
+
+<ul>
+<li>创建两个&lt;type ‘numpy.ndarray’&gt;对象，分别为colors和foods</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/2cb4fefe9925bc318f3c928d5ddf8db1cb137007.jpg" class="" title="pandas教程：[9]MultiIndex用法">
+
+<ul>
+<li>打印出这两个数组来查看一下，注意tm.choice创建的数组是随机的，你利用同样的代码创建的数组和我的可能不一样</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/207ea60e7bec54e78f92890bba389b504fc26a6e.jpg" class="" title="pandas教程：[9]MultiIndex用法">
+
+<ul>
+<li>创建MultiIndex对象，然后创建DataFrame对象（其中使用index&#x3D;index参数）</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/55a628d12f2eb9382713e9e7d6628535e5dd6f6e.jpg" class="" title="pandas教程：[9]MultiIndex用法">
+
+<ul>
+<li>打印一下df看看里面的数据：有两个索引color和food</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/570f8c58d109b3de43de777dcfbf6c81800a4c07.jpg" class="" title="pandas教程：[9]MultiIndex用法">
+
+<ul>
+<li>如何利用索引来筛选数据：使用query（）<br>结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/ae10eddeb48f8c5458ad563a39292df5e0fe7f6e.jpg" class="" title="pandas教程：[9]MultiIndex用法">
+
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/b29f8282d158ccbf8edd262f1ad8bc3eb1354107.jpg" class="" title="pandas教程：[9]MultiIndex用法">
+
+<ul>
+<li>还可以在分组中使用索引，使用了level参数<br>打印结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/1899a23eb13533fa6ad7003babd3fd1f41345b07.jpg" class="" title="pandas教程：[9]MultiIndex用法">
+
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/4075890a304e251f659677eda486c9177f3e5307.jpg" class="" title="pandas教程：[9]MultiIndex用法">
+
+<ul>
+<li>删除或者更改索引的名称：如果删除了名称，我们只能使用ilevel_0表示第一个索引<br>打印结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/b29f8282d158ccbf8ec2262f1ad8bc3eb135416e.jpg" class="" title="pandas教程：[9]MultiIndex用法">
+
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/7e7f7909c93d70cfc39b3918fbdcd100baa12b07.jpg" class="" title="pandas教程：[9]MultiIndex用法">
+
+<ul>
+<li>分组中也是一样，删除掉索引名称以后，只能使用数字1表示第二个索引<br>打印结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/73ca5910b912c8fcc19365d8ff039245d6882107.jpg" class="" title="pandas教程：[9]MultiIndex用法">
+
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/b853d6fcc3cec3fdf85e3460d588d43f87942707.jpg" class="" title="pandas教程：[9]MultiIndex用法">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#52;&#57;&#x35;&#x37;&#x38;&#55;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#109;">&#54;&#55;&#x35;&#52;&#57;&#x35;&#x37;&#x38;&#55;&#64;&#x71;&#113;&#x2e;&#99;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/15/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/">
+                wxpython教程：[6]简单布局管理
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>一个软件的界面又很多控件，这些控件是如何布局的？今天我们先来看一下简单的布局方式，之后我们再来看看一些复杂的布局（利用sizer）实现的布局。</p>
+<ul>
+<li><p>接着用之前写的代码，我们看一下代码：<br>很多内容都是之前的文章里介绍的，这里只是添加了两行代码：</p>
+</li>
+<li><pre><code>    panel=wx.Panel(self,-1)#创建一个面板对象
+</code></pre>
+</li>
+<li><pre><code>    wx.TextCtrl(panel,pos=(3,3),size=(250,250))#添加一个文本框，并设置它的位置和大小
+</code></pre>
+</li>
+</ul>
+<img src="/2015/05/15/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/3a86813df8dcd100a92c4274718b4710b8122ff7.jpg" class="" title="wxpython教程：[6]简单布局管理">
+
+<ul>
+<li><p>Panel是窗口的容器，通常其大小与Frame一样，在其上放置各种控件，比如放置按钮、文本框等。</p>
+</li>
+<li><p>创建文本框的时候，我们传入pos和size参数，顾名思义，就是位置和大小，这段代码：wx.TextCtrl(panel,pos&#x3D;(3,3),size&#x3D;(250,250))就是设置文本框的位置是x&#x3D;3，y&#x3D;3；大小是长宽都是250的正方形。</p>
+</li>
+<li><p>这就是我们看到的界面：<br>改变界面大小，文本框控件的位置和大小是不变的</p>
+</li>
+</ul>
+<img src="/2015/05/15/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/3bb22487e950352a687e805d5043fbf2b2118b0d.jpg" class="" title="wxpython教程：[6]简单布局管理">
+
+<img src="/2015/05/15/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/346bd85c103853434ad022749013b07eca80880d.jpg" class="" title="wxpython教程：[6]简单布局管理">
+
+<ul>
+<li>我们一眼就能看出这种方式布局的局限性，于是，也许下面这种方式更加简便与灵活：我们直接将文本框嫁接到Frame上，而不是利用Panel：</li>
+</ul>
+<img src="/2015/05/15/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/4e83cb628535e5dd30b3008a75c6a7efcf1b628d.jpg" class="" title="wxpython教程：[6]简单布局管理">
+
+<ul>
+<li>如此一来，文本框铺满整个Frame，大小与Fram相同，改变Frame大小，文本框也跟着变化：</li>
+</ul>
+<img src="/2015/05/15/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E7%AE%80%E5%8D%95%E5%B8%83%E5%B1%80%E7%AE%A1%E7%90%86/0862c354564e9258228323bb9f82d158cdbf4ef5.jpg" class="" title="wxpython教程：[6]简单布局管理">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#52;&#57;&#53;&#55;&#56;&#55;&#64;&#113;&#113;&#46;&#99;&#x6f;&#x6d;">&#54;&#55;&#x35;&#52;&#57;&#53;&#55;&#56;&#55;&#64;&#113;&#113;&#46;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a> <a href="/tags/wxpython/">#wxpython</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/">
+                pandas教程：[25]插值法填补缺失值
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>使用插值法可以计算缺失值的估计值，所谓的插值法就是通过两点（x0，y0），（x1，y1）估计中间点的值，假设y&#x3D;f(x)是一条直线，通过已知的两点来计算函数f(x),然后只要知道x就能求出y，以此方法来估计缺失值。当然我们也可以假设f（x)不是直线，二是其他函数。</p>
+<ul>
+<li>引入相关模块并创建一个数据框<br>数据框的内容为：<br>‘</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/62667cd0f703918f03ed62cd523d269759eec4be.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/0865b518972bd40763af8cfa78899e510fb30909.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<ul>
+<li>使用插值法估计缺失值<br>输出结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/b13fd48065380cd74f81fdeaa244ad34588281df.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/99636c0e0cf3d7cacdca6071f11fbe096b63a9be.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<ul>
+<li><p>我们可以计算一下缺失值实际上上前一个值和后一个值得平均数，因为interpolate（）假设函数是直线形式</p>
+</li>
+<li><p>假如index是数字，我们还可以根据数字来进行插值，用到参数method&#x3D;’values’<br>比较一下插值的结果与上一个结果的不同之处这时候索引的数值实际上就是用于估计y的x值</p>
+</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/dc854fda81cb39dbf9a83851d3160924ab183009.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/7a8a1446f21fbe09d1629c1368600c338744adbe.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<ul>
+<li>同样道理，如果index是时间，我们可以用method&#x3D;time来达到同样的效果<br>输出结果为：</li>
+</ul>
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/54baacfb43166d22e24b4a93452309f79052d2be.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<img src="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B25%5D%E6%8F%92%E5%80%BC%E6%B3%95%E5%A1%AB%E8%A1%A5%E7%BC%BA%E5%A4%B1%E5%80%BC/f35ea0096b63f624d76166048444ebf81a4ca3be.jpg" class="" title="pandas教程：[25]插值法填补缺失值">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#52;&#57;&#x35;&#55;&#x38;&#55;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#x6d;">&#54;&#55;&#x35;&#52;&#57;&#x35;&#55;&#x38;&#55;&#x40;&#x71;&#x71;&#46;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/05/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B22%5D%E5%A6%82%E4%BD%95%E5%B0%86%E5%87%A0%E4%B8%AA%E5%8F%98%E9%87%8F%E7%9B%B8%E5%8A%A0%E5%87%8F%E4%B9%98%E9%99%A4/">
                 SPSS实例：[22]如何将几个变量相加减乘除
             </a>
@@ -838,403 +1079,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/03/Excel2013%EF%BC%9A%5B1%5D%E4%B8%A4%E7%B1%BB%E6%95%B0%E6%8D%AE%E7%BB%98%E5%88%B6%E5%9C%A8%E5%90%8C%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%B8%8A/">
-                Excel2013：[1]两类数据绘制在同一张图上
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>假如我有两个曲线要画在同一张图上，而且不能同时绘制出两条曲线，只能一条一条的绘制，如果你想要将两条曲线放到一张图上，你可以先绘制一条，然后再添加数据源。我们看看下面的案例吧。</p>
-<ul>
-<li>我们看下面的表格，有三列数据，自变量X和两个因变量y1和y2，我们要用散点图表示x和y1的关系，同时要用散点图表示x和y2的关系，如何将两个散点图绘制在一个图上呢？</li>
-</ul>
-<img src="/2015/05/03/Excel2013%EF%BC%9A%5B1%5D%E4%B8%A4%E7%B1%BB%E6%95%B0%E6%8D%AE%E7%BB%98%E5%88%B6%E5%9C%A8%E5%90%8C%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%B8%8A/d66b7e59252dd42a0a3624b8013b5bb5c9eab8a2.jpg" class="" title="Excel2013：[1]两类数据绘制在同一张图上">
-
-<ul>
-<li>先绘制第一条曲线，选中x和y1两列数据，然后选择一个散点图，如图所示</li>
-</ul>
-<img src="/2015/05/03/Excel2013%EF%BC%9A%5B1%5D%E4%B8%A4%E7%B1%BB%E6%95%B0%E6%8D%AE%E7%BB%98%E5%88%B6%E5%9C%A8%E5%90%8C%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%B8%8A/d478a8003af33a87c44c2509c45c10385343b544.jpg" class="" title="Excel2013：[1]两类数据绘制在同一张图上">
-
-<ul>
-<li>在图表上右键单击，点击【选择数据】</li>
-</ul>
-<img src="/2015/05/03/Excel2013%EF%BC%9A%5B1%5D%E4%B8%A4%E7%B1%BB%E6%95%B0%E6%8D%AE%E7%BB%98%E5%88%B6%E5%9C%A8%E5%90%8C%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%B8%8A/e8112b2ac65c1038625febd1b0119313b07e8944.jpg" class="" title="Excel2013：[1]两类数据绘制在同一张图上">
-
-<ul>
-<li>我们看到打开了【数据源】对话框。点击【添加】按钮</li>
-</ul>
-<img src="/2015/05/03/Excel2013%EF%BC%9A%5B1%5D%E4%B8%A4%E7%B1%BB%E6%95%B0%E6%8D%AE%E7%BB%98%E5%88%B6%E5%9C%A8%E5%90%8C%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%B8%8A/5202e5f2b21193138562daa367380cd791238d44.jpg" class="" title="Excel2013：[1]两类数据绘制在同一张图上">
-
-<ul>
-<li>编辑数据系列，你可以看到我用不同颜色表示出了不同的数据源，你按照箭头来操作就可以了</li>
-</ul>
-<img src="/2015/05/03/Excel2013%EF%BC%9A%5B1%5D%E4%B8%A4%E7%B1%BB%E6%95%B0%E6%8D%AE%E7%BB%98%E5%88%B6%E5%9C%A8%E5%90%8C%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%B8%8A/647912d7912397dd9a58bd175b82b2b7d0a28744.jpg" class="" title="Excel2013：[1]两类数据绘制在同一张图上">
-
-<ul>
-<li>这是我设计好的数据系列，点击确定</li>
-</ul>
-<img src="/2015/05/03/Excel2013%EF%BC%9A%5B1%5D%E4%B8%A4%E7%B1%BB%E6%95%B0%E6%8D%AE%E7%BB%98%E5%88%B6%E5%9C%A8%E5%90%8C%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%B8%8A/cbc17b380cd79123addfb167af345982b2b780a2.jpg" class="" title="Excel2013：[1]两类数据绘制在同一张图上">
-
-<ul>
-<li>回到了数据源对话框，我们点击确定按钮</li>
-</ul>
-<img src="/2015/05/03/Excel2013%EF%BC%9A%5B1%5D%E4%B8%A4%E7%B1%BB%E6%95%B0%E6%8D%AE%E7%BB%98%E5%88%B6%E5%9C%A8%E5%90%8C%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%B8%8A/58c3acb7d0a20cf470b1dbcc74094b36acaf9944.jpg" class="" title="Excel2013：[1]两类数据绘制在同一张图上">
-
-<ul>
-<li>这时候已经出现了两条曲线，我们点击【添加】按钮，如图所示</li>
-</ul>
-<img src="/2015/05/03/Excel2013%EF%BC%9A%5B1%5D%E4%B8%A4%E7%B1%BB%E6%95%B0%E6%8D%AE%E7%BB%98%E5%88%B6%E5%9C%A8%E5%90%8C%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%B8%8A/ac754782b2b7d0a24cf6218ec9ef76094b369aa2.jpg" class="" title="Excel2013：[1]两类数据绘制在同一张图上">
-
-<ul>
-<li>选择添加【图例】，这样你就可以知道这两条曲线分别代表的是谁了。</li>
-</ul>
-<img src="/2015/05/03/Excel2013%EF%BC%9A%5B1%5D%E4%B8%A4%E7%B1%BB%E6%95%B0%E6%8D%AE%E7%BB%98%E5%88%B6%E5%9C%A8%E5%90%8C%E4%B8%80%E5%BC%A0%E5%9B%BE%E4%B8%8A/0db52fadcbef76090f34bc8c2cdda3cc7cd99ea2.jpg" class="" title="Excel2013：[1]两类数据绘制在同一张图上">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#52;&#57;&#53;&#55;&#x38;&#55;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#109;">&#x36;&#x37;&#x35;&#52;&#57;&#53;&#55;&#x38;&#55;&#x40;&#113;&#113;&#x2e;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B10%5D%E6%B1%82%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/">
-                python 线性代数：[10]求方阵的特征值特征向量
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>求方阵（矩阵）的特征值和特征向量用的是python中的numpy.linagl.eig方法，它需要一个二维数组作为参数，输出一个一位数组（元素为特征值）和一个二维数组（特征向量组），我们还是在例子中学习一哈：</p>
-<ul>
-<li>先引入numpy模块</li>
-</ul>
-<img src="/2015/05/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B10%5D%E6%B1%82%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/a1ad16fa513d2697caee42aa57fbb2fb4216d8cd.jpg" class="" title="python 线性代数：[10]求方阵的特征值特征向量">
-
-<ul>
-<li>创建一个对角矩阵，关于diag的用法可以看我前几篇文章</li>
-</ul>
-<img src="/2015/05/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B10%5D%E6%B1%82%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/29752a9b033b5bb57ea46a0934d3d539b700bc93.jpg" class="" title="python 线性代数：[10]求方阵的特征值特征向量">
-
-<ul>
-<li>求矩阵x的特征值和特征向量，特征值保存在a中，特征向量保存在b中</li>
-</ul>
-<img src="/2015/05/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B10%5D%E6%B1%82%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/b3ba5d166d224f4abaa439e40bf790529922d1cd.jpg" class="" title="python 线性代数：[10]求方阵的特征值特征向量">
-
-<ul>
-<li><p>使用循环的方法，我们来验证一下特征值和特征向量，验证的方法是特征值和特征向量的定义法：</p>
-</li>
-<li><p>设A为n阶矩阵，若存在常数λ及非零的n维向量x，使得</p>
-</li>
-<li><p>Ax&#x3D;λx，</p>
-</li>
-<li><p>则称λ是矩阵A的特征值，x是A属于特征值λ的特征向量。</p>
-</li>
-</ul>
-<img src="/2015/05/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B10%5D%E6%B1%82%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/5202e5f2b21193137630b54767380cd790238d93.jpg" class="" title="python 线性代数：[10]求方阵的特征值特征向量">
-
-<ul>
-<li>这是我今天犯的错误：</li>
-</ul>
-<img src="/2015/05/03/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B10%5D%E6%B1%82%E6%96%B9%E9%98%B5%E7%9A%84%E7%89%B9%E5%BE%81%E5%80%BC%E7%89%B9%E5%BE%81%E5%90%91%E9%87%8F/6a22e8246b600c332d44943f184c510fd8f9a1cd.jpg" class="" title="python 线性代数：[10]求方阵的特征值特征向量">
-
-<ul>
-<li><p>这是今天用到的所有代码：</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>import numpy</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>x&#x3D;numpy.diag((1,2,3))</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>x</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[1, 0, 0],</p>
-</li>
-<li><pre><code>   [0, 2, 0],
-</code></pre>
-</li>
-<li><pre><code>   [0, 0, 3]])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a,b&#x3D;numpy.linalg.eig(x)</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>a</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([ 1.,  2.,  3.])</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>b</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>array([[ 1.,  0.,  0.],</p>
-</li>
-<li><pre><code>   [ 0.,  1.,  0.],
-</code></pre>
-</li>
-<li><pre><code>   [ 0.,  0.,  1.]])
-</code></pre>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>for i in range(3):</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>if numpy.dot(x,b[:][i])&#x3D;&#x3D;a[i]*b[:][i]:</p>
-</li>
-<li><p>print ‘正确’</p>
-</li>
-<li><p>else:print ‘错误‘</p>
-</li>
-<li><p>SyntaxError: EOL while scanning string literal</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>for i in range(3):</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>if numpy.dot(x,b[:][i])&#x3D;&#x3D;a[i]*b[:][i]:</p>
-</li>
-<li><p>print ‘正确’</p>
-</li>
-<li><p>else:print ‘错误’</p>
-</li>
-<li><p>Traceback (most recent call last):</p>
-</li>
-<li><p>File “&lt;pyshell#38&gt;”, line 2, in <module></p>
-</li>
-<li><pre><code>if numpy.dot(x,b[:][i])==a[i]*b[:][i]:
-</code></pre>
-</li>
-<li><p>ValueError: The truth value of an array with more than one element is ambiguous. Use a.any() or a.all()</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-<p>for i in range(3):</p>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-<li><p>if (numpy.dot(x,b[:][i])&#x3D;&#x3D;a[i]*b[:][i]).all():</p>
-</li>
-<li><p>print ‘正确’</p>
-</li>
-<li><p>else:print ‘错误’</p>
-</li>
-<li><p>正确</p>
-</li>
-<li><p>正确</p>
-</li>
-<li><p>正确</p>
-</li>
-<li><blockquote>
-<blockquote>
-<blockquote>
-</blockquote>
-</blockquote>
-</blockquote>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#52;&#x39;&#53;&#x37;&#56;&#55;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#109;">&#x36;&#x37;&#53;&#52;&#x39;&#53;&#x37;&#56;&#55;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/">
-                pandas教程：[11]aggregate分组计算
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>一旦对数据分组，接下来一定是对各组数据进行计算，这是通过groupby.aggregate()实现的，我们来看一下今天的例子：</p>
-<ul>
-<li>先引入必要的模块，然后创建一个DataFrame对象，如果你看了前几篇文章，应该已经知道这个DataFrame了。<br>这是内部数据：</li>
-</ul>
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/bf487563f6246b602a038662e8f81a4c510fa253.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/9e7ce6dcd100baa16f0973ad4410b912c8fc2ebb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<ul>
-<li>根据两个索引color、food进行分组</li>
-</ul>
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/f76575600c338744c3c81b6a520fd9f9d72aa053.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<ul>
-<li>计算各组总和：<br>计算结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/310f3b1f95cad1c8309ec8317c3e6709c93d51bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/b853d6fcc3cec3fd551b9363d588d43f879427bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<ul>
-<li>计算结果默认使用了两个分组索引color和food作为新的DataFrame的索引（注意计算结果为一个DataFrame对象），可以使用reset_index()来将两个索引转化为列变量<br>结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/d66b7e59252dd42a180435bd003b5bb5c9eab853.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/3bb22487e950352afb6c111e5043fbf2b2118b53.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<ul>
-<li>在分组是也可以使用as_index参数达到reset_index()的效果：<br>计算结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/fd428c45d688d43f2a8ca5e47e1ed21b0ef43bbb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/1a94b36eddc451da37d338fdb5fd5266d01632bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<ul>
-<li>另外我们经常用到的一个方法为size()返回各组数据量<br>结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/dc854fda81cb39db0ee55340d3160924ab1830bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/aa59892bd40735fa26d57aaf9d510fb30f2408bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<ul>
-<li>最后，还有一个经常用到的方法为describe()，对各组数据进行描述性统计：<br>计算结果为：</li>
-</ul>
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/34bbf8cd7b899e51ccab0e0241a7d933c8950dbb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<img src="/2015/05/03/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B11%5Daggregate%E5%88%86%E7%BB%84%E8%AE%A1%E7%AE%97/d872d695d143ad4b1b0b72d681025aafa40f06bb.jpg" class="" title="pandas教程：[11]aggregate分组计算">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#x39;&#53;&#55;&#56;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#54;&#55;&#53;&#x34;&#x39;&#53;&#55;&#56;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1276,6 +1120,18 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/07/17/mplus%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E7%BB%84%E5%86%85%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0ICC/">mplus如何计算组内相关系数ICC</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/10/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%80%E9%94%AE%E8%BD%AClatex%E6%88%96mathjax/">工具分享图片格式的数学公式识别一键转latex或m</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/09/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E5%BB%BA%E6%A8%A1%E5%85%A5%E9%97%A8-%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%80%BB%E8%BE%91/">多水平建模入门-多层线性模型的逻辑</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/06/03/%E5%93%8D%E5%BA%94%E6%80%A7%E5%92%8C%E5%8F%8D%E6%98%A0%E6%80%A7%E6%8C%87%E6%A0%87%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E8%A7%A3%E9%87%8A%E6%B8%85%E6%A5%9A/">响应性和反映性指标一篇文章解释清楚</a>
             </li>
             
@@ -1301,18 +1157,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">回聚类分析最佳实践</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/02/28/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">结构方程模型R语言实战教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/">Mplus潜在截面分析LPA教程代码结果解读</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">贝叶斯网络入门和R代码实践视频教程</a>
             </li>
             
         </ul>

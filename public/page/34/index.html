@@ -252,6 +252,219 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2017/01/08/%E6%8E%A2%E7%B4%A2%E8%BF%87%E7%A8%8B%E6%95%B0%E6%8D%AE%E5%9C%A8%E5%85%A8%E7%90%83%E5%A4%A7%E8%A7%84%E6%A8%A1%E6%9C%BA%E5%99%A8%E8%80%83%E8%AF%95%E4%B8%AD%E7%9A%84%E5%BA%94%E7%94%A8/">
+                探索过程数据在全球大规模机器考试中的应用
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2017年01月08日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            
+
+	<div class="row">
+    <embed src="/pdfs/探索过程数据在全球大规模机器考试中的应用.pdf" width="100%" height="550" type="application/pdf">
+	</div>
+
+
+
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/测量心理学/">#测量心理学</a> <a href="/tags/PISA/">#PISA</a> <a href="/tags/ETS/">#ETS</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/10/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B2%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E5%B7%AE%E5%BC%82/">
+                SPSS实例：[2]卡方检验百分比差异
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年10月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天讲的卡方检验只是多种卡方检验中的一种，你还看一去看我最新的几篇文章讲分层卡方、相关样本卡方、kappa一致性系数等，这里【<a target="_blank" rel="noopener" href="http://jingyan.baidu.com/season/33651?pn=26%E3%80%91">http://jingyan.baidu.com/season/33651?pn=26】</a></p>
+<ul>
+<li>第一步是录入数据，我们录入数据的方式如下图：class是分组变量，0值代表A组，1代表B组，effect是是否敏感变量，0代表不敏感，1代表敏感，num是频次，也就是各个组的个案数目。你可以比对上面的交叉表来看看spss数据结构</li>
+</ul>
+<img src="/2016/10/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B2%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E5%B7%AE%E5%BC%82/5beeba0f4bfbfbed4aedf0be79f0f736aec31f78.jpg" class="" title="SPSS实例：[2]卡方检验百分比差异">
+
+<ul>
+<li>接着，我们要对数据进行加权，很多人问为什么要加权，实际上我们采用上图所示的数据结构就决定了我们必须用频次进行加权，这样可以让上面的那种数据结构表示呈交叉表。如果没有加权的话，会出现错误，我们待会会看到一个错误的结果，就是没有加权的结果。加权的方法是data–weight cases</li>
+</ul>
+<img src="/2016/10/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B2%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E5%B7%AE%E5%BC%82/2f9cbdcc7cd98d10692ecaf0203fb80e7aec903e.jpg" class="" title="SPSS实例：[2]卡方检验百分比差异">
+
+<ul>
+<li>将频次放入变量框，然后点击ok按钮，加权成成功</li>
+</ul>
+<img src="/2016/10/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B2%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E5%B7%AE%E5%BC%82/3790312eb9389b503d0526938435e5dde6116e3e.jpg" class="" title="SPSS实例：[2]卡方检验百分比差异">
+
+<ul>
+<li>接着在菜单栏上执行：analyse–descriptive statistics–crosstabs，打开交叉表对话框</li>
+</ul>
+<img src="/2016/10/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B2%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E5%B7%AE%E5%BC%82/08b68e529822720e2134243b7acb0a46f31fab3e.jpg" class="" title="SPSS实例：[2]卡方检验百分比差异">
+
+<ul>
+<li>在这个对话框中，我们需要将行和列变量放入各自的框中，注意看行和列变量不要弄颠倒了，回顾上面的数据结构，你自己对比一下，哪一个是行变量</li>
+</ul>
+<img src="/2016/10/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B2%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E5%B7%AE%E5%BC%82/8759287adab44aedd3fa7825b21c8701a08bfb79.jpg" class="" title="SPSS实例：[2]卡方检验百分比差异">
+
+<img src="/2016/10/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B2%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E5%B7%AE%E5%BC%82/263e802f0708283818ba1ad5b999a9014d08f179.jpg" class="" title="SPSS实例：[2]卡方检验百分比差异">
+
+<ul>
+<li>点击statistic按钮，设置卡方统计量</li>
+</ul>
+<img src="/2016/10/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B2%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E5%B7%AE%E5%BC%82/246cca2a2834349b41fca844c8ea15ce37d3be3e.jpg" class="" title="SPSS实例：[2]卡方检验百分比差异">
+
+<img src="/2016/10/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B2%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E5%B7%AE%E5%BC%82/b74124f33a87e95079ed35ad11385343faf2b43e.jpg" class="" title="SPSS实例：[2]卡方检验百分比差异">
+
+<ul>
+<li>点击cells按钮，选择输出的参数</li>
+</ul>
+<img src="/2016/10/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B2%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E5%B7%AE%E5%BC%82/62667cd0f703918fbc66fb0b503d269758eec479.jpg" class="" title="SPSS实例：[2]卡方检验百分比差异">
+
+<img src="/2016/10/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B2%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E5%B7%AE%E5%BC%82/3c2c4bfbb2fb431648a8bcbb21a4462308f7d379.jpg" class="" title="SPSS实例：[2]卡方检验百分比差异">
+
+<ul>
+<li>最后出现的是卡方检验的结果了，第一个表格是交叉表，显示了期望值和实际值</li>
+</ul>
+<img src="/2016/10/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B2%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E5%B7%AE%E5%BC%82/246cca2a2834349b41b1a844c8ea15ce37d3be79.jpg" class="" title="SPSS实例：[2]卡方检验百分比差异">
+
+<ul>
+<li><p>接着是卡方检验表，这是最关键的结果。我们根据样本量的大小来决定看哪一行的指标</p>
+</li>
+<li><p>假如我们的总样本数N》40且交叉表中每一个cells中频数均大于5，卡方检验的结果是精确的，可以参考第一行的指标，也就是pearson-chi-square（显然我们的案例满足这个条件）sig值小于.05，说明差异显著，说明两组病人对药物的反应是不同的；假如样本总量N&lt;40，或者cells中有一个频数小于5，我们只能看校正后的卡方值，也就是第二行数据，或者我们看fisher精确概率法获得的值，也就是第四行，这两行都得到了显著的结果；</p>
+</li>
+</ul>
+<img src="/2016/10/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B2%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E5%B7%AE%E5%BC%82/3bb22487e950352a8bd6e3c95243fbf2b3118b79.jpg" class="" title="SPSS实例：[2]卡方检验百分比差异">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#x34;&#x39;&#53;&#55;&#x38;&#55;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#x36;&#x37;&#53;&#x34;&#x39;&#53;&#55;&#x38;&#55;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/">
+                Django教程：[4]制作第一个网页
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年10月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>通过前面的三篇文章，我们现在已经有能力创建一个网页了。Django就是那么的有效率。我们创建第一个页面的目的是让你理解Django是如何工作的。不信往下看。进行下面的教程之前，如果你没有看我以前写的文章，可能会有疑惑。我前面的文章创建了一个站点djangoweb文件夹，下面要用到</p>
+<ul>
+<li>第一步要在我们创建的站点文件夹下面新建一个view.py文件，如图所示。当然你创建文件的名称是任意的，你可以叫别的名字。但是要跟后面要写的代码一致，后面还会用到view.py，如果你的文件名不是view，后面你需要做出相应的调整</li>
+</ul>
+<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/b3508d13b07eca80277f099d932397dda1448316.jpg" class="" title="Django教程：[4]制作第一个网页">
+
+<ul>
+<li>我们将该文件写入代码：如图所示。代码的意义是，首先引入HttpResponse类，后面我们会详细介绍这个类，现在我们只知道它用于返回网页中显示的代码。接着我们定义了一个名为hello的函数，它有一个参数为req，这个参数是django.http.HttpRequest的一个实例，我们暂时用不到这个参数，但是它却是一个必须的参数，参数的名称可以任意。hello函数它仅仅返回一个HttpResponse对象，这个对象包含了文本“Hello world”</li>
+</ul>
+<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/d8b8c92a6059252df86d2d7e369b033b5bb5b916.jpg" class="" title="Django教程：[4]制作第一个网页">
+
+<ul>
+<li>现在保存好这个view文件</li>
+</ul>
+<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/148f28d3d539b6000cb43fcdeb50352ac65cb716.jpg" class="" title="Django教程：[4]制作第一个网页">
+
+<ul>
+<li>接下来我们需要修改urls.py文件，这个文件可以将url和调用的函数对应起来。比如，我想当我在浏览器地址栏输入<a target="_blank" rel="noopener" href="http://127.0.0.1:8001/hello/%E7%9A%84%E6%97%B6%E5%80%99%E5%B0%B1%E8%83%BD%E8%B0%83%E7%94%A8view.hello%E6%96%B9%E6%B3%95%EF%BC%8C%E9%82%A3%E4%B9%88%E6%88%91%E4%BB%AC%E5%BF%85%E9%A1%BB%E5%9C%A8urls.py%E4%B8%AD%E8%BF%9B%E8%A1%8C%E6%B7%BB%E5%8A%A0">http://127.0.0.1:8001/hello/的时候就能调用view.hello方法，那么我们必须在urls.py中进行添加</a></li>
+</ul>
+<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/8b527d2762d0f7039674a6a60afa513d2797c542.jpg" class="" title="Django教程：[4]制作第一个网页">
+
+<ul>
+<li>首先要引用我们企图调用的方法，然后在urlpatterns中添加url(r’^hello&#x2F;$’,hello),；注意最后面的逗号不能省略。这个代码就是将url同调用的函数联系起来。</li>
+</ul>
+<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/0db2c9ca7bcb0a46efc6b8436963f6246a60afa0.jpg" class="" title="Django教程：[4]制作第一个网页">
+
+<ul>
+<li>最后，我们在dos下开启开发服务器，如果你还不知道如何开启开发服务器，你需要看下面的参考资料里的传送门。</li>
+</ul>
+<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/08b68e529822720e1677d28079cb0a46f31fabcb.jpg" class="" title="Django教程：[4]制作第一个网页">
+
+<ul>
+<li>打开浏览器，地址栏输入地址：127.0.0.1:8001&#x2F;hello&#x2F;，你就会看到我们制作的第一个页面了。你学会了吗？</li>
+</ul>
+<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/21e5582309f7905280a677440ef3d7ca7acbd5cb.jpg" class="" title="Django教程：[4]制作第一个网页">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x36;&#55;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/django/">#django</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/10/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B14%5D%E5%BF%AB%E9%80%9F%E5%88%9B%E5%BB%BATCP%E6%9C%8D%E5%8A%A1%E5%99%A8/">
                 Python教程：[14]快速创建TCP服务器
             </a>
@@ -897,296 +1110,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/10/05/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5D%E6%95%99%E7%A8%8B%E7%AE%80%E4%BB%8B/">
-                SPSS绘图教程：[1]教程简介
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年10月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>这篇文章是spss绘图教程的第一篇，简单介绍一下该系列教程的主要内容。该系列教程没有啥难懂的东西，都是在数据分析工作中经常用到的一些绘图技巧和基本知识。写这个系列教程的初衷是因为我们的spss教科书中很少有绘图的教程，所以很多学生都在问我怎么绘图，我现在把我会的所有绘图知识都写下来，方便大家查阅，大家可以将这系列教程收藏起来，以便以后查阅。</p>
-<ul>
-<li>首先是数据的准备，绘图对数据的格式要求非常严格，所以在绘图前需要对数据进行整理。</li>
-</ul>
-<img src="/2016/10/05/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5D%E6%95%99%E7%A8%8B%E7%AE%80%E4%BB%8B/e865a699a9014c083efcb31d087b02087af4f400.jpg" class="" title="SPSS绘图教程：[1]教程简介">
-
-<ul>
-<li>条形图的绘制以及修改。</li>
-</ul>
-<img src="/2016/10/05/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5D%E6%95%99%E7%A8%8B%E7%AE%80%E4%BB%8B/32bb9c8ba61ea8d319c9efbc950a304e241f5864.jpg" class="" title="SPSS绘图教程：[1]教程简介">
-
-<ul>
-<li>折线图的绘制以及修改</li>
-</ul>
-<img src="/2016/10/05/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5D%E6%95%99%E7%A8%8B%E7%AE%80%E4%BB%8B/0862c354564e925807fb1d569e82d158cdbf4e78.jpg" class="" title="SPSS绘图教程：[1]教程简介">
-
-<ul>
-<li>区域图的绘制以及修改</li>
-</ul>
-<img src="/2016/10/05/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5D%E6%95%99%E7%A8%8B%E7%AE%80%E4%BB%8B/9dc3cf58ccbf6c815cf8b750be3eb13532fa4078.jpg" class="" title="SPSS绘图教程：[1]教程简介">
-
-<ul>
-<li>饼图的绘制以及修改</li>
-</ul>
-<img src="/2016/10/05/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5D%E6%95%99%E7%A8%8B%E7%AE%80%E4%BB%8B/b0742dfa828ba61e4b2153974334970a314e5978.jpg" class="" title="SPSS绘图教程：[1]教程简介">
-
-<ul>
-<li>散点图的绘制以及修改</li>
-</ul>
-<img src="/2016/10/05/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5D%E6%95%99%E7%A8%8B%E7%AE%80%E4%BB%8B/4075890a304e251f7c387f40a586c9177e3e5378.jpg" class="" title="SPSS绘图教程：[1]教程简介">
-
-<ul>
-<li>直方图的绘制以及修改</li>
-</ul>
-<img src="/2016/10/05/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5D%E6%95%99%E7%A8%8B%E7%AE%80%E4%BB%8B/86d5bac27d1ed21b0b23b55daf6eddc450da3f64.jpg" class="" title="SPSS绘图教程：[1]教程简介">
-
-<ul>
-<li>高低图的绘制以及修改</li>
-</ul>
-<img src="/2016/10/05/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5D%E6%95%99%E7%A8%8B%E7%AE%80%E4%BB%8B/ac2fc3c451da81cb320c18755066d01608243164.jpg" class="" title="SPSS绘图教程：[1]教程简介">
-
-<ul>
-<li>箱图的绘制以及修改</li>
-</ul>
-<img src="/2016/10/05/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5D%E6%95%99%E7%A8%8B%E7%AE%80%E4%BB%8B/389aa8fd5266d01606f30590952bd40734fa3564.jpg" class="" title="SPSS绘图教程：[1]教程简介">
-
-<ul>
-<li>双轴图的绘制以及修改（有两种图形）</li>
-</ul>
-<img src="/2016/10/05/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5D%E6%95%99%E7%A8%8B%E7%AE%80%E4%BB%8B/cc506c8b4710b912320e6d46c1fdfc0393452278.jpg" class="" title="SPSS绘图教程：[1]教程简介">
-
-<ul>
-<li>图形元素的设置</li>
-</ul>
-<img src="/2016/10/05/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5D%E6%95%99%E7%A8%8B%E7%AE%80%E4%BB%8B/48151723dd54564e46037e81b1de9c82d0584fe1.jpg" class="" title="SPSS绘图教程：[1]教程简介">
-
-<ul>
-<li>脚注题注等的设置</li>
-</ul>
-<img src="/2016/10/05/SPSS%E7%BB%98%E5%9B%BE%E6%95%99%E7%A8%8B%EF%BC%9A%5B1%5D%E6%95%99%E7%A8%8B%E7%AE%80%E4%BB%8B/f7426d8da97739128a9b1fd9fa198618377ae28e.jpg" class="" title="SPSS绘图教程：[1]教程简介">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#52;&#57;&#53;&#x37;&#x38;&#55;&#64;&#x71;&#113;&#46;&#99;&#111;&#x6d;">&#x36;&#55;&#53;&#52;&#57;&#53;&#x37;&#x38;&#55;&#64;&#x71;&#113;&#46;&#99;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/10/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B19%5D%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E8%A7%A3/">
-                python 线性代数：[19]行列式求解
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年10月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>行列式是线性代数里最重要的概念之一，今天我们使用Python的numpy和sympy包计算几个三阶行列式。下面的计算过程用excel存放矩阵的数据，而用excel里面的datanitro插件来运行Python代码，所以你可能要熟悉一下datanitro这个插件，关于这个插件的全部教程，我都写在了这个系列里：<a target="_blank" rel="noopener" href="http://jingyan.baidu.com/season/43508">http://jingyan.baidu.com/season/43508</a></p>
-<ul>
-<li>熟悉了这个插件以后，我们看看我们要解决的这四个矩阵：这些练习题来自《线性代数，同济大学第五版第一张课后题》。</li>
-</ul>
-<img src="/2016/10/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B19%5D%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E8%A7%A3/73ca5910b912c8fc4c2adbe7f8039245d78821fb.jpg" class="" title="python 线性代数：[19]行列式求解">
-
-<ul>
-<li>这接着我们将这些矩阵录入到excel当中。</li>
-</ul>
-<img src="/2016/10/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B19%5D%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E8%A7%A3/f15e24292df5e0fec472a52b586034a85edf7276.jpg" class="" title="python 线性代数：[19]行列式求解">
-
-<ul>
-<li>接着我们把代码写到1.1.py文件中。</li>
-</ul>
-<img src="/2016/10/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B19%5D%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E8%A7%A3/4abae5edab64034fc2b2ee2cabc379310a551d59.jpg" class="" title="python 线性代数：[19]行列式求解">
-
-<ul>
-<li>接着，我们在excel的datanitro插件中，引入1.1.py文件，然后run一下就可以看到计算结果：</li>
-</ul>
-<img src="/2016/10/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B19%5D%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E8%A7%A3/c28fddfdfc03924559e0c8258394a4c27d1e2507.jpg" class="" title="python 线性代数：[19]行列式求解">
-
-<ul>
-<li><p>以上是大概的流程，接下来具体讲解一下代码的意义。</p>
-</li>
-<li><p>引入需要的两个模块</p>
-</li>
-</ul>
-<img src="/2016/10/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B19%5D%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E8%A7%A3/11794d43fbf2b211ba8ca964ce8065380cd78e3e.jpg" class="" title="python 线性代数：[19]行列式求解">
-
-<ul>
-<li><p>先看看第一题，这是计算第一个矩阵的行列式：</p>
-</li>
-<li><p>a,CellRange是datanitro的内置对象，表示excel里面的一个单元格区域，通过它我们可以将这个区域内的值读取出来，存放到lst这个列表里，也就是Python中的list对象；接着用numpy模块的reshap方法，将list转换为3x3的矩阵，然后用刀了det方法计算行列式，最后结果为-4</p>
-</li>
-</ul>
-<img src="/2016/10/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B19%5D%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E8%A7%A3/647912d7912397dd8e08b72e5d82b2b7d0a28763.jpg" class="" title="python 线性代数：[19]行列式求解">
-
-<ul>
-<li>第二题：红色字体都是注释，没有实际功能。跟第一题相比，第二题用字母代替了数字，所以，我们要用到Python的符号计算包sympy，我们可以看到E就是一个3x3的矩阵，但是需要将E转换为符号矩阵，用到了sp.Matrix，得到M，然后使用m的det方法计算得到行列式，结果是：</li>
-</ul>
-<img src="/2016/10/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B19%5D%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E8%A7%A3/d56b3634349b033b4ce6d5f011ce36d3d539bd6a.jpg" class="" title="python 线性代数：[19]行列式求解">
-
-<img src="/2016/10/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B19%5D%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E8%A7%A3/d089b986c9177f3e181dd22774cf3bc79f3d56ab.jpg" class="" title="python 线性代数：[19]行列式求解">
-
-<ul>
-<li>第三题，与第二题类似，用到了sp.Matrix，但是我们还用到了sp.factor，这个方法可以将结果提取公因式，最后的计算结果为：</li>
-</ul>
-<img src="/2016/10/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B19%5D%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E8%A7%A3/a6c7d7177f3e6709b76b6dd53fc79f3df8dc5575.jpg" class="" title="python 线性代数：[19]行列式求解">
-
-<img src="/2016/10/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B19%5D%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E8%A7%A3/b110e6198618367a153456f72a738bd4b31ce518.jpg" class="" title="python 线性代数：[19]行列式求解">
-
-<ul>
-<li>如果前三题你都搞懂了，第四题就简单了，没有新知识：</li>
-</ul>
-<img src="/2016/10/05/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B19%5D%E8%A1%8C%E5%88%97%E5%BC%8F%E6%B1%82%E8%A7%A3/6a2112338744ebf816254c15ddf9d72a6059a700.jpg" class="" title="python 线性代数：[19]行列式求解">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#x39;&#x35;&#x37;&#x38;&#55;&#x40;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;">&#x36;&#55;&#53;&#x34;&#x39;&#x35;&#x37;&#x38;&#55;&#x40;&#x71;&#113;&#x2e;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/">
-                SPSS python教程：[6]读取PivotTable行标签
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年10月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>spss输出的结果文档用到最多的就是数据透视表（pivot table），在spss中，数据透视表被分为三个部分：行标签列表、列标签列表、数据列表。你可能还不理解这些内容。我们从这篇开始介绍数据透视表的行标签，并用python读取行标签，然后输出。看看代码吧：</p>
-<ul>
-<li>这是在spss结果文档中输出的一个数据透视表，我们要读取它的行标签</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/8b527d2762d0f7036208ba450afa513d2797c5b6.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>这就是行标签，但是它并不像我们看到的那么简单，我们试着读取行标签就知道了</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/6c63514a20a4462308668afb9a22720e0df3d7bf.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>创建一个python脚本文件：outputTrim.py，下图中你可以看到该文件存放的目录</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/48151723dd54564efa5acaa0b1de9c82d1584f28.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>接着先写入代码StartClient和stopclient，所有操作spss的代码都应该放在这两句之间。</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/dc15484e9258d109d807862bd358ccbf6d814d07.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>我们详细讲解一下代码的意义，先看这两句，假如我们只打开了一个结果文档，我们使用第一句代码可以获取该文档的句柄；第二句获取该文档下所有的输出项目，里面包含但不仅限于数据透视表，outputItems是一个列表</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/9864a2315c6034a83fae9618c91349540823769f.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>通过循环，我们可以找到名称为’Descriptive Statistics’的数据透视表。我们看下面的if语句，首先判断输出项是不是PIVOT，然后判断该输出项的标题为’Descriptive Statistics’的PIVOT，获取标题用的是GetDescription</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/263e802f07082838c19ff28dba99a9014d08f15e.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>这句代码是将找到的这个输出项转换为数据透视表，这样才能使用数据透视表所具有的类和方法</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/814b07d8bc3eb13540169922a41ea8d3fc1f4412.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>这一句就是获取数据透视表的行标签</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/9304c888d43f879430a461b7d01b0ef41ad53a94.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>我们用这个循环来输出所有的行标签，看看输出结果是啥样的</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/35e940df8db1cb132a38158adf54564e93584b92.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>这就是输出结果，跟数据透视表对比一下，你就知道行标签到底代表着什么。</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/6f4703950a7b02089dae167860d9f2d3562cc881.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/6c63514a20a4462308668afb9a22720e0df3d7bf.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#52;&#57;&#53;&#55;&#x38;&#55;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#109;">&#54;&#55;&#x35;&#52;&#57;&#53;&#55;&#x38;&#55;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a> <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1228,6 +1151,18 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/07/17/mplus%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E7%BB%84%E5%86%85%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0ICC/">mplus如何计算组内相关系数ICC</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/10/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%80%E9%94%AE%E8%BD%AClatex%E6%88%96mathjax/">工具分享图片格式的数学公式识别一键转latex或m</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/09/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E5%BB%BA%E6%A8%A1%E5%85%A5%E9%97%A8-%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%80%BB%E8%BE%91/">多水平建模入门-多层线性模型的逻辑</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/06/03/%E5%93%8D%E5%BA%94%E6%80%A7%E5%92%8C%E5%8F%8D%E6%98%A0%E6%80%A7%E6%8C%87%E6%A0%87%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E8%A7%A3%E9%87%8A%E6%B8%85%E6%A5%9A/">响应性和反映性指标一篇文章解释清楚</a>
             </li>
             
@@ -1253,18 +1188,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">回聚类分析最佳实践</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/02/28/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">结构方程模型R语言实战教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/">Mplus潜在截面分析LPA教程代码结果解读</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">贝叶斯网络入门和R代码实践视频教程</a>
             </li>
             
         </ul>

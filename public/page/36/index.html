@@ -252,6 +252,416 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/10/01/Excel2013%EF%BC%9A%5B47%5D%E7%80%91%E5%B8%83%E5%9B%BE%E7%9A%84%E5%81%9A%E6%B3%95/">
+                Excel2013：[47]瀑布图的做法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年10月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>瀑布图就是看起来像瀑布（我也不知道谁给的名字），总之看起来也不是很像。看下面这个图吧，它可以直观的看到在总计中，各个部分的的组成成分和大小，有点饼图的功能，不多说了，看看我们怎么在Excel 2013中绘制一个瀑布图吧！</p>
+<ul>
+<li>先来看看数据，包含项目、销量，然后我们自己增加一个【站位】，功能就是占位</li>
+</ul>
+<img src="/2016/10/01/Excel2013%EF%BC%9A%5B47%5D%E7%80%91%E5%B8%83%E5%9B%BE%E7%9A%84%E5%81%9A%E6%B3%95/ea85a94543a9822660db2e488882b9014a90eb0c.jpg" class="" title="Excel2013：[47]瀑布图的做法">
+
+<ul>
+<li>在c2单元格输入0，然后在c3单元格输入公式，然后向下拖动，快速填充公式；公式的目的就是计算累加和</li>
+</ul>
+<img src="/2016/10/01/Excel2013%EF%BC%9A%5B47%5D%E7%80%91%E5%B8%83%E5%9B%BE%E7%9A%84%E5%81%9A%E6%B3%95/1899a23eb13533fadd069641aad3fd1f40345be9.jpg" class="" title="Excel2013：[47]瀑布图的做法">
+
+<ul>
+<li>这就是填充好的数据了</li>
+</ul>
+<img src="/2016/10/01/Excel2013%EF%BC%9A%5B47%5D%E7%80%91%E5%B8%83%E5%9B%BE%E7%9A%84%E5%81%9A%E6%B3%95/5202e5f2b2119313a564fadf67380cd791238d7e.jpg" class="" title="Excel2013：[47]瀑布图的做法">
+
+<ul>
+<li>接着选中数据，然后插入直方图，选择如图所示的直方图类型</li>
+</ul>
+<img src="/2016/10/01/Excel2013%EF%BC%9A%5B47%5D%E7%80%91%E5%B8%83%E5%9B%BE%E7%9A%84%E5%81%9A%E6%B3%95/cebd00178a82b901f9b7c65c718da9773912ef0c.jpg" class="" title="Excel2013：[47]瀑布图的做法">
+
+<ul>
+<li>看到了吧，目前就是酱紫</li>
+</ul>
+<img src="/2016/10/01/Excel2013%EF%BC%9A%5B47%5D%E7%80%91%E5%B8%83%E5%9B%BE%E7%9A%84%E5%81%9A%E6%B3%95/f7426d8da97739120b3c800efa198618367ae20c.jpg" class="" title="Excel2013：[47]瀑布图的做法">
+
+<ul>
+<li>我们设置一下不同部分显示不同的数据，右键单击直方图，然后选择【选择数据】</li>
+</ul>
+<img src="/2016/10/01/Excel2013%EF%BC%9A%5B47%5D%E7%80%91%E5%B8%83%E5%9B%BE%E7%9A%84%E5%81%9A%E6%B3%95/a8362712b31bb051423eb647347adab44aede00c.jpg" class="" title="Excel2013：[47]瀑布图的做法">
+
+<ul>
+<li>在这里，我们将【站位】移动到上一层，点击确定</li>
+</ul>
+<img src="/2016/10/01/Excel2013%EF%BC%9A%5B47%5D%E7%80%91%E5%B8%83%E5%9B%BE%E7%9A%84%E5%81%9A%E6%B3%95/30ecd5ef76094b3689b51e82a1cc7cd98d109d7e.jpg" class="" title="Excel2013：[47]瀑布图的做法">
+
+<ul>
+<li>有一点瀑布图的效果了</li>
+</ul>
+<img src="/2016/10/01/Excel2013%EF%BC%9A%5B47%5D%E7%80%91%E5%B8%83%E5%9B%BE%E7%9A%84%E5%81%9A%E6%B3%95/b110e6198618367a67937ab22c738bd4b31ce50c.jpg" class="" title="Excel2013：[47]瀑布图的做法">
+
+<ul>
+<li>接着，我们设置数据系列格式，吧站位的直方图都设置为透明的</li>
+</ul>
+<img src="/2016/10/01/Excel2013%EF%BC%9A%5B47%5D%E7%80%91%E5%B8%83%E5%9B%BE%E7%9A%84%E5%81%9A%E6%B3%95/7d98931001e939010d25885179ec54e736d1967e.jpg" class="" title="Excel2013：[47]瀑布图的做法">
+
+<ul>
+<li>在填充选项中，设置为无填充</li>
+</ul>
+<img src="/2016/10/01/Excel2013%EF%BC%9A%5B47%5D%E7%80%91%E5%B8%83%E5%9B%BE%E7%9A%84%E5%81%9A%E6%B3%95/38403f3fb80e7bec7bfd068e2d2eb9389b506b7e.jpg" class="" title="Excel2013：[47]瀑布图的做法">
+
+<ul>
+<li>瀑布图已经做出来了，但是，我们还需要设置数据标签，删掉图中多余的内容</li>
+</ul>
+<img src="/2016/10/01/Excel2013%EF%BC%9A%5B47%5D%E7%80%91%E5%B8%83%E5%9B%BE%E7%9A%84%E5%81%9A%E6%B3%95/2e6fa7389b504fc2e078b56ae7dde71190ef6d7e.jpg" class="" title="Excel2013：[47]瀑布图的做法">
+
+<ul>
+<li>这才是最后的效果，瀑布图制作完毕!</li>
+</ul>
+<img src="/2016/10/01/Excel2013%EF%BC%9A%5B47%5D%E7%80%91%E5%B8%83%E5%9B%BE%E7%9A%84%E5%81%9A%E6%B3%95/91ae68c6a7efce1ba00ccda5ad51f3deb48f657e.jpg" class="" title="Excel2013：[47]瀑布图的做法">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#57;&#x35;&#55;&#56;&#55;&#64;&#113;&#113;&#x2e;&#x63;&#111;&#109;">&#x36;&#55;&#53;&#x34;&#57;&#x35;&#55;&#56;&#55;&#64;&#113;&#113;&#x2e;&#x63;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B6%5D%E9%80%86%E7%9F%A9%E9%98%B5%20%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5/">
+                python 线性代数：[6]逆矩阵 伴随矩阵
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>设A是数域上的一个n阶方阵，若在相同数域上存在另一个n阶矩阵B，使得： AB&#x3D;BA&#x3D;E。 则我们称B是A的逆矩阵，而A则被称为可逆矩阵。当矩阵A的行列式|A|不等于0时才存在可逆矩阵。而伴随矩阵的定义我 从网上找到了一个：</p>
+<ul>
+<li>先来求一下矩阵的逆，先引入numpy</li>
+</ul>
+<img src="/2016/09/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B6%5D%E9%80%86%E7%9F%A9%E9%98%B5%20%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5/72ccb7773912b31bea8677db8418367adbb4e11f.jpg" class="" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+
+<ul>
+<li>然后创建一个方阵A</li>
+</ul>
+<img src="/2016/09/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B6%5D%E9%80%86%E7%9F%A9%E9%98%B5%20%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5/f6428f8fa0ec08fad0a9a9555bee3d6d54fbda5c.jpg" class="" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+
+<ul>
+<li>使用linalg.det求得方阵的行列式</li>
+</ul>
+<img src="/2016/09/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B6%5D%E9%80%86%E7%9F%A9%E9%98%B5%20%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5/09bb4f3d269759eeb9f9da39b0fb43166c22df5c.jpg" class="" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+
+<ul>
+<li>使用linalg.inv求得方阵A的逆矩阵</li>
+</ul>
+<img src="/2016/09/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B6%5D%E9%80%86%E7%9F%A9%E9%98%B5%20%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5/b25aae51f81986186bad557648ed2e738ad4e61f.jpg" class="" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+
+<ul>
+<li>接着我们利用公式：<br>numpy的计算方法：</li>
+</ul>
+<img src="/2016/09/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B6%5D%E9%80%86%E7%9F%A9%E9%98%B5%20%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5/08b68e529822720e9c16580879cb0a46f31fab2d.jpg" class="" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+
+<img src="/2016/09/23/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B6%5D%E9%80%86%E7%9F%A9%E9%98%B5%20%E4%BC%B4%E9%9A%8F%E7%9F%A9%E9%98%B5/f9589818367adab4153aa1b189d4b31c8601e41f.jpg" class="" title="python 线性代数：[6]逆矩阵 伴随矩阵">
+
+<ul>
+<li><p>以下是今天用到的所有代码</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>import numpy as np</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A&#x3D;np.array([[1,-2,1],[0,2,-1],[1,1,-2]])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[ 1, -2,  1],</p>
+</li>
+<li><pre><code>   [ 0,  2, -1],
+</code></pre>
+</li>
+<li><pre><code>   [ 1,  1, -2]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_abs&#x3D;np.linalg.det(A)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_abs</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>-3.0000000000000004</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>B&#x3D;np.linalg.inv(A)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>B</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[ 1.        ,  1.        ,  0.        ],</p>
+</li>
+<li><pre><code>   [ 0.33333333,  1.        , -0.33333333],
+</code></pre>
+</li>
+<li><pre><code>   [ 0.66666667,  1.        , -0.66666667]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_ni&#x3D;B*A_abs</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_ni</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[-3., -3., -0.],</p>
+</li>
+<li><pre><code>   [-1., -3.,  1.],
+</code></pre>
+</li>
+<li><pre><code>   [-2., -3.,  2.]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_bansui&#x3D;B*A_abs</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>A_bansui</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[-3., -3., -0.],</p>
+</li>
+<li><pre><code>   [-1., -3.,  1.],
+</code></pre>
+</li>
+<li><pre><code>   [-2., -3.,  2.]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#x39;&#53;&#x37;&#x38;&#x37;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#54;&#55;&#53;&#52;&#x39;&#53;&#x37;&#x38;&#x37;&#64;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/09/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B59%5D%E8%AF%BB%E5%8F%96txt%E5%86%85%E5%AE%B9/">
+                Python教程：[59]读取txt内容
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>前三篇文章主要将写入txt，今天我们讲读取txt，读取txt其实就是以r模式打开txt文件，然后读取其内容，下面看一下代码吧：</p>
+<ul>
+<li>以可读模式打开txt文件：</li>
+</ul>
+<img src="/2016/09/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B59%5D%E8%AF%BB%E5%8F%96txt%E5%86%85%E5%AE%B9/55a628d12f2eb9387f1b3072d7628535e4dd6ff9.jpg" class="" title="Python教程：[59]读取txt内容">
+
+<ul>
+<li>读取第一行内容，保存在line中，然后打印出line</li>
+</ul>
+<img src="/2016/09/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B59%5D%E8%AF%BB%E5%8F%96txt%E5%86%85%E5%AE%B9/8474fbdde71190ef9dffd85fcc1b9d16fcfa60ef.jpg" class="" title="Python教程：[59]读取txt内容">
+
+<ul>
+<li>通过循环就能读出所有行：注意readine每调用一次就会读取下一行</li>
+</ul>
+<img src="/2016/09/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B59%5D%E8%AF%BB%E5%8F%96txt%E5%86%85%E5%AE%B9/9c57e3faaf51f3de46b6f3e496eef01f3b2979ef.jpg" class="" title="Python教程：[59]读取txt内容">
+
+<ul>
+<li>还可以使用这个方法读取所有的行</li>
+</ul>
+<img src="/2016/09/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B59%5D%E8%AF%BB%E5%8F%96txt%E5%86%85%E5%AE%B9/ae10eddeb48f8c5460d78faf38292df5e1fe7fef.jpg" class="" title="Python教程：[59]读取txt内容">
+
+<ul>
+<li>速度更快的方法是直接使用多行读取的方法：readlines，参数5表示读取5行</li>
+</ul>
+<img src="/2016/09/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B59%5D%E8%AF%BB%E5%8F%96txt%E5%86%85%E5%AE%B9/8d158aeef01f3a29dacc9f4e9b25bc315d607cef.jpg" class="" title="Python教程：[59]读取txt内容">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#x39;&#53;&#55;&#x38;&#x37;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#109;">&#54;&#55;&#53;&#x34;&#x39;&#53;&#55;&#x38;&#x37;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/09/23/Mysql%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E6%9F%A5%E7%9C%8B%E6%95%B0%E6%8D%AE%E5%BA%93%E4%BF%A1%E6%81%AF/">
                 Mysql教程：[4]查看数据库信息
             </a>
@@ -791,211 +1201,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/15/Excel%E6%80%8E%E6%A0%B7%E7%A7%BB%E5%8A%A8%E5%88%97%5B4%5DExcel2013%E6%95%99%E7%A8%8B/">
-                Excel怎样移动列[4]Excel2013教程
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们通常要在Excel中进行的一个操作就是移动列，比如将E列移动到B列的位置，其他的列保持不变，其实在Excel中可以使用鼠标加键盘的方法实现移动列的效果，非常的方便，现在我就跟大家来分享这个方法：</p>
-<ul>
-<li>首先我们看这个图，我想把F列的数据整体移动到D列，如果不让你是用复制粘贴，你怎么办？</li>
-</ul>
-<img src="/2016/09/15/Excel%E6%80%8E%E6%A0%B7%E7%A7%BB%E5%8A%A8%E5%88%97%5B4%5DExcel2013%E6%95%99%E7%A8%8B/0e655ca7d933c8954f358012d01373f0830200d4.jpg" class="" title="Excel怎样移动列[4]Excel2013教程">
-
-<ul>
-<li>先点击F列标题，选中整个列</li>
-</ul>
-<img src="/2016/09/15/Excel%E6%80%8E%E6%A0%B7%E7%A7%BB%E5%8A%A8%E5%88%97%5B4%5DExcel2013%E6%95%99%E7%A8%8B/a54e55fbfbedab64ab3955a9f636afc378311ed4.jpg" class="" title="Excel怎样移动列[4]Excel2013教程">
-
-<ul>
-<li>先按下shift键不要松手，然后用鼠标拖动F列的左边框，看到图中的圆圈位置，向左拖动可以移动这个列</li>
-</ul>
-<img src="/2016/09/15/Excel%E6%80%8E%E6%A0%B7%E7%A7%BB%E5%8A%A8%E5%88%97%5B4%5DExcel2013%E6%95%99%E7%A8%8B/f677b1c379310a551d6fc69db64543a9832610d4.jpg" class="" title="Excel怎样移动列[4]Excel2013教程">
-
-<ul>
-<li>拖动过程中，你会看到绿色的边框示意你这列数据将会移动到哪里</li>
-</ul>
-<img src="/2016/09/15/Excel%E6%80%8E%E6%A0%B7%E7%A7%BB%E5%8A%A8%E5%88%97%5B4%5DExcel2013%E6%95%99%E7%A8%8B/b258f5c4b74543a93050e2a51f178a82b80114d4.jpg" class="" title="Excel怎样移动列[4]Excel2013教程">
-
-<ul>
-<li>我们看看这就是移动之后的效果了：</li>
-</ul>
-<img src="/2016/09/15/Excel%E6%80%8E%E6%A0%B7%E7%A7%BB%E5%8A%A8%E5%88%97%5B4%5DExcel2013%E6%95%99%E7%A8%8B/aa59892bd40735fa709656d09f510fb30f240831.jpg" class="" title="Excel怎样移动列[4]Excel2013教程">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#x34;&#x39;&#53;&#55;&#56;&#x37;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#109;">&#x36;&#x37;&#53;&#x34;&#x39;&#53;&#55;&#56;&#x37;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/15/Excel2013%EF%BC%9A%5B13%5D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%9C%89%E6%95%88%E6%80%A7/">
-                Excel2013：[13]如何设置数据有效性
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>Excel2013与其他版本有很大改变，其中数据有效性改名为了数据验证，所以很多人在网上问“数据有效性”在哪里。我现在用例子跟大家演示一下如何设置数据有效性。</p>
-<ul>
-<li>选中一列数据作为数据源，不要选中第一个行的标题</li>
-</ul>
-<img src="/2016/09/15/Excel2013%EF%BC%9A%5B13%5D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%9C%89%E6%95%88%E6%80%A7/fc5e5f34970a304e5623b6e1d3c8a786c9175c6c.jpg" class="" title="Excel2013：[13]如何设置数据有效性">
-
-<ul>
-<li>在数据标签下找到【数据验证】</li>
-</ul>
-<img src="/2016/09/15/Excel2013%EF%BC%9A%5B13%5D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%9C%89%E6%95%88%E6%80%A7/964b2e4e251f95caa4f484adcb177f3e6709526c.jpg" class="" title="Excel2013：[13]如何设置数据有效性">
-
-<ul>
-<li>选择设置选项下的【序列】</li>
-</ul>
-<img src="/2016/09/15/Excel2013%EF%BC%9A%5B13%5D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%9C%89%E6%95%88%E6%80%A7/245e8bcad1c8a786be2b5c156509c93d70cf506c.jpg" class="" title="Excel2013：[13]如何设置数据有效性">
-
-<ul>
-<li>来源设置成刚才设置好的区域，点击确定</li>
-</ul>
-<img src="/2016/09/15/Excel2013%EF%BC%9A%5B13%5D%E5%A6%82%E4%BD%95%E8%AE%BE%E7%BD%AE%E6%95%B0%E6%8D%AE%E6%9C%89%E6%95%88%E6%80%A7/8697397f9e2f0708fd6b3c1beb24b899a901f204.jpg" class="" title="Excel2013：[13]如何设置数据有效性">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#x40;&#x71;&#113;&#46;&#99;&#x6f;&#x6d;">&#x36;&#x37;&#53;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#x40;&#x71;&#113;&#46;&#99;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/09/15/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E6%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/">
-                spss如何分组求平均值
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年09月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>分组求均值，举个俩字来说就是，一个数据分为男生和女生，那么分别求男生和女生的平均值就是分组均值，要求分组均值就要确定总共有多少分组，比如我们要求不同性别的人不同的学历的人他们每周花费在报纸上的钱有多少，这样有性别和学历两个变量进行分组了。<br>方法&#x2F;步骤</p>
-<ul>
-<li>打开数据文件以后，打开平均数对话框，在菜单栏上执行：analyze–compare means –means</li>
-</ul>
-<img src="/2016/09/15/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E6%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/622762d0f703918fc8e5ce44513d269759eec40c.jpg" class="" title="spss如何分组求平均值">
-
-<ul>
-<li>将每周买报纸花费的钱作为因变量，将性别作为自变量，如图所示，然后点击next，我们来设置第二层自变量</li>
-</ul>
-<img src="/2016/09/15/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E6%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/6159252dd42a2834b9bfc5855bb5c9ea15cebf27.jpg" class="" title="spss如何分组求平均值">
-
-<ul>
-<li>将最好学历作为第二层自变量，放到independent list，如果你还有要求分组均值的自变量，你可以继续点击next，不过我这里已经不用了</li>
-</ul>
-<img src="/2016/09/15/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E6%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/359b033b5bb5c9ea84eaf06dd539b6003af3b327.jpg" class="" title="spss如何分组求平均值">
-
-<ul>
-<li>点击options来设置要输出的参数</li>
-</ul>
-<img src="/2016/09/15/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E6%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/37d3d539b6003af3aca32fee352ac65c1038b627.jpg" class="" title="spss如何分组求平均值">
-
-<ul>
-<li>系统给出的默认值有：平均数、数据记录数、标准差。如果你需要其他的参数，还可以从左侧的列表里选择，然后点击continue</li>
-</ul>
-<img src="/2016/09/15/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E6%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/3bf33a87e950352a5f78d6865343fbf2b2118b27.jpg" class="" title="spss如何分组求平均值">
-
-<ul>
-<li>回到了平均数对话框，点击ok即可输出不同分组的平均数。</li>
-</ul>
-<img src="/2016/09/15/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E6%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/472309f7905298220a07ca4dd7ca7bcb0a46d40c.jpg" class="" title="spss如何分组求平均值">
-
-<ul>
-<li><p>这就是输出的结果：</p>
-</li>
-<li></li>
-</ul>
-<img src="/2016/09/15/spss%E5%A6%82%E4%BD%95%E5%88%86%E7%BB%84%E6%B1%82%E5%B9%B3%E5%9D%87%E5%80%BC/9213b07eca806538aef3579d97dda144ad348227.jpg" class="" title="spss如何分组求平均值">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#x34;&#x39;&#53;&#x37;&#56;&#x37;&#64;&#113;&#x71;&#46;&#99;&#111;&#109;">&#54;&#x37;&#x35;&#x34;&#x39;&#53;&#x37;&#56;&#x37;&#64;&#113;&#x71;&#46;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1037,6 +1242,18 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/07/17/mplus%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E7%BB%84%E5%86%85%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0ICC/">mplus如何计算组内相关系数ICC</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/10/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%80%E9%94%AE%E8%BD%AClatex%E6%88%96mathjax/">工具分享图片格式的数学公式识别一键转latex或m</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/09/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E5%BB%BA%E6%A8%A1%E5%85%A5%E9%97%A8-%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%80%BB%E8%BE%91/">多水平建模入门-多层线性模型的逻辑</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/06/03/%E5%93%8D%E5%BA%94%E6%80%A7%E5%92%8C%E5%8F%8D%E6%98%A0%E6%80%A7%E6%8C%87%E6%A0%87%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E8%A7%A3%E9%87%8A%E6%B8%85%E6%A5%9A/">响应性和反映性指标一篇文章解释清楚</a>
             </li>
             
@@ -1062,18 +1279,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">回聚类分析最佳实践</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/02/28/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">结构方程模型R语言实战教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/">Mplus潜在截面分析LPA教程代码结果解读</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/01/04/%E8%B4%9D%E5%8F%B6%E6%96%AF%E7%BD%91%E7%BB%9C%E5%85%A5%E9%97%A8%E5%92%8C%E5%AE%9E%E8%B7%B5%E6%95%99%E7%A8%8B/">贝叶斯网络入门和R代码实践视频教程</a>
             </li>
             
         </ul>
