@@ -252,6 +252,91 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/09/03/spss20.0%E9%85%8D%E5%AF%B9%E6%A0%B7%E6%9C%AC%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%B9%B3%E5%9D%87%E6%95%B0%E5%B7%AE%E5%BC%82%E6%A3%80%E9%AA%8C/">
+                spss20.0配对样本如何进行平均数差异检验
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年09月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>用这个方法之前先要确定你的数据是否适用于配对样本t检验，一般这样的数据来自同一个人，但是是分两次测量得到的，或者虽然是来自两个人，但是他们是经过匹配的，可以认为两个人在研究的变量上没有差异。<br>方法&#x2F;步骤</p>
+<ul>
+<li>打开spss导入数据，然后在菜单栏上执行：analyse–compare means–paired samples t test</li>
+</ul>
+<img src="/2015/09/03/spss20.0%E9%85%8D%E5%AF%B9%E6%A0%B7%E6%9C%AC%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%B9%B3%E5%9D%87%E6%95%B0%E5%B7%AE%E5%BC%82%E6%A3%80%E9%AA%8C/29381f30e924b8996cf21bbd6e061d950b7bf66d.jpg" class="" title="spss20.0配对样本如何进行平均数差异检验">
+
+<ul>
+<li>你会看到如下所示的对话框，这里我们要看好了怎么对变量进行配对，先从左侧的列表里选择一个变量，比如选择triglyceride这个变量，点击如图所示的箭头，添加到右侧的列表</li>
+</ul>
+<img src="/2015/09/03/spss20.0%E9%85%8D%E5%AF%B9%E6%A0%B7%E6%9C%AC%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%B9%B3%E5%9D%87%E6%95%B0%E5%B7%AE%E5%BC%82%E6%A3%80%E9%AA%8C/6f061d950a7b0208b0075d6462d9f2d3562cc86d.jpg" class="" title="spss20.0配对样本如何进行平均数差异检验">
+
+<ul>
+<li>接下来找到与上面的那个变量相配对的另一个变量final triglyceride，添加到variable2</li>
+</ul>
+<img src="/2015/09/03/spss20.0%E9%85%8D%E5%AF%B9%E6%A0%B7%E6%9C%AC%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%B9%B3%E5%9D%87%E6%95%B0%E5%B7%AE%E5%BC%82%E6%A3%80%E9%AA%8C/060828381f30e9247c62feb44c086e061c95f775.jpg" class="" title="spss20.0配对样本如何进行平均数差异检验">
+
+<ul>
+<li>同样的方法，把体重这个配对变量放到配对变量列表</li>
+</ul>
+<img src="/2015/09/03/spss20.0%E9%85%8D%E5%AF%B9%E6%A0%B7%E6%9C%AC%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%B9%B3%E5%9D%87%E6%95%B0%E5%B7%AE%E5%BC%82%E6%A3%80%E9%AA%8C/63d0f703918fa0ecd0090688269759ee3c6ddb6d.jpg" class="" title="spss20.0配对样本如何进行平均数差异检验">
+
+<ul>
+<li>点击ok按钮，开始进行数据处理</li>
+</ul>
+<img src="/2015/09/03/spss20.0%E9%85%8D%E5%AF%B9%E6%A0%B7%E6%9C%AC%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%B9%B3%E5%9D%87%E6%95%B0%E5%B7%AE%E5%BC%82%E6%A3%80%E9%AA%8C/03087bf40ad162d93c28009911dfa9ec8b13cd75.jpg" class="" title="spss20.0配对样本如何进行平均数差异检验">
+
+<ul>
+<li>你会看到下面的这个统计结果，先来分析第一个表格，关键的数据是均值，你会看到triglyceride这个变量前后的值的变化，从138到124大概下降了14，这是大概的一个数字，并不能说明这个差值是有效的</li>
+</ul>
+<img src="/2015/09/03/spss20.0%E9%85%8D%E5%AF%B9%E6%A0%B7%E6%9C%AC%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%B9%B3%E5%9D%87%E6%95%B0%E5%B7%AE%E5%BC%82%E6%A3%80%E9%AA%8C/279759ee3d6d55fb6c0814a36d224f4a21a4dd6d.jpg" class="" title="spss20.0配对样本如何进行平均数差异检验">
+
+<ul>
+<li>第二个表格展示的是配对样本之间的相关系数，我们可以看到体重的相关系数为0.996，而且sig值达到了0.000，这是一个非常完美的数据，这说明实验处理对体重的影响是一致的。但是上面的这对变量却没有显示出相关关系。</li>
+</ul>
+<img src="/2015/09/03/spss20.0%E9%85%8D%E5%AF%B9%E6%A0%B7%E6%9C%AC%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%B9%B3%E5%9D%87%E6%95%B0%E5%B7%AE%E5%BC%82%E6%A3%80%E9%AA%8C/a8ec8a13632762d022f8c63aa0ec08fa503dc675.jpg" class="" title="spss20.0配对样本如何进行平均数差异检验">
+
+<ul>
+<li><p>最后我们要看第三个表格，先看均值的差异表明实验前后数据发生了变化，而后面的sig值则说明这个变化是否有效，因为第一个sig值超过了0.05，所以结果是不显著的，不能认为实验是有效的。而第二个sig为0.000，这说明实验的处理效果显著，可以认为该处理方法能够有效的减轻体重</p>
+</li>
+<li></li>
+</ul>
+<img src="/2015/09/03/spss20.0%E9%85%8D%E5%AF%B9%E6%A0%B7%E6%9C%AC%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%B9%B3%E5%9D%87%E6%95%B0%E5%B7%AE%E5%BC%82%E6%A3%80%E9%AA%8C/908fa0ec08fa513dfc6c0e5b3d6d55fbb3fbd975.jpg" class="" title="spss20.0配对样本如何进行平均数差异检验">
+
+<img src="/2015/09/03/spss20.0%E9%85%8D%E5%AF%B9%E6%A0%B7%E6%9C%AC%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E5%B9%B3%E5%9D%87%E6%95%B0%E5%B7%AE%E5%BC%82%E6%A3%80%E9%AA%8C/21a4462309f790527ed125bb0cf3d7ca7acbd56d.jpg" class="" title="spss20.0配对样本如何进行平均数差异检验">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#x39;&#53;&#55;&#x38;&#x37;&#64;&#x71;&#113;&#46;&#99;&#111;&#109;">&#54;&#55;&#53;&#x34;&#x39;&#53;&#55;&#x38;&#x37;&#64;&#x71;&#113;&#46;&#99;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/09/01/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B60%5D%E6%93%8D%E4%BD%9Ctxt%E6%96%87%E4%BB%B6%E6%96%B9%E6%B3%95%E6%80%BB%E7%BB%93/">
                 Python教程：[60]操作txt文件方法总结
             </a>
@@ -936,84 +1021,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/08/17/Excel2013%EF%BC%9A%5B11%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%A6%82%E4%BD%95%E7%94%BB%E7%9B%B4%E7%BA%BF/">
-                Excel2013：[11]散点图如何画直线
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年08月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>在Excel里，假如想要绘制散点图的直线也是很简单的，但是我发现大家的问题基本上有两类，一类是散点图画出来了，不知怎么画直线；二是下图这样的情况，我们本来想要绘制的是直线，但出来的是曲线或者是两条线。</p>
-<ul>
-<li>假如我们要绘制两条散点图曲线，我们选中三列数，第一列是自变量，其余都是因变量。因为有两个因变量我们应该得到两条曲线</li>
-</ul>
-<img src="/2015/08/17/Excel2013%EF%BC%9A%5B11%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%A6%82%E4%BD%95%E7%94%BB%E7%9B%B4%E7%BA%BF/0862c354564e9258cc4cd4f49e82d158ccbf4e74.jpg" class="" title="Excel2013：[11]散点图如何画直线">
-
-<ul>
-<li>选择散点图，我们选择曲线形式的</li>
-</ul>
-<img src="/2015/08/17/Excel2013%EF%BC%9A%5B11%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%A6%82%E4%BD%95%E7%94%BB%E7%9B%B4%E7%BA%BF/d048adde9c82d158edfa0bab820a19d8bc3e4274.jpg" class="" title="Excel2013：[11]散点图如何画直线">
-
-<ul>
-<li>我们可以看到得到这个图是这样子的，并不是我们想要的，因为X轴（横坐标轴）不是X，而是一个序列</li>
-</ul>
-<img src="/2015/08/17/Excel2013%EF%BC%9A%5B11%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%A6%82%E4%BD%95%E7%94%BB%E7%9B%B4%E7%BA%BF/8c511fe93901213f4e981cc656e736d12e2e95c6.jpg" class="" title="Excel2013：[11]散点图如何画直线">
-
-<ul>
-<li>右键单击散点图，从右键菜单中选择【选择数据】</li>
-</ul>
-<img src="/2015/08/17/Excel2013%EF%BC%9A%5B11%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%A6%82%E4%BD%95%E7%94%BB%E7%9B%B4%E7%BA%BF/bd7faf3533fa828b8f5bcff9ff1f4134970a5a74.jpg" class="" title="Excel2013：[11]散点图如何画直线">
-
-<ul>
-<li>然后看到这个对话框，点击切换行&#x2F;列，点击确定按钮</li>
-</ul>
-<img src="/2015/08/17/Excel2013%EF%BC%9A%5B11%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%A6%82%E4%BD%95%E7%94%BB%E7%9B%B4%E7%BA%BF/b87985504fc2d5627aa382f7e51190ef77c66cc6.jpg" class="" title="Excel2013：[11]散点图如何画直线">
-
-<img src="/2015/08/17/Excel2013%EF%BC%9A%5B11%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%A6%82%E4%BD%95%E7%94%BB%E7%9B%B4%E7%BA%BF/d089b986c9177f3e524cae1772cf3bc79f3d5674.jpg" class="" title="Excel2013：[11]散点图如何画直线">
-
-<ul>
-<li>我们接着要设置一下端点的样式，因为在大部分论文中，图都是黑白的，为了区分不同的曲线，我们设置一个端点是空心，另一个是实心。双击选中一条直线，然后在标记这一栏选择填充颜色，设置为白色</li>
-</ul>
-<img src="/2015/08/17/Excel2013%EF%BC%9A%5B11%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%A6%82%E4%BD%95%E7%94%BB%E7%9B%B4%E7%BA%BF/91ae68c6a7efce1b9b819ad0ad51f3deb58f65c6.jpg" class="" title="Excel2013：[11]散点图如何画直线">
-
-<ul>
-<li>到此，我们就完成了曲线的绘制</li>
-</ul>
-<img src="/2015/08/17/Excel2013%EF%BC%9A%5B11%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%A6%82%E4%BD%95%E7%94%BB%E7%9B%B4%E7%BA%BF/a6aed01b9d16fdfaa7c694f4b68f8c5495ee7bc6.jpg" class="" title="Excel2013：[11]散点图如何画直线">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#x34;&#57;&#x35;&#x37;&#56;&#55;&#64;&#x71;&#x71;&#46;&#99;&#x6f;&#x6d;">&#54;&#55;&#x35;&#x34;&#57;&#x35;&#x37;&#56;&#55;&#64;&#x71;&#x71;&#46;&#99;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1055,6 +1062,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">mplus做LCA入门教程</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/07/17/mplus%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E7%BB%84%E5%86%85%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0ICC/">mplus如何计算组内相关系数ICC</a>
             </li>
             
@@ -1088,10 +1099,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/03/16/%E6%95%88%E5%BA%A6%E9%AA%8C%E8%AF%81%E7%94%A8EFA%E8%BF%98%E6%98%AFCFA/">效度验证用EFA还是CFA</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/02/28/%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">回聚类分析最佳实践</a>
             </li>
             
         </ul>

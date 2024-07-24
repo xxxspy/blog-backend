@@ -1,0 +1,1235 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <!--Description-->
+    
+        <meta name="description" content="专注于数据开发, 数据分析, 数据采集, python教学">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xxxspy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="mplus做LCA入门教程"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="专注于数据开发, 数据分析, 数据采集, python教学" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="DataSense"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>mplus做LCA入门教程 - DataSense</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <style>
+    code{
+    color: #d7ecff;
+    font-size: 110%;
+    }
+    pre > code {
+        -webkit-border-before: black;
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        color: #f9f4f4;
+        word-break: break-all;
+        word-wrap: break-word;
+        background-color: #f5f5f500;
+        border: 1px solid #eff3f521;
+        border-radius: 0;
+    }
+    pre > code::before {
+        content:"- ";
+        z-index: -1;
+        left:-2px;
+    }
+    #feedAv{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #MZAD_POP_PLACEHOLDER{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #pop_ad{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    </style>
+
+    
+    
+    
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+    <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i>
+        
+            <p id="main-title" class="title">DataSense</p>
+        
+        </a>
+    </div>
+</header>
+<div class="page_list archive-container">
+        
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+            SPSS+AMOS数据分析案例教程-关于中介模
+        </a>
+    </div>
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+            SPSS视频教程内容目录和跳转链接
+        </a>
+    </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+                SPSS+AMOS数据分析案例教程-关于中介模
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+                SPSS视频教程内容目录和跳转链接
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="https://mlln.cn/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">
+                R语言快速入门视频教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a target="_blank" rel="noopener" href="https://space.bilibili.com/383752637/channel/collectiondetail?sid=778283">
+                Python智联招聘数据分析
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/07/24/潜在类别分析入门/">
+                LCA潜在类别分析和Mplus应用
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/06/12/Amos结构方程数据分析案例教程/">
+                Amos结构方程模型数据分析入门教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/12/05/倒U关系回归分析中介效应和调节效应分析SPSS和R语言应用视频教程/">
+                倒U关系回归分析中介效应和调节效应分析SPSS视频教程
+            </a>
+        </div>
+    
+</div>
+
+    <!-- Main Content -->
+    
+
+    
+        
+<div class="row">
+    <div class="col-md-9 col-sm-12">
+        <!--Title and Logo-->
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">
+                mplus做LCA入门教程
+            </a>
+
+        </h1>
+        <div class="weibo-share">
+            <p>在B站@mlln-cn, 我就能回答你的问题奥!</p>
+        </div>
+        <div class="post-info">
+            
+                <span class="date">2024年07月24日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+    <!-- Table of Contents -->
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B"><span class="toc-number">1.</span> <span class="toc-text">案例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E4%BB%8B%E7%BB%8D"><span class="toc-number">1.1.</span> <span class="toc-text">数据介绍</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mplus-%E4%BB%A3%E7%A0%81"><span class="toc-number">2.</span> <span class="toc-text">Mplus 代码</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%A3%E7%A0%81%E8%A7%A3%E8%AF%BB"><span class="toc-number">2.1.</span> <span class="toc-text">代码解读</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BE%93%E5%87%BA%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB"><span class="toc-number">3.</span> <span class="toc-text">输出结果解读</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9D%A1%E4%BB%B6%E6%A6%82%E7%8E%87"><span class="toc-number">3.1.</span> <span class="toc-text">条件概率</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E6%9C%AC%E5%BD%92%E7%B1%BB"><span class="toc-number">3.2.</span> <span class="toc-text">样本归类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E7%B1%BB%E9%A2%91%E7%8E%87%E7%BB%9F%E8%AE%A1"><span class="toc-number">3.3.</span> <span class="toc-text">各类频率统计</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B1%BB%E5%88%AB%E6%95%B0%E9%87%8F"><span class="toc-number">3.4.</span> <span class="toc-text">类别数量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%B3%A8%E6%84%8F"><span class="toc-number">4.</span> <span class="toc-text">注意</span></a></li></ol>
+    </div>
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>潜类分析（Latent Class Analysis, LCA）是一种统计方法，用于识别隐藏在观测变量背后的潜在类别或类型。LCA假设观测变量是由潜在类别决定的，并且每个潜在类别具有其独特的条件概率分布。通过分析这些条件概率，LCA可以将个体划分为不同的潜类别，从而揭示隐藏的群体结构。</p>
+<p>在LCA中，观测变量通常是分类变量，例如二元变量（是&#x2F;否，同意&#x2F;不同意等）。LCA的目标是找出最佳的潜类别数量，并描述每个潜类别的特征。这有助于研究人员理解和解释复杂的数据结构，尤其是在处理涉及不同类型个体或群体的研究时。</p>
+<span id="more"></span>
+
+<p>这篇教程以介绍如何使用mplus进行潜类分析。以案例为切入点，会介绍潜类分析的基本概念和步骤，以及如何使用mplus进行潜类分析，<br>最终帮你解读结果。</p>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>高中生在学校的表现各不相同。这可能通过一个人的成绩、缺席次数、逃学次数等来体现。传统的方法可能是将“高中成功程度”视为一个连续的变量，但实际上我们可以将其视为一个分类变量，例如“成功”、“一般”和“不成功”。这些类别可以通过上述指标来定义和区分。</p>
+<h3 id="数据介绍"><a href="#数据介绍" class="headerlink" title="数据介绍"></a>数据介绍</h3><p>让我们继续上面的示例 1,我们有一个假设的数据文件，其中包含 9 个饮酒行为指标,对于每个指标，都会询问该人该描述是否适用于他&#x2F;她自己（是或否）,这 9 个指标是:</p>
+<ul>
+<li>我喜欢喝酒</li>
+<li>我喝烈酒</li>
+<li>我早上喝过</li>
+<li>我上班时喝过</li>
+<li>我喝酒是为了喝醉</li>
+<li>我喜欢酒的味道</li>
+<li>我喝酒有助于睡眠</li>
+<li>喝酒影响了我的人际关系</li>
+<li>我经常去酒吧</li>
+</ul>
+<p>我们为 1000 名受访者制作了数据，并将数据存储在一个名为<a target="_blank" rel="noopener" href="https://stats.idre.ucla.edu/wp-content/uploads/2016/02/lca1.dat">lca1.dat</a> 的文件中，这是一个逗号分隔的文件，其中被试 ID 后跟对 9 个问题的回答，编码为 1 表示是，0 表示否。前 10 个样本如下所示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">    | id   item1   item2   item3   item4   item5   item6   item7   item8   item9 |</span><br><span class="line">    |----------------------------------------------------------------------------|</span><br><span class="line"> 1. |  1       1       0       0       0       0       0       0       0       0 |</span><br><span class="line"> 2. |  2       1       1       0       1       1       1       1       0       0 |</span><br><span class="line"> 3. |  3       1       0       0       0       0       0       0       0       0 |</span><br><span class="line"> 4. |  4       1       0       0       0       0       1       1       0       0 |</span><br><span class="line"> 5. |  5       1       0       0       0       1       0       0       0       1 |</span><br><span class="line">    |----------------------------------------------------------------------------|</span><br><span class="line"> 6. |  6       0       1       0       0       0       1       0       0       0 |</span><br><span class="line"> 7. |  7       1       1       0       0       0       0       0       0       1 |</span><br><span class="line"> 8. |  8       1       0       1       0       0       0       0       0       0 |</span><br><span class="line"> 9. |  9       1       0       0       0       0       0       0       1       0 |</span><br><span class="line">10. | 10       0       0       0       0       0       1       0       0       0 |</span><br></pre></td></tr></table></figure>
+
+
+<h2 id="Mplus-代码"><a href="#Mplus-代码" class="headerlink" title="Mplus 代码"></a>Mplus 代码</h2><p>注意LCA分析的方法很多，代码也有很多类型，这里只提供了针对本案例的分析代码，<br>未必适合你的案例，请自己自行调整。 下面的代码中， 井号“#”后面表示注释，可以忽略。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">Title: </span><br><span class="line">  LCASA example; # 这里写标题</span><br><span class="line">Data:</span><br><span class="line">  File is lca1.dat ; # 这里设置数据文件，确保你的数据和代码inp文件在同一目录下</span><br><span class="line">Variable:</span><br><span class="line">  names        = id item1 item2 item3 item4 item5 item6 item7 item8 item9; # 数据中的变量名</span><br><span class="line">  usevariables = item1 item2 item3 item4 item5 item6 item7 item8 item9; # 模型中用到了哪些变量</span><br><span class="line">  categorical  = item1 item2 item3 item4 item5 item6 item7 item8 item9; # 哪些变量时分类变量</span><br><span class="line">  classes = c(3); # 设定想要分析的潜类数量</span><br><span class="line">Analysis: </span><br><span class="line">  Type=mixture; # LCA分析属于 mixture 类型</span><br><span class="line">Plot:</span><br><span class="line">  type is plot3;</span><br><span class="line">  series is item1 (1) item2 (2) item3 (3) item4 (4) item5 (5) </span><br><span class="line">            item6 (6) item7 (7) item8 (8) item9 (9);</span><br><span class="line">Savedata:</span><br><span class="line">  file is lca1_save.txt ; # 将输出的数据保存到 lca1_save 文件中</span><br><span class="line">  save is cprob;</span><br><span class="line">  format is free;</span><br><span class="line">output:</span><br><span class="line">  tech11 tech14;</span><br></pre></td></tr></table></figure>
+
+<h3 id="代码解读"><a href="#代码解读" class="headerlink" title="代码解读"></a>代码解读</h3><ul>
+<li>Title 为程序提供了标题。</li>
+<li>Data 告诉 Mplus 有关数据文件的信息，数据存储在文件 lca1.dat 中，该文件与命令 INP 文件位于同一文件夹或路径中。Variable 告诉 Mplus 有关数据文件中变量的更多信息。names 语句列出了变量的名称（按它们在数据文件中出现的顺序）。usevariables 语句指示我们将使用哪些变量进行此分析。categorical 语句表示指定的变量是分类变量。classes 语句表示有一个分类潜在变量（我们将其称为 c），它有 3 个级别。</li>
+<li>Analysis 将分析类型指定为混合模型，这是您请求潜在类别分析的方式。</li>
+<li>Plot 用于制作我们上面创建的图。类型为 plot3，series 语句用于将题目与 X 轴关联，其中 item1 标记为 1，item2 标记为 2 … 以及 item9 在 X 轴上标记为 9。</li>
+<li>Savedata 保存原始数据</li>
+<li>在Mplus中，save is cprob; 这行代码的作用是保存每个观测属于各个类别的条件概率。具体来说，Mplus会创建一个输出文件，其中包含了原始数据以及Mplus估计的每个观测属于每个类别的概率。这些概率可以帮助我们了解每个个体在不同类别中的归属情况，从而进行进一步的分析或分类。</li>
+<li>在Mplus中，“format is free”是指在编写Mplus程序时，输入数据的格式是自由的。具体来说，这意味着你可以选择不同的数据格式和排列方式，只要它们符合Mplus的读取规则。这种灵活性使得用户可以根据自己的数据结构来组织和输入数据，而不必严格遵循特定的格式要求。</li>
+</ul>
+<h2 id="输出结果解读"><a href="#输出结果解读" class="headerlink" title="输出结果解读"></a>输出结果解读</h2><h3 id="条件概率"><a href="#条件概率" class="headerlink" title="条件概率"></a>条件概率</h3><p>在mplus中，找到这一部分： RESULTS IN PROBABILITY SCALE，</p>
+<p>你可以看到如下这样的表格：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">        Class 1  Class 2  Class 3    Item Label</span><br><span class="line">ITEM1    0.908    0.312    0.923     我喜欢喝酒 I like to drink                      </span><br><span class="line">ITEM2    0.337    0.164    0.546     我喝烈酒 I drink hard liquor                      </span><br><span class="line">ITEM3    0.067    0.036    0.426     我早上喝过 I have drank in the morning              </span><br><span class="line">ITEM4    0.065    0.056    0.418     我上班时喝过 I have drank at work                     </span><br><span class="line">ITEM5    0.219    0.044    0.765     我喝酒是为了喝醉 I drink to get drunk                     </span><br><span class="line">ITEM6    0.320    0.183    0.471     我喜欢酒的味道 I like the taste of alcohol              </span><br><span class="line">ITEM7    0.113    0.098    0.512     我喝酒有助于睡眠 I drink help me sleep                    </span><br><span class="line">ITEM8    0.140    0.110    0.619     喝酒影响了我的人际关系 Drinking interferes with my relationships</span><br><span class="line">ITEM9    0.325    0.188    0.349     我经常去酒吧 I frequently visit bars</span><br></pre></td></tr></table></figure>
+
+<p>这里列出了每一个题目（观测指标）与每一个潜类（潜在类别）的条件概率。<br>怎么理解其中的数据呢？</p>
+<p>从第1题来看，1类和3类的学生非常喜欢喝酒（90.8%和92.3%的学生说是），而2类的学生不太喜欢喝酒（说喜欢喝酒的概率只有31.2%）。从第5项来看，3类有76.5%的学生说他们喝酒是为了喝醉，而1类有21.9%的学生同意这一点，2类只有4.4%的学生说是。</p>
+<p>我开始相信第 3 类人可以被贴上“酒鬼”的标签。仅关注第 3 类人（看那一栏），他们非常喜欢喝酒（92%），喝烈酒（54.6%），相当多的人说他们早上和工作时都喝酒（42.6% 和 41.8%），超过一半的人说喝酒影响了他们的人际关系（61.9%）。</p>
+<p>看来，2 类人正是我们希望找到的“戒酒者”。他们中喜欢喝酒的人不多（31.2%），喜欢酒味的人不多（18.3%），经常去酒吧的人不多（18.8%），其余问题也很少回答“是”。</p>
+<p>剩下的就是第 1 类人了；他们是否符合“社交饮酒者”的概念？他们喜欢喝酒（90.8%），但不像第 3 类人那样经常喝烈酒（33.7% 比 54.6%）。他们很少在早上或工作时喝酒（6.7% 比 6.5%），也很少说喝酒会影响他们的人际关系（14%）。他们说他们经常去酒吧，就像第 3 类人一样（32.5% 比 34.9%），但这也许有道理。社交饮酒者和酗酒者在喜欢喝酒的程度和去酒吧的频率上都相似，但在一些关键方面有所不同，比如在工作时喝酒、早上喝酒以及喝酒对他们人际关系的影响。</p>
+<p>我们也可以把上表中的结果以图表的形式表示出来。X 轴表示题目编号，Y 轴表示假设你属于某个特定的饮酒类别，则对给定题目回答“是”的概率。三个不同的饮酒类别表示为三条不同的线。</p>
+<img src="plot.png">
+
+<h3 id="样本归类"><a href="#样本归类" class="headerlink" title="样本归类"></a>样本归类</h3><p>对于每个人，Mplus 都会估计该人属于哪个类别（即该人是哪种类型的饮酒者）。对于给定的人，Mplus 会估计该人属于第一类、第二类或第三类的概率。例如，对于受试者 1，这些概率可能是该人属于第一类的概率为 15%，属于第二类的概率为 80%，属于第三类的概率为 5%。对于这样的人，我会说我认为该人属于第二类，因为该类最有可能。Mplus 还将使用相同类型的规则将人们归为一类。</p>
+<p>Mplus 创建一个输出文件，其中包含分析中使用的原始数据（即 item1 到 item9），后面是 Mplus 估计观察结果属于第 1 类、第 2 类和第 3 类的概率。接下来，显示概率最高的类（模态类）。我截取了输出的片段并对其进行了标记，以使其更易于阅读。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">Items 1 - 9                                   </span><br><span class="line">----------------- P(c1) P(c2) P(c3) Class     </span><br><span class="line">1 0 0 0 0 0 0 0 0 0.645 0.354 0.001 1         </span><br><span class="line">1 1 0 1 1 1 1 0 0 0.098 0.001 0.901 3         </span><br><span class="line">1 0 0 0 0 0 0 0 0 0.645 0.354 0.001 1         </span><br><span class="line">1 0 0 0 0 1 1 0 0 0.797 0.177 0.026 1         </span><br><span class="line">1 0 0 0 1 0 0 0 1 0.934 0.041 0.025 1         </span><br><span class="line">0 1 0 0 0 1 0 0 0 0.312 0.686 0.002 2         </span><br><span class="line">1 1 0 0 0 0 0 0 1 0.903 0.092 0.005 1         </span><br><span class="line">1 0 1 0 0 0 0 0 0 0.766 0.218 0.017 1         </span><br><span class="line">1 0 0 0 0 0 0 1 0 0.696 0.290 0.014 1         </span><br><span class="line">0 0 0 0 0 1 0 0 0 0.149 0.850 0.000 2</span><br></pre></td></tr></table></figure>
+
+<p>对于第一个样本（第一行），对这些题目的回答模式表明，该人有 64.5% 的机会属于第 1 类（我们称之为社交饮酒者），有 35.4% 的机会属于第 2 类（戒酒者），有 0.1% 的机会属于第 3 类（酒鬼）。请注意，这些加起来等于 100%（因为一个人必须属于这些类别之一）。对于这个人来说，第 1 类是最有可能的类别，Mplus 在最后一列中指出了这一点。值得注意的是，对于此人，结果模式几乎可以肯定他不是酒鬼，但不太清楚他是社交饮酒者还是戒酒者（可能是因为此人对第 1 项（我喜欢喝酒）回答“是”）。请注意，第三行数据对这些题目的响应模式相同，并且具有相同的预测类概率。考虑数据的第 2 行。此人有 90.1% 的机会是酒鬼，有 9.8% 的机会是社交饮酒者，有 0.1% 的机会是戒酒者。</p>
+<h3 id="各类频率统计"><a href="#各类频率统计" class="headerlink" title="各类频率统计"></a>各类频率统计</h3><p>一旦我们为每个类别想出一个描述性标签，我们就可以查看被归入每个类别的人数。我预测大约 20% 的人是戒酒者，70% 的人是社交饮酒者，大约 10% 的人是酗酒者。我可以将我的预测与 Mplus 产生的结果进行比较。</p>
+<p>你可以找到mplus输出的这部分：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">CLASSIFICATION OF INDIVIDUALS BASED ON THEIR MOST LIKELY LATENT CLASS MEMBERSHIP</span><br><span class="line"></span><br><span class="line">Class Counts and Proportions</span><br><span class="line"></span><br><span class="line">    Latent</span><br><span class="line">   Classes</span><br><span class="line">       1              646          0.64600</span><br><span class="line">       2              288          0.28800</span><br><span class="line">       3               66          0.06600</span><br></pre></td></tr></table></figure>
+
+<p>在 1000 名受试者中，646 人（64.6%）被归类为第 1 类（我们将其标记为社交饮酒者），66 人（6.6%）被归类为第 3 类（酒鬼），288 人（28.8%）被归类为第 2 类（戒酒者）。这与我的直觉一致，即大多数人都是社交饮酒者，一小部分是酒鬼，而相当一部分是戒酒者。</p>
+<p>我们还有第二种方法可以计算类别的大小。我们可以按照属于每个类别的概率比例将成员资格分配给各个类别，而不是将此人视为完全属于类别 1。因此，被试 1 在每个类别中都有分数，类别 1 为 0.645，类别 3 为 0.001，类别 2 为 0.354。Mplus 也以这种方式计算类别大小，如下所示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">FINAL CLASS COUNTS AND PROPORTIONS FOR THE LATENT CLASS PATTERNS</span><br><span class="line">BASED ON ESTIMATED POSTERIOR PROBABILITIES</span><br><span class="line"></span><br><span class="line">    Latent</span><br><span class="line">   Classes</span><br><span class="line">       1        557.56836          0.55757</span><br><span class="line">       2        363.13989          0.36314</span><br><span class="line">       3         79.29175          0.07929</span><br></pre></td></tr></table></figure>
+
+<h3 id="类别数量"><a href="#类别数量" class="headerlink" title="类别数量"></a>类别数量</h3><p>到目前为止，我们一直假设我们选择了正确数量的潜在类别。然而，也许只有两种类型的饮酒者，或者可能有四种或更多类型的饮酒者。到目前为止，我们喜欢三类模型，这既基于我们的理论预期，也基于我们的结果的可解释性。我们可以使用 Vuong-Lo-Mendell-Rubin 检验（mplus设置 TECH11 输出，参见下面的 Mplus 程序）和引导参数似然比检验（使用 TECH 14 ，参见下面的 Mplus 程序）进一步评估我们是否选择了正确的类别数量。此测试将具有 K 个类别（在我们的例子中为 3 个）的模型与具有 (K-1) 个类别（在我们的例子中为 K – 1 &#x3D; 2 个类别）的模型进行比较。结果如下所示。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">TECHNICAL 11 OUTPUT</span><br><span class="line"></span><br><span class="line">     VUONG-LO-MENDELL-RUBIN LIKELIHOOD RATIO TEST FOR 2 (H0) VERSUS 3 CLASSES</span><br><span class="line">          H0 Loglikelihood Value                        -4251.208</span><br><span class="line">          2 Times the Loglikelihood Difference             39.025</span><br><span class="line">          Difference in the Number of Parameters               10</span><br><span class="line">          Mean                                             20.255</span><br><span class="line">          Standard Deviation                               22.224</span><br><span class="line">          P-Value                                          0.1457</span><br><span class="line"></span><br><span class="line">     LO-MENDELL-RUBIN ADJUSTED LRT TEST</span><br><span class="line">          Value                                            38.468</span><br><span class="line">          P-Value                                          0.1500</span><br><span class="line"></span><br><span class="line">TECHNICAL 14 OUTPUT</span><br><span class="line"></span><br><span class="line">     BOOTSTRAPPED PARAMETRIC LIKELIHOOD RATIO TEST FOR 2 (H0) VERSUS 3 CLASSES</span><br><span class="line">          H0 Loglikelihood Value                        -4251.208</span><br><span class="line">          2 Times the Loglikelihood Difference             39.025</span><br><span class="line">          Difference in the Number of Parameters               10</span><br><span class="line">          Approximate P-Value                              0.0000</span><br></pre></td></tr></table></figure>
+
+<p>Vuong-Lo-Mendell-Rubin 检验的 p 值为 .1457，Lo-Mendell-Rubin 调整后的 LRT 检验的 p 值为 .1500。这些检验表明两个类别就足够了，三个类别并不是真正需要的。但是，自举参数似然比检验的 p 值为 0.0000，因此该检验表明三个类别确实比两个类别好。由于我们已经看到未发表的结果表明自举方法可能更可靠，并且三类别模型符合我们的理论预期，因此我们将采用三类别模型。</p>
+<h2 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h2><ul>
+<li>你是否指定了正确数量的潜类别？也许你指定的类别太多（即，人们大多属于 2 个类别），或者你指定的类别太少（即，人们实际上属于 4 个或更多类别）。</li>
+<li>你的某些测量&#x2F;指标是否很糟糕？我们所有的测量对于区分一个人属于哪种类型的饮酒者都非常有用。但是，假设我们有一个测量指标是“你喜欢西兰花吗？”。这将是一个糟糕的指标，每种类型的饮酒者可能都会以类似的方式回答，因此这个问题是丢弃的好选择。</li>
+<li>在开发了这个模型来识别不同类型的饮酒者之后，我们可能有兴趣尝试预测某人为什么是酒鬼，或者为什么某人是戒酒者。例如，我们可能对父母饮酒是否预示着酗酒感兴趣。这样的分析是可能的，但这里不讨论。</li>
+</ul>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/mplus/">#mplus</a> <a href="/tags/lca/">#lca</a>
+        </div>
+    
+
+
+
+</div>
+        </section>
+        <section>
+            <div class="content" style="color: #d7ecff">
+                <h3 id="赞助"><a href="#赞助" class="headerlink" title="赞助"></a>赞助</h3>
+                <p>持续创造有价值的内容, 我需要你的帮助</p>
+                <p><img src="/img/收款二维码.png" class="img-thumbnail"></p>
+            </div>
+        </section>
+        <!-- changyan comments -->
+        <section class="main">
+            <!--PC版畅言-->
+
+<div class="container"><div id="SOHUCS" sid="2024/07/24/mplus做LCA入门教程/"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cysqnjGqk',
+conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
+});
+setInterval(()=>{
+    $('#closePoPBD').click()
+}, 2000)
+</script>
+</div>
+
+        </section>
+    </div>
+
+    <!-- rightside -->
+    <div class="col-md-3 col-sm-12 rightside">
+        <div class="related-posts">
+    <h3>
+        <a href="#">
+            赞助推荐
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://jupyter.cn/home/">问卷代填保证质量</a>
+            </div>
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=2013.1.w4023-21724689242.4.76085e0a2k46Ky&amp;id=601314051411">问卷代填保证质量</a>
+            </div>
+        
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        常用工具
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a href="/2023/07/08/spss数据sav格式转换器（在线）/">Excel和SPSS转Mplus数据格式工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/mplusoutput/">Mplus结果查看器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/drawio/">绘图软件</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2018/09/26/在线绘制中介效应图/">
+                在线绘制中介效应图
+            </a>
+        </div>
+        <div class="archive-post">
+            <a href="/neural/">神经网络可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/psychopy/">psychopy教程</a>
+        </div>
+        <div class="archive-post">
+            <a href="/vector/">[词向量]高维向量可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/demos/evolutionSimulator/">[tensorflow.js案例]进化算法演示</a>
+        </div>
+        <div class="archive-post">
+            <a href="/guideToPython/">[书]Python最佳实践</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/10/10/sobel检验原理和一键计算器/">Sobel检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">平均方差提取量AVE和组合信度CR计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">卡方检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">简单交互效应可视化工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/12/23/均值差异的效应量在线计算器/">两组均值差异的效应量在线计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="https://mlln.cn/2020/09/17/%E5%8D%A1%E6%96%B9%E5%B7%AE%E5%80%BC%E7%9A%84%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C/">卡方差值的显著性检验</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/mplus/">
+            mplus
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">
+                    mplus做LCA入门教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/07/17/mplus%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E7%BB%84%E5%86%85%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0ICC/">
+                    mplus如何计算组内相关系数ICC
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/07/09/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E5%BB%BA%E6%A8%A1%E5%85%A5%E9%97%A8-%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%80%BB%E8%BE%91/">
+                    多水平建模入门-多层线性模型的逻辑
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/05/20/mplus%E4%B8%AD%E4%BB%8B%E3%80%81%E8%B0%83%E8%8A%82%E5%92%8C%E6%9C%89%E8%B0%83%E8%8A%82%E7%9A%84%E4%B8%AD%E4%BB%8B%E6%95%99%E7%A8%8B/">
+                    mplus中介、调节和有调节的中介教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/03/18/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90/">
+                    多水平验证性因子分析CFA理论和应用教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/02/28/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
+                    结构方程模型R语言实战教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/">
+                    Mplus潜在截面分析LPA教程代码结果解读
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">
+                    关于Jöreskog的组合信度ρ_c定义和用法
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/12/05/%E5%85%B3%E4%BA%8EDijkstra%E7%9A%84%E4%BF%A1%E5%BA%A6%E7%B3%BB%E6%95%B0%CF%81A%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">
+                    关于 Dijkstra 的信度系数ρ_A定义和用法
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/10/12/%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E4%B8%AD%E7%AE%80%E5%8D%95%E6%96%9C%E7%8E%87%E7%BB%98%E5%88%B6%E6%9C%80%E5%BC%BAexcel%E6%A8%A1%E6%9D%BF%E6%95%99%E7%A8%8B%E5%92%8C%E4%B8%8B%E8%BD%BD/">
+                    交互效应中简单斜率绘制最强excel模板教程和下载
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/09/18/mplus%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%B3%A8%E9%87%8A%E5%92%8C%E8%A7%A3%E8%AF%BB/">
+                    mplus验证性因子分析结果的详细注释和解读
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/08/17/%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%A8%A1%E6%9D%BF/">
+                    验证性因子分析CFA结果汇报模板
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/07/08/spss%E6%95%B0%E6%8D%AEsav%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88%E5%9C%A8%E7%BA%BF%EF%BC%89/">
+                    spss和Excel数据格式转mplus格式数据（在线）
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/08/31/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E5%88%86%E6%9E%90%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F/">
+                    结构方程模型多组比较分析调节变量
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2019/02/26/Amos%E5%92%8CMplus%E4%B8%AD%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8BSEM%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E6%8B%9F%E5%90%88%E6%8C%87%E6%A0%87%E8%AF%A6%E8%A7%A3/">
+                    Amos和Mplus中结构方程SEM因子分析CFA拟合指标详解
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/lca/">
+            lca
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">
+                    mplus做LCA入门教程
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts hidden-sm-down">
+    <h3>
+        <a href="#">
+            友商赞助
+        </a>
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a target="_blank" rel="noopener" href="http://jupyter.cn">
+                  问卷大全问卷案例下载
+            </a>
+            <a href="https://mlln.cn/2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/">
+                大学生互填问卷群推荐
+            </a>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 footer-about">
+                <h2>About</h2>
+                <p>
+                    这是<code>xxxspy</code>的个人博客
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">mplus做LCA入门教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/17/mplus%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E7%BB%84%E5%86%85%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0ICC/">mplus如何计算组内相关系数ICC</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/10/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%80%E9%94%AE%E8%BD%AClatex%E6%88%96mathjax/">工具分享图片格式的数学公式识别一键转latex或m</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/09/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E5%BB%BA%E6%A8%A1%E5%85%A5%E9%97%A8-%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%80%BB%E8%BE%91/">多水平建模入门-多层线性模型的逻辑</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/06/03/%E5%93%8D%E5%BA%94%E6%80%A7%E5%92%8C%E5%8F%8D%E6%98%A0%E6%80%A7%E6%8C%87%E6%A0%87%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E8%A7%A3%E9%87%8A%E6%B8%85%E6%A5%9A/">响应性和反映性指标一篇文章解释清楚</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/05/20/mplus%E4%B8%AD%E4%BB%8B%E3%80%81%E8%B0%83%E8%8A%82%E5%92%8C%E6%9C%89%E8%B0%83%E8%8A%82%E7%9A%84%E4%B8%AD%E4%BB%8B%E6%95%99%E7%A8%8B/">mplus中介、调节和有调节的中介教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/04/23/%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E4%B8%8D%E5%8F%98%E6%80%A7%E5%9C%A8%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E7%9A%84%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E4%B8%AD/">如何检验测量模型不变性在结构方程的多组比较中</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/03/23/mplus%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%BC%BC%E7%84%B6%E5%80%BC%E8%AE%A1%E7%AE%97%E4%B8%A4%E4%B8%AA%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8B%9F%E5%90%88%E5%B7%AE%E5%BC%82%E6%98%AF%E5%90%A6%E6%98%BE%E8%91%97/">mplus中如何计算两个模型的拟合差异是否显著</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/03/18/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90/">多水平验证性因子分析CFA理论和应用教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/03/16/%E6%95%88%E5%BA%A6%E9%AA%8C%E8%AF%81%E7%94%A8EFA%E8%BF%98%E6%98%AFCFA/">效度验证用EFA还是CFA</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 footer-tags">
+    <h2>tags</h2>
+    <ul>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%87%E6%9C%AC%E6%8C%96%E6%8E%98/">文本挖掘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8A%A5%E5%91%8A%E7%B3%BB%E7%BB%9F/">报告系统</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/spss/">spss</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/python/">python</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/manim/">manim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/amos/">amos</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE/">共同方法偏差</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BF%A1%E5%BA%A6%E5%88%86%E6%9E%90/">信度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%88%E5%BA%A6%E5%88%86%E6%9E%90/">效度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB/">问卷互填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%98%9F/">问卷星</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BB%A3%E5%A1%AB/">问卷代填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E7%BD%91/">问卷网</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/conda/">conda</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B/">结构方程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/VBA/">VBA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mplus/">mplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/django/">django</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime/">eprime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/EM/">EM</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8E%A8%E8%8D%90%E4%B9%A6/">推荐书</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/">卡方检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/javascript/">javascript</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Latex/">Latex</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mysql/">mysql</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jupyter/">jupyter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R/">R</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%98%BE%E8%91%97%E6%80%A7/">显著性</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Q-learning/">Q-learning</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R%E8%AF%AD%E8%A8%80/">R语言</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/r/">r</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/process/">process</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94/">调节效应</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow-js/">tensorflow.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BD%9C%E6%96%87%E8%AF%84%E5%88%86/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/t%E6%A3%80%E9%AA%8C/">t检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/">方差分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/NLP/">NLP</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%AF%AD%E6%96%99%E5%BA%93/">语料库</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nodejs/">nodejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/electron/">electron</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/e-prime/">e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gensim/">gensim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/">摘要生成</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/git/">git</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gui/">gui</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jamovi/">jamovi</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/notebook/">notebook</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E6%95%99%E7%A8%8B/">keras教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E5%9F%BA%E7%A1%80/">keras基础</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongodb/">mongodb</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jieba/">jieba</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongoengine/">mongoengine</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/meta%E5%88%86%E6%9E%90/">meta分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nginx/">nginx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/networkx/">networkx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/dataframe/">dataframe</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pandas/">pandas</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%B8%8B%E8%BD%BD/">下载</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BD%91%E7%9B%98/">网盘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pychrome/">pychrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pydotplus/">pydotplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pymongo/">pymongo</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/graphviz/">graphviz</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/selenium/">selenium</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/">格式化字符串</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lru-cache/">lru_cache</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/os/">os</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">时间序列</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/print/">print</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pil/">pil</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tkinter/">tkinter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/js2py/">js2py</a>
+        </span>
+        
+    </ul>
+</div>
+
+            
+        </div>
+        <!-- links -->
+
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-about">
+        <h2>Links</h2>
+        <ul>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/baidusitemap.xml" target="_blank">网站地图</a><span> | </span>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/sitemap.xml" target="_blank">DataScience</a><span> | </span>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/xxxspy">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:675495787@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @感谢github免费托管，hexo的静态网站引擎和模板主题制作者<a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                    <br/>
+                    <a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">京ICP备16033873号-2</>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<!-- tweenmax -->
+<script src="/js/TweenMax.min.js">
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- bootstrap.js -->
+<script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Baidu link push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<!-- baidu_static -->
+
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?588f06b88af0ef575445f53432cd15ec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>

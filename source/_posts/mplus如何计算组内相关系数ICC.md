@@ -65,15 +65,13 @@ Residual 39.148322 6.256862
 
 
 ```
-TITLE:Computing intraclass correlation in Mplus
 DATA:
-    FILE = data.dat; ! 数据文件
+    FILE = datafielname.dat; ! 数据文件
 VARIABLE:
     NAMES=class     ! 变量名称
-        math 
-        kft
-        styp;
-    USEVAR = math kft; ! 需要计算ICC的变量
+        var1 
+        var2;
+    USEVAR = var1 var2; ! 需要计算ICC的变量
     CLUSTER =class; ! 集群变量
 ANALYSIS:
     TYPE = TWOLEVEL BASIC;
