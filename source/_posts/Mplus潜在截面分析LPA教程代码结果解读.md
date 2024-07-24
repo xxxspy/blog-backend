@@ -1,7 +1,7 @@
 ---
 title: Mplus潜在截面分析LPA教程代码结果解读
 date: 2024-01-10 11:27:59
-tags: [LPA, mplus, 潜在截面分析]
+tags: [Lpa, mplus, 潜在截面分析, lca]
 mathjax: true
 ---
 
@@ -231,6 +231,9 @@ LPA 的呈现通常应遵循与分析相同的顺序。 首先，进行详细的
 
 - Finding Latent Groups in Observed Data_ A Primer on Latent Profil
 
+- [潜在类别分析入门](https://mlln.cn/2022/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/)
+- [Mplus潜在截面分析LPA教程代码结果解读](https://mlln.cn/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/)
+- [mplus做LCA入门教程](https://mlln.cn/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/)
 
 > **注意**
 > 统计咨询请加QQ 2726725926, 微信 shujufenxidaizuo,  SPSS统计咨询是收费的, 不论什么模型都可以, 只限制于1个研究内. 
