@@ -252,6 +252,82 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/07/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B37%5D%E6%9C%80%E4%BC%98%E5%B0%BA%E5%BA%A6%E5%9B%9E%E5%BD%92/">
+                SPSS实例：[37]最优尺度回归
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月01日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>怎样进行最优尺度回归？分类变量或者等级变量如何做回归？数据不连续如何做回归？变量不是正太分布怎样做回归？这些问题我们都可以使用最优尺度回归的方法来解决。我们拿一个分类变量来说，最优尺度就是将不同的类别给一个评分，将评分带入到回归方程中进行估计，进而可以估计出回归系数，我们拿一个例子来说明一下：</p>
+<ul>
+<li><p>学校进行课程改革，6个班级采用6种不同的教学模式，我们想看看不同的教学模式是否对学生的期末数学成绩产生影响，自变量有教学模式和高考数学成绩，因变量是期末数学成绩。6个班级就构成了一个分类变量，分类变量需要进行最优尺度估计</p>
+</li>
+<li><p>我们先打开最优尺度回归的对话框，如图所示</p>
+</li>
+</ul>
+<img src="/2015/07/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B37%5D%E6%9C%80%E4%BC%98%E5%B0%BA%E5%BA%A6%E5%9B%9E%E5%BD%92/814b07d8bc3eb1350c32cd1fa41ea8d3fc1f4459.jpg" class="" title="SPSS实例：[37]最优尺度回归">
+
+<ul>
+<li>将自变量和因变量都分别放入不同的框中，如图嗾使</li>
+</ul>
+<img src="/2015/07/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B37%5D%E6%9C%80%E4%BC%98%E5%B0%BA%E5%BA%A6%E5%9B%9E%E5%BD%92/b0742dfa828ba61eea1bb28b4334970a314e5959.jpg" class="" title="SPSS实例：[37]最优尺度回归">
+
+<ul>
+<li>课程类别是分类变量，我们选中它，然后点【define scale】</li>
+</ul>
+<img src="/2015/07/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B37%5D%E6%9C%80%E4%BC%98%E5%B0%BA%E5%BA%A6%E5%9B%9E%E5%BD%92/3b6833f5e0fe9925969e13f436a85edf8cb17140.jpg" class="" title="SPSS实例：[37]最优尺度回归">
+
+<ul>
+<li>在打开的对话框中，我们选择【nominal】，点击【continue】</li>
+</ul>
+<img src="/2015/07/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B37%5D%E6%9C%80%E4%BC%98%E5%B0%BA%E5%BA%A6%E5%9B%9E%E5%BD%92/9864a2315c6034a87370c225c913495408237640.jpg" class="" title="SPSS实例：[37]最优尺度回归">
+
+<img src="/2015/07/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B37%5D%E6%9C%80%E4%BC%98%E5%B0%BA%E5%BA%A6%E5%9B%9E%E5%BD%92/d089b986c9177f3e2ac186a972cf3bc79e3d5659.jpg" class="" title="SPSS实例：[37]最优尺度回归">
+
+<ul>
+<li>回到主对话框，点击【ok】就开始进行估计</li>
+</ul>
+<img src="/2015/07/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B37%5D%E6%9C%80%E4%BC%98%E5%B0%BA%E5%BA%A6%E5%9B%9E%E5%BD%92/0862c354564e9258e4a6fc4a9e82d158cdbf4e40.jpg" class="" title="SPSS实例：[37]最优尺度回归">
+
+<ul>
+<li>结果输出基本上都是和其他回归方法没有太大差别，我们主要看对不同课程的评分，这个评分实际上是进入回归的分数，我们是用这个分数代表了不同的类别。</li>
+</ul>
+<img src="/2015/07/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B37%5D%E6%9C%80%E4%BC%98%E5%B0%BA%E5%BA%A6%E5%9B%9E%E5%BD%92/9e7ce6dcd100baa198d93d1f4510b912c9fc2e59.jpg" class="" title="SPSS实例：[37]最优尺度回归">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#64;&#x71;&#x71;&#46;&#99;&#x6f;&#109;">&#54;&#x37;&#53;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#64;&#x71;&#x71;&#46;&#99;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/07/01/SPSS%E4%BA%8C%E5%9B%A0%E7%B4%A0%E5%AE%8C%E5%85%A8%E9%9A%8F%E6%9C%BA%E8%AE%BE%E8%AE%A1%E7%9A%84%E7%AE%80%E5%8D%95%E6%95%88%E5%BA%94%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/">
                 SPSS二因素完全随机设计的简单效应检验方法
             </a>
@@ -950,74 +1026,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B23%5DMySQLdb%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">
-                Python教程：[23]MySQLdb下载安装与使用
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>今天使用python来更新我的数据库，需要用到一个MySQLdb支持库，费了半天劲才找到，所以跟大家在这里分享一下。我在下面的参考资料里提供了MySQLdb的32位和64位下载地址，你先下载下来。</p>
-<ul>
-<li>双击安装软件，打开安装界面，点击下一步</li>
-</ul>
-<img src="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B23%5DMySQLdb%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/b25aae51f8198618d161df9048ed2e738bd4e645.jpg" class="" title="Python教程：[23]MySQLdb下载安装与使用">
-
-<ul>
-<li>设置安装路径，一般路径是自动检测的，也就是你的python的安装路径，如果你发现不对，可以手动设置成python的路径。点击下一步</li>
-</ul>
-<img src="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B23%5DMySQLdb%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/8cf0d51349540923a156536a9058d109b3de49a3.jpg" class="" title="Python教程：[23]MySQLdb下载安装与使用">
-
-<ul>
-<li>接着我们看到这个界面，点击下一步</li>
-</ul>
-<img src="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B23%5DMySQLdb%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/064936381f30e9244e82ac254e086e061d95f745.jpg" class="" title="Python教程：[23]MySQLdb下载安装与使用">
-
-<img src="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B23%5DMySQLdb%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/0b3a1c087bf40ad19dc2f7f7552c11dfa9ecce45.jpg" class="" title="Python教程：[23]MySQLdb下载安装与使用">
-
-<ul>
-<li>打开python，引入MySQLdb，来测试一下是否安装成功，这是未安装成功的提示</li>
-</ul>
-<img src="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B23%5DMySQLdb%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/a992e31f4134970aa04c203b97cad1c8a7865da3.jpg" class="" title="Python教程：[23]MySQLdb下载安装与使用">
-
-<ul>
-<li>这是安装成功，没有任何错误提示。</li>
-</ul>
-<img src="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B23%5DMySQLdb%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/dc854fda81cb39db037b5742d2160924ab18302f.jpg" class="" title="Python教程：[23]MySQLdb下载安装与使用">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#x39;&#x35;&#x37;&#x38;&#55;&#x40;&#113;&#x71;&#46;&#x63;&#x6f;&#x6d;">&#54;&#55;&#53;&#x34;&#x39;&#x35;&#x37;&#x38;&#55;&#x40;&#113;&#x71;&#46;&#x63;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/mysql/">#mysql</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1059,6 +1067,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">潜在类别分析LCA最佳实践</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">mplus做LCA入门教程</a>
             </li>
             
@@ -1092,10 +1104,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/03/18/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90/">多水平验证性因子分析CFA理论和应用教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/03/16/%E6%95%88%E5%BA%A6%E9%AA%8C%E8%AF%81%E7%94%A8EFA%E8%BF%98%E6%98%AFCFA/">效度验证用EFA还是CFA</a>
             </li>
             
         </ul>

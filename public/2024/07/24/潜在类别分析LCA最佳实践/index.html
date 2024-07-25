@@ -1,0 +1,1736 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <!--Description-->
+    
+        <meta name="description" content="专注于数据开发, 数据分析, 数据采集, python教学">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xxxspy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="潜在类别分析LCA最佳实践"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="专注于数据开发, 数据分析, 数据采集, python教学" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="DataSense"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>潜在类别分析LCA最佳实践 - DataSense</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <style>
+    code{
+    color: #d7ecff;
+    font-size: 110%;
+    }
+    pre > code {
+        -webkit-border-before: black;
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        color: #f9f4f4;
+        word-break: break-all;
+        word-wrap: break-word;
+        background-color: #f5f5f500;
+        border: 1px solid #eff3f521;
+        border-radius: 0;
+    }
+    pre > code::before {
+        content:"- ";
+        z-index: -1;
+        left:-2px;
+    }
+    #feedAv{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #MZAD_POP_PLACEHOLDER{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #pop_ad{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    </style>
+
+    
+    
+    
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+    <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i>
+        
+            <p id="main-title" class="title">DataSense</p>
+        
+        </a>
+    </div>
+</header>
+<div class="page_list archive-container">
+        
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+            SPSS+AMOS数据分析案例教程-关于中介模
+        </a>
+    </div>
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+            SPSS视频教程内容目录和跳转链接
+        </a>
+    </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+                SPSS+AMOS数据分析案例教程-关于中介模
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+                SPSS视频教程内容目录和跳转链接
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="https://mlln.cn/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">
+                R语言快速入门视频教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a target="_blank" rel="noopener" href="https://space.bilibili.com/383752637/channel/collectiondetail?sid=778283">
+                Python智联招聘数据分析
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/07/24/潜在类别分析入门/">
+                LCA潜在类别分析和Mplus应用
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/06/12/Amos结构方程数据分析案例教程/">
+                Amos结构方程模型数据分析入门教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/12/05/倒U关系回归分析中介效应和调节效应分析SPSS和R语言应用视频教程/">
+                倒U关系回归分析中介效应和调节效应分析SPSS视频教程
+            </a>
+        </div>
+    
+</div>
+
+    <!-- Main Content -->
+    
+
+    
+        
+<div class="row">
+    <div class="col-md-9 col-sm-12">
+        <!--Title and Logo-->
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2024/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+                潜在类别分析LCA最佳实践
+            </a>
+
+        </h1>
+        <div class="weibo-share">
+            <p>在B站@mlln-cn, 我就能回答你的问题奥!</p>
+        </div>
+        <div class="post-info">
+            
+                <span class="date">2024年07月24日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+    <!-- Table of Contents -->
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-LCA"><span class="toc-number">1.</span> <span class="toc-text">什么是 LCA</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LCA-%E4%B8%8E-%E8%81%9A%E7%B1%BB"><span class="toc-number">2.</span> <span class="toc-text">LCA 与 聚类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LCA-%E8%BD%AF%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">LCA 软件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LCA-%E4%B8%AD%E5%85%B3%E9%94%AE%E6%AD%A5%E9%AA%A4"><span class="toc-number">4.</span> <span class="toc-text">LCA 中关键步骤</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%B7%E6%9C%AC%E9%87%8F%E5%A4%A7%E5%B0%8F"><span class="toc-number">4.1.</span> <span class="toc-text">样本量大小</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AD%9B%E9%80%89%E8%A7%82%E6%B5%8B%E6%8C%87%E6%A0%87"><span class="toc-number">4.2.</span> <span class="toc-text">筛选观测指标</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E6%95%B4%E7%90%86"><span class="toc-number">4.3.</span> <span class="toc-text">数据整理</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BC%B0%E8%AE%A1%E5%99%A8%E7%9A%84%E9%80%89%E6%8B%A9"><span class="toc-number">4.4.</span> <span class="toc-text">估计器的选择</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%86%B3%E5%AE%9A%E5%88%86%E7%B1%BB%E6%95%B0%E9%87%8F"><span class="toc-number">4.5.</span> <span class="toc-text">决定分类数量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BA%B3%E5%85%A5%E5%8D%8F%E5%8F%98%E9%87%8F"><span class="toc-number">4.6.</span> <span class="toc-text">纳入协变量</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5"><span class="toc-number">5.</span> <span class="toc-text">结果汇报</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%A1%88%E4%BE%8B"><span class="toc-number">6.</span> <span class="toc-text">结果汇报案例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%A2%AB%E8%AF%95"><span class="toc-number">6.1.</span> <span class="toc-text">被试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%8F%98%E9%87%8F%E7%9A%84%E6%B5%8B%E9%87%8F"><span class="toc-number">6.2.</span> <span class="toc-text">变量的测量</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%BF%83%E7%90%86%E5%81%A5%E5%BA%B7"><span class="toc-number">6.2.1.</span> <span class="toc-text">心理健康</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%81%A5%E5%BA%B7%E5%86%B3%E5%AE%9A%E5%9B%A0%E7%B4%A0"><span class="toc-number">6.2.2.</span> <span class="toc-text">健康决定因素</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8D%8F%E5%8F%98%E9%87%8F"><span class="toc-number">6.2.3.</span> <span class="toc-text">协变量</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%88%86%E6%9E%90"><span class="toc-number">6.3.</span> <span class="toc-text">分析</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%BB%93%E6%9E%9C"><span class="toc-number">6.4.</span> <span class="toc-text">结果</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#%E4%BA%BA%E7%BE%A4%E5%88%86%E5%B8%83"><span class="toc-number">6.4.1.</span> <span class="toc-text">人群分布</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%86%B3%E5%AE%9A%E5%88%86%E7%B1%BB%E6%95%B0"><span class="toc-number">6.4.2.</span> <span class="toc-text">决定分类数</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%8F%AF%E8%A7%86%E5%8C%96"><span class="toc-number">6.4.3.</span> <span class="toc-text">可视化</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%9B%9B%E7%B1%BB%E6%A8%A1%E5%9E%8B%E4%B8%8E%E5%BF%83%E7%90%86%E5%81%A5%E5%BA%B7%E6%8C%87%E6%A0%87%E7%9A%84%E5%85%B3%E7%B3%BB"><span class="toc-number">6.4.4.</span> <span class="toc-text">四类模型与心理健康指标的关系</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#%E5%93%AA%E4%BA%9B%E5%8F%98%E9%87%8F%E5%8F%AF%E4%BB%A5%E5%AF%B9%E5%88%86%E7%B1%BB%E6%9C%89%E9%A2%84%E6%B5%8B%E4%BD%9C%E7%94%A8%EF%BC%88%E9%80%BB%E8%BE%91%E5%9B%9E%E5%BD%92%EF%BC%89"><span class="toc-number">6.4.5.</span> <span class="toc-text">哪些变量可以对分类有预测作用（逻辑回归）</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B1%BB%E4%BC%BC%E6%95%99%E7%A8%8B"><span class="toc-number">7.</span> <span class="toc-text">类似教程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%82%E8%80%83"><span class="toc-number">8.</span> <span class="toc-text">参考</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%92%A8%E8%AF%A2"><span class="toc-number">9.</span> <span class="toc-text">咨询</span></a></li></ol>
+    </div>
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>潜在类别分析 (LCA) 是一种统计方法，用于识别人群中通常具有某些共同特征的子群体。LCA 的基本假设是，未观察到的群体（或类别）的成员身份可以通过调查问题、评估指标或量表的得分模式来解释。LCA​​ 的应用是一个活跃的研究领域，并且不断发展。随着越来越多的研究人员开始应用该方法，需要有关进行 LCA 时主要考虑事项的详细信息。在本文中，我们将描述 LCA，回顾进行 LCA 时要考虑的关键要素，如何汇报LCA结果，并提供其应用的示例。</p>
+<span id="more"></span>
+
+<h2 id="什么是-LCA"><a href="#什么是-LCA" class="headerlink" title="什么是 LCA"></a>什么是 LCA</h2><p>LCA 用于检测样本中潜在的（或未观察到的）类别（Hagenaars &amp; McCutcheon，2002）。它是以人为中心的混合模型的一个特例，根据对观察到的变量的反应模式识别样本中的潜在亚群（BO Muthén &amp; Muthén，2000）。LCA 的基本假设是，未观察到的类别的成员身份可以导致或解释调查问题、评估指标或量表的得分模式（BO Muthén &amp; Muthén，2000；Wolke 等人，2013）。根据统计理论，个人在一组指标变量上的得分由其类别成员身份决定。这一概念类似于因子分析程序中驱动量表项目得分的潜在结构的概念（Kline，2016）。</p>
+<p>LCA 于 1950 年首次提出（Lazarsfeld，1950 年），此后经历了多次修订和改进（完整摘要，请参阅 Clogg，1981 年、1995 年；Hagenaars，1990 年；Vermunt，1997 年；Nylund-Gibson &amp; Choi，2018 年）。随着 LCA 的不断发展，学者们就几个关键问题展开了争论：(a) 选择指标变量，(b) 选择最终的类模型，以及 (c) 决定如何纳入协变量以及在研究中报告哪些统计数据。由于这些争论，最近进行了许多系统评价来总结 LCA 文献（例如 Killian 等人，2019 年；Petersen 等人，2019 年；Ulbricht 等人，2018 年）。结果表明，报告实践差异很大，研究很少测试高级模型，例如纵向 LCA 模型、测量不变性模型或具有协变量的模型。</p>
+<h2 id="LCA-与-聚类"><a href="#LCA-与-聚类" class="headerlink" title="LCA 与 聚类"></a>LCA 与 聚类</h2><p>LCA（Latent Class Analysis）和聚类分析虽然在某些方面有相似之处，但它们在数据处理、假设条件和输出结果等方面存在显著差异。</p>
+<ol>
+<li><p><strong>数据处理</strong>：</p>
+<ul>
+<li><strong>LCA</strong>：LCA假设数据中存在潜在的、不可观察的子群体（即潜变量），并通过分析来识别这些子群体。LCA通常使用分类变量作为输入，通过交叉表来分析数据。</li>
+<li><strong>聚类分析</strong>：聚类分析则侧重于根据观测变量的相似性将个案分组。它通常使用连续变量，并通过计算个案之间的距离来进行分组。</li>
+</ul>
+</li>
+<li><p><strong>假设条件</strong>：</p>
+<ul>
+<li><strong>LCA</strong>：LCA假设潜变量的存在可以解释观测变量的模式。它不依赖于变量的均值来定义相似性，而是依赖于潜变量对观测变量的影响。</li>
+<li><strong>聚类分析</strong>：聚类分析假设具有相似特征的个案应该被归为同一群。它通常使用变量的均值来定义个案之间的“近似度”。</li>
+</ul>
+</li>
+<li><p><strong>输出结果</strong>：</p>
+<ul>
+<li><strong>LCA</strong>：LCA的结果包括每个个案属于各个潜类的概率，而不是明确的类别分配。尽管可以根据概率进行类别划分，但这种划分不是强制性的。</li>
+<li><strong>聚类分析</strong>：聚类分析通常会生成一个明确的类别划分，即将每个个案明确分配到某个簇中。</li>
+</ul>
+</li>
+<li><p><strong>统计程序</strong>：</p>
+<ul>
+<li><strong>LCA</strong>：LCA使用的是基于概率的统计方法，如贝叶斯信息准则（BIC）和似然比检验，来评估模型的拟合优度。</li>
+<li><strong>聚类分析</strong>：聚类分析通常使用距离度量（如欧氏距离、曼哈顿距离等）和聚类算法（如K-means、层次聚类等）来分组。</li>
+</ul>
+</li>
+</ol>
+<p>总结来说，LCA和聚类分析的主要区别在于它们的数据处理方式、假设条件和输出结果。LCA更关注潜在子群体的识别，而聚类分析则侧重于根据观测变量的相似性进行分组。</p>
+<h2 id="LCA-软件"><a href="#LCA-软件" class="headerlink" title="LCA 软件"></a>LCA 软件</h2><p>LCA 可以使用多种商业和免费统计软件包进行，包括 STATA（StataCorp LLC，1985-2019 年）、SAS（SAS Institute Inc.，2016 年）、R（Venables &amp; Smith，2019 年）和 Mplus（LK Muthén &amp; Muthén，1998-2017 年）。已经开发了专门用于进行 LCA 的软件包，包括 LatentGold（Vermunt &amp; Magidson，2016 年）和 R 的 poLCA（Linzer &amp; Lewis，2011 年）。最近的研究使用了 Mplus（Killian 等人，2019 年；Petersen 等人，2019 年）。Mplus 是一个语法驱动的统计软件包，可用于基本 LCA 建模和存在问题（例如复杂调查设计和缺失数据）的建模（Muthén &amp; Muthén）。</p>
+<h2 id="LCA-中关键步骤"><a href="#LCA-中关键步骤" class="headerlink" title="LCA 中关键步骤"></a>LCA 中关键步骤</h2><h3 id="样本量大小"><a href="#样本量大小" class="headerlink" title="样本量大小"></a>样本量大小</h3><p>与其他类型的结构方程模型 (SEM) 一样，对于 LCA 的适当样本量，答案是“越多越好，但要视情况而定”。根据大量研究，Nylund-Gibson 和 Choi (2018) 建议 300 个或更多的案例是理想的。但是，对于更简单的模型（更少的指标和类别）和“分离良好”的类别，较小的样本可能就足够了（Nylund-Gibson 和 Choi）。样本量低的潜在分析问题包括功能拟合指数差、收敛失败以及无法发现成员数低的类别（Nylund-Gibson 和 Choi）。确定样本量的另一种方法是进行蒙特卡洛模拟（LK Muthén 和 Muthén，2002）。然而，这种方法最常用于 LCA 方法论论文（例如，Kim &amp; Wang，2019；Lythgoe 等，2019；Shin 等，2019）。</p>
+<h3 id="筛选观测指标"><a href="#筛选观测指标" class="headerlink" title="筛选观测指标"></a>筛选观测指标</h3><p>选择好的指标（indicator variables）是应用潜类别分析（Latent Class Analysis, LCA）的关键步骤。以下是选择好的指标应遵循的原则和方法：</p>
+<ol>
+<li><p><strong>理论驱动</strong>：选择指标应基于现有的理论和研究。理论指导可以帮助选择与研究目的相关的指标，并确保它们能够有效区分不同的潜类别。</p>
+</li>
+<li><p><strong>相关性</strong>：选择的指标应与研究的目标和潜类别假设密切相关。例如，如果研究目的是识别健康的社会决定因素，选择的指标应与健康状况和社会环境有关。</p>
+</li>
+<li><p><strong>独立性</strong>：指标之间应尽可能独立，以避免多重共线性问题。高度相关的指标可能会导致类别的划分不清晰，影响模型的解释力。</p>
+</li>
+<li><p><strong>可操作性</strong>：指标应易于测量和量化。在实际操作中，这意味着指标应该是可观察的、可量化的变量。</p>
+</li>
+<li><p><strong>样本大小</strong>：考虑到样本大小，确保所选指标能够在统计上显著区分不同类别。小样本量可能限制了模型的复杂性和指标的数量。</p>
+</li>
+<li><p><strong>数据质量</strong>：确保所选指标的数据质量高，包括数据的完整性和准确性。缺失数据或错误数据会影响模型的估计和结果的可靠性。</p>
+</li>
+<li><p><strong>模型适应性</strong>：在实际建模过程中，根据模型的拟合情况和诊断统计结果调整指标的选择。可能需要尝试不同的指标组合，以找到最佳的模型解决方案。</p>
+</li>
+<li><p><strong>验证和敏感性分析</strong>：通过验证和敏感性分析来评估指标选择的稳健性。这可以通过在不同样本或不同模型设定下检验指标的有效性来实现。</p>
+</li>
+</ol>
+<p>综上所述，选择好的指标是一个迭代和动态的过程，需要结合理论知识、数据分析技巧和实际操作经验。通过综合考虑上述原则，研究人员可以提高LCA模型的质量和解释力。</p>
+<h3 id="数据整理"><a href="#数据整理" class="headerlink" title="数据整理"></a>数据整理</h3><p>准备好你的数据文件非常重要。例如，对于使用 Mplus（LK Muthén &amp; Muthén，1998-2017）的研究人员，我们建议将所有变量的缺失值重新编码为超出响应选项范围的数值或使用 −999。按被试标识变量对数据文件进行排序也很有帮助，这样 LCA 生成的新变量就可以合并回数据集并与正确的 ID 进行对齐。可以保存仅包含类变量、被试 ID 和潜在协变量的文件以供 LCA 程序使用；或者，可以保存整个文件。</p>
+<h3 id="估计器的选择"><a href="#估计器的选择" class="headerlink" title="估计器的选择"></a>估计器的选择</h3><p>在选择估计器（Estimator）时，研究人员需要考虑多个因素。LCA模型可以使用多种估计器（Estimator），软件程序通常有默认的估计器（Estimator）（例如，Mplus默认使用最大似然估计）。然而，选择估计器（Estimator）取决于一些标准，如样本量、变量数量、计算速度以及缺失数据的管理。此外，研究人员所在学科的报告惯例也会影响估计器（Estimator）的选择。例如，某些专业更倾向于使用probit而不是logit回归结果。由于选择是基于一系列标准，建议初学者使用LCA的默认估计器（Estimator），直到他们对LCA有了更深入的了解。</p>
+<h3 id="决定分类数量"><a href="#决定分类数量" class="headerlink" title="决定分类数量"></a>决定分类数量</h3><p>研究人员可以使用一些标准来选择最终的类别个数。但是，我们首先承认，用于确定类别数量的标准是一个不断发展（有时是有争议的）的研究领域。尽管如此，统计标准应始终与可解释性一起评估（BO Muthén &amp; Muthén，2000；Shanahan 等人，2013；Stringaris 等人，2013）。根据一些统计标准可以找到最佳的分类个数， 但是如果从理论上讲不合理，这个最佳分类个数也是不合理的， 所以一切以研究者的理论为准，而不是一味遵循统计指标。</p>
+<p>决定分类个数的指标包括以下几个：</p>
+<ol>
+<li><p><strong>熵（Entropy）</strong>：</p>
+<ul>
+<li>含义：熵是一个诊断统计量，用于衡量模型定义类别的准确性。</li>
+<li>解释：熵值接近1表示类别划分非常准确，而高于0.8通常被认为是可接受的。</li>
+</ul>
+</li>
+<li><p><strong>贝叶斯信息准则（BIC）</strong>：</p>
+<ul>
+<li>含义：BIC奖励模型的简洁性，可用于比较不同的LCA解决方案。</li>
+<li>解释：较低的BIC值表示模型拟合较好。</li>
+</ul>
+</li>
+<li><p><strong>阿克AIKE信息准则（AIC）</strong>：</p>
+<ul>
+<li>含义：AIC也是一种信息准则，用于评估模型的拟合优度。</li>
+<li>解释：较低的AIC值表示模型拟合较好。</li>
+</ul>
+</li>
+<li><p><strong>样本量调整贝叶斯信息准则（SABIC）</strong>：</p>
+<ul>
+<li>含义：SABIC是对BIC的调整，考虑了样本量的影响。</li>
+<li>解释：较低的SABIC值表示模型拟合较好。</li>
+</ul>
+</li>
+<li><p><strong>近似权重证据标准（AWE）</strong>：</p>
+<ul>
+<li>含义：AWE是一种评估模型复杂性和拟合优度的标准。</li>
+<li>解释：较高的AWE值表示模型的证据权重较大，模型拟合较好。</li>
+</ul>
+</li>
+<li><p><strong>一致阿克AIKE信息准则（CAIC）</strong>：</p>
+<ul>
+<li>含义：CAIC是对AIC的修正，适用于大样本量的情况。</li>
+<li>解释：较低的CAIC值表示模型拟合较好。</li>
+</ul>
+</li>
+<li><p><strong>贝叶斯因子（BF）</strong>：</p>
+<ul>
+<li>含义：BF用于比较不同模型之间的相对拟合优度。</li>
+<li>解释：较大的BF值表示某一模型相对于其他模型的拟合优度较高。</li>
+</ul>
+</li>
+<li><p><strong>平均潜类别后验概率（ALCPP）</strong>：</p>
+<ul>
+<li>含义：ALCPP表示个体被正确分配到某一类的概率。</li>
+<li>解释：较高的ALCPP值（接近1）表示个体被分配到该类的概率较高。</li>
+</ul>
+</li>
+<li><p><strong>Vuong-Lo-Mendell-Rubin调整似然比检验（VLMR-LRT）</strong>：</p>
+<ul>
+<li>含义：VLMR-LRT用于检验模型中类别数量的显著性。</li>
+<li>解释：显著的VLMR-LRT结果支持增加类别数量。</li>
+</ul>
+</li>
+</ol>
+<p>这些指标从不同角度评估了模型的拟合优度和类别划分的准确性，研究人员可以根据这些指标综合判断并选择最优的分类个数。</p>
+<h3 id="纳入协变量"><a href="#纳入协变量" class="headerlink" title="纳入协变量"></a>纳入协变量</h3><p>LCA 文献中一个不断发展的主题是将协变量纳入模型。在 LCA 中纳入协变量可让研究人员回答诸如“类别的组成是否因社会人口统计学特征而不同？”之类的问题。以前，研究人员会将协变量纳入与用于确定类别解决方案的模型相同的模型中（Vermunt，2010 年）。然而，这种一步法可能会导致有缺陷、错误指定的模型（Nylund-Gibson 和 Masyn，2016 年）。一步法已被许多较新的方法所取代。目前，研究人员被鼓励采用新的三步法（Asparouhov 和 Muthén，2014 年；BO Muthén 和 Muthén，2000 年；Vermunt，2002 年）或 Bolck 等人（2004 年）的方法。这两种方法都要求研究人员确定测量模型（例如，使用拟合统计数据的最终类别模型），然后添加协变量。在含有协变量的模型中，研究人员将测量参数固定为不含协变量的模型中获得的参数。</p>
+<h2 id="结果汇报"><a href="#结果汇报" class="headerlink" title="结果汇报"></a>结果汇报</h2><p>为了呈现清晰的结果和合理的结论，LCA 报告需要清晰连贯地说明研究程序和结果（Appelbaum 等人，2018 年）。此外，LCA 研究应包括下表中列出的项目。尽管研究人员对报告哪些模型统计数据的看法各不相同（例如，Nylund 等人，2007 年；Schreiber，2017 年），但我们建议报告 BIC 和至少两个额外的拟合指数，以及熵、最小类的百分比和大小以及平均潜在类后验概率矩阵的最小非对角线值。如果使用其他标准来评估模型，研究人员也应报告此信息。</p>
+<p>表1：</p>
+<ul>
+<li>如果基于理论，则说明所选指标变量的基本原理 </li>
+<li>如果不是基于理论，则说明建立探索性模型的基本原理 </li>
+<li>数据特征（例如描述性统计数据、缺失数据） </li>
+<li>统计软件包和年份 </li>
+<li>估算方法 </li>
+<li>用于选择类别模型的标准，包括统计模型（例如 BIC、SABIC、CAIC）和实质性模型 </li>
+<li>至少包含两个拟合标准、熵和最小平均潜在类别后验概率的表格 </li>
+<li>已识别类别的数量 </li>
+<li>每个类别的样本数量或样本百分比</li>
+</ul>
+<h2 id="结果汇报案例"><a href="#结果汇报案例" class="headerlink" title="结果汇报案例"></a>结果汇报案例</h2><p>以下报告是一个案例，用于向你展示如何报告 LCA 结果。</p>
+<h3 id="被试"><a href="#被试" class="headerlink" title="被试"></a>被试</h3><p>我们使用 2016 年和 2017 年全国儿童健康调查 (儿童和青少年健康测量倡议，2016) 的看护者的数据进行了二次数据分析。数据来自哥伦比亚特区和所有 50 个州 0 至 17 岁非住院青少年的看护者。我们使用了复杂的数据收集程序来确保随机性。</p>
+<h3 id="变量的测量"><a href="#变量的测量" class="headerlink" title="变量的测量"></a>变量的测量</h3><h4 id="心理健康"><a href="#心理健康" class="headerlink" title="心理健康"></a>心理健康</h4><p>全国儿童健康调查 (NSCH) 收集护理人员报告数据，内容是服务提供者是否曾告诉护理人员其青少年患有心理健康疾病。该中心提供了编码建议（有关编码的完整信息，请参阅《儿童和青少年健康测量倡议》，2018 年），我们使用了这些建议。</p>
+<h4 id="健康决定因素"><a href="#健康决定因素" class="headerlink" title="健康决定因素"></a>健康决定因素</h4><p>为了确定健康的社会决定因素概况，我们纳入了 10 个指标变量。充分的保险覆盖率的衡量标准是儿童拥有当前的健康保险，该保险通常或始终满足他们的需求，允许他们看需要的提供者，并且产生合理的自付费用或不产生自付费用。基于此信息，此变量被二分编码（有足够的保险覆盖率或没有足够的保险覆盖率）。过渡到成人医疗保健的衡量标准是医生在预防性检查期间单独与青少年交谈，医生积极讨论和与青少年合作以获得技能并了解在需要时过渡到成人医疗保健的情况。基于此信息，此变量被二分编码（获得充分的成人医疗保健过渡或未获得充分的成人医疗保健过渡）。</p>
+<p>其他指标在这里省略了，因为我们只是提供一个报告的样例，其他指标也是类似的汇报方法。</p>
+<h4 id="协变量"><a href="#协变量" class="headerlink" title="协变量"></a>协变量</h4><p>与之前使用NSCH数据的研究一致，我们纳入了以下控制变量：性别、基于联邦贫困线的收入、最高教育水平以及家庭主要语言（例如，Butler等人，2015年；Weller等人，2018年；Weller等人，2019年）。</p>
+<h3 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h3><p>我们使用Mplus 8.2进行所有分析（L. K. Muthén &amp; Muthén, 1998-2017）。由于复杂的调查设计，我们的模型包括一个聚类变量和抽样权重。我们指定了具有稳健标准误差的最大似然估计（B. O. Muthén等人，2015）。为了处理缺失数据，我们在这些模型中使用了Mplus中的基于似然的默认估计（Asparouhov，2016）。</p>
+<p>为了确定健康的社会决定因素的特征（目标1），我们首先估计了一个一类模型，然后添加类别，直到我们确定了拟合度最佳的模型。我们根据对健康的社会决定因素的理论理解（2020年和2010年卫生部长健康促进和疾病预防目标咨询委员会）和以下统计标准来检查模型拟合度：（a）BIC，较低的BIC表示模型拟合度较好（Nylund等人，2007），（b）BF，值为3或更高是可取的（Masyn，2013）。我们没有检查LMR或自举似然比测试，因为它们无法解释复杂的数据（B. O. Muthén，2016）。我们还报告了其他拟合度统计信息，以展示研究人员可以报告的其他类型的模型质量统计信息。</p>
+<p>在确定了最佳分类个数后，我们根据每个案例的后验类别成员概率将其分配给特定的类别，然后固定了LCA模型的测量参数（Asparouhov &amp; Muthén，2014；Vermunt，2010）。虽然我们没有指定与协变量相关的研究问题，但包括协变量与以前使用NSCH数据集的研究保持一致，并允许我们展示如何将协变量纳入LCA模型。我们使用新的三步法来纳入协变量（和远端结果），指定了多个协变量和心理健康结果为辅助变量。</p>
+<p>最后，我们利用前面提及的新三步法产生的成对Wald检验结果，以探究健康社会决定因素是否与四种心理健康结果相关（目标2）。我们通过分析95%置信区间来评估不同类别与结果之间是否存在显著差异。由于我们充分利用了新三步法的优势且数据集较为复杂，在数据分析的这一步骤中，我们无法采用高级方法来处理缺失数据。因此，仅针对这些模型，我们移除了总共73个案例（占4%）。缺失数据的案例在性别、收入或父母教育水平上并未出现显著差异。然而，与无缺失数据的案例相比，缺失数据的案例居住在主要说英语的家庭中的可能性显著较低（OR &#x3D; -1.485，95% CI [-2.832, -0.138]）。</p>
+<h3 id="结果"><a href="#结果" class="headerlink" title="结果"></a>结果</h3><h4 id="人群分布"><a href="#人群分布" class="headerlink" title="人群分布"></a>人群分布</h4><p>结果可以推广至美国非西班牙裔黑人青少年（12-17 岁）（N &#x3D; 1,836）。下表列出了样本特征和对指标变量的响应。例如，如图所示，46.3% 的样本为女性，59% 生活在 200% 贫困线以下。该表还显示，15.4% 的青少年因种族而遭受歧视，86.2% 的青少年有导师。大多数（78.5%）的青少年都得到了充分的健康保险，但只有 14.7% 的青少年覆盖到成人医疗保健。超过一半的青少年居住在安全的社区（53.8%）并就读于安全的学校（61.4%）；然而，44.3% 的人报告说他们的社区很支持他们。大多数青少年（80.3%）参加了至少一项课外活动，52.4% 的人参与了学校活动。</p>
+<table>
+<thead>
+<tr>
+<th>&amp;nbsp;</th>
+<th>Unweighted n (Weighted %)</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Sociodemographics</td>
+<td></td>
+</tr>
+<tr>
+<td>Gender</td>
+<td></td>
+</tr>
+<tr>
+<td>Female</td>
+<td>875 (46.3)</td>
+</tr>
+<tr>
+<td>Male</td>
+<td>961 (53.7)</td>
+</tr>
+<tr>
+<td>Poverty level</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;199%</td>
+<td>875 (41.0)</td>
+</tr>
+<tr>
+<td>&gt;200%</td>
+<td>961 (59.0)</td>
+</tr>
+<tr>
+<td>Highest level of education</td>
+<td></td>
+</tr>
+<tr>
+<td>&lt;High school</td>
+<td>74 (10.7)</td>
+</tr>
+<tr>
+<td>&gt;High school graduate</td>
+<td>1,697 (89.3)</td>
+</tr>
+<tr>
+<td>Primary language</td>
+<td></td>
+</tr>
+<tr>
+<td>Other than English</td>
+<td>48 (4.5)</td>
+</tr>
+<tr>
+<td>Social determinants of health indicators</td>
+<td></td>
+</tr>
+<tr>
+<td>Adequate insurance coverage</td>
+<td></td>
+</tr>
+<tr>
+<td>Adequate insurance coverage</td>
+<td>1,335 (78.5)</td>
+</tr>
+<tr>
+<td>Does not have adequate insurance coverage</td>
+<td>386 (21.5)</td>
+</tr>
+<tr>
+<td>Transition to adult health care</td>
+<td></td>
+</tr>
+<tr>
+<td>Received adequate transition to adult health care</td>
+<td>284 (14.7)</td>
+</tr>
+<tr>
+<td>Did not receive adequate transition to adult health care</td>
+<td>1,526 (85.3)</td>
+</tr>
+<tr>
+<td>School engagement</td>
+<td></td>
+</tr>
+<tr>
+<td>Cares about doing well and does homework</td>
+<td>1,055 (52.4)</td>
+</tr>
+<tr>
+<td>Cares about doing well OR does homework</td>
+<td>608 (40.9)</td>
+</tr>
+<tr>
+<td>Does not care about doing well and does not do homework</td>
+<td>138 (6.7)</td>
+</tr>
+<tr>
+<td>After-school activities</td>
+<td></td>
+</tr>
+<tr>
+<td>Participated in at least one activity</td>
+<td>1,473 (80.3)</td>
+</tr>
+<tr>
+<td>Did not participate</td>
+<td>317 (19.7)</td>
+</tr>
+<tr>
+<td>Mentor</td>
+<td></td>
+</tr>
+<tr>
+<td>Yes</td>
+<td>1,537 (86.2)</td>
+</tr>
+<tr>
+<td>No</td>
+<td>193 (13.8)</td>
+</tr>
+<tr>
+<td>Experienced discrimination</td>
+<td></td>
+</tr>
+<tr>
+<td>No</td>
+<td>1,469 (84.6)</td>
+</tr>
+<tr>
+<td>Yes</td>
+<td>275 (15.4)</td>
+</tr>
+<tr>
+<td>Social determinants of health indicators</td>
+<td></td>
+</tr>
+<tr>
+<td>Food sufficiency</td>
+<td></td>
+</tr>
+<tr>
+<td>We could always afford to eat good nutritious meals</td>
+<td>1,039 (50.0)</td>
+</tr>
+<tr>
+<td>We could always afford enough to eat but not always the kinds of food we should eat</td>
+<td>568 (35.5)</td>
+</tr>
+<tr>
+<td>Sometimes we could not afford enough to eat</td>
+<td>145 (11.1)</td>
+</tr>
+<tr>
+<td>Often we could not afford enough to eat</td>
+<td>31 (3.4)</td>
+</tr>
+<tr>
+<td>Neighborhood support</td>
+<td></td>
+</tr>
+<tr>
+<td>Live in supportive neighborhoods</td>
+<td>820 (44.3)</td>
+</tr>
+<tr>
+<td>Do not live in supportive neighborhoods</td>
+<td>924 (55.7)</td>
+</tr>
+<tr>
+<td>Neighborhood safety</td>
+<td></td>
+</tr>
+<tr>
+<td>Definitely agree</td>
+<td>1,017 (53.8)</td>
+</tr>
+<tr>
+<td>Somewhat agree</td>
+<td>639 (36.7)</td>
+</tr>
+<tr>
+<td>Somewhat or definitely disagree</td>
+<td>124 (9.5)</td>
+</tr>
+<tr>
+<td>School safety</td>
+<td></td>
+</tr>
+<tr>
+<td>Definitely agree</td>
+<td>1,108 (61.4)</td>
+</tr>
+<tr>
+<td>Somewhat agree</td>
+<td>575 (34.4)</td>
+</tr>
+<tr>
+<td>Somewhat or definitely disagree</td>
+<td>68 (4.1)</td>
+</tr>
+<tr>
+<td>Mental health variables</td>
+<td></td>
+</tr>
+<tr>
+<td>Behavior problems</td>
+<td>187 (11.9)</td>
+</tr>
+<tr>
+<td>Attention deficit&#x2F;hyperactivity disorder</td>
+<td>231 (13.4)</td>
+</tr>
+</tbody></table>
+<h4 id="决定分类数"><a href="#决定分类数" class="headerlink" title="决定分类数"></a>决定分类数</h4><p>LCA 的结果支持了目标一，即表明美国黑人青少年中存在多种健康社会决定因素。下表列出了不同类别模型的 LCA 结果。如下表所示，BIC 建议采用四类模型。BF 表明四类或五类模型处于中等可接受范围内（Wagenmakers，2007）。由于 BIC 被认为是 LCA 中最可靠的拟合统计数据（并且 BF 表明该模型具有中等支持度），因此我们选择了四类模型。但是，值得注意的是，其他拟合标准均未表明四类模型。在 LCA 模型中，拟合指标之间的不一致结果很常见（Nylund-Gibson &amp; Choi，2018），这使得研究人员一致同意使用 BIC 来评估模型拟合度很有价值。虽然不使用熵来选择最终模型，但值得注意的是四类模型具有足够的熵（即高于 0.80 的截止值）。</p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>拟</th>
+<th>合</th>
+<th>指</th>
+<th>标</th>
+<th></th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>LL</td>
+<td>AIC</td>
+<td>BIC</td>
+<td>SABIC</td>
+<td>AWE</td>
+<td>CAIC</td>
+<td>BF</td>
+</tr>
+<tr>
+<td>1 Class</td>
+<td>−11681.92</td>
+<td>23393.83</td>
+<td>23476.56</td>
+<td>23428.91</td>
+<td>23435.29</td>
+<td>23427.79</td>
+</tr>
+<tr>
+<td>2 Class</td>
+<td>−11106.38</td>
+<td>22274.75</td>
+<td>22445.73</td>
+<td>22347.24</td>
+<td>22360.43</td>
+<td>22344.93</td>
+</tr>
+<tr>
+<td>3 Class</td>
+<td>−10975.44</td>
+<td>22044.88</td>
+<td>22304.11</td>
+<td>22154.79</td>
+<td>22174.79</td>
+<td>22151.29</td>
+</tr>
+<tr>
+<td>4 Class</td>
+<td>−10884.00</td>
+<td>21894.01</td>
+<td>22241.48</td>
+<td>22041.33</td>
+<td>22068.13</td>
+<td>22036.63</td>
+</tr>
+<tr>
+<td>5 Class</td>
+<td>−10834.87</td>
+<td>21827.74</td>
+<td>22263.46</td>
+<td>22012.48</td>
+<td>22046.09</td>
+<td>22006.59</td>
+</tr>
+<tr>
+<td>6 Class</td>
+<td>−10789.39</td>
+<td>21768.77</td>
+<td>22292.73</td>
+<td>21990.92</td>
+<td>22031.34</td>
+<td>21983.84</td>
+</tr>
+<tr>
+<td>Models</td>
+<td>Diagnostic criteria</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>Smallest class count (n)</td>
+<td>Smallest class size (%)</td>
+<td>Entropy</td>
+<td>ALCPP</td>
+<td>VLMR-LRT</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1 Class</td>
+<td>1836</td>
+<td>100</td>
+<td>—</td>
+<td>—</td>
+<td>—</td>
+<td></td>
+</tr>
+<tr>
+<td>2 Class</td>
+<td>790</td>
+<td>43</td>
+<td>0.687</td>
+<td>0.896</td>
+<td>0.1285</td>
+<td></td>
+</tr>
+<tr>
+<td>3 Class</td>
+<td>45</td>
+<td>2</td>
+<td>0.827</td>
+<td>0.909</td>
+<td>0.5646</td>
+<td></td>
+</tr>
+<tr>
+<td>4 Class</td>
+<td>50</td>
+<td>3</td>
+<td>0.811</td>
+<td>0.834</td>
+<td>0.8159</td>
+<td></td>
+</tr>
+<tr>
+<td>5 Class</td>
+<td>50</td>
+<td>3</td>
+<td>0.746</td>
+<td>0.747</td>
+<td>0.8148</td>
+<td></td>
+</tr>
+<tr>
+<td>6 Class</td>
+<td>29</td>
+<td>2</td>
+<td>0.763</td>
+<td>0.749</td>
+<td>0.5384</td>
+<td></td>
+</tr>
+</tbody></table>
+<h4 id="可视化"><a href="#可视化" class="headerlink" title="可视化"></a>可视化</h4><p>下图 显示了四类模型的图形表示。x 轴列出了健康社会决定因素指标变量的名称。y 轴提供了每个指标的类别成员平均概率；数字越接近 1，类别成员概率就越高。所有指标变量都以更高的分数编码，反映了获得促进因素的途径；因此，接近 1 的概率是可取的。</p>
+<img src="plot.png">
+
+<p>上图还根据对 10 项指标的响应说明了四个类别的特征。大多数黑人青少年（58%）属于“促进因素”类别。这个类别可以获得所有社会健康决定因素的促进指标。相反，样本中的一小部分（3%）属于“促进因素获取有限”类别；除了社区安全和课外活动参与度之外，获得促进因素的可能性很低。获得医疗保健（6%）和物理环境中的障碍（33%）类别具有相似的特征。然而，与物理环境中的障碍类别相比，获得医疗保健类别获得几个促进因素的可能性略高。虽然这不是本研究的重点，但将协变量纳入 LCA 模型的新三步法的结果表明，青少年的社会人口构成没有显著差异。</p>
+<h4 id="四类模型与心理健康指标的关系"><a href="#四类模型与心理健康指标的关系" class="headerlink" title="四类模型与心理健康指标的关系"></a>四类模型与心理健康指标的关系</h4><table><thead><tr><th data-xml-align="left" rowspan="2">Latent class</th><th colspan="2"><span>Behavior problems</span></th><th colspan="2"><span>ADHD</span></th></tr><tr><th><i>OR</i> [95% CI]</th><th><i>p</i></th><th><i>OR</i> [95% CI]</th><th><i>p</i></th></tr></thead><tbody><tr><td colspan="5"><i>Limited access to promotive factors (reference)</i></td></tr><tr data-xml-align="center"><td data-xml-align="left">Access to health care</td><td>1.11 [−1.42, 3.63]</td><td>.39</td><td>0.27 [−0.46, 1.01]</td><td>.467</td></tr><tr data-xml-align="center"><td data-xml-align="left">Promotive factors class</td><td>3.99 [−4.74, 12.72]</td><td>.37</td><td>0.80 [−1.12, 2.72]</td><td>.416</td></tr><tr data-xml-align="center"><td data-xml-align="left">Barriers in the physical environment</td><td>3.85 [−4.60, 12.29]</td><td>.37</td><td>1.03 [−1.47, 3.52]</td><td>.420</td></tr><tr><td colspan="5"><i>Access to health care (reference)</i></td></tr><tr data-xml-align="center"><td data-xml-align="left">Promotive factors class</td><td>3.61 [−0.48, 7.70]</td><td>.08</td><td>2.91 [−0.93, 6.75]</td><td>.138</td></tr><tr data-xml-align="center"><td data-xml-align="left">Barriers in the physical environment</td><td>3.48 [−0.64, 7.60]</td><td>.10</td><td>3.74 [−1.67, 9.15]</td><td>.176</td></tr><tr><td colspan="5"><i>Promotive factors class (reference)</i></td></tr><tr data-xml-align="center"><td data-xml-align="left">Barriers in the physical environment</td><td>0.98 [0.23, 1.70]</td><td>.01</td><td>1.29 [0.35, 2.23]</td><td>.007</td></tr></tbody></table>
+
+<p>成对 Wald 检验的结果支持了第二个目标，即班级成员身份可能与青少年目前患有行为问题或 ADHD 的可能性存在不同的关联（见上表）。例如，如图所示，与物理环境中的障碍类 95% CI [0.23, 1.70] 相比，促进因素类患有行为问题的几率比为 0.97（或低 3%）。相反，与物理环境中的障碍类 95% CI [0.35, 2.23] 相比，促进因素类患有 ADHD 的几率比为 1.29（或高 29%）。</p>
+<h4 id="哪些变量可以对分类有预测作用（逻辑回归）"><a href="#哪些变量可以对分类有预测作用（逻辑回归）" class="headerlink" title="哪些变量可以对分类有预测作用（逻辑回归）"></a>哪些变量可以对分类有预测作用（逻辑回归）</h4><table><thead><tr><th>Profile</th><th>Covariates</th><th>Logit</th><th><i>SE</i></th><th><i>p</i></th><th><i>OR</i></th><th>[95% CI]</th></tr></thead><tbody><tr><td colspan="7"><i>Limited access to promotive factors class</i></td></tr><tr data-xml-align="center"><td data-xml-align="left" rowspan="4">Access to health care class</td><td>Female</td><td>−0.44</td><td>1.10</td><td>−0.40</td><td>0.64</td><td>[0.07, 5.58]</td></tr><tr data-xml-align="center"><td>Primary language</td><td>18.36</td><td>1.04</td><td>17.68</td><td>—</td><td>—</td></tr><tr data-xml-align="center"><td>Income</td><td>0.91</td><td>1.23</td><td>0.74</td><td>2.48</td><td>[0.22, 27.69]</td></tr><tr data-xml-align="center"><td>Parental education level</td><td>26.06</td><td>0.75</td><td>34.56</td><td>—</td><td>—</td></tr><tr data-xml-align="center"><td data-xml-align="left" rowspan="4">Promotive factors class</td><td>Female</td><td>−0.90</td><td>1.01</td><td>−0.90</td><td>0.41</td><td>[0.06, 2.92]</td></tr><tr data-xml-align="center"><td>Primary language</td><td>17.38</td><td>0.93</td><td>18.67</td><td>—</td><td>—</td></tr><tr data-xml-align="center"><td>Income</td><td>−0.38</td><td>1.04</td><td>−0.37</td><td>0.68</td><td>[0.09, 5.19]</td></tr><tr data-xml-align="center"><td>Parental education level</td><td>25.77</td><td>0.63</td><td>40.71</td><td>—</td><td>—</td></tr><tr data-xml-align="center"><td data-xml-align="left" rowspan="4">Barriers in the physical environment class</td><td>Female</td><td>−0.92</td><td>1.02</td><td>−0.91</td><td>0.4</td><td>[0.05, 2.93]</td></tr><tr data-xml-align="center"><td>Primary language</td><td>17.79</td><td>0.00</td><td>—</td><td>—</td><td>—</td></tr><tr data-xml-align="center"><td>Income</td><td>0.26</td><td>1.05</td><td>0.25</td><td>1.29</td><td>[0.17, 10.11]</td></tr><tr data-xml-align="center"><td>Parental education level</td><td>24.62</td><td>0.00</td><td>—</td><td>—</td><td>—</td></tr><tr><td colspan="7"><i>Access to health care class</i></td></tr><tr data-xml-align="center"><td data-xml-align="left" rowspan="4">Promotive factors class</td><td>Female</td><td>−0.46</td><td>0.48</td><td>−0.96</td><td>0.63</td><td>[0.25, 1.62]</td></tr><tr data-xml-align="center"><td>Primary language</td><td>−0.98</td><td>0.98</td><td>−0.99</td><td>0.38</td><td>[0.06, 2.58]</td></tr><tr data-xml-align="center"><td>Income</td><td>−1.29</td><td>0.67</td><td>−1.92</td><td>0.28</td><td>[0.07, 1.03]</td></tr><tr data-xml-align="center"><td>Parental education level</td><td>−0.29</td><td>0.57</td><td>−0.51</td><td>0.75</td><td>[0.25, 2.28]</td></tr><tr data-xml-align="center"><td data-xml-align="left" rowspan="4">Barriers in the physical environment class</td><td>Female</td><td>−0.48</td><td>0.53</td><td>−0.91</td><td>0.62</td><td>[0.22, 1.74]</td></tr><tr data-xml-align="center"><td>Primary language</td><td>−0.57</td><td>1.04</td><td>−0.55</td><td>0.57</td><td>[0.07, 4.33]</td></tr><tr data-xml-align="center"><td>Income</td><td>−0.65</td><td>0.73</td><td>−0.89</td><td>0.52</td><td>[0.13, 2.18]</td></tr><tr data-xml-align="center"><td>Parental education level</td><td>−1.44</td><td>0.75</td><td>−1.91</td><td>0.24</td><td>[0.05, 1.04]</td></tr><tr><td colspan="7"><i>Promotive factors class</i></td></tr><tr data-xml-align="center"><td data-xml-align="left" rowspan="4">Barriers in the physical environment class</td><td>Female</td><td>−0.02</td><td>0.23</td><td>−0.09</td><td>0.98</td><td>[0.62, 1.54]</td></tr><tr data-xml-align="center"><td>Primary language</td><td>0.41</td><td>0.93</td><td>0.44</td><td>1.5</td><td>[0.24, 9.31]</td></tr><tr data-xml-align="center"><td>Income</td><td>0.64</td><td>0.24</td><td>2.74</td><td>1.9</td><td>[1.20, 3.01]</td></tr><tr data-xml-align="center"><td>Parental education level</td><td>−1.15</td><td>0.63</td><td>−1.82</td><td>0.32</td><td>[0.09, 1.10]</td></tr></tbody></table>
+
+<h2 id="类似教程"><a href="#类似教程" class="headerlink" title="类似教程"></a>类似教程</h2><ul>
+<li><a href="https://mlln.cn/2022/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/">潜在类别分析入门</a></li>
+<li><a href="https://mlln.cn/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/">Mplus潜在截面分析LPA教程代码结果解读</a></li>
+<li><a href="https://mlln.cn/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">mplus做LCA入门教程</a></li>
+</ul>
+<h2 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h2><p><a target="_blank" rel="noopener" href="https://journals.sagepub.com/doi/full/10.1177/0095798420930932">https://journals.sagepub.com/doi/full/10.1177/0095798420930932</a></p>
+<h2 id="咨询"><a href="#咨询" class="headerlink" title="咨询"></a>咨询</h2><p>本站提供付费咨询，联系我微信： mllncn</p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/mplus/">#mplus</a> <a href="/tags/lca/">#lca</a> <a href="/tags/lpa/">#lpa</a>
+        </div>
+    
+
+
+
+</div>
+        </section>
+        <section>
+            <div class="content" style="color: #d7ecff">
+                <h3 id="赞助"><a href="#赞助" class="headerlink" title="赞助"></a>赞助</h3>
+                <p>持续创造有价值的内容, 我需要你的帮助</p>
+                <p><img src="/img/收款二维码.png" class="img-thumbnail"></p>
+            </div>
+        </section>
+        <!-- changyan comments -->
+        <section class="main">
+            <!--PC版畅言-->
+
+<div class="container"><div id="SOHUCS" sid="2024/07/24/潜在类别分析LCA最佳实践/"></div>
+<script charset="utf-8" type="text/javascript" src="https://changyan.sohu.com/upload/changyan.js" ></script>
+<script type="text/javascript">
+window.changyan.api.config({
+appid: 'cysqnjGqk',
+conf: 'prod_023698c59c1b0d0e29687979a2d2e9a3'
+});
+setInterval(()=>{
+    $('#closePoPBD').click()
+}, 2000)
+</script>
+</div>
+
+        </section>
+    </div>
+
+    <!-- rightside -->
+    <div class="col-md-3 col-sm-12 rightside">
+        <div class="related-posts">
+    <h3>
+        <a href="#">
+            赞助推荐
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://jupyter.cn/home/">问卷代填保证质量</a>
+            </div>
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=2013.1.w4023-21724689242.4.76085e0a2k46Ky&amp;id=601314051411">问卷代填保证质量</a>
+            </div>
+        
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        常用工具
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a href="/2023/07/08/spss数据sav格式转换器（在线）/">Excel和SPSS转Mplus数据格式工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/mplusoutput/">Mplus结果查看器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/drawio/">绘图软件</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2018/09/26/在线绘制中介效应图/">
+                在线绘制中介效应图
+            </a>
+        </div>
+        <div class="archive-post">
+            <a href="/neural/">神经网络可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/psychopy/">psychopy教程</a>
+        </div>
+        <div class="archive-post">
+            <a href="/vector/">[词向量]高维向量可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/demos/evolutionSimulator/">[tensorflow.js案例]进化算法演示</a>
+        </div>
+        <div class="archive-post">
+            <a href="/guideToPython/">[书]Python最佳实践</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/10/10/sobel检验原理和一键计算器/">Sobel检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">平均方差提取量AVE和组合信度CR计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">卡方检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">简单交互效应可视化工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/12/23/均值差异的效应量在线计算器/">两组均值差异的效应量在线计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="https://mlln.cn/2020/09/17/%E5%8D%A1%E6%96%B9%E5%B7%AE%E5%80%BC%E7%9A%84%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C/">卡方差值的显著性检验</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/mplus/">
+            mplus
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2024/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+                    潜在类别分析LCA最佳实践
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">
+                    mplus做LCA入门教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/07/17/mplus%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E7%BB%84%E5%86%85%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0ICC/">
+                    mplus如何计算组内相关系数ICC
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/07/09/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E5%BB%BA%E6%A8%A1%E5%85%A5%E9%97%A8-%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%80%BB%E8%BE%91/">
+                    多水平建模入门-多层线性模型的逻辑
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/05/20/mplus%E4%B8%AD%E4%BB%8B%E3%80%81%E8%B0%83%E8%8A%82%E5%92%8C%E6%9C%89%E8%B0%83%E8%8A%82%E7%9A%84%E4%B8%AD%E4%BB%8B%E6%95%99%E7%A8%8B/">
+                    mplus中介、调节和有调节的中介教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/03/18/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90/">
+                    多水平验证性因子分析CFA理论和应用教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/02/28/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B/">
+                    结构方程模型R语言实战教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/">
+                    Mplus潜在截面分析LPA教程代码结果解读
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/12/05/%E5%85%B3%E4%BA%8EJ%C3%B6reskog%E7%9A%84%E7%BB%84%E5%90%88%E4%BF%A1%E5%BA%A6rhoc%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">
+                    关于Jöreskog的组合信度ρ_c定义和用法
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/12/05/%E5%85%B3%E4%BA%8EDijkstra%E7%9A%84%E4%BF%A1%E5%BA%A6%E7%B3%BB%E6%95%B0%CF%81A%E5%AE%9A%E4%B9%89%E5%92%8C%E7%94%A8%E6%B3%95/">
+                    关于 Dijkstra 的信度系数ρ_A定义和用法
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/10/12/%E4%BA%A4%E4%BA%92%E6%95%88%E5%BA%94%E4%B8%AD%E7%AE%80%E5%8D%95%E6%96%9C%E7%8E%87%E7%BB%98%E5%88%B6%E6%9C%80%E5%BC%BAexcel%E6%A8%A1%E6%9D%BF%E6%95%99%E7%A8%8B%E5%92%8C%E4%B8%8B%E8%BD%BD/">
+                    交互效应中简单斜率绘制最强excel模板教程和下载
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/09/18/mplus%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E7%BB%93%E6%9E%9C%E7%9A%84%E8%AF%A6%E7%BB%86%E6%B3%A8%E9%87%8A%E5%92%8C%E8%A7%A3%E8%AF%BB/">
+                    mplus验证性因子分析结果的详细注释和解读
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/08/17/%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90CFA%E7%BB%93%E6%9E%9C%E6%B1%87%E6%8A%A5%E6%A8%A1%E6%9D%BF/">
+                    验证性因子分析CFA结果汇报模板
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2023/07/08/spss%E6%95%B0%E6%8D%AEsav%E6%A0%BC%E5%BC%8F%E8%BD%AC%E6%8D%A2%E5%99%A8%EF%BC%88%E5%9C%A8%E7%BA%BF%EF%BC%89/">
+                    spss和Excel数据格式转mplus格式数据（在线）
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/08/31/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E6%A8%A1%E5%9E%8B%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E5%88%86%E6%9E%90%E8%B0%83%E8%8A%82%E5%8F%98%E9%87%8F/">
+                    结构方程模型多组比较分析调节变量
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/lca/">
+            lca
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2024/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+                    潜在类别分析LCA最佳实践
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">
+                    mplus做LCA入门教程
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2024/01/10/Mplus%E6%BD%9C%E5%9C%A8%E6%88%AA%E9%9D%A2%E5%88%86%E6%9E%90LPA%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB/">
+                    Mplus潜在截面分析LPA教程代码结果解读
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2022/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90%E5%85%A5%E9%97%A8/">
+                    潜在类别分析LCA入门
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/lpa/">
+            lpa
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2024/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">
+                    潜在类别分析LCA最佳实践
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts hidden-sm-down">
+    <h3>
+        <a href="#">
+            友商赞助
+        </a>
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a target="_blank" rel="noopener" href="http://jupyter.cn">
+                  问卷大全问卷案例下载
+            </a>
+            <a href="https://mlln.cn/2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/">
+                大学生互填问卷群推荐
+            </a>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 footer-about">
+                <h2>About</h2>
+                <p>
+                    这是<code>xxxspy</code>的个人博客
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">潜在类别分析LCA最佳实践</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">mplus做LCA入门教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/17/mplus%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E7%BB%84%E5%86%85%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0ICC/">mplus如何计算组内相关系数ICC</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/10/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%80%E9%94%AE%E8%BD%AClatex%E6%88%96mathjax/">工具分享图片格式的数学公式识别一键转latex或m</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/07/09/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E5%BB%BA%E6%A8%A1%E5%85%A5%E9%97%A8-%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8B%E7%9A%84%E9%80%BB%E8%BE%91/">多水平建模入门-多层线性模型的逻辑</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/06/03/%E5%93%8D%E5%BA%94%E6%80%A7%E5%92%8C%E5%8F%8D%E6%98%A0%E6%80%A7%E6%8C%87%E6%A0%87%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E8%A7%A3%E9%87%8A%E6%B8%85%E6%A5%9A/">响应性和反映性指标一篇文章解释清楚</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/05/20/mplus%E4%B8%AD%E4%BB%8B%E3%80%81%E8%B0%83%E8%8A%82%E5%92%8C%E6%9C%89%E8%B0%83%E8%8A%82%E7%9A%84%E4%B8%AD%E4%BB%8B%E6%95%99%E7%A8%8B/">mplus中介、调节和有调节的中介教程</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/04/23/%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E4%B8%8D%E5%8F%98%E6%80%A7%E5%9C%A8%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E7%9A%84%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E4%B8%AD/">如何检验测量模型不变性在结构方程的多组比较中</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/03/23/mplus%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%BC%BC%E7%84%B6%E5%80%BC%E8%AE%A1%E7%AE%97%E4%B8%A4%E4%B8%AA%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8B%9F%E5%90%88%E5%B7%AE%E5%BC%82%E6%98%AF%E5%90%A6%E6%98%BE%E8%91%97/">mplus中如何计算两个模型的拟合差异是否显著</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/03/18/%E5%A4%9A%E6%B0%B4%E5%B9%B3%E9%AA%8C%E8%AF%81%E6%80%A7%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90/">多水平验证性因子分析CFA理论和应用教程</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 footer-tags">
+    <h2>tags</h2>
+    <ul>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%87%E6%9C%AC%E6%8C%96%E6%8E%98/">文本挖掘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8A%A5%E5%91%8A%E7%B3%BB%E7%BB%9F/">报告系统</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/spss/">spss</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/python/">python</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/manim/">manim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/amos/">amos</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE/">共同方法偏差</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BF%A1%E5%BA%A6%E5%88%86%E6%9E%90/">信度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%88%E5%BA%A6%E5%88%86%E6%9E%90/">效度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB/">问卷互填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%98%9F/">问卷星</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BB%A3%E5%A1%AB/">问卷代填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E7%BD%91/">问卷网</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/conda/">conda</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B/">结构方程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/VBA/">VBA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mplus/">mplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/django/">django</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime/">eprime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/EM/">EM</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8E%A8%E8%8D%90%E4%B9%A6/">推荐书</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/">卡方检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/javascript/">javascript</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Latex/">Latex</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mysql/">mysql</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jupyter/">jupyter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R/">R</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%98%BE%E8%91%97%E6%80%A7/">显著性</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Q-learning/">Q-learning</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R%E8%AF%AD%E8%A8%80/">R语言</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/r/">r</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/process/">process</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94/">调节效应</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow-js/">tensorflow.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BD%9C%E6%96%87%E8%AF%84%E5%88%86/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/t%E6%A3%80%E9%AA%8C/">t检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/">方差分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/NLP/">NLP</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%AF%AD%E6%96%99%E5%BA%93/">语料库</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nodejs/">nodejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/electron/">electron</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/e-prime/">e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gensim/">gensim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/">摘要生成</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/git/">git</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gui/">gui</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jamovi/">jamovi</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/notebook/">notebook</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E6%95%99%E7%A8%8B/">keras教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E5%9F%BA%E7%A1%80/">keras基础</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongodb/">mongodb</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jieba/">jieba</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongoengine/">mongoengine</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/meta%E5%88%86%E6%9E%90/">meta分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nginx/">nginx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/networkx/">networkx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/dataframe/">dataframe</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pandas/">pandas</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%B8%8B%E8%BD%BD/">下载</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BD%91%E7%9B%98/">网盘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pychrome/">pychrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pydotplus/">pydotplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pymongo/">pymongo</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/graphviz/">graphviz</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/selenium/">selenium</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/">格式化字符串</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lru-cache/">lru_cache</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/os/">os</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">时间序列</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/print/">print</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pil/">pil</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tkinter/">tkinter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/js2py/">js2py</a>
+        </span>
+        
+    </ul>
+</div>
+
+            
+        </div>
+        <!-- links -->
+
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-about">
+        <h2>Links</h2>
+        <ul>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/baidusitemap.xml" target="_blank">网站地图</a><span> | </span>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/sitemap.xml" target="_blank">DataScience</a><span> | </span>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/xxxspy">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:675495787@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @感谢github免费托管，hexo的静态网站引擎和模板主题制作者<a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                    <br/>
+                    <a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">京ICP备16033873号-2</>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<!-- tweenmax -->
+<script src="/js/TweenMax.min.js">
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- bootstrap.js -->
+<script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Baidu link push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<!-- baidu_static -->
+
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?588f06b88af0ef575445f53432cd15ec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>
