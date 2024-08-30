@@ -252,6 +252,99 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/10/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B12%5D%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87/">
+                numpy函数：[12]数组切片
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年10月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>我们可以向使用列表切片一样使用数组切片，如果会使用liest切片，那么这篇文章就是温习一下而已，下面我们来看看具体的数组切片是如何使用的。</p>
+<ul>
+<li>从numpy中引入所有</li>
+</ul>
+<img src="/2016/10/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B12%5D%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87/c71d0e385343fbf21a8108bcb27eca8064388f45.jpg" class="" title="numpy函数：[12]数组切片">
+
+<ul>
+<li>创建一个包含10个元素的一位数组</li>
+</ul>
+<img src="/2016/10/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B12%5D%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87/d1571724ab18972bf1a4ae55e4cd7b899f510a57.jpg" class="" title="numpy函数：[12]数组切片">
+
+<ul>
+<li>我们可以使用一个下标获取数组中相应的值，也可以更改它的值</li>
+</ul>
+<img src="/2016/10/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B12%5D%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87/b3508d13b07eca80c9a89778932397dda0448345.jpg" class="" title="numpy函数：[12]数组切片">
+
+<ul>
+<li>使用冒号获取连续的几个元素，如获取第四个到第五个元素</li>
+</ul>
+<img src="/2016/10/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B12%5D%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87/34bbf8cd7b899e512510948b40a7d933c9950d57.jpg" class="" title="numpy函数：[12]数组切片">
+
+<ul>
+<li>省略冒号前的数字，表示从头开始</li>
+</ul>
+<img src="/2016/10/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B12%5D%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87/43e6c733c895d1439de84abc71f082025baf0757.jpg" class="" title="numpy函数：[12]数组切片">
+
+<ul>
+<li>使用负数表示从后往前数，-1表示从后往前数第一个数</li>
+</ul>
+<img src="/2016/10/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B12%5D%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87/30ecd5ef76094b36163fb572a1cc7cd98c109d45.jpg" class="" title="numpy函数：[12]数组切片">
+
+<ul>
+<li>-2表示从后往前第二个，以此类推</li>
+</ul>
+<img src="/2016/10/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B12%5D%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87/a28d62d98d1001e9f991ba90ba0e7bec55e79745.jpg" class="" title="numpy函数：[12]数组切片">
+
+<img src="/2016/10/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B12%5D%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87/b258f5c4b74543a9c18554531c178a82b8011457.jpg" class="" title="numpy函数：[12]数组切片">
+
+<ul>
+<li>还可以设置步长来读取数组元素</li>
+</ul>
+<img src="/2016/10/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B12%5D%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87/b6045da98226cffc5bb4112dbb014a90f703ea50.jpg" class="" title="numpy函数：[12]数组切片">
+
+<ul>
+<li>步长为-1，其他参数不设置，就是将数组进行了倒序排列</li>
+</ul>
+<img src="/2016/10/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B12%5D%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87/1f569482b9014a90bfa0e822ab773912b21bee50.jpg" class="" title="numpy函数：[12]数组切片">
+
+<ul>
+<li>使用负数步长需要让第一个下表大于第二个下标</li>
+</ul>
+<img src="/2016/10/19/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B12%5D%E6%95%B0%E7%BB%84%E5%88%87%E7%89%87/a005b3345982b2b7635e905b33adcbef77099b29.jpg" class="" title="numpy函数：[12]数组切片">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#52;&#x39;&#53;&#x37;&#56;&#55;&#64;&#113;&#113;&#46;&#x63;&#111;&#x6d;">&#54;&#x37;&#53;&#52;&#x39;&#53;&#x37;&#56;&#55;&#64;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/10/17/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B8%5Dlogspace()%E5%88%9B%E5%BB%BA%E7%AD%89%E6%AF%94%E6%95%B0%E5%88%97%E6%95%B0%E7%BB%84/">
                 numpy函数：[8]logspace()创建等比数列数组
             </a>
@@ -969,70 +1062,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/10/03/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B61%5D%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9%20%E7%9B%AE%E5%BD%95/">
-                Python教程：[61]创建文件夹 目录
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年10月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>python如何创建文件夹，用到了mkdir和makedirs两个方法，前者创建一层目录，后者创建多层目录，下面我们来看看具体是怎么用的。</p>
-<ul>
-<li>先要引入os模块</li>
-</ul>
-<img src="/2016/10/03/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B61%5D%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9%20%E7%9B%AE%E5%BD%95/ac754782b2b7d0a2c2fbb31dc9ef76094a369ac5.jpg" class="" title="Python教程：[61]创建文件夹 目录">
-
-<ul>
-<li>使用mkdir方法创建一个tt文件夹，参数是文件夹的路径：</li>
-</ul>
-<img src="/2016/10/03/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B61%5D%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9%20%E7%9B%AE%E5%BD%95/caae68094b36acaffad2217c7ed98d1000e99cc5.jpg" class="" title="Python教程：[61]创建文件夹 目录">
-
-<ul>
-<li>假如我们使用mkdir方法创建多层文件夹，也就是说，文件夹f:&#x2F;tt1和文件夹f:&#x2F;tt1&#x2F;tt1都是不存在的，这时候就会出现错误</li>
-</ul>
-<img src="/2016/10/03/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B61%5D%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9%20%E7%9B%AE%E5%BD%95/7d98931001e93901fb303abe79ec54e737d196c5.jpg" class="" title="Python教程：[61]创建文件夹 目录">
-
-<ul>
-<li>我们可以使用makedirs方法来创建多层目录：</li>
-</ul>
-<img src="/2016/10/03/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B61%5D%E5%88%9B%E5%BB%BA%E6%96%87%E4%BB%B6%E5%A4%B9%20%E7%9B%AE%E5%BD%95/8697397f9e2f07085e689d80eb24b899a801f286.jpg" class="" title="Python教程：[61]创建文件夹 目录">
-
-<ul>
-<li>写完这篇文章，你可能想知道，如何删除目录呢，幸好我前几天已经写完了一篇如何删除文件夹的文章，具体见：<a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/39810a23e80384b636fda639.html">http://jingyan.baidu.com/article/39810a23e80384b636fda639.html</a></li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#57;&#53;&#x37;&#56;&#55;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;">&#54;&#55;&#53;&#x34;&#57;&#53;&#x37;&#56;&#55;&#64;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1074,6 +1103,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/08/30/%E5%85%B3%E4%BA%8ELPA%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于LPA分析的一些问题</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/07/25/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E8%AE%BA%E6%96%87%E6%92%B0%E5%86%99%E6%A8%A1%E6%9D%BF/">潜在类别分析LCA论文撰写模板</a>
             </li>
             
@@ -1107,10 +1140,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/04/23/%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E4%B8%8D%E5%8F%98%E6%80%A7%E5%9C%A8%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E7%9A%84%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E4%B8%AD/">如何检验测量模型不变性在结构方程的多组比较中</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/03/23/mplus%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%BC%BC%E7%84%B6%E5%80%BC%E8%AE%A1%E7%AE%97%E4%B8%A4%E4%B8%AA%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8B%9F%E5%90%88%E5%B7%AE%E5%BC%82%E6%98%AF%E5%90%A6%E6%98%BE%E8%91%97/">mplus中如何计算两个模型的拟合差异是否显著</a>
             </li>
             
         </ul>

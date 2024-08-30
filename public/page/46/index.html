@@ -252,6 +252,85 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/05/15/spss%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%96%E5%80%BC%E6%A8%A1%E5%BC%8F%E8%BF%9B%E8%A1%8C%E8%81%9A%E7%B1%BB/">
+                spss如何使用变量的取值模式进行聚类
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年05月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>spss聚类分析中，默认的聚类方法是按照变量的取值水平进行聚类，但是有时候，为了符合我们研究的要求，需要按照变量的取值模式进行聚类，这时候就用到了这里提到的一个方法：By case<br>工具&#x2F;原料</p>
+<ul>
+<li><p>spss20.0<br>方法&#x2F;步骤</p>
+</li>
+<li><p>先在spss中打开你要处理的数据，然后点击菜单：analyse–classify–hierarchical cluster，打开聚类分析的对话框</p>
+</li>
+</ul>
+<img src="/2016/05/15/spss%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%96%E5%80%BC%E6%A8%A1%E5%BC%8F%E8%BF%9B%E8%A1%8C%E8%81%9A%E7%B1%BB/bf096b63f6246b604ca28fa1ebf81a4c500fa2b2.jpg" class="" title="spss如何使用变量的取值模式进行聚类">
+
+<ul>
+<li>将指标变量放入independent列表，然后把地区放入标签栏，因为地区可以作为case的标签</li>
+</ul>
+<img src="/2016/05/15/spss%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%96%E5%80%BC%E6%A8%A1%E5%BC%8F%E8%BF%9B%E8%A1%8C%E8%81%9A%E7%B1%BB/80cb39dbb6fd526603e700c1ab18972bd5073612.jpg" class="" title="spss如何使用变量的取值模式进行聚类">
+
+<ul>
+<li>点击method按钮，这就是我们的重头戏，在在方法对话框中，我们需要设置Z分数的计算方法</li>
+</ul>
+<img src="/2016/05/15/spss%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%96%E5%80%BC%E6%A8%A1%E5%BC%8F%E8%BF%9B%E8%A1%8C%E8%81%9A%E7%B1%BB/77094b36acaf2eddcd37753c8d1001e938019324.jpg" class="" title="spss如何使用变量的取值模式进行聚类">
+
+<ul>
+<li>如图所示，将standardised设置为Z score，然后勾选by case</li>
+</ul>
+<img src="/2016/05/15/spss%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%96%E5%80%BC%E6%A8%A1%E5%BC%8F%E8%BF%9B%E8%A1%8C%E8%81%9A%E7%B1%BB/c75c10385343fbf2eb1299f6b07eca8065388f2c.jpg" class="" title="spss如何使用变量的取值模式进行聚类">
+
+<ul>
+<li>点击ok，开始处理数据，等会就输出结果</li>
+</ul>
+<img src="/2016/05/15/spss%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%96%E5%80%BC%E6%A8%A1%E5%BC%8F%E8%BF%9B%E8%A1%8C%E8%81%9A%E7%B1%BB/a71ea8d3fd1f41343caf39ab251f95cad0c85e4e.jpg" class="" title="spss如何使用变量的取值模式进行聚类">
+
+<ul>
+<li>第一个表格是聚类过程表，从聚类系数可以帮助我们判断将数据分为几类最合适，判断的方法是，相邻的两个数据变化的幅度显著大于前面的系数的变化范围，这时候分类在这里就是最好的</li>
+</ul>
+<img src="/2016/05/15/spss%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%96%E5%80%BC%E6%A8%A1%E5%BC%8F%E8%BF%9B%E8%A1%8C%E8%81%9A%E7%B1%BB/b03533fa828ba61e0fd9f7fa4134970a304e592b.jpg" class="" title="spss如何使用变量的取值模式进行聚类">
+
+<ul>
+<li>这里叫做层次聚类谱系图，该图也是帮助我们查看聚类过程的，我们看到如图所示，沿着垂直方向画一条线，这条线与图中的水平线交叉点就是分的类别，有几个交叉点就有几个类别。当然，你所画的线可以决定你的数据分成了几类，越往右边，分类数目越少</li>
+</ul>
+<img src="/2016/05/15/spss%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E5%8F%98%E9%87%8F%E7%9A%84%E5%8F%96%E5%80%BC%E6%A8%A1%E5%BC%8F%E8%BF%9B%E8%A1%8C%E8%81%9A%E7%B1%BB/7af40ad162d9f2d34b591b3aa9ec8a136227cc9e.jpg" class="" title="spss如何使用变量的取值模式进行聚类">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#52;&#x39;&#53;&#x37;&#x38;&#x37;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#x36;&#x37;&#53;&#52;&#x39;&#53;&#x37;&#x38;&#x37;&#64;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/05/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B41%5D%E5%88%A4%E6%96%AD%E6%8A%93%E5%8F%96%E7%9A%84%E7%BD%91%E9%A1%B5%E7%9A%84%E7%BC%96%E7%A0%81%E6%96%B9%E5%BC%8F/">
                 Python教程：[41]判断抓取的网页的编码方式
             </a>
@@ -983,102 +1062,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/05/03/Excel2013%EF%BC%9A%5B40%5D%E7%BE%8E%E5%8C%96%E5%8D%95%E5%85%83%E6%A0%BC%E7%AB%8B%E4%BD%93%E6%9D%A5%E7%82%B9%E7%AB%8B%E4%BD%93%E6%84%9F/">
-                Excel2013：[40]美化单元格立体来点立体感
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年05月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>闲来无事美化一下以前做的单元格，把二维单元格弄成有立体感的，怎么样？这么做它看起来就像是一个小小的数字键盘，我们如果给它加上超链接，这些单元格就变成一个个按钮。好吧，看看具体的教程：</p>
-<ul>
-<li>先填写数据，如图所示，我把单元格的大小也调整了一下，有数字的单元格宽和高都更大，这样可以突出显示</li>
-</ul>
-<img src="/2016/05/03/Excel2013%EF%BC%9A%5B40%5D%E7%BE%8E%E5%8C%96%E5%8D%95%E5%85%83%E6%A0%BC%E7%AB%8B%E4%BD%93%E6%9D%A5%E7%82%B9%E7%AB%8B%E4%BD%93%E6%84%9F/8474fbdde71190ef5afa99b8cc1b9d16fdfa6010.jpg" class="" title="Excel2013：[40]美化单元格立体来点立体感">
-
-<ul>
-<li>上一点背景色，淡淡的灰色</li>
-</ul>
-<img src="/2016/05/03/Excel2013%EF%BC%9A%5B40%5D%E7%BE%8E%E5%8C%96%E5%8D%95%E5%85%83%E6%A0%BC%E7%AB%8B%E4%BD%93%E6%9D%A5%E7%82%B9%E7%AB%8B%E4%BD%93%E6%84%9F/ac0acf1373f08202c842995849fbfbedaa641b41.jpg" class="" title="Excel2013：[40]美化单元格立体来点立体感">
-
-<ul>
-<li>选中有数字的单元格，设置对齐方式为居中对齐</li>
-</ul>
-<img src="/2016/05/03/Excel2013%EF%BC%9A%5B40%5D%E7%BE%8E%E5%8C%96%E5%8D%95%E5%85%83%E6%A0%BC%E7%AB%8B%E4%BD%93%E6%9D%A5%E7%82%B9%E7%AB%8B%E4%BD%93%E6%84%9F/4abae5edab64034fe01dca61adc379310b551d41.jpg" class="" title="Excel2013：[40]美化单元格立体来点立体感">
-
-<ul>
-<li>还是选中这些有数字的单元格</li>
-</ul>
-<img src="/2016/05/03/Excel2013%EF%BC%9A%5B40%5D%E7%BE%8E%E5%8C%96%E5%8D%95%E5%85%83%E6%A0%BC%E7%AB%8B%E4%BD%93%E6%9D%A5%E7%82%B9%E7%AB%8B%E4%BD%93%E6%84%9F/42e89c26cffc1e172e6f84564890f603728de942.jpg" class="" title="Excel2013：[40]美化单元格立体来点立体感">
-
-<ul>
-<li>打开格式对话框</li>
-</ul>
-<img src="/2016/05/03/Excel2013%EF%BC%9A%5B40%5D%E7%BE%8E%E5%8C%96%E5%8D%95%E5%85%83%E6%A0%BC%E7%AB%8B%E4%BD%93%E6%9D%A5%E7%82%B9%E7%AB%8B%E4%BD%93%E6%84%9F/8bc3a7014a90f603db6094203b12b31bb151ed42.jpg" class="" title="Excel2013：[40]美化单元格立体来点立体感">
-
-<ul>
-<li>切换到边框选项下</li>
-</ul>
-<img src="/2016/05/03/Excel2013%EF%BC%9A%5B40%5D%E7%BE%8E%E5%8C%96%E5%8D%95%E5%85%83%E6%A0%BC%E7%AB%8B%E4%BD%93%E6%9D%A5%E7%82%B9%E7%AB%8B%E4%BD%93%E6%84%9F/dc15484e9258d109f4e2a2d5d358ccbf6c814d10.jpg" class="" title="Excel2013：[40]美化单元格立体来点立体感">
-
-<ul>
-<li>我们来先设置线型和颜色，线性为粗线，颜色为白色或者浅灰色</li>
-</ul>
-<img src="/2016/05/03/Excel2013%EF%BC%9A%5B40%5D%E7%BE%8E%E5%8C%96%E5%8D%95%E5%85%83%E6%A0%BC%E7%AB%8B%E4%BD%93%E6%9D%A5%E7%82%B9%E7%AB%8B%E4%BD%93%E6%84%9F/dbf554ed2e738bd407f1ba56a38b87d6267ff942.jpg" class="" title="Excel2013：[40]美化单元格立体来点立体感">
-
-<ul>
-<li>绘制上边框和左边框</li>
-</ul>
-<img src="/2016/05/03/Excel2013%EF%BC%9A%5B40%5D%E7%BE%8E%E5%8C%96%E5%8D%95%E5%85%83%E6%A0%BC%E7%AB%8B%E4%BD%93%E6%9D%A5%E7%82%B9%E7%AB%8B%E4%BD%93%E6%84%9F/1899a23eb13533fad3b79849aad3fd1f41345b10.jpg" class="" title="Excel2013：[40]美化单元格立体来点立体感">
-
-<ul>
-<li>接着设置颜色为黑色，线型不变</li>
-</ul>
-<img src="/2016/05/03/Excel2013%EF%BC%9A%5B40%5D%E7%BE%8E%E5%8C%96%E5%8D%95%E5%85%83%E6%A0%BC%E7%AB%8B%E4%BD%93%E6%9D%A5%E7%82%B9%E7%AB%8B%E4%BD%93%E6%84%9F/fc5e5f34970a304e7d23ab9dd3c8a786c9175c10.jpg" class="" title="Excel2013：[40]美化单元格立体来点立体感">
-
-<ul>
-<li>绘制下边框和右边框，点击确定按钮</li>
-</ul>
-<img src="/2016/05/03/Excel2013%EF%BC%9A%5B40%5D%E7%BE%8E%E5%8C%96%E5%8D%95%E5%85%83%E6%A0%BC%E7%AB%8B%E4%BD%93%E6%9D%A5%E7%82%B9%E7%AB%8B%E4%BD%93%E6%84%9F/245e8bcad1c8a786952b41696509c93d70cf5010.jpg" class="" title="Excel2013：[40]美化单元格立体来点立体感">
-
-<ul>
-<li>看一下，立体感是不是出来了。</li>
-</ul>
-<img src="/2016/05/03/Excel2013%EF%BC%9A%5B40%5D%E7%BE%8E%E5%8C%96%E5%8D%95%E5%85%83%E6%A0%BC%E7%AB%8B%E4%BD%93%E6%9D%A5%E7%82%B9%E7%AB%8B%E4%BD%93%E6%84%9F/d019d2bf6c81800a54e48269b33533fa828b4710.jpg" class="" title="Excel2013：[40]美化单元格立体来点立体感">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#x34;&#57;&#53;&#55;&#56;&#x37;&#x40;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#54;&#55;&#x35;&#x34;&#57;&#53;&#55;&#56;&#x37;&#x40;&#x71;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1120,6 +1103,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/08/30/%E5%85%B3%E4%BA%8ELPA%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于LPA分析的一些问题</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/07/25/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E8%AE%BA%E6%96%87%E6%92%B0%E5%86%99%E6%A8%A1%E6%9D%BF/">潜在类别分析LCA论文撰写模板</a>
             </li>
             
@@ -1153,10 +1140,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/04/23/%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E4%B8%8D%E5%8F%98%E6%80%A7%E5%9C%A8%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E7%9A%84%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E4%B8%AD/">如何检验测量模型不变性在结构方程的多组比较中</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/03/23/mplus%E4%B8%AD%E5%A6%82%E4%BD%95%E4%BD%BF%E7%94%A8%E4%BC%BC%E7%84%B6%E5%80%BC%E8%AE%A1%E7%AE%97%E4%B8%A4%E4%B8%AA%E6%A8%A1%E5%9E%8B%E7%9A%84%E6%8B%9F%E5%90%88%E5%B7%AE%E5%BC%82%E6%98%AF%E5%90%A6%E6%98%BE%E8%91%97/">mplus中如何计算两个模型的拟合差异是否显著</a>
             </li>
             
         </ul>
