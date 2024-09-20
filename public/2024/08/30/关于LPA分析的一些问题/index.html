@@ -326,7 +326,7 @@
 
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
-        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AD%A6%E5%91%8A%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text">警告信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LPA-%E6%A8%A1%E5%9E%8B%E5%81%87%E5%AE%9A"><span class="toc-number">2.</span> <span class="toc-text">LPA 模型假定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%B0%9D%E8%AF%95"><span class="toc-number">3.</span> <span class="toc-text">其他尝试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-%E7%86%B5%EF%BC%88entropy%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">什么是 熵（entropy）</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AD%A6%E5%91%8A%E4%BF%A1%E6%81%AF"><span class="toc-number">1.</span> <span class="toc-text">警告信息</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LPA-%E6%A8%A1%E5%9E%8B%E5%81%87%E5%AE%9A"><span class="toc-number">2.</span> <span class="toc-text">LPA 模型假定</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%B6%E4%BB%96%E5%B0%9D%E8%AF%95"><span class="toc-number">3.</span> <span class="toc-text">其他尝试</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E4%BB%80%E4%B9%88%E6%98%AF-%E7%86%B5%EF%BC%88entropy%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">什么是 熵（entropy）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LPA-%E5%92%8C-LCA-%E6%9C%89%E4%BB%80%E4%B9%88%E5%8C%BA%E5%88%AB"><span class="toc-number">5.</span> <span class="toc-text">LPA 和 LCA 有什么区别</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#LPA-%E5%8F%AF%E4%BB%A5%E5%81%87%E5%A6%82%E5%88%86%E7%B1%BB%E5%8F%98%E9%87%8F%E5%90%97%EF%BC%88LCA%E5%8F%AF%E4%BB%A5%E5%8A%A0%E5%85%A5%E8%BF%9E%E7%BB%AD%E5%8F%98%E9%87%8F%E5%90%97%EF%BC%89"><span class="toc-number">6.</span> <span class="toc-text">LPA 可以假如分类变量吗（LCA可以加入连续变量吗）</span></a></li></ol>
     </div>
 
         <!-- Gallery -->
@@ -371,10 +371,16 @@
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">*** ERROR in MODEL command</span><br><span class="line">  No OVERALL or class label for the following MODEL statement(s):</span><br><span class="line">  TS WITH IP CM EA;</span><br></pre></td></tr></table></figure>
 
 <p>因为在每个潜在类别下， 相同的观测指标也是不同的变量， 所以无法简单的使用with语句， 必须指定哪个类别或者族群。</p>
-<h3 id="什么是-熵（entropy）"><a href="#什么是-熵（entropy）" class="headerlink" title="什么是 熵（entropy）"></a>什么是 熵（entropy）</h3><p>$$<br>E&#x3D;1+\frac{1}{N\log(k)}\biggl(\sum_{i&#x3D;1}^{N}\sum_{k&#x3D;1}^{K}P(C&#x3D;k|U_{i})\log(P(C&#x3D;k|U_{i}))\biggr)<br>$$</p>
+<h3 id="什么是-熵（entropy）"><a href="#什么是-熵（entropy）" class="headerlink" title="什么是 熵（entropy）"></a>什么是 熵（entropy）</h3><p><code>$$ E=1+\frac&#123;1&#125;&#123;N\log(k)&#125;\biggl(\sum_&#123;i=1&#125;^&#123;N&#125;\sum_&#123;k=1&#125;^&#123;K&#125;P(C=k|U_&#123;i&#125;)\log(P(C=k|U_&#123;i&#125;))\biggr) $$</code></p>
 <p>其中 C 是潜在变量，K 是类别数，N 是样本大小，Ui 是所有潜在类别指示变量的向量，概率 P(C &#x3D; k|Ui) 是根据估计模型计算得出的。熵越大，潜在类别识别越清晰。熵值介于 0 和 1 之间。熵值接近 1 表示类别分离清晰。</p>
 <p>从熵的计算公式可以看出， 概率P越大， 熵值越大， 但是概率P大是什么意思？ P(C &#x3D; k|Ui) 是根据估计模型计算得出的， 估计了每个潜在类别的条件概率， 当指标取某些值的时候，该样本属于一个类别的概率越大， 那么熵值越大。 </p>
 <p>在LPA分析中， 熵值超过0.8 时， 认为该模型拟合度较高， 可以认为该模型拟合了数据， 可以进行后续分析。</p>
+<h3 id="LPA-和-LCA-有什么区别"><a href="#LPA-和-LCA-有什么区别" class="headerlink" title="LPA 和 LCA 有什么区别"></a>LPA 和 LCA 有什么区别</h3><p>LPA（‌潜在剖面分析）‌和LCA（‌潜在类别分析）‌的主要区别在于它们处理的外显变量类型不同。‌</p>
+<ul>
+<li>LCA‌：‌主要用于处理分类变量，‌即那些具有明确类别界限的变量。‌在LCA中，‌潜在变量是不可观测的类别变量，‌而外显变是可观测的分类变量。‌LCA的基本假设是，‌对于各个外显变量，‌其各种反应的概率分布可以由少数互斥的潜在类别变量来解释12。‌</li>
+<li>‌LPA‌：‌则专注于分析连续变量，‌即那些在一定范围内可以取任意实数值的变量。‌与LCA类似，‌LPA也试图通过潜在的类别变<br>量来解释外显变量之间的关系，‌但处理的数据类型不同‌。‌</li>
+</ul>
+<h3 id="LPA-可以假如分类变量吗（LCA可以加入连续变量吗）"><a href="#LPA-可以假如分类变量吗（LCA可以加入连续变量吗）" class="headerlink" title="LPA 可以假如分类变量吗（LCA可以加入连续变量吗）"></a>LPA 可以假如分类变量吗（LCA可以加入连续变量吗）</h3><p>这是要给问题， 如果在LPA中加入分类变量， 那么这个模型既有连续变量也有分类变量，<br>这与LCA中加入连续变量是一样的， 这两种情况都是一个模型。在算法层面上， 是可以这么做的。<br>往往我们把这种模型叫LCA，是带有连续变量的LCA。</p>
 
     </div>
 
@@ -695,6 +701,10 @@ setInterval(()=>{
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/09/04/Deep-Live-Cam-Real-Time-Face-Swap-%E5%9C%A8-windows-%E4%B8%8A%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/">Deep Live Cam Real-Time F</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/08/30/%E5%85%B3%E4%BA%8ELPA%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于LPA分析的一些问题</a>
             </li>
             
@@ -728,10 +738,6 @@ setInterval(()=>{
             
             <li>
                 <a class="footer-post" href="/2024/05/20/mplus%E4%B8%AD%E4%BB%8B%E3%80%81%E8%B0%83%E8%8A%82%E5%92%8C%E6%9C%89%E8%B0%83%E8%8A%82%E7%9A%84%E4%B8%AD%E4%BB%8B%E6%95%99%E7%A8%8B/">mplus中介、调节和有调节的中介教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/04/23/%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%B5%8B%E9%87%8F%E6%A8%A1%E5%9E%8B%E4%B8%8D%E5%8F%98%E6%80%A7%E5%9C%A8%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E7%9A%84%E5%A4%9A%E7%BB%84%E6%AF%94%E8%BE%83%E4%B8%AD/">如何检验测量模型不变性在结构方程的多组比较中</a>
             </li>
             
         </ul>
