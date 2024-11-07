@@ -252,6 +252,152 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/06/19/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B75%5DHTMLParser%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE/">
+                python教程：[75]HTMLParser采集网页数据
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年06月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>HTMLParser是python自带的处理html文件的模块，用起来非常简单，但很有实用价值，下面我们通过一个简单的例子来说明它的工作机制，然后对它所包含的所有方法进行一个说明。</p>
+<ul>
+<li>先看一个简单的例子，我们先引入HTMLParser，然后声明一个类，继承自HTMLPaerser，然后定义了一个方法，这个方法继承自HTMLParser</li>
+</ul>
+<img src="/2016/06/19/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B75%5DHTMLParser%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE/5beeba0f4bfbfbedc8be6c497bf0f736aec31fe5.jpg" class="" title="python教程：[75]HTMLParser采集网页数据">
+
+<ul>
+<li>这一段代码的运行结果是：从结果中我们可以看到feed方法是将要处理的html字符串传递给HTMLParser，处理的过程是从前到后逐个处理html文件的标签，当遇到一个标签的时候，就调用handle_starttag方法，我们写的这个方法就是将tag名打印出来，所以就出现了下面这个结果：</li>
+</ul>
+<img src="/2016/06/19/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B75%5DHTMLParser%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE/718e25c79f3df8dce066caa7ce11728b47102869.jpg" class="" title="python教程：[75]HTMLParser采集网页数据">
+
+<ul>
+<li><p>feed()和handle_starttag()已经说了，这里不再重复</p>
+</li>
+<li><p>handle_endtag()：处理结束标签，比如</a>就是一个结束标签，当遇到结束标签的时候调用该方法</p>
+</li>
+<li><p>handle_data():处理数据，比如<a>这是数据</a>，“这是数据”就是data，当遇到data的时候调用该方法。</p>
+</li>
+<li><p>handle_entityref()：处理“&gt;”“&amp;#62;”“&amp;#x3E;”这样的字符串，他们各有自己指代的字符，处理的方法是使用name2codepoint将其转换，就可以知道gt原来是&gt;的意思</p>
+</li>
+</ul>
+<img src="/2016/06/19/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B75%5DHTMLParser%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE/b25aae51f81986184ee3a9b249ed2e738bd4e625.jpg" class="" title="python教程：[75]HTMLParser采集网页数据">
+
+<img src="/2016/06/19/python%E6%95%99%E7%A8%8B%EF%BC%9A%5B75%5DHTMLParser%E9%87%87%E9%9B%86%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE/29790130e924b89921983f0e6d061d950a7bf625.jpg" class="" title="python教程：[75]HTMLParser采集网页数据">
+
+<ul>
+<li><p>handle_charref()处理十进制或十六进制“&amp;#x3E;”这样的字符串，可以将其转换为&amp;gt</p>
+</li>
+<li><p>handle_comment()处理<!--comment-->内的内容</p>
+</li>
+<li><p>handle_decl()处理html文档类型声明，例如<!coctype html></p>
+</li>
+<li><p>大部分方法都列在上面了，还有一些不常用就没有写，这些相信已经够你用了。</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#x38;&#x37;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;">&#x36;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#x38;&#x37;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/06/15/Excel2013%EF%BC%9A%5B20%5D%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/">
+                Excel2013：[20]如何删除数据透视表
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年06月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>我们创建了一个数据透视表，然后突然发现创错误，需要删除数据透视表，怎么办？其实有两种方法，第一种就是删除数据透视表所在的工作表，第二种就是删除透视表而不删除工作表。第一种我常用，因为我建立的数据透视表通常是在新建的工作表当中，但是有时候，我们的数据透视表所在的工作表还有其他内容，无法删除，所以就需要第二种方法，下面是具体的步骤：</p>
+<ul>
+<li>直接删除工作表，很简单，右键单击工作表，在右键菜单中，选择【删除】</li>
+</ul>
+<img src="/2016/06/15/Excel2013%EF%BC%9A%5B20%5D%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/647912d7912397ddc5574a765b82b2b7d0a28753.jpg" class="" title="Excel2013：[20]如何删除数据透视表">
+
+<ul>
+<li>方法二呢复杂一点：选中数据透视表的一个单元格</li>
+</ul>
+<img src="/2016/06/15/Excel2013%EF%BC%9A%5B20%5D%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/c71d0e385343fbf2ee117451b27eca8065388f40.jpg" class="" title="Excel2013：[20]如何删除数据透视表">
+
+<ul>
+<li>在菜单中出现了【分析】标签，我们切换到【分析】标签下</li>
+</ul>
+<img src="/2016/06/15/Excel2013%EF%BC%9A%5B20%5D%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/fab3ac119313b07e9580827a0ed7912397dd8c40.jpg" class="" title="Excel2013：[20]如何删除数据透视表">
+
+<ul>
+<li>在这个菜单中，找到【选择】，点击它，打开一个下拉菜单</li>
+</ul>
+<img src="/2016/06/15/Excel2013%EF%BC%9A%5B20%5D%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/caae68094b36acaf41ce448e7ed98d1001e99c53.jpg" class="" title="Excel2013：[20]如何删除数据透视表">
+
+<ul>
+<li>我们选择【整个数据透视表】</li>
+</ul>
+<img src="/2016/06/15/Excel2013%EF%BC%9A%5B20%5D%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/adee30dda3cc7cd9ff03e6ab3b01213fb80e9153.jpg" class="" title="Excel2013：[20]如何删除数据透视表">
+
+<ul>
+<li>选中了数据透视表以后，我们点击【delete键】，删除之</li>
+</ul>
+<img src="/2016/06/15/Excel2013%EF%BC%9A%5B20%5D%E5%A6%82%E4%BD%95%E5%88%A0%E9%99%A4%E6%95%B0%E6%8D%AE%E9%80%8F%E8%A7%86%E8%A1%A8/0db52fadcbef760926364bed2cdda3cc7cd99e40.jpg" class="" title="Excel2013：[20]如何删除数据透视表">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#57;&#x35;&#x37;&#56;&#x37;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;">&#54;&#55;&#53;&#x34;&#57;&#x35;&#x37;&#56;&#x37;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/06/15/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B14%5D%E6%95%B0%E6%8D%AE%E4%B8%AD%E5%BF%83%E5%8C%96%E7%9A%84%E6%89%8B%E5%B7%A5%E6%93%8D%E4%BD%9C/">
                 SPSS实例：[14]数据中心化的手工操作
             </a>
@@ -916,235 +1062,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/06/01/Excel2013%EF%BC%9A%5B12%5D%E5%85%AC%E5%BC%8F%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AE%A1%E7%AE%97%E5%92%8C%E6%89%8B%E5%8A%A8%E8%AE%A1%E7%AE%97/">
-                Excel2013：[12]公式的自动计算和手动计算
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年06月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>假如你的工作表公式比较多，假如你修改一个数据，大量公式就要重新计算，那么你需要这篇文章，你需要将公式的自动计算设置成手动计算，修改数据以后，按下F9就能计算，下面是具体的教程：</p>
-<ul>
-<li>我们点击文件选项，打开开始页面</li>
-</ul>
-<img src="/2016/06/01/Excel2013%EF%BC%9A%5B12%5D%E5%85%AC%E5%BC%8F%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AE%A1%E7%AE%97%E5%92%8C%E6%89%8B%E5%8A%A8%E8%AE%A1%E7%AE%97/1899a23eb13533faa4f4cf34aad3fd1f41345b2e.jpg" class="" title="Excel2013：[12]公式的自动计算和手动计算">
-
-<ul>
-<li>在这里，找到选项按钮，点击</li>
-</ul>
-<img src="/2016/06/01/Excel2013%EF%BC%9A%5B12%5D%E5%85%AC%E5%BC%8F%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AE%A1%E7%AE%97%E5%92%8C%E6%89%8B%E5%8A%A8%E8%AE%A1%E7%AE%97/00a82701213fb80e8e783dcd34d12f2eb83894c4.jpg" class="" title="Excel2013：[12]公式的自动计算和手动计算">
-
-<ul>
-<li>在公式选项下，找到工作簿计算：自动重算、手动重算，按照你的需要自己进行切换</li>
-</ul>
-<img src="/2016/06/01/Excel2013%EF%BC%9A%5B12%5D%E5%85%AC%E5%BC%8F%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AE%A1%E7%AE%97%E5%92%8C%E6%89%8B%E5%8A%A8%E8%AE%A1%E7%AE%97/55a628d12f2eb93861c426e8d7628535e4dd6fc4.jpg" class="" title="Excel2013：[12]公式的自动计算和手动计算">
-
-<ul>
-<li>或者你还可以在公式标签下，设置计算选项，取消勾选【自动】</li>
-</ul>
-<img src="/2016/06/01/Excel2013%EF%BC%9A%5B12%5D%E5%85%AC%E5%BC%8F%E7%9A%84%E8%87%AA%E5%8A%A8%E8%AE%A1%E7%AE%97%E5%92%8C%E6%89%8B%E5%8A%A8%E8%AE%A1%E7%AE%97/b87985504fc2d56278a18cf7e51190ef77c66cc4.jpg" class="" title="Excel2013：[12]公式的自动计算和手动计算">
-
-<ul>
-<li>在你修改了原数据以后，需要按下F9才能计算公式</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#x34;&#57;&#53;&#55;&#56;&#55;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#109;">&#x36;&#55;&#x35;&#x34;&#57;&#53;&#55;&#56;&#55;&#64;&#113;&#113;&#x2e;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/06/01/SPSS%E8%87%AA%E5%8A%A8%E5%8C%96%EF%BC%9A%5B2%5Dispssdatadoc%E5%AF%B9%E8%B1%A1%E6%96%B9%E6%B3%95%E7%94%A8%E6%B3%95/">
-                SPSS自动化：[2]ispssdatadoc对象方法用法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年06月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>ispssdatadoc对象从属于document对象，其方法有很多，今天我们来一一介绍，包括他的功能和用法，可能有不太详尽的地方，大家多提意见，欢迎有志于spss自动化的网友交流。</p>
-<ul>
-<li><p>1&gt;clear方法：清除数据。</p>
-</li>
-<li><p>使用方法：objdatadoc.selectcells（”a”,”b”,19,29)</p>
-</li>
-<li><p>Objdatadoc.clear</p>
-</li>
-<li><p>2&gt;copy方法：复制数据。</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>objdatadoc.copy</p>
-</li>
-<li><p>3&gt;cut方法：</p>
-</li>
-<li><p>剪贴对象到剪贴板。使用方法：</p>
-</li>
-<li><p>objoutputdoc.selectalltables</p>
-</li>
-<li><p>Objoutputdoc.cut</p>
-</li>
-<li><p>4&gt;delete方法：删除选定的数据。</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>objoutputdoc.selectlastutput</p>
-</li>
-<li><p>Objoutputdoc.remove</p>
-</li>
-<li><p>5&gt;deletemenuitem方法：删除菜单项</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>Objdatadoc.deletemenuitem(“edit”)</p>
-</li>
-<li><p>6&gt;deletemenuitemfromall方法：从所有数据窗中中删除菜单项，用法同上。</p>
-</li>
-<li><p>7&gt;getbannertext方法：获取标题文本</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>Banner&#x3D;objoutputdoc.getbannertext</p>
-</li>
-<li><p>8&gt;getdocumentpath方法：获取文档路径</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>Path&#x3D;objoutputdoc.getdocumentpath</p>
-</li>
-<li><p>9&gt;getfiltervariable方法：获取变量名或者带有标签的变量名</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>Objdatadoc.getfiltervariable(false)   ‘false表示只获得变量名不要标签</p>
-</li>
-<li><p>10&gt;getnumberofcases方法：获取case数量</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>Num&#x3D;objdatadoc.getnumberofcases</p>
-</li>
-<li><p>11&gt;gettextdata方法：获取范围内文本格式的数据</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>array&#x3D;objdatadoc.gettextdata(“a列”,”b列”,12,14)</p>
-</li>
-<li><p>12&gt;getvariables方法：返回一个一维变量数组，可以选择接收变量还变量标签。功能是获得变量名或者带标签的变量名。</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>Variablelist&#x3D;objdatadoc.getvariables(boolean)           ‘boolean取1为获取变量名和标签，取0为仅获取变量名</p>
-</li>
-<li><p>13&gt;getweightingvariable方法：获取加权变量。</p>
-</li>
-<li><p>使用方法：string&#x3D;objdatadoc.getweightingvariable(boolean)          ‘boolean是1则返回变量名和标签</p>
-</li>
-<li><p>14&gt;invokedialogandexcutesyntax方法：激活一个对话框并运行命令。</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>Objdatadoc.invokedialogandexecutesyntax(strpath,spsswindoparent,true)     ‘strpath是菜单路径，例如”analyze&gt;survival&gt;lifetables”；spsswindoparent是父对话框，可取1或者0；true指的是同步，也就是运行命令以后立刻获得控制权。</p>
-</li>
-<li><p>15&gt;invokedialogandreturnsyntax方法：返回一个syntax命令。</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>String&#x3D;objdatadoc.invokedialogandreturnssyntax(strpath,spsswindoparent)</p>
-</li>
-<li><p>16&gt;paste方法：粘贴</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>Objdatadoc.selectcells(‘a列’,’b列’,20,23)    ‘选择区域粘贴</p>
-</li>
-<li><p>Objdatadoc.paste</p>
-</li>
-<li><p>17&gt;printdoc方法：打印</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>Objdatadoc.printdoc     ‘使用ispssprintoptions和printrange确定打印内容和方法。</p>
-</li>
-<li><p>18&gt;saveas方法：另存为</p>
-</li>
-<li><p>使用方法：objdatadoc.saveas(“d:\fuck.sav”)</p>
-</li>
-<li><p>19&gt;selectcases方法：选择case</p>
-</li>
-<li><p>使用方法：objdatadoc.selectcases(1,100)     ‘选择1到100的case</p>
-</li>
-<li><p>20&gt;selectcells方法：选择单元格</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>Objdatadoc.selectcells(‘a列’,’b列’,1,100)</p>
-</li>
-<li><p>21&gt;selectvariables方法：选择一定范围内的变量</p>
-</li>
-<li><p>使用方法：</p>
-</li>
-<li><p>Objdatadoc.selectvariables(‘a列’,’b列’)</p>
-</li>
-</ul>
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#52;&#57;&#x35;&#55;&#x38;&#55;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#109;">&#54;&#x37;&#x35;&#52;&#57;&#x35;&#55;&#x38;&#55;&#64;&#x71;&#x71;&#46;&#x63;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1186,6 +1103,14 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/11/07/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/">SPSS做Meta分析原来这么简单-教程如下</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/11/07/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/">SPSS做Meta分析原来这么简单-教程如下</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/10/18/mplus%E7%BB%98%E5%88%B6%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%9B%BE/">mplus绘制调节效应图</a>
             </li>
             
@@ -1215,14 +1140,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">mplus做LCA入门教程</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/07/17/mplus%E5%A6%82%E4%BD%95%E8%AE%A1%E7%AE%97%E7%BB%84%E5%86%85%E7%9B%B8%E5%85%B3%E7%B3%BB%E6%95%B0ICC/">mplus如何计算组内相关系数ICC</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/07/10/%E5%B7%A5%E5%85%B7%E5%88%86%E4%BA%AB%E5%9B%BE%E7%89%87%E6%A0%BC%E5%BC%8F%E7%9A%84%E6%95%B0%E5%AD%A6%E5%85%AC%E5%BC%8F%E8%AF%86%E5%88%AB%E4%B8%80%E9%94%AE%E8%BD%AClatex%E6%88%96mathjax/">工具分享图片格式的数学公式识别一键转latex或m</a>
             </li>
             
         </ul>
