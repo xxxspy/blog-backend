@@ -1,7 +1,7 @@
 ---
 title: SPSS做Meta分析原来这么简单-教程如下
 date: 2024-11-07 20:56:56
-tags: Meta Analysis, SPSS, Clinical Decision Making,  Forest Plot,  Effect Size
+tags: [meta分析, SPSS, Clinical Decision Making,  Forest Plot,  Effect Size]
 mathjax: true
 ---
 
@@ -9,6 +9,13 @@ mathjax: true
 当然, 如果有不懂的地方请留言, 如果觉得对你有帮助, 请打赏. 教程中用到的数据我都有, 找我要就行, 下面有方法.
 
 <!-- more -->
+
+我们每天都会为童鞋们代做meta分析, 因为其中的工作量很大, 所以很多童鞋会放弃这种方法, 我建议你在放弃之前, 看下这篇文章:[Meta分析-从找数据到出报告](/2024/11/12/Meta分析代做-从找数据到出报告)
+
+## meta分析视频教程
+
+https://www.bilibili.com/video/BV1irU3YsExg/?vd_source=a196c58475bb84633185dbd4a3bdaf20
+
 
 ## 关键统计概念
 

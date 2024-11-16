@@ -252,6 +252,65 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/01/03/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B8%5D%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2/">
+                Django教程：[8]第一个动态页面
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年01月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>今天我们写一个动态页面，让我们理解一下动态页面的原理。其实前面我们写过一篇文章介绍如何构建第一个静态页面，你可以搜索【Django教程：[4]制作第一个网页】，今天的这一篇文章与上一篇仅有一点不同，今天是动态的页面，你每次访问这个页面都是不同的。</p>
+<ul>
+<li>我们先在view文件中创建一个函数来返回页面，关于view文件，你应该参考下面的参考资料。我们先引入了datetime模块来计算当前的时间，然后增加一个函数ctime，此函数可以计算当前时间，保存在cutime变量中，然后通过HttpResponse返回到页面</li>
+</ul>
+<img src="/2015/01/03/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B8%5D%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2/ae10eddeb48f8c547927765538292df5e1fe7f91.jpg" class="" title="Django教程：[8]第一个动态页面">
+
+<ul>
+<li>接下来设置函数ctime与url的映射。先要引入ctime函数，看下面第一个红色方框；然后再建立函数与url模式的映射关系，看下面第二个红色方框</li>
+</ul>
+<img src="/2015/01/03/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B8%5D%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2/91ae68c6a7efce1b7afc7bb0ad51f3deb58f65b2.jpg" class="" title="Django教程：[8]第一个动态页面">
+
+<ul>
+<li>我们在浏览器中输入url既可以看到在相应的url下，打开一个页面，显示当前的日期。</li>
+</ul>
+<img src="/2015/01/03/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B8%5D%E7%AC%AC%E4%B8%80%E4%B8%AA%E5%8A%A8%E6%80%81%E9%A1%B5%E9%9D%A2/3b6833f5e0fe99254ff8da2a36a85edf8cb17191.jpg" class="" title="Django教程：[8]第一个动态页面">
+
+<ul>
+<li>刷新页面，你可以看到不同的时间，这就是动态页面。与动态页面相对，还有动态url，我们下一篇文章介绍如何设置动态的url。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#x34;&#57;&#x35;&#55;&#x38;&#55;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;">&#54;&#x37;&#53;&#x34;&#57;&#x35;&#55;&#x38;&#55;&#x40;&#113;&#113;&#46;&#x63;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/django/">#django</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/01/01/spss%E4%B8%A4%E5%9B%A0%E7%B4%A0%EF%BC%88%E6%9C%89%E4%B8%80%E4%B8%AA%E8%BF%9E%E7%BB%AD%E5%8F%98%E9%87%8F%EF%BC%89%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/">
                 spss两因素（有一个连续变量）如何进行方差分析
             </a>
@@ -449,6 +508,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/11/12/Meta%E5%88%86%E6%9E%90%E4%BB%A3%E5%81%9A-%E4%BB%8E%E6%89%BE%E6%95%B0%E6%8D%AE%E5%88%B0%E5%87%BA%E6%8A%A5%E5%91%8A/">Meta分析-从找数据到出报告</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/11/07/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/">SPSS做Meta分析原来这么简单-教程如下</a>
             </li>
             
@@ -482,10 +545,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">潜在类别分析LCA最佳实践</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">mplus做LCA入门教程</a>
             </li>
             
         </ul>

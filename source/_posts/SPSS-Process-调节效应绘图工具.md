@@ -187,6 +187,6 @@ setTimeout(()=>{
 
 ## 如何使用Excel绘制SPSS Process的简单斜率图
 
-下载Excel地址： https://afdian.net/item/6eb619fccb0011ed868452540025c377
+下载Excel地址： https://afdian.com/item/6eb619fccb0011ed868452540025c377
 
 

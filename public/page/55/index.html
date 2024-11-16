@@ -252,6 +252,359 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/10/11/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B18%5Dall()%E5%92%8Cany()%E6%AF%94%E8%BE%83%E7%9F%A9%E9%98%B5/">
+                numpy函数：[18]all()和any()比较矩阵
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年10月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>假如我们想要知道矩阵a和矩阵b中所有对应元素是否相等，我们需要使用all方法，假如我们想要知道矩阵a和矩阵b中对应元素是否有一个相等，我们需要使用any方法。下面看几个例子：</p>
+<ul>
+<li>先引入numpy模块</li>
+</ul>
+<img src="/2015/10/11/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B18%5Dall()%E5%92%8Cany()%E6%AF%94%E8%BE%83%E7%9F%A9%E9%98%B5/8640bf8b87d6277fe7f17acf2a381f30e824fc23.jpg" class="" title="numpy函数：[18]all()和any()比较矩阵">
+
+<ul>
+<li>创建两个数组，当然，在这里，我通常把数组教程矩阵或者向量，这无关紧要</li>
+</ul>
+<img src="/2015/10/11/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B18%5Dall()%E5%92%8Cany()%E6%AF%94%E8%BE%83%E7%9F%A9%E9%98%B5/9dc3cf58ccbf6c818daf641fbe3eb13532fa4069.jpg" class="" title="numpy函数：[18]all()和any()比较矩阵">
+
+<ul>
+<li>检测一下是否a和b中所有对应元素均相等，如果均相等，返回true，只要有一个不相等，返回false</li>
+</ul>
+<img src="/2015/10/11/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B18%5Dall()%E5%92%8Cany()%E6%AF%94%E8%BE%83%E7%9F%A9%E9%98%B5/b0742dfa828ba61ebc7680d84334970a314e5969.jpg" class="" title="numpy函数：[18]all()和any()比较矩阵">
+
+<ul>
+<li>创建一个数组c</li>
+</ul>
+<img src="/2015/10/11/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B18%5Dall()%E5%92%8Cany()%E6%AF%94%E8%BE%83%E7%9F%A9%E9%98%B5/0b3a1c087bf40ad1e5078f14552c11dfa8ecce23.jpg" class="" title="numpy函数：[18]all()和any()比较矩阵">
+
+<ul>
+<li>检测一下是否a和c中所有对应元素均相等，如果均相等，返回true，只要有一个不相等，返回false</li>
+</ul>
+<img src="/2015/10/11/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B18%5Dall()%E5%92%8Cany()%E6%AF%94%E8%BE%83%E7%9F%A9%E9%98%B5/245e8bcad1c8a786d4b202f96509c93d71cf5069.jpg" class="" title="numpy函数：[18]all()和any()比较矩阵">
+
+<ul>
+<li>但是any相反，只要有一个元素相等就可以返回true</li>
+</ul>
+<img src="/2015/10/11/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B18%5Dall()%E5%92%8Cany()%E6%AF%94%E8%BE%83%E7%9F%A9%E9%98%B5/62667cd0f703918f3132753d533d269758eec423.jpg" class="" title="numpy函数：[18]all()和any()比较矩阵">
+
+<ul>
+<li>再尝试一次：</li>
+</ul>
+<img src="/2015/10/11/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B18%5Dall()%E5%92%8Cany()%E6%AF%94%E8%BE%83%E7%9F%A9%E9%98%B5/7e7f7909c93d70cf1962e2fafadcd100bba12b69.jpg" class="" title="numpy函数：[18]all()和any()比较矩阵">
+
+<img src="/2015/10/11/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B18%5Dall()%E5%92%8Cany()%E6%AF%94%E8%BE%83%E7%9F%A9%E9%98%B5/cc506c8b4710b912e359be09c1fdfc0393452269.jpg" class="" title="numpy函数：[18]all()和any()比较矩阵">
+
+<ul>
+<li><p>本篇教程用到的所有代码都呈现在下方：</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>import numpy</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>a&#x3D;numpy.array([1,2,3])</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>b&#x3D;a.copy</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>a</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([1, 2, 3])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>b</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>&lt;built-in method copy of numpy.ndarray object at 0x0000000002EA41D0&gt;</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>b&#x3D;a.copy()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>b</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([1, 2, 3])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>(a&#x3D;&#x3D;b).all()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>True</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>c&#x3D;b.copy()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>c[0]&#x3D;0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>c</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([0, 2, 3])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>a</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([1, 2, 3])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>(a&#x3D;&#x3D;c).all()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>False</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>(a&#x3D;&#x3D;c).any()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>True</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>c[1]&#x3D;0</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>c</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([0, 0, 3])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>a</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([1, 2, 3])</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>(c&#x3D;&#x3D;a).any()</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>True</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#52;&#57;&#53;&#x37;&#x38;&#x37;&#64;&#113;&#113;&#x2e;&#x63;&#111;&#109;">&#x36;&#x37;&#53;&#52;&#57;&#53;&#x37;&#x38;&#x37;&#64;&#113;&#113;&#x2e;&#x63;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/numpy/">#numpy</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/10/11/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B10%5Dgroupby%E9%80%89%E6%8B%A9%E5%88%97%E5%92%8C%E8%BF%AD%E4%BB%A3/">
                 pandas教程：[10]groupby选择列和迭代
             </a>
@@ -1371,117 +1724,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/">
-                DataNitro：[2]调用Python的方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年10月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>作为入门的第二篇文章，我们还是要讲一些基础的东西，这篇文章我们介绍一下如何在datanitro下使用Python来操作excel。</p>
-<ul>
-<li>第一种方式，我们可以在Python shell里面运行Python代码，点击它打开</li>
-</ul>
-<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/5327ce160924ab1887e97a6636fae6cd7a890ba0.jpg" class="" title="DataNitro：[2]调用Python的方法">
-
-<ul>
-<li>一开始我们会看到这个界面，出现了欢迎信息，说明你的datanitro Python shell是可以工作的。</li>
-</ul>
-<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/b3f6cea20cf431ad6860d8684836acaf2fdd98f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
-
-<ul>
-<li>输入一个简单的命令：Cell(1,1).value&#x3D;’hello world’（注意大小写）；按回车就可以执行</li>
-</ul>
-<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/adee30dda3cc7cd9279faf883a01213fb90e91f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
-
-<ul>
-<li>这段代码的效果就是单元格A1赋值为hello world</li>
-</ul>
-<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/d002b34bd11373f09dc0f4cea70f4bfbfaed04a0.jpg" class="" title="DataNitro：[2]调用Python的方法">
-
-<ul>
-<li>我们可以使用Python中已经安装的包：</li>
-</ul>
-<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/7aad4ae736d12f2e0ab735314cc2d562843568f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
-
-<ul>
-<li>我们可以先建立一个Python的脚本文件**.py，然后引入该文件：点击import</li>
-</ul>
-<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/e49cf91190ef76c61b60607a9e16fdfaae5167f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
-
-<ul>
-<li>找到该Python文件并打开</li>
-</ul>
-<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/42e89c26cffc1e17b84017604990f603728de9a1.jpg" class="" title="DataNitro：[2]调用Python的方法">
-
-<ul>
-<li>你会看到这个文件已经被引入，点击editor就可以编辑该文件</li>
-</ul>
-<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/8bc3a7014a90f603454f07163a12b31bb151eda1.jpg" class="" title="DataNitro：[2]调用Python的方法">
-
-<ul>
-<li>编辑器也是够难看的！但是我们可以先输入以下代码试试：注意#号表示注释，没有任何作用，实质上只有一句话有用：Cell(1,3).value&#x3D;u’中文’</li>
-</ul>
-<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/8cf0d513495409230fdbf82f9158d109b2de49f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
-
-<ul>
-<li>然后回到excel，点击run，就可以执行命令</li>
-</ul>
-<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/570f8c58d109b3de4b0d7f39cfbf6c81810a4cf6.jpg" class="" title="DataNitro：[2]调用Python的方法">
-
-<ul>
-<li>用过excel函数的都知道它有多么强大，现在我们有机会写自己的函数了，我们需要先建立一个名字为functions.py的文件</li>
-</ul>
-<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/d048adde9c82d1581530c2e0830a19d8bd3e42f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
-
-<ul>
-<li>在里面写入一个function并保存</li>
-</ul>
-<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/a84052086e061d955bb9ac6978f40ad163d9caa1.jpg" class="" title="DataNitro：[2]调用Python的方法">
-
-<ul>
-<li>记得检查在设置里面是否有允许使用Python自定义函数，如果你没有选，你需要选上他，然后重启excel</li>
-</ul>
-<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/4075890a304e251f7d457fa9a486c9177e3e53f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
-
-<ul>
-<li>现在在单元格里使用一下该函数，你可以看到效果：</li>
-</ul>
-<img src="/2015/10/01/DataNitro%EF%BC%9A%5B2%5D%E8%B0%83%E7%94%A8Python%E7%9A%84%E6%96%B9%E6%B3%95/964b2e4e251f95ca384709e7ca177f3e660952f6.jpg" class="" title="DataNitro：[2]调用Python的方法">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#109;">&#54;&#x37;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#113;&#113;&#46;&#x63;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a> <a href="/tags/datanitro/">#datanitro</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1523,6 +1765,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/11/12/Meta%E5%88%86%E6%9E%90%E4%BB%A3%E5%81%9A-%E4%BB%8E%E6%89%BE%E6%95%B0%E6%8D%AE%E5%88%B0%E5%87%BA%E6%8A%A5%E5%91%8A/">Meta分析-从找数据到出报告</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/11/07/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/">SPSS做Meta分析原来这么简单-教程如下</a>
             </li>
             
@@ -1556,10 +1802,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">潜在类别分析LCA最佳实践</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">mplus做LCA入门教程</a>
             </li>
             
         </ul>

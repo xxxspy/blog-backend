@@ -149,7 +149,7 @@ Csikszentmihalyi认为心流体验描述了个体完全投入专注当下所进�
 
 <iframe src="//player.bilibili.com/player.html?bvid=BV1be411A7CX&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true" style="height:600px;width:900px"> </iframe>
 
-视频总共三集，完整版视频和数据下载地址如下：[点击这里下载完整视频和数据](https://afdian.net/item?plan_id=447652827e8a11ed968252540025c377)
+视频总共三集，完整版视频和数据下载地址如下：[点击这里下载完整视频和数据](https://afdian.com/item?plan_id=447652827e8a11ed968252540025c377)
 
 
 
@@ -165,7 +165,7 @@ mod代表调节变量， moda/modb/modc代表调节变量的三个维度。
 如果你需要使用该数据， 你可以在这里下载， 不过这不是免费下载的， 
 如果你下载了视频教程， 在视频教程里面会打包数据， 没必要再下载。
 
-[点击这里下载完整视频和数据](https://afdian.net/item?plan_id=447652827e8a11ed968252540025c377)
+[点击这里下载完整视频和数据](https://afdian.com/item?plan_id=447652827e8a11ed968252540025c377)
 
 
 > **注意**

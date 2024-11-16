@@ -124,7 +124,7 @@ src="//player.bilibili.com/player.html?aid=555736434&bvid=BV16r4y1u7tc&cid=76700
 
 ### 视频完整版及数据下载
 
-https://afdian.net/item?plan_id=d72215a6fe7111eca07a52540025c377
+https://afdian.com/item?plan_id=d72215a6fe7111eca07a52540025c377
 
 
 > **注意**

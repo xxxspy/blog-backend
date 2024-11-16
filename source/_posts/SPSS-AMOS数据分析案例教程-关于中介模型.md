@@ -35,6 +35,6 @@ tags: [spss, amos]
 
 ### 视频下载
 
-这个教程是收费的, 点击[这里下载](https://afdian.net/item?plan_id=27fe3c40cf4011ecbd1b52540025c377)。 
+这个教程是收费的, 点击[这里下载](https://afdian.com/item?plan_id=27fe3c40cf4011ecbd1b52540025c377)。 
 
 

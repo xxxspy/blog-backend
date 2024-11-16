@@ -252,6 +252,94 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/04/19/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%92%8C%E6%8A%96%E5%8A%A8%E5%9B%BE/">
+                pandas教程：[27]散点图和抖动图
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年04月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>拿到一个数据我们首先想到的是绘制散点图查看数据的基本分布情况，那么在Python.pandas中，如何绘制散点图呢？散点图的缺陷是什么，为什么要绘制抖动图呢？</p>
+<ul>
+<li>先引入相应的模块</li>
+</ul>
+<img src="/2015/04/19/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%92%8C%E6%8A%96%E5%8A%A8%E5%9B%BE/b25d9901a18b87d6333d7e6f040828381f30fd00.jpg" class="" title="pandas教程：[27]散点图和抖动图">
+
+<ul>
+<li>读取数据到数据框df<br>打印出前5行数据，可以看到有两列数据，分别是 孩子的身高和父母的身高</li>
+</ul>
+<img src="/2015/04/19/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%92%8C%E6%8A%96%E5%8A%A8%E5%9B%BE/1e71f724b899a901504a8e461e950a7b0208f500.jpg" class="" title="pandas教程：[27]散点图和抖动图">
+
+<img src="/2015/04/19/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%92%8C%E6%8A%96%E5%8A%A8%E5%9B%BE/3790312eb9389b50ccbb35228635e5dde7116e3f.jpg" class="" title="pandas教程：[27]散点图和抖动图">
+
+<ul>
+<li>先绘制一个散点图，x轴为孩子的身高，y轴为父母的身高，将绘制得到的图片保存在D盘下的plot.png文件</li>
+</ul>
+<img src="/2015/04/19/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%92%8C%E6%8A%96%E5%8A%A8%E5%9B%BE/969cbf44ad345982dfce30e20ff431adcbef843f.jpg" class="" title="pandas教程：[27]散点图和抖动图">
+
+<ul>
+<li>我们可以看到得到的图片是酱紫的，由于数据点重合在了一起，所以我们看到的散点图很规整，但却隐藏了规律，于是我们想到用到抖动的方法，绘制抖动图</li>
+</ul>
+<img src="/2015/04/19/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%92%8C%E6%8A%96%E5%8A%A8%E5%9B%BE/08b68e529822720e32b1378a78cb0a46f21fab00.jpg" class="" title="pandas教程：[27]散点图和抖动图">
+
+<ul>
+<li>我们看可以实现抖动的函数：所谓的抖动就是让数据点发生微小的位移，也就是略微改变数据的值，使得数据点不能完全重合，抖动距离的大小用下面函数中的factor参数来决定。</li>
+</ul>
+<img src="/2015/04/19/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%92%8C%E6%8A%96%E5%8A%A8%E5%9B%BE/d1e312f431adcbef0470ab76afaf2edda3cc9f3f.jpg" class="" title="pandas教程：[27]散点图和抖动图">
+
+<ul>
+<li>利用上面的函数对df进行处理</li>
+</ul>
+<img src="/2015/04/19/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%92%8C%E6%8A%96%E5%8A%A8%E5%9B%BE/f392492c11dfa9eca251836761d0f703918fc100.jpg" class="" title="pandas教程：[27]散点图和抖动图">
+
+<ul>
+<li>我们看得到的数据df2是酱紫的：</li>
+</ul>
+<img src="/2015/04/19/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%92%8C%E6%8A%96%E5%8A%A8%E5%9B%BE/27d647ee3d6d55fb86b9a3566e224f4a20a4dd00.jpg" class="" title="pandas教程：[27]散点图和抖动图">
+
+<ul>
+<li>现在接着绘制一个散点图，生成的就是抖动图了。alpha参数指的是数据点的透明度</li>
+</ul>
+<img src="/2015/04/19/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%92%8C%E6%8A%96%E5%8A%A8%E5%9B%BE/6391e903918fa0ec26b8b17d259759ee3d6ddb00.jpg" class="" title="pandas教程：[27]散点图和抖动图">
+
+<ul>
+<li>从这个图中我们可以清楚的看到，颜色比较深、数据比较多的点和颜色比较浅、数据比较少的点的位置。</li>
+</ul>
+<img src="/2015/04/19/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E6%95%A3%E7%82%B9%E5%9B%BE%E5%92%8C%E6%8A%96%E5%8A%A8%E5%9B%BE/61183b2dd42a283466d9e37b58b5c9ea15cebf00.jpg" class="" title="pandas教程：[27]散点图和抖动图">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#x40;&#113;&#x71;&#46;&#x63;&#111;&#x6d;">&#x36;&#x37;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#x40;&#113;&#x71;&#46;&#x63;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B6%5Dvba%E6%8E%A7%E5%88%B6spss%E5%A4%84%E7%90%86%E6%95%B0%E6%8D%AE/">
                 SPSS实例：[6]vba控制spss处理数据
             </a>
@@ -1230,92 +1318,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/04/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5DDataFrame%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/">
-                pandas教程：[3]DataFrame切片操作
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年04月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>DataFrame数据框允许我们使用iloc方法来像操作array（数组）一样对DataFrame进行切片操作，其形式上，跟对数组进行切片是一样的，我们下面来演示一下一些典型的切片操作：</p>
-<ul>
-<li>先创建一个6行4列的DataFrame数据框</li>
-</ul>
-<img src="/2015/04/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5DDataFrame%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/4e83cb628535e5dd397819eb75c6a7efce1b626b.jpg" class="" title="pandas教程：[3]DataFrame切片操作">
-
-<ul>
-<li>使用iloc方法，提取第四行数据：</li>
-</ul>
-<img src="/2015/04/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5DDataFrame%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/4abae5edab64034f33d47e32acc379310a551dad.jpg" class="" title="pandas教程：[3]DataFrame切片操作">
-
-<ul>
-<li>我们可以看一下，这种方法得到的返回值是一个series数据</li>
-</ul>
-<img src="/2015/04/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5DDataFrame%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/79b1e936afc3793145713a1de8c4b74543a911ad.jpg" class="" title="pandas教程：[3]DataFrame切片操作">
-
-<ul>
-<li>返回4-5行，1-2列数据，用下面的写法，你可以看到跟array的切片操作是一模一样的额</li>
-</ul>
-<img src="/2015/04/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5DDataFrame%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/b5ce925494eef01fd140a4f1e3fe9925bc317d6b.jpg" class="" title="pandas教程：[3]DataFrame切片操作">
-
-<ul>
-<li>我们也可以提取不连续行和列的数</li>
-</ul>
-<img src="/2015/04/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5DDataFrame%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/1f569482b9014a90ac27fa89aa773912b31beeae.jpg" class="" title="pandas教程：[3]DataFrame切片操作">
-
-<ul>
-<li>想要提取某一样或者某几行的数据，保证所有列都在，可以使用一个冒号来表示所有列</li>
-</ul>
-<img src="/2015/04/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5DDataFrame%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/72ccb7773912b31bef75711d8518367adab4e1ae.jpg" class="" title="pandas教程：[3]DataFrame切片操作">
-
-<ul>
-<li>当然，所有行，也可以用冒号来表示</li>
-</ul>
-<img src="/2015/04/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5DDataFrame%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/b110e6198618367ab990c3e92d738bd4b31ce5ae.jpg" class="" title="pandas教程：[3]DataFrame切片操作">
-
-<ul>
-<li>提取某一个值，去掉所有冒号，比如取第2行第2列的这个数</li>
-</ul>
-<img src="/2015/04/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5DDataFrame%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/d019d2bf6c81800a18b2353ab23533fa828b476b.jpg" class="" title="pandas教程：[3]DataFrame切片操作">
-
-<ul>
-<li>当然，iat是专门提取某个数的方法，它的效率高更高，因此建议在提取单个数的时候用iat</li>
-</ul>
-<img src="/2015/04/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5DDataFrame%E5%88%87%E7%89%87%E6%93%8D%E4%BD%9C/8640bf8b87d6277ff20b8e0c2b381f30e924fcae.jpg" class="" title="pandas教程：[3]DataFrame切片操作">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#x34;&#x39;&#x35;&#x37;&#x38;&#55;&#x40;&#113;&#x71;&#46;&#x63;&#111;&#x6d;">&#54;&#55;&#53;&#x34;&#x39;&#x35;&#x37;&#x38;&#55;&#x40;&#113;&#x71;&#46;&#x63;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/pandas/">#pandas</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1357,6 +1359,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/11/12/Meta%E5%88%86%E6%9E%90%E4%BB%A3%E5%81%9A-%E4%BB%8E%E6%89%BE%E6%95%B0%E6%8D%AE%E5%88%B0%E5%87%BA%E6%8A%A5%E5%91%8A/">Meta分析-从找数据到出报告</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/11/07/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/">SPSS做Meta分析原来这么简单-教程如下</a>
             </li>
             
@@ -1390,10 +1396,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">潜在类别分析LCA最佳实践</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">mplus做LCA入门教程</a>
             </li>
             
         </ul>

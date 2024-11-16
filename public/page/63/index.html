@@ -252,6 +252,102 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B17%5DUDP%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A8%8B%E5%BA%8F/">
+                Python教程：[17]UDP客户端程序
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>python可以快速的写成一个udp客户端程序，前面的文章中我们介绍了如何写udp服务器，服务器其实和客户端的程序时非常类似的，你看了下面的代码就知道了。</p>
+<ul>
+<li>先引入socket模块</li>
+</ul>
+<img src="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B17%5DUDP%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A8%8B%E5%BA%8F/9e7ce6dcd100baa195843e974510b912c8fc2e36.jpg" class="" title="Python教程：[17]UDP客户端程序">
+
+<ul>
+<li>设置几个参数：host主机地址，Port端口，bufsiz缓存大小</li>
+</ul>
+<img src="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B17%5DUDP%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A8%8B%E5%BA%8F/e1bf8725bc315c601b4e12c38fb1cb1348547787.jpg" class="" title="Python教程：[17]UDP客户端程序">
+
+<ul>
+<li>创建一个udp套接字类型，如图所示，关键参数是第二个SOCK_DGRAM</li>
+</ul>
+<img src="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B17%5DUDP%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A8%8B%E5%BA%8F/c28fddfdfc039245b71d98238594a4c27d1e2536.jpg" class="" title="Python教程：[17]UDP客户端程序">
+
+<ul>
+<li>下面的代码用于向服务器发送数据，并接受服务器传来的数据</li>
+</ul>
+<img src="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B17%5DUDP%E5%AE%A2%E6%88%B7%E7%AB%AF%E7%A8%8B%E5%BA%8F/9319cf09b3de9c82eabe80a36e81800a18d84387.jpg" class="" title="Python教程：[17]UDP客户端程序">
+
+<ul>
+<li><p>下面是完整的代码。</p>
+</li>
+<li><p>from socket import *</p>
+</li>
+<li><p>host&#x3D;’localhost’  #本地服务器地址</p>
+</li>
+<li><p>port&#x3D;12345  #客户端端口(确保和服务器的端口一致</p>
+</li>
+<li><p>bufsiz&#x3D;2048 #缓存大小</p>
+</li>
+<li><p>addc&#x3D;(host, port) #地址+端口</p>
+</li>
+<li><p>udpclisock&#x3D;socket(AF_INET,SOCK_DGRAM)  #创建UDP的套接字类型。</p>
+</li>
+<li><p>while True:</p>
+</li>
+<li><pre><code>udpclisock.sendto(b&#39;hello&#39;, addc)
+</code></pre>
+</li>
+<li><pre><code>data,adds=udpclisock.recvfrom(bufsiz)
+</code></pre>
+</li>
+<li><pre><code>if not data:
+</code></pre>
+</li>
+<li><pre><code>    break
+</code></pre>
+</li>
+<li><pre><code>print(data)
+</code></pre>
+</li>
+<li><p>udpclisock.close()</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#52;&#x39;&#53;&#55;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;">&#x36;&#55;&#53;&#52;&#x39;&#53;&#55;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#x63;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/06/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E8%AF%BB%E5%8F%96csv%E6%95%B0%E6%8D%AE/">
                 pandas教程：[5]读取csv数据
             </a>
@@ -1156,96 +1252,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/01/spss%202%E5%9B%A0%E7%B4%A0%E5%B5%8C%E5%A5%97%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/">
-                spss 2因素嵌套设计数据处理方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>所谓的嵌套设计，指的是至少一个因素的水平是分配在另一个因素的水平中的。如果B因素的每个水平仅出现在A因素的一个水平中，B就是嵌套于A的，可写作B（A）。 注意这个写作方式，下面我们详细的讲解如何操作：<br>工具&#x2F;原料</p>
-<ul>
-<li><p>spss20.0<br>方法&#x2F;步骤</p>
-</li>
-<li><p>将数据整理成如图所示的样式，这样才可以做嵌套设计，从图中你可以看出来，变量B嵌套于变量A</p>
-</li>
-</ul>
-<img src="/2015/06/01/spss%202%E5%9B%A0%E7%B4%A0%E5%B5%8C%E5%A5%97%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/0df431adcbef7609a0b3255c2edda3cc7dd99ebd.jpg" class="" title="spss 2因素嵌套设计数据处理方法">
-
-<ul>
-<li>接着在菜单栏上执行：analyse–GLM—univariate，打开方差分析的对话框</li>
-</ul>
-<img src="/2015/06/01/spss%202%E5%9B%A0%E7%B4%A0%E5%B5%8C%E5%A5%97%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/cefc1e178a82b90130207ff0738da9773812ef60.jpg" class="" title="spss 2因素嵌套设计数据处理方法">
-
-<ul>
-<li>这里很简单，就是将自变量和因变量放入格子的框框，然后点击model来定义模型</li>
-</ul>
-<img src="/2015/06/01/spss%202%E5%9B%A0%E7%B4%A0%E5%B5%8C%E5%A5%97%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/d53f8794a4c27d1e9bed87071bd5ad6edcc4382d.jpg" class="" title="spss 2因素嵌套设计数据处理方法">
-
-<img src="/2015/06/01/spss%202%E5%9B%A0%E7%B4%A0%E5%B5%8C%E5%A5%97%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/6c224f4a20a44623bb0919a19822720e0df3d736.jpg" class="" title="spss 2因素嵌套设计数据处理方法">
-
-<ul>
-<li>勾选“custom”，然后设置type为main effect</li>
-</ul>
-<img src="/2015/06/01/spss%202%E5%9B%A0%E7%B4%A0%E5%B5%8C%E5%A5%97%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/d043ad4bd11373f0e601d05ca40f4bfbfbed0432.jpg" class="" title="spss 2因素嵌套设计数据处理方法">
-
-<ul>
-<li>将两个变量放入模型框中，然后点击continue按钮</li>
-</ul>
-<img src="/2015/06/01/spss%202%E5%9B%A0%E7%B4%A0%E5%B5%8C%E5%A5%97%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/8435e5dde71190ef76e12d1cce1b9d16fcfa60de.jpg" class="" title="spss 2因素嵌套设计数据处理方法">
-
-<ul>
-<li>回到主菜单以后，我们点击paste按钮，开始编辑syntax</li>
-</ul>
-<img src="/2015/06/01/spss%202%E5%9B%A0%E7%B4%A0%E5%B5%8C%E5%A5%97%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/37d12f2eb9389b50b5e95f918535e5dde6116edb.jpg" class="" title="spss 2因素嵌套设计数据处理方法">
-
-<ul>
-<li>我们看下面的图，第一幅图是编辑前的design，第二幅图是编辑后的，其实就是增加了一个（a），b（a）就是b嵌套于a的意思</li>
-</ul>
-<img src="/2015/06/01/spss%202%E5%9B%A0%E7%B4%A0%E5%B5%8C%E5%A5%97%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/b21bb051f8198618b45550474aed2e738ad4e6e7.jpg" class="" title="spss 2因素嵌套设计数据处理方法">
-
-<img src="/2015/06/01/spss%202%E5%9B%A0%E7%B4%A0%E5%B5%8C%E5%A5%97%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/6609c93d70cf3bc7a908722fd100baa1cc112aec.jpg" class="" title="spss 2因素嵌套设计数据处理方法">
-
-<ul>
-<li>点击运行按钮，你就会看到运行的结果，我们看输出的表格显示了ab变量的主效应是显著的。</li>
-</ul>
-<img src="/2015/06/01/spss%202%E5%9B%A0%E7%B4%A0%E5%B5%8C%E5%A5%97%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/3c6d55fbb2fb4316c05dc5b920a4462308f7d3b7.jpg" class="" title="spss 2因素嵌套设计数据处理方法">
-
-<img src="/2015/06/01/spss%202%E5%9B%A0%E7%B4%A0%E5%B5%8C%E5%A5%97%E8%AE%BE%E8%AE%A1%E6%95%B0%E6%8D%AE%E5%A4%84%E7%90%86%E6%96%B9%E6%B3%95/730e0cf3d7ca7bcbb23978ecbe096b63f724a8b7.jpg" class="" title="spss 2因素嵌套设计数据处理方法">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#x34;&#57;&#x35;&#55;&#56;&#55;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#109;">&#54;&#x37;&#x35;&#x34;&#57;&#x35;&#55;&#56;&#55;&#x40;&#x71;&#x71;&#x2e;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1287,6 +1293,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/11/12/Meta%E5%88%86%E6%9E%90%E4%BB%A3%E5%81%9A-%E4%BB%8E%E6%89%BE%E6%95%B0%E6%8D%AE%E5%88%B0%E5%87%BA%E6%8A%A5%E5%91%8A/">Meta分析-从找数据到出报告</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/11/07/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/">SPSS做Meta分析原来这么简单-教程如下</a>
             </li>
             
@@ -1320,10 +1330,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">潜在类别分析LCA最佳实践</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">mplus做LCA入门教程</a>
             </li>
             
         </ul>

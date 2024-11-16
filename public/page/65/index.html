@@ -252,6 +252,84 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/05/17/spss%E4%B8%AD%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%AE%8B%E5%B7%AE%E7%9A%84%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B%E6%80%A7/">
+                spss中如何检验残差的相互独立性
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年05月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>在做线性回归的时候要检验残差的独立性，这里交给大家一个方法可以在做回归的时候用到的，可以方便的看出残差之间是否独立，下面是具体的方法：<br>工具&#x2F;原料</p>
+<ul>
+<li><p>spss20.0<br>方法&#x2F;步骤</p>
+</li>
+<li><p>首先要早spss中准备好数据，如图所示，每一列数据作为一个变量</p>
+</li>
+</ul>
+<img src="/2015/05/17/spss%E4%B8%AD%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%AE%8B%E5%B7%AE%E7%9A%84%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B%E6%80%A7/962bd40735fae6cdf93affa50fb30f2443a70f63.jpg" class="" title="spss中如何检验残差的相互独立性">
+
+<ul>
+<li>在菜单栏上执行：analyse–regression–linear，打开线性回归对话框</li>
+</ul>
+<img src="/2015/05/17/spss%E4%B8%AD%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%AE%8B%E5%B7%AE%E7%9A%84%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B%E6%80%A7/83025aafa40f4bfb6bdac990034f78f0f63618ef.jpg" class="" title="spss中如何检验残差的相互独立性">
+
+<ul>
+<li>在对话框中，将因变量和自变量放入各自的框中，如图所示上面的是因变量，注意因变量和自变量都是连续性变量，点击statistic按钮，设置输出的参数</li>
+</ul>
+<img src="/2015/05/17/spss%E4%B8%AD%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%AE%8B%E5%B7%AE%E7%9A%84%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B%E6%80%A7/29381f30e924b89913a02efc6e061d950b7bf652.jpg" class="" title="spss中如何检验残差的相互独立性">
+
+<img src="/2015/05/17/spss%E4%B8%AD%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%AE%8B%E5%B7%AE%E7%9A%84%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B%E6%80%A7/7aec54e736d12f2e9993f9a44fc2d5628435685b.jpg" class="" title="spss中如何检验残差的相互独立性">
+
+<ul>
+<li>勾选独立性检验的参数DW，如图所示，然后点击continue按钮，返回到主菜单</li>
+</ul>
+<img src="/2015/05/17/spss%E4%B8%AD%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%AE%8B%E5%B7%AE%E7%9A%84%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B%E6%80%A7/2934349b033b5bb53d44773a36d3d539b700bc67.jpg" class="" title="spss中如何检验残差的相互独立性">
+
+<ul>
+<li><p>点击ok开始输出数据，在下面第二幅图的表格中显示了DW值，如图所示，</p>
+</li>
+<li><p>–当DW值愈接近2时，残差项间愈无相关</p>
+</li>
+<li><p>–当DW值愈接近0时，残差项间正相关愈强</p>
+</li>
+</ul>
+<img src="/2015/05/17/spss%E4%B8%AD%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%AE%8B%E5%B7%AE%E7%9A%84%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B%E6%80%A7/9a504fc2d5628535c06e85e590ef76c6a6ef6363.jpg" class="" title="spss中如何检验残差的相互独立性">
+
+<img src="/2015/05/17/spss%E4%B8%AD%E5%A6%82%E4%BD%95%E6%A3%80%E9%AA%8C%E6%AE%8B%E5%B7%AE%E7%9A%84%E7%9B%B8%E4%BA%92%E7%8B%AC%E7%AB%8B%E6%80%A7/4d086e061d950a7bbd9419000ad162d9f3d3c955.jpg" class="" title="spss中如何检验残差的相互独立性">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;">&#54;&#55;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#x71;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/05/15/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B9%5DMultiIndex%E7%94%A8%E6%B3%95/">
                 pandas教程：[9]MultiIndex用法
             </a>
@@ -1013,72 +1091,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/05/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B12%5D%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E4%B8%AD%E5%A6%82%E4%BD%95%E5%A2%9E%E5%8A%A0%E4%BA%A4%E4%BA%92%E9%A1%B9/">
-                SPSS实例：[12]回归模型中如何增加交互项
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年05月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>通常我们在回归分析中需要用到两个自变量之间的交互项来检验两个变量之间的交互效应，那么这个交互项是从哪里来的呢？其实就是两个变量的乘积，具体方式是：</p>
-<ul>
-<li>打开数据，在菜单栏上执行：转换–计算变量</li>
-</ul>
-<img src="/2015/05/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B12%5D%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E4%B8%AD%E5%A6%82%E4%BD%95%E5%A2%9E%E5%8A%A0%E4%BA%A4%E4%BA%92%E9%A1%B9/9304c888d43f879438af693dd01b0ef41bd53a15.jpg" class="" title="SPSS实例：[12]回归模型中如何增加交互项">
-
-<ul>
-<li>打开计算变量的对话框，我们设置目标变量名称，你随便起一个英文的名字，然后设置这个变量的标签，为了以后处理数据方便，你一定要添加一个自己看得懂的标签，点击继续。</li>
-</ul>
-<img src="/2015/05/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B12%5D%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E4%B8%AD%E5%A6%82%E4%BD%95%E5%A2%9E%E5%8A%A0%E4%BA%A4%E4%BA%92%E9%A1%B9/1a94b36eddc451da25a62df8b4fd5266d0163215.jpg" class="" title="SPSS实例：[12]回归模型中如何增加交互项">
-
-<ul>
-<li>然后在这里输入两个变量相乘的公式，如图所示就是变量P1Q01和P1Q02的乘积</li>
-</ul>
-<img src="/2015/05/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B12%5D%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E4%B8%AD%E5%A6%82%E4%BD%95%E5%A2%9E%E5%8A%A0%E4%BA%A4%E4%BA%92%E9%A1%B9/b7bc4c66d016092401758308d60735fae6cd3415.jpg" class="" title="SPSS实例：[12]回归模型中如何增加交互项">
-
-<ul>
-<li>点击ok就可以运行程序，得到一个新的变量，也就是交互项</li>
-</ul>
-<img src="/2015/05/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B12%5D%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E4%B8%AD%E5%A6%82%E4%BD%95%E5%A2%9E%E5%8A%A0%E4%BA%A4%E4%BA%92%E9%A1%B9/7ac880510fb30f24f1cacd10ca95d143ad4b0315.jpg" class="" title="SPSS实例：[12]回归模型中如何增加交互项">
-
-<ul>
-<li>用syntax的话更简单，下面的代码可以实现同样的效果。</li>
-</ul>
-<img src="/2015/05/03/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B12%5D%E5%9B%9E%E5%BD%92%E6%A8%A1%E5%9E%8B%E4%B8%AD%E5%A6%82%E4%BD%95%E5%A2%9E%E5%8A%A0%E4%BA%A4%E4%BA%92%E9%A1%B9/cf5a8316fdfaaf51af44a0ac8e5494eef01f7a3a.jpg" class="" title="SPSS实例：[12]回归模型中如何增加交互项">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#57;&#x35;&#x37;&#x38;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#109;">&#54;&#55;&#53;&#52;&#57;&#x35;&#x37;&#x38;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1120,6 +1132,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/11/12/Meta%E5%88%86%E6%9E%90%E4%BB%A3%E5%81%9A-%E4%BB%8E%E6%89%BE%E6%95%B0%E6%8D%AE%E5%88%B0%E5%87%BA%E6%8A%A5%E5%91%8A/">Meta分析-从找数据到出报告</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/11/07/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/">SPSS做Meta分析原来这么简单-教程如下</a>
             </li>
             
@@ -1153,10 +1169,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">潜在类别分析LCA最佳实践</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/07/24/mplus%E5%81%9ALCA%E5%85%A5%E9%97%A8%E6%95%99%E7%A8%8B/">mplus做LCA入门教程</a>
             </li>
             
         </ul>
