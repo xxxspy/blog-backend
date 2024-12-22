@@ -215,12 +215,6 @@
         </div>
     
         <div class="archive-post" style="opacity: 1;">
-            <a target="_blank" rel="noopener" href="https://space.bilibili.com/383752637/channel/collectiondetail?sid=778283">
-                Python智联招聘数据分析
-            </a>
-        </div>
-    
-        <div class="archive-post" style="opacity: 1;">
             <a href="/2022/07/24/潜在类别分析入门/">
                 LCA潜在类别分析和Mplus应用
             </a>
@@ -259,6 +253,101 @@
         <!--Title and Logo-->
         <section class="main">
             
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
+            <a href="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/">
+                网页数据采集：[3]python如何利用抓包数据
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年06月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>上次我们教大家如何使用httpwatch来进行抓包，其实这不重要，重要的是如何使用获得的数据包，你能读懂数据包吗？好吧，我们今天就是用python来示范一下如何使用数据包。</p>
+<ul>
+<li>先来设置两个url地址，第一个用于第一次访问，这样可以获得网站服务器发来的cookie，第二个网址是用于登陆的地址</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/fcbbb151f3deb48fd18981f0f21f3a292cf578f8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>引入两个模块，cookielib和urllib2</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/8d158aeef01f3a294c28f5e09b25bc315d607cf8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>接着，我们安装一个cookie处理器，代码如下，这个代码很多人不太能读懂，其实你会用就可以了，他们就是这个固定的形式，顶多改改变量的名字。你复制下来以后自己用就可以了，用多了，你再去看代码的意义，你就都懂了。</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/58c3acb7d0a20cf40d6edef174094b36adaf99e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>然后我们先访问一下网站，获得一个cookie，你不用管这个cookie该怎么弄，前面设置的cookie处理器会自动处理。</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/9864a2315c6034a8390298afc9134954082376f8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>接着，我们写一下postdata，也就是你要post的数据，因为我们打算登陆网站，所以postdata里肯定有用户名和密码，那么怎么知道该怎么写postdata呢？看你抓包得到的post数据。下面第一幅图是httpwatch抓包截图，点击postdata，看到post的数据，然后我们看第二幅图，就是python的写法。你自己感受一下。</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/d041a4a1cd11728bd7faaf0ccafcc3cec2fd2c8d.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/35e940df8db1cb1323891c3ddf54564e93584bf8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>写完postdata以后，我们 要将postdata转码一下，让服务器可以解读postdata数据</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/2f9cbdcc7cd98d10442a2c1f233fb80e7aec90e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>接着设置headers信息，headers也是抓包得到的。同样的方式，你去写header内的信息</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/0b907cd9f2d3572ce14cbef28813632762d0c337.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/7d98931001e9390166fcad1079ec54e737d196e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>然后我们通过request方法来登陆网站，并返回数据，返回的数据存储在request中</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/00a82701213fb80e322f41f934d12f2eb83894e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>通过rulopen方法和read方法来读取数据，并打印出来。</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/32bb9c8ba61ea8d380c2542a950a304e241f58f8.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<ul>
+<li>我们看到输出的结果，这说明我们虽然正确的模拟了登陆网站需要的post信息，但是没有考虑到登陆网站是需要验证码的，后期我们会看到如何处理验证码，如果你拿这个教程去处理没有验证码的登陆问题，那么你现在已经成功了。</li>
+</ul>
+<img src="/2016/06/19/%E7%BD%91%E9%A1%B5%E6%95%B0%E6%8D%AE%E9%87%87%E9%9B%86%EF%BC%9A%5B3%5Dpython%E5%A6%82%E4%BD%95%E5%88%A9%E7%94%A8%E6%8A%93%E5%8C%85%E6%95%B0%E6%8D%AE/4e83cb628535e5ddb4d285f174c6a7efcf1b62e6.jpg" class="" title="网页数据采集：[3]python如何利用抓包数据">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#52;&#x39;&#x35;&#55;&#x38;&#55;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#x36;&#x37;&#53;&#52;&#x39;&#x35;&#55;&#x38;&#55;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
                 
 <div class="post">
 
@@ -1002,82 +1091,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/">
-                amos21.0教程：[5]结构方程图中的符号意义
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年06月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>结构方程模型中使用很多符号，要想看懂模型必须知道这些符号代表的意义，所以我在这里总结一下在结构方程模型中出现的符号到底是什么意义。以后你看到不懂得符号都可以来这里查询，不懂得还可以在下面提问。</p>
-<ul>
-<li>ξ（可习）和η（伊塔）都是潜变量的符号，前者是外因潜变量，是事物发生的原因；后者是内因潜变量是事物发生的结果。</li>
-</ul>
-<img src="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/6a22e8246b600c3361b2af431b4c510fd8f9a137.jpg" class="" title="amos21.0教程：[5]结构方程图中的符号意义">
-
-<ul>
-<li>X和Y：前者是外因潜变量的观察变量或者指标变量，后者是内因潜变量的观察变量或者指标变量。</li>
-</ul>
-<img src="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/7d98931001e939013929fdb57aec54e737d196d6.jpg" class="" title="amos21.0教程：[5]结构方程图中的符号意义">
-
-<ul>
-<li>δ和ε：前者是X的测量误差，后者是Y的测量误差。</li>
-</ul>
-<img src="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/4e83cb628535e5ddc307d55477c6a7efcf1b62d6.jpg" class="" title="amos21.0教程：[5]结构方程图中的符号意义">
-
-<ul>
-<li>ζ（zeta）内因潜变量的误差。</li>
-</ul>
-<img src="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/e8112b2ac65c1038adb5bf49b3119313b17e8937.jpg" class="" title="amos21.0教程：[5]结构方程图中的符号意义">
-
-<ul>
-<li>β（beta）和γ（gamma）：前者是内因潜变量间的关联系数；后者是内因潜变量与外因潜变量之间的关联系数。</li>
-</ul>
-<img src="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/fab3ac119313b07ec97721830dd7912396dd8c37.jpg" class="" title="amos21.0教程：[5]结构方程图中的符号意义">
-
-<ul>
-<li>Φ（phi）和Ψ（psi）：前者是外因潜变量的变异协方差矩阵；后者是内因潜变量残差项的变异协方差矩阵。</li>
-</ul>
-<img src="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/cbc17b380cd79123902ae5ffac345982b3b78037.jpg" class="" title="amos21.0教程：[5]结构方程图中的符号意义">
-
-<ul>
-<li>λ（lambda）：可以表示X与外因潜变量之间的系数矩阵，也可以表示Y与内因潜变量之间的系数矩阵。</li>
-</ul>
-<img src="/2016/06/01/amos21.0%E6%95%99%E7%A8%8B%EF%BC%9A%5B5%5D%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B%E5%9B%BE%E4%B8%AD%E7%9A%84%E7%AC%A6%E5%8F%B7%E6%84%8F%E4%B9%89/58c3acb7d0a20cf43f5a8f5477094b36adaf9937.jpg" class="" title="amos21.0教程：[5]结构方程图中的符号意义">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#x71;&#113;&#46;&#99;&#111;&#109;">&#54;&#x37;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#x71;&#113;&#46;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/amos/">#amos</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1119,6 +1132,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2024/12/22/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/">共同方法偏差的类型和检验方法</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/11/12/Meta%E5%88%86%E6%9E%90%E4%BB%A3%E5%81%9A-%E4%BB%8E%E6%89%BE%E6%95%B0%E6%8D%AE%E5%88%B0%E5%87%BA%E6%8A%A5%E5%91%8A/">Meta分析-从找数据到出报告</a>
             </li>
             
@@ -1152,10 +1169,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/07/25/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E8%AE%BA%E6%96%87%E6%92%B0%E5%86%99%E6%A8%A1%E6%9D%BF/">潜在类别分析LCA论文撰写模板</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/07/24/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5/">潜在类别分析LCA最佳实践</a>
             </li>
             
         </ul>
