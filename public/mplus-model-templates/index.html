@@ -1,0 +1,2563 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="Data Sense">
+<meta name="dcterms.date" content="2024-12-26">
+
+<title>MPlus中介调节模型</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./QA.html" rel="next">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">MPlus中介调节模型</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link active" href="./QA.html" aria-current="page"> 
+<span class="menu-text">统计咨询</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://www.mlln.cn/"> 
+<span class="menu-text">DataSense 社区</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://wx.zsxq.com/group/88888188828842"> 
+<span class="menu-text">关于本书的讨论</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="https://wx.zsxq.com/group/88888188828842"> 
+<span class="menu-text">Q &amp; A</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">导航</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">导航</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./QA.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">问答</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model1a.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title"><img src="imgs/model1a.pre.png" alt="model1a"></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model1alatent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title"><img src="imgs/model1alatent.pre.png" alt="潜变量模型  1a :  1 个调节变量 [基本调节]，连续调节变量 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model1b.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title"><img src="imgs/model1b.pre.png" alt="显变量模型  1b :  1 个调节变量 [基本调节]，二分调节变量 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model1c.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title"><img src="imgs/model1c.pre.png" alt="显变量模型  1c :  1 个调节变量 [基本调节]，二分调节变量（使用多组方法） "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model1d.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title"><img src="imgs/model1d.pre.png" alt="显变量模型  1d :  1 个调节变量 [基本调节]，具有 > 2 个类别的分类调节变量 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model1e.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title"><img src="imgs/model1e.pre.png" alt="显变量模型  1e :  1 个调节变量 [基本调节]，二分结果（逻辑回归） "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model2.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title"><img src="imgs/model2.pre.png" alt="显变量模型  2 :  2 个调节变量，仅与预测变量的 2 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model2latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title"><img src="imgs/model2latent.pre.png" alt="潜变量模型  2 :  2 个调节变量，仅与预测变量的 2 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model3.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title"><img src="imgs/model3.pre.png" alt="显变量模型  3 :  2 个调节变量，所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model3latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title"><img src="imgs/model3latent.pre.png" alt="潜变量模型  3 :  2 个调节变量，所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model4a.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title"><img src="imgs/model4a.pre.png" alt="显变量模型  4a :  1 个中介变量 [基本中介] "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model4alatent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title"><img src="imgs/model4alatent.pre.png" alt="潜变量模型  4a :  1 个中介变量 [基本中介] "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model4b.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title"><img src="imgs/model4b.pre.png" alt="显变量模型  4b :  2 个并行的中介变量 [基本中介] "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model4blatent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title"><img src="imgs/model4blatent.pre.png" alt="潜变量模型  4b :  2 个并行的中介变量 [基本中介] "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model4c.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title"><img src="imgs/model4c.pre.png" alt="显变量模型  4c :  1 个或多个中介变量，如果多个则并行（示例使用 1 个）[基本中介]，二分中介变量 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model4d.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title"><img src="imgs/model4d.pre.png" alt="显变量模型  4d :  1 个或多个中介变量，如果多个则并行（示例使用 1 个）[基本中介]，二分结果 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model5.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title"><img src="imgs/model5.pre.png" alt="显变量模型  5 :  1 个或多个中介变量，如果多个则并行，仅对直接 IV-DV 路径的 1 个调节变量 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model5latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title"><img src="imgs/model5latent.pre.png" alt="潜变量模型  5 :  1 个或多个中介变量，如果多个则并行，仅对直接 IV-DV 路径的 1 个调节变量 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model6.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">21</span>&nbsp; <span class="chapter-title"><img src="imgs/model6.pre.png" alt="显变量模型  6 :  2 个或多个串联的中介变量（示例使用 2 个） "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model6latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">22</span>&nbsp; <span class="chapter-title"><img src="imgs/model6latent.pre.png" alt="潜变量模型  6 :  2 个或多个串联的中介变量（示例使用 2 个） "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model7.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">23</span>&nbsp; <span class="chapter-title"><img src="imgs/model7.pre.png" alt="显变量模型  7 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），仅对 IV-中介变量路径的 1 个调节变量 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model7latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">24</span>&nbsp; <span class="chapter-title"><img src="imgs/model7latent.pre.png" alt="潜变量模型  7 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），仅对 IV-中介变量路径的 1 个调节变量 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model8.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">25</span>&nbsp; <span class="chapter-title"><img src="imgs/model8.pre.png" alt="显变量模型  8 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），1 个调节变量调节 IV-中介变量路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model8latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">26</span>&nbsp; <span class="chapter-title"><img src="imgs/model8latent.pre.png" alt="潜变量模型  8 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），1 个调节变量调节 IV-中介变量路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model9.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">27</span>&nbsp; <span class="chapter-title"><img src="imgs/model9.pre.png" alt="显变量模型  9 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都只调节 IV-中介变量路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model9latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">28</span>&nbsp; <span class="chapter-title"><img src="imgs/model9latent.pre.png" alt="潜变量模型  9 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都只调节 IV-中介变量路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model10.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">29</span>&nbsp; <span class="chapter-title"><img src="imgs/model10.pre.png" alt="显变量模型  10 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都调节 IV-中介变量路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model10latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">30</span>&nbsp; <span class="chapter-title"><img src="imgs/model10latent.pre.png" alt="潜变量模型  10 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都调节 IV-中介变量路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model11.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">31</span>&nbsp; <span class="chapter-title"><img src="imgs/model11.pre.png" alt="显变量模型  11 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都只调节 IV-中介变量路径，所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model11latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">32</span>&nbsp; <span class="chapter-title"><img src="imgs/model11latent.pre.png" alt="潜变量模型  11 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都只调节 IV-中介变量路径，所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model12.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">33</span>&nbsp; <span class="chapter-title"><img src="imgs/model12.pre.png" alt="显变量模型  12 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都调节 IV-中介变量路径和直接 IV-DV 路径，所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model12latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">34</span>&nbsp; <span class="chapter-title"><img src="imgs/model12latent.pre.png" alt="潜变量模型  12 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都调节 IV-中介变量路径和直接 IV-DV 路径，所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model13.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">35</span>&nbsp; <span class="chapter-title"><img src="imgs/model13.pre.png" alt="显变量模型  13 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，3 路交互，1 个也调节直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model13latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">36</span>&nbsp; <span class="chapter-title"><img src="imgs/model13latent.pre.png" alt="潜变量模型  13 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，3 路交互，1 个也调节直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model14.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">37</span>&nbsp; <span class="chapter-title"><img src="imgs/model14.pre.png" alt="显变量模型  14 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），仅对中介变量-DV 路径的 1 个调节变量 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model14latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">38</span>&nbsp; <span class="chapter-title"><img src="imgs/model14latent.pre.png" alt="潜变量模型  14 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），仅对中介变量-DV 路径的 1 个调节变量 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model15.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">39</span>&nbsp; <span class="chapter-title"><img src="imgs/model15.pre.png" alt="显变量模型  15 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），1 个调节变量调节中介变量-DV 和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model15latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">40</span>&nbsp; <span class="chapter-title"><img src="imgs/model15latent.pre.png" alt="潜变量模型  15 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），1 个调节变量调节中介变量-DV 和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model16.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">41</span>&nbsp; <span class="chapter-title"><img src="imgs/model16.pre.png" alt="显变量模型  16 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都只调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model16latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">42</span>&nbsp; <span class="chapter-title"><img src="imgs/model16latent.pre.png" alt="潜变量模型  16 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都只调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model17.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">43</span>&nbsp; <span class="chapter-title"><img src="imgs/model17.pre.png" alt="显变量模型  17 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都调节中介变量-DV 和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model17latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">44</span>&nbsp; <span class="chapter-title"><img src="imgs/model17latent.pre.png" alt="潜变量模型  17 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都调节中介变量-DV 和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model18.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">45</span>&nbsp; <span class="chapter-title"><img src="imgs/model18.pre.png" alt="显变量模型  18 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都只调节中介变量-DV 路径，所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model18latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">46</span>&nbsp; <span class="chapter-title"><img src="imgs/model18latent.pre.png" alt="潜变量模型  18 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都只调节中介变量-DV 路径，所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model19.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">47</span>&nbsp; <span class="chapter-title"><img src="imgs/model19.pre.png" alt="显变量模型  19 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都调节中介变量-DV 路径和直接 IV-DV 路径，所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model19latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">48</span>&nbsp; <span class="chapter-title"><img src="imgs/model19latent.pre.png" alt="潜变量模型  19 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都调节中介变量-DV 路径和直接 IV-DV 路径，所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model20.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">49</span>&nbsp; <span class="chapter-title"><img src="imgs/model20.pre.png" alt="显变量模型  20 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，3 路交互，1 个也调节直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model20latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">50</span>&nbsp; <span class="chapter-title"><img src="imgs/model20latent.pre.png" alt="潜变量模型  20 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，3 路交互，1 个也调节直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model21.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">51</span>&nbsp; <span class="chapter-title"><img src="imgs/model21.pre.png" alt="显变量模型  21 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，1 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model21latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">52</span>&nbsp; <span class="chapter-title"><img src="imgs/model21latent.pre.png" alt="潜变量模型  21 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，1 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model22.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">53</span>&nbsp; <span class="chapter-title"><img src="imgs/model22.pre.png" alt="显变量模型  22 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，1 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model22latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">54</span>&nbsp; <span class="chapter-title"><img src="imgs/model22latent.pre.png" alt="潜变量模型  22 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，1 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model23.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">55</span>&nbsp; <span class="chapter-title"><img src="imgs/model23.pre.png" alt="显变量模型  23 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model23latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">56</span>&nbsp; <span class="chapter-title"><img src="imgs/model23latent.pre.png" alt="潜变量模型  23 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model24.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">57</span>&nbsp; <span class="chapter-title"><img src="imgs/model24.pre.png" alt="显变量模型  24 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径和直接 IV-DV 路径，1 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model24latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">58</span>&nbsp; <span class="chapter-title"><img src="imgs/model24latent.pre.png" alt="潜变量模型  24 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径和直接 IV-DV 路径，1 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model25.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">59</span>&nbsp; <span class="chapter-title"><img src="imgs/model25.pre.png" alt="显变量模型  25 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，1 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model25latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">60</span>&nbsp; <span class="chapter-title"><img src="imgs/model25latent.pre.png" alt="潜变量模型  25 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，1 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model26.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">61</span>&nbsp; <span class="chapter-title"><img src="imgs/model26.pre.png" alt="显变量模型  26 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，1 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model26latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">62</span>&nbsp; <span class="chapter-title"><img src="imgs/model26latent.pre.png" alt="潜变量模型  26 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，1 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model27.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">63</span>&nbsp; <span class="chapter-title"><img src="imgs/model27.pre.png" alt="显变量模型  27 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，其中 1 个也调节直接 IV-DV 路径，1 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model27latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">64</span>&nbsp; <span class="chapter-title"><img src="imgs/model27latent.pre.png" alt="潜变量模型  27 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，其中 1 个也调节直接 IV-DV 路径，1 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model28.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">65</span>&nbsp; <span class="chapter-title"><img src="imgs/model28.pre.png" alt="显变量模型  28 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，1 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model28latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">66</span>&nbsp; <span class="chapter-title"><img src="imgs/model28latent.pre.png" alt="潜变量模型  28 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，1 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model29.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">67</span>&nbsp; <span class="chapter-title"><img src="imgs/model29.pre.png" alt="显变量模型  29 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，1 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径，都调节直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model29latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">68</span>&nbsp; <span class="chapter-title"><img src="imgs/model29latent.pre.png" alt="潜变量模型  29 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，1 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径，都调节直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model30.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">69</span>&nbsp; <span class="chapter-title"><img src="imgs/model30.pre.png" alt="显变量模型  30 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model30latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">70</span>&nbsp; <span class="chapter-title"><img src="imgs/model30latent.pre.png" alt="潜变量模型  30 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model31.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">71</span>&nbsp; <span class="chapter-title"><img src="imgs/model31.pre.png" alt="显变量模型  31 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径和直接 IV-DV 路径，1 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model31latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">72</span>&nbsp; <span class="chapter-title"><img src="imgs/model31latent.pre.png" alt="潜变量模型  31 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径和直接 IV-DV 路径，1 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model32.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">73</span>&nbsp; <span class="chapter-title"><img src="imgs/model32.pre.png" alt="显变量模型  32 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，1 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model32latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">74</span>&nbsp; <span class="chapter-title"><img src="imgs/model32latent.pre.png" alt="潜变量模型  32 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，1 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model33.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">75</span>&nbsp; <span class="chapter-title"><img src="imgs/model33.pre.png" alt="显变量模型  33 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，1 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model33latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">76</span>&nbsp; <span class="chapter-title"><img src="imgs/model33latent.pre.png" alt="潜变量模型  33 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，1 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model34.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">77</span>&nbsp; <span class="chapter-title"><img src="imgs/model34.pre.png" alt="显变量模型  34 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，其中 1 个也调节直接 IV-DV 路径，1 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model34latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">78</span>&nbsp; <span class="chapter-title"><img src="imgs/model34latent.pre.png" alt="潜变量模型  34 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，其中 1 个也调节直接 IV-DV 路径，1 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model35.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">79</span>&nbsp; <span class="chapter-title"><img src="imgs/model35.pre.png" alt="显变量模型  35 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model35latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">80</span>&nbsp; <span class="chapter-title"><img src="imgs/model35latent.pre.png" alt="潜变量模型  35 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model36.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">81</span>&nbsp; <span class="chapter-title"><img src="imgs/model36.pre.png" alt="显变量模型  36 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径和 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model36latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">82</span>&nbsp; <span class="chapter-title"><img src="imgs/model36latent.pre.png" alt="潜变量模型  36 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径和 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model37.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">83</span>&nbsp; <span class="chapter-title"><img src="imgs/model37.pre.png" alt="显变量模型  37 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model37latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">84</span>&nbsp; <span class="chapter-title"><img src="imgs/model37latent.pre.png" alt="潜变量模型  37 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model38.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">85</span>&nbsp; <span class="chapter-title"><img src="imgs/model38.pre.png" alt="显变量模型  38 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径和 IV-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model38latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">86</span>&nbsp; <span class="chapter-title"><img src="imgs/model38latent.pre.png" alt="潜变量模型  38 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径和 IV-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model39.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">87</span>&nbsp; <span class="chapter-title"><img src="imgs/model39.pre.png" alt="显变量模型  39 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model39latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">88</span>&nbsp; <span class="chapter-title"><img src="imgs/model39latent.pre.png" alt="潜变量模型  39 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model40.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">89</span>&nbsp; <span class="chapter-title"><img src="imgs/model40.pre.png" alt="显变量模型  40 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model40latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">90</span>&nbsp; <span class="chapter-title"><img src="imgs/model40latent.pre.png" alt="潜变量模型  40 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model41.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">91</span>&nbsp; <span class="chapter-title"><img src="imgs/model41.pre.png" alt="显变量模型  41 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model41latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">92</span>&nbsp; <span class="chapter-title"><img src="imgs/model41latent.pre.png" alt="潜变量模型  41 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model42.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">93</span>&nbsp; <span class="chapter-title"><img src="imgs/model42.pre.png" alt="显变量模型  42 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model42latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">94</span>&nbsp; <span class="chapter-title"><img src="imgs/model42latent.pre.png" alt="潜变量模型  42 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model43.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">95</span>&nbsp; <span class="chapter-title"><img src="imgs/model43.pre.png" alt="显变量模型  43 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model43latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">96</span>&nbsp; <span class="chapter-title"><img src="imgs/model43latent.pre.png" alt="潜变量模型  43 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model44.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">97</span>&nbsp; <span class="chapter-title"><img src="imgs/model44.pre.png" alt="显变量模型  44 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model44latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">98</span>&nbsp; <span class="chapter-title"><img src="imgs/model44latent.pre.png" alt="潜变量模型  44 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model45.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">99</span>&nbsp; <span class="chapter-title"><img src="imgs/model45.pre.png" alt="显变量模型  45 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，另外 2 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model45latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">100</span>&nbsp; <span class="chapter-title"><img src="imgs/model45latent.pre.png" alt="潜变量模型  45 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，另外 2 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model46.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">101</span>&nbsp; <span class="chapter-title"><img src="imgs/model46.pre.png" alt="显变量模型  46 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model46latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">102</span>&nbsp; <span class="chapter-title"><img src="imgs/model46latent.pre.png" alt="潜变量模型  46 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model47.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">103</span>&nbsp; <span class="chapter-title"><img src="imgs/model47.pre.png" alt="显变量模型  47 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，另外 2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model47latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">104</span>&nbsp; <span class="chapter-title"><img src="imgs/model47latent.pre.png" alt="潜变量模型  47 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，另外 2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model48.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">105</span>&nbsp; <span class="chapter-title"><img src="imgs/model48.pre.png" alt="显变量模型  48 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model48latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">106</span>&nbsp; <span class="chapter-title"><img src="imgs/model48latent.pre.png" alt="潜变量模型  48 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model49.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">107</span>&nbsp; <span class="chapter-title"><img src="imgs/model49.pre.png" alt="显变量模型  49 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，另外 2 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model49latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">108</span>&nbsp; <span class="chapter-title"><img src="imgs/model49latent.pre.png" alt="潜变量模型  49 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，另外 2 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model50.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">109</span>&nbsp; <span class="chapter-title"><img src="imgs/model50.pre.png" alt="显变量模型  50 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model50latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">110</span>&nbsp; <span class="chapter-title"><img src="imgs/model50latent.pre.png" alt="潜变量模型  50 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model51.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">111</span>&nbsp; <span class="chapter-title"><img src="imgs/model51.pre.png" alt="显变量模型  51 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model51latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">112</span>&nbsp; <span class="chapter-title"><img src="imgs/model51latent.pre.png" alt="潜变量模型  51 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model52.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">113</span>&nbsp; <span class="chapter-title"><img src="imgs/model52.pre.png" alt="显变量模型  52 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model52latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">114</span>&nbsp; <span class="chapter-title"><img src="imgs/model52latent.pre.png" alt="潜变量模型  52 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model53.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">115</span>&nbsp; <span class="chapter-title"><img src="imgs/model53.pre.png" alt="显变量模型  53 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，另外 2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model53latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">116</span>&nbsp; <span class="chapter-title"><img src="imgs/model53latent.pre.png" alt="潜变量模型  53 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，另外 2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model54.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">117</span>&nbsp; <span class="chapter-title"><img src="imgs/model54.pre.png" alt="显变量模型  54 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model54latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">118</span>&nbsp; <span class="chapter-title"><img src="imgs/model54latent.pre.png" alt="潜变量模型  54 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model55.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">119</span>&nbsp; <span class="chapter-title"><img src="imgs/model55.pre.png" alt="显变量模型  55 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model55latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">120</span>&nbsp; <span class="chapter-title"><img src="imgs/model55latent.pre.png" alt="潜变量模型  55 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model56.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">121</span>&nbsp; <span class="chapter-title"><img src="imgs/model56.pre.png" alt="显变量模型  56 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model56latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">122</span>&nbsp; <span class="chapter-title"><img src="imgs/model56latent.pre.png" alt="潜变量模型  56 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model57.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">123</span>&nbsp; <span class="chapter-title"><img src="imgs/model57.pre.png" alt="显变量模型  57 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model57latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">124</span>&nbsp; <span class="chapter-title"><img src="imgs/model57latent.pre.png" alt="潜变量模型  57 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model58.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">125</span>&nbsp; <span class="chapter-title"><img src="imgs/model58.pre.png" alt="显变量模型  58 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），1 个调节变量，调节 IV-中介变量路径和中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model58latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">126</span>&nbsp; <span class="chapter-title"><img src="imgs/model58latent.pre.png" alt="潜变量模型  58 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），1 个调节变量，调节 IV-中介变量路径和中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model59.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">127</span>&nbsp; <span class="chapter-title"><img src="imgs/model59.pre.png" alt="显变量模型  59 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），1 个调节变量，调节 IV-中介变量路径、中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model59latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">128</span>&nbsp; <span class="chapter-title"><img src="imgs/model59latent.pre.png" alt="潜变量模型  59 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），1 个调节变量，调节 IV-中介变量路径、中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model60.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">129</span>&nbsp; <span class="chapter-title"><img src="imgs/model60.pre.png" alt="显变量模型  60 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，其中 1 个也调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model60latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">130</span>&nbsp; <span class="chapter-title"><img src="imgs/model60latent.pre.png" alt="潜变量模型  60 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，其中 1 个也调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model61.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">131</span>&nbsp; <span class="chapter-title"><img src="imgs/model61.pre.png" alt="显变量模型  61 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，其中 1 个也调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model61latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">132</span>&nbsp; <span class="chapter-title"><img src="imgs/model61latent.pre.png" alt="潜变量模型  61 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，其中 1 个也调节中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model62.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">133</span>&nbsp; <span class="chapter-title"><img src="imgs/model62.pre.png" alt="显变量模型  62 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，其中 1 个也调节中介变量-DV 路径，另一个调节直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model62latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">134</span>&nbsp; <span class="chapter-title"><img src="imgs/model62latent.pre.png" alt="潜变量模型  62 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，其中 1 个也调节中介变量-DV 路径，另一个调节直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model63.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">135</span>&nbsp; <span class="chapter-title"><img src="imgs/model63.pre.png" alt="显变量模型  63 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径和直接 IV-DV 路径，其中 1 个也调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model63latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">136</span>&nbsp; <span class="chapter-title"><img src="imgs/model63latent.pre.png" alt="潜变量模型  63 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径和直接 IV-DV 路径，其中 1 个也调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model64.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">137</span>&nbsp; <span class="chapter-title"><img src="imgs/model64.pre.png" alt="显变量模型  64 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，其中 1 个也调节 IV-中介变量路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model64latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">138</span>&nbsp; <span class="chapter-title"><img src="imgs/model64latent.pre.png" alt="潜变量模型  64 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，其中 1 个也调节 IV-中介变量路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model65.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">139</span>&nbsp; <span class="chapter-title"><img src="imgs/model65.pre.png" alt="显变量模型  65 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，其中 1 个也调节 IV-中介变量路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model65latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">140</span>&nbsp; <span class="chapter-title"><img src="imgs/model65latent.pre.png" alt="潜变量模型  65 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，其中 1 个也调节 IV-中介变量路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model66.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">141</span>&nbsp; <span class="chapter-title"><img src="imgs/model66.pre.png" alt="显变量模型  66 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，其中 1 个也调节 IV-中介变量路径，另一个调节直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model66latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">142</span>&nbsp; <span class="chapter-title"><img src="imgs/model66latent.pre.png" alt="潜变量模型  66 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，其中 1 个也调节 IV-中介变量路径，另一个调节直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model67.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">143</span>&nbsp; <span class="chapter-title"><img src="imgs/model67.pre.png" alt="显变量模型  67 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径和直接 IV-DV 路径，其中 1 个也调节 IV-中介变量路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model67latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">144</span>&nbsp; <span class="chapter-title"><img src="imgs/model67latent.pre.png" alt="潜变量模型  67 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径和直接 IV-DV 路径，其中 1 个也调节 IV-中介变量路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model68.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">145</span>&nbsp; <span class="chapter-title"><img src="imgs/model68.pre.png" alt="显变量模型  68 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，具有所有 2 路和 3 路交互，其中 1 个也调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model68latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">146</span>&nbsp; <span class="chapter-title"><img src="imgs/model68latent.pre.png" alt="潜变量模型  68 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，具有所有 2 路和 3 路交互，其中 1 个也调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model69.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">147</span>&nbsp; <span class="chapter-title"><img src="imgs/model69.pre.png" alt="显变量模型  69 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model69latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">148</span>&nbsp; <span class="chapter-title"><img src="imgs/model69latent.pre.png" alt="潜变量模型  69 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model70.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">149</span>&nbsp; <span class="chapter-title"><img src="imgs/model70.pre.png" alt="显变量模型  70 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节 IV-中介变量路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model70latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">150</span>&nbsp; <span class="chapter-title"><img src="imgs/model70latent.pre.png" alt="潜变量模型  70 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节 IV-中介变量路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model71.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">151</span>&nbsp; <span class="chapter-title"><img src="imgs/model71.pre.png" alt="显变量模型  71 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节 IV-中介变量路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model71latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">152</span>&nbsp; <span class="chapter-title"><img src="imgs/model71latent.pre.png" alt="潜变量模型  71 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节 IV-中介变量路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model72.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">153</span>&nbsp; <span class="chapter-title"><img src="imgs/model72.pre.png" alt="显变量模型  72 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径和中介变量-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model72latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">154</span>&nbsp; <span class="chapter-title"><img src="imgs/model72latent.pre.png" alt="潜变量模型  72 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径和中介变量-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model73.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">155</span>&nbsp; <span class="chapter-title"><img src="imgs/model73.pre.png" alt="显变量模型  73 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径、中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model73latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">156</span>&nbsp; <span class="chapter-title"><img src="imgs/model73latent.pre.png" alt="潜变量模型  73 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径、中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model74.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">157</span>&nbsp; <span class="chapter-title"><img src="imgs/model74.pre.png" alt="显变量模型  74 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），IV 也调节中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model75.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">158</span>&nbsp; <span class="chapter-title"><img src="imgs/model75.pre.png" alt="显变量模型  75 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径和中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model75latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">159</span>&nbsp; <span class="chapter-title"><img src="imgs/model75latent.pre.png" alt="潜变量模型  75 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径和中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model76.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">160</span>&nbsp; <span class="chapter-title"><img src="imgs/model76.pre.png" alt="显变量模型  76 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径、中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model76latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">161</span>&nbsp; <span class="chapter-title"><img src="imgs/model76latent.pre.png" alt="潜变量模型  76 :  1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径、中介变量-DV 路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model80.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">162</span>&nbsp; <span class="chapter-title"><img src="imgs/model80.pre.png" alt="显变量模型  80 :  3 个或多个中介变量，并行和串联 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model80latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">163</span>&nbsp; <span class="chapter-title"><img src="imgs/model80latent.pre.png" alt="潜变量模型  80 :  3 个或多个中介变量，并行和串联 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model81.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">164</span>&nbsp; <span class="chapter-title"><img src="imgs/model81.pre.png" alt="显变量模型  81 :  3 个或多个中介变量，并行和串联 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model81latent.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">165</span>&nbsp; <span class="chapter-title"><img src="imgs/model81latent.pre.png" alt="潜变量模型  81 :  3 个或多个中介变量，并行和串联 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model82.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">166</span>&nbsp; <span class="chapter-title"><img src="imgs/model82.pre.png" alt="显变量模型  82 :  4 个或多个中介变量，并行和串联（并行串联路径） "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model83.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">167</span>&nbsp; <span class="chapter-title"><img src="imgs/model83.pre.png" alt="显变量模型  83 :  2 个或多个串联的中介变量，1 个调节变量，调节 IV-第一个中介变量路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model84.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">168</span>&nbsp; <span class="chapter-title"><img src="imgs/model84.pre.png" alt="显变量模型  84 :  2 个或多个串联的中介变量，1 个调节变量，调节 IV-第一个中介变量路径和 IV-第二个中介变量路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model85.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">169</span>&nbsp; <span class="chapter-title"><img src="imgs/model85.pre.png" alt="显变量模型  85 :  2 个或多个串联的中介变量，1 个调节变量，调节 IV-第一个中介变量路径、IV-第二个中介变量路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model86.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">170</span>&nbsp; <span class="chapter-title"><img src="imgs/model86.pre.png" alt="显变量模型  86 :  2 个或多个串联的中介变量，1 个调节变量，调节 IV-第一个中介变量路径和直接 IV-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model87.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">171</span>&nbsp; <span class="chapter-title"><img src="imgs/model87.pre.png" alt="显变量模型  87 :  2 个或多个串联的中介变量，1 个调节变量，调节第二个中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model88.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">172</span>&nbsp; <span class="chapter-title"><img src="imgs/model88.pre.png" alt="显变量模型  88 :  2 个或多个串联的中介变量，1 个调节变量，调节第一个中介变量-DV 路径和第二个中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model89.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">173</span>&nbsp; <span class="chapter-title"><img src="imgs/model89.pre.png" alt="显变量模型  89 :  2 个或多个串联的中介变量，1 个调节变量，调节直接 IV-DV 路径、第一个中介变量-DV 路径和第二个中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model90.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">174</span>&nbsp; <span class="chapter-title"><img src="imgs/model90.pre.png" alt="显变量模型  90 :  2 个或多个串联的中介变量，1 个调节变量，调节直接 IV-DV 路径和第二个中介变量-DV 路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model91.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">175</span>&nbsp; <span class="chapter-title"><img src="imgs/model91.pre.png" alt="显变量模型  91 :  2 个或多个串联的中介变量，1 个调节变量，调节中介变量之间的路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model92.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">176</span>&nbsp; <span class="chapter-title"><img src="imgs/model92.pre.png" alt="显变量模型  92 :  2 个或多个串联的中介变量，1 个调节变量，调节所有直接 IV-DV 路径、IV-第一个中介变量路径、IV-第二个中介变量路径、第一个中介变量-DV 路径、第二个中介变量-DV 路径以及中介变量之间的路径 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model501.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">177</span>&nbsp; <span class="chapter-title"><img src="imgs/model501.pre.png" alt="显变量模型  501 :  1 个中介变量，多个焦点预测变量 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model502.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">178</span>&nbsp; <span class="chapter-title"><img src="imgs/model502.pre.png" alt="显变量模型  502 :  1 个中介变量，多个焦点结果 "></span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="model503.slides.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">179</span>&nbsp; <span class="chapter-title"><img src="imgs/model503.pre.png" alt="显变量模型  503 :  1 个中介变量，预测变量对中介变量和结果具有非线性效应 "></span></span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#导航" id="toc-导航" class="nav-link active" data-scroll-target="#导航"><span class="header-section-number">1</span> 导航</a>
+  <ul class="collapse">
+  <li><a href="#引言" id="toc-引言" class="nav-link" data-scroll-target="#引言"><span class="header-section-number">1.1</span> 引言</a></li>
+  <li><a href="#模型选择" id="toc-模型选择" class="nav-link" data-scroll-target="#模型选择"><span class="header-section-number">1.2</span> 模型选择</a></li>
+  <li><a href="#模型索引" id="toc-模型索引" class="nav-link" data-scroll-target="#模型索引"><span class="header-section-number">1.3</span> 模型索引</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">MPlus中介调节模型</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Author</div>
+    <div class="quarto-title-meta-contents">
+             <p>Data Sense </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Published</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">December 26, 2024</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="导航" class="level1" data-number="1">
+<h1 data-number="1"><span class="header-section-number">1</span> 导航</h1>
+<h2>这里主要是"MPlus中介调节模型"教程的PPT, 如果需要《MPlus中介调节模型》的图文版教程,<a href="https://gf.bilibili.com/item/detail/1107150046">请点击这里</a></h2>
+<p><img src="imgs/cover.png"></p>
+<section id="引言" class="level2" data-number="1.1">
+<h2 data-number="1.1" class="anchored" data-anchor-id="引言"><span class="header-section-number">1.1</span> 引言</h2>
+<p>欢迎来到 Mplus 中介、调节和调节中介模型教程！本教程旨在为您提供使用 Mplus 软件进行复杂统计模型分析的实用指导。在这里，您将找到各种模型配置的 Mplus 代码示例，包括中介效应、调节效应和调节中介效应的组合。</p>
+<p>本教程的核心内容在于展示 Mplus 代码，以便您能够测试不同的模型结构。每个模型都配有概念和统计模型图、模型方程以及最重要的 Mplus 代码，包括 <code>DEFINE:</code>，<code>ANALYSIS:</code>，<code>MODEL:</code> 和 <code>OUTPUT:</code> 等关键命令，以及列出变量的 <code>USEVARIABLES:</code> 子命令。您可以通过调整 <code>DATA:</code> 和 <code>VARIABLE:</code> 命令，并将示例中的变量名称替换为您自己的数据中的变量名，从而将这些示例代码应用于您的研究。</p>
+<p>本教程中的大多数模型类型（以及编号系统）与 Andrew Hayes 在其 PROCESS 宏（用于 SPSS 和 SAS）的 v2 和 v3 版本文档以及其开创性著作《中介、调节和条件过程分析导论》（Hayes，2013，2017）中列出和索引的配置相对应。我强烈建议您在进行此类分析之前阅读此书，作为入门指南。对于 PROCESS v3（及其书籍的第二版），Andrew 删除了一些具有 3 个或以上调节变量的模型，但我在本教程中保留了这些模型的代码。</p>
+<p><strong>重要提示：</strong> Mplus 提供了完全灵活的建模环境，允许您测试无限的调节和中介配置，而不仅仅是 PROCESS 模型类型。 具体来说，与 PROCESS 宏不同，Mplus 可以：</p>
+<ul>
+<li>测试更复杂的模型结构，包括多个中介变量和/或多个调节变量的组合，以及更复杂的交互项。</li>
+<li>将这些模型扩展到多层数据结构。有关多层中介模型的示例和优秀论文，请访问 Kris Preacher 的网站。</li>
+</ul>
+<p>我建议您在复制代码的同时，努力理解代码，这样您就能很快学会如何将代码调整以满足您的需求。</p>
+<p>当然，这种潜力和灵活性的缺点是您需要掌握 Mplus 编程技能。这就是本教程的意义所在！实际上，我认为在 Mplus 中进行中介和调节模型测试对研究人员的长远发展是有利的，因为编程会迫使您正确理解方法，从而更容易撰写报告并发现模型中的概念错误。</p>
+<p>虽然本网站将帮助您编写和理解模型代码，但提供的代码和指南是为具有一定 Mplus 基础知识的人员设计的。在使用这些代码之前，您需要掌握初级的 Mplus 技能，例如如何将数据读入 Mplus，如何编码和处理缺失数据，如何估计模型，如何指定不同的结果分布，<code>BY</code>、<code>ON</code>、<code>WITH</code> 和 <code>XWITH</code> 语句以及 <code>@</code> 和 <code>()</code> 符号的用法，以及 <code>MODEL CONSTRAINT:</code> 如何用于检验参数的函数。</p>
+<p>为此（广告时间！），我会不定期举办关于 Mplus 基础知识以及使用 Mplus 或 SPSS 测试中介、调节和调节中介模型的公开课程，也会提供上门培训。当然，还有一些关于 Mplus 的好书（我推荐 Christian Geiser 的《Data Analysis with Mplus》），以及其他一些课程提供商也提供类似的入门课程。另外，从 2016 年 7 月起，statmodel.com（Mplus 的程序员）将出售一本概述各种回归场景（包括中介模型）的 Mplus 编码的书籍。</p>
+<p>无论如何，我希望您觉得这些代码有帮助。非常欢迎对代码错误的任何更正。祝您分析顺利！</p>
+<p>本教程由 Chris Stride 博士开发，Sarah Gardner（编程/检查）、Nick Catley（方程式扩展/检查）和 Ffion Thomas（图表绘制，基于 Andrew Hayes 的原始 PROCESS 图表）提供协助。</p>
+</section>
+<section id="模型选择" class="level2" data-number="1.2">
+<h2 data-number="1.2" class="anchored" data-anchor-id="模型选择"><span class="header-section-number">1.2</span> 模型选择</h2>
+<p>本教程提供了多种不同结构的中介、调节和调节中介模型代码示例。在开始分析之前，选择最适合您的研究问题的模型至关重要。以下是一些需要考虑的因素：</p>
+<ul>
+<li><strong>您主要研究的是中介效应还是调节效应？</strong>
+<ul>
+<li>中介模型关注的是一个变量如何通过另一个变量影响结果。</li>
+<li>调节模型关注的是一个变量如何改变另一个变量对结果的影响。</li>
+</ul></li>
+<li><strong>模型中涉及多少个中介变量和调节变量？</strong>
+<ul>
+<li>本教程提供了包含单个中介变量和多个中介变量的模型示例。</li>
+<li>同样，本教程也提供了包含单个调节变量和多个调节变量的模型示例。</li>
+</ul></li>
+<li><strong>是否存在调节中介效应？</strong>
+<ul>
+<li>调节中介效应指的是一个调节变量会影响中介效应的强度或方向。</li>
+</ul></li>
+</ul>
+<p>在选择模型时，请仔细审查本教程中提供的每个模型的概念图、统计模型图和模型方程。确保您选择了能够最准确反映您的理论和研究假设的模型。</p>
+</section>
+<section id="模型索引" class="level2" data-number="1.3">
+<h2 data-number="1.3" class="anchored" data-anchor-id="模型索引"><span class="header-section-number">1.3</span> 模型索引</h2>
+<p>本教程的代码示例按照 Andrew Hayes 的 PROCESS 宏中模型的编号系统进行组织。但是，请记住，Mplus 的灵活性允许您测试比 PROCESS 宏中提供的更多模型结构。</p>
+<p>为了方便起见，以下列出了一些关键的模型类型，并简要描述了它们的基本结构：</p>
+<ul>
+<li><strong>简单中介模型：</strong> 包含一个自变量（X）、一个中介变量（M）和一个因变量（Y）。X 通过 M 影响 Y。</li>
+<li><strong>简单调节模型：</strong> 包含一个自变量（X）、一个调节变量（W）和一个因变量（Y）。W 调节 X 对 Y 的影响。</li>
+<li><strong>调节中介模型：</strong> 包含一个自变量（X）、一个中介变量（M）、一个调节变量（W）和一个因变量（Y）。W 调节 X 对 M 的影响，或 M 对 Y 的影响，或两者都调节。</li>
+<li><strong>包含多个中介变量的模型：</strong> 包含一个自变量（X）、多个中介变量（M1、M2…）和一个因变量（Y）。</li>
+<li><strong>包含多个调节变量的模型：</strong> 包含一个自变量（X）、多个调节变量（W1、W2…）和一个因变量（Y）。</li>
+</ul>
+<p>本教程中提供了这些模型以及其他更复杂配置的 Mplus 代码示例。请仔细阅读每个模型的详细说明，并选择最适合您研究的模型。</p>
+<p><strong>温馨提示：</strong></p>
+<ul>
+<li>在开始使用本教程中的代码之前，请确保您具备 Mplus 的基本知识，包括数据读取、变量定义和基本模型构建。</li>
+<li>请务必仔细检查您复制和粘贴的代码，以避免任何细微错误。</li>
+<li>尝试理解代码，而不仅仅是盲目地复制粘贴。这将使您能够更好地应用这些技术，并根据您自己的研究需求进行调整。</li>
+</ul>
+<p>希望这份教程能帮助您成功地进行 Mplus 中介、调节和调节中介模型分析！如有任何问题或建议，请随时与我联系。祝您研究顺利！</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th>模型编号</th>
+<th>调节变量和中介变量的排列方式</th>
+<th>不同的中介变量数量</th>
+<th>不同的调节变量数量</th>
+<th>观测变量示例代码</th>
+<th>潜在变量示例代码</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1a</td>
+<td>1 个调节变量 [基本调节]，连续调节变量</td>
+<td>0</td>
+<td>1</td>
+<td><a href="model1a.slides.html"><img src="imgs/model1a.pre.png"></a></td>
+<td><a href="model1alatent.slides.html"><img src="imgs/model1alatent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>1b</td>
+<td>1 个调节变量 [基本调节]，二分调节变量</td>
+<td>0</td>
+<td>1</td>
+<td><a href="model1b.slides.html"><img src="imgs/model1b.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="odd">
+<td>1c</td>
+<td>1 个调节变量 [基本调节]，二分调节变量（使用多组方法）</td>
+<td>0</td>
+<td>1</td>
+<td><a href="model1c.slides.html"><img src="imgs/model1c.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="even">
+<td>1d</td>
+<td>1 个调节变量 [基本调节]，具有 &gt; 2 个类别的分类调节变量</td>
+<td>0</td>
+<td>1</td>
+<td><a href="model1d.slides.html"><img src="imgs/model1d.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="odd">
+<td>1e</td>
+<td>1 个调节变量 [基本调节]，二分结果（逻辑回归）</td>
+<td>0</td>
+<td>1</td>
+<td><a href="model1e.slides.html"><img src="imgs/model1e.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="even">
+<td>2</td>
+<td>2 个调节变量，仅与预测变量的 2 路交互</td>
+<td>0</td>
+<td>2</td>
+<td><a href="model2.slides.html"><img src="imgs/model2.pre.png"></a></td>
+<td><a href="model2latent.slides.html"><img src="imgs/model2latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>3</td>
+<td>2 个调节变量，所有 2 路和 3 路交互</td>
+<td>0</td>
+<td>2</td>
+<td><a href="model3.slides.html"><img src="imgs/model3.pre.png"></a></td>
+<td><a href="model3latent.slides.html"><img src="imgs/model3latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>4a</td>
+<td>1 个中介变量 [基本中介]</td>
+<td>1</td>
+<td>0</td>
+<td><a href="model4a.slides.html"><img src="imgs/model4a.pre.png"></a></td>
+<td><a href="model4alatent.slides.html"><img src="imgs/model4alatent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>4b</td>
+<td>2 个并行的中介变量 [基本中介]</td>
+<td>1+</td>
+<td>0</td>
+<td><a href="model4b.slides.html"><img src="imgs/model4b.pre.png"></a></td>
+<td><a href="model4blatent.slides.html"><img src="imgs/model4blatent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>4c</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个）[基本中介]，二分中介变量</td>
+<td>1+</td>
+<td>0</td>
+<td><a href="model4c.slides.html"><img src="imgs/model4c.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="odd">
+<td>4d</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个）[基本中介]，二分结果</td>
+<td>1+</td>
+<td>0</td>
+<td><a href="model4d.slides.html"><img src="imgs/model4d.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="even">
+<td>5</td>
+<td>1 个或多个中介变量，如果多个则并行，仅对直接 IV-DV 路径的 1 个调节变量</td>
+<td>1+</td>
+<td>1</td>
+<td><a href="model5.slides.html"><img src="imgs/model5.pre.png"></a></td>
+<td><a href="model5latent.slides.html"><img src="imgs/model5latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>6</td>
+<td>2 个或多个串联的中介变量（示例使用 2 个）</td>
+<td>2+</td>
+<td>0</td>
+<td><a href="model6.slides.html"><img src="imgs/model6.pre.png"></a></td>
+<td><a href="model6latent.slides.html"><img src="imgs/model6latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>7</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），仅对 IV-中介变量路径的 1 个调节变量</td>
+<td>1+</td>
+<td>1</td>
+<td><a href="model7.slides.html"><img src="imgs/model7.pre.png"></a></td>
+<td><a href="model7latent.slides.html"><img src="imgs/model7latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>8</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），1 个调节变量调节 IV-中介变量路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>1</td>
+<td><a href="model8.slides.html"><img src="imgs/model8.pre.png"></a></td>
+<td><a href="model8latent.slides.html"><img src="imgs/model8latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>9</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都只调节 IV-中介变量路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model9.slides.html"><img src="imgs/model9.pre.png"></a></td>
+<td><a href="model9latent.slides.html"><img src="imgs/model9latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>10</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都调节 IV-中介变量路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model10.slides.html"><img src="imgs/model10.pre.png"></a></td>
+<td><a href="model10latent.slides.html"><img src="imgs/model10latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>11</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都只调节 IV-中介变量路径，所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model11.slides.html"><img src="imgs/model11.pre.png"></a></td>
+<td><a href="model11latent.slides.html"><img src="imgs/model11latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>12</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都调节 IV-中介变量路径和直接 IV-DV 路径，所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model12.slides.html"><img src="imgs/model12.pre.png"></a></td>
+<td><a href="model12latent.slides.html"><img src="imgs/model12latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>13</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，3 路交互，1 个也调节直接 IV-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model13.slides.html"><img src="imgs/model13.pre.png"></a></td>
+<td><a href="model13latent.slides.html"><img src="imgs/model13latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>14</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），仅对中介变量-DV 路径的 1 个调节变量</td>
+<td>1+</td>
+<td>1</td>
+<td><a href="model14.slides.html"><img src="imgs/model14.pre.png"></a></td>
+<td><a href="model14latent.slides.html"><img src="imgs/model14latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>15</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），1 个调节变量调节中介变量-DV 和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>1</td>
+<td><a href="model15.slides.html"><img src="imgs/model15.pre.png"></a></td>
+<td><a href="model15latent.slides.html"><img src="imgs/model15latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>16</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都只调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model16.slides.html"><img src="imgs/model16.pre.png"></a></td>
+<td><a href="model16latent.slides.html"><img src="imgs/model16latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>17</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都调节中介变量-DV 和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model17.slides.html"><img src="imgs/model17.pre.png"></a></td>
+<td><a href="model17latent.slides.html"><img src="imgs/model17latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>18</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都只调节中介变量-DV 路径，所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model18.slides.html"><img src="imgs/model18.pre.png"></a></td>
+<td><a href="model18latent.slides.html"><img src="imgs/model18latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>19</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量都调节中介变量-DV 路径和直接 IV-DV 路径，所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model19.slides.html"><img src="imgs/model19.pre.png"></a></td>
+<td><a href="model19latent.slides.html"><img src="imgs/model19latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>20</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，3 路交互，1 个也调节直接 IV-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model20.slides.html"><img src="imgs/model20.pre.png"></a></td>
+<td><a href="model20latent.slides.html"><img src="imgs/model20latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>21</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，1 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model21.slides.html"><img src="imgs/model21.pre.png"></a></td>
+<td><a href="model21latent.slides.html"><img src="imgs/model21latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>22</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，1 个调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model22.slides.html"><img src="imgs/model22.pre.png"></a></td>
+<td><a href="model22latent.slides.html"><img src="imgs/model22latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>23</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model23.slides.html"><img src="imgs/model23.pre.png"></a></td>
+<td><a href="model23latent.slides.html"><img src="imgs/model23latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>24</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径和直接 IV-DV 路径，1 个调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model24.slides.html"><img src="imgs/model24.pre.png"></a></td>
+<td><a href="model24latent.slides.html"><img src="imgs/model24latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>25</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，1 个调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model25.slides.html"><img src="imgs/model25.pre.png"></a></td>
+<td><a href="model25latent.slides.html"><img src="imgs/model25latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>26</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，1 个调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model26.slides.html"><img src="imgs/model26.pre.png"></a></td>
+<td><a href="model26latent.slides.html"><img src="imgs/model26latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>27</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，其中 1 个也调节直接 IV-DV 路径，1 个调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model27.slides.html"><img src="imgs/model27.pre.png"></a></td>
+<td><a href="model27latent.slides.html"><img src="imgs/model27latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>28</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，1 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model28.slides.html"><img src="imgs/model28.pre.png"></a></td>
+<td><a href="model28latent.slides.html"><img src="imgs/model28latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>29</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，1 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径，都调节直接 IV-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model29.slides.html"><img src="imgs/model29.pre.png"></a></td>
+<td><a href="model29latent.slides.html"><img src="imgs/model29latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>30</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，1 个调节中介变量-DV 路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model30.slides.html"><img src="imgs/model30.pre.png"></a></td>
+<td><a href="model30latent.slides.html"><img src="imgs/model30latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>31</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径和直接 IV-DV 路径，1 个调节中介变量-DV 路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model31.slides.html"><img src="imgs/model31.pre.png"></a></td>
+<td><a href="model31latent.slides.html"><img src="imgs/model31latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>32</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，1 个调节中介变量-DV 路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model32.slides.html"><img src="imgs/model32.pre.png"></a></td>
+<td><a href="model32latent.slides.html"><img src="imgs/model32latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>33</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，1 个调节中介变量-DV 路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model33.slides.html"><img src="imgs/model33.pre.png"></a></td>
+<td><a href="model33latent.slides.html"><img src="imgs/model33latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>34</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，其中 1 个也调节直接 IV-DV 路径，1 个调节中介变量-DV 路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model34.slides.html"><img src="imgs/model34.pre.png"></a></td>
+<td><a href="model34latent.slides.html"><img src="imgs/model34latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>35</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model35.slides.html"><img src="imgs/model35.pre.png"></a></td>
+<td><a href="model35latent.slides.html"><img src="imgs/model35latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>36</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径和 IV-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model36.slides.html"><img src="imgs/model36.pre.png"></a></td>
+<td><a href="model36latent.slides.html"><img src="imgs/model36latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>37</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model37.slides.html"><img src="imgs/model37.pre.png"></a></td>
+<td><a href="model37latent.slides.html"><img src="imgs/model37latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>38</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径和 IV-DV 路径，具有所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model38.slides.html"><img src="imgs/model38.pre.png"></a></td>
+<td><a href="model38latent.slides.html"><img src="imgs/model38latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>39</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径，2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节直接 IV-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model39.slides.html"><img src="imgs/model39.pre.png"></a></td>
+<td><a href="model39latent.slides.html"><img src="imgs/model39latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>40</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model40.slides.html"><img src="imgs/model40.pre.png"></a></td>
+<td><a href="model40latent.slides.html"><img src="imgs/model40latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>41</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model41.slides.html"><img src="imgs/model41.pre.png"></a></td>
+<td><a href="model41latent.slides.html"><img src="imgs/model41latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>42</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model42.slides.html"><img src="imgs/model42.pre.png"></a></td>
+<td><a href="model42latent.slides.html"><img src="imgs/model42latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>43</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model43.slides.html"><img src="imgs/model43.pre.png"></a></td>
+<td><a href="model43latent.slides.html"><img src="imgs/model43latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>44</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），3 个调节变量，1 个调节 IV-中介变量路径和直接 IV-DV 路径，2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节直接 IV-DV 路径</td>
+<td>1+</td>
+<td>3</td>
+<td><a href="model44.slides.html"><img src="imgs/model44.pre.png"></a></td>
+<td><a href="model44latent.slides.html"><img src="imgs/model44latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>45</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，另外 2 个调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>4</td>
+<td><a href="model45.slides.html"><img src="imgs/model45.pre.png"></a></td>
+<td><a href="model45latent.slides.html"><img src="imgs/model45latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>46</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>4</td>
+<td><a href="model46.slides.html"><img src="imgs/model46.pre.png"></a></td>
+<td><a href="model46latent.slides.html"><img src="imgs/model46latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>47</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，另外 2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>4</td>
+<td><a href="model47.slides.html"><img src="imgs/model47.pre.png"></a></td>
+<td><a href="model47latent.slides.html"><img src="imgs/model47latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>48</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>4</td>
+<td><a href="model48.slides.html"><img src="imgs/model48.pre.png"></a></td>
+<td><a href="model48latent.slides.html"><img src="imgs/model48latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>49</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，另外 2 个调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>4</td>
+<td><a href="model49.slides.html"><img src="imgs/model49.pre.png"></a></td>
+<td><a href="model49latent.slides.html"><img src="imgs/model49latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>50</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>4</td>
+<td><a href="model50.slides.html"><img src="imgs/model50.pre.png"></a></td>
+<td><a href="model50latent.slides.html"><img src="imgs/model50latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>51</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>4</td>
+<td><a href="model51.slides.html"><img src="imgs/model51.pre.png"></a></td>
+<td><a href="model51latent.slides.html"><img src="imgs/model51latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>52</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>4</td>
+<td><a href="model52.slides.html"><img src="imgs/model52.pre.png"></a></td>
+<td><a href="model52latent.slides.html"><img src="imgs/model52latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>53</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，另外 2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>4</td>
+<td><a href="model53.slides.html"><img src="imgs/model53.pre.png"></a></td>
+<td><a href="model53latent.slides.html"><img src="imgs/model53latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>54</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>4</td>
+<td><a href="model54.slides.html"><img src="imgs/model54.pre.png"></a></td>
+<td><a href="model54latent.slides.html"><img src="imgs/model54latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>55</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径，具有所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>4</td>
+<td><a href="model55.slides.html"><img src="imgs/model55.pre.png"></a></td>
+<td><a href="model55latent.slides.html"><img src="imgs/model55latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>56</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>4</td>
+<td><a href="model56.slides.html"><img src="imgs/model56.pre.png"></a></td>
+<td><a href="model56latent.slides.html"><img src="imgs/model56latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>57</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），4 个调节变量，其中 2 个调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，另外 2 个调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>4</td>
+<td><a href="model57.slides.html"><img src="imgs/model57.pre.png"></a></td>
+<td><a href="model57latent.slides.html"><img src="imgs/model57latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>58</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），1 个调节变量，调节 IV-中介变量路径和中介变量-DV 路径</td>
+<td>1+</td>
+<td>1</td>
+<td><a href="model58.slides.html"><img src="imgs/model58.pre.png"></a></td>
+<td><a href="model58latent.slides.html"><img src="imgs/model58latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>59</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），1 个调节变量，调节 IV-中介变量路径、中介变量-DV 路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>1</td>
+<td><a href="model59.slides.html"><img src="imgs/model59.pre.png"></a></td>
+<td><a href="model59latent.slides.html"><img src="imgs/model59latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>60</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，其中 1 个也调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model60.slides.html"><img src="imgs/model60.pre.png"></a></td>
+<td><a href="model60latent.slides.html"><img src="imgs/model60latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>61</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，其中 1 个也调节中介变量-DV 路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model61.slides.html"><img src="imgs/model61.pre.png"></a></td>
+<td><a href="model61latent.slides.html"><img src="imgs/model61latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>62</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，其中 1 个也调节中介变量-DV 路径，另一个调节直接 IV-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model62.slides.html"><img src="imgs/model62.pre.png"></a></td>
+<td><a href="model62latent.slides.html"><img src="imgs/model62latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>63</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径和直接 IV-DV 路径，其中 1 个也调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model63.slides.html"><img src="imgs/model63.pre.png"></a></td>
+<td><a href="model63latent.slides.html"><img src="imgs/model63latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>64</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，其中 1 个也调节 IV-中介变量路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model64.slides.html"><img src="imgs/model64.pre.png"></a></td>
+<td><a href="model64latent.slides.html"><img src="imgs/model64latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>65</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，其中 1 个也调节 IV-中介变量路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model65.slides.html"><img src="imgs/model65.pre.png"></a></td>
+<td><a href="model65latent.slides.html"><img src="imgs/model65latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>66</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，其中 1 个也调节 IV-中介变量路径，另一个调节直接 IV-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model66.slides.html"><img src="imgs/model66.pre.png"></a></td>
+<td><a href="model66latent.slides.html"><img src="imgs/model66latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>67</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径和直接 IV-DV 路径，其中 1 个也调节 IV-中介变量路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model67.slides.html"><img src="imgs/model67.pre.png"></a></td>
+<td><a href="model67latent.slides.html"><img src="imgs/model67latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>68</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径，具有所有 2 路和 3 路交互，其中 1 个也调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model68.slides.html"><img src="imgs/model68.pre.png"></a></td>
+<td><a href="model68latent.slides.html"><img src="imgs/model68latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>69</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model69.slides.html"><img src="imgs/model69.pre.png"></a></td>
+<td><a href="model69latent.slides.html"><img src="imgs/model69latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>70</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节 IV-中介变量路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model70.slides.html"><img src="imgs/model70.pre.png"></a></td>
+<td><a href="model70latent.slides.html"><img src="imgs/model70latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>71</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互，其中 1 个也调节 IV-中介变量路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model71.slides.html"><img src="imgs/model71.pre.png"></a></td>
+<td><a href="model71latent.slides.html"><img src="imgs/model71latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>72</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径和中介变量-DV 路径，具有所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model72.slides.html"><img src="imgs/model72.pre.png"></a></td>
+<td><a href="model72latent.slides.html"><img src="imgs/model72latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>73</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径、中介变量-DV 路径和直接 IV-DV 路径，具有所有 2 路和 3 路交互</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model73.slides.html"><img src="imgs/model73.pre.png"></a></td>
+<td><a href="model73latent.slides.html"><img src="imgs/model73latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>74</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），IV 也调节中介变量-DV 路径</td>
+<td>1+</td>
+<td>(1)</td>
+<td><a href="model74.slides.html"><img src="imgs/model74.pre.png"></a></td>
+<td><a href="model74latent.slides.htm">Mplus 代码</a></td>
+</tr>
+<tr class="even">
+<td>75</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径和中介变量-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model75.slides.html"><img src="imgs/model75.pre.png"></a></td>
+<td><a href="model75latent.slides.html"><img src="imgs/model75latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>76</td>
+<td>1 个或多个中介变量，如果多个则并行（示例使用 1 个），2 个调节变量，都调节 IV-中介变量路径、中介变量-DV 路径和直接 IV-DV 路径</td>
+<td>1+</td>
+<td>2</td>
+<td><a href="model76.slides.html"><img src="imgs/model76.pre.png"></a></td>
+<td><a href="model76latent.slides.html"><img src="imgs/model76latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>80</td>
+<td>3 个或多个中介变量，并行和串联</td>
+<td>3+</td>
+<td>0</td>
+<td><a href="model80.slides.html"><img src="imgs/model80.pre.png"></a></td>
+<td><a href="model80latent.slides.html"><img src="imgs/model80latent.pre.png"></a></td>
+</tr>
+<tr class="odd">
+<td>81</td>
+<td>3 个或多个中介变量，并行和串联</td>
+<td>3+</td>
+<td>0</td>
+<td><a href="model81.slides.html"><img src="imgs/model81.pre.png"></a></td>
+<td><a href="model81latent.slides.html"><img src="imgs/model81latent.pre.png"></a></td>
+</tr>
+<tr class="even">
+<td>82</td>
+<td>4 个或多个中介变量，并行和串联（并行串联路径）</td>
+<td>4+</td>
+<td>0</td>
+<td><a href="model82.slides.html"><img src="imgs/model82.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="odd">
+<td>83</td>
+<td>2 个或多个串联的中介变量，1 个调节变量，调节 IV-第一个中介变量路径</td>
+<td>2+</td>
+<td>1</td>
+<td><a href="model83.slides.html"><img src="imgs/model83.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="even">
+<td>84</td>
+<td>2 个或多个串联的中介变量，1 个调节变量，调节 IV-第一个中介变量路径和 IV-第二个中介变量路径</td>
+<td>2+</td>
+<td>1</td>
+<td><a href="model84.slides.html"><img src="imgs/model84.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="odd">
+<td>85</td>
+<td>2 个或多个串联的中介变量，1 个调节变量，调节 IV-第一个中介变量路径、IV-第二个中介变量路径和直接 IV-DV 路径</td>
+<td>2+</td>
+<td>1</td>
+<td><a href="model85.slides.html"><img src="imgs/model85.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="even">
+<td>86</td>
+<td>2 个或多个串联的中介变量，1 个调节变量，调节 IV-第一个中介变量路径和直接 IV-DV 路径</td>
+<td>2+</td>
+<td>1</td>
+<td><a href="model86.slides.html"><img src="imgs/model86.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="odd">
+<td>87</td>
+<td>2 个或多个串联的中介变量，1 个调节变量，调节第二个中介变量-DV 路径</td>
+<td>2+</td>
+<td>1</td>
+<td><a href="model87.slides.html"><img src="imgs/model87.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="even">
+<td>88</td>
+<td>2 个或多个串联的中介变量，1 个调节变量，调节第一个中介变量-DV 路径和第二个中介变量-DV 路径</td>
+<td>2+</td>
+<td>1</td>
+<td><a href="model88.slides.html"><img src="imgs/model88.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="odd">
+<td>89</td>
+<td>2 个或多个串联的中介变量，1 个调节变量，调节直接 IV-DV 路径、第一个中介变量-DV 路径和第二个中介变量-DV 路径</td>
+<td>2+</td>
+<td>1</td>
+<td><a href="model89.slides.html"><img src="imgs/model89.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="even">
+<td>90</td>
+<td>2 个或多个串联的中介变量，1 个调节变量，调节直接 IV-DV 路径和第二个中介变量-DV 路径</td>
+<td>2+</td>
+<td>1</td>
+<td><a href="model90.slides.html"><img src="imgs/model90.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="odd">
+<td>91</td>
+<td>2 个或多个串联的中介变量，1 个调节变量，调节中介变量之间的路径</td>
+<td>2+</td>
+<td>1</td>
+<td><a href="model91.slides.html"><img src="imgs/model91.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="even">
+<td>92</td>
+<td>2 个或多个串联的中介变量，1 个调节变量，调节所有直接 IV-DV 路径、IV-第一个中介变量路径、IV-第二个中介变量路径、第一个中介变量-DV 路径、第二个中介变量-DV 路径以及中介变量之间的路径</td>
+<td>2+</td>
+<td>1</td>
+<td><a href="model92.slides.html"><img src="imgs/model92.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="odd">
+<td>501</td>
+<td>1 个中介变量，多个焦点预测变量</td>
+<td>1</td>
+<td>0</td>
+<td><a href="model501.slides.html"><img src="imgs/model501.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="even">
+<td>502</td>
+<td>1 个中介变量，多个焦点结果</td>
+<td>1</td>
+<td>0</td>
+<td><a href="model502.slides.html"><img src="imgs/model502.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="odd">
+<td>503</td>
+<td>1 个中介变量，预测变量对中介变量和结果具有非线性效应</td>
+<td>1</td>
+<td>0</td>
+<td><a href="model503.slides.html"><img src="imgs/model503.pre.png"></a></td>
+<td>Coming soon</td>
+</tr>
+<tr class="even">
+<td>504</td>
+<td>3 个或多个中介</td>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./QA.html" class="pagination-link" aria-label="问答">
+        <span class="nav-page-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">问答</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
