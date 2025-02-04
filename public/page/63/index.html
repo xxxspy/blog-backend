@@ -270,6 +270,100 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/06/15/spss%E5%A6%82%E4%BD%95%E5%81%9A%E4%BA%A4%E5%8F%89%E8%A1%A8%E5%88%86%E6%9E%90/">
+                spss如何做交叉表分析
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年06月15日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>交叉表分析主要用来检验两个变量之间是否存在关系，或者说是否独立，其零假设为两个变量之间没有关系。我们在实际的工作中，经常用交叉表来分析比例是否相等。比如我们来分析一下，不同的性别对不同的报纸的选择有什么不同，就是要用交叉表分析了，下面是具体的方法。<br>方法&#x2F;步骤</p>
+<ul>
+<li>在spss中打开数据，然后依次打开：analyze–descriptive–crosstabs，打开交叉表对话框</li>
+</ul>
+<img src="/2015/06/15/spss%E5%A6%82%E4%BD%95%E5%81%9A%E4%BA%A4%E5%8F%89%E8%A1%A8%E5%88%86%E6%9E%90/7dd98d1001e939013903dcb17bec54e736d1963f.jpg" class="" title="spss如何做交叉表分析">
+
+<ul>
+<li>将性别放到行列表，将对读物的选择变量放到列，这样就构成了一个交叉表</li>
+</ul>
+<img src="/2015/06/15/spss%E5%A6%82%E4%BD%95%E5%81%9A%E4%BA%A4%E5%8F%89%E8%A1%A8%E5%88%86%E6%9E%90/4ec2d5628535e5ddc32df45076c6a7efce1b623f.jpg" class="" title="spss如何做交叉表分析">
+
+<ul>
+<li>接下来我们要设置输出的结果，点击statistics，打开一个新的对话框</li>
+</ul>
+<img src="/2015/06/15/spss%E5%A6%82%E4%BD%95%E5%81%9A%E4%BA%A4%E5%8F%89%E8%A1%A8%E5%88%86%E6%9E%90/8435e5dde71190ef50fac350ce1b9d16fdfa603f.jpg" class="" title="spss如何做交叉表分析">
+
+<ul>
+<li>勾选chi-square（卡方检验），勾选phi and cramer’s V（衡量交互分析中两个变量关系强度的指标），点击continue，回到交叉表对话框</li>
+</ul>
+<img src="/2015/06/15/spss%E5%A6%82%E4%BD%95%E5%81%9A%E4%BA%A4%E5%8F%89%E8%A1%A8%E5%88%86%E6%9E%90/b812c8fcc3cec3fd9b5bf6fad688d43f869427d3.jpg" class="" title="spss如何做交叉表分析">
+
+<ul>
+<li>点击cells，设置cell中要展示的数据</li>
+</ul>
+<img src="/2015/06/15/spss%E5%A6%82%E4%BD%95%E5%81%9A%E4%BA%A4%E5%8F%89%E8%A1%A8%E5%88%86%E6%9E%90/f2deb48f8c5494eec0235e962df5e0fe99257e3f.jpg" class="" title="spss如何做交叉表分析">
+
+<ul>
+<li>在这里勾选observed（各单元格的观测次数），勾选row（行单元格的百分比），点击continue，回到交叉表对话框</li>
+</ul>
+<img src="/2015/06/15/spss%E5%A6%82%E4%BD%95%E5%81%9A%E4%BA%A4%E5%8F%89%E8%A1%A8%E5%88%86%E6%9E%90/8694a4c27d1ed21b61ac7f6aad6eddc450da3fd3.jpg" class="" title="spss如何做交叉表分析">
+
+<ul>
+<li>点击ok按钮，输出检验结果</li>
+</ul>
+<img src="/2015/06/15/spss%E5%A6%82%E4%BD%95%E5%81%9A%E4%BA%A4%E5%8F%89%E8%A1%A8%E5%88%86%E6%9E%90/e1fe9925bc315c6003943a608db1cb134954773f.jpg" class="" title="spss如何做交叉表分析">
+
+<ul>
+<li>先看到的第一个表格就是交叉表，性别为行、选择的读物为列</li>
+</ul>
+<img src="/2015/06/15/spss%E5%A6%82%E4%BD%95%E5%81%9A%E4%BA%A4%E5%8F%89%E8%A1%A8%E5%88%86%E6%9E%90/9825bc315c6034a866e3e90ecb1349540923763f.jpg" class="" title="spss如何做交叉表分析">
+
+<ul>
+<li>卡方检验结果：我们主要是看pearson卡方检验，sig值小于0.05，因此我们认为不同的性别的人对周末读物的选择有显著的差别</li>
+</ul>
+<img src="/2015/06/15/spss%E5%A6%82%E4%BD%95%E5%81%9A%E4%BA%A4%E5%8F%89%E8%A1%A8%E5%88%86%E6%9E%90/bd315c6034a85edfb48dafac49540923dd54753f.jpg" class="" title="spss如何做交叉表分析">
+
+<ul>
+<li><p>最后一个表格，输出的是phi值和V值，两个都是代表两个变量之间的关系的紧密度的，数值小于0.1说明关系不紧密，即性别与周末读物的选择没有明显的关系，这个结论和上面的卡方检验有出入，所以我们需要进一步进行两两比较。</p>
+</li>
+<li></li>
+<li></li>
+</ul>
+<img src="/2015/06/15/spss%E5%A6%82%E4%BD%95%E5%81%9A%E4%BA%A4%E5%8F%89%E8%A1%A8%E5%88%86%E6%9E%90/4d086e061d950a7bbe531e4b0ad162d9f3d3c9df.jpg" class="" title="spss如何做交叉表分析">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#x34;&#x39;&#x35;&#55;&#56;&#55;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#x36;&#x37;&#x35;&#x34;&#x39;&#x35;&#55;&#56;&#55;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/06/15/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B23%5DMySQLdb%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85%E4%B8%8E%E4%BD%BF%E7%94%A8/">
                 Python教程：[23]MySQLdb下载安装与使用
             </a>
@@ -1206,62 +1300,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/11/Excel2013%EF%BC%9A%5B35%5D%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E5%8A%A0%E5%AF%86%E9%9A%90%E8%97%8F%E5%8D%95%E5%85%83%E6%A0%BC/">
-                Excel2013：[35]如何查看加密隐藏单元格
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月11日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>我们通常会隐藏单元格来防止别人查看数据，但是别人可以取消隐藏，所以我们需要给隐藏单元格加密，于是选择了【保护工作表】，并加了密码，你觉得这是万无一失的吗？看我上一篇文章，你就知道这种加密隐藏的方式具体操作方法【Excel2013 如何取消隐藏时输入密码】。现在这篇文章就是教大家如何破解这种加密方法：</p>
-<ul>
-<li>我们先按照我上一篇文章来加密隐藏一列数据，搜索【Excel2013 如何取消隐藏时输入密码】</li>
-</ul>
-<img src="/2015/06/11/Excel2013%EF%BC%9A%5B35%5D%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E5%8A%A0%E5%AF%86%E9%9A%90%E8%97%8F%E5%8D%95%E5%85%83%E6%A0%BC/b0742dfa828ba61e5fd567534334970a304e5950.jpg" class="" title="Excel2013：[35]如何查看加密隐藏单元格">
-
-<ul>
-<li>接着，我们可以选中它周围的列，如图所示，我们想要查看B列，可以选中A:E，然Ctrl+c复制一下</li>
-</ul>
-<img src="/2015/06/11/Excel2013%EF%BC%9A%5B35%5D%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E5%8A%A0%E5%AF%86%E9%9A%90%E8%97%8F%E5%8D%95%E5%85%83%E6%A0%BC/964b2e4e251f95ca2fce3dcacb177f3e67095250.jpg" class="" title="Excel2013：[35]如何查看加密隐藏单元格">
-
-<ul>
-<li>随便找一个地方，粘贴，隐藏的单元格就呈现出来了，这就是这种加密方法的漏洞。但是，一般人不会去这么做，所以当你觉得一旦泄密也无所谓，可以始终上一篇文章中的方法来加密。假如你想要更高的加密等级，你可以看接下来的一篇文章【Excel2013 禁止复制隐藏单元格】</li>
-</ul>
-<img src="/2015/06/11/Excel2013%EF%BC%9A%5B35%5D%E5%A6%82%E4%BD%95%E6%9F%A5%E7%9C%8B%E5%8A%A0%E5%AF%86%E9%9A%90%E8%97%8F%E5%8D%95%E5%85%83%E6%A0%BC/a6c7d7177f3e6709ca3aea8339c79f3df8dc5550.jpg" class="" title="Excel2013：[35]如何查看加密隐藏单元格">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;">&#54;&#55;&#x35;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1303,6 +1341,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/02/04/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%8D%9A%E5%A3%AB%E6%AF%95%E4%B8%9A%E6%89%80%E6%9C%89%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81PPT%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD/">计量经济学从入门到博士毕业所有教程代码PPT视频资</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/12/22/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/">共同方法偏差的类型和检验方法</a>
             </li>
             
@@ -1336,10 +1378,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/08/30/%E5%85%B3%E4%BA%8ELPA%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于LPA分析的一些问题</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/07/25/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E8%AE%BA%E6%96%87%E6%92%B0%E5%86%99%E6%A8%A1%E6%9D%BF/">潜在类别分析LCA论文撰写模板</a>
             </li>
             
         </ul>

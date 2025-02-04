@@ -270,6 +270,138 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/">
+                Excel2013：[26]如何将ABCD替换成数字
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年02月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>经常给别人做数据分析，拿到的数据都是很不规范的，比如下面这个例子，单元格中的数据是ABCD而不是数字1234，这样的数据是无法放入到spss中进行处理的，所以我们需要对这个进行重新编码，在Excel中使用vba是比较快速的方法，这里我跟大家分享一下我的方法：</p>
+<ul>
+<li>明确目标：把ABCD转换成1234，如图所示，题目1这一列是我转换完成的，题目3这一列是还没有进行转换的。</li>
+</ul>
+<img src="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/a8362712b31bb051727be651347adab44aede029.jpg" class="" title="Excel2013：[26]如何将ABCD替换成数字">
+
+<ul>
+<li>我们使用快捷键alt + F11，打开vbe编辑窗口</li>
+</ul>
+<img src="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/8640bf8b87d6277f084d67412a381f30e924fc29.jpg" class="" title="Excel2013：[26]如何将ABCD替换成数字">
+
+<ul>
+<li>掺入一个模块：菜单上执行【插入】-【模块】</li>
+</ul>
+<img src="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/d1571724ab18972bb45255b3e4cd7b899e510a1b.jpg" class="" title="Excel2013：[26]如何将ABCD替换成数字">
+
+<ul>
+<li><p>将这段代码粘贴到模块中：</p>
+</li>
+<li><p>Sub 替换abcd()</p>
+</li>
+<li><pre><code>Dim iRng As Range
+</code></pre>
+</li>
+<li><pre><code>Set iRng = Selection
+</code></pre>
+</li>
+<li><pre><code>For Each icell In iRng
+</code></pre>
+</li>
+<li><pre><code>    txt = icell.Value
+</code></pre>
+</li>
+<li><pre><code>    Select Case txt
+</code></pre>
+</li>
+<li><pre><code>    Case &quot;A&quot;
+</code></pre>
+</li>
+<li><pre><code>        icell.Value = 1
+</code></pre>
+</li>
+<li><pre><code>    Case &quot;B&quot;
+</code></pre>
+</li>
+<li><pre><code>        icell.Value = 2
+</code></pre>
+</li>
+<li><pre><code>    Case &quot;C&quot;
+</code></pre>
+</li>
+<li><pre><code>        icell.Value = 3
+</code></pre>
+</li>
+<li><pre><code>    Case &quot;D&quot;
+</code></pre>
+</li>
+<li><pre><code>        icell.Value = 4
+</code></pre>
+</li>
+<li><pre><code>    Case &quot;E&quot;
+</code></pre>
+</li>
+<li><pre><code>        icell.Value = 5
+</code></pre>
+</li>
+<li><pre><code>    End Select
+</code></pre>
+</li>
+<li><pre><code>Next icell
+</code></pre>
+</li>
+<li><p>End Sub</p>
+</li>
+</ul>
+<img src="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/0b3a1c087bf40ad1c6bb929a552c11dfa9ecce29.jpg" class="" title="Excel2013：[26]如何将ABCD替换成数字">
+
+<ul>
+<li>保存并关闭vbe窗口，然后按下快捷键alt+F8，打开宏编辑窗口，选中这个唯一的宏，然后点击【选项】按钮</li>
+</ul>
+<img src="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/f392492c11dfa9ec2371036e60d0f703918fc129.jpg" class="" title="Excel2013：[26]如何将ABCD替换成数字">
+
+<ul>
+<li>设置快捷键为Ctrl+q，然后点击确定按钮</li>
+</ul>
+<img src="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/0b14ad19ebc4b7453efce26fcdfc1e178a82151b.jpg" class="" title="Excel2013：[26]如何将ABCD替换成数字">
+
+<ul>
+<li>下面开始使用这个宏来转化数据，如图，先选中要转换的这一列，然后按下快捷键【Ctrl+q】，你可以看到数据快速得到转换。abcd都变成了1234</li>
+</ul>
+<img src="/2016/02/05/Excel2013%EF%BC%9A%5B26%5D%E5%A6%82%E4%BD%95%E5%B0%86ABCD%E6%9B%BF%E6%8D%A2%E6%88%90%E6%95%B0%E5%AD%97/58af236d55fbb2fbf5740d6b4d4a20a44623dc29.jpg" class="" title="Excel2013：[26]如何将ABCD替换成数字">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#x34;&#57;&#x35;&#x37;&#56;&#55;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;">&#54;&#x37;&#x35;&#x34;&#57;&#x35;&#x37;&#56;&#55;&#64;&#113;&#113;&#46;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/02/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B33%5Dsetuptools%E5%AE%89%E8%A3%85%E6%89%A9%E5%B1%95%E5%BA%93%E7%9A%84%E6%96%B9%E6%B3%95/">
                 Python教程：[33]setuptools安装扩展库的方法
             </a>
@@ -968,77 +1100,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/01/19/Excel2013%EF%BC%9A%5B51%5D%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E4%BB%A5%E2%80%9C%E4%B8%87%E2%80%9D%E4%B8%BA%E5%8D%95%E4%BD%8D/">
-                Excel2013：[51]数字怎么以“万”为单位
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年01月19日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>由一列数据是营业额，数字太大不容易看，我们最好是以万元为单位来显示数据，现在看看我们怎么转换单位。</p>
-<ul>
-<li>先来看看原始数据</li>
-</ul>
-<img src="/2016/01/19/Excel2013%EF%BC%9A%5B51%5D%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E4%BB%A5%E2%80%9C%E4%B8%87%E2%80%9D%E4%B8%BA%E5%8D%95%E4%BD%8D/bd7faf3533fa828b711711bcff1f4134970a5a7e.jpg" class="" title="Excel2013：[51]数字怎么以“万”为单位">
-
-<ul>
-<li>选中要转换的数字</li>
-</ul>
-<img src="/2016/01/19/Excel2013%EF%BC%9A%5B51%5D%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E4%BB%A5%E2%80%9C%E4%B8%87%E2%80%9D%E4%B8%BA%E5%8D%95%E4%BD%8D/e6508eef76c6a7ef7d7b2479fffaaf51f2de66d5.jpg" class="" title="Excel2013：[51]数字怎么以“万”为单位">
-
-<ul>
-<li>我们打开数据格式面板，点击折叠按钮</li>
-</ul>
-<img src="/2016/01/19/Excel2013%EF%BC%9A%5B51%5D%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E4%BB%A5%E2%80%9C%E4%B8%87%E2%80%9D%E4%B8%BA%E5%8D%95%E4%BD%8D/245e8bcad1c8a786281ec6516509c93d70cf507e.jpg" class="" title="Excel2013：[51]数字怎么以“万”为单位">
-
-<ul>
-<li>切换到自定义选项下，然后输入通用格式</li>
-</ul>
-<img src="/2016/01/19/Excel2013%EF%BC%9A%5B51%5D%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E4%BB%A5%E2%80%9C%E4%B8%87%E2%80%9D%E4%B8%BA%E5%8D%95%E4%BD%8D/2cb4fefe9925bc319d008dc75cdf8db1ca1370d5.jpg" class="" title="Excel2013：[51]数字怎么以“万”为单位">
-
-<ul>
-<li>想转换为万元为单位，那么我们就输入这个通用格式：0!.0,”万元”</li>
-</ul>
-<img src="/2016/01/19/Excel2013%EF%BC%9A%5B51%5D%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E4%BB%A5%E2%80%9C%E4%B8%87%E2%80%9D%E4%B8%BA%E5%8D%95%E4%BD%8D/e1bf8725bc315c60f6c8e7b08fb1cb13485477d5.jpg" class="" title="Excel2013：[51]数字怎么以“万”为单位">
-
-<ul>
-<li>最后，我们看看转换完成的数据喽。</li>
-</ul>
-<img src="/2016/01/19/Excel2013%EF%BC%9A%5B51%5D%E6%95%B0%E5%AD%97%E6%80%8E%E4%B9%88%E4%BB%A5%E2%80%9C%E4%B8%87%E2%80%9D%E4%B8%BA%E5%8D%95%E4%BD%8D/48151723dd54564e58386866b1de9c82d0584fd5.jpg" class="" title="Excel2013：[51]数字怎么以“万”为单位">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#x37;&#53;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#109;">&#x36;&#x37;&#53;&#x34;&#x39;&#x35;&#x37;&#56;&#55;&#x40;&#x71;&#113;&#x2e;&#x63;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1080,6 +1141,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/02/04/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%8D%9A%E5%A3%AB%E6%AF%95%E4%B8%9A%E6%89%80%E6%9C%89%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81PPT%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD/">计量经济学从入门到博士毕业所有教程代码PPT视频资</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2024/12/22/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/">共同方法偏差的类型和检验方法</a>
             </li>
             
@@ -1113,10 +1178,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/08/30/%E5%85%B3%E4%BA%8ELPA%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于LPA分析的一些问题</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/07/25/%E6%BD%9C%E5%9C%A8%E7%B1%BB%E5%88%AB%E5%88%86%E6%9E%90LCA%E8%AE%BA%E6%96%87%E6%92%B0%E5%86%99%E6%A8%A1%E6%9D%BF/">潜在类别分析LCA论文撰写模板</a>
             </li>
             
         </ul>
