@@ -270,6 +270,77 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/03/17/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E6%A3%80%E9%AA%8C/">
+                spss协方差分析中如何进行交互作用的检验
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年03月17日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>协方差分析前必须进行交互作用的检验，为的是满足协方差分析的平行性假设，存在交互作用就无法进行协方差分析了。下面是具体的过程：<br>工具&#x2F;原料</p>
+<ul>
+<li><p>spss20.0<br>方法&#x2F;步骤</p>
+</li>
+<li><p>打开数据，在菜单栏上点击analyse–GML–univariate，打开协方差的对话框</p>
+</li>
+</ul>
+<img src="/2016/03/17/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E6%A3%80%E9%AA%8C/d31b0ef41bd5ad6e9d14c72981cb39dbb7fd3c07.jpg" class="" title="spss协方差分析中如何进行交互作用的检验">
+
+<ul>
+<li>在打开的这个对话框中，我们要将因变量、固定因素、斜变量放入各自的框中，点击model按钮，设置模型</li>
+</ul>
+<img src="/2016/03/17/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E6%A3%80%E9%AA%8C/e824b899a9014c08e9518a660a7b02087af4f48f.jpg" class="" title="spss协方差分析中如何进行交互作用的检验">
+
+<img src="/2016/03/17/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E6%A3%80%E9%AA%8C/d439b6003af33a872fcea2d9c65c10385243b556.jpg" class="" title="spss协方差分析中如何进行交互作用的检验">
+
+<ul>
+<li>在这，需要将两个自变量和他们的交互项放入到模型框中，点击continue按钮</li>
+</ul>
+<img src="/2016/03/17/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E6%A3%80%E9%AA%8C/f636afc379310a55d0bc7c37b74543a98326105c.jpg" class="" title="spss协方差分析中如何进行交互作用的检验">
+
+<ul>
+<li>回到主对话框，点击ok按钮开始处理数据，等待几分钟才能出现图，因为绘图需要一些时间</li>
+</ul>
+<img src="/2016/03/17/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E6%A3%80%E9%AA%8C/91529822720e0cf37e00ec380a46f21fbf09aa7a.jpg" class="" title="spss协方差分析中如何进行交互作用的检验">
+
+<ul>
+<li>我们看到这两个变量的交互作用并不显著，这说明协方差分析是可行的</li>
+</ul>
+<img src="/2016/03/17/spss%E5%8D%8F%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90%E4%B8%AD%E5%A6%82%E4%BD%95%E8%BF%9B%E8%A1%8C%E4%BA%A4%E4%BA%92%E4%BD%9C%E7%94%A8%E7%9A%84%E6%A3%80%E9%AA%8C/4ec2d5628535e5dd16df071c76c6a7efcf1b6206.jpg" class="" title="spss协方差分析中如何进行交互作用的检验">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#x34;&#57;&#53;&#55;&#56;&#55;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;">&#x36;&#x37;&#x35;&#x34;&#57;&#53;&#55;&#56;&#55;&#x40;&#x71;&#x71;&#x2e;&#x63;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/03/15/spss%E8%81%9A%E7%B1%BB%E5%88%86%E6%9E%90%E5%A6%82%E4%BD%95%E5%AF%B9%E5%88%86%E7%B1%BB%E7%BB%93%E6%9E%9C%E8%BF%9B%E8%A1%8C%E6%A3%80%E9%AA%8C/">
                 spss聚类分析如何对分类结果进行检验
             </a>
@@ -1026,80 +1097,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/02/23/spss%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%AD%E5%BC%BA%E5%BD%B1%E5%93%8D%E7%82%B9%E7%9A%84%E8%AF%8A%E6%96%AD%E6%96%B9%E6%B3%95/">
-                spss线性回归中强影响点的诊断方法
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年02月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>强影响点会影响线性回归的回归效果，所以我们需要对这些数据进行筛选，那么如何诊断中这些数据呢？我们通常是使用强影响点诊断，下面是具体的方法：<br>工具&#x2F;原料</p>
-<ul>
-<li><p>spss20.0<br>方法&#x2F;步骤</p>
-</li>
-<li><p>在菜单栏上执行：analyse–regression–linear，打开线性回归对话框</p>
-</li>
-</ul>
-<img src="/2016/02/23/spss%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%AD%E5%BC%BA%E5%BD%B1%E5%93%8D%E7%82%B9%E7%9A%84%E8%AF%8A%E6%96%AD%E6%96%B9%E6%B3%95/8d5494eef01f3a29044c8d0a9925bc315d607c69.jpg" class="" title="spss线性回归中强影响点的诊断方法">
-
-<ul>
-<li>将自变量和因变量放入各自的框框中，上面的是因变量，下面的是自变量</li>
-</ul>
-<img src="/2016/02/23/spss%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%AD%E5%BC%BA%E5%BD%B1%E5%93%8D%E7%82%B9%E7%9A%84%E8%AF%8A%E6%96%AD%E6%96%B9%E6%B3%95/9825bc315c6034a87165e045cb1349540823766a.jpg" class="" title="spss线性回归中强影响点的诊断方法">
-
-<ul>
-<li>点击statistic按钮，我们设置检验强影响点的参数</li>
-</ul>
-<img src="/2016/02/23/spss%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%AD%E5%BC%BA%E5%BD%B1%E5%93%8D%E7%82%B9%E7%9A%84%E8%AF%8A%E6%96%AD%E6%96%B9%E6%B3%95/e4dde71190ef76c6b954a3ef9d16fdfaae51676b.jpg" class="" title="spss线性回归中强影响点的诊断方法">
-
-<ul>
-<li>勾选如图所示的选项，我们看到一个数值3是我们自己填的，3代表三个标准差，在3个标准差以外的数据就会作为强影响点，这里只是诊断强影响点，而不会 在处理数据的时候删除这些数据</li>
-</ul>
-<img src="/2016/02/23/spss%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%AD%E5%BC%BA%E5%BD%B1%E5%93%8D%E7%82%B9%E7%9A%84%E8%AF%8A%E6%96%AD%E6%96%B9%E6%B3%95/7aec54e736d12f2eac84f6a44fc2d56284356874.jpg" class="" title="spss线性回归中强影响点的诊断方法">
-
-<ul>
-<li>点击ok按钮，开始处理数据并输出诊断的结果表格</li>
-</ul>
-<img src="/2016/02/23/spss%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%AD%E5%BC%BA%E5%BD%B1%E5%93%8D%E7%82%B9%E7%9A%84%E8%AF%8A%E6%96%AD%E6%96%B9%E6%B3%95/3b292df5e0fe9925908c319434a85edf8cb17175.jpg" class="" title="spss线性回归中强影响点的诊断方法">
-
-<ul>
-<li>这个表格就是对强影响点的诊断，case number这个就是被诊断出来的强影响点的case编号，我们可以删除这些强影响点以后再进行数据的处理</li>
-</ul>
-<img src="/2016/02/23/spss%E7%BA%BF%E6%80%A7%E5%9B%9E%E5%BD%92%E4%B8%AD%E5%BC%BA%E5%BD%B1%E5%93%8D%E7%82%B9%E7%9A%84%E8%AF%8A%E6%96%AD%E6%96%B9%E6%B3%95/7dd98d1001e939012eb6d5fa7bec54e737d196b9.jpg" class="" title="spss线性回归中强影响点的诊断方法">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#x39;&#53;&#x37;&#56;&#55;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#109;">&#54;&#55;&#53;&#52;&#x39;&#53;&#x37;&#56;&#55;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1141,6 +1138,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/02/17/%E4%BD%BF%E7%94%A8%E6%BD%9C%E5%8F%98%E9%87%8F%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8B%EF%BC%88GMM%EF%BC%89%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/">使用潜变量混合增长模型（GMM）实用指南</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2025/02/04/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%8D%9A%E5%A3%AB%E6%AF%95%E4%B8%9A%E6%89%80%E6%9C%89%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81PPT%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD/">计量经济学从入门到博士毕业所有教程代码PPT视频资</a>
             </li>
             
@@ -1174,10 +1175,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/09/04/Deep-Live-Cam-Real-Time-Face-Swap-%E5%9C%A8-windows-%E4%B8%8A%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/">Deep Live Cam Real-Time F</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/08/30/%E5%85%B3%E4%BA%8ELPA%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于LPA分析的一些问题</a>
             </li>
             
         </ul>

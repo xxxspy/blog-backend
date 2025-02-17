@@ -270,6 +270,97 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/07/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5D%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/">
+                pandas教程：[18]匹配字符串
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年07月05日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>pandas可以检测字符串是否包含某字符模式或者匹配它，这在处理一些字符串数据的时候非常有用，下面我们来用几个例子说明一下。</p>
+<ul>
+<li>首先，我们创建一个数据序列<br>查看数据序列：</li>
+</ul>
+<img src="/2015/07/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5D%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/5202e5f2b21193133c3f72b466380cd791238d73.jpg" class="" title="pandas教程：[18]匹配字符串">
+
+<img src="/2015/07/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5D%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/1e71f724b899a90109ecd9321e950a7b0308f59e.jpg" class="" title="pandas教程：[18]匹配字符串">
+
+<ul>
+<li>检测数据序列中哪些元素包含一个字母和一个数字的字符模式<br>匹配结果为：</li>
+</ul>
+<img src="/2015/07/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5D%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/b13fd48065380cd701622fe9a244ad3459828173.jpg" class="" title="pandas教程：[18]匹配字符串">
+
+<img src="/2015/07/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5D%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/7d98931001e93901827e003a78ec54e736d19673.jpg" class="" title="pandas教程：[18]匹配字符串">
+
+<ul>
+<li>我们可以使用na参数来规定出现NaN数据的时候匹配成True还是False<br>结果为：</li>
+</ul>
+<img src="/2015/07/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5D%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/0d968f2397dda1443e75e1b6b1b7d0a20cf48673.jpg" class="" title="pandas教程：[18]匹配字符串">
+
+<img src="/2015/07/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5D%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/0b3a1c087bf40ad12e3d45e7542c11dfa8ecce9e.jpg" class="" title="pandas教程：[18]匹配字符串">
+
+<ul>
+<li>match方法可以严格匹配字符串：<br>输出结果为：</li>
+</ul>
+<img src="/2015/07/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5D%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/8640bf8b87d6277fa0cbb03c2b381f30e824fc9e.jpg" class="" title="pandas教程：[18]匹配字符串">
+
+<img src="/2015/07/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5D%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/55a628d12f2eb9383111f7f6d6628535e5dd6f73.jpg" class="" title="pandas教程：[18]匹配字符串">
+
+<ul>
+<li><p>还有，我们可以检查字符串开始字符，假设我们想要查找以字母a开头的数据，可以用startswith或者contains，注意contains中第一个参数，不懂得童鞋可以去看Python的正则表达式</p>
+</li>
+<li><p>输出结果：</p>
+</li>
+</ul>
+<img src="/2015/07/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5D%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/caae68094b36acafb39c1bf87fd98d1001e99c73.jpg" class="" title="pandas教程：[18]匹配字符串">
+
+<img src="/2015/07/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5D%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/4e83cb628535e5dd485028db75c6a7efce1b6273.jpg" class="" title="pandas教程：[18]匹配字符串">
+
+<ul>
+<li>同样道理，可以检查结束字符串<br>输出结果为：</li>
+</ul>
+<img src="/2015/07/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5D%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/9f6e190828381f30abc00fadaa014c086f06f09e.jpg" class="" title="pandas教程：[18]匹配字符串">
+
+<img src="/2015/07/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5D%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/a8ad9413632762d0a3e726bba3ec08fa503dc69e.jpg" class="" title="pandas教程：[18]匹配字符串">
+
+<ul>
+<li>还有很多字符串方法，这里不一一距离，你看一下简介用到的时候再去学</li>
+</ul>
+<img src="/2015/07/05/pandas%E6%95%99%E7%A8%8B%EF%BC%9A%5B18%5D%E5%8C%B9%E9%85%8D%E5%AD%97%E7%AC%A6%E4%B8%B2/54baacfb43166d222fae9790452309f79152d29e.jpg" class="" title="pandas教程：[18]匹配字符串">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#57;&#x35;&#x37;&#x38;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#x36;&#55;&#53;&#x34;&#57;&#x35;&#x37;&#x38;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/pandas/">#pandas</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/07/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5Dstartclient/">
                 SPSS python教程：[4]startclient
             </a>
@@ -935,87 +1026,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/06/17/Excel2013%EF%BC%9A%5B42%5D%E4%BF%AE%E6%94%B9%E6%89%B9%E6%B3%A8%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%89%8D%E9%9D%A2/">
-                Excel2013：[42]修改批注中的默认前面
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年06月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>这篇文章的标题写错了，应该是《修改批注默认签名》，希望管理员看懂啊了给改一下《修改批注默认签名》</p>
-<ul>
-<li>我们看到默认的批注签名都是：administrator，现在就要修改它</li>
-</ul>
-<img src="/2015/06/17/Excel2013%EF%BC%9A%5B42%5D%E4%BF%AE%E6%94%B9%E6%89%B9%E6%B3%A8%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%89%8D%E9%9D%A2/9864a2315c6034a853c2e2e6c913495409237671.jpg" class="" title="Excel2013：[42]修改批注中的默认前面">
-
-<ul>
-<li>点击【文件】按钮</li>
-</ul>
-<img src="/2015/06/17/Excel2013%EF%BC%9A%5B42%5D%E4%BF%AE%E6%94%B9%E6%89%B9%E6%B3%A8%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%89%8D%E9%9D%A2/5d212aa85edf8db1c40e26030b23dd54564e7471.jpg" class="" title="Excel2013：[42]修改批注中的默认前面">
-
-<ul>
-<li>看到打开了开始菜单，我们选择【选项】按钮</li>
-</ul>
-<img src="/2015/06/17/Excel2013%EF%BC%9A%5B42%5D%E4%BF%AE%E6%94%B9%E6%89%B9%E6%B3%A8%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%89%8D%E9%9D%A2/9f6e190828381f30621bd7ceab014c086e06f01c.jpg" class="" title="Excel2013：[42]修改批注中的默认前面">
-
-<ul>
-<li>切换到【常规】标签下面，对这就是这里</li>
-</ul>
-<img src="/2015/06/17/Excel2013%EF%BC%9A%5B42%5D%E4%BF%AE%E6%94%B9%E6%89%B9%E6%B3%A8%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%89%8D%E9%9D%A2/9319cf09b3de9c82c945a3e86e81800a19d84371.jpg" class="" title="Excel2013：[42]修改批注中的默认前面">
-
-<ul>
-<li>找到用户名，修改用户名为你需要的名字</li>
-</ul>
-<img src="/2015/06/17/Excel2013%EF%BC%9A%5B42%5D%E4%BF%AE%E6%94%B9%E6%89%B9%E6%B3%A8%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%89%8D%E9%9D%A2/6dc09e0a19d8bc3eaf285cad808ba61ea8d34571.jpg" class="" title="Excel2013：[42]修改批注中的默认前面">
-
-<ul>
-<li>点击确定按钮，设置完成</li>
-</ul>
-<img src="/2015/06/17/Excel2013%EF%BC%9A%5B42%5D%E4%BF%AE%E6%94%B9%E6%89%B9%E6%B3%A8%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%89%8D%E9%9D%A2/245e8bcad1c8a786e20a10696509c93d70cf5071.jpg" class="" title="Excel2013：[42]修改批注中的默认前面">
-
-<ul>
-<li>插入一个批注试试效果</li>
-</ul>
-<img src="/2015/06/17/Excel2013%EF%BC%9A%5B42%5D%E4%BF%AE%E6%94%B9%E6%89%B9%E6%B3%A8%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%89%8D%E9%9D%A2/90cebeec08fa513d84a836b93f6d55fbb2fbd91c.jpg" class="" title="Excel2013：[42]修改批注中的默认前面">
-
-<ul>
-<li>现在批注的签名已经成为你想要的了。哈哈，更多教程，请关注我的百度经验。我们是专业的数据分析员，喜欢分享在工作中遇到的各种经验</li>
-</ul>
-<img src="/2015/06/17/Excel2013%EF%BC%9A%5B42%5D%E4%BF%AE%E6%94%B9%E6%89%B9%E6%B3%A8%E4%B8%AD%E7%9A%84%E9%BB%98%E8%AE%A4%E5%89%8D%E9%9D%A2/7e7f7909c93d70cf0bdaf06afadcd100baa12b71.jpg" class="" title="Excel2013：[42]修改批注中的默认前面">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#57;&#x35;&#x37;&#x38;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;">&#54;&#55;&#53;&#52;&#57;&#x35;&#x37;&#x38;&#x37;&#x40;&#113;&#x71;&#x2e;&#99;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/excel/">#excel</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1057,6 +1067,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/02/17/%E4%BD%BF%E7%94%A8%E6%BD%9C%E5%8F%98%E9%87%8F%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8B%EF%BC%88GMM%EF%BC%89%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/">使用潜变量混合增长模型（GMM）实用指南</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2025/02/04/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%8D%9A%E5%A3%AB%E6%AF%95%E4%B8%9A%E6%89%80%E6%9C%89%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81PPT%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD/">计量经济学从入门到博士毕业所有教程代码PPT视频资</a>
             </li>
             
@@ -1090,10 +1104,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/09/04/Deep-Live-Cam-Real-Time-Face-Swap-%E5%9C%A8-windows-%E4%B8%8A%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/">Deep Live Cam Real-Time F</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/08/30/%E5%85%B3%E4%BA%8ELPA%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于LPA分析的一些问题</a>
             </li>
             
         </ul>

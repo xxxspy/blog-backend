@@ -270,6 +270,72 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/08/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E6%88%90%E6%97%B6%E9%97%B4%E6%88%B3/">
+                Python教程：[27]字符串时间转换成时间戳
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年08月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>我们使用time模块来实现数据格式的转换，假如我想要读取现在的时间，我们得到的是一个时间戳，那么如何转换格式，得到你能看懂的时间呢，下面的代码可以帮助你。</p>
+<ul>
+<li>引入时间模块</li>
+</ul>
+<img src="/2016/08/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E6%88%90%E6%97%B6%E9%97%B4%E6%88%B3/7d98931001e93901ec4a372b79ec54e736d19618.jpg" class="" title="Python教程：[27]字符串时间转换成时间戳">
+
+<ul>
+<li>使用time.time方法可以生成时间戳，这个时间戳是自1970年以后经过的秒数，精确到小数后3位，也就是微秒。</li>
+</ul>
+<img src="/2016/08/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E6%88%90%E6%97%B6%E9%97%B4%E6%88%B3/2e6fa7389b504fc203170a10e7dde71190ef6d18.jpg" class="" title="Python教程：[27]字符串时间转换成时间戳">
+
+<ul>
+<li>我们把时间戳赋值给t，然后使用localtime函数来转换成可以读懂的格式时间对象</li>
+</ul>
+<img src="/2016/08/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E6%88%90%E6%97%B6%E9%97%B4%E6%88%B3/6391e903918fa0ec883dde18249759ee3c6ddbea.jpg" class="" title="Python教程：[27]字符串时间转换成时间戳">
+
+<ul>
+<li>我们设置一下时间格式，然后使用strftime函数来转换，得到字符串。关于时间的格式，下面有详细的讲。</li>
+</ul>
+<img src="/2016/08/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E6%88%90%E6%97%B6%E9%97%B4%E6%88%B3/5d212aa85edf8db12466c6710b23dd54564e7418.jpg" class="" title="Python教程：[27]字符串时间转换成时间戳">
+
+<ul>
+<li>你怎么知道哪个字符代表的是年月还是日，下面的表格可以告诉你。</li>
+</ul>
+<img src="/2016/08/19/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B27%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%97%B6%E9%97%B4%E8%BD%AC%E6%8D%A2%E6%88%90%E6%97%B6%E9%97%B4%E6%88%B3/c2bce2039245d688ca6117b1a6c27d1ed21b2400.jpg" class="" title="Python教程：[27]字符串时间转换成时间戳">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#x37;&#x35;&#x34;&#57;&#x35;&#55;&#56;&#55;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#x36;&#x37;&#x35;&#x34;&#57;&#x35;&#55;&#56;&#55;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/08/19/Excel2013%EF%BC%9A%5B56%5D%E6%89%93%E5%BC%80csv%E6%96%87%E4%BB%B6%E4%B9%B1%E7%A0%81/">
                 Excel2013：[56]打开csv文件乱码
             </a>
@@ -1002,99 +1068,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/">
-                python 线性代数：[15]从协方差阵计算相关阵
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年08月15日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>其实Python的numpy包有可以直接计算相关矩阵&#x2F;协方差矩阵的方法，但是这篇文章是教大家如何理解他俩之间的关系的，所以我们给出协方差矩阵，求相关矩阵。利用公式：</p>
-<ul>
-<li>引入numpy模块</li>
-</ul>
-<img src="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/90cebeec08fa513d1aee8d9f3e6d55fbb3fbd9e8.jpg" class="" title="python 线性代数：[15]从协方差阵计算相关阵">
-
-<ul>
-<li>创建一个协方差矩阵<br>这个矩阵为：</li>
-</ul>
-<img src="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/507c389759ee3d6d6a82668a40166d224e4adee8.jpg" class="" title="python 线性代数：[15]从协方差阵计算相关阵">
-
-<img src="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/c87c6ecf3bc79f3d34aa0571b9a1cd11738b29ed.jpg" class="" title="python 线性代数：[15]从协方差阵计算相关阵">
-
-<ul>
-<li>我们先求得协方差矩阵的尺寸</li>
-</ul>
-<img src="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/d019d2bf6c81800aafae684fb23533fa838b47ed.jpg" class="" title="python 线性代数：[15]从协方差阵计算相关阵">
-
-<ul>
-<li>生成一个与sigma同大小的单位矩阵：e<br>输出为：</li>
-</ul>
-<img src="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/cdfe7281800a19d80b48654430fa828ba71e46ed.jpg" class="" title="python 线性代数：[15]从协方差阵计算相关阵">
-
-<img src="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/ac0acf1373f08202a0e7707e48fbfbedab641b3f.jpg" class="" title="python 线性代数：[15]从协方差阵计算相关阵">
-
-<ul>
-<li>计算方差矩阵，其实就是利用单位矩阵消除协方差矩阵中的非对角线元素</li>
-</ul>
-<img src="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/808a27dbb6fd5266375edd55a818972bd407363f.jpg" class="" title="python 线性代数：[15]从协方差阵计算相关阵">
-
-<img src="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/c28fddfdfc0392450efe004e8494a4c27c1e25ed.jpg" class="" title="python 线性代数：[15]从协方差阵计算相关阵">
-
-<ul>
-<li>求得标准差矩阵</li>
-</ul>
-<img src="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/a75fb6d3fd1f4134287ce43f261f95cad0c85eed.jpg" class="" title="python 线性代数：[15]从协方差阵计算相关阵">
-
-<img src="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/020e66f0f736afc37a78de24b019ebc4b745123f.jpg" class="" title="python 线性代数：[15]从协方差阵计算相关阵">
-
-<ul>
-<li>求得标准差的逆矩阵</li>
-</ul>
-<img src="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/e78c65899e510fb3fe6c96d6da33c895d1430c3f.jpg" class="" title="python 线性代数：[15]从协方差阵计算相关阵">
-
-<img src="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/ea85a94543a98226c5b5ca668982b9014a90eb38.jpg" class="" title="python 线性代数：[15]从协方差阵计算相关阵">
-
-<ul>
-<li>根据公式就求得了相关系数矩阵</li>
-</ul>
-<img src="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/a6c7d7177f3e6709014ba4be38c79f3df9dc55ed.jpg" class="" title="python 线性代数：[15]从协方差阵计算相关阵">
-
-<img src="/2016/08/15/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B15%5D%E4%BB%8E%E5%8D%8F%E6%96%B9%E5%B7%AE%E9%98%B5%E8%AE%A1%E7%AE%97%E7%9B%B8%E5%85%B3%E9%98%B5/0fb505d5ad6eddc4b3ac55ba3adbb6fd536633ed.jpg" class="" title="python 线性代数：[15]从协方差阵计算相关阵">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#64;&#113;&#113;&#x2e;&#x63;&#111;&#109;">&#x36;&#55;&#53;&#x34;&#57;&#x35;&#55;&#x38;&#x37;&#64;&#113;&#113;&#x2e;&#x63;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1136,6 +1109,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/02/17/%E4%BD%BF%E7%94%A8%E6%BD%9C%E5%8F%98%E9%87%8F%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8B%EF%BC%88GMM%EF%BC%89%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/">使用潜变量混合增长模型（GMM）实用指南</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2025/02/04/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%8D%9A%E5%A3%AB%E6%AF%95%E4%B8%9A%E6%89%80%E6%9C%89%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81PPT%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD/">计量经济学从入门到博士毕业所有教程代码PPT视频资</a>
             </li>
             
@@ -1169,10 +1146,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/09/04/Deep-Live-Cam-Real-Time-Face-Swap-%E5%9C%A8-windows-%E4%B8%8A%E5%AE%89%E8%A3%85%E8%BF%87%E7%A8%8B%E8%AE%B0%E5%BD%95/">Deep Live Cam Real-Time F</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/08/30/%E5%85%B3%E4%BA%8ELPA%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%80%E4%BA%9B%E9%97%AE%E9%A2%98/">关于LPA分析的一些问题</a>
             </li>
             
         </ul>
