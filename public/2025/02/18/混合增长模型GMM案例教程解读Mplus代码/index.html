@@ -1,0 +1,1493 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Head tag -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Cache-Control" content="no-transform" />
+    <meta http-equiv="Cache-Control" content="no-siteapp" />
+    <meta name="applicable-device" content="pc,mobile">
+    <meta name="MobileOptimized" content="width"/>
+    <meta name="HandheldFriendly" content="true"/>
+    <!--Description-->
+    
+        <meta name="description" content="专注于数据开发, 数据分析, 数据采集, python教学">
+    
+
+    <!--Author-->
+    
+        <meta name="author" content="xxxspy">
+    
+
+    <!--Open Graph Title-->
+    
+        <meta property="og:title" content="混合增长模型GMM案例教程解读Mplus代码"/>
+    
+
+    <!--Open Graph Description-->
+    
+        <meta property="og:description" content="专注于数据开发, 数据分析, 数据采集, python教学" />
+    
+
+    <!--Open Graph Site Name-->
+    <meta property="og:site_name" content="DataSense"/>
+
+    <!--Type page-->
+    
+        <meta property="og:type" content="article" />
+    
+
+    <!--Page Cover-->
+    
+
+    <meta name="twitter:card" content="summary" />
+    
+
+    <!-- Title -->
+    
+    <title>混合增长模型GMM案例教程解读Mplus代码 - DataSense</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="//cdn.bootcdn.net/ajax/libs/twitter-bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+    <!-- Custom Fonts -->
+    <link href="//cdn.bootcdn.net/ajax/libs/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="//oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="//oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Gallery -->
+    <link href="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.css" type="text/css" rel="stylesheet" />
+
+    <!-- Custom CSS -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <style>
+    code{
+    color: #d7ecff;
+    font-size: 110%;
+    }
+    pre > code {
+        -webkit-border-before: black;
+        display: block;
+        padding: 9.5px;
+        margin: 0 0 10px;
+        font-size: 13px;
+        line-height: 1.42857143;
+        color: #f9f4f4;
+        word-break: break-all;
+        word-wrap: break-word;
+        background-color: #f5f5f500;
+        border: 1px solid #eff3f521;
+        border-radius: 0;
+    }
+    pre > code::before {
+        content:"- ";
+        z-index: -1;
+        left:-2px;
+    }
+    #feedAv{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #MZAD_POP_PLACEHOLDER{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    #pop_ad{position: fixed!important;left:-9999999px!important;z-index:-1000!important;}
+
+    </style>
+
+    
+    
+    
+    
+    
+
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body>
+
+<div class="bg-gradient"></div>
+<div class="bg-pattern"></div>
+
+<!-- Menu -->
+<!--Menu Links and Overlay-->
+<div class="menu-bg">
+    <div class="menu-container">
+        <ul>
+            
+            <li class="menu-item">
+                <a href="/">
+                    Home
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/archives">
+                    Archives
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/about.html">
+                    About
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/tags">
+                    Tags
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/categories">
+                    Categories
+                </a>
+            </li>
+            
+            <li class="menu-item">
+                <a href="/contact.html">
+                    Contact
+                </a>
+            </li>
+            
+        </ul>
+    </div>
+</div>
+
+<!--Hamburger Icon-->
+<nav>
+    <a href="#menu"></a>
+</nav>
+
+<div class="container">
+    <header>
+    <div class="logo">
+        <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i>
+        
+            <p id="main-title" class="title">DataSense</p>
+        
+        </a>
+    </div>
+</header>
+<div class="page_list archive-container">
+        
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+            SPSS+AMOS数据分析案例教程-关于中介模
+        </a>
+    </div>
+    <div class="archive-post" style="opacity: 1;">
+        <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+            SPSS视频教程内容目录和跳转链接
+        </a>
+    </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/mplus-model-templates">
+                Mplus中介和调节教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="https://mlln.cn/2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/">
+                大学生问卷互填群
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2024/11/12/Meta%E5%88%86%E6%9E%90%E4%BB%A3%E5%81%9A-%E4%BB%8E%E6%89%BE%E6%95%B0%E6%8D%AE%E5%88%B0%E5%87%BA%E6%8A%A5%E5%91%8A/">
+                Meta分析辅导+代找数据
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/05/17/SPSS-AMOS数据分析案例教程-关于中介模型/">
+                SPSS+AMOS数据分析案例教程-关于中介模
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2020/10/31/SPSS视频教程内容目录和跳转链接/">
+                SPSS视频教程内容目录和跳转链接
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="https://mlln.cn/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/">
+                R语言快速入门视频教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/07/24/潜在类别分析入门/">
+                LCA潜在类别分析和Mplus应用
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/06/12/Amos结构方程数据分析案例教程/">
+                Amos结构方程模型数据分析入门教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="/2022/12/05/倒U关系回归分析中介效应和调节效应分析SPSS和R语言应用视频教程/">
+                倒U关系回归分析中介效应和调节效应分析SPSS视频教程
+            </a>
+        </div>
+    
+        <div class="archive-post" style="opacity: 1;">
+            <a href="./#xingqiu">
+                统计咨询(图文问答)
+            </a>
+        </div>
+    
+</div>
+
+    <!-- Main Content -->
+    
+
+    
+        
+<div class="row">
+    
+    <div class="col-md-9 col-sm-12">
+        <!--Title and Logo-->
+        <section class="main">
+            
+<div class="post">
+
+    <div class="post-header">
+        <h1 class="title">
+            <a href="/2025/02/18/%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8BGMM%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B%E8%A7%A3%E8%AF%BBMplus%E4%BB%A3%E7%A0%81/">
+                混合增长模型GMM案例教程解读Mplus代码
+            </a>
+
+        </h1>
+        <div class="weibo-share">
+            <p>在B站@mlln-cn, 我就能回答你的问题奥!</p>
+        </div>
+        <div class="post-info">
+            
+                <span class="date">2025年02月18日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    <div class="content">
+    <!-- Table of Contents -->
+
+    <div id="toc" class="toc-article">
+        <strong class="toc-title">文章目录</strong>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%91%98%E8%A6%81"><span class="toc-number">1.</span> <span class="toc-text">摘要</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GMM%E5%88%86%E6%9E%90%E7%9A%84%E4%B8%A4%E4%B8%AA%E4%B8%BB%E8%A6%81%E9%98%B6%E6%AE%B5"><span class="toc-number">2.</span> <span class="toc-text">GMM分析的两个主要阶段</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B6%E6%AE%B5%E4%B8%80%EF%BC%9A%E7%A1%AE%E5%AE%9A%E6%9C%80%E4%BD%B3%E4%BA%9A%E7%BB%84%E6%95%B0%E9%87%8F%EF%BC%88Model-Selection%EF%BC%89"><span class="toc-number">2.1.</span> <span class="toc-text">阶段一：确定最佳亚组数量（Model Selection）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%98%B6%E6%AE%B5%E4%BA%8C%EF%BC%9A%E8%A7%A3%E9%87%8A%E4%BA%9A%E7%BB%84%E7%89%B9%E5%BE%81%E5%92%8C%E9%A2%84%E6%B5%8B%E5%9B%A0%E7%B4%A0%EF%BC%88Interpretation-and-Prediction%EF%BC%89"><span class="toc-number">2.2.</span> <span class="toc-text">阶段二：解释亚组特征和预测因素（Interpretation and Prediction）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">案例教程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%95%B0%E6%8D%AE%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.1.</span> <span class="toc-text">1. 数据介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A8%A1%E5%9E%8B%E4%BB%8B%E7%BB%8D"><span class="toc-number">3.2.</span> <span class="toc-text">2. 模型介绍</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BB%A3%E7%A0%81%E8%A7%A3%E8%AF%BB"><span class="toc-number">3.3.</span> <span class="toc-text">3. 代码解读</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%BB%93%E6%9E%9C%E8%A7%A3%E8%AF%BB"><span class="toc-number">3.4.</span> <span class="toc-text">4. 结果解读</span></a></li></ol></li></ol>
+    </div>
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <p>本文介绍了<strong>混合增长模型(潜增长混合模型)（Latent Growth Mixture Modeling, LGMM）</strong> , 我们通过一个案例介绍了:</p>
+<ul>
+<li>GMM模型概念</li>
+<li>Mplus转写GMM代码</li>
+<li>结果解读</li>
+</ul>
+<span id="more"></span>
+
+<h2 id="摘要"><a href="#摘要" class="headerlink" title="摘要"></a><strong>摘要</strong></h2><p>本教程旨在介绍生长混合模型（Growth Mixture Modeling, GMM）在发展心理学中的应用，并通过一个实际案例演示如何利用GMM分析青少年反社会行为发展轨迹的异质性。GMM是一种强大的统计工具，能够识别出人群中不同发展轨迹的亚组，并探究影响这些轨迹的因素。通过本教程的学习，读者可以了解GMM的基本原理、应用步骤和结果解释，为相关领域的研究提供方法指导。</p>
+<h2 id="GMM分析的两个主要阶段"><a href="#GMM分析的两个主要阶段" class="headerlink" title="GMM分析的两个主要阶段"></a>GMM分析的两个主要阶段</h2><h3 id="阶段一：确定最佳亚组数量（Model-Selection）"><a href="#阶段一：确定最佳亚组数量（Model-Selection）" class="headerlink" title="阶段一：确定最佳亚组数量（Model Selection）"></a><strong>阶段一：确定最佳亚组数量（Model Selection）</strong></h3><ul>
+<li><strong>目标：</strong> 确定数据中存在几个不同的发展轨迹亚组，即找到能够最好地描述数据的亚组数量。</li>
+<li><strong>方法：</strong><ol>
+<li><strong>拟合多个模型：</strong> 从1个亚组开始，逐步增加亚组数量（例如，1个亚组、2个亚组、3个亚组……），并对每个模型进行拟合。</li>
+<li><strong>比较拟合指标：</strong> 比较不同亚组数量模型的拟合指标，常用的指标包括：<ul>
+<li><strong>贝叶斯信息准则（BIC）：</strong> BIC值越小，模型拟合越好。</li>
+<li><strong>Lo-Mendell-Rubin似然比检验（LMR-LRT）：</strong> LMR-LRT的p值越小（通常小于0.05），表明当前模型比减少一个亚组的模型拟合更好。</li>
+<li><strong>熵（Entropy）：</strong> 熵值越高（接近1），表明模型分类的准确性越高。</li>
+</ul>
+</li>
+<li><strong>综合判断：</strong> 综合考虑以上指标，选择最优的亚组数量。通常情况下，BIC和LMR-LRT是最重要的参考指标。此外，还需要考虑亚组的可解释性和实际意义。</li>
+</ol>
+</li>
+<li><strong>结果：</strong> 确定一个最优的亚组数量，例如2个亚组、3个亚组等。</li>
+</ul>
+<h3 id="阶段二：解释亚组特征和预测因素（Interpretation-and-Prediction）"><a href="#阶段二：解释亚组特征和预测因素（Interpretation-and-Prediction）" class="headerlink" title="阶段二：解释亚组特征和预测因素（Interpretation and Prediction）"></a><strong>阶段二：解释亚组特征和预测因素（Interpretation and Prediction）</strong></h3><ul>
+<li><strong>目标：</strong> 描述每个亚组的发展轨迹特征，并探究哪些因素能够预测亚组归属和轨迹形状。</li>
+<li><strong>方法：</strong><ol>
+<li><strong>描述亚组轨迹：</strong> 描述每个亚组的平均轨迹，包括初始水平（截距）和随时间的变化速度（斜率）。可以将轨迹绘制成图，以便更直观地展示。</li>
+<li><strong>探究亚组预测因素：</strong> 将亚组归属作为一个分类变量，探究哪些因素能够预测个体属于哪个亚组。通常使用logistic回归模型进行分析。</li>
+<li><strong>探究轨迹预测因素：</strong> 在每个亚组内，探究哪些因素能够预测轨迹的初始水平和变化速度。可以使用线性回归模型或结构方程模型进行分析。</li>
+<li><strong>考察结果变量：</strong> 分析不同的亚组是否在某些结果变量上存在差异，例如，不同的反社会行为轨迹亚组是否在成年后的犯罪率上存在差异。可以使用方差分析、卡方检验或生存分析等方法进行分析。</li>
+</ol>
+</li>
+<li><strong>结果：</strong> 描述每个亚组的发展轨迹特征，确定影响亚组归属和轨迹形状的预测因素，以及不同亚组在结果变量上的差异。</li>
+</ul>
+<h2 id="案例教程"><a href="#案例教程" class="headerlink" title="案例教程"></a>案例教程</h2><h3 id="1-数据介绍"><a href="#1-数据介绍" class="headerlink" title="1. 数据介绍"></a><strong>1. 数据介绍</strong></h3><p>本教程使用的数据来自一项纵向研究，该研究旨在追踪青少年问题行为的发展。研究对象为498名青少年，从12岁（六年级）开始，一直追踪到17岁（十一年级）。研究收集了青少年在不同时间点的反社会行为数据，以及相关的风险因素和保护因素，包括：</p>
+<ul>
+<li><strong>反社会行为：</strong> 通过学生自评问卷测量，问卷包含6个项目，例如对父母说谎、逃学、深夜不归、偷窃等。</li>
+<li><strong>风险因素：</strong><ul>
+<li><strong>性别（Gender）：</strong> 分为男性和女性。</li>
+<li><strong>种族（Ethnicity）：</strong> 分为欧洲裔美国人和其他族裔。</li>
+<li><strong>不良同伴（Deviant Peers）：</strong> 测量青少年与不良同伴交往的频率。</li>
+<li><strong>物质使用（Substance Use）：</strong> 测量青少年是否使用酒精、烟草或大麻。</li>
+<li><strong>父母监督（Parental Monitoring）：</strong> 测量父母对青少年活动的知晓程度。</li>
+</ul>
+</li>
+<li><strong>结果变量：</strong> 在17岁时是否被捕（Arrest）。</li>
+</ul>
+<h3 id="2-模型介绍"><a href="#2-模型介绍" class="headerlink" title="2. 模型介绍"></a><strong>2. 模型介绍</strong></h3><p>混合增长模型（GMM）是一种用于分析纵向数据的统计技术，其核心思想是：假设人群不是同质的，而是由若干个潜在的亚组构成，每个亚组具有不同的发展轨迹。GMM可以同时估计以下参数：</p>
+<ul>
+<li><strong>亚组数量（Number of Classes）：</strong> 确定数据中存在几个不同的发展轨迹亚组。</li>
+<li><strong>轨迹形状（Trajectory Shape）：</strong> 描述每个亚组的发展轨迹，通常用截距（Intercept）和斜率（Slope）来表示。截距代表初始水平，斜率代表随时间的变化速度。</li>
+<li><strong>亚组比例（Class Proportion）：</strong> 表示每个亚组在总人群中所占的比例。</li>
+<li><strong>亚组预测因子（Class Predictors）：</strong> 探究哪些因素能够预测个体属于哪个亚组。</li>
+<li><strong>轨迹预测因子（Trajectory Predictors）：</strong> 在每个亚组内，探究哪些因素能够预测发展轨迹的初始水平和变化速度。</li>
+</ul>
+<p>在本案例中，我们使用GMM来识别青少年反社会行为发展轨迹的亚组，并探究性别、种族、不良同伴、物质使用和父母监督等因素对亚组归属和轨迹形状的影响。</p>
+<p>模型图如下: </p>
+<img src="model.png" alt="model">
+
+<p>参照图中的模型解读:</p>
+<ul>
+<li>antisocia 是重复观测的变量, 反社会行为变量</li>
+<li>Intercept: 是截距，代表初始水平，即在6岁时，青少年的反社会行为水平。在GMM模型中, 截距是一个潜变量, 它的观测指标就是重复测量的 antisocia, 而因子载荷固定为1.</li>
+<li>Slope: 是斜率，代表随时间的变化速度。在GMM模型中, 斜率是一个潜变量, 它的观测指标就是重复测量的 antisocia, 而因子载荷固定为1 2 3 4 5. 因子载荷实际上是时间. </li>
+<li>Latent Trajectory Class: 潜在类别, 是用于将学生分类的分类变量, 不同类别的学生的反社会行为的发展轨迹不同.</li>
+<li>危险因素: 左上角的变量都是危险因素, 他们会影响潜在类别和截距和斜率, 也会影响结果变量犯罪率.</li>
+</ul>
+<h3 id="3-代码解读"><a href="#3-代码解读" class="headerlink" title="3. 代码解读"></a><strong>3. 代码解读</strong></h3><p>本教程使用Mplus软件进行GMM分析。以下是Mplus代码的关键部分解读：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line">TITLE: Two-group latent growth mixture model</span><br><span class="line"></span><br><span class="line">VARIABLE:</span><br><span class="line">  NAMES ARE CPWAB12 CPWAB22 CPWAB32 CPWAB42 CCCAB62 gender2 ethncalt cpwdp11 sucat1r cpwpm11 w6arr;</span><br><span class="line">  MISSING ARE ALL (-1, -999);</span><br><span class="line">  USEVARIABLES ARE CPWAB12 CPWAB22 CPWAB32 CPWAB42 CCCAB62 gender2 ethncalt cpwdp11 sucat1r cpwpm11 w6arr;</span><br><span class="line">  CLASSES = c(2);</span><br><span class="line">  CENTERING IS GRANDMEAN (cpwdp11 cpwpm11);</span><br><span class="line">  CATEGORICAL = w6arr;</span><br><span class="line"></span><br><span class="line">ANALYSIS:</span><br><span class="line">  TYPE IS MIXTURE MISSING;</span><br><span class="line">  LOGHIGH = +15;</span><br><span class="line">  LOGLOW = -15;</span><br><span class="line">  UCELLSIZE = 0.01;</span><br><span class="line">  ESTIMATOR IS MLR;</span><br><span class="line">  LOGCRITERION = 0.00001;</span><br><span class="line">  ITERATIONS = 1000;</span><br><span class="line">  CONVERGENCE = 0.00001;</span><br><span class="line">  MITERATIONS = 500;</span><br><span class="line">  MCONVERGENCE = 0.00001;</span><br><span class="line">  MIXC = ITERATIONS;</span><br><span class="line">  MCITERATIONS = 2;</span><br><span class="line">  MIXU = ITERATIONS;</span><br><span class="line">  MUITERATIONS = 2;</span><br><span class="line">  STARTS = 25 5;</span><br><span class="line">  STITERATIONS = 10 ;</span><br><span class="line"></span><br><span class="line">OUTPUT:  SAMPSTAT STANDARDIZED tech8 tech11;</span><br><span class="line"></span><br><span class="line">PLOT:</span><br><span class="line">  TYPE IS PLOT3;</span><br><span class="line">  SERIES IS CPWAB12-CCCAB62(s) ;</span><br><span class="line"></span><br><span class="line">MODEL:</span><br><span class="line">  %overall%</span><br><span class="line">    i s | CPWAB12@0 CPWAB22@1 CPWAB32@2 CPWAB42@3 CCCAB62@5 ;</span><br><span class="line">    i s on gender2 ethncalt cpwdp11 sucat1r cpwpm11;</span><br><span class="line">    i with s;</span><br><span class="line">    c#1 on gender2 ethncalt cpwdp11 sucat1r cpwpm11;</span><br><span class="line">    [is];</span><br><span class="line">    is;</span><br><span class="line">    [CPWAB12@0 CPWAB22@0 CPWAB32@0 CPWAB42@0 CCCAB62@0];</span><br><span class="line">    CPWAB12 CPWAB22 CPWAB32 CPWAB42 CCCAB62 ;</span><br><span class="line"></span><br><span class="line">  %c#1%</span><br><span class="line">    i s on gender2 ethncalt cpwdp11 sucat1r cpwpm11;</span><br><span class="line">    i with s;</span><br><span class="line">    [is];</span><br><span class="line">    is;</span><br><span class="line">    CPWAB12 CPWAB22 CPWAB32 CPWAB42 CCCAB62 ;</span><br><span class="line">    [w6arr$1*2] ;</span><br><span class="line"></span><br><span class="line">  %c#2%</span><br><span class="line">    i s on gender2 ethncalt cpwdp11 sucat1r cpwpm11;</span><br><span class="line">    i with s;</span><br><span class="line">    [is];</span><br><span class="line">    is;</span><br><span class="line">    CPWAB12 CPWAB22 CPWAB32 CPWAB42 CCCAB62 ;</span><br><span class="line">    [w6arr$1*-2];</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li><strong>VARIABLE部分：</strong> 定义变量名称、缺失值处理方式和变量类型（分类变量或连续变量）。<code>CLASSES = c(2)</code>指定模型拟合两个亚组。</li>
+<li><strong>ANALYSIS部分：</strong> 指定分析类型为混合模型（MIXTURE），估计方法为MLR（稳健的最大似然估计）。</li>
+<li><strong>MODEL部分：</strong> 定义模型结构。<ul>
+<li><code>%overall%</code> 定义总体模型，包括截距（i）和斜率（s），以及它们之间的关系。</li>
+<li><code>i s on gender2 ethncalt cpwdp11 sucat1r cpwpm11</code>表示截距受到性别、种族、不良同伴、物质使用和父母监督的影响</li>
+<li><code>%c#1%</code> 和 <code>%c#2%</code> 定义亚组1和亚组2的模型，可以对不同亚组的参数进行差异化设置。 例如 <code>[w6arr$1*2] ;</code> 表示计算第一类中被捕的概率（乘以一个缩放系数，以便于比较）。</li>
+</ul>
+</li>
+</ul>
+<p>我将逐行解释这段 Mplus 代码，并说明每一行的作用。</p>
+<p><strong>TITLE: Two-group latent growth mixture model</strong></p>
+<ul>
+<li><strong>作用:</strong> 定义分析标题，方便识别。</li>
+</ul>
+<p><strong>VARIABLE:</strong></p>
+<ul>
+<li><strong>作用:</strong> 定义变量相关信息。</li>
+</ul>
+<p><strong>NAMES ARE CPWAB12 CPWAB22 CPWAB32 CPWAB42 CCCAB62 gender2 ethncalt cpwdp11 sucat1r cpwpm11 w6arr;</strong></p>
+<ul>
+<li><strong>作用:</strong> 列出所有用到的变量名称。<ul>
+<li><code>CPWAB12</code>, <code>CPWAB22</code>, <code>CPWAB32</code>, <code>CPWAB42</code>, <code>CCCAB62</code>: 不同时间点（六年级到十一年级）的反社会行为指标。数值对应年级，例如CPWAB12是六年级, CCCAB62是十一年级。</li>
+<li><code>gender2</code>: 性别（二元编码）。</li>
+<li><code>ethncalt</code>: 种族（二元编码）。</li>
+<li><code>cpwdp11</code>: 六年级测量的不良同伴影响。</li>
+<li><code>sucat1r</code>: 六年级测量的物质使用情况。</li>
+<li><code>cpwpm11</code>: 六年级测量的父母监督。</li>
+<li><code>w6arr</code>: 11年级（Grade 11）是否被捕（二元变量）。</li>
+</ul>
+</li>
+</ul>
+<p><strong>MISSING ARE ALL (-1, -999);</strong></p>
+<ul>
+<li><strong>作用:</strong> 定义缺失值。将所有变量中值为 -1 和 -999 的值视为缺失值。</li>
+</ul>
+<p><strong>USEVARIABLES ARE CPWAB12 CPWAB22 CPWAB32 CPWAB42 CCCAB62 gender2 ethncalt cpwdp11 sucat1r cpwpm11 w6arr;</strong></p>
+<ul>
+<li><strong>作用:</strong>  指定分析中使用的变量。在本例中，使用所有在<code>NAMES</code>中定义的变量。这行可以省略，如果所有变量都被使用。</li>
+</ul>
+<p><strong>CLASSES &#x3D; c(2);</strong></p>
+<ul>
+<li><strong>作用:</strong> 指定潜在类别（亚组）的数量为2。</li>
+</ul>
+<p><strong>CENTERING IS GRANDMEAN (cpwdp11 cpwpm11);</strong></p>
+<ul>
+<li><strong>作用:</strong>  对某些变量进行中心化处理（Grand-mean centering）。这通常对交互项和非线性模型有帮助，这里对 <code>cpwdp11</code> (六年级测量的不良同伴影响) 和 <code>cpwpm11</code> (六年级测量的父母监督) 进行了中心化。</li>
+</ul>
+<p><strong>CATEGORICAL &#x3D; w6arr;</strong></p>
+<ul>
+<li><strong>作用:</strong> 声明<code>w6arr</code> (11年级是否被捕) 为分类变量。</li>
+</ul>
+<p><strong>ANALYSIS:</strong></p>
+<ul>
+<li><strong>作用:</strong> 定义分析类型和相关设置。</li>
+</ul>
+<p><strong>TYPE IS MIXTURE MISSING;</strong></p>
+<ul>
+<li><strong>作用:</strong>  指定分析类型为混合模型 (<code>MIXTURE</code>)，并处理缺失数据 (<code>MISSING</code>)。<code>MIXTURE</code>类型说明这是生长混合模型分析。</li>
+</ul>
+<p><strong>LOGHIGH &#x3D; +15;</strong><br><strong>LOGLOW &#x3D; -15;</strong></p>
+<ul>
+<li><strong>作用:</strong>  设置对数似然函数的上限和下限。用于优化模型，避免超出合理范围。</li>
+</ul>
+<p><strong>UCELLSIZE &#x3D; 0.01;</strong></p>
+<ul>
+<li><strong>作用:</strong> 定义用于数值积分的单元格大小。这用于处理潜在类别变量的积分。</li>
+</ul>
+<p><strong>ESTIMATOR IS MLR;</strong></p>
+<ul>
+<li><strong>作用:</strong> 指定使用稳健的最大似然估计（MLR）方法。MLR对数据不满足完全正态分布的情况更加稳健。</li>
+</ul>
+<p><strong>LOGCRITERION &#x3D; 0.00001;</strong></p>
+<ul>
+<li><strong>作用:</strong> 设置对数似然函数收敛的标准。当连续两次迭代的对数似然函数差异小于0.00001时，认为模型收敛。</li>
+</ul>
+<p><strong>ITERATIONS &#x3D; 1000;</strong></p>
+<ul>
+<li><strong>作用:</strong> 设置最大迭代次数为1000。</li>
+</ul>
+<p><strong>CONVERGENCE &#x3D; 0.00001;</strong></p>
+<ul>
+<li><strong>作用:</strong> 定义参数估计的收敛标准。当参数估计的变化小于0.00001时，认为模型收敛。</li>
+</ul>
+<p><strong>MITERATIONS &#x3D; 500;</strong><br><strong>MCONVERGENCE &#x3D; 0.00001;</strong></p>
+<ul>
+<li><strong>作用:</strong> 设置用于M步（最大化步骤）的迭代次数和收敛标准。</li>
+</ul>
+<p><strong>MIXC &#x3D; ITERATIONS;</strong><br><strong>MCITERATIONS &#x3D; 2;</strong><br><strong>MIXU &#x3D; ITERATIONS;</strong><br><strong>MUITERATIONS &#x3D; 2;</strong></p>
+<ul>
+<li><strong>作用:</strong> 这些行设置用于混合模型（Mixture Model）估计的迭代次数和收敛标准。</li>
+</ul>
+<p><strong>STARTS &#x3D; 25 5;</strong></p>
+<ul>
+<li><strong>作用:</strong> 指定使用多个起始值进行优化。<code>STARTS = 25 5</code> 表示生成 25 个随机起始值，并使用其中 5 个最佳的起始值进行最终的优化。这有助于避免陷入局部最优解。</li>
+</ul>
+<p><strong>STITERATIONS &#x3D; 10 ;</strong></p>
+<ul>
+<li><strong>作用:</strong> 设置使用每个起始值的迭代次数。</li>
+</ul>
+<p><strong>OUTPUT: SAMPSTAT STANDARDIZED tech8 tech11;</strong></p>
+<ul>
+<li><strong>作用:</strong>  指定输出内容。<ul>
+<li><code>SAMPSTAT</code>: 输出样本统计量。</li>
+<li><code>STANDARDIZED</code>: 输出标准化解。</li>
+<li><code>tech8</code>: 输出模型拟合信息。</li>
+<li><code>tech11</code>: 输出起始值的历史信息。</li>
+</ul>
+</li>
+</ul>
+<p><strong>PLOT:</strong></p>
+<ul>
+<li><strong>作用:</strong> 定义绘图选项。</li>
+</ul>
+<p><strong>TYPE IS PLOT3;</strong></p>
+<ul>
+<li><strong>作用:</strong> 指定绘制图。</li>
+</ul>
+<p><strong>SERIES IS CPWAB12-CCCAB62(s) ;</strong></p>
+<ul>
+<li><strong>作用:</strong> 指定绘制从 <code>CPWAB12</code> 到 <code>CCCAB62</code> 的轨迹图， <code>(s)</code> 表示绘制标准化后的轨迹。</li>
+</ul>
+<p><strong>MODEL:</strong></p>
+<ul>
+<li><strong>作用:</strong> 定义模型。</li>
+</ul>
+<p><strong>%overall%</strong></p>
+<ul>
+<li><strong>作用:</strong>  定义总体模型，即不区分类别的情况下的模型。</li>
+</ul>
+<p><strong>i s | CPWAB12@0 CPWAB22@1 CPWAB32@2 CPWAB42@3 CCCAB62@5 ;</strong></p>
+<ul>
+<li><strong>作用:</strong> 定义潜在增长曲线模型。<ul>
+<li><code>i</code>:  截距（intercept），表示初始水平。</li>
+<li><code>s</code>:  斜率（slope），表示随时间的变化率。</li>
+<li><code>|</code>:  表示定义一个潜在变量（增长因子）。</li>
+<li><code>CPWAB12@0 CPWAB22@1 CPWAB32@2 CPWAB42@3 CCCAB62@5</code>:  指定不同时间点的反社会行为指标的载荷（factor loading）。这里的 <code>@</code> 符号后面跟着的数字表示时间编码，例如 <code>CPWAB12@0</code> 表示六年级（时间0）， <code>CPWAB22@1</code> 表示七年级（时间1），依此类推。</li>
+</ul>
+</li>
+</ul>
+<p><strong>i s on gender2 ethncalt cpwdp11 sucat1r cpwpm11;</strong></p>
+<ul>
+<li><strong>作用:</strong>  将截距和斜率回归到预测变量上。这意味着截距和斜率受到性别、种族、同伴影响、物质使用和父母监督的影响。</li>
+</ul>
+<p><strong>i with s;</strong></p>
+<ul>
+<li><strong>作用:</strong>  允许截距和斜率之间存在协方差。</li>
+</ul>
+<p><strong>c#1 on gender2 ethncalt cpwdp11 sucat1r cpwpm11;</strong></p>
+<ul>
+<li><strong>作用:</strong> 属于类别1的概率回归到预测变量上。</li>
+</ul>
+<p><strong>[is];</strong></p>
+<ul>
+<li><strong>作用:</strong> 估计截距和斜率的均值。</li>
+</ul>
+<p><strong>is;</strong></p>
+<ul>
+<li><strong>作用:</strong>  估计截距和斜率的方差。</li>
+</ul>
+<p><strong>[CPWAB12@0 CPWAB22@0 CPWAB32@0 CPWAB42@0 CCCAB62@0];</strong></p>
+<ul>
+<li><strong>作用:</strong> 这行代码的真正作用是将不同时间点的反社会行为指标的截距都固定为 0，强制模型通过斜率来解释所有变化。这通常用于简化模型，或者在理论上有理由认为截距应该为 0 的情况下使用。<br><strong>CPWAB12 CPWAB22 CPWAB32 CPWAB42 CCCAB62 ;</strong></li>
+<li><strong>作用:</strong> 估计各个时间点反社会行为指标的方差。</li>
+</ul>
+<p><strong>%c#1%</strong> 和 <strong>%c#2%</strong></p>
+<ul>
+<li><strong>作用:</strong> 分别定义类别1和类别2的模型。</li>
+</ul>
+<p><strong>i s on gender2 ethncalt cpwdp11 sucat1r cpwpm11;</strong></p>
+<ul>
+<li><strong>作用:</strong> 将截距和斜率回归到预测变量上，分别针对类别1和类别2。这允许预测变量对不同类别的影响不同。</li>
+</ul>
+<p><strong>i with s;</strong></p>
+<ul>
+<li><strong>作用:</strong> 允许截距和斜率之间存在协方差，分别针对类别1和类别2。</li>
+</ul>
+<p><strong>[is];</strong></p>
+<ul>
+<li><strong>作用:</strong> 估计截距和斜率的均值，分别针对类别1和类别2。</li>
+</ul>
+<p><strong>is;</strong></p>
+<ul>
+<li><strong>作用:</strong> 估计截距和斜率的方差，分别针对类别1和类别2。</li>
+</ul>
+<p><strong>CPWAB12 CPWAB22 CPWAB32 CPWAB42 CCCAB62 ;</strong></p>
+<ul>
+<li><strong>作用:</strong> 估计各个时间点反社会行为指标的方差，分别针对类别1和类别2。</li>
+</ul>
+<p><strong>[w6arr$1*2] ;</strong> 和 <em><em>[w6arr$1</em>-2];</em>*</p>
+<ul>
+<li><strong>作用:</strong>  估计<code>w6arr</code> (11年级是否被捕)  相对于其他变量的截距，分别针对类别1和类别2。<code>$</code>符号用于定义模型约束，这里用于比较不同类别下被捕概率的差异。 <code>*2</code> 和 <code>*-2</code> 是权重，用于标准化类别之间的差异。</li>
+</ul>
+<h3 id="4-结果解读"><a href="#4-结果解读" class="headerlink" title="4. 结果解读"></a><strong>4. 结果解读</strong></h3><p>GMM分析的结果主要包括以下几个方面：</p>
+<ul>
+<li><strong>亚组数量：</strong> 通过比较不同亚组数量模型的拟合指标（如BIC、LMR-LRT）来确定最优的亚组数量。在本案例中，2个亚组的模型拟合优度最好。</li>
+<li><strong>轨迹形状：</strong> 结果显示，存在两个不同的反社会行为发展轨迹亚组：<ul>
+<li><strong>慢性高水平组（Chronic-High）：</strong> 该组青少年在六年级时就表现出较高的反社会行为水平，并且随着时间推移，反社会行为水平保持稳定。</li>
+<li><strong>稳定低水平组（Stable-Low）：</strong> 该组青少年在六年级时反社会行为水平较低，并且随着时间推移，反社会行为水平也保持稳定。</li>
+</ul>
+</li>
+<li><strong>亚组比例：</strong> 慢性高水平组占总人群的37.7%，稳定低水平组占62.3%。</li>
+<li><strong>亚组预测因子：</strong> 不良同伴和父母监督是预测亚组归属的重要因素。与稳定低水平组相比，慢性高水平组的青少年更倾向于与不良同伴交往，并且受到更少的父母监督。</li>
+<li><strong>结果变量：</strong> 慢性高水平组的青少年在17岁时被捕的概率显著高于稳定低水平组。</li>
+</ul>
+<p>通过以上结果，我们可以得出结论：青少年反社会行为的发展轨迹存在异质性，不良同伴和父母监督是影响这些轨迹的重要因素，并且不同的发展轨迹与不同的长期结果相关联。</p>
+<p>希望这个中文教程能够帮助你理解生长混合模型在发展心理学中的应用。记住，这只是一个简单的示例，实际研究中可能需要根据具体情况调整模型和分析策略。</p>
+
+    </div>
+
+    
+
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/GMM/">#GMM</a> <a href="/tags/纵向数据分析/">#纵向数据分析</a> <a href="/tags/Mplus/">#Mplus</a> <a href="/tags/潜在类别分析/">#潜在类别分析</a> <a href="/tags/混合增长模型/">#混合增长模型</a>
+        </div>
+    
+
+
+
+</div>
+        </section>
+        <section>
+                <div class="content" style="color: #d7ecff">
+                <h3 id="xingqiu"><a href="#星球" class="headerlink" title="星球"></a>统计咨询</h3>
+                <p>统计咨询请加入我的星球,有问必回</p> 
+                <p>加入星球向我提问(必回),下载资料,数据,软件等</p>
+                <p><img src="/img/知识星球优惠券.png" class="img-thumbnail" style="width: 238px; height: 302px;"><img src="/img/知识星球.jpg" class="img-thumbnail" style="width: 238px; height: 302px;"></p>
+            </div>
+        </section>
+        <section>
+            <div class="content" style="color: #d7ecff">
+                <h3 id="赞助"><a href="#赞助" class="headerlink" title="赞助"></a>赞助</h3>
+                <p>持续创造有价值的内容, 我需要你的帮助</p>
+                <p><img src="/img/收款二维码.png" class="img-thumbnail"></p>
+            </div>
+        </section>
+
+
+    </div>
+
+    <!-- rightside -->
+    <div class="col-md-3 col-sm-12 rightside">
+        <div class="related-posts">
+    <h3>
+        <a href="#">
+            赞助推荐
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/mplus-model-templates">Mplus 中介和调节教程PPT</a>
+            </div>
+        
+            <div class="archive-post">
+                <a href="https://mlln.cn/2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/">大学生问卷互填群</a>
+            </div>
+        
+            <div class="archive-post">
+                <a target="_blank" rel="noopener" href="https://item.taobao.com/item.htm?spm=2013.1.w4023-21724689242.4.76085e0a2k46Ky&amp;id=601314051411">问卷代填保证质量</a>
+            </div>
+        
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        常用工具
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a href="/2023/07/08/spss数据sav格式转换器（在线）/">Excel和SPSS转Mplus数据格式工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/mplusoutput/">Mplus结果查看器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/drawio/">绘图软件</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2018/09/26/在线绘制中介效应图/">
+                在线绘制中介效应图
+            </a>
+        </div>
+        <div class="archive-post">
+            <a href="/neural/">神经网络可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/psychopy/">psychopy教程</a>
+        </div>
+        <div class="archive-post">
+            <a href="/vector/">[词向量]高维向量可视化</a>
+        </div>
+        <div class="archive-post">
+            <a href="/demos/evolutionSimulator/">[tensorflow.js案例]进化算法演示</a>
+        </div>
+        <div class="archive-post">
+            <a href="/guideToPython/">[书]Python最佳实践</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/10/10/sobel检验原理和一键计算器/">Sobel检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2019/09/06/spss计算平均方差提取量AVE和组合信度CR的方法/">平均方差提取量AVE和组合信度CR计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2017/12/12/JavaScript做的表格卡方检验-一键在线测试/">卡方检验计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/03/22/SPSS做简单调节效应分析Model-1-Of-Process/">简单交互效应可视化工具</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/10/10/P值显著性计算器/">P值显著性计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="/2020/12/23/均值差异的效应量在线计算器/">两组均值差异的效应量在线计算器</a>
+        </div>
+        <div class="archive-post">
+            <a href="https://mlln.cn/2020/09/17/%E5%8D%A1%E6%96%B9%E5%B7%AE%E5%80%BC%E7%9A%84%E6%98%BE%E8%91%97%E6%80%A7%E6%A3%80%E9%AA%8C/">卡方差值的显著性检验</a>
+        </div>
+        
+    </div>
+</div>
+
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/GMM/">
+            GMM
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2025/02/18/%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8BGMM%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B%E8%A7%A3%E8%AF%BBMplus%E4%BB%A3%E7%A0%81/">
+                    混合增长模型GMM案例教程解读Mplus代码
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2025/02/17/%E4%BD%BF%E7%94%A8%E6%BD%9C%E5%8F%98%E9%87%8F%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8B%EF%BC%88GMM%EF%BC%89%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/">
+                    使用潜变量混合增长模型（GMM）实用指南
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/纵向数据分析/">
+            纵向数据分析
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2025/02/18/%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8BGMM%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B%E8%A7%A3%E8%AF%BBMplus%E4%BB%A3%E7%A0%81/">
+                    混合增长模型GMM案例教程解读Mplus代码
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2025/02/17/%E4%BD%BF%E7%94%A8%E6%BD%9C%E5%8F%98%E9%87%8F%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8B%EF%BC%88GMM%EF%BC%89%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/">
+                    使用潜变量混合增长模型（GMM）实用指南
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/Mplus/">
+            Mplus
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2025/02/18/%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8BGMM%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B%E8%A7%A3%E8%AF%BBMplus%E4%BB%A3%E7%A0%81/">
+                    混合增长模型GMM案例教程解读Mplus代码
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2025/02/17/%E4%BD%BF%E7%94%A8%E6%BD%9C%E5%8F%98%E9%87%8F%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8B%EF%BC%88GMM%EF%BC%89%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/">
+                    使用潜变量混合增长模型（GMM）实用指南
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/潜在类别分析/">
+            潜在类别分析
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2025/02/18/%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8BGMM%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B%E8%A7%A3%E8%AF%BBMplus%E4%BB%A3%E7%A0%81/">
+                    混合增长模型GMM案例教程解读Mplus代码
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2025/02/17/%E4%BD%BF%E7%94%A8%E6%BD%9C%E5%8F%98%E9%87%8F%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8B%EF%BC%88GMM%EF%BC%89%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/">
+                    使用潜变量混合增长模型（GMM）实用指南
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts">
+    <div class="archive-post">
+        <a href="#">Python数据科学技术交流QQ群:116384132</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">SPSS/Stata统计分析QQ群:572803384</a>
+    </div>
+    <div class="archive-post">
+        <a href="#">如果你有其他有价值的群,想放到这里分享,可以联系我QQ675495787</a>
+    </div>
+</div>
+<div class="related-posts">
+    <h3>
+        <a href="/tags/混合增长模型/">
+            混合增长模型
+        </a>
+    </h3>
+    <div class="page_list">
+        
+            <div class="archive-post">
+                <a href="/2025/02/18/%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8BGMM%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B%E8%A7%A3%E8%AF%BBMplus%E4%BB%A3%E7%A0%81/">
+                    混合增长模型GMM案例教程解读Mplus代码
+                </a>
+            </div>
+            
+            <div class="archive-post">
+                <a href="/2025/02/17/%E4%BD%BF%E7%94%A8%E6%BD%9C%E5%8F%98%E9%87%8F%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8B%EF%BC%88GMM%EF%BC%89%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/">
+                    使用潜变量混合增长模型（GMM）实用指南
+                </a>
+            </div>
+            
+    </div>
+</div>
+
+
+<div class="related-posts hidden-sm-down">
+    <h3>
+        <a href="#">
+            友商赞助
+        </a>
+    </h3>
+    <div class="page_list">
+        <div class="archive-post">
+            <a target="_blank" rel="noopener" href="http://jupyter.cn">
+                  问卷大全问卷案例下载
+            </a>
+            <a href="https://mlln.cn/2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/">
+                大学生互填问卷群推荐
+            </a>
+        </div>
+    </div>
+</div>
+    </div>
+</div>
+
+
+
+</div>
+
+<!-- Footer -->
+<div class="push"></div>
+
+<footer class="footer-content">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-3 col-lg-3 footer-about">
+                <h2>About</h2>
+                <p>
+                    这是<code>xxxspy</code>的个人博客
+                </p>
+            </div>
+            
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 recent-posts">
+        <h2>Recent Posts</h2>
+        <ul>
+            
+            <li>
+                <a class="footer-post" href="/2025/02/18/%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8BGMM%E6%A1%88%E4%BE%8B%E6%95%99%E7%A8%8B%E8%A7%A3%E8%AF%BBMplus%E4%BB%A3%E7%A0%81/">混合增长模型GMM案例教程解读Mplus代码</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2025/02/17/%E4%BD%BF%E7%94%A8%E6%BD%9C%E5%8F%98%E9%87%8F%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8B%EF%BC%88GMM%EF%BC%89%E5%AE%9E%E7%94%A8%E6%8C%87%E5%8D%97/">使用潜变量混合增长模型（GMM）实用指南</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2025/02/04/%E8%AE%A1%E9%87%8F%E7%BB%8F%E6%B5%8E%E5%AD%A6%E4%BB%8E%E5%85%A5%E9%97%A8%E5%88%B0%E5%8D%9A%E5%A3%AB%E6%AF%95%E4%B8%9A%E6%89%80%E6%9C%89%E6%95%99%E7%A8%8B%E4%BB%A3%E7%A0%81PPT%E8%A7%86%E9%A2%91%E8%B5%84%E6%BA%90%E4%B8%8B%E8%BD%BD/">计量经济学从入门到博士毕业所有教程代码PPT视频资</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/12/22/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE%E7%9A%84%E7%B1%BB%E5%9E%8B%E5%92%8C%E6%A3%80%E9%AA%8C%E6%96%B9%E6%B3%95/">共同方法偏差的类型和检验方法</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/11/12/Meta%E5%88%86%E6%9E%90%E4%BB%A3%E5%81%9A-%E4%BB%8E%E6%89%BE%E6%95%B0%E6%8D%AE%E5%88%B0%E5%87%BA%E6%8A%A5%E5%91%8A/">Meta分析-从找数据到出报告</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/11/07/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/">SPSS做Meta分析原来这么简单-教程如下</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/11/07/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/">SPSS做Meta分析原来这么简单-教程如下</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/10/18/mplus%E7%BB%98%E5%88%B6%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%9B%BE/">mplus绘制调节效应图</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/10/17/%E4%B8%BB%E5%AE%A2%E4%BD%93%E4%BA%92%E4%BE%9D%E8%B0%83%E8%8A%82%E6%A8%A1%E5%9E%8B-APIMoM-%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8Garcia2014/">主客体互依调节模型 APIMoM 如何验证调节效应</a>
+            </li>
+            
+            <li>
+                <a class="footer-post" href="/2024/10/16/APIM%E4%B8%BB%E5%AE%A2%E4%BD%93%E4%BA%92%E4%BE%9D%E6%A8%A1%E5%9E%8B%E4%B8%AD%E7%9A%84%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%A6%82%E4%BD%95%E5%81%9A/">APIM主客体互依模型中的调节效应如何做</a>
+            </li>
+            
+        </ul>
+    </div>
+
+
+
+            
+<div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 footer-tags">
+    <h2>tags</h2>
+    <ul>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%87%E6%9C%AC%E6%8C%96%E6%8E%98/">文本挖掘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8A%A5%E5%91%8A%E7%B3%BB%E7%BB%9F/">报告系统</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/spss/">spss</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">问卷数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/python/">python</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/manim/">manim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/amos/">amos</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%85%B1%E5%90%8C%E6%96%B9%E6%B3%95%E5%81%8F%E5%B7%AE/">共同方法偏差</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%B0%E6%8D%AE%E5%88%86%E6%9E%90/">数据分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%99%E7%A8%8B/">教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BF%A1%E5%BA%A6%E5%88%86%E6%9E%90/">信度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%95%88%E5%BA%A6%E5%88%86%E6%9E%90/">效度分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/SPSS/">SPSS</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB/">问卷互填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E6%98%9F/">问卷星</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E4%BB%A3%E5%A1%AB/">问卷代填</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E9%97%AE%E5%8D%B7%E7%BD%91/">问卷网</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/conda/">conda</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BB%93%E6%9E%84%E6%96%B9%E7%A8%8B/">结构方程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B7%B1%E5%BA%A6%E5%AD%A6%E4%B9%A0/">深度学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%B8%B8%E6%88%8F/">游戏</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/excel/">excel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/datanitro/">datanitro</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/VBA/">VBA</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/numpy/">numpy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mplus/">mplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/django/">django</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime/">eprime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/EM/">EM</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%8E%A8%E8%8D%90%E4%B9%A6/">推荐书</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/JSONSchema/">JSONSchema</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C/">卡方检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/javascript/">javascript</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/MathJax/">MathJax</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Latex/">Latex</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mysql/">mysql</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jupyter/">jupyter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R/">R</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%98%BE%E8%91%97%E6%80%A7/">显著性</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BA%BA%E5%B7%A5%E6%99%BA%E8%83%BD/">人工智能</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/Q-learning/">Q-learning</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%9C%BA%E5%99%A8%E5%AD%A6%E4%B9%A0/">机器学习</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/R%E8%AF%AD%E8%A8%80/">R语言</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/r/">r</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/process/">process</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94/">调节效应</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/statsmodels/">statsmodels</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tamplermonkey/">tamplermonkey</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow-js/">tensorflow.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tensorflow/">tensorflow</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%BD%9C%E6%96%87%E8%AF%84%E5%88%86/">作文评分</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/t%E6%A3%80%E9%AA%8C/">t检验</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%96%B9%E5%B7%AE%E5%88%86%E6%9E%90/">方差分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%87%AA%E7%84%B6%E8%AF%AD%E8%A8%80%E5%A4%84%E7%90%86/">自然语言处理</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/NLP/">NLP</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E8%AF%AD%E6%96%99%E5%BA%93/">语料库</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nodejs/">nodejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/electron/">electron</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/e-prime/">e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gensim/">gensim</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%91%98%E8%A6%81%E7%94%9F%E6%88%90/">摘要生成</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gitlab/">gitlab</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/git/">git</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/gui/">gui</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jamovi/">jamovi</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/notebook/">notebook</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E6%95%99%E7%A8%8B/">keras教程</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/keras%E5%9F%BA%E7%A1%80/">keras基础</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongodb/">mongodb</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/jieba/">jieba</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/mongoengine/">mongoengine</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/meta%E5%88%86%E6%9E%90/">meta分析</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/nginx/">nginx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/networkx/">networkx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/officejs/">officejs</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/p5-js/">p5.js</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/dataframe/">dataframe</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pandas/">pandas</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/psychopy/">psychopy</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E4%B8%8B%E8%BD%BD/">下载</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E7%BD%91%E7%9B%98/">网盘</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/eprime-e-prime/">eprime/e-prime</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pychrome/">pychrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/chrome/">chrome</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pydotplus/">pydotplus</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pymongo/">pymongo</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/flexx/">flexx</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/graphviz/">graphviz</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/selenium/">selenium</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%A0%BC%E5%BC%8F%E5%8C%96%E5%AD%97%E7%AC%A6%E4%B8%B2/">格式化字符串</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lru-cache/">lru_cache</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/logging/">logging</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pywinauto/">pywinauto</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/lisrel/">lisrel</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/os/">os</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/%E6%97%B6%E9%97%B4%E5%BA%8F%E5%88%97/">时间序列</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/print/">print</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/pil/">pil</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/tkinter/">tkinter</a>
+        </span>
+        
+        <span>
+            <a class="footer-post" href="/tags/js2py/">js2py</a>
+        </span>
+        
+    </ul>
+</div>
+
+            
+        </div>
+        <!-- links -->
+
+<div class="row">
+    <div class="col-xs-6 col-sm-6 col-md-3 col-lg-3 footer-about">
+        <h2>Links</h2>
+        <ul>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/baidusitemap.xml" target="_blank">网站地图</a><span> | </span>
+            
+                <span> | </span><a class="footer-post" href="http://mlln.cn/sitemap.xml" target="_blank">DataScience</a><span> | </span>
+            
+        </ul>
+    </div>
+</div>
+
+
+
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <ul class="list-inline footer-social-icons">
+                    
+                    <li class="list-inline-item">
+                        <a target="_blank" rel="noopener" href="https://github.com/xxxspy">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-github"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="mailto:675495787@qq.com">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-envelope-o"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                    
+                    <li class="list-inline-item">
+                        <a href="\#">
+                            <span class="footer-icon-container">
+                                <i class="fa fa-rss"></i>
+                            </span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="footer-copyright">
+                    @感谢github免费托管，hexo的静态网站引擎和模板主题制作者<a target="_blank" rel="noopener" href="http://www.codeblocq.com/">Jonathan Klughertz</a>
+                    <br/>
+                    <a target="_blank" rel="noopener" href="http://www.beian.miit.gov.cn">京ICP备16033873号-2</>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<!-- After footer scripts -->
+
+<!-- jQuery -->
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+
+<!-- tweenmax -->
+<script src="/js/TweenMax.min.js">
+
+<!-- Gallery -->
+<script src="//cdnjs.cloudflare.com/ajax/libs/featherlight/1.3.5/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+
+<!-- bootstrap.js -->
+<script src="https://cdn.bootcss.com/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+
+<!-- Custom JavaScript -->
+
+<script src="/js/main.js"></script>
+
+
+<!-- Baidu link push -->
+<script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+
+<!-- baidu_static -->
+
+	<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "https://hm.baidu.com/hm.js?588f06b88af0ef575445f53432cd15ec";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+
+
+
+
+</body>
+
+</html>
