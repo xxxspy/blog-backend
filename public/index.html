@@ -270,6 +270,348 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2025/02/24/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BSPSS%E6%95%99%E7%A8%8B%E9%99%84%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">
+                多层线性模型SPSS教程附视频教程
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2025年02月24日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>本教程将引导您逐步了解如何使用多层线性模型（Hierarchical Linear Modeling, HLM），也称为混合效应模型或多水平模型，来分析嵌套数据。我们将基于Heck et al. (2014) 第3章的示例进行讲解，该示例探讨了学生数学成绩与学生和学校层面的因素之间的关系。本教程假设您具备基本的统计学知识，并且熟悉SPSS软件的操作。</p>
+<p>视频教程在最下方</p>
+<h2 id="1-引言：为什么需要多层线性模型？"><a href="#1-引言：为什么需要多层线性模型？" class="headerlink" title="1. 引言：为什么需要多层线性模型？"></a>1. 引言：为什么需要多层线性模型？</h2><p>在教育研究、心理学、社会科学等领域，我们经常遇到嵌套数据。例如，学生嵌套在班级中，班级嵌套在学校中，学校嵌套在学区中。在这种情况下，简单地将所有数据视为独立个体进行分析可能会导致以下问题：</p>
+<ul>
+<li><strong>违反独立性假设</strong>：同一学校的学生之间可能存在相关性，而简单线性回归假设个体之间相互独立。</li>
+<li><strong>标准误估计不准确</strong>：忽略数据的层次结构会导致标准误估计偏小，从而增加I类错误的概率（错误地拒绝零假设）。</li>
+<li><strong>无法解释组间差异</strong>：简单线性回归无法解释不同学校之间的差异，而这些差异可能受到学校层面的因素的影响。</li>
+</ul>
+<p>多层线性模型能够有效地解决上述问题。它通过明确地对数据的层次结构进行建模，考虑了组内和组间的变异，从而得到更准确和更全面的分析结果。</p>
+<h2 id="2-示例数据描述"><a href="#2-示例数据描述" class="headerlink" title="2. 示例数据描述"></a>2. 示例数据描述</h2><p>本教程使用的示例数据集包含6871名学生，他们嵌套在419所学校中。数据集中的变量包括：</p>
+<ul>
+<li>**Level 1 (学生层面)**：<ul>
+<li><code>Schcode</code>: 学校代码。</li>
+<li><code>Rid</code>: 学生在给定学校内的ID。</li>
+<li><code>ID</code>: 学生在所有学校中的唯一ID。</li>
+<li><code>Female</code>: 性别 (0&#x3D;男性, 1&#x3D;女性)。</li>
+<li><code>SES</code>: 学生社会经济地位。</li>
+<li><code>Math</code>: 数学成绩（连续变量）。</li>
+</ul>
+</li>
+<li>**Level 2 (学校层面)**：<ul>
+<li><code>SES_mean</code>: 学校平均社会经济地位。</li>
+<li><code>Prop47yrc</code>: 学校中计划上四年制大学的学生比例。</li>
+<li><code>Public</code>: 学校类型 (1&#x3D;公立, 0&#x3D;其他，如私立)。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_0.png"></p>
+<p>我们的目标是回答以下问题：</p>
+<ol>
+<li>学生数学成绩是否在不同学校之间存在差异？</li>
+<li>学生社会经济地位 (SES) 与数学成绩之间是否存在关系？</li>
+<li>SES对数学成绩的影响在学校层面是否会“增强”？其他学校层面的组成因素是否也能预测学生成绩？</li>
+<li>学生SES与数学成绩的关系斜率在不同学校之间是否不同？如果存在差异，学校层面的环境因素能否解释这些斜率的变异？</li>
+</ol>
+<h2 id="3-单层回归分析：一个不恰当的开始"><a href="#3-单层回归分析：一个不恰当的开始" class="headerlink" title="3. 单层回归分析：一个不恰当的开始"></a>3. 单层回归分析：一个不恰当的开始</h2><p>在开始多层建模之前，让我们先尝试使用单层回归来分析数据，以了解其局限性。我们将建立一个简单的线性回归模型，预测学生数学成绩，仅使用学生SES作为预测变量。</p>
+<p><strong>模型:</strong></p>
+<p><code>Math_i = b0 + b1 * SES_i + e_i</code></p>
+<p>其中:</p>
+<ul>
+<li><code>Math_i</code>是学生i的数学成绩。</li>
+<li><code>SES_i</code>是学生i的社会经济地位。</li>
+<li><code>b0</code>是截距。</li>
+<li><code>b1</code>是SES的回归系数。</li>
+<li><code>e_i</code>是残差。</li>
+</ul>
+<p>在SPSS中，使用“分析” -&gt; “回归” -&gt; “线性”进行分析。将<code>Math</code>作为因变量，<code>SES</code>作为自变量。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_2.png"></p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014%2014)-3a%20(1)_3.png"></p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_4.png"></p>
+<p><strong>结果解释:</strong></p>
+<p>根据PPT中的结果：</p>
+<ul>
+<li>R平方&#x3D;0.143，表明SES解释了数学成绩14.3%的变异，模型整体显著 (F(1, 6869) &#x3D; 1146.382, p &lt; .001)。</li>
+<li>SES是一个显著的正向预测因子 (b &#x3D; 4.255, s.e. &#x3D; 0.126, p &lt; .001)。这意味着，学生的社会经济地位越高，数学成绩也越高。</li>
+</ul>
+<p><strong>预测方程：</strong></p>
+<p><code>Math_i = b0 + 4.255 * SES_i</code> (其中b0为截距值)</p>
+<p><strong>单层回归的局限性：</strong></p>
+<p>虽然这个模型表明SES与数学成绩之间存在显著关系，但它存在一些关键问题：</p>
+<ol>
+<li><strong>忽略了学校的影响</strong>:  模型假设所有学校的学生都是一样的，忽略了学校可能对学生成绩产生的影响。</li>
+<li><strong>固定效应假设</strong>:  模型将截距和斜率视为固定参数，即对所有学校都是一样的，这可能并不现实。</li>
+</ol>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_5.png"></p>
+<p>下图说明了不同学校的学生SES和数学成绩之间的关系可能不同，截距和斜率可能存在变异。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_6.png"></p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_7.png"></p>
+<h2 id="4-多层线性模型建模步骤"><a href="#4-多层线性模型建模步骤" class="headerlink" title="4. 多层线性模型建模步骤"></a>4. 多层线性模型建模步骤</h2><p>Heck et al. (2014) 推荐的多层模型建模步骤如下：</p>
+<ol>
+<li><strong>步骤1：建立和检验零模型 (Null Model)</strong>:  评估学校层面是否存在显著的变异。</li>
+<li><strong>步骤2：建立和检验Level 1模型</strong>:  加入学生层面的预测变量 (例如，SES)。</li>
+<li><strong>步骤3：建立和检验Level 2模型</strong>:  加入学校层面的预测变量 (例如，学校平均SES)。</li>
+<li><strong>步骤4：建立和检验随机斜率模型（可选）</strong>: 允许学生层面的预测变量的斜率在学校层面变异。</li>
+</ol>
+<h3 id="4-1-步骤1：建立和检验零模型-Null-Model"><a href="#4-1-步骤1：建立和检验零模型-Null-Model" class="headerlink" title="4.1 步骤1：建立和检验零模型 (Null Model)"></a>4.1 步骤1：建立和检验零模型 (Null Model)</h3><p>零模型，也称为方差分解模型或随机截距模型，不包含任何预测变量。其目的是确定因变量（本例中为数学成绩）在不同学校之间是否存在显著的变异。</p>
+<p><strong>模型公式：</strong></p>
+<ul>
+<li>**Level 1 (学生层面)**： <code>Math_ij = b0j + e_ij</code></li>
+<li>**Level 2 (学校层面)**： <code>b0j = g00 + u0j</code></li>
+</ul>
+<p>其中：</p>
+<ul>
+<li><code>Math_ij</code>是学校<code>j</code>中学生<code>i</code>的数学成绩。</li>
+<li><code>b0j</code>是学校<code>j</code>的平均数学成绩 (截距)。</li>
+<li><code>e_ij</code>是学生层面的随机误差项，假设服从均值为0，方差为σ²的分布。</li>
+<li><code>g00</code>是所有学校的平均数学成绩 (总体平均数)。</li>
+<li><code>u0j</code>是学校层面的随机效应，表示学校<code>j</code>的平均数学成绩与总体平均数之间的差异，假设服从均值为0，方差为τ²的分布。</li>
+</ul>
+<p><strong>混合模型公式：</strong></p>
+<p><code>Math_ij = g00 + u0j + e_ij</code></p>
+<p><strong>在SPSS中进行分析：</strong></p>
+<ol>
+<li><p>选择 “分析” -&gt; “混合模型” -&gt; “线性…”.</p>
+</li>
+<li><p>在弹出的窗口中，选择 <code>ID</code> 作为“主体”变量，<code>Schcode</code> 作为“重复测量”变量。主体变量指的是最低层级的个体ID，而重复测量是更高层级的ID。<br><strong>注意:</strong> <code>Schcode</code>实际上不是重复测量，但是SPSS需要一个重复测量变量才能运行混合模型，在这里将level 2的学校code放入这个位置。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_8.png"></p>
+</li>
+<li><p>点击 “继续”。</p>
+</li>
+<li><p>在下一个窗口中，将 <code>Math</code> 移到“因变量”框中。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_10.png"></p>
+</li>
+<li><p>点击 “固定…” 按钮，确保“截距”在模型中，且没有其他变量。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_11.png"></p>
+</li>
+<li><p>点击 “随机…” 按钮，将 <code>Schcode</code> 移到 “组合” 框中。这指定了随机效应的水平。确保“包含截距”已选中。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_12.png"></p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_13.png"></p>
+</li>
+<li><p>点击 “估计” 按钮，将估计方法从 “REML” 改为 “ML”，因为我们要进行模型比较。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_14.png"></p>
+</li>
+<li><p>点击 “统计…” 按钮，选择 “参数估计”，“协方差参数的检验” 和 “随机效应的协方差”。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_15.png"></p>
+</li>
+<li><p>点击 “确定” 运行模型。</p>
+</li>
+</ol>
+<p><strong>结果解释：</strong></p>
+<p>SPSS输出的结果将包含以下关键信息：</p>
+<ul>
+<li><strong>固定效应的估计值</strong>：<code>g00</code>，即所有学校的平均数学成绩。</li>
+<li><strong>随机效应的方差估计</strong>：<code>σ²</code> (Level 1残差方差) 和 <code>τ²</code> (Level 2截距方差，即学校间变异)。</li>
+<li><strong>协方差参数的检验</strong>：检验τ²是否显著大于0。</li>
+<li><strong>-2对数似然值 (-2LL)</strong>: 用于模型比较。</li>
+</ul>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_16.png"></p>
+<p>如果<code>τ²</code>的检验结果显著 (p &lt; 0.05)，则表明学校之间的数学成绩存在显著差异。这意味着，解释学生数学成绩不仅仅需要考虑学生层面的因素，还需要考虑学校层面的因素。</p>
+<p><strong>计算组内相关系数 (ICC)：</strong></p>
+<p>组内相关系数（Intraclass Correlation Coefficient, ICC）用于衡量观测值在组内的聚集程度。它表示总方差中，组间方差所占的比例。</p>
+<p><code>ICC = τ² / (τ² + σ²)</code></p>
+<p>在本例中，ICC表示学生数学成绩的总变异中，有多少比例是由学校差异造成的。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_21.png"></p>
+<p>根据PPT，<code>ICC = 6.515 / (6.515 + 40.679) = 0.138</code>， 意味着大约13.8%的数学成绩差异存在于学校之间。  通常，ICC值大于0.05被认为是重要的集群效应的指标。</p>
+<p><strong>结论：</strong></p>
+<p>如果 ICC 显著大于 0，说明学生数学成绩在学校层面存在显著的集群效应，这表明使用多层模型是合适的。</p>
+<h3 id="4-2-步骤2：建立和检验Level-1模型"><a href="#4-2-步骤2：建立和检验Level-1模型" class="headerlink" title="4.2 步骤2：建立和检验Level 1模型"></a>4.2 步骤2：建立和检验Level 1模型</h3><p>在步骤2中，我们将在Level 1模型中加入学生层面的预测变量，以解释学生数学成绩的个体差异。在本例中，我们将加入学生社会经济地位 (SES) 作为预测变量。</p>
+<p><strong>模型公式：</strong></p>
+<ul>
+<li>**Level 1 (学生层面)**： <code>Math_ij = b0j + b1 * SES_ij + e_ij</code></li>
+<li>**Level 2 (学校层面)**： <code>b0j = g00 + u0j</code></li>
+</ul>
+<p>其中：</p>
+<ul>
+<li><code>Math_ij</code>是学校<code>j</code>中学生<code>i</code>的数学成绩。</li>
+<li><code>SES_ij</code>是学校<code>j</code>中学生<code>i</code>的社会经济地位。</li>
+<li><code>b0j</code>是学校<code>j</code>的平均数学成绩 (截距)。</li>
+<li><code>b1</code>是SES的回归系数，假设在所有学校中都是相同的（固定斜率）。</li>
+<li><code>e_ij</code>是学生层面的随机误差项。</li>
+<li><code>g00</code>是所有学校的平均数学成绩 (总体平均数)。</li>
+<li><code>u0j</code>是学校层面的随机效应。</li>
+</ul>
+<p><strong>在SPSS中进行分析：</strong></p>
+<ol>
+<li><p>打开步骤1中的模型分析界面（如果关闭了SPSS，需要重新按照步骤1操作至第四步）。</p>
+</li>
+<li><p>将 <code>SES</code> 移到 “协变量” 框中。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_23.png"></p>
+</li>
+<li><p>点击 “固定…” 按钮，确保“截距”和<code>SES</code>都在模型中。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_24.png"></p>
+</li>
+<li><p>点击 “确定” 运行模型。</p>
+</li>
+</ol>
+<p><strong>结果解释：</strong></p>
+<p>SPSS输出的结果将包含以下关键信息：</p>
+<ul>
+<li><strong>固定效应的估计值</strong>：<code>g00</code> (总体平均数)，<code>b1</code> (SES的回归系数)。</li>
+<li><strong>随机效应的方差估计</strong>：<code>σ²</code> (Level 1残差方差) 和 <code>τ²</code> (Level 2截距方差)。</li>
+<li><strong>-2对数似然值 (-2LL)</strong>: 用于模型比较。</li>
+</ul>
+<p><img src="/img%5CTwo-level%20multilevel%20model(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_26.png"></p>
+<p><strong>模型比较：</strong></p>
+<p>为了确定加入SES是否显著提高了模型的拟合度，我们需要将步骤2的模型与步骤1的零模型进行比较。这可以通过似然比检验（Likelihood Ratio Test）来完成。似然比检验的统计量为：</p>
+<p><code>χ² = -2LL(Model 1) - (-2LL(Model 2))</code></p>
+<p>其中，Model 1是零模型，Model 2是加入了SES的Level 1模型。该统计量服从自由度为模型参数差异数的卡方分布。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_29.png"></p>
+<p>如果似然比检验结果显著 (p &lt; 0.05)，则表明加入SES显著提高了模型的拟合度。</p>
+<p><strong>伪R平方（Pseudo-R-squared）：</strong></p>
+<p>伪R平方用于衡量加入SES后，模型解释的Level 1变异的增加比例。其计算公式为：</p>
+<p><code>Pseudo-R-squared = (σ²(Model 1) - σ²(Model 2)) / σ²(Model 1)</code></p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_34.png"></p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_35.png"></p>
+<p>根据PPT内容，伪R平方为 <code>(40.679-38.343)/40.679 = 0.057</code>  表明加入 SES 解释了 5.7% 的学校内部的变异。</p>
+<p><strong>结论：</strong></p>
+<p>如果似然比检验结果显著，且SES的回归系数显著，则表明学生社会经济地位是学生数学成绩的重要预测因素。</p>
+<h3 id="4-3-步骤3：建立和检验Level-2模型"><a href="#4-3-步骤3：建立和检验Level-2模型" class="headerlink" title="4.3 步骤3：建立和检验Level 2模型"></a>4.3 步骤3：建立和检验Level 2模型</h3><p>在步骤3中，我们将在模型中加入学校层面的预测变量，以解释学校之间的平均数学成绩的差异。在本例中，我们将加入学校平均SES (<code>SES_mean</code>)、学校中计划上四年制大学的学生比例 (<code>Prop47yrc</code>) 和学校类型 (<code>Public</code>) 作为预测变量。</p>
+<p><strong>模型公式：</strong></p>
+<ul>
+<li>**Level 1 (学生层面)**： <code>Math_ij = b0j + b1 * SES_ij + e_ij</code></li>
+<li>**Level 2 (学校层面)**： <code>b0j = g00 + g01 * SES_mean_j + g02 * Prop47yrc_j + g03 * Public_j + u0j</code></li>
+</ul>
+<p>其中：</p>
+<ul>
+<li><code>Math_ij</code>是学校<code>j</code>中学生<code>i</code>的数学成绩。</li>
+<li><code>SES_ij</code>是学校<code>j</code>中学生<code>i</code>的社会经济地位。</li>
+<li><code>b0j</code>是学校<code>j</code>的平均数学成绩 (截距)。</li>
+<li><code>b1</code>是SES的回归系数，假设在所有学校中都是相同的（固定斜率）。</li>
+<li><code>e_ij</code>是学生层面的随机误差项。</li>
+<li><code>g00</code>是所有学校的平均数学成绩 (总体平均数)。</li>
+<li><code>SES_mean_j</code>是学校<code>j</code>的平均社会经济地位。</li>
+<li><code>Prop47yrc_j</code>是学校<code>j</code>中计划上四年制大学的学生比例。</li>
+<li><code>Public_j</code>是学校<code>j</code>的类型 (1&#x3D;公立, 0&#x3D;其他)。</li>
+<li><code>g01</code>, <code>g02</code>, <code>g03</code> 是对应的回归系数。</li>
+<li><code>u0j</code>是学校层面的随机效应。</li>
+</ul>
+<p><strong>在SPSS中进行分析：</strong></p>
+<ol>
+<li><p>打开步骤2中的模型分析界面。</p>
+</li>
+<li><p>将 <code>SES_mean</code>、<code>Prop47yrc</code> 和 <code>Public</code> 移到 “协变量” 框中。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_38.png"></p>
+</li>
+<li><p>点击 “固定…” 按钮，确保“截距”, <code>SES</code>,  <code>SES_mean</code>, <code>Prop47yrc</code> 和 <code>Public</code> 都在模型中。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_39.png"></p>
+</li>
+<li><p>点击 “确定” 运行模型。</p>
+</li>
+</ol>
+<p><strong>结果解释：</strong></p>
+<p>SPSS输出的结果将包含以下关键信息：</p>
+<ul>
+<li><strong>固定效应的估计值</strong>：<code>g00</code>, <code>b1</code>,  <code>g01</code>, <code>g02</code>, <code>g03</code>.</li>
+<li><strong>随机效应的方差估计</strong>：<code>σ²</code> (Level 1残差方差) 和 <code>τ²</code> (Level 2截距方差)。</li>
+<li><strong>-2对数似然值 (-2LL)</strong>: 用于模型比较。</li>
+</ul>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_43.png"></p>
+<p><strong>模型比较：</strong></p>
+<p>将步骤3的模型与步骤2的模型进行比较，使用似然比检验判断加入Level 2预测变量是否显著提高了模型的拟合度。</p>
+<p><strong>结果分析：</strong></p>
+<p>根据PPT内容，在Level 1，SES是一个显著正向预测因子 (b &#x3D; 3.19, s.e. &#x3D; 0.16, p &lt; .001)。在Level 2，学校平均SES (b &#x3D; 2.47, s.e. &#x3D; 0.31, p &lt; .001) 和计划上四年制大学的学生比例 (b &#x3D; 1.42, s.e. &#x3D; 0.47, p &lt; .001) 也是显著正向预测因子。学校类型 (b &#x3D; -0.16, s.e. &#x3D; 0.27, p &#x3D; .549) 不是显著预测因子。</p>
+<p><strong>结论：</strong></p>
+<p>如果似然比检验结果显著，且Level 2预测变量的回归系数显著，则表明学校层面的因素对学生数学成绩存在显著影响。</p>
+<h3 id="4-4-步骤4：建立和检验随机斜率模型"><a href="#4-4-步骤4：建立和检验随机斜率模型" class="headerlink" title="4.4 步骤4：建立和检验随机斜率模型"></a>4.4 步骤4：建立和检验随机斜率模型</h3><p>在之前的模型中，我们假设学生SES对数学成绩的影响在所有学校中都是相同的（固定斜率）。然而，实际情况可能并非如此。例如，在某些学校，SES对学生成绩的影响可能更大。为了检验这种可能性，我们需要建立一个随机斜率模型，允许学生SES的斜率在不同学校之间变异。</p>
+<p><strong>模型公式：</strong></p>
+<ul>
+<li>**Level 1 (学生层面)**： <code>Math_ij = b0j + b1j * SES_ij + e_ij</code></li>
+<li>**Level 2 (学校层面)**：<ul>
+<li><code>b0j = g00 + g01 * SES_mean_j + g02 * Prop47yrc_j + g03 * Public_j + u0j</code></li>
+<li><code>b1j = g10 + u1j</code></li>
+</ul>
+</li>
+</ul>
+<p>其中：</p>
+<ul>
+<li><code>b1j</code>是学校<code>j</code>中SES的回归系数。</li>
+<li><code>g10</code>是所有学校中SES回归系数的平均值。</li>
+<li><code>u1j</code>是学校层面的随机效应，表示学校<code>j</code>的SES回归系数与总体平均值之间的差异，假设服从均值为0，方差为τ1²的分布。</li>
+<li>其他变量的含义与之前相同。</li>
+</ul>
+<p><strong>在SPSS中进行分析：</strong></p>
+<ol>
+<li><p>打开步骤3中的模型分析界面。</p>
+</li>
+<li><p>点击 “随机…” 按钮。</p>
+</li>
+<li><p>将 <code>SES</code> 移到 “模型” 框中，这指定了SES的斜率可以随机变异。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_56.png"></p>
+</li>
+<li><p>点击 “继续” 并运行模型。</p>
+</li>
+</ol>
+<p><strong>结果解释：</strong></p>
+<p>SPSS输出的结果将包含以下关键信息：</p>
+<ul>
+<li><strong>固定效应的估计值</strong>：<code>g00</code>, <code>g01</code>, <code>g02</code>, <code>g03</code>, <code>g10</code>.</li>
+<li><strong>随机效应的方差估计</strong>：<code>σ²</code>, <code>τ²</code> (截距方差) 和 <code>τ1²</code> (SES斜率方差)。</li>
+<li><strong>-2对数似然值 (-2LL)</strong>: 用于模型比较。</li>
+</ul>
+<p>关键在于检查<code>τ1²</code>是否显著大于0。如果检验结果显著 (p &lt; 0.05)，则表明SES的斜率在不同学校之间存在显著差异。</p>
+<p><strong>进一步分析：跨层次交互作用</strong></p>
+<p>如果发现SES的斜率在学校层面存在显著差异，我们可以进一步分析学校层面的哪些因素能够解释这种差异。例如，我们可以检验学校平均SES是否会影响SES对学生成绩的影响。这可以通过添加跨层次交互作用项来实现。</p>
+<p><strong>添加跨层次交互项：</strong></p>
+<ol>
+<li>在步骤4的基础上，在”固定…”对话框中，添加交互项<code>SES*SES_mean</code>, <code>SES*Prop47yrc</code>, <code>SES*Public</code>。 这些项代表学生SES与学校层面变量的交互作用。</li>
+<li>再次运行模型。</li>
+</ol>
+<p>根据PPT中内容，只有<code>SES*Public</code>是显著的交互项，说明学生层面的SES对数学成绩的影响受到学校类型的影响。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_64.png"></p>
+<p>我们可以绘制简单斜率图来可视化这种交互作用。</p>
+<p><strong>绘制简单斜率图</strong></p>
+<ol>
+<li>使用PPT提供的Excel计算器计算不同学校类型（公立&#x2F;私立）下，不同SES水平（低、中、高）的预测数学成绩。这需要SES的均值和标准差，以及模型估计的系数。</li>
+<li>使用计算结果在Excel中绘制图表。</li>
+</ol>
+<p>结果显示，SES与数学成绩的关系在不同类型的学校中略有不同。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_67.png"></p>
+<p><strong>其他交互作用的探索</strong></p>
+<p>虽然<code>SES*Prop47yrc</code>, <code>SES*SES_mean</code>的交互项不显著，但也可以绘制相应的图表进行探索。</p>
+<p><strong>加入性别变量</strong></p>
+<p>最后，PPT还演示了加入性别变量（Female）作为 Level 1 预测变量，并允许其斜率在学校间随机变化，并检验 Female 与 School Type (Public) 的跨层次交互作用。结果发现，Female 与 School Type 存在显著的交互作用。</p>
+<p><img src="/img%5CTwo-level%20multilevel%20model%20(illustration%20from%20chapter%203%20Heck%20et%20al,%202014)-3a%20(1)_99.png"></p>
+<p>使用类似的步骤，可以绘制简单斜率图来可视化这种交互作用。</p>
+<h2 id="5-总结"><a href="#5-总结" class="headerlink" title="5. 总结"></a>5. 总结</h2><p>本教程通过一个具体的例子，详细介绍了如何使用多层线性模型分析嵌套数据。我们从简单的零模型开始，逐步加入了学生层面和学校层面的预测变量，并最终建立了随机斜率模型。通过模型比较和结果解释，我们能够更深入地了解学生数学成绩的影响因素，并探索不同学校之间的差异。</p>
+<p>希望本教程能够帮助您掌握多层线性模型的基本原理和应用方法。请记住，多层模型是一种非常强大的工具，可以应用于各种领域的研究。</p>
+<h2 id="视频教程"><a href="#视频教程" class="headerlink" title="视频教程"></a>视频教程</h2><iframe src="//player.bilibili.com/player.html?bvid=BV1sjPPepEad&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  style="width:800px;height:600px;"> </iframe>
+<iframe src="//player.bilibili.com/player.html?bvid=BV1jaPPeGEhW&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  style="width:800px;height:600px;"> </iframe>
+<iframe src="//player.bilibili.com/player.html?bvid=BV1jaPPeGE4C&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  style="width:800px;height:600px;"> </iframe>
+<iframe src="//player.bilibili.com/player.html?bvid=BV15iPPezEXQ&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  style="width:800px;height:600px;"> </iframe>
+<iframe src="//player.bilibili.com/player.html?bvid=BV15iPPezETc&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  style="width:800px;height:600px;"> </iframe>
+<iframe src="//player.bilibili.com/player.html?bvid=BV15iPPezEtj&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  style="width:800px;height:600px;"> </iframe>
+
+<iframe src="//player.bilibili.com/player.html?bvid=BV15iPPezEtj&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  style="width:800px;height:600px;"> </iframe>
+<iframe src="//player.bilibili.com/player.html?bvid=BV15iPPezE4M&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  style="width:800px;height:600px;"> </iframe>
+<iframe src="//player.bilibili.com/player.html?bvid=BV1LvPPegEip&page=1" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true"  style="width:800px;height:600px;"> </iframe>
+
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a> <a href="/tags/hlm/">#hlm</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2025/02/21/mplus%E5%81%9A%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8BGMM%E6%97%B6%E6%B2%A1%E6%9C%89%E8%BE%93%E5%87%BACFI%E7%AD%89%E6%8B%9F%E5%90%88%E6%8C%87%E6%A0%87/">
                 mplus做混合增长模型GMM时没有输出CFI等拟合指标
             </a>
@@ -586,41 +928,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2024/10/17/%E4%B8%BB%E5%AE%A2%E4%BD%93%E4%BA%92%E4%BE%9D%E8%B0%83%E8%8A%82%E6%A8%A1%E5%9E%8B-APIMoM-%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8Garcia2014/">
-                主客体互依调节模型 APIMoM 如何验证调节效应是否存在Garcia2014
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2024年10月17日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>在心理学研究中，主客体互依调节模型（Actor-Partner Interdependence Model with Moderation, APIMoM）是一种常用的结构方程模型，用于分析个体间（如夫妻、亲子等）的互依关系及其调节效应。本文将遵循 Garcia 等人（2014）提出的 APIMoM 程序，并考察父母双方焦虑情绪的混合调节作用（mixed moderator）。具体地，我们将构建父母双方自变量与调节变量的四个交互项，预测父亲和母亲的因变量，共产生八个交互效应。通过对比非约束和约束模型，结合 Satorra-Bentler 校正卡方检验（SB），以及 Bootstrap 重复取样方法，验证调节效应的存在。</p>
-        </div>
-        <a href="/2024/10/17/%E4%B8%BB%E5%AE%A2%E4%BD%93%E4%BA%92%E4%BE%9D%E8%B0%83%E8%8A%82%E6%A8%A1%E5%9E%8B-APIMoM-%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8Garcia2014/" class="read-more">Read More</a>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/amos/">#amos</a> <a href="/tags/mplus/">#mplus</a> <a href="/tags/apim/">#apim</a> <a href="/tags/sem/">#sem</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -662,6 +969,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/02/24/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BSPSS%E6%95%99%E7%A8%8B%E9%99%84%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型SPSS教程附视频教程</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2025/02/21/mplus%E5%81%9A%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8BGMM%E6%97%B6%E6%B2%A1%E6%9C%89%E8%BE%93%E5%87%BACFI%E7%AD%89%E6%8B%9F%E5%90%88%E6%8C%87%E6%A0%87/">mplus做混合增长模型GMM时没有输出CFI等拟</a>
             </li>
             
@@ -695,10 +1006,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/10/18/mplus%E7%BB%98%E5%88%B6%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%9B%BE/">mplus绘制调节效应图</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/10/17/%E4%B8%BB%E5%AE%A2%E4%BD%93%E4%BA%92%E4%BE%9D%E8%B0%83%E8%8A%82%E6%A8%A1%E5%9E%8B-APIMoM-%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8Garcia2014/">主客体互依调节模型 APIMoM 如何验证调节效应</a>
             </li>
             
         </ul>

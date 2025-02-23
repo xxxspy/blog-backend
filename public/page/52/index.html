@@ -270,6 +270,116 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/">
+                spss中k-means聚类的操作方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年02月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>k-means聚类是聚类方法中的一种，通常我们要预先确定case到底可以分为几类，然后才能进行这个聚类分析。另外，注意查看各个变量的量纲、平均数、方差齐性，如果不满足同质性，需要进行正太化转变，当然，数据要满足正态分布才可以啊哦。<br>工具&#x2F;原料</p>
+<ul>
+<li><p>这种聚类方法不能自动的计算变量的Z分数，如果数据差异过大，量纲不同，需要进行z分数的转换，下面的操作没有告诉你如何转换z分数，你需要注意</p>
+</li>
+<li><p>k-means的聚类的原理是迭代，迭代本身是无限的过程，如果没有命令，计算机就一直迭代下去，这样计算会很慢，所以我们设置一个迭代次数，比如100，那么迭代100次就必须停止。活着spss中有迭代停止的标准</p>
+</li>
+<li><p>spss20.0<br>方法&#x2F;步骤</p>
+</li>
+<li><p>准备好数据，在菜单栏上执行：analyse–classify–k-means cluster，打开k平均数对话框</p>
+</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/f636afc379310a5527e38d21b74543a98326101b.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>将聚类用到的指标变量放入variables，将客户的编码放到label cases by当中，把客户编号作为case的标签</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/7c1ed21b0ef41bd5c367ba2151da81cb39db3d2a.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>接着要设置聚类的类别数目，如图所示，这个数目不是随便给的，他有两个来源：要么是你根据工作经验，认为数据分为几类是最合理的；要么是你有前人的研究证明分为几类。</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/d50735fae6cd7b89e3a368560f2442a7d8330e13.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>在主对话框中，点击iterate按钮，打开迭代对话框</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/29381f30e924b8991cff2bed6e061d950b7bf620.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>将最大迭代次数设置为100，下图你看到的默认的迭代次数为10，但是数据量越大，迭代次数就应该越多，所以我们设置为100.点击continue按钮，返回到主对话框。</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/902397dda144ad345c32da52d0a20cf430ad8551.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>点击save按钮，因为我们想要保存分类的结果，并将结果保存到一个变量当中</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/95eef01f3a292df5cefcf0c0bc315c6034a87323.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>打开一个自对话框，勾选cluster membership，点击continue返回到主对话框</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/5bafa40f4bfbfbed216e6aaa78f0f736afc31f2b.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>点击ok，开始运行数据，并输出数据结果</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/0eb30f2442a7d93348dbb8a6ad4bd11372f001f7.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>我们看到的第一个表格叫做初始聚类中心，它列出每一个类别初始的中心点，这些中心点都是spss自动生成的。因为case的顺序会影响到中心点的位置，所以我们需要让case的顺序是随机的，有必要的时候要进行随机化处理</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/3812b31bb051f819244a5f9fdab44aed2f73e7fc.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>下面的两个表格是迭代过程表，你可以看到每一次迭代中心点的变化值，当中心点的变化小于初始类别中心最小距离的2%的时候，迭代就停止了，你看到的第二幅图在迭代35次以后就停止了迭代</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/79f0f736afc379319a9ddafcebc4b74542a91169.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/7dd98d1001e939013292d1eb7bec54e737d19656.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>下面这个表格叫做最终聚类中心，也就是各个类别在各个变量上的平均值，它可以帮助我们根据变量的平均值来给分类赋予实际的意义</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/dcc451da81cb39dbc6cc3883d0160924aa1830d2.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<ul>
+<li>最后的表格叫做各个类别case数，你可以读出在每一个类别中有多少case</li>
+</ul>
+<img src="/2016/02/11/spss%E4%B8%ADk-means%E8%81%9A%E7%B1%BB%E7%9A%84%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95/b3b7d0a20cf431adc32d1cec4b36acaf2fdd9863.jpg" class="" title="spss中k-means聚类的操作方法">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#52;&#x39;&#53;&#x37;&#56;&#55;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;">&#x36;&#55;&#x35;&#52;&#x39;&#53;&#x37;&#56;&#55;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/02/11/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B4%5D%E5%9B%A0%E5%AD%90%E5%88%86%E6%9E%90%E4%B8%AD%E5%8F%98%E9%87%8F%E6%AD%A3%E5%90%91%E5%8C%96%E6%96%B9%E6%B3%95/">
                 SPSS实例：[4]因子分析中变量正向化方法
             </a>
@@ -1027,67 +1137,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/02/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B18%5D%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%8D%A0%E6%80%BB%E6%95%88%E5%BA%94%E7%99%BE%E5%88%86%E6%AF%94/">
-                SPSS实例：[18]中介效应占总效应百分比
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年02月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>今天跟大家分享的是一个用Excel计算中介效应占总效应的百分比的方法。这个百分比我们都知道，就是中介效应比总效应，看过我前面文章的人应该都知道如何进行中介效应的检验了，假如我们得出的结论是部分中介效应，那么我们需要计算总效应中的百分之多少是中介效应，所以我就做了一个Excel文件，可以帮助大家快速计算，下面是方法：</p>
-<ul>
-<li>从下面的参考资料里现在我在百度网盘里的文件</li>
-</ul>
-<img src="/2016/02/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B18%5D%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%8D%A0%E6%80%BB%E6%95%88%E5%BA%94%E7%99%BE%E5%88%86%E6%AF%94/d68b65cb0a46f21fe423a14bf4246b600c33ae50.jpg" class="" title="SPSS实例：[18]中介效应占总效应百分比">
-
-<ul>
-<li>打开里面的Excel文件，我们看到这样一个表格</li>
-</ul>
-<img src="/2016/02/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B18%5D%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%8D%A0%E6%80%BB%E6%95%88%E5%BA%94%E7%99%BE%E5%88%86%E6%AF%94/00a82701213fb80eee0a9dcf34d12f2eb8389494.jpg" class="" title="SPSS实例：[18]中介效应占总效应百分比">
-
-<ul>
-<li>我们举一个例子来说明如何使用，下面的三线表格就是我们中介效应检验的三个方程，看不懂的可以去翻我前面的文章</li>
-</ul>
-<img src="/2016/02/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B18%5D%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%8D%A0%E6%80%BB%E6%95%88%E5%BA%94%E7%99%BE%E5%88%86%E6%AF%94/f677b1c379310a55a34921ecb54543a98226107d.jpg" class="" title="SPSS实例：[18]中介效应占总效应百分比">
-
-<ul>
-<li>将对应的值放入表格中的对应位置，在D2单元格就会出现百分比，那就是你需要的中介效应占总效应的百分比。</li>
-</ul>
-<img src="/2016/02/01/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B18%5D%E4%B8%AD%E4%BB%8B%E6%95%88%E5%BA%94%E5%8D%A0%E6%80%BB%E6%95%88%E5%BA%94%E7%99%BE%E5%88%86%E6%AF%94/72ccb7773912b31baf0132318418367adab4e17e.jpg" class="" title="SPSS实例：[18]中介效应占总效应百分比">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#x34;&#57;&#x35;&#x37;&#x38;&#x37;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;">&#54;&#x37;&#53;&#x34;&#57;&#x35;&#x37;&#x38;&#x37;&#x40;&#x71;&#x71;&#46;&#99;&#x6f;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1129,6 +1178,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/02/24/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BSPSS%E6%95%99%E7%A8%8B%E9%99%84%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型SPSS教程附视频教程</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2025/02/21/mplus%E5%81%9A%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8BGMM%E6%97%B6%E6%B2%A1%E6%9C%89%E8%BE%93%E5%87%BACFI%E7%AD%89%E6%8B%9F%E5%90%88%E6%8C%87%E6%A0%87/">mplus做混合增长模型GMM时没有输出CFI等拟</a>
             </li>
             
@@ -1162,10 +1215,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/10/18/mplus%E7%BB%98%E5%88%B6%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%9B%BE/">mplus绘制调节效应图</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/10/17/%E4%B8%BB%E5%AE%A2%E4%BD%93%E4%BA%92%E4%BE%9D%E8%B0%83%E8%8A%82%E6%A8%A1%E5%9E%8B-APIMoM-%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8Garcia2014/">主客体互依调节模型 APIMoM 如何验证调节效应</a>
             </li>
             
         </ul>

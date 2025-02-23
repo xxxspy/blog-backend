@@ -270,6 +270,74 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/07/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B5%5D%E9%BE%99%E9%AA%A8%E5%9B%BE%EF%BC%88%E8%81%9A%E7%B1%BB%E8%B0%B1%E7%B3%BB%E5%9B%BE%EF%BC%89%E6%80%8E%E4%B9%88%E7%9C%8B/">
+                SPSS实例：[5]龙骨图（聚类谱系图）怎么看
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年07月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>通常在层次聚类分析中，我们的数据处理结果会出现龙骨图或者叫做分类谱系图，其实在很多论文中，我们不需要报告龙骨图，所以大部分spss课本中并没有对龙骨图进行详细的介绍，在这，我给大家分享一篇经验，讲一下如何分析龙骨图（聚类谱系图）。</p>
+<ul>
+<li>两种样式的龙骨图，如图所示：下面第一幅图是spss20.0的样式，而在低版本中，spss出现的龙骨图是下面第二幅图的样式，不管哪种样式，分析的方法都是一样的。</li>
+</ul>
+<img src="/2016/07/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B5%5D%E9%BE%99%E9%AA%A8%E5%9B%BE%EF%BC%88%E8%81%9A%E7%B1%BB%E8%B0%B1%E7%B3%BB%E5%9B%BE%EF%BC%89%E6%80%8E%E4%B9%88%E7%9C%8B/08b68e529822720e31c034317acb0a46f31fabb4.jpg" class="" title="SPSS实例：[5]龙骨图（聚类谱系图）怎么看">
+
+<img src="/2016/07/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B5%5D%E9%BE%99%E9%AA%A8%E5%9B%BE%EF%BC%88%E8%81%9A%E7%B1%BB%E8%B0%B1%E7%B3%BB%E5%9B%BE%EF%BC%89%E6%80%8E%E4%B9%88%E7%9C%8B/3bb22487e950352a98abf2c35243fbf2b0118bf0.jpg" class="" title="SPSS实例：[5]龙骨图（聚类谱系图）怎么看">
+
+<ul>
+<li>龙骨图的本质是让我们看到聚类的过程：为了清晰可见，我们使用spss20.0产生的龙骨图，最左侧一列数字代表不同的省份，对省份进行分类，第一次分类结果是从各个数字延伸出来的直线相交点，如图所示，红色方框就是第一次聚类产生的类别。</li>
+</ul>
+<img src="/2016/07/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B5%5D%E9%BE%99%E9%AA%A8%E5%9B%BE%EF%BC%88%E8%81%9A%E7%B1%BB%E8%B0%B1%E7%B3%BB%E5%9B%BE%EF%BC%89%E6%80%8E%E4%B9%88%E7%9C%8B/c8ab0bce36d3d539eed6d9083b87e950372ab0d7.jpg" class="" title="SPSS实例：[5]龙骨图（聚类谱系图）怎么看">
+
+<ul>
+<li>同样的方式，我们看第二次聚类的结果为，假如我问你，第一个类别包含哪些省份？你应该能够说出来，应当是山西、江西、内蒙、吉林、安徽。</li>
+</ul>
+<img src="/2016/07/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B5%5D%E9%BE%99%E9%AA%A8%E5%9B%BE%EF%BC%88%E8%81%9A%E7%B1%BB%E8%B0%B1%E7%B3%BB%E5%9B%BE%EF%BC%89%E6%80%8E%E4%B9%88%E7%9C%8B/245e8bcad1c8a78671bb9cc56609c93d71cf502d.jpg" class="" title="SPSS实例：[5]龙骨图（聚类谱系图）怎么看">
+
+<ul>
+<li>横断法观察分类个数：通常我们使用一条线截断分类线来获得分类结果，如图所示。画一条竖直的直线，与分类线相交，我们看到出现了5个交点，所以应该是分成五类，而我们看最上面一条刻度线，红线与刻度线相交的点就是类间距离。分成五类的类间距离就是8。</li>
+</ul>
+<img src="/2016/07/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B5%5D%E9%BE%99%E9%AA%A8%E5%9B%BE%EF%BC%88%E8%81%9A%E7%B1%BB%E8%B0%B1%E7%B3%BB%E5%9B%BE%EF%BC%89%E6%80%8E%E4%B9%88%E7%9C%8B/6a22e8246b600c33c2530e031b4c510fd8f9a190.jpg" class="" title="SPSS实例：[5]龙骨图（聚类谱系图）怎么看">
+
+<ul>
+<li>类间距离的计算方法有很多种，通常使用的是组间平均距离法师最稳健的方法，所以通常我们说类间距离的时候说的都是组间平均距离，它指的是各组数据点两两之间的距离的平均。</li>
+</ul>
+<img src="/2016/07/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B5%5D%E9%BE%99%E9%AA%A8%E5%9B%BE%EF%BC%88%E8%81%9A%E7%B1%BB%E8%B0%B1%E7%B3%BB%E5%9B%BE%EF%BC%89%E6%80%8E%E4%B9%88%E7%9C%8B/6f4703950a7b02086510ef2a63d9f2d3552cc8e5.jpg" class="" title="SPSS实例：[5]龙骨图（聚类谱系图）怎么看">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#x34;&#57;&#x35;&#x37;&#x38;&#x37;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;">&#54;&#x37;&#x35;&#x34;&#57;&#x35;&#x37;&#x38;&#x37;&#x40;&#113;&#113;&#x2e;&#x63;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/spss/">#spss</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/07/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B39%5D%E5%A6%82%E4%BD%95%E7%BB%9F%E8%AE%A1%E9%A2%91%E7%8E%87/">
                 SPSS实例：[39]如何统计频率
             </a>
@@ -978,82 +1046,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/07/01/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B10%5Dones%E5%92%8Cempty%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84/">
-                numpy函数：[10]ones和empty创建数组
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年07月01日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>使用ones可以创建任意维度和元素个数的数组，其元素均为1。empty函数的使用方法一样，只是它创建的是数组所有元素均为空，所以它是速度最快的创建数组的方法。</p>
-<ul>
-<li>先从numpy中引入所有</li>
-</ul>
-<img src="/2016/07/01/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B10%5Dones%E5%92%8Cempty%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84/d56b3634349b033bff9b584517ce36d3d439bddb.jpg" class="" title="numpy函数：[10]ones和empty创建数组">
-
-<ul>
-<li>接着，我们使用ones创建一个包含5个元素的一维数组，其元素均为1</li>
-</ul>
-<img src="/2016/07/01/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B10%5Dones%E5%92%8Cempty%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84/f35ea0096b63f624fd6e9d9c8544ebf81a4ca33b.jpg" class="" title="numpy函数：[10]ones和empty创建数组">
-
-<ul>
-<li>ones创建的数组数据类型默认为浮点型，我们可以通过第二个参数来设置其数据类型</li>
-</ul>
-<img src="/2016/07/01/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B10%5Dones%E5%92%8Cempty%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84/0d729944ebf81a4cca014856d52a6059252da63b.jpg" class="" title="numpy函数：[10]ones和empty创建数组">
-
-<ul>
-<li>假如我们创建一个2维数组，就要用到列表作为参数。三维数组以此类推</li>
-</ul>
-<img src="/2016/07/01/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B10%5Dones%E5%92%8Cempty%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84/1b0d4f0fd9f9d72afe57b482d62a2834349bbb3b.jpg" class="" title="numpy函数：[10]ones和empty创建数组">
-
-<ul>
-<li>多维数组也可以改变数据类型</li>
-</ul>
-<img src="/2016/07/01/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B10%5Dones%E5%92%8Cempty%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84/c8ab0bce36d3d5391f0eab5c3887e950352ab03b.jpg" class="" title="numpy函数：[10]ones和empty创建数组">
-
-<ul>
-<li>接着我们用empty试试创建数组</li>
-</ul>
-<img src="/2016/07/01/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B10%5Dones%E5%92%8Cempty%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84/3bc6f750352ac65cbf36c2ecf9f2b21193138a3b.jpg" class="" title="numpy函数：[10]ones和empty创建数组">
-
-<ul>
-<li>和ones的使用方法是一样的。empty创建的数组中，包含元素均为无意义的数值</li>
-</ul>
-<img src="/2016/07/01/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B10%5Dones%E5%92%8Cempty%E5%88%9B%E5%BB%BA%E6%95%B0%E7%BB%84/969cbf44ad3459820f99410d0ef431adcaef84db.jpg" class="" title="numpy函数：[10]ones和empty创建数组">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#x40;&#x71;&#113;&#46;&#99;&#111;&#109;">&#x36;&#55;&#x35;&#x34;&#x39;&#x35;&#x37;&#x38;&#x37;&#x40;&#x71;&#113;&#46;&#99;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/numpy/">#numpy</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1095,6 +1087,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/02/24/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BSPSS%E6%95%99%E7%A8%8B%E9%99%84%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型SPSS教程附视频教程</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2025/02/21/mplus%E5%81%9A%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8BGMM%E6%97%B6%E6%B2%A1%E6%9C%89%E8%BE%93%E5%87%BACFI%E7%AD%89%E6%8B%9F%E5%90%88%E6%8C%87%E6%A0%87/">mplus做混合增长模型GMM时没有输出CFI等拟</a>
             </li>
             
@@ -1128,10 +1124,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/10/18/mplus%E7%BB%98%E5%88%B6%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%9B%BE/">mplus绘制调节效应图</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/10/17/%E4%B8%BB%E5%AE%A2%E4%BD%93%E4%BA%92%E4%BE%9D%E8%B0%83%E8%8A%82%E6%A8%A1%E5%9E%8B-APIMoM-%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8Garcia2014/">主客体互依调节模型 APIMoM 如何验证调节效应</a>
             </li>
             
         </ul>

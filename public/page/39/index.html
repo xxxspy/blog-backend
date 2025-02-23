@@ -270,6 +270,202 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/09/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B5%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/">
+                python 线性代数：[5]方阵的行列式计算方法
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年09月11日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>如何计算方阵的行列式，用到的是numpy模块的linalg.det方法，关于行列式的定义你应该懂，但是其实也不用记住，以后直接用numpy计算就可以了。下面我们看看如何使用numpy计算矩阵的行列式吧：</p>
+<ul>
+<li>行列式的算法：这是二阶方阵行列式</li>
+</ul>
+<img src="/2016/09/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B5%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/a992e31f4134970ab41e34dd97cad1c8a6865d97.jpg" class="" title="python 线性代数：[5]方阵的行列式计算方法">
+
+<ul>
+<li>行列式的算法：这是三阶行列式</li>
+</ul>
+<img src="/2016/09/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B5%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/0db52fadcbef76090899bd6d2cdda3cc7dd99e76.jpg" class="" title="python 线性代数：[5]方阵的行列式计算方法">
+
+<ul>
+<li>先引入numpy模块</li>
+</ul>
+<img src="/2016/09/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B5%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/b3f6cea20cf431ad986a89c84936acaf2fdd984c.jpg" class="" title="python 线性代数：[5]方阵的行列式计算方法">
+
+<ul>
+<li>创建两个方阵</li>
+</ul>
+<img src="/2016/09/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B5%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/1f569482b9014a9013248c4cab773912b21beeef.jpg" class="" title="python 线性代数：[5]方阵的行列式计算方法">
+
+<ul>
+<li>使用det方法求得方阵E和方阵F的行列式</li>
+</ul>
+<img src="/2016/09/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B5%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/3853ad1bb051f8196a3fc9bbd8b44aed2f73e7ef.jpg" class="" title="python 线性代数：[5]方阵的行列式计算方法">
+
+<img src="/2016/09/11/python%20%E7%BA%BF%E6%80%A7%E4%BB%A3%E6%95%B0%EF%BC%9A%5B5%5D%E6%96%B9%E9%98%B5%E7%9A%84%E8%A1%8C%E5%88%97%E5%BC%8F%E8%AE%A1%E7%AE%97%E6%96%B9%E6%B3%95/373bc4b44aed2e737af34cdd8501a18b86d6faef.jpg" class="" title="python 线性代数：[5]方阵的行列式计算方法">
+
+<ul>
+<li><p>这是今天用到的所有代码</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>E</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 2, 3],</p>
+</li>
+<li><pre><code>   [4, 5, 6],
+</code></pre>
+</li>
+<li><pre><code>   [7, 8, 9]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>F</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[-1,  0,  1],</p>
+</li>
+<li><pre><code>   [ 2,  3,  4],
+</code></pre>
+</li>
+<li><pre><code>   [ 5,  6,  7]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>np.linalg.det(E)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>6.6613381477509402e-16</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>np.linalg.det(F)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>2.664535259100367e-15</p>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>C</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>array([[1, 2],</p>
+</li>
+<li><pre><code>   [1, 3]])
+</code></pre>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><blockquote>
+<blockquote>
+<blockquote>
+<p>np.linalg.det(C)</p>
+</blockquote>
+</blockquote>
+</blockquote>
+</li>
+<li><p>1.0</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#56;&#55;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#109;">&#x36;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#56;&#55;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#109;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/python/">#python</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/09/11/wxpython%E6%95%99%E7%A8%8B%EF%BC%9A%5B3%5D%E8%8F%9C%E5%8D%95%E6%A0%8F/">
                 wxpython教程：[3]菜单栏
             </a>
@@ -993,67 +1189,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/08/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B15%5D%E5%A6%82%E4%BD%95%E8%A7%A3%E8%AF%BB%E7%8B%AC%E7%AB%8B%E6%A0%B7%E6%9C%ACT%E6%A3%80%E9%AA%8C%E7%9A%84%E7%BB%93%E6%9E%9C/">
-                SPSS实例：[15]如何解读独立样本T检验的结果
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年08月23日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>下面这幅图是从网页上搜索得到的一个结果，我们就拿这个结果来解读一下如何分析独立样本T检验的结果。</p>
-<ul>
-<li>第一个看第一个sig值，它是对方差齐性的假设的检验，假如sig&lt;0.05，说明不满足方差齐性，我们认为方差是不齐的</li>
-</ul>
-<img src="/2016/08/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B15%5D%E5%A6%82%E4%BD%95%E8%A7%A3%E8%AF%BB%E7%8B%AC%E7%AB%8B%E6%A0%B7%E6%9C%ACT%E6%A3%80%E9%AA%8C%E7%9A%84%E7%BB%93%E6%9E%9C/3bb22487e950352af27a1b1f5143fbf2b2118b4a.jpg" class="" title="SPSS实例：[15]如何解读独立样本T检验的结果">
-
-<ul>
-<li>这种情况下，我们只能看第二行数据，也就是看下图所示的sig值来判断是否有组间差异。第二个sig值说明，差异不显著，因为它大于了.05。我们得出的结论是没有差异。</li>
-</ul>
-<img src="/2016/08/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B15%5D%E5%A6%82%E4%BD%95%E8%A7%A3%E8%AF%BB%E7%8B%AC%E7%AB%8B%E6%A0%B7%E6%9C%ACT%E6%A3%80%E9%AA%8C%E7%9A%84%E7%BB%93%E6%9E%9C/734f12f3d7ca7bcb1d6af938bc096b63f624a850.jpg" class="" title="SPSS实例：[15]如何解读独立样本T检验的结果">
-
-<ul>
-<li>我们看第二行数据，sig值&gt;0.05，说明方差是齐性的。</li>
-</ul>
-<img src="/2016/08/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B15%5D%E5%A6%82%E4%BD%95%E8%A7%A3%E8%AF%BB%E7%8B%AC%E7%AB%8B%E6%A0%B7%E6%9C%ACT%E6%A3%80%E9%AA%8C%E7%9A%84%E7%BB%93%E6%9E%9C/4651a712c8fcc3ce5c58f7249045d688d53f20c9.jpg" class="" title="SPSS实例：[15]如何解读独立样本T检验的结果">
-
-<ul>
-<li>这时候，我们需要看另一个sig值，这个值仍然是没有达到显著水平（0.05)，我们认为两组是没有差异的。</li>
-</ul>
-<img src="/2016/08/23/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B15%5D%E5%A6%82%E4%BD%95%E8%A7%A3%E8%AF%BB%E7%8B%AC%E7%AB%8B%E6%A0%B7%E6%9C%ACT%E6%A3%80%E9%AA%8C%E7%9A%84%E7%BB%93%E6%9E%9C/5af4d7ea15ce36d3fb95bd2738f33a87e850b1d0.jpg" class="" title="SPSS实例：[15]如何解读独立样本T检验的结果">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#x37;&#53;&#52;&#x39;&#53;&#55;&#x38;&#55;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;">&#54;&#x37;&#53;&#52;&#x39;&#53;&#55;&#x38;&#55;&#64;&#113;&#x71;&#x2e;&#99;&#111;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1095,6 +1230,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/02/24/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BSPSS%E6%95%99%E7%A8%8B%E9%99%84%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型SPSS教程附视频教程</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2025/02/21/mplus%E5%81%9A%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8BGMM%E6%97%B6%E6%B2%A1%E6%9C%89%E8%BE%93%E5%87%BACFI%E7%AD%89%E6%8B%9F%E5%90%88%E6%8C%87%E6%A0%87/">mplus做混合增长模型GMM时没有输出CFI等拟</a>
             </li>
             
@@ -1128,10 +1267,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/10/18/mplus%E7%BB%98%E5%88%B6%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%9B%BE/">mplus绘制调节效应图</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/10/17/%E4%B8%BB%E5%AE%A2%E4%BD%93%E4%BA%92%E4%BE%9D%E8%B0%83%E8%8A%82%E6%A8%A1%E5%9E%8B-APIMoM-%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8Garcia2014/">主客体互依调节模型 APIMoM 如何验证调节效应</a>
             </li>
             
         </ul>

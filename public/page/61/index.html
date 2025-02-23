@@ -270,6 +270,75 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/08/03/Excel2013%EF%BC%9A%5B58%5D%E6%96%87%E6%9C%AC%E6%97%A5%E6%9C%9F%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E6%A0%B7%E5%BC%8F/">
+                Excel2013：[58]文本日期如何改变样式
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年08月03日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>关于Excel的文本和日期格式的问题都很头疼，在开始今天这个实例之前建议你看看我之前写的一篇文章，主要讲了如何识别文本和日期格式、以及文本和日期的互转：<a target="_blank" rel="noopener" href="http://jingyan.baidu.com/article/8cdccae965815c315413cdfc.html%E3%80%82%E4%BB%8A%E5%A4%A9%E6%88%91%E4%BB%AC%E7%94%A8%E4%B8%80%E4%B8%AA%E5%AE%9E%E4%BE%8B%E6%9D%A5%E8%AF%B4%E6%98%8E%E4%B8%8A%E4%B8%80%E7%AF%87%E6%96%87%E7%AB%A0%E8%AE%B2%E5%88%B0%E7%9A%84%E7%9F%A5%E8%AF%86%E7%82%B9%E3%80%82">http://jingyan.baidu.com/article/8cdccae965815c315413cdfc.html。今天我们用一个实例来说明上一篇文章讲到的知识点。</a></p>
+<ul>
+<li>根据上一篇文章我们知道，D列虽然显示的是日期格式，但是实际上它是文本，Excel并没有把它当日期，因为Excel无法识别这样的日期格式，只能当文本了。</li>
+</ul>
+<img src="/2015/08/03/Excel2013%EF%BC%9A%5B58%5D%E6%96%87%E6%9C%AC%E6%97%A5%E6%9C%9F%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E6%A0%B7%E5%BC%8F/245e8bcad1c8a78699a836196409c93d71cf50e3.jpg" class="" title="Excel2013：[58]文本日期如何改变样式">
+
+<ul>
+<li>为了转换为日期，那就需要让Excel识别它，使用替换的方法将其转换为2013-1-1的格式。也就是用“-”替换“-”。</li>
+</ul>
+<img src="/2015/08/03/Excel2013%EF%BC%9A%5B58%5D%E6%96%87%E6%9C%AC%E6%97%A5%E6%9C%9F%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E6%A0%B7%E5%BC%8F/e8112b2ac65c1038a52ab1d5b1119313b07e8916.jpg" class="" title="Excel2013：[58]文本日期如何改变样式">
+
+<ul>
+<li>你会发现它变成了这个样子</li>
+</ul>
+<img src="/2015/08/03/Excel2013%EF%BC%9A%5B58%5D%E6%96%87%E6%9C%AC%E6%97%A5%E6%9C%9F%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E6%A0%B7%E5%BC%8F/6398ecd3572c11df14a9c034602762d0f703c26a.jpg" class="" title="Excel2013：[58]文本日期如何改变样式">
+
+<ul>
+<li>现在，我们想要这个样式变一下，变成我们想要的2013-1-1的样式，同时单元格格式转换为文本。那我们用到了一个公式TEXT，在E2单元格输入公式&#x3D;TEXT(D2,”yyyy-m-d”)，回车看一下结果。</li>
+</ul>
+<img src="/2015/08/03/Excel2013%EF%BC%9A%5B58%5D%E6%96%87%E6%9C%AC%E6%97%A5%E6%9C%9F%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E6%A0%B7%E5%BC%8F/fc5e5f34970a304e6eb7dfedd2c8a786c8175cd4.jpg" class="" title="Excel2013：[58]文本日期如何改变样式">
+
+<ul>
+<li>快速填充下面的单元格，这样就完成了所有的样式转换</li>
+</ul>
+<img src="/2015/08/03/Excel2013%EF%BC%9A%5B58%5D%E6%96%87%E6%9C%AC%E6%97%A5%E6%9C%9F%E5%A6%82%E4%BD%95%E6%94%B9%E5%8F%98%E6%A0%B7%E5%BC%8F/11794d43fbf2b2116b31fb59c98065380cd78e4f.jpg" class="" title="Excel2013：[58]文本日期如何改变样式">
+
+<ul>
+<li>整个过程其实就是从文本到日期再到文本的过程。</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#54;&#x37;&#x35;&#52;&#x39;&#53;&#55;&#x38;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;">&#54;&#x37;&#x35;&#52;&#x39;&#53;&#55;&#x38;&#x37;&#x40;&#113;&#x71;&#46;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/07/23/Excel2013%EF%BC%9A%5B28%5Dcountif%E5%87%BD%E6%95%B0%E7%94%A8%E6%B3%95%E5%A4%A7%E5%85%A8/">
                 Excel2013：[28]countif函数用法大全
             </a>
@@ -1351,77 +1420,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/07/05/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B9%5Dzeros%E5%88%9B%E5%BB%BA0%E7%9F%A9%E9%98%B5/">
-                numpy函数：[9]zeros创建0矩阵
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年07月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>经常用到一些0数组，就是元素均为0的数组。那么怎么在python中创建0数组呢？我们用到了zeros函数，下面看看这个函数的用法：</p>
-<ul>
-<li>首先要引入一下numpy这个包</li>
-</ul>
-<img src="/2015/07/05/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B9%5Dzeros%E5%88%9B%E5%BB%BA0%E7%9F%A9%E9%98%B5/9e7ce6dcd100baa19c4a21244510b912c9fc2e8f.jpg" class="" title="numpy函数：[9]zeros创建0矩阵">
-
-<ul>
-<li>试着创建一个一维数组，只使用一个参数就可以了</li>
-</ul>
-<img src="/2015/07/05/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B9%5Dzeros%E5%88%9B%E5%BB%BA0%E7%9F%A9%E9%98%B5/73ca5910b912c8fc95959052fe039245d788218f.jpg" class="" title="numpy函数：[9]zeros创建0矩阵">
-
-<ul>
-<li>默认情况下，zeros创建的数组是浮点型的，假如使用其他类型，可以设置dtype参数</li>
-</ul>
-<img src="/2015/07/05/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B9%5Dzeros%E5%88%9B%E5%BB%BA0%E7%9F%A9%E9%98%B5/d57e9994a4c27d1e8d6d5d5b19d5ad6edcc438a2.jpg" class="" title="numpy函数：[9]zeros创建0矩阵">
-
-<ul>
-<li>假如我们想要创建一个二维数组，我一开始以为是用下面这个方法，但是会返回错误</li>
-</ul>
-<img src="/2015/07/05/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B9%5Dzeros%E5%88%9B%E5%BB%BA0%E7%9F%A9%E9%98%B5/a583631ed21b0ef47aa3fec1dfc451da80cb3ea2.jpg" class="" title="numpy函数：[9]zeros创建0矩阵">
-
-<ul>
-<li>其实是使用一个列表作为参数，这样就返回一个二维数组</li>
-</ul>
-<img src="/2015/07/05/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B9%5Dzeros%E5%88%9B%E5%BB%BA0%E7%9F%A9%E9%98%B5/ac2fc3c451da81cb5f80e5525066d0160824318f.jpg" class="" title="numpy函数：[9]zeros创建0矩阵">
-
-<ul>
-<li>同样我们使用第二个参数设置数组的类型</li>
-</ul>
-<img src="/2015/07/05/numpy%E5%87%BD%E6%95%B0%EF%BC%9A%5B9%5Dzeros%E5%88%9B%E5%BB%BA0%E7%9F%A9%E9%98%B5/0865b518972bd4075b8cb56279899e510eb309a2.jpg" class="" title="numpy函数：[9]zeros创建0矩阵">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#53;&#52;&#57;&#x35;&#55;&#x38;&#x37;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#109;">&#54;&#55;&#53;&#52;&#57;&#x35;&#55;&#x38;&#x37;&#64;&#113;&#x71;&#x2e;&#x63;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/numpy/">#numpy</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1463,6 +1461,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/02/24/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BSPSS%E6%95%99%E7%A8%8B%E9%99%84%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型SPSS教程附视频教程</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2025/02/21/mplus%E5%81%9A%E6%B7%B7%E5%90%88%E5%A2%9E%E9%95%BF%E6%A8%A1%E5%9E%8BGMM%E6%97%B6%E6%B2%A1%E6%9C%89%E8%BE%93%E5%87%BACFI%E7%AD%89%E6%8B%9F%E5%90%88%E6%8C%87%E6%A0%87/">mplus做混合增长模型GMM时没有输出CFI等拟</a>
             </li>
             
@@ -1496,10 +1498,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/10/18/mplus%E7%BB%98%E5%88%B6%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%9B%BE/">mplus绘制调节效应图</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/10/17/%E4%B8%BB%E5%AE%A2%E4%BD%93%E4%BA%92%E4%BE%9D%E8%B0%83%E8%8A%82%E6%A8%A1%E5%9E%8B-APIMoM-%E5%A6%82%E4%BD%95%E9%AA%8C%E8%AF%81%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E6%98%AF%E5%90%A6%E5%AD%98%E5%9C%A8Garcia2014/">主客体互依调节模型 APIMoM 如何验证调节效应</a>
             </li>
             
         </ul>
