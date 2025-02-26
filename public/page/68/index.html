@@ -270,6 +270,168 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/">
+                Excel2013：[59]匹配不同工作表记录
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2015年04月19日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>如何匹配不同工作表中的记录？假如有多个工作表，第一个工作表作为基本表，用于和其他几个表匹配记录，假如一条记录同时出现在了基本表和其他表中，我们就在基本表中标识出来。怎么实现这个过程？</p>
+<ul>
+<li>首先将Excel文件存为可以执行vba的格式，xlsm格式</li>
+</ul>
+<img src="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/caae68094b36acaf906a34eb7fd98d1000e99ce4.jpg" class="" title="Excel2013：[59]匹配不同工作表记录">
+
+<ul>
+<li>我们利用SN号作为一条记录是否重复的指标，假如两条记录SN号相同，则认为两条记录匹配</li>
+</ul>
+<img src="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/d002b34bd11373f0b4cccd88a70f4bfbfaed04f2.jpg" class="" title="Excel2013：[59]匹配不同工作表记录">
+
+<ul>
+<li>打开开发工具下的visual basic，或者可以按下快捷键alt+F11</li>
+</ul>
+<img src="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/7d98931001e93901e5882f2978ec54e737d196e4.jpg" class="" title="Excel2013：[59]匹配不同工作表记录">
+
+<ul>
+<li>打开vb界面，我们双击 thisworkbook，大概一个代码界面</li>
+</ul>
+<img src="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/a54e55fbfbedab643f81efd7f436afc378311ef2.jpg" class="" title="Excel2013：[59]匹配不同工作表记录">
+
+<ul>
+<li>复制以下代码到代码界面</li>
+</ul>
+<img src="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/d019d2bf6c81800aeb562419b23533fa828b4733.jpg" class="" title="Excel2013：[59]匹配不同工作表记录">
+
+<ul>
+<li>将鼠标光标移动到代码的任意位置，按下快捷键F5即可执行代码，执行结果可见：在第一个工作表的最后一列标志出了某条记录出现在哪一个工作表中，如果所有工作表都没有匹配，则输出无匹配。</li>
+</ul>
+<img src="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/f15e24292df5e0fe79922b165f6034a85fdf72e4.jpg" class="" title="Excel2013：[59]匹配不同工作表记录">
+
+<ul>
+<li>注意基本工作表总是位于最前面。也是Excel认为的第一个工作表，代码总是用第一个表中的数据与其他表中的数据去匹配，匹配成功则输出工作表的名称。</li>
+</ul>
+<img src="/2015/04/19/Excel2013%EF%BC%9A%5B59%5D%E5%8C%B9%E9%85%8D%E4%B8%8D%E5%90%8C%E5%B7%A5%E4%BD%9C%E8%A1%A8%E8%AE%B0%E5%BD%95/148f28d3d539b600985ba2a0ea50352ac75cb7d5.jpg" class="" title="Excel2013：[59]匹配不同工作表记录">
+
+<ul>
+<li><p>本教程用到的代码：复制可用。</p>
+</li>
+<li><p>Sub pipei()</p>
+</li>
+<li><pre><code>Set d = CreateObject(&quot;scripting.dictionary&quot;)
+</code></pre>
+</li>
+<li><pre><code>For i = 2 To Worksheets.Count
+</code></pre>
+</li>
+<li><pre><code>    For j = 1 To Sheets(i).Cells(1, 300).End(xlToLeft).Column
+</code></pre>
+</li>
+<li><pre><code>        If Sheets(i).Cells(1, j).Text = &quot;SN号&quot; Then
+</code></pre>
+</li>
+<li><pre><code>            For r = 2 To Sheets(i).Cells(65536, j).End(xlUp).Row
+</code></pre>
+</li>
+<li><pre><code>                If Not (Sheets(i).Cells(r, j).Value = 0 Or Sheets(i).Cells(r, j).Text = &quot;&quot;) Then
+</code></pre>
+</li>
+<li><pre><code>                    d.Add Sheets(i).Cells(r, j).Text, Sheets(i).Name
+</code></pre>
+</li>
+<li><pre><code>                End If
+</code></pre>
+</li>
+<li><pre><code>            Next r
+</code></pre>
+</li>
+<li><pre><code>        End If
+</code></pre>
+</li>
+<li><pre><code>    Next j
+</code></pre>
+</li>
+<li><pre><code>Next i
+</code></pre>
+</li>
+<li><pre><code>Sheets(1).Activate
+</code></pre>
+</li>
+<li><pre><code>max_col = Cells(1, 300).End(xlToLeft).Column
+</code></pre>
+</li>
+<li><pre><code>For c = 1 To max_col
+</code></pre>
+</li>
+<li><pre><code>    If Cells(1, c).Text = &quot;SN号&quot; Then
+</code></pre>
+</li>
+<li><pre><code>        For r = 2 To Cells(65536, c).End(xlUp).Row
+</code></pre>
+</li>
+<li><pre><code>            If d.exists(Cells(r, c).Text) Then
+</code></pre>
+</li>
+<li><pre><code>                Cells(r, max_col + 1) = d.Item(Cells(r, c).Text)
+</code></pre>
+</li>
+<li><pre><code>            Else
+</code></pre>
+</li>
+<li><pre><code>                Cells(r, max_col + 1) = &quot;无匹配&quot;
+</code></pre>
+</li>
+<li><pre><code>            End If
+</code></pre>
+</li>
+<li><pre><code>        Next r
+</code></pre>
+</li>
+<li><pre><code>    End If
+</code></pre>
+</li>
+<li><pre><code>Next c
+</code></pre>
+</li>
+<li><pre><code>MsgBox &quot;ok&quot;
+</code></pre>
+</li>
+<li><p>End Sub</p>
+</li>
+</ul>
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x36;&#55;&#53;&#x34;&#x39;&#53;&#x37;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/excel/">#excel</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2015/04/19/SPSS%E5%AE%9E%E4%BE%8B%EF%BC%9A%5B28%5D%E5%8D%A1%E6%96%B9%E6%A3%80%E9%AA%8C%E7%99%BE%E5%88%86%E6%AF%94%E4%B8%8E%E7%90%86%E8%AE%BA%E5%80%BC%E5%B7%AE%E5%BC%82/">
                 SPSS实例：[28]卡方检验百分比与理论值差异
             </a>
@@ -1219,77 +1381,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/04/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/">
-                Python教程：[4]字符串操作方法大全
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015年04月05日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>python处理字符串的方法非常灵活好用，编程语言是vb.net，到我转成python以后发现，python处理字符串真的是太方便了，我们今天就来分享操作字符串最基本的几个方法，希望大家想不起来的时候可以用得到，至少我的记性不好，我会经常回来看的。</p>
-<ul>
-<li>字符串赋值：mystring&#x3D;’python’，单引号内的字符串就是变量mystring的值</li>
-</ul>
-<img src="/2015/04/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/389aa8fd5266d016dab94102952bd40735fa353d.jpg" class="" title="Python教程：[4]字符串操作方法大全">
-
-<ul>
-<li>用[]表示字符串的位置，例如</li>
-</ul>
-<img src="/2015/04/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/b29f8282d158ccbff29b6b101bd8bc3eb13541b2.jpg" class="" title="Python教程：[4]字符串操作方法大全">
-
-<ul>
-<li>你还可以读取连续的几个字符，例如</li>
-</ul>
-<img src="/2015/04/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/a75fb6d3fd1f41343e3edb54271f95cad1c85e54.jpg" class="" title="Python教程：[4]字符串操作方法大全">
-
-<ul>
-<li>假如你只想知道最后的一个字符，你可以用负数表示</li>
-</ul>
-<img src="/2015/04/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/a992e31f4134970a9a7ace0597cad1c8a7865d54.jpg" class="" title="Python教程：[4]字符串操作方法大全">
-
-<ul>
-<li>当然，除了读取，我们还有乘法，当然这里的乘号代表的是重复几遍字符串，如图所示</li>
-</ul>
-<img src="/2015/04/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/a75fb6d3fd1f41343e10db54271f95cad1c85eb2.jpg" class="" title="Python教程：[4]字符串操作方法大全">
-
-<ul>
-<li>接着，还可以使用加号连接字符串</li>
-</ul>
-<img src="/2015/04/05/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%AD%97%E7%AC%A6%E4%B8%B2%E6%93%8D%E4%BD%9C%E6%96%B9%E6%B3%95%E5%A4%A7%E5%85%A8/a6c7d7177f3e67097b099bd539c79f3df8dc5554.jpg" class="" title="Python教程：[4]字符串操作方法大全">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#52;&#x39;&#x35;&#55;&#x38;&#55;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#x6d;">&#54;&#55;&#x35;&#52;&#x39;&#x35;&#55;&#x38;&#55;&#64;&#113;&#x71;&#x2e;&#x63;&#x6f;&#x6d;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1331,6 +1422,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/02/26/%E9%9A%8F%E6%9C%BA%E6%88%AA%E8%B7%9D%E4%BA%A4%E5%8F%89%E6%BB%9E%E5%90%8E%E9%9D%A2%E6%9D%BF%E6%A8%A1%E5%9E%8B%E9%99%84mplus%E4%BB%A3%E7%A0%81%E5%92%8Clavaan%E4%BB%A3%E7%A0%81/">随机截距交叉滞后面板模型附mplus代码和lava</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2025/02/24/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BSPSS%E6%95%99%E7%A8%8B%E9%99%84%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型SPSS教程附视频教程</a>
             </li>
             
@@ -1364,10 +1459,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/11/07/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/">SPSS做Meta分析原来这么简单-教程如下</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/10/18/mplus%E7%BB%98%E5%88%B6%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%9B%BE/">mplus绘制调节效应图</a>
             </li>
             
         </ul>

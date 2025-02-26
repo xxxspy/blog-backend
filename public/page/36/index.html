@@ -270,6 +270,82 @@
 
     <div class="post-header index">
         <h1 class="title">
+            <a href="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/">
+                Django教程：[4]制作第一个网页
+            </a>
+        </h1>
+        <div class="post-info">
+            
+                <span class="date">2016年10月23日</span>
+            
+            
+            
+        </div>
+    </div>
+
+    
+        <div class="content">
+            <p>通过前面的三篇文章，我们现在已经有能力创建一个网页了。Django就是那么的有效率。我们创建第一个页面的目的是让你理解Django是如何工作的。不信往下看。进行下面的教程之前，如果你没有看我以前写的文章，可能会有疑惑。我前面的文章创建了一个站点djangoweb文件夹，下面要用到</p>
+<ul>
+<li>第一步要在我们创建的站点文件夹下面新建一个view.py文件，如图所示。当然你创建文件的名称是任意的，你可以叫别的名字。但是要跟后面要写的代码一致，后面还会用到view.py，如果你的文件名不是view，后面你需要做出相应的调整</li>
+</ul>
+<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/b3508d13b07eca80277f099d932397dda1448316.jpg" class="" title="Django教程：[4]制作第一个网页">
+
+<ul>
+<li>我们将该文件写入代码：如图所示。代码的意义是，首先引入HttpResponse类，后面我们会详细介绍这个类，现在我们只知道它用于返回网页中显示的代码。接着我们定义了一个名为hello的函数，它有一个参数为req，这个参数是django.http.HttpRequest的一个实例，我们暂时用不到这个参数，但是它却是一个必须的参数，参数的名称可以任意。hello函数它仅仅返回一个HttpResponse对象，这个对象包含了文本“Hello world”</li>
+</ul>
+<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/d8b8c92a6059252df86d2d7e369b033b5bb5b916.jpg" class="" title="Django教程：[4]制作第一个网页">
+
+<ul>
+<li>现在保存好这个view文件</li>
+</ul>
+<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/148f28d3d539b6000cb43fcdeb50352ac65cb716.jpg" class="" title="Django教程：[4]制作第一个网页">
+
+<ul>
+<li>接下来我们需要修改urls.py文件，这个文件可以将url和调用的函数对应起来。比如，我想当我在浏览器地址栏输入<a target="_blank" rel="noopener" href="http://127.0.0.1:8001/hello/%E7%9A%84%E6%97%B6%E5%80%99%E5%B0%B1%E8%83%BD%E8%B0%83%E7%94%A8view.hello%E6%96%B9%E6%B3%95%EF%BC%8C%E9%82%A3%E4%B9%88%E6%88%91%E4%BB%AC%E5%BF%85%E9%A1%BB%E5%9C%A8urls.py%E4%B8%AD%E8%BF%9B%E8%A1%8C%E6%B7%BB%E5%8A%A0">http://127.0.0.1:8001/hello/的时候就能调用view.hello方法，那么我们必须在urls.py中进行添加</a></li>
+</ul>
+<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/8b527d2762d0f7039674a6a60afa513d2797c542.jpg" class="" title="Django教程：[4]制作第一个网页">
+
+<ul>
+<li>首先要引用我们企图调用的方法，然后在urlpatterns中添加url(r’^hello&#x2F;$’,hello),；注意最后面的逗号不能省略。这个代码就是将url同调用的函数联系起来。</li>
+</ul>
+<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/0db2c9ca7bcb0a46efc6b8436963f6246a60afa0.jpg" class="" title="Django教程：[4]制作第一个网页">
+
+<ul>
+<li>最后，我们在dos下开启开发服务器，如果你还不知道如何开启开发服务器，你需要看下面的参考资料里的传送门。</li>
+</ul>
+<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/08b68e529822720e1677d28079cb0a46f31fabcb.jpg" class="" title="Django教程：[4]制作第一个网页">
+
+<ul>
+<li>打开浏览器，地址栏输入地址：127.0.0.1:8001&#x2F;hello&#x2F;，你就会看到我们制作的第一个页面了。你学会了吗？</li>
+</ul>
+<img src="/2016/10/23/Django%E6%95%99%E7%A8%8B%EF%BC%9A%5B4%5D%E5%88%B6%E4%BD%9C%E7%AC%AC%E4%B8%80%E4%B8%AA%E7%BD%91%E9%A1%B5/21e5582309f7905280a677440ef3d7ca7acbd5cb.jpg" class="" title="Django教程：[4]制作第一个网页">
+
+<blockquote>
+<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
+</blockquote>
+<blockquote>
+<p>邮箱: <a href="mailto:&#x36;&#55;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;">&#x36;&#55;&#x35;&#52;&#57;&#53;&#55;&#56;&#x37;&#64;&#x71;&#113;&#x2e;&#99;&#x6f;&#x6d;</a></p>
+</blockquote>
+
+        </div>
+    
+
+    
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/django/">#django</a>
+        </div>
+    
+
+</div>
+                    
+                
+<div class="post">
+
+    <div class="post-header index">
+        <h1 class="title">
             <a href="/2016/10/23/Python%E6%95%99%E7%A8%8B%EF%BC%9A%5B14%5D%E5%BF%AB%E9%80%9F%E5%88%9B%E5%BB%BATCP%E6%9C%8D%E5%8A%A1%E5%99%A8/">
                 Python教程：[14]快速创建TCP服务器
             </a>
@@ -1112,99 +1188,6 @@
 
 </div>
                     
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/">
-                SPSS python教程：[6]读取PivotTable行标签
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2016年10月03日</span>
-            
-            
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <p>spss输出的结果文档用到最多的就是数据透视表（pivot table），在spss中，数据透视表被分为三个部分：行标签列表、列标签列表、数据列表。你可能还不理解这些内容。我们从这篇开始介绍数据透视表的行标签，并用python读取行标签，然后输出。看看代码吧：</p>
-<ul>
-<li>这是在spss结果文档中输出的一个数据透视表，我们要读取它的行标签</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/8b527d2762d0f7036208ba450afa513d2797c5b6.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>这就是行标签，但是它并不像我们看到的那么简单，我们试着读取行标签就知道了</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/6c63514a20a4462308668afb9a22720e0df3d7bf.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>创建一个python脚本文件：outputTrim.py，下图中你可以看到该文件存放的目录</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/48151723dd54564efa5acaa0b1de9c82d1584f28.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>接着先写入代码StartClient和stopclient，所有操作spss的代码都应该放在这两句之间。</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/dc15484e9258d109d807862bd358ccbf6d814d07.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>我们详细讲解一下代码的意义，先看这两句，假如我们只打开了一个结果文档，我们使用第一句代码可以获取该文档的句柄；第二句获取该文档下所有的输出项目，里面包含但不仅限于数据透视表，outputItems是一个列表</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/9864a2315c6034a83fae9618c91349540823769f.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>通过循环，我们可以找到名称为’Descriptive Statistics’的数据透视表。我们看下面的if语句，首先判断输出项是不是PIVOT，然后判断该输出项的标题为’Descriptive Statistics’的PIVOT，获取标题用的是GetDescription</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/263e802f07082838c19ff28dba99a9014d08f15e.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>这句代码是将找到的这个输出项转换为数据透视表，这样才能使用数据透视表所具有的类和方法</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/814b07d8bc3eb13540169922a41ea8d3fc1f4412.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>这一句就是获取数据透视表的行标签</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/9304c888d43f879430a461b7d01b0ef41ad53a94.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>我们用这个循环来输出所有的行标签，看看输出结果是啥样的</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/35e940df8db1cb132a38158adf54564e93584b92.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<ul>
-<li>这就是输出结果，跟数据透视表对比一下，你就知道行标签到底代表着什么。</li>
-</ul>
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/6f4703950a7b02089dae167860d9f2d3562cc881.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<img src="/2016/10/03/SPSS%20python%E6%95%99%E7%A8%8B%EF%BC%9A%5B6%5D%E8%AF%BB%E5%8F%96PivotTable%E8%A1%8C%E6%A0%87%E7%AD%BE/6c63514a20a4462308668afb9a22720e0df3d7bf.jpg" class="" title="SPSS python教程：[6]读取PivotTable行标签">
-
-<blockquote>
-<p>转载请注明来自<a href="http://mlln.cn/">DataScience</a>.</p>
-</blockquote>
-<blockquote>
-<p>邮箱: <a href="mailto:&#54;&#55;&#x35;&#52;&#57;&#53;&#55;&#x38;&#55;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#109;">&#54;&#55;&#x35;&#52;&#57;&#53;&#55;&#x38;&#55;&#x40;&#x71;&#x71;&#46;&#x63;&#111;&#109;</a></p>
-</blockquote>
-
-        </div>
-    
-
-    
-    
-        <div class="post-tags">
-            <i class="fa fa-tags" aria-hidden="true"></i>
-            <a href="/tags/spss/">#spss</a> <a href="/tags/python/">#python</a>
-        </div>
-    
-
-</div>
-                    
         </section>
     </div>
 </div>
@@ -1246,6 +1229,10 @@
         <ul>
             
             <li>
+                <a class="footer-post" href="/2025/02/26/%E9%9A%8F%E6%9C%BA%E6%88%AA%E8%B7%9D%E4%BA%A4%E5%8F%89%E6%BB%9E%E5%90%8E%E9%9D%A2%E6%9D%BF%E6%A8%A1%E5%9E%8B%E9%99%84mplus%E4%BB%A3%E7%A0%81%E5%92%8Clavaan%E4%BB%A3%E7%A0%81/">随机截距交叉滞后面板模型附mplus代码和lava</a>
+            </li>
+            
+            <li>
                 <a class="footer-post" href="/2025/02/24/%E5%A4%9A%E5%B1%82%E7%BA%BF%E6%80%A7%E6%A8%A1%E5%9E%8BSPSS%E6%95%99%E7%A8%8B%E9%99%84%E8%A7%86%E9%A2%91%E6%95%99%E7%A8%8B/">多层线性模型SPSS教程附视频教程</a>
             </li>
             
@@ -1279,10 +1266,6 @@
             
             <li>
                 <a class="footer-post" href="/2024/11/07/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/SPSS%E5%81%9AMeta%E5%88%86%E6%9E%90%E5%8E%9F%E6%9D%A5%E8%BF%99%E4%B9%88%E7%AE%80%E5%8D%95-%E6%95%99%E7%A8%8B%E5%A6%82%E4%B8%8B/">SPSS做Meta分析原来这么简单-教程如下</a>
-            </li>
-            
-            <li>
-                <a class="footer-post" href="/2024/10/18/mplus%E7%BB%98%E5%88%B6%E8%B0%83%E8%8A%82%E6%95%88%E5%BA%94%E5%9B%BE/">mplus绘制调节效应图</a>
             </li>
             
         </ul>
