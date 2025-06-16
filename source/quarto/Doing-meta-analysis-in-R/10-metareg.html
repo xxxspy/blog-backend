@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Meta 分析</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R Meta 分析</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.rmd"> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./daizuo.html"> 
+<span class="menu-text">Meta 代做</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./10-metareg.html">Meta回归</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前言</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">作者</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">介绍</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-discovering_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发现R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-pooling_effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">合并效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-heterogeneity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">异质性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-forestplots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">森林图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-subgroup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">亚组分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-metareg.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">Meta回归</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-publication-bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发表偏倚</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-mlma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">多元Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-sem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">结构方程模型</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-netwma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">网络Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-bayesianma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">贝叶斯Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-power-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">功效分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-risk-of-bias-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏倚风险图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-reporting-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">报告与可重复性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-effect-size-calculation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量计算</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">附录</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./98-cite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">引用</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#metareg" id="toc-metareg" class="nav-link active" data-scroll-target="#metareg">Meta回归</a>
+  <ul class="collapse">
+  <li><a href="#the-metareg-model" id="toc-the-metareg-model" class="nav-link" data-scroll-target="#the-metareg-model">元回归模型</a>
+  <ul class="collapse">
+  <li><a href="#具有分类预测变量的元回归" id="toc-具有分类预测变量的元回归" class="nav-link" data-scroll-target="#具有分类预测变量的元回归">具有分类预测变量的元回归</a></li>
+  <li><a href="#metareg-continuous" id="toc-metareg-continuous" class="nav-link" data-scroll-target="#metareg-continuous">具有连续预测变量的元回归</a></li>
+  <li><a href="#metareg-model-fit" id="toc-metareg-model-fit" class="nav-link" data-scroll-target="#metareg-model-fit">评估模型拟合度</a></li>
+  </ul></li>
+  <li><a href="#metareg-R" id="toc-metareg-R" class="nav-link" data-scroll-target="#metareg-R">在 <em>R</em> 中进行元回归</a></li>
+  <li><a href="#multiple-metareg" id="toc-multiple-metareg" class="nav-link" data-scroll-target="#multiple-metareg">多元元回归</a>
+  <ul class="collapse">
+  <li><a href="#interact" id="toc-interact" class="nav-link" data-scroll-target="#interact">交互作用</a></li>
+  <li><a href="#limits-metareg" id="toc-limits-metareg" class="nav-link" data-scroll-target="#limits-metareg">多元元回归中的常见陷阱</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="metareg" class="level1">
+<h1>Meta回归</h1>
+<hr>
+<p><img src="_figs/airplanes.jpg"></p>
+<p><br><br></p>
+<p></p>
+<p><span class="firstcharacter">I</span> 在上一章中，我们增加了亚组分析作为元分析“工具箱”中的一种新方法。正如我们所学到的，亚组分析将我们分析的重点从寻找一个总体效应转移开。相反，它们允许我们研究数据中异质性的模式，以及导致这些模式的原因。</p>
+<p></p>
+<p>我们还提到亚组分析是 <strong>元回归</strong> 的一种特殊形式。您很可能以前听说过“回归”这个术语。回归分析是最常见的统计方法之一，被用于各个学科。在其最简单的形式中，回归模型试图使用某个变量 <span class="math inline">\(x\)</span> 的值来预测另一个变量 <span class="math inline">\(y\)</span> 的值。通常，回归模型基于包含个体或样本的数据，对于这些个体或样本，测量了 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 的值。</p>
+<p></p>
+<p>在元回归中，这种逻辑被应用于 <strong>整个研究</strong>。变量 <span class="math inline">\(x\)</span> 代表研究的特征，例如进行研究的年份。基于这些信息，元回归模型试图预测 <span class="math inline">\(y\)</span>，即研究的效应量。然而，使用效应量作为预测变量这一事实增加了一些复杂性。</p>
+<p>在第 @ref(what-is-es) 章中，我们已经了解到观察到的效应量 <span class="math inline">\(\hat\theta\)</span> 可能是研究真实效应的或多或少的 <strong>精确</strong> 估计量，这取决于它们的标准误差。在“正常”的元分析中，我们通过给予研究较小或较高的权重来考虑到这一点。在元回归中，我们还必须确保模型更加关注抽样误差较低的研究，因为我们可以假设它们的估计值更接近“真相”。</p>
+<p></p>
+<p>元回归通过假设一个 <strong>混合效应模型</strong> 来实现这一点。该模型解释了观察到的研究由于抽样误差和研究间异质性而偏离真实总体效应的事实。然而，更重要的是，它还使用一个或多个变量 <span class="math inline">\(x\)</span> 来预测真实效应量中的差异。我们已经在上一章中提到亚组分析也基于混合效应模型。在本章中，我们将深入探讨一下，并讨论为什么亚组分析和元回归本质上是相关的。</p>
+<p>元回归虽然有其自身的局限性，但在元分析中可能是一种非常强大的工具。它也用途广泛：例如，<strong>多元元回归</strong> 允许我们不仅包括一个，而是包括几个预测变量，以及它们的交互作用。因此，在本章的第二部分，我们还将了解多元元回归，以及如何使用 <em>R</em> 进行分析。</p>
+<p><br><br></p>
+<section id="the-metareg-model" class="level2">
+<h2 class="anchored" data-anchor-id="the-metareg-model">元回归模型</h2>
+<hr>
+<p>过去，您可能已经使用主要研究数据执行过回归，其中参与者是分析的单位。在元分析中，通常无法获得每个参与者的个人数据，我们只能求助于汇总结果。这就是为什么我们必须使用 <strong>研究层面</strong> 的预测变量来进行元回归。</p>
+<p>这也意味着，虽然我们对样本进行分析，其样本量远大于主要研究的通常样本量，但我们仍然可能没有足够的数据点来使元回归有用。在第 @ref(limits-subgroup) 章中，我们已经介绍了当 <span class="math inline">\(K&lt;\)</span> 10 时，亚组分析通常没有意义。Borenstein 及其同事 <span class="citation" data-cites="borenstein2011introduction">[-@borenstein2011introduction, 第 20 章]</span> 提到，该指导原则也可以应用于元回归模型，但不应将其视为铁律。</p>
+<p>在传统的回归中，我们想要使用具有回归系数 <span class="math inline">\(\beta\)</span> 的 <strong>预测变量</strong> (或 <strong>协变量</strong>) <span class="math inline">\(x_i\)</span> 来估计人 <span class="math inline">\(i\)</span> 的值 <span class="math inline">\(y_i\)</span>。因此，标准的回归方程如下所示：</p>
+<p><span class="math display">\[\begin{equation}
+\hat{y_i} = \beta_0 + \beta_1x_i
+(\#eq:mr1)
+\end{equation}\]</span></p>
+<p>在元回归中，我们想要预测的变量 <span class="math inline">\(y\)</span> 是研究 <span class="math inline">\(k\)</span> 的观察到的效应量 <span class="math inline">\(\hat\theta_k\)</span>。<strong>元回归</strong> 的公式与普通回归模型的公式相似：</p>
+<p><span class="math display">\[\begin{equation}
+\hat\theta_k = \theta + \beta x_{k} + \epsilon_k+\zeta_k
+(\#eq:mr2)
+\end{equation}\]</span></p>
+<p>请注意，此公式包含两个额外的项，<span class="math inline">\(\epsilon_k\)</span> 和 <span class="math inline">\(\zeta_k\)</span>。在随机效应模型 (第 @ref(rem) 章) 的公式中也可以找到相同的项，并且表示两种类型的独立误差。第一个误差 <span class="math inline">\(\epsilon_k\)</span> 是抽样误差，通过该抽样误差，研究的效应量偏离了其真实效应。</p>
+<p>第二个误差 <span class="math inline">\(\zeta_k\)</span> 表示即使研究的真实效应量也仅是从效应量的一个总体分布中抽样的。这意味着我们的数据中存在研究间异质性，异质性方差 <span class="math inline">\(\tau^2\)</span> 捕捉了这一点。</p>
+<p> </p>
+<p>由于上面的公式包含一个 <strong>固定</strong> 效应 (<span class="math inline">\(\beta\)</span> 系数) 以及一个 <strong>随机</strong> 效应 (<span class="math inline">\(\zeta_k\)</span>)，因此元回归中使用的模型通常被称为 <strong>混合效应模型</strong>。从概念上讲，该模型与我们在第 @ref(comparing-the-subgroup-effects) 章中描述的混合效应模型相同，我们在该章中解释了亚组分析如何工作。</p>
+<p><br><br></p>
+<section id="具有分类预测变量的元回归" class="level3">
+<h3 class="anchored" data-anchor-id="具有分类预测变量的元回归">具有分类预测变量的元回归</h3>
+<hr>
+<p></p>
+<p>实际上，正如之前提到的，亚组分析只不过是用分类预测变量进行的元回归。这种分类变量可以通过 <strong>虚拟编码</strong> 来包括，例如：</p>
+<p><span class="math display">\[\begin{equation}
+  D_g=\begin{cases}
+    0: &amp; \text{亚组 A}\\
+    1: &amp; \text{亚组 B.}
+  \end{cases}
+  (\#eq:mr3)
+\end{equation}\]</span></p>
+<p>要以元回归的形式指定亚组分析，我们只需将协变量 <span class="math inline">\(x_k\)</span> 替换为 <span class="math inline">\(D_g\)</span>：</p>
+<p><span class="math display">\[\begin{equation}
+\hat\theta_k = \theta + \beta D_g +\epsilon_k+\zeta_k.
+(\#eq:mr4)
+\end{equation}\]</span></p>
+<p>要理解这个公式，我们必须从左到右阅读它。与每个统计模型一样，元回归模型的目标是解释观察到的数据是如何生成的。在我们的例子中，这是我们的元分析中某个研究 <span class="math inline">\(k\)</span> 的观察到的效应量 <span class="math inline">\(\hat\theta_k\)</span>。上面的公式就像一个食谱，告诉我们产生观察到的效应量需要哪些成分。</p>
+<p>首先，我们取 <span class="math inline">\(\theta\)</span>，它充当我们的回归模型中的 <strong>截距</strong>。<span class="math inline">\(\theta\)</span> 的值与亚组 A 的真实总体效应量相同。要了解为什么会这样，我们需要查看下一个“成分”，即项 <span class="math inline">\(\beta D_g\)</span>。此项中的 <span class="math inline">\(\beta\)</span> 值表示亚组 A 和亚组 B 之间的效应量差异 <span class="math inline">\(\theta_{\Delta}\)</span>。<span class="math inline">\(\beta\)</span> 的值乘以 <span class="math inline">\(D_g\)</span>，它可以是 0 或 1，具体取决于研究是亚组 A (<span class="math inline">\(D_g = 0\)</span>) 还是亚组 B (<span class="math inline">\(D_g = 1\)</span>) 的一部分。</p>
+<p>由于乘以零得到零，因此当我们处理亚组 A 中的研究时，<span class="math inline">\(\beta D_g\)</span> 项完全从方程中消失了。另一方面，当 <span class="math inline">\(D_g=1\)</span> 时，我们乘以 1，这意味着 <span class="math inline">\(\beta\)</span> 留在方程中并添加到 <span class="math inline">\(\theta\)</span>，这为我们提供了亚组 B 中的总体效应量。从本质上讲，虚拟预测变量是将 <strong>两个</strong> 公式集成到 <strong>一个</strong> 公式中的一种方法。当我们分别为每个亚组写下公式时，我们可以很容易地看到这一点：</p>
+<p><span class="math display">\[\begin{equation}
+  D_g=\begin{cases}
+    0: &amp; \text{$\hat\theta_k = \theta_A + \epsilon_k+\zeta_k$}\\
+    1: &amp; \text{$\hat\theta_k = \theta_A + \theta_{\Delta} +\epsilon_k+\zeta_k$}
+  \end{cases}
+  (\#eq:mr5)
+\end{equation}\]</span></p>
+<p>以这种方式编写，可以更清楚地看到我们的公式实际上包含两个模型，一个用于亚组 A，一个用于亚组 B。模型之间的主要区别在于，第二个亚组的效应根据 <span class="math inline">\(\beta\)</span> 的值（我们在上面的公式中表示为 <span class="math inline">\(\theta_{\Delta}\)</span>）向上或向下“移动”。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/subgroups2_sep.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>具有分类预测变量的元回归（亚组分析）。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>这应该清楚地表明，亚组分析的工作方式就像普通的回归一样：它们使用某个变量 <span class="math inline">\(x\)</span> 来预测 <span class="math inline">\(y\)</span> 的值，在我们的例子中，它是研究的效应量。特别之处在于 <span class="math inline">\(\beta x_k\)</span> 不是连续的——这是一个固定值，我们根据研究是否属于某个亚组来添加到预测中。<span class="math inline">\(\beta\)</span> 的这个固定值是两个亚组之间效应量估计的差异。</p>
+<p><br><br></p>
+</section>
+<section id="metareg-continuous" class="level3">
+<h3 class="anchored" data-anchor-id="metareg-continuous">具有连续预测变量的元回归</h3>
+<hr>
+<p></p>
+<p>然而，当人们谈论“元回归”时，他们通常会想到使用 <strong>连续</strong> 变量作为预测变量的模型。这使我们回到方程 8.2 中所示的通用元回归公式。在这里，我们之前讨论过的回归项也被使用，但它们的目的略有不同。<span class="math inline">\(\theta\)</span> 项再次代表截距，但现在代表当 <span class="math inline">\(x = 0\)</span> 时的预测效应量。</p>
+<p>截距加上了项 <span class="math inline">\(\beta x_k\)</span>。这一部分产生一个 <strong>回归斜率</strong>：连续变量 <span class="math inline">\(x\)</span> 乘以 <strong>回归权重</strong> <span class="math inline">\(\beta\)</span>，从而降低或提高协变量不同值的预测效应。</p>
+<p>元回归模型的目标是找到 <span class="math inline">\(\theta\)</span> 和 <span class="math inline">\(\beta\)</span> 的值，这些值可以最小化 <strong>预测</strong> 效应量与研究的 <strong>真实</strong> 效应量之间的差异 (参见图 @ref(fig:subgroups3))。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/subgroups3_sep.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>具有连续预测变量和四项研究的元回归。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>仔细观察元回归公式，我们看到它包含两种类型的项。有些项包含下标 <span class="math inline">\(k\)</span>，而另一些则不包含。下标 <span class="math inline">\(k\)</span> 表示一个值在研究之间 <strong>变化</strong>。当一个项不包含下标 <span class="math inline">\(k\)</span> 时，这意味着它对于所有研究保持不变。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/metareg_form_sep.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:45.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>在元回归中，<span class="math inline">\(\theta\)</span> 和 <span class="math inline">\(\beta\)</span> 都是不变的，或固定的。这告诉我们元回归的作用：基于预测变量的变化和观察到的效应，它试图以 <strong>回归线</strong> 的形式“提炼”出我们数据的基础 <strong>固定模式</strong>。如果元回归模型与数据拟合良好，则可以使用估计的参数 <span class="math inline">\(\theta\)</span> 和 <span class="math inline">\(\beta\)</span> 来预测模型 <strong>以前从未见过</strong> 的研究的效应量 (前提是我们知道 <span class="math inline">\(x\)</span>)。</p>
+<p>考虑到抽样误差 <span class="math inline">\(\epsilon_k\)</span> 和研究间异质性 <span class="math inline">\(\zeta_k\)</span>，元回归因此试图找到一个 <strong>泛化</strong> 良好的模型；不仅适用于观察到的效应量，还适用于所有可能感兴趣的研究的“宇宙”。</p>
+<p><br><br></p>
+</section>
+<section id="metareg-model-fit" class="level3">
+<h3 class="anchored" data-anchor-id="metareg-model-fit">评估模型拟合度</h3>
+<hr>
+<p>关于元回归模型的一个重要细节是，它们可以被视为我们用来汇集效应量的“正常”随机效应模型的扩展。随机效应模型只不过是一个 <strong>没有斜率项</strong> 的元回归模型。由于它不包含斜率，因此随机效应模型仅预测每个研究的 <strong>相同值</strong>：汇集效应量 <span class="math inline">\(\mu\)</span> 的估计值，该估计值与截距等效。</p>
+<p> </p>
+<p>因此，在第一步中，元回归的计算与随机效应元分析的计算非常相似，因为使用我们在第 @ref(tau-estimators) 章中描述的方法之一 (例如，DerSimonian-Laird 或 REML 方法) 估计了研究间异质性 <span class="math inline">\(\tau^2\)</span>。在下一步中，估计固定权重 <span class="math inline">\(\theta\)</span> 和 <span class="math inline">\(\beta\)</span>。正常的线性回归模型使用 <strong>普通最小二乘法</strong> (OLS) 来找到最适合数据的回归线。在元回归中，使用一种称为 <strong>加权最小二乘法</strong> (WLS) 的修改方法，该方法确保标准误差较小的研究获得较高的权重。</p>
+<p>找到最佳解决方案后，我们可以检查新添加的回归项是否解释了效应量异质性的部分。如果元回归模型与数据拟合良好，则与汇集效应 <span class="math inline">\(\hat\mu\)</span> 相比，真实效应量应更少地偏离回归线。如果是这种情况，则预测变量 <span class="math inline">\(x\)</span> <strong>解释</strong> 了我们元分析中的一些异质性方差。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/rem_mem_sep.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:100.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>因此，可以通过检查它解释了多少异质性方差来评估元回归模型的拟合度。混合效应模型中包含的预测变量应最小化 <strong>残差</strong> 或未解释的异质性方差量，我们用 <span class="math inline">\(\tau^2_{\text{unexplained}}\)</span> 表示。</p>
+<p>在回归分析中，通常使用 <span class="math inline">\(R^2\)</span> 指数来量化模型解释的变异百分比。对于元回归，也可以计算一个类似的指数 <span class="math inline">\(R^2_{*}\)</span>。我们在此处添加一个星号，以表明元回归中的 <span class="math inline">\(R^2\)</span> 与传统回归中使用的 <span class="math inline">\(R^2\)</span> 略有不同，因为我们处理的是 <strong>真实效应量</strong> 而不是观察到的数据点。<span class="math inline">\(R^2_*\)</span> 的公式如下所示：</p>
+<p><span class="math display">\[\begin{equation}
+R^2_* = 1- \frac{\hat\tau^2_{\text{unexplained}}}{\hat\tau^2_{\text{(total)}}}
+(\#eq:mr6)
+\end{equation}\]</span></p>
+<p><span class="math inline">\(R^2_*\)</span> 使用了即使元回归斜率也无法解释的残余异质性方差量，并将其与我们最初在元分析中发现的总异质性相关联。从 1 中减去该分数后，我们可以得到预测变量解释的研究间异质性的百分比。</p>
+<p>还有另一种表示 <span class="math inline">\(R^2_*\)</span> 的方法。我们可以说它表示与初始随机效应汇集模型相比，混合效应模型 <strong>减少</strong> 了多少异质性方差，以百分比表示。这将产生以下公式：</p>
+<p><span class="math display">\[\begin{equation}
+R^2_* =  \frac{\hat\tau^2_{\text{REM}}-\hat\tau^2_{\text{MEM}}}{\hat\tau^2_{\text{REM}}}
+(\#eq:mr7)
+\end{equation}\]</span></p>
+<p>在此公式中，<span class="math inline">\(\hat\tau^2_{\text{REM}}\)</span> 表示在随机效应汇集模型中发现的研究间异质性的量，<span class="math inline">\(\hat\tau^2_{\text{MEM}}\)</span> 表示混合效应元回归模型中的 (残余) 方差 (即，关于真实效应量的“预测误差”)。</p>
+<p></p>
+<p>通常，我们不仅对回归模型解释的异质性量感兴趣，还对我们的预测变量 <span class="math inline">\(x\)</span> 的回归权重是否显着感兴趣。如果是这种情况，我们可以非常有把握地认为 <span class="math inline">\(x\)</span> 对研究的效应量有影响。在传统回归和元回归中，通常通过 <strong>Wald 型</strong> 检验来评估回归权重的显着性。这涉及通过将其标准误差除以 <span class="math inline">\(\beta\)</span> 的估计值来计算检验统计量 <span class="math inline">\(z\)</span>：</p>
+<p><span class="math display">\[\begin{equation}
+z = \frac{\hat\beta}{SE_{\hat\beta}}
+(\#eq:mr8)
+\end{equation}\]</span></p>
+<p>在 <span class="math inline">\(\beta = 0\)</span> 的原假设下，此 <span class="math inline">\(z\)</span> 统计量服从标准正态分布。这使我们能够计算相应的 <span class="math inline">\(p\)</span> 值，该值确定预测变量是否显着。</p>
+<p>然而，基于 <span class="math inline">\(z\)</span> 统计量的检验并不是评估预测变量显着性的唯一方法。与正常的元分析模型一样，我们也可以使用 Knapp-Hartung 调整，这会导致基于 <span class="math inline">\(t\)</span> 分布的检验统计量 (参见第 @ref(knapp-hartung) 章)。正如我们之前所了解的，通常建议使用 Knapp-Hartung 方法，因为它降低了误报的风险。</p>
+<p><br><br></p>
+</section>
+</section>
+<section id="metareg-R" class="level2">
+<h2 class="anchored" data-anchor-id="metareg-R">在 <em>R</em> 中进行元回归</h2>
+<hr>
+<p><strong>{meta}</strong> 包包含一个名为 <code>metareg</code> 的函数，该函数允许我们进行元回归。<code>metareg</code> 函数只需要一个 <strong>{meta}</strong> 元分析对象和一个协变量的名称作为输入。</p>
+<p>在此示例中，我们将再次使用我们的 <code>m.gen</code> 元分析对象，该对象基于 <code>ThirdWave</code> 数据集 (参见第 @ref(pre-calculated-es) 章)。使用元回归，我们想要检查研究的 <strong>发表年份</strong> 是否可用于预测其效应量。默认情况下，<code>ThirdWave</code> 数据集不包含存储发表年份的变量，因此我们必须创建一个新的 <code>numeric</code> 变量，其中包含此信息。我们只需连接所有研究的发表年份，其顺序与它们在 <code>ThirdWave</code> 数据集中出现的顺序相同。我们将此变量保存在名称 <code>year</code> 下<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>year <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="dv">2014</span>, <span class="dv">1998</span>, <span class="dv">2010</span>, <span class="dv">1999</span>, <span class="dv">2005</span>, <span class="dv">2014</span>, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>          <span class="dv">2019</span>, <span class="dv">2010</span>, <span class="dv">1982</span>, <span class="dv">2020</span>, <span class="dv">1978</span>, <span class="dv">2001</span>,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>          <span class="dv">2018</span>, <span class="dv">2002</span>, <span class="dv">2009</span>, <span class="dv">2011</span>, <span class="dv">2011</span>, <span class="dv">2013</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>现在，我们拥有运行元回归所需的所有信息。在 <code>metareg</code> 函数中，我们将我们的元分析对象 <code>m.gen</code> 的名称指定为第一个参数，并将我们的预测变量 <code>year</code> 的名称指定为第二个参数。我们将结果命名为 <code>m.gen.reg</code>。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(meta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: metadat</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading 'meta' package (version 8.1-0).
+Type 'help(meta)' for a brief overview.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dmetar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Extensive documentation for the dmetar package can be found at: 
+ www.bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ThirdWave)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>m.gen <span class="ot">&lt;-</span> <span class="fu">metagen</span>(<span class="at">TE =</span> TE,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">seTE =</span> seTE,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">studlab =</span> Author,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> ThirdWave,</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">sm =</span> <span class="st">"SMD"</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">comb.fixed =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">comb.random =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">method.tau =</span> <span class="st">"REML"</span>,</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">method.random.ci =</span> <span class="st">"HK"</span>,</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>                 <span class="at">title =</span> <span class="st">"Third Wave Psychotherapies"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use argument 'common' instead of 'comb.fixed' (deprecated).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use argument 'random' instead of 'comb.random' (deprecated).</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>m.gen.reg <span class="ot">&lt;-</span> <span class="fu">metareg</span>(m.gen, <span class="sc">~</span>year)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>现在，让我们看一下结果：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>m.gen.reg</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>## Mixed-Effects Model (k = 18; tau^2 estimator: REML)
+## 
+## tau^2 (estimated amount of residual heterogeneity):     0.019 (SE = 0.023)
+## tau (square root of estimated tau^2 value):             0.1371
+## I^2 (residual heterogeneity / unaccounted variability): 29.26%
+## H^2 (unaccounted variability / sampling variability):   1.41
+## R^2 (amount of heterogeneity accounted for):            77.08%
+## 
+## Test for Residual Heterogeneity:
+## QE(df = 16) = 27.8273, p-val = 0.0332
+## 
+## Test of Moderators (coefficient 2):
+## F(df1 = 1, df2 = 16) = 9.3755, p-val = 0.0075
+## 
+## Model Results:
+## 
+##         estimate     se   tval   pval    ci.lb    ci.ub 
+## intrcpt   -36.15  11.98  -3.01  0.008  -61.551  -10.758  ** 
+## year        0.01   0.00   3.06  0.007    0.005    0.031  ** 
+## 
+## ---
+## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1</code></pre>
+<p></p>
+<p>让我们回顾一下我们在这里可以看到的内容。在第一行中，输出告诉我们一个混合效应模型已拟合到数据，正如预期的那样。接下来的几行提供了有关模型解释的异质性量的详细信息。我们看到残余异质性方差 (未被预测变量解释的方差) 的估计值为 <span class="math inline">\(\hat\tau^2_{\text{unexplained}}=\)</span> 0.019。</p>
+<p>输出还为我们提供了一个 <span class="math inline">\(I^2\)</span> 等效值，该值告诉我们，在包含预测变量后，我们数据中 29.26% 的变异性可归因于剩余的研究间异质性。在正常的随机效应元分析模型中，我们发现 <span class="math inline">\(I^2\)</span> 异质性为 63%，这意味着该预测变量能够“解释掉”真实效应量差异的相当一部分。</p>
+<p>在最后一行中，我们看到 <span class="math inline">\(R^2_*\)</span> 的值，在本示例中为 77%。这意味着真实效应量差异的 77% 可以通过发表年份来解释，这是一个相当大的值。</p>
+<p>下一部分包含“残余异质性检验”，这本质上是我们之前已经了解的 <span class="math inline">\(Q\)</span> 检验 (参见第 @ref(cochran-q) 章)。但是，现在，我们测试未被预测变量解释的异质性是否显着。我们看到情况就是这样，其中 <span class="math inline">\(p\)</span> = 0.03。但是，我们知道 <span class="math inline">\(Q\)</span> 检验的局限性 (第 @ref(cochran-q) 章)，因此不应过分依赖此结果。</p>
+<p>下一部分显示“调节变量检验”。我们看到此检验也很显着 (<span class="math inline">\(p\)</span> = 0.0075)。这意味着我们的预测变量 (发表年份) 确实会影响研究的效应量。</p>
+<p>最后一部分提供了有关估计的回归系数的更多详细信息。第一行显示截距 (<code>intrcpt</code>) 的结果。当我们的预测变量发表年份为零时，这是预期的效应量 (在我们的例子中：Hedges 的 <span class="math inline">\(g\)</span>)。在我们的示例中，这代表了一种可以说的有点人为的情况：它显示了在第 0 年进行的研究的预测效应，为 <span class="math inline">\(\hat{g}=\)</span> -36.15。这再次提醒我们，好的统计模型不必是现实的完美表示；它们只需要 <strong>有用</strong>。</p>
+<p>我们主要感兴趣的系数是第二行中的系数。我们看到该模型对 <code>year</code> 的回归权重的估计值为 0.01。这意味着对于每增加一年，预计研究的效应量 <span class="math inline">\(g\)</span> 将增加 0.01。因此，我们可以说研究的效应量随着时间的推移而增加。95% 的置信区间范围为 0.005 到 0.3，表明该效应很显着。</p>
+<p>重要的是，我们还获得了每个回归系数的相应 <span class="math inline">\(t\)</span> 统计量 (<code>tval</code>)。这告诉我们 Knapp-Hartung 方法用于计算置信区间和 <span class="math inline">\(p\)</span> 值。由于我们也在最初的元分析模型中使用了此调整，因此 <code>metareg</code> 会自动在此处再次使用它。否则，将提供 <span class="math inline">\(z\)</span> 值和 Wald 型置信区间。</p>
+<p></p>
+<p><strong>{meta}</strong> 包允许我们使用 <code>bubble</code> 函数可视化元回归。这将创建一个 <strong>气泡图</strong>，该图显示估计的回归斜率以及每个研究的效应量。为了指示研究的权重，气泡具有不同的大小，较大的大小表示较高的权重。</p>
+<p>要生成气泡图，我们只需将我们的元回归对象插入 <code>bubble</code> 函数即可。因为我们也希望显示研究标签，所以我们将 <code>studlab</code> 设置为 <code>TRUE</code>。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bubble</span>(m.gen.reg, <span class="at">studlab =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="10-metareg_files/figure-html/bubble-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p>
+<p>为了完整起见，我们还可以尝试重复上一章 (第 @ref(subgroup-R) 章) 中的亚组分析，但这次在元回归框架内。这意味着我们使用偏倚风险评估作为分类预测变量。由于变量 <code>RiskOfBias</code> 已经包含在 <code>ThirdWave</code> 数据集中，因此我们不必将此信息保存在额外的对象中。只需再次运行 <code>metareg</code> 函数就足够了，但这次，我们使用 <code>RiskOfBias</code> 作为第二个函数参数。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">metareg</span>(m.gen, RiskOfBias)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>## [...]
+## R^2 (amount of heterogeneity accounted for):            15.66%
+## 
+## Test for Residual Heterogeneity:
+## QE(df = 16) = 39.3084, p-val = 0.0010
+## 
+## Test of Moderators (coefficient 2):
+## F(df1 = 1, df2 = 16) = 2.5066, p-val = 0.1329
+## 
+## Model Results:
+## 
+##               estimate    se   tval    pval  ci.lb ci.ub 
+## intrcpt           0.76  0.15   5.00  0.0001   0.44  1.09  *** 
+## RiskOfBiaslow    -0.29  0.18  -1.58  0.1329  -0.69  0.10      
+## [...]
+</code></pre>
+<p>在输出中，我们看到 <span class="math inline">\(R^2_*\)</span> 的值 (15.66%) 远小于 <code>year</code> 的值。与我们之前的结果一致，我们看到偏倚风险变量不是显着的效应量预测变量 (<span class="math inline">\(p\)</span> = 0.13)。</p>
+<p>在 <code>Model Results</code> 下，我们看到 <code>metareg</code> 已自动将 <code>RiskOfBias</code> 转换为虚拟变量。表示“高风险”亚组的汇集效应的截距估计值为 <span class="math inline">\(g\)</span>=0.76。表示具有 <strong>低</strong> 偏倚风险的研究的回归系数的估计值为 -0.29。</p>
+<p>为了获得此亚组的效应量，我们必须将回归权重添加到截距，这将导致 <span class="math inline">\(g=\)</span> 0.76 - 0.29 <span class="math inline">\(\approx\)</span> 0.47。这些结果与假设 <span class="math inline">\(\tau^2\)</span> 的共同估计值的亚组分析的结果相同。</p>
+<p><br><br></p>
+</section>
+<section id="multiple-metareg" class="level2">
+<h2 class="anchored" data-anchor-id="multiple-metareg">多元元回归</h2>
+<hr>
+<p></p>
+<p>之前，我们只考虑了在我们的元回归模型中使用 <strong>一个</strong> 预测变量 <span class="math inline">\(\beta x_k\)</span> 的情况。在该示例中，我们检查了研究的效应量是否取决于发表年份。但是现在，假设报告的效应量也取决于研究发表的科学期刊的 <strong>声誉</strong>。我们认为，在高声誉期刊上的研究可能会报告更高的效应。这可能是因为享有盛誉的期刊更具选择性，并且主要发表具有“突破性”发现的研究。</p>
+<p>另一方面，信誉良好的期刊通常发表 <strong>更高质量</strong> 的研究也是合理的。也许仅仅是更好的研究质量与更高的效应量相关。因此，为了检查期刊声誉是否确实与更高的效应相关，我们必须确保这种关系不会因享有盛誉的期刊更有可能发表高质量证据的事实而 <strong>混淆</strong>。这意味着我们在检查期刊声誉与效应量之间的关系时，必须 <strong>控制</strong> 研究质量。</p>
+<p>这个问题以及许多其他研究问题都可以使用 <strong>多元元回归</strong> 来处理。在多元元回归中，我们使用多个预测变量而不是仅使用一个来解释效应的变化。为了允许使用多个预测变量，我们需要修改我们之前的元回归公式 (参见方程 8.2)，使其如下所示：</p>
+<p><span class="math display">\[\begin{equation}
+\hat \theta_k = \theta + \beta_1x_{1k} + ... + \beta_nx_{nk} + \epsilon_k + \zeta_k
+(\#eq:mr10)
+\end{equation}\]</span></p>
+<p>此公式告诉我们可以向我们的元回归模型添加 <span class="math inline">\(n-1\)</span> 个以上的预测变量 <span class="math inline">\(x\)</span>，从而将其转换为多元元回归。公式中的三个点表示从理论上讲，我们可以根据需要添加任意数量的预测变量。然而，在现实中，事情通常更棘手。在下文中，我们将讨论多元元回归中的一些重要陷阱，以及如何构建稳健且值得信赖的模型。但首先，让我们介绍多元元回归的另一个重要特征，<strong>交互作用</strong>。</p>
+<p><br><br></p>
+<section id="interact" class="level3">
+<h3 class="anchored" data-anchor-id="interact">交互作用</h3>
+<hr>
+<p></p>
+<p>到目前为止，我们仅考虑了在我们的模型中具有多个预测变量 <span class="math inline">\(x_1, x_2, \dots x_n\)</span> 的情况，这些预测变量与它们的回归权重 <span class="math inline">\(\beta\)</span> 一起加在一起。然而，多元元回归模型不仅限于这种 <strong>加法</strong> 关系。它们还可以对预测变量 <strong>交互作用</strong> 进行建模。交互作用意味着一个预测变量 (例如，<span class="math inline">\(x_1\)</span>) 和估计的效应量之间的 <strong>关系</strong> 对于另一个协变量 (例如，<span class="math inline">\(x_2\)</span>) 的不同值会 <strong>改变</strong>。</p>
+<p>假设我们想要对两个预测变量以及它们与效应量的关联方式进行建模：研究的发表年份 (<span class="math inline">\(x_1\)</span>) 和质量 (<span class="math inline">\(x_2\)</span>)。研究质量的编码如下：</p>
+<p><span class="math display">\[\begin{equation}
+  x_2=\begin{cases}
+    0: &amp; \text{低}\\
+    1: &amp; \text{中等}\\
+    2: &amp; \text{高.}
+  \end{cases}
+  (\#eq:mr11)
+\end{equation}\]</span></p>
+<p>当我们假设发表年份和研究质量之间没有交互作用时，我们可以通过为 <span class="math inline">\(x_1\)</span> 和 <span class="math inline">\(x_2\)</span> 都赋予一个回归权重 <span class="math inline">\(\beta\)</span>，并在我们的公式中 <strong>添加</strong> 这些项来构建元回归模型：</p>
+<p><span class="math display">\[\begin{equation}
+\hat \theta_k = \theta + \beta_1x_{1k} + \beta_2x_{2k} + \epsilon_k + \zeta_k
+(\#eq:mr12)
+\end{equation}\]</span></p>
+<p>但是，如果 <span class="math inline">\(x_1\)</span> 和 <span class="math inline">\(x_2\)</span> 之间的关系更复杂呢？与我们之前的示例一样，发表年份越近，效应越高，这是有可能的。但并非所有研究都必须遵循这一趋势。也许这种增长在高质量研究中最为明显，而低质量研究的结果随着时间的推移基本上保持不变。我们可以通过以下方式可视化效应量 (<span class="math inline">\(\hat\theta_k\)</span>)、发表年份 (<span class="math inline">\(x_1\)</span>) 和研究质量 (<span class="math inline">\(x_2\)</span>) 之间假设的关系：</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/metareg2_col_sep.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:60.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>该图显示了交互作用的经典示例。我们看到回归斜率的陡峭程度取决于另一个预测变量的值。虽然高质量研究的斜率非常陡峭，表明年份和效应之间存在很强的关系，但低质量研究的情况有所不同。该亚组中的回归线几乎是水平的，表明发表年份对结果没有影响，甚至有轻微的负面影响。</p>
+<p>此示例显示了交互作用的优势之一：它们允许我们检查预测变量的影响在所有研究中是否相同，或者它是否受到另一个特征的调节。</p>
+<p>为了通过元回归评估交互作用，我们需要向模型中添加一个 <strong>交互项</strong>。在我们的示例中，这可以通过添加第三个回归权重 <span class="math inline">\(\beta_3\)</span> 来实现，该权重捕获我们想要在模型中测试的交互作用 <span class="math inline">\(x_{1k}x_{2k}\)</span>。这给出了以下公式：</p>
+<p><span class="math display">\[\begin{equation}
+\hat \theta_k = \theta + \beta_1x_{1k} + \beta_2x_{2k} + \beta_3x_{1k}x_{2k}+ \epsilon_k + \zeta_k
+(\#eq:mr13)
+\end{equation}\]</span></p>
+<p>虽然线性多元元回归模型仅包含这些简单的构建块，但它们适用于各种应用。但是，在我们开始使用 <em>R</em> 拟合多元元回归之前，我们应该首先考虑它们的局限性和陷阱。</p>
+<p><br><br></p>
+</section>
+<section id="limits-metareg" class="level3">
+<h3 class="anchored" data-anchor-id="limits-metareg">多元元回归中的常见陷阱</h3>
+<hr>
+<p>多元元回归虽然在正确应用时非常有用，但存在一定的注意事项。有些人认为，在实践中经常不正确地使用和解释 (多元) 元回归，导致结果的有效性较低 <span class="citation" data-cites="higgins2004controlling">[@higgins2004controlling]</span>。在拟合多元元回归模型时，我们必须牢记一些要点，我们将在下文中介绍。</p>
+<p><br><br></p>
+<section id="过拟合看到没有信号的地方" class="level4">
+<h4 class="anchored" data-anchor-id="过拟合看到没有信号的地方">过拟合：看到没有信号的地方</h4>
+<hr>
+<p></p>
+<p>为了更好地理解 (多元) 元回归模型的风险，我们必须理解 <strong>过拟合</strong> 的概念。当我们构建一个与数据 <strong>过于</strong> 紧密拟合的统计模型时，就会发生过拟合。从本质上讲，这意味着我们构建了一个统计模型，它可以 <strong>非常</strong> 好地预测 <strong>手头</strong> 的数据，但在预测 <strong>未来</strong> 数据方面表现不佳。</p>
+<p>当我们的模型假设我们数据中的某些变化来自真实的“信号”时，实际上我们只捕获了随机噪声 <span class="citation" data-cites="iniesta2016machine">[@iniesta2016machine]</span>，就会发生这种情况。因此，该模型会产生 <strong>假阳性</strong> 结果：它会在没有关系的地方看到关系。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/overfitting_col_sep.png" class="img-fluid figure-img" style="width:80.0%"></p>
+<figcaption>过拟合模型与具有稳健拟合的模型相比的预测。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p> </p>
+<p>对于模型拟合，回归使用 <strong>优化</strong> 技术，例如普通最小二乘法或最大似然估计。正如我们所了解的，元回归使用加权版本的普通最小二乘法 (参见第 @ref(metareg-model-fit) 章)，因此也不例外。</p>
+<p>然而，这种“贪婪”的优化意味着回归方法可能容易过度拟合 <span class="citation" data-cites="gigerenzer2004mindless">[@gigerenzer2004mindless]</span>。不幸的是，一旦我们从传统回归过渡到元回归，构建非稳健模型的风险就会更高。出现这种情况有几个原因 <span class="citation" data-cites="higgins2004controlling">[@higgins2004controlling]</span>：</p>
+<ol type="1">
+<li><p>在元回归中，数据点的数量通常很小，因为我们只能使用包含研究的汇总信息。</p></li>
+<li><p>由于元分析旨在全面概述所有可用的证据，因此我们没有额外的数据可以用来“测试”我们的回归模型在预测未见数据方面的表现如何。</p></li>
+<li><p>在元回归中，我们必须处理效应量异质性的潜在存在。想象一下，我们有两个具有不同效应量和非重叠置信区间的研究的情况。对于这两项研究具有不同值的每个变量都可能是效应量差异的潜在解释。然而，似乎很明显，这些解释中的大多数将是虚假的。</p></li>
+<li><p>元回归通常，尤其是多元元回归，可以非常容易地“摆弄”预测变量。我们可以测试许多元回归模型，包括更多预测变量或删除它们，以尝试解释我们数据中的异质性。这种方法很诱人，并且在实践中经常发现，因为元分析师想要找到效应量不同的原因 <span class="citation" data-cites="higgins2002statistical">[@higgins2002statistical]</span>。然而，这种行为已被证明会大大增加虚假发现的风险，因为我们可以无限期地更改我们模型的各个部分，直到我们找到一个显着的模型，该模型很可能被过度拟合 (即，它主要模拟统计噪声)。</p></li>
+</ol>
+<p>已经提出了一些指导原则，以避免</p>
+
+
+</section>
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>我们在本示例中使用的发表年份是虚构的，仅用于说明目的。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

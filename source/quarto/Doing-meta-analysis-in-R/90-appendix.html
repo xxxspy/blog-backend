@@ -1,0 +1,1622 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Meta 分析</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R Meta 分析</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.rmd"> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./daizuo.html"> 
+<span class="menu-text">Meta 代做</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./90-appendix.html">附录</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前言</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">作者</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">介绍</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-discovering_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发现R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-pooling_effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">合并效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-heterogeneity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">异质性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-forestplots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">森林图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-subgroup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">亚组分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-metareg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Meta回归</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-publication-bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发表偏倚</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-mlma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">多元Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-sem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">结构方程模型</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-netwma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">网络Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-bayesianma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">贝叶斯Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-power-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">功效分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-risk-of-bias-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏倚风险图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-reporting-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">报告与可重复性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-effect-size-calculation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量计算</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90-appendix.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">附录</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./98-cite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">引用</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#附录-附录" id="toc-附录-附录" class="nav-link active" data-scroll-target="#附录-附录">(附录) 附录</a></li>
+  <li><a href="#qanda" id="toc-qanda" class="nav-link" data-scroll-target="#qanda">问答环节</a>
+  <ul class="collapse">
+  <li><a href="#qanda1" id="toc-qanda1" class="nav-link" data-scroll-target="#qanda1">第一章：导论</a></li>
+  <li><a href="#qanda2" id="toc-qanda2" class="nav-link" data-scroll-target="#qanda2">第二章：探索 R</a></li>
+  <li><a href="#qanda3" id="toc-qanda3" class="nav-link" data-scroll-target="#qanda3">第三章：效应量</a></li>
+  <li><a href="#qanda4" id="toc-qanda4" class="nav-link" data-scroll-target="#qanda4">第四章：效应量的合并</a></li>
+  <li><a href="#qanda5" id="toc-qanda5" class="nav-link" data-scroll-target="#qanda5">第五章：研究间异质性</a></li>
+  <li><a href="#qanda6" id="toc-qanda6" class="nav-link" data-scroll-target="#qanda6">第六章：森林图</a></li>
+  <li><a href="#qanda7" id="toc-qanda7" class="nav-link" data-scroll-target="#qanda7">第七章：亚组分析</a></li>
+  <li><a href="#qanda8" id="toc-qanda8" class="nav-link" data-scroll-target="#qanda8">第八章：元回归</a></li>
+  <li><a href="#qanda9" id="toc-qanda9" class="nav-link" data-scroll-target="#qanda9">第九章：发表偏倚</a></li>
+  <li><a href="#qanda10" id="toc-qanda10" class="nav-link" data-scroll-target="#qanda10">第十章：“多层”元分析</a></li>
+  <li><a href="#qanda11" id="toc-qanda11" class="nav-link" data-scroll-target="#qanda11">第十一章：结构方程建模元分析</a></li>
+  <li><a href="#qanda12" id="toc-qanda12" class="nav-link" data-scroll-target="#qanda12">第十二章：网络元分析</a></li>
+  <li><a href="#qanda13" id="toc-qanda13" class="nav-link" data-scroll-target="#qanda13">第十三章：贝叶斯元分析</a></li>
+  </ul></li>
+  <li><a href="#formula" id="toc-formula" class="nav-link" data-scroll-target="#formula">效应量公式</a></li>
+  <li><a href="#symbollist" id="toc-symbollist" class="nav-link" data-scroll-target="#symbollist">符号列表</a></li>
+  <li><a href="#attr" id="toc-attr" class="nav-link" data-scroll-target="#attr"><em>R</em> &amp; 包信息</a></li>
+  <li><a href="#corrections" id="toc-corrections" class="nav-link" data-scroll-target="#corrections">更正 &amp; 说明</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="附录-附录" class="level1 unnumbered">
+<h1 class="unnumbered">(附录) 附录</h1>
+<p><br><br></p>
+</section>
+<section id="qanda" class="level1">
+<h1>问答环节</h1>
+<hr>
+<section id="qanda1" class="level2">
+<h2 class="anchored" data-anchor-id="qanda1">第一章：导论</h2>
+<hr>
+<p><strong>1. 元分析如何定义？元分析与其他类型的文献综述有何区别？</strong></p>
+<p>元分析可以定义为<strong>对分析的分析</strong>（Glass 的定义）。与其他类型的（系统性）综述相比，元分析旨在以定量的方式综合证据。通常，目标是得出一个数值估计，<strong>整体</strong>描述一个界限明确的研究领域。</p>
+<p><strong>2. 你能说出一位元分析的创始者（不论男女）吗？他/她的成就体现在哪里？</strong></p>
+<p>卡尔·皮尔逊：整合大英帝国各地的伤寒疫苗接种数据；罗纳德·费舍尔：农业研究数据综合方法；玛丽·史密斯和吉恩·格拉斯：创造了“元分析”一词，首次对心理治疗试验进行元分析；约翰·亨特和弗兰克·施密特：通过校正测量误差（心理测量元分析）进行元分析；丽贝卡·德西莫尼安和南·莱尔德：计算随机效应模型元分析的方法；彼得·埃尔伍德和阿奇·科克伦：医学元分析的先驱。</p>
+<p><strong>3. 说出元分析的三个常见问题，并用一两句话描述它们。</strong></p>
+<p>“苹果和橘子”：研究差异太大，无法综合；“垃圾进，垃圾出”：无效证据只会通过元分析重现；“文件抽屉”：阴性结果未发表，导致元分析结果存在偏差；“研究者议程”：研究者可以调整元分析来证明他们想证明的东西。</p>
+<p><strong>4. 说出定义一个好的元分析研究问题的品质。</strong></p>
+<p>FINER：可行、有趣、新颖、符合伦理、相关；PICO：明确定义的人群、干预/暴露、对照组/比较、以及分析的结果。</p>
+<p><strong>5. 再次查看大学生睡眠干预元分析的纳入标准（第 1.4.1 节末尾）。你能从这项研究的纳入和排除标准中提取 PICO 吗？</strong></p>
+<p>人群：高等教育学生；干预：以睡眠为中心的心理干预；比较：被动控制条件；结果：睡眠障碍，通过标准化症状测量量表进行测量。</p>
+<p><strong>6. 说出一些可以用来搜索研究的重要来源。</strong></p>
+<p>综述文章，研究中的参考文献，“向前搜索”（搜索引用了相关文章的研究），搜索相关期刊，书目数据库搜索。</p>
+<p><strong>7. 用一两句话描述“研究质量”和“偏差风险”之间的区别。</strong></p>
+<p>一项研究可以满足研究领域中被认为重要的所有研究质量标准，但仍然具有很高的偏差风险（例如，因为对于这种类型的研究或研究课题，偏差很难避免）。</p>
+<p><br><br></p>
+</section>
+<section id="qanda2" class="level2">
+<h2 class="anchored" data-anchor-id="qanda2">第二章：探索 R</h2>
+<hr>
+<p><strong>1. 显示变量 <code>Author</code>。</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>Author</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>2. 将 <code>subgroup</code> 转换为因子。</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>data<span class="sc">$</span>subgroup <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(data<span class="sc">$</span>subgroup)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>3. 选择 “Jones” 和 “Martin” 研究的所有数据。</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(Author <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Jones"</span>, <span class="st">"Martin"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>4. 将研究 “Rose” 的名称更改为 “Bloom”。</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>data[<span class="dv">5</span>,<span class="dv">1</span>] <span class="ot">&lt;-</span> <span class="st">"Bloom"</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>5. 通过从 <code>TE</code> 中减去 <code>seTE</code> 来创建一个新的变量 <code>TE_seTE_diff</code>。将结果保存在 <code>data</code> 中。</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>TE_seTE_diff <span class="ot">&lt;-</span> data<span class="sc">$</span>TE <span class="sc">-</span> data<span class="sc">$</span>seTE</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>6. 使用管道来（1）过滤所有在 subgroup “one” 或 “two” 中的研究，（2）选择变量 <code>TE_seTE_diff</code>，（3）取该变量的平均值，然后将 <code>exp</code> 函数应用于它。</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>data <span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>    deplyr<span class="sc">::</span><span class="fu">filter</span>(subgroup <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"one"</span>, <span class="st">"two"</span>)) <span class="sc">%&gt;%</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">pull</span>(TE_seTE_diff) <span class="sc">%&gt;%</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mean</span>() <span class="sc">%&gt;%</span></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">exp</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br><br></p>
+</section>
+<section id="qanda3" class="level2">
+<h2 class="anchored" data-anchor-id="qanda3">第三章：效应量</h2>
+<hr>
+<p><strong>1. 对于“效应量”一词是否有明确的定义？当人们谈论效应量时，他们指的是什么？</strong></p>
+<p>不，没有普遍接受的定义。有些人保留“效应量”一词来表示干预组和对照组之间的差异。另一些人使用更自由的定义，仅排除“单变量”测量（例如，均值和比例）。</p>
+<p><strong>2. 说出观察到的效应量偏离人群真实效应量的主要原因。如何量化它？</strong></p>
+<p>假设观察到的效应量因抽样误差而偏离真实效应量。一项研究的抽样误差的预期大小可以用其标准误差来表示。</p>
+<p><strong>3. 为什么大型研究比小型研究更能更好地估计真实效应？</strong></p>
+<p>因为假设它们具有较小的抽样误差，这会导致更精确的效应估计。</p>
+<p><strong>4. 效应量指标必须满足哪些标准才能用于元分析？</strong></p>
+<p>它需要具有可比性、可计算性、可靠性和可解释性。</p>
+<p><strong>5. 标准化均值差 1 代表什么？</strong></p>
+<p>它代表两组的均值相差一个合并标准差。</p>
+<p><strong>6. 需要进行什么样的转换才能合并基于比率的效应量（例如，优势比）？</strong></p>
+<p>效应量需要进行对数转换（为了使用逆方差合并方法）。</p>
+<p><strong>7. 说出三种类型的效应量校正。</strong></p>
+<p>标准化均值差的小样本偏差校正（Hedges’ <span class="math inline">\(g\)</span>）；不可靠性校正；范围限制校正。</p>
+<p><strong>8. 什么时候会发生单位分析问题？如何避免它？</strong></p>
+<p>当我们的数据集中的效应量相关时（例如，因为它们是同一研究的一部分）。单位分析问题可以通过以下方式（部分或完全）避免：（1）拆分共享组的样本量，（2）移除比较，（3）合并组，或（4）使用考虑效应量依赖性的模型（例如，三级模型）。</p>
+<p><br><br></p>
+</section>
+<section id="qanda4" class="level2">
+<h2 class="anchored" data-anchor-id="qanda4">第四章：效应量的合并</h2>
+<hr>
+<p><strong>1. 固定效应模型和随机效应模型之间有什么区别？</strong></p>
+<p>固定效应模型假设所有研究都是相同真实效应量的估计量。随机效应模型假设研究的真实效应量因研究间的异质性（由方差 <span class="math inline">\(\tau^2\)</span> 捕获）而异，这需要进行估计。</p>
+<p><strong>2. 你能想到固定效应模型和随机效应模型的结果相同的情况吗？</strong></p>
+<p>当研究间的异质性方差 <span class="math inline">\(\tau^2\)</span> 为零时。</p>
+<p><strong>3. 什么是 <span class="math inline">\(\tau^2\)</span>？如何估计它？</strong></p>
+<p>研究间的异质性方差。可以使用不同的方法来估计它，例如限制最大似然法（REML）、Paule-Mandel 估计量或 DerSimonian-Laird 估计量。</p>
+<p><strong>4. Knapp-Hartung 调整基于哪个分布？它有什么影响？</strong></p>
+<p>它基于 <span class="math inline">\(t\)</span>-分布。Knapp-Hartung 调整通常会导致更保守（即更宽）的置信区间。</p>
+<p><strong>5. 什么是“逆方差”合并？这种方法什么时候不是最佳解决方案？</strong></p>
+<p>该方法称为逆方差合并，因为它使用研究方差的倒数作为合并权重。对于二元结果数据的元分析（例如，风险或优势比），通用的逆方差方法不是首选选项。</p>
+<p><strong>6. 你想对二元结果数据进行元分析。研究组中的观察数量大致相似，观察到的事件非常罕见，并且你不期望治疗效果很大。你会使用哪种合并方法？</strong></p>
+<p>在这种情况下，Peto 方法可能表现良好。</p>
+<p><strong>7. 广义线性混合模型可以用于哪些结果测量？</strong></p>
+<p>比例。也可以将它们用于其他二元结果测量，但不建议这样做。</p>
+<p><br><br></p>
+</section>
+<section id="qanda5" class="level2">
+<h2 class="anchored" data-anchor-id="qanda5">第五章：研究间异质性</h2>
+<hr>
+<p><strong>1. 为什么检查元分析的研究间异质性很重要？</strong></p>
+<p>当研究间异质性很大时，可以假设真实效应量差异很大。在这种情况下，平均真实效应的点估计可能无法很好地代表所有数据。研究间异质性也可能导致效应估计不稳健，例如，因为一些离群研究扭曲了总体结果。</p>
+<p><strong>2. 你能说出异质性的两种类型吗？哪一种与计算元分析相关？</strong></p>
+<p>基线/设计相关异质性和统计异质性。只有统计异质性在元分析中进行定量评估。</p>
+<p><strong>3. 为什么 Cochran 的 <span class="math inline">\(Q\)</span> 的显著性不是研究间异质性的充分测量？</strong></p>
+<p>因为 <span class="math inline">\(Q\)</span> 检验的显著性很大程度上取决于我们元分析中包含的研究数量及其规模。</p>
+<p><strong>4. 使用预测区间来表达元分析中异质性量的优势是什么？</strong></p>
+<p>预测区间允许在与汇总测量相同的尺度上表达研究间异质性对未来研究的影响。</p>
+<p><strong>5. 统计离群值和有影响力研究之间的区别是什么？</strong></p>
+<p>统计离群值是具有<strong>极端</strong>效应量的研究。当研究对总体结果的影响很大时，研究是有影响力的。一项研究有可能被定义为统计离群值但影响力不大，反之亦然。例如，一项大型研究可能对合并结果产生很大影响，即使其效应量不是特别小或大。</p>
+<p><strong>6. GOSH 图可以用于什么？</strong></p>
+<p>GOSH 图可用于探索我们数据中的异质性模式，以及哪些研究导致了这些模式。</p>
+<p><br><br></p>
+</section>
+<section id="qanda6" class="level2">
+<h2 class="anchored" data-anchor-id="qanda6">第六章：森林图</h2>
+<hr>
+<p><strong>1. 森林图的关键组成部分是什么？</strong></p>
+<p>每项研究的观察到的效应量及其置信区间的图形表示；每项研究的权重，由观察到的效应量周围的正方形的大小表示；每项研究的观察到的效应和权重的数值；合并效应，由菱形表示；参考线，通常表示无效应。</p>
+<p><strong>2. 展示我们元分析的森林图的优势是什么？</strong></p>
+<p>它们可以快速检查所有包含的研究的数量、效应量和精度，以及观察到的效应如何“加起来”形成合并效应。</p>
+<p><strong>3. 森林图的局限性是什么？并且幕帘图如何克服这一局限性？</strong></p>
+<p>森林图只能显示假设固定显著性阈值的效应的置信区间（通常 <span class="math inline">\(\alpha\)</span> = 0.05）。幕帘图可用于显示不同 <span class="math inline">\(p\)</span>-值的效应大小的置信区间（以及因此的显著性）。</p>
+<p><br><br></p>
+</section>
+<section id="qanda7" class="level2">
+<h2 class="anchored" data-anchor-id="qanda7">第七章：亚组分析</h2>
+<hr>
+<p><strong>1. 在最好的情况下，亚组分析可以告诉我们影响和离群值分析无法提供的信息是什么？</strong></p>
+<p>亚组分析有可能解释<strong>为什么</strong>我们的数据中存在某些异质性模式，而不仅仅是告诉我们它们<strong>存在</strong>。</p>
+<p><strong>2. 为什么亚组分析背后的模型被称为固定效应（复数）模型？</strong></p>
+<p>因为它假设，虽然亚组内的研究遵循随机效应模型，但亚组级别本身是固定的。存在几个固定的亚组效应。</p>
+<p><strong>3. 作为元分析的一部分，你想检查教育培训计划的效果是否因其交付的学区而异。使用固定效应（复数）模型进行亚组分析是否适合回答这个问题？</strong></p>
+<p>可能不适合。假设学区代表从更大的学区人群中抽取，而不是所有存在的学区，更有意义。</p>
+<p><strong>4. 你的一个朋友进行了一项元分析，共包含九项研究。其中五项研究属于一个亚组，四项研究属于另一个亚组。她问你进行亚组分析是否有意义。你会推荐什么？</strong></p>
+<p>进行亚组分析可能不是一个好主意，因为研究总数小于十项。</p>
+<p><strong>5. 你发现了一项元分析，其中的作者声称分析的治疗在女性中比在男性中更有效。这一发现基于一项亚组分析，在该分析中，研究根据研究人群中包含的女性的份额分为亚组。这一发现可信吗？为什么（不）？</strong></p>
+<p>该发现基于使用聚合研究数据创建的亚组变量。这可能会引入生态偏差，因此结果值得怀疑。</p>
+<p><br><br></p>
+</section>
+<section id="qanda8" class="level2">
+<h2 class="anchored" data-anchor-id="qanda8">第八章：元回归</h2>
+<hr>
+<p><strong>1. 初级研究中使用的传统回归分析和元回归之间有什么区别？</strong></p>
+<p>分析单位是研究（而不是人），其效应量或多或少是精确的。在元回归中，我们必须构建回归模型，该模型考虑到某些研究应比其他研究具有更大的权重。</p>
+<p><strong>2. 亚组分析和元回归密切相关。如何调整元回归公式以适应亚组数据？</strong></p>
+<p>通过使用虚拟/分类预测变量。</p>
+<p><strong>3. 元回归中使用哪种方法来给各个研究不同的权重？</strong></p>
+<p>元回归使用<strong>加权最小二乘法</strong>来给具有更高精度的研究更大的权重。</p>
+<p><strong>4. 什么特征标志着一个元回归模型能够很好地拟合我们的数据？可以使用哪个指标来检查这一点？</strong></p>
+<p>一个“好”的元回归模型应该导致未解释的研究间异质性方差的减少。涵盖这种解释方差增加的指标是 <span class="math inline">\(R^2\)</span> 类似物。</p>
+<p><strong>5. 当我们使用元回归技术计算亚组分析时，我们假设亚组中 <span class="math inline">\(\tau^2\)</span> 的单独值还是共同值？</strong></p>
+<p>在亚组中假设 <span class="math inline">\(\tau^2\)</span> 的共同估计。</p>
+<p><strong>6. （多重）元回归的局限性和陷阱是什么？</strong></p>
+<p>过度拟合元回归可能导致假阳性结果；多重共线性可能导致不稳健的参数估计。</p>
+<p><strong>7. 说出两种可以用来提高（多重）元回归模型稳健性的方法，以及它们为什么有用。</strong></p>
+<p>我们可以进行排列检验或使用多模型推断。</p>
+<p><br><br></p>
+</section>
+<section id="qanda9" class="level2">
+<h2 class="anchored" data-anchor-id="qanda9">第九章：发表偏倚</h2>
+<hr>
+<p><strong>1. “发表偏倚”一词如何定义？为什么它在元分析中存在问题？</strong></p>
+<p>当一项研究的发表概率取决于其结果时，就存在发表偏倚。这在元分析中存在问题，因为它可能导致有偏差的结果。由于并非所有证据都被考虑，因此元分析可能会导致在考虑所有现有信息时不会实现的发现。</p>
+<p><strong>2. 还有哪些其他的报告偏倚？说出并解释至少三个。</strong></p>
+<p>引用偏倚：具有阴性发现的研究不太可能被引用；时间滞后偏倚：具有阴性发现的研究发表较晚；多重发表偏倚：具有阳性发现的研究更可能在几篇文章中报告；语言偏倚：证据可能因为未以英语发表而被省略；结果报告偏倚：一项研究的阳性结果比阴性结果更可能被报告。</p>
+<p><strong>3. 说出两种可疑的研究实践 (QRPs)，并解释它们如何威胁我们元分析的有效性。</strong></p>
+<p>P 值操纵 (P-hacking)，结果后假设 (HARKing)。两者都会导致阳性发现的膨胀，即使没有真正的效果。</p>
+<p><strong>4. 解释小样本效应方法背后的核心假设。</strong></p>
+<p>大型研究（即具有小标准误差的研究）很可能被发表，无论他们的发现如何。较小的研究具有较小的精度，这意味着需要非常高的效应量才能达到统计显著性。因此，只有具有非常高效应的小型研究才会被发表，而其余的研究则最终出现在“文件抽屉”中。</p>
+<p><strong>5. 当我们发现我们的数据表现出小样本效应时，这是否自动意味着存在发表偏倚？</strong></p>
+<p>不。还有几种其他的解释，说明为什么我们发现小样本效应，包括研究间异质性、协变量的影响（例如，较小研究中的治疗保真度更高）或机会。</p>
+<p><strong>6. P 曲线估计什么：包含在我们元分析中的所有研究的真实效应，还是仅所有_显著_效应量的真实效应？</strong></p>
+<p>P 曲线仅估计所有显著效应量的真实效应。这就是为什么当存在研究间异质性时，它的表现不佳的原因之一。</p>
+<p><strong>7. 哪种发表偏倚方法具有最佳性能？</strong></p>
+<p>没有一种发表偏倚方法始终优于所有其他方法。因此，应用几种方法并查看它们的结果是否一致是有帮助的。</p>
+<p><br><br></p>
+</section>
+<section id="qanda10" class="level2">
+<h2 class="anchored" data-anchor-id="qanda10">第十章：“多层”元分析</h2>
+<hr>
+<p><strong>1. 说“三级”模型而不是“多层”模型更准确的原因是什么？</strong></p>
+<p>因为“传统”随机效应模型已经是多层模型。它假设参与者嵌套在研究中，并且研究本身是从真实效应量人群中抽取的。</p>
+<p><strong>2. 三级元分析模型什么时候有用？</strong></p>
+<p>当我们处理相关或嵌套数据时。当研究贡献多个效应量，或者有充分的理由相信研究本身属于更大的集群时，三级模型特别有用。</p>
+<p><strong>3. 说出效应量依赖性的两个常见原因。</strong></p>
+<p>由参与初级研究的研究人员引起的依赖性；由元分析师自己创建的依赖性。</p>
+<p><strong>4. 如何解释多层 <span class="math inline">\(I^2\)</span> 统计量？</strong></p>
+<p>它告诉我们不属于抽样误差的方差量，并区分集群<strong>内</strong>的异质性方差和集群<strong>间</strong>的异质性方差。</p>
+<p><strong>5. 如何扩展三级模型以纳入调节变量的影响？</strong></p>
+<p>通过将固定效应项整合到模型公式中。</p>
+<p><br><br></p>
+</section>
+<section id="qanda11" class="level2">
+<h2 class="anchored" data-anchor-id="qanda11">第十一章：结构方程建模元分析</h2>
+<hr>
+<p><strong>1. 什么是结构方程建模？它用于什么？</strong></p>
+<p>结构方程建模是一种统计方法，可用于测试显变量和潜变量之间假设的关系。</p>
+<p><strong>2. 可以通过哪两种方式表示 SEM？</strong></p>
+<p>SEM 可以通过图形或矩阵表示。</p>
+<p><strong>3. 从 SEM 的角度描述随机效应元分析。</strong></p>
+<p>从 SEM 的角度来看，随机效应元分析中的真实总体效应量可以被视为潜变量。它受到两个方面的影响：第一级的抽样误差和第二级的真实效应量异质性方差。</p>
+<p><strong>4. 什么是多元元分析？它什么时候有用？</strong></p>
+<p>多元元分析允许同时合并研究的两个（或更多）结果。联合估计两个结果变量的一个优点是可以考虑结果之间的相关性。</p>
+<p><strong>5. 当我们发现我们提出的元分析 SEM 能够很好地拟合数据时，这是否自动意味着该模型是“正确”的模型？</strong></p>
+<p>不。通常，有不止一个模型能够很好地拟合数据。</p>
+<p><br><br></p>
+</section>
+<section id="qanda12" class="level2">
+<h2 class="anchored" data-anchor-id="qanda12">第十二章：网络元分析</h2>
+<hr>
+<p><strong>1. 网络元分析什么时候有用？与标准元分析相比，它们的优势是什么？</strong></p>
+<p>当某些问题领域存在几种相互竞争的治疗方法，并且我们想估计哪种治疗方法具有最大的益处时，网络元分析很有用。与传统的元分析相比，网络元分析模型可以整合直接和间接证据。</p>
+<p><strong>2. 在治疗网络中，直接证据和间接证据之间有什么区别？如何使用直接证据来生成间接证据？</strong></p>
+<p>直接证据是包含的研究中实际调查的比较所提供的信息。间接证据是通过从相关比较的效应中减去一个（直接观察到的）比较的效应来从直接证据中得出的（例如，使用相同对照组的比较）。</p>
+<p><strong>3. 网络元分析中传递性假设背后的主要思想是什么？</strong></p>
+<p>传递性假设规定，直接证据可用于推断未观察到的间接证据，并且直接和间接证据是一致的。</p>
+<p><strong>4. 传递性和一致性之间的关系是什么？</strong></p>
+<p>传递性是进行网络元分析的先决条件，不能直接测试。传递性的统计表现形式是一致性，当基于直接证据的效应量估计与基于间接证据的估计相同/相似时，即满足一致性。</p>
+<p><strong>5. 说出两种可用于进行网络元分析的建模方法。其中一种比另一种更好吗？</strong></p>
+<p>可以使用频率主义或贝叶斯模型进行网络元分析。两种模型是等效的，并且随着样本量的增加产生收敛的结果。</p>
+<p><strong>6. 当我们包含来自一项研究的几个比较（即多臂研究）时，这会导致什么问题？</strong></p>
+<p>这意味着效应估计是相关的，从而导致单位分析错误。</p>
+<p><strong>7. 在解释不同治疗的 P 或 SUCRA 分数时，我们必须牢记什么？</strong></p>
+<p>不同治疗的效应估计经常重叠。这意味着 P-/SUCRA 分数应始终谨慎解释。</p>
+<p><br><br></p>
+</section>
+<section id="qanda13" class="level2">
+<h2 class="anchored" data-anchor-id="qanda13">第十三章：贝叶斯元分析</h2>
+<hr>
+<p><strong>1. “传统”随机效应模型和贝叶斯分层模型之间的异同是什么？</strong></p>
+<p>频率主义元分析背后的随机效应模型在概念上与贝叶斯分层模型相同。主要区别在于贝叶斯分层模型包括总体真实效应量 <span class="math inline">\(\mu\)</span> 和研究间异质性 <span class="math inline">\(\tau\)</span> 的（弱信息）先验分布。</p>
+<p><strong>2. 与频率主义对应物相比，说出贝叶斯元分析的三个优势。</strong></p>
+<p><span class="math inline">\(\tau^2\)</span> 估计的不确定性被直接建模；生成 <span class="math inline">\(\mu\)</span> 的后验分布，可用于计算 <span class="math inline">\(\mu\)</span> 位于某个值以下的概率；先验知识或信念可以整合到模型中。</p>
+<p><strong>3. 解释弱信息先验和非信息先验之间的区别。</strong></p>
+<p>非信息先验假设所有或一系列可能的值同样可能。弱信息先验表示对某些值比其他值更可能的<strong>微弱</strong>信念。</p>
+<p><strong>4. 什么是半柯西分布？为什么它对贝叶斯元分析有用？</strong></p>
+<p>半柯西分布是一种仅为正值定义的柯西分布。它由一个位置和缩放参数控制，后者决定了分布的尾部有多重。半柯西分布可以用作 <span class="math inline">\(\tau\)</span> 的先验。</p>
+<p><strong>5. 什么是 ECDF？如何在贝叶斯元分析中使用它？</strong></p>
+<p>ECDF 代表<strong>经验累积分布函数</strong>。基于 <span class="math inline">\(\mu\)</span>（或 <span class="math inline">\(\tau\)</span>）的后验分布的 ECDF 可用于确定估计参数低于或高于某个指定阈值的（累积）概率。</p>
+<p></p>
+<p><br><br></p>
+</section>
+</section>
+<section id="formula" class="level1">
+<h1>效应量公式</h1>
+<hr>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: 'xfun::attr()' is deprecated.
+Use 'xfun::attr2()' instead.
+See help("Deprecated")</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<table class="lightable-classic table table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: left; color: rgba(245, 245, 245, 255) !important; background-color: rgba(39, 125, 176, 255) !important;"></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: rgba(245, 245, 245, 255) !important; background-color: rgba(39, 125, 176, 255) !important;">效应量 ($\hat\theta$)</th>
+<th data-quarto-table-cell-role="th" style="text-align: center; color: rgba(245, 245, 245, 255) !important; background-color: rgba(39, 125, 176, 255) !important;">标准误差 (SE)</th>
+<th data-quarto-table-cell-role="th" style="text-align: left; color: rgba(245, 245, 245, 255) !important; background-color: rgba(39, 125, 176, 255) !important;">函数</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd" data-grouplength="1">
+<td colspan="4" style="border-bottom: 0"><strong></strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; border-bottom: 1px solid;">算术平均值 (\@ref(means))</td>
+<td style="text-align: center; border-bottom: 1px solid;">$\bar{x} = \dfrac{\sum^{n}_{i=1}x_i}{n}$</td>
+<td style="text-align: center; border-bottom: 1px solid;">$\text{SE}_{\bar{x}} = \dfrac{s}{\sqrt{n}}$</td>
+<td style="text-align: left; font-family: monospace; border-bottom: 1px solid;">mean</td>
+</tr>
+<tr class="odd" data-grouplength="2">
+<td colspan="4" style="border-bottom: 0"><strong></strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(245, 245, 245, 255) !important;">比例 (\@ref(props))</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">$p = \dfrac{k}{n}$</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">$\text{SE}_{p} = \sqrt{\dfrac{p(1-p)}{n}}$</td>
+<td style="text-align: left; font-family: monospace; background-color: rgba(245, 245, 245, 255) !important;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(245, 245, 245, 255) !important;">比例 (\@ref(props))</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">$p_{\text{logit}} = \log_{e}\left(\dfrac{p}{1-p}\right)$</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">$\text{SE}_{p_{\text{logit}}} = \sqrt{\dfrac{1}{np}+\dfrac{1}{n(1-p)}}$</td>
+<td style="text-align: left; font-family: monospace; background-color: rgba(245, 245, 245, 255) !important;"></td>
+</tr>
+<tr class="even" data-grouplength="3">
+<td colspan="4" style="border-bottom: 0"><strong></strong></td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="4" style="background-color: #277DB0; color: #fff"><strong>相关性</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">乘积矩相关 (\@ref(pearson-cors))</td>
+<td style="text-align: center;">$r_{xy} = \dfrac{\sigma^{2}_{xy}}{\sigma_x \sigma_y}$</td>
+<td style="text-align: center;">$SE_{r_{xy}} = \frac{1-r_{xy}^2}{\sqrt{n-2}}$</td>
+<td style="text-align: left; font-family: monospace;">cor</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">乘积矩相关 (\@ref(pearson-cors))</td>
+<td style="text-align: center;">$z = 0.5\log_{e}\left(\dfrac{1+r}{1-r}\right)$</td>
+<td style="text-align: center;">$\text{SE}_{z} = \dfrac{1}{\sqrt{n-3}}$</td>
+<td style="text-align: left; font-family: monospace;"></td>
+</tr>
+<tr class="even" data-grouplength="1">
+<td colspan="4" style="border-bottom: 0"><strong></strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(245, 245, 245, 255) !important; border-top: 1px solid;">点二列相关<sup>1</sup> (\@ref(pb-cors))</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important; border-top: 1px solid;">\bgroup\fontsize{4}{6}\selectfont ${r_{\text{pb}}}= \dfrac{(\bar{y_1}-\bar{y_2})\sqrt{\dfrac{n_1}{N}\left(1-\dfrac{n_1}{N}\right)}}{s_y}$\egroup{}</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important; border-top: 1px solid;"></td>
+<td style="text-align: left; font-family: monospace; background-color: rgba(245, 245, 245, 255) !important; border-top: 1px solid;">cor</td>
+</tr>
+<tr class="even" data-grouplength="4">
+<td colspan="4" style="background-color: #277DB0; color: #fff"><strong>（标准化）均值差</strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; border-bottom: 1px solid;">组间均值差 (\@ref(b-group-md))</td>
+<td style="text-align: center; border-bottom: 1px solid;">$\text{MD} = \bar{x}_1 - \bar{x}_2$</td>
+<td style="text-align: center; border-bottom: 1px solid;">\bgroup\fontsize{6}{8}\selectfont $\text{SE}_{\text{MD}} = {s_{\text{pooled}}}^*\sqrt{\dfrac{1}{n_1}+\dfrac{1}{n_2}}$\egroup{}</td>
+<td style="text-align: left; font-family: monospace; border-bottom: 1px solid;"></td>
+</tr>
+<tr class="even" data-grouplength="1">
+<td colspan="4" style="border-bottom: 0"><strong></strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(245, 245, 245, 255) !important; border-bottom: 1px solid;">组间标准化均值差 (\@ref(b-group-smd))</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important; border-bottom: 1px solid;">$\text{SMD} = \dfrac{\bar{x}_1 - \bar{x}_2}{{s_{\text{pooled}}}^*}$</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important; border-bottom: 1px solid;">\bgroup\fontsize{6}{8}\selectfont $\text{SE}_{\text{SMD}} = \sqrt{\dfrac{n_1+n_2}{n_1n_2} + \dfrac{\text{SMD}^2_{\text{between}}}{2(n_1+n_2)}}$\egroup{}</td>
+<td style="text-align: left; font-family: monospace; background-color: rgba(245, 245, 245, 255) !important; border-bottom: 1px solid;">esc\_mean\_sd</td>
+</tr>
+<tr class="even" data-grouplength="1">
+<td colspan="4" style="border-bottom: 0"><strong></strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; border-bottom: 1px solid;">组内均值差 (\@ref(w-group-smd))</td>
+<td style="text-align: center; border-bottom: 1px solid;">$\text{MD} = \bar{x}_{t_2} - \bar{x}_{t_1}$</td>
+<td style="text-align: center; border-bottom: 1px solid;">\bgroup\fontsize{6}{8}\selectfont $SE_{\text{MD}}=\sqrt{\dfrac{s^2_{\text{t}_{\text{2}}}+s^2_{\text{t}_{\text{1}}}-(2r_{\text{t}_{\text{1}}\text{t}_{\text{2}}}s_{\text{t}_{\text{1}}}s_{\text{t}_{\text{2}}})}{n}}$\egroup{}</td>
+<td style="text-align: left; font-family: monospace; border-bottom: 1px solid;"></td>
+</tr>
+<tr class="even" data-grouplength="1">
+<td colspan="4" style="border-bottom: 0"><strong></strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(245, 245, 245, 255) !important;">组内标准化均值差 (\@ref(w-group-smd))</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">\bgroup\fontsize{6}{8}\selectfont $\text{SMD}= \dfrac{\bar{x}_{t_2} - \bar{x}_{t_1}}{s_{\text{t}_1}}$\egroup{}</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">\bgroup\fontsize{6}{8}\selectfont $\text{SE}_{\text{SMD}} = \sqrt{\dfrac{2(1-r_{t_1t_2})}{n}+\dfrac{\text{SMD}^2_{\text{within}}}{2n}}$\egroup{}</td>
+<td style="text-align: left; font-family: monospace; background-color: rgba(245, 245, 245, 255) !important;"></td>
+</tr>
+<tr class="even" data-grouplength="5">
+<td colspan="4" style="border-bottom: 0"><strong></strong></td>
+</tr>
+<tr class="odd" data-grouplength="10">
+<td colspan="4" style="background-color: #277DB0; color: #fff"><strong>二元结果效应量</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">风险比 (\@ref(rr))</td>
+<td style="text-align: center;">${p_{e}}_{\text{treat}} =\dfrac{a}{n_{\text{treat}}}$</td>
+<td style="text-align: center;">\bgroup\fontsize{6}{8}\selectfont $\text{SE}_{\log \text{RR}} = \sqrt{\dfrac{1}{a}+\dfrac{1}{c} - \dfrac{1}{a+b} - \dfrac{1}{c+d}}$\egroup{}</td>
+<td style="text-align: left; font-family: monospace;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">风险比 (\@ref(rr))</td>
+<td style="text-align: center;">${p_{e}}_{\text{control}} = \dfrac{c}{n_{\text{control}}}$</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left; font-family: monospace;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">风险比 (\@ref(rr))</td>
+<td style="text-align: center;">$\text{RR} = \dfrac{{p_{e}}_{\text{treat}}}{{p_{e}}_{\text{control}}}$</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left; font-family: monospace;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; border-bottom: 1px solid;">风险比 (\@ref(rr))</td>
+<td style="text-align: center; border-bottom: 1px solid;">$\log \text{RR} = \log_{e}(\text{RR})$</td>
+<td style="text-align: center; border-bottom: 1px solid;"></td>
+<td style="text-align: left; font-family: monospace; border-bottom: 1px solid;"></td>
+</tr>
+<tr class="even" data-grouplength="4">
+<td colspan="4" style="border-bottom: 0"><strong></strong></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(245, 245, 245, 255) !important;">优势比 (\@ref(or))</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">$\text{Odds}_{\text{treat}} = \dfrac{a}{b}$</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">$\text{SE}_{\log \text{OR}} = \sqrt{\dfrac{1}{a}+\dfrac{1}{b}+\dfrac{1}{c}+\dfrac{1}{d}}$</td>
+<td style="text-align: left; font-family: monospace; background-color: rgba(245, 245, 245, 255) !important;">esc\_2x2</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(245, 245, 245, 255) !important;">优势比 (\@ref(or))</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">$\text{Odds}_{\text{control}} = \dfrac{c}{d}$</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;"></td>
+<td style="text-align: left; font-family: monospace; background-color: rgba(245, 245, 245, 255) !important;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(245, 245, 245, 255) !important;">优势比 (\@ref(or))</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">$\text{OR} = \dfrac{a/b}{c/d}$</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;"></td>
+<td style="text-align: left; font-family: monospace; background-color: rgba(245, 245, 245, 255) !important;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(245, 245, 245, 255) !important;">优势比 (\@ref(or))</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">$\log \text{OR} = \log_{e}(\text{OR})$</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;"></td>
+<td style="text-align: left; font-family: monospace; background-color: rgba(245, 245, 245, 255) !important;"></td>
+</tr>
+<tr class="odd" data-grouplength="2">
+<td colspan="4" style="border-bottom: 0"><strong></strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; border-top: 1px solid;">发病率比 (\@ref(irr))</td>
+<td style="text-align: center; border-top: 1px solid;">$\text{IRR} = \dfrac{ E_{\text{treat}}/T_{\text{treat}} }{E_{\text{control}}/T_{\text{control}}}$</td>
+<td style="text-align: center; border-top: 1px solid;">$\text{SE}_{\log \text{IRR}} = \sqrt{\dfrac{1}{E_{\text{treat}}}+\dfrac{1}{E_{\text{control}}}}$</td>
+<td style="text-align: left; font-family: monospace; border-top: 1px solid;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">发病率比 (\@ref(irr))</td>
+<td style="text-align: center;">$\log \text{IRR} = \log_{e}(\text{IRR})$</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left; font-family: monospace;"></td>
+</tr>
+<tr class="even" data-grouplength="1">
+<td colspan="4" style="border-bottom: 0"><strong></strong></td>
+</tr>
+<tr class="odd" data-grouplength="7">
+<td colspan="4" style="background-color: #277DB0; color: #fff"><strong>效应量校正</strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; border-bottom: 1px solid;">小样本偏差 (\@ref(hedges-g))</td>
+<td style="text-align: center; border-bottom: 1px solid;">$g = \text{SMD} \times \left(1-\dfrac{3}{4n-9}\right)$</td>
+<td style="text-align: center; border-bottom: 1px solid;"></td>
+<td style="text-align: left; font-family: monospace; border-bottom: 1px solid;">hedges\_g</td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="4" style="border-bottom: 0"><strong></strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(245, 245, 245, 255) !important;">不可靠性 (\@ref(unrealiable))</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">${r_{xy}}_{c} = \dfrac{r_{xy}}{\sqrt{r_{xx}}}$</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">$\text{SE}_c = \dfrac{\text{SE}}{\sqrt{r_{xx}}}$</td>
+<td style="text-align: left; font-family: monospace; background-color: rgba(245, 245, 245, 255) !important;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; background-color: rgba(245, 245, 245, 255) !important;">不可靠性 (\@ref(unrealiable))</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">${r_{xy}}_{c} = \dfrac{r_{xy}}{\sqrt{r_{xx}}\sqrt{r_{yy}}}$</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">$\text{SE}_c = \dfrac{\text{SE}}{\sqrt{r_{xx}}\sqrt{r_{yy}}}$</td>
+<td style="text-align: left; font-family: monospace; background-color: rgba(245, 245, 245, 255) !important;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; background-color: rgba(245, 245, 245, 255) !important;">不可靠性 (\@ref(unrealiable))</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;">$\text{SMD}_c = \dfrac{\text{SMD}}{\sqrt{r_{xx}}}$</td>
+<td style="text-align: center; background-color: rgba(245, 245, 245, 255) !important;"></td>
+<td style="text-align: left; font-family: monospace; background-color: rgba(245, 245, 245, 255) !important;"></td>
+</tr>
+<tr class="odd" data-grouplength="3">
+<td colspan="4" style="border-bottom: 0"><strong></strong></td>
+</tr>
+<tr class="even">
+<td style="text-align: left; border-top: 1px solid;">范围限制 (\@ref(range))</td>
+<td style="text-align: center; border-top: 1px solid;">$\text{U} = \dfrac{s_{\text{unrestricted}}}{s_{\text{restricted}}}$</td>
+<td style="text-align: center; border-top: 1px solid;">$\text{SE}_{{r_{xy}}_c} = \dfrac{{r_{xy}}_c}{r_{xy}}\text{SE}_{r_{xy}}$</td>
+<td style="text-align: left; font-family: monospace; border-top: 1px solid;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">范围限制 (\@ref(range))</td>
+<td style="text-align: center;">\bgroup\fontsize{6}{8}\selectfont ${r_{xy}}_c = \dfrac{\text{U}\times r_{xy}}{\sqrt{(\text{U}^2-1)r_{xy}^2+1}}$\egroup{}</td>
+<td style="text-align: center;"></td>
+<td style="text-align: left; font-family: monospace;"></td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">范围限制 (\@ref(range))</td>
+<td style="text-align: center;">\bgroup\fontsize{6}{8}\selectfont $\text{SMD}_c = \dfrac{\text{U}\times \text{SMD}}{\sqrt{(\text{U}^2-1)\text{SMD}^2+1}}$\egroup{}</td>
+<td style="text-align: center;">$\text{SE}_{{\text{SMD}}_c} = \dfrac{{\text{SMD}}_c}{\text{SMD}}\text{SE}_{\text{SMD}}$</td>
+<td style="text-align: left; font-family: monospace;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: center;"></td>
+<td style="text-align: left; font-family: monospace;"></td>
+</tr>
+</tbody><tfoot>
+<tr class="even">
+<td style="padding: 0"><sup>1</sup> 点二列相关可以转换为 SMD 进行元分析（参见 \@ref(pb-cors) 章）。</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr class="odd">
+<td style="padding: 0"><sup>*</sup> 合并标准差定义为 $s_{\text{pooled}} = \sqrt{\dfrac{(n_1-1)s^2_1+(n_2-1)s^2_2}{(n_1-1)+(n_2-1)}}$。</td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+</tfoot>
+
+</table>
+
+
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="symbollist" class="level1">
+<h1>符号列表</h1>
+<hr>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div>
+<table class="lightable-classic table table-sm table-striped small" data-quarto-postprocess="true">
+<tbody>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$~$</td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+<td style="text-align: left; width: 1cm;">$~$</td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$a,b,c,d$</td>
+<td style="text-align: left; width: 4cm;">Events in the treatment group, non-events in the treatment group, events in the control group, non-events in the control group.</td>
+<td style="text-align: left; width: 1cm;">$\beta_0, \beta_1, \beta$</td>
+<td style="text-align: left; width: 4cm;">Regression intercept, regression coefficient, Type II error rate.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$c_{\alpha}$</td>
+<td style="text-align: left; width: 4cm;">Critical value assumed for the Type I error rate $\alpha$ (typically 1.96).</td>
+<td style="text-align: left; width: 1cm;">$\mathcal{HC}(x_0,s)$</td>
+<td style="text-align: left; width: 4cm;">Half-Cauchy distribution with location parameter $x_0$ and scaling parameter $s$.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$\chi^2$</td>
+<td style="text-align: left; width: 4cm;">Chi-squared statistic.</td>
+<td style="text-align: left; width: 1cm;">$\text{Cov}(x,y)$</td>
+<td style="text-align: left; width: 4cm;">Covariance of $x$ and $y$.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$d$</td>
+<td style="text-align: left; width: 4cm;">Cohen's $d$ (standardized mean difference).</td>
+<td style="text-align: left; width: 1cm;">$D_g$</td>
+<td style="text-align: left; width: 4cm;">Regression dummy.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$\delta$</td>
+<td style="text-align: left; width: 4cm;">Non-centrality parameter (non-central $t$ distribution).</td>
+<td style="text-align: left; width: 1cm;">d.f.</td>
+<td style="text-align: left; width: 4cm;">Degrees of freedom.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$\epsilon$</td>
+<td style="text-align: left; width: 4cm;">Sampling error.</td>
+<td style="text-align: left; width: 1cm;">$F$</td>
+<td style="text-align: left; width: 4cm;">Snedecor's $F$ statistic (used by the $F$-tests in ANOVAs).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$g$</td>
+<td style="text-align: left; width: 4cm;">Small sample bias-corrected standardized mean difference (Hedges' $g$).</td>
+<td style="text-align: left; width: 1cm;">$I^2$</td>
+<td style="text-align: left; width: 4cm;">Higgins' and Thompson's $I^2$ measure of heterogeneity (percentage of variation not attributable to sampling error).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$\int f(x) dx$</td>
+<td style="text-align: left; width: 4cm;">Integral of $f(x)$.</td>
+<td style="text-align: left; width: 1cm;">$k,K$</td>
+<td style="text-align: left; width: 4cm;">Some study in a meta-analysis, total number of studies in a meta-analysis.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$\kappa$</td>
+<td style="text-align: left; width: 4cm;">True effect of an effect size cluster.</td>
+<td style="text-align: left; width: 1cm;">$MD$, $SMD$</td>
+<td style="text-align: left; width: 4cm;">(Standardized) mean difference (Cohen's $d$).</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$\bar{x}$</td>
+<td style="text-align: left; width: 4cm;">Arithmetic mean (based on an observed sample), identical to $m$.</td>
+<td style="text-align: left; width: 1cm;">$\mu, m$</td>
+<td style="text-align: left; width: 4cm;">(True) population mean, sample mean.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$n,N$</td>
+<td style="text-align: left; width: 4cm;">(Total) sample size of a study.</td>
+<td style="text-align: left; width: 1cm;">$\mathcal{N}(\mu, \sigma^2)$</td>
+<td style="text-align: left; width: 4cm;">Normal distribution with population mean $\mu$ and variance $\sigma^2$.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$\Phi(z)$</td>
+<td style="text-align: left; width: 4cm;">Cumulative distribution function (CDF), where $z$ follows a standard normal distribution.</td>
+<td style="text-align: left; width: 1cm;">$\pi, p$</td>
+<td style="text-align: left; width: 4cm;">True population proportion, proportion based on an observed sample.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$P(\text{X}|\text{Y})$</td>
+<td style="text-align: left; width: 4cm;">Conditional probability of X given Y.</td>
+<td style="text-align: left; width: 1cm;">$\hat\psi$</td>
+<td style="text-align: left; width: 4cm;">(Estimate of) Peto's odds ratio, or some other binary effect size.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$Q$</td>
+<td style="text-align: left; width: 4cm;">Cochran's $Q$ measure of heterogeneity.</td>
+<td style="text-align: left; width: 1cm;">$RR$, $OR$, $IRR$</td>
+<td style="text-align: left; width: 4cm;">风险比，优势比，发病率比。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$\hat{R}$</td>
+<td style="text-align: left; width: 4cm;">R-hat value in Bayesian modeling.</td>
+<td style="text-align: left; width: 1cm;">$R^2_*$</td>
+<td style="text-align: left; width: 4cm;">$R^2$ (explained variance) analog for meta-regression models.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$\rho, r$</td>
+<td style="text-align: left; width: 4cm;">True population correlation, observed correlation.</td>
+<td style="text-align: left; width: 1cm;">$SE$</td>
+<td style="text-align: left; width: 4cm;">Standard error</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$\sigma^2$</td>
+<td style="text-align: left; width: 4cm;">(True) population variance.</td>
+<td style="text-align: left; width: 1cm;">$t$</td>
+<td style="text-align: left; width: 4cm;">Student's $t$ statistic.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$\tau^2, \tau$</td>
+<td style="text-align: left; width: 4cm;">True heterogeneity variance and standard deviation.</td>
+<td style="text-align: left; width: 1cm;">$\theta$</td>
+<td style="text-align: left; width: 4cm;">A true effect size, or the true value of an outcome measure.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$V$, $v$, $s^2$, $\widehat{\text{Var}}(x)$</td>
+<td style="text-align: left; width: 4cm;">Sample variance (of $x$), where $s$ is the standard deviation.</td>
+<td style="text-align: left; width: 1cm;">$w$, $w^*$, $w(x)$</td>
+<td style="text-align: left; width: 4cm;">(Inverse-variance) weight, random-effects weight of an effect size, function that assigns weights to $x$.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left; width: 1cm;">$z$</td>
+<td style="text-align: left; width: 4cm;">Fisher's $z$ or $z$-score.</td>
+<td style="text-align: left; width: 1cm;">$\zeta, u$</td>
+<td style="text-align: left; width: 4cm;">``Error'' due to between-study heterogeneity, random effect in (meta-)regression models.</td>
+</tr>
+<tr class="even">
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;"></td>
+<td style="text-align: left; width: 1cm;"></td>
+<td style="text-align: left; width: 4cm;">$~$</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+<p><strong>注意。</strong> 向量和矩阵以<strong>粗体</strong>书写。例如，我们可以用向量 <span class="math inline">\(\boldsymbol{\hat\theta} = (\hat\theta_1, \hat\theta_2, \dots, \hat\theta_K)^\top\)</span> 表示元分析中所有观察到的效应量，其中 <span class="math inline">\(K\)</span> 是研究总数。<span class="math inline">\(\top\)</span> 符号表示向量是<strong>转置的</strong>。这意味着向量中的元素是垂直排列而不是水平排列。有时需要这样做才能对向量进行进一步的操作，例如将其与另一个矩阵相乘。</p>
+<p><br><br></p>
+</section>
+<section id="attr" class="level1">
+<h1><em>R</em> &amp; 包信息</h1>
+<hr>
+<p><br><br></p>
+<p>本书使用 <em>R</em> 版本 4.2.0（“Vigorous Calisthenics”，2022-04-22）在 macOS Catalina 10.15.4（Apple Darwin 17.0 64-bit x86-64）下编译。本书中使用的包版本如下：</p>
+<pre><code>brms 2.18.0                 clubSandwich 0.5.6
+dmetar 0.0.9000             dplyr 1.0.10             
+esc 0.5.1                   extraDistr 1.9.1            
+forcats 0.5.1               gemtc 0.8-6                 
+ggplot2 3.3.5               ggridges 0.5.2              
+glue 1.4.1                  igraph 1.2.5                
+meta 6.1.0                  metafor 3.8.1              
+metaSEM 1.3.0               metasens 1.5.1              
+netmeta 2.1.0               openxlsx 4.2.5              
+osfr 0.2.8                  PerformanceAnalytics 2.0.4  
+rjags 4-10                  robvis 0.3.0                
+semPlot 1.1.5               stringr 1.4.0               
+tidybayes 2.1.1             tidyverse 1.3.1
+wildmeta 0.1.0</code></pre>
+<p>附加的基础包：</p>
+<pre><code>base 4.2.0        datasets 4.2.0    graphics 4.2.0     
+grDevices 4.2.0   methods 4.2.0     stats 4.2.0
+utils 4.2.0</code></pre>
+<p>区域设置：<code>en_US.UTF-8</code></p>
+<div class="cell" type="boxinfo">
+<div class="boxinfo">
+<p>
+<strong>安装特定包版本</strong>
+</p>
+<p>
+您在运行本指南中呈现的某些代码时遇到问题吗？有时，这是由于您的计算机上安装了<strong>较旧或较新版本的</strong>包引起的。如果是这种情况，安装我们也用于编译本书的包的精确版本可能会有所帮助。有关如何安装 R 包的特定版本的一些有用提示可以在<a href="https://support.posit.co/hc/en-us/articles/219949047-Installing-older-versions-of-packages">此处</a>找到。
+</p>
+</div>
+</div>
+<p><br><br></p>
+<p><strong>归属</strong></p>
+<p>图 @ref(fig:eysenck)：Sirswindon 在 <a href="https://commons.wikimedia.org/wiki/File:Hans.Eysenck.jpg">English Wikipedia</a>, <a href="https://creativecommons.org/licenses/by-sa/3.0">CC BY-SA 3.0</a>, 通过 Wikimedia Commons。从原始图像中降低了饱和度。</p>
+<p><br><br></p>
+</section>
+<section id="corrections" class="level1">
+<h1>更正 &amp; 说明</h1>
+<hr>
+<p>```{block2</p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

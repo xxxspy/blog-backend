@@ -1,0 +1,123 @@
+---
+title: "在 R 中进行 Meta 分析"
+subtitle: "实战指南"
+author: 
+- Mathias Harrer 
+- Pim Cuijpers
+- Toshi A. Furukawa
+- David D. Ebert
+github-repo: "MathiasHarrer/Doing-Meta-Analysis-in-R"
+site: bookdown::bookdown_site
+output: 
+  bookdown::gitbook:
+    config: 
+      toc:
+       collapse: section
+      search: true
+      fontsettings:
+        size: 2
+    split_by: section
+    # includes:
+    #   after_body: banner.html
+    df_print: paged
+    theme: !expr bslib::bs_theme()
+documentclass: book
+bibliography: [book.bib, packages.bib]
+biblio-style: apalike
+link-citations: true
+twitter-handle: MathiasHarrer
+description: "本指南介绍如何在 R 中进行 Meta 分析。"
+favicon: "favicon.ico"
+---
+
+# 资源
+
+这本书是由 Mathias Harrer 撰写的 Meta 分析的入门著作, 本书是开源的, 由 [DataSense](http://mlln.cn) 翻译而来.
+
+- [源码仓库](https://github.com/MathiasHarrer/Doing-Meta-Analysis-in-R)
+- [英文原版](https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/)
+- [中文翻译版](#)
+- [中文原版+数据+markdown源码](https://t.zsxq.com/BRK4q)
+- [咨询+交流平台](https://wx.zsxq.com/group/88888188828842)
+
+# 欢迎! {-}
+
+---
+
+<a href="https://www.routledge.com/Doing-Meta-Analysis-with-R-A-Hands-On-Guide/Harrer-Cuijpers-Furukawa-Ebert/p/book/9780367610074" target="_blank"><img src="images/cover.png" width="250" align="right" alt="" class="cover" /></a> 欢迎来到 **"在 R 中进行 Meta 分析：实战指南"** 的在线版本。
+
+本书旨在作为关于如何在 _R_ 中进行 Meta 分析的简明易懂的入门指南。涵盖了 Meta 分析的关键步骤，包括合并效应量、森林图、异质性诊断、亚组分析、Meta 回归、控制发表偏倚的方法、偏倚风险评估和绘图工具。
+
+本书还涵盖了高级但高度相关的主题，如网络 Meta 分析、多/三层 Meta 分析、贝叶斯 Meta 分析方法和 SEM Meta 分析。
+
+本书中涉及的编程和统计背景知识保持在**非专家级别**。本书的**印刷版**已由 [Chapman & Hall/CRC Press](https://www.routledge.com/Doing-Meta-Analysis-with-R-A-Hands-On-Guide/Harrer-Cuijpers-Furukawa-Ebert/p/book/9780367610074) (Taylor & Francis) 出版。
+
+<br></br>
+
+
+
+## 开源代码库 {-}
+
+---
+
+本书是使用 [**{rmarkdown}**](https://rmarkdown.rstudio.com/docs/) 和 [**{bookdown}**](https://bookdown.org/) 构建的。公式使用 [MathJax](http://docs.mathjax.org/en/latest/index.html) 渲染。我们用于编译本指南的所有材料和源代码都可以在 **GitHub** 上找到。您可以自由地 Fork、分享和重用内容。但是，该存储库主要用作“只读”；一般不考虑 PR（有关联系我们的方式，请参见下面的章节和前言）。
+
+[![GitHub followers](https://img.shields.io/badge/View Repository-100000?style=for-the-badge&logo=github&logoColor=white)](https://github.com/MathiasHarrer/Doing-Meta-Analysis-in-R)
+
+<br></br>
+
+## 如何使用本指南 {-}
+
+---
+
+本教程简要介绍了本指南，以及如何将其用于您自己的 Meta 分析项目。
+
+<center>
+<iframe width="580" height="327" style="border-radius: 5px 5px 5px 5px; box-shadow: 0 0.5rem 1rem rgba(0,0,0,.15);" src="https://www.youtube.com/embed/i1b5c-dVfkU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen>
+</iframe>
+</center>
+
+<br></br>
+
+## 贡献 {-}
+
+---
+
+本指南是一个开源项目，我们要特别感谢我们的专家贡献者，他们在本指南的某些章节中提供了其他内容。
+
+* [**Luke A. McGuinness**](https://twitter.com/mcguinlu), 布里斯托大学：第 15 章，偏倚风险图。
+
+想要自己为本指南做出贡献吗？请随时向 **Mathias** (mathias.harrer@fau.de) 发送电子邮件，告诉我们您提议添加的内容。
+
+<br></br>
+
+## 引用本指南 {-}
+
+---
+
+建议的引用是：
+
+```{block, type='boxempty'}
+Harrer, M., Cuijpers, P., Furukawa, T.A., & Ebert, D.D. (2021). _Doing Meta-Analysis with R: A Hands-On Guide_. Boca Raton, FL and London: Chapman & Hall/CRC Press. ISBN 978-0-367-61007-4.
+```
+
+下载参考文献为 [BibTeX](https://www.protectlab.org/meta-analysis-in-r/data/citation.bib) 或 [.ris](https://www.protectlab.org/meta-analysis-in-r/data/citation.ris)。
+
+<br></br>
+
+## 引用软件包 {-}
+
+---
+
+在本指南中，我们介绍并使用了各种 _R_ 软件包。我们所有人都可以免费使用这些软件包的原因是，世界各地的专家们为此投入了大量的时间和精力进行开发，而且通常是无偿的。如果您在自己的 Meta 分析中使用本书中提到的一些软件包，我们强烈建议您也在报告中引用它们。
+
+在本指南中，每次引入一个新的软件包时，我们也会提供可以通过其引用的参考文献。也可以运行 `citation("package")` 来检索首选参考文献。谢谢！
+
+<br></br>
+
+```{r include=FALSE}
+# automatically create a bib database for R packages
+knitr::write_bib(c(
+  .packages(), 'bookdown', 'knitr', 'rmarkdown'
+), 'packages.bib')
+```

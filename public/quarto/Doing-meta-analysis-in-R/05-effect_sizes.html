@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Meta 分析</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R Meta 分析</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.rmd"> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./daizuo.html"> 
+<span class="menu-text">Meta 代做</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-effect_sizes.html">效应量</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前言</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">作者</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">介绍</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-discovering_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发现R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-effect_sizes.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-pooling_effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">合并效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-heterogeneity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">异质性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-forestplots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">森林图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-subgroup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">亚组分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-metareg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Meta回归</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-publication-bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发表偏倚</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-mlma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">多元Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-sem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">结构方程模型</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-netwma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">网络Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-bayesianma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">贝叶斯Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-power-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">功效分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-risk-of-bias-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏倚风险图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-reporting-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">报告与可重复性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-effect-size-calculation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量计算</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">附录</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./98-cite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">引用</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#-" id="toc--" class="nav-link active" data-scroll-target="#-">R语言Meta分析</a></li>
+  <li><a href="#effects" id="toc-effects" class="nav-link" data-scroll-target="#effects">效应量</a>
+  <ul class="collapse">
+  <li><a href="#what-is-es" id="toc-what-is-es" class="nav-link" data-scroll-target="#what-is-es">什么是效应量？</a></li>
+  <li><a href="#single-group-es" id="toc-single-group-es" class="nav-link" data-scroll-target="#single-group-es">观察性设计中的度量和效应量</a>
+  <ul class="collapse">
+  <li><a href="#means" id="toc-means" class="nav-link" data-scroll-target="#means">均值</a></li>
+  <li><a href="#props" id="toc-props" class="nav-link" data-scroll-target="#props">比例</a></li>
+  <li><a href="#cors" id="toc-cors" class="nav-link" data-scroll-target="#cors">相关性</a></li>
+  </ul></li>
+  <li><a href="#effect-sizes-in-control-group-designs" id="toc-effect-sizes-in-control-group-designs" class="nav-link" data-scroll-target="#effect-sizes-in-control-group-designs">实验设计中的效应量</a>
+  <ul class="collapse">
+  <li><a href="#s-md" id="toc-s-md" class="nav-link" data-scroll-target="#s-md">(标准化) 均值差</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="-" class="level1">
+<h1>R语言Meta分析</h1>
+</section>
+<section id="effects" class="level1">
+<h1>效应量</h1>
+<hr>
+<p><img src="_figs/effect_sizes.jpg"></p>
+<p><br><br></p>
+<p><span class="firstcharacter">在</span> 上一章节中，我们已经熟悉了 <em>R</em> 语言，并且学习了一些导入和操作数据的实用工具。本书的第二部分，我们可以在学习元分析中使用的核心统计技术的同时，应用和扩展我们的 <em>R</em> 语言知识。</p>
+<p></p>
+<p>在第 @ref(what-are-mas) 章中，我们将元分析定义为一种总结多个研究的定量结果的技术。在元分析中，研究本身而不是个体成为我们分析的基本单位。</p>
+<p>这引入了新的问题。在一项初步研究中，通常很容易计算<strong>汇总统计量</strong>，通过这些统计量我们可以描述我们收集的数据。例如，通常在初步研究中计算连续结果的<strong>算术均值</strong> <span class="math inline">\(\bar{x}\)</span> 和<strong>标准差</strong> <span class="math inline">\(s\)</span>。</p>
+<p>然而，这只有在初步研究中满足一个基本先决条件时才有可能：我们知道结果变量在所有研究对象中都是<strong>以相同的方式测量的</strong>。对于元分析，通常不满足这个假设。想象一下，我们想要进行一项元分析，其中我们感兴趣的结果是八年级学生的数学技能。即使我们应用严格的纳入标准（参见第 @ref(research-question) 章），也很可能不是每个研究都使用完全相同的测试来衡量数学技能；有些甚至可能只报告通过或未通过测试的学生比例。这使得直接定量综合结果几乎不可能。</p>
+<p>为了进行元分析，我们必须找到一个可以在所有研究中进行汇总的<strong>效应量</strong>。有时，这种效应量可以直接从出版物中提取；更多时候，我们必须从研究中报告的其他数据中计算出来。所选的效应量度量可以对元分析的结果及其可解释性产生重大影响。因此，它们应该满足一些重要的标准 <span class="citation" data-cites="lipsey2001practical higgins2019cochrane">[@lipsey2001practical; @higgins2019cochrane]</span>。特别是，元分析中选择的效应量度量应该：</p>
+<ul>
+<li><p><strong>可比较</strong>。重要的是，效应量度量在所有研究中具有相同的含义。让我们再次以数学技能为例。当研究使用不同的测试时，将数学测试中实验组和控制组之间的得分差异进行合并是没有意义的。例如，测试的难度等级或可以获得的最大分数可能不同。</p></li>
+<li><p><strong>可计算</strong>。只有当可以从初步研究中推导出其数值时，我们才能将效应量度量用于我们的元分析。必须可以根据所有纳入研究的数据计算出效应量。</p></li>
+<li><p><strong>可靠</strong>。即使可以计算所有纳入研究的效应量，我们也必须能够对其进行<strong>统计合并</strong>。要将某些度量用于元分析中，至少必须能够计算<strong>标准误</strong>（参见下一章）。同样重要的是，效应量的格式适合于我们想要应用的元分析技术，并且不会导致我们估计中的错误或偏差。</p></li>
+<li><p><strong>可解释</strong>。我们选择的效应量类型应适合于回答我们的研究问题。例如，如果我们对两个连续变量之间关联的强度感兴趣，通常使用相关性来表达效应的大小。解释相关性的幅度相对简单，并且许多研究人员可以理解它们。在接下来的章节中，我们将了解到，有时不可能使用既易于解释<strong>又</strong>适合我们统计计算的结果度量。在这种情况下，有必要在合并效应量之前将其转换为具有更好数学性质的格式。</p></li>
+</ul>
+<p>您很可能之前已经遇到过“效应量”这个术语。我们也在这里使用了这个词，但没有过多关注它到底代表什么。因此，在下一节中，我们应该探讨当我们谈论“效应量”时，我们实际指的是什么。</p>
+<p><br><br></p>
+<section id="what-is-es" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-es">什么是效应量？</h2>
+<hr>
+<p>在本书中使用的术语中，效应量被定义为量化两个实体之间关系的度量。它捕捉了这种关系的<strong>方向</strong>和<strong>大小</strong>。如果关系以相同的效应量表示，则可以比较它们。</p>
+<p> </p>
+<p>我们想在此强调，这只是定义效应量含义的<strong>一种</strong>方式。效应量的定义可以更广泛或更狭窄，并且不同的人使用该术语的方式也不同 <span class="citation" data-cites="borenstein2011introduction">[@borenstein2011introduction, 第 3 章]</span>。有些研究人员只在提及干预研究的结果时才谈论效应量，这些研究通常表示为治疗组和对照组之间的差异（参见第 @ref(s-md) 章）。使用这种概念化，“效应量”是指治疗的效果，以及这种效果有多大。</p>
+<p>我们认为，这是一个相当狭隘的定义。不仅治疗可以对某些变量产生影响；效果也可以在没有任何直接人为干预的情况下<strong>自然</strong>出现。例如，社会人口变量（如父母的收入和教育）可能会对其子女的教育程度产生影响。相关性描述了我们通过一个变量的值预测另一个变量的值的能力，也可以被视为一种效应量。</p>
+<p>另一方面，说我们可以合并作为元分析一部分的所有内容都自动成为效应量可能有点过分。正如我们将要了解的，有一些<strong>中心趋势</strong>的度量，例如样本均值，也可以在元分析中使用。但是，单独的样本均值不能量化两种现象之间的关系，并且没有“效应”。尽管如此，在本书中，我们经常使用“效应量”这个词作为<strong>以部分代整体</strong>，代表实际效应的估计值，以及“单变量”和中心趋势度量。我们这样做不是因为这很准确，而是因为它更方便。</p>
+<p>其他人完全不赞成使用“效应量”这个术语。他们强调，“效应量”中的“效应”一词表明存在<strong>因果</strong>关系。然而，我们都知道<strong>相关性不是因果关系</strong>，并且干预组和对照组之间的差异不一定由治疗本身引起。最终，由您来决定您喜欢哪个定义，但请注意，当人们谈论效应量时，他们可能心中有不同的概念化。</p>
+<p></p>
+<p>在数学符号中，通常使用希腊字母 <strong>theta</strong> (<span class="math inline">\(\theta\)</span>) 作为 <strong>真实</strong> 效应量的符号<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。更准确地说，<span class="math inline">\(\theta_k\)</span> 代表研究 <span class="math inline">\(k\)</span> 的真实效应量。重要的是，真实效应量与我们在研究发表的结果中发现的<strong>观察到的效应量</strong>不相同。观察到的效应量只是真实效应量的<strong>估计值</strong>。通常使用 <strong>帽子</strong> (^) 符号来澄清我们所指的实体只是一个估计值。因此，研究 <span class="math inline">\(k\)</span> 中观察到的效应量，我们对真实效应量的估计，可以写成 <span class="math inline">\(\hat\theta_k\)</span>。</p>
+<p>但是，为什么 <span class="math inline">\(\hat\theta_k\)</span> 与 <span class="math inline">\(\theta_k\)</span> 不同？它的不同是因为<strong>抽样误差</strong>，可以表示为 <span class="math inline">\(\epsilon_k\)</span>。在每个初步研究中，研究人员只能从整个总体中抽取一个小样本。例如，当我们想要检查定期锻炼对初级保健患者心血管健康的好处时，我们将只能包括一小部分患者，而不是世界上<strong>所有</strong>的初级保健患者。研究只能从无限大的总体中抽取小样本这一事实意味着观察到的效应将与真实的总体效应不同。</p>
+<p>简而言之，<span class="math inline">\(\hat\theta_k\)</span> 因此与 <span class="math inline">\(\theta_k\)</span> 加上一些抽样误差 <span class="math inline">\(\epsilon_k\)</span> 相同<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
+<p><span class="math display">\[\begin{align}
+\hat\theta_k = \theta_k + \epsilon_k
+(\#eq:es1)
+\end{align}\]</span></p>
+<p>显然，我们希望研究 <span class="math inline">\(k\)</span> 的效应量估计值 <span class="math inline">\(\hat\theta_k\)</span> 尽可能接近真实的效应量，并且 <span class="math inline">\(\epsilon_k\)</span> 尽可能小。在其他条件相同的情况下，我们可以假设具有较小 <span class="math inline">\(\epsilon\)</span> 的研究将提供更<strong>精确</strong>的真实效应量估计值。元分析方法会考虑效应量估计值的精确程度（参见第 @ref(pooling-es) 章）。在合并不同研究的结果时，它们会赋予具有更大精确度（即更少抽样误差）的效应更高的权重，因为它们是真实效应的更好估计量 <span class="citation" data-cites="hedges2014statistical">[@hedges2014statistical]</span>。</p>
+<p>但是我们如何知道抽样误差有多大？不出所料，研究的真实效应 <span class="math inline">\(\theta_k\)</span> 是未知的，因此 <span class="math inline">\(\epsilon_k\)</span> 也是未知的。然而，通常我们可以使用统计理论来近似抽样误差。量化 <span class="math inline">\(\epsilon\)</span> 的一种常见方法是通过<strong>标准误</strong> (<span class="math inline">\(SE\)</span>)。标准误定义为<strong>抽样分布</strong>的标准差。抽样分布是我们从总体中<strong>多次</strong>抽取具有相同样本大小 <span class="math inline">\(n\)</span> 的随机样本时获得的度量的分布。</p>
+<p>我们可以通过在 <em>R</em> 中模拟数据来使这更具体。我们可以假装使用 <code>rnorm</code> 函数从更大的总体中抽取随机样本。此函数允许我们从<strong>正态</strong>分布中抽取<strong>随机</strong>样本，因此得名。<code>rnorm</code> 函数模拟了一个“完美世界”，在其中我们<strong>知道</strong>值如何在真实总体中分布，并允许我们抽取样本。</p>
+<p>该函数采用三个参数：<code>n</code>，我们希望在样本中拥有的观测数；<code>mean</code>，总体的<strong>真实</strong>均值；以及 <code>sd</code>，<strong>真实</strong>标准差。<code>rnorm</code> 函数具有随机分量，因此为了使结果可重现，我们必须首先设置一个<strong>种子</strong>。这可以使用 <code>set.seed</code> 函数来完成，我们必须为其提供一个数字。对于我们的示例，我们选择将种子设置为 <code>123</code>。此外，我们想模拟我们总体的真实均值为 <span class="math inline">\(\mu =\)</span> 10，真实标准差为 <span class="math inline">\(\sigma =\)</span> 2，并且我们的样本由 <span class="math inline">\(n=\)</span> 50 个随机选择的观测值组成，我们将其保存在名称 <code>sample</code> 下。</p>
+<p>这是我们的代码的样子：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>现在，我们可以计算样本的均值。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 10.06881</code></pre>
+</div>
+</div>
+<p></p>
+<p>我们看到均值为 <span class="math inline">\(\bar{x} =\)</span> 10.07，这已经非常接近我们总体中的真实值。现在可以通过重复我们在这里所做的事情 - 抽取一个随机样本并计算其均值 - <strong>无数次</strong>来创建抽样分布。为了为您模拟此过程，我们执行了之前 1000 次的步骤。</p>
+<p>图 @ref(fig:samplingdist) 中的直方图显示了结果。我们可以看到，样本的均值非常类似于均值为 10 的正态分布。如果我们抽取更多样本，均值的分布将更接近正态分布。这个想法在统计学最基本的原则之一中得到表达，即<strong>中心极限定理</strong> <span class="citation" data-cites="aronow2019foundations">[@aronow2019foundations, 第 3.2.4 章]</span>。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05-effect_sizes_files/figure-html/samplingdist-1.png" class="img-fluid figure-img" style="width:70.0%"></p>
+<figcaption>“抽样分布” 均值（1000 个样本）。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>标准误定义为此抽样分布的标准差。因此，我们计算了 1000 个模拟均值的标准差，以获得标准误的近似值。结果是 <span class="math inline">\(SE =\)</span> 0.267。</p>
+<p>正如我们之前提到的，我们不能简单地通过模拟真实的抽样分布来计算现实生活中的标准误。但是，有一些基于统计理论的公式允许我们计算标准误的估计值，即使我们仅限于一个观察到的样本 - 我们通常是这样。<strong>均值</strong>的标准误的计算公式定义如下：</p>
+<p><span class="math display">\[\begin{align}
+SE = \frac{s}{\sqrt{n}}
+(\#eq:es2)
+\end{align}\]</span></p>
+<p>它将标准误定义为样本的标准差 <span class="math inline">\(s\)</span>，除以样本大小 <span class="math inline">\(n\)</span> 的平方根。使用此公式，我们可以轻松地使用 <em>R</em> 计算之前 <code>sample</code> 对象的标准误。请记住，我们的随机样本的大小为 <span class="math inline">\(n =\)</span> 50。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(sample)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2618756</code></pre>
+</div>
+</div>
+<p>如果我们将此值与我们在抽样分布模拟中找到的值进行比较，我们会发现它们几乎相同。仅使用我们手头的样本，我们可以非常准确地使用公式估计标准误。</p>
+<p>在公式 3.2 中，我们可以看到均值的标准误取决于研究的样本大小。当 <span class="math inline">\(n\)</span> 变大时，标准误变小，这意味着研究对真实总体均值的估计变得更加精确。</p>
+<p>为了举例说明这种关系，我们进行了另一次模拟。同样，我们使用了 <code>rnorm</code> 函数，并假设真实总体均值为 <span class="math inline">\(\mu =\)</span> 10，<span class="math inline">\(\sigma =\)</span> 2。但是这次，我们改变了样本大小，从 <span class="math inline">\(n =\)</span> 2 到 <span class="math inline">\(n =\)</span> 500。对于每次模拟，我们都使用公式 3.2 计算了均值和标准误。</p>
+<div class="cell">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="05-effect_sizes_files/figure-html/simulse-1.png" class="img-fluid figure-img" width="672"></p>
+<figcaption>样本均值和标准误是样本大小的函数。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>图 @ref(fig:simulse) 显示了结果。我们可以看到，均值看起来像一个<strong>漏斗</strong>：随着样本大小的增加，均值估计变得越来越精确，并向 10 收敛。这种精确度的提高由标准误表示：随着样本大小的增加，标准误变得越来越小。</p>
+<p>我们现在已经探索了进行元分析所需的基本要素：（1）观察到的效应量或结果度量，以及（2）其精确度，以标准误表示。如果可以从已发表的研究中计算出这两种类型的信息，那么通常也可以执行元分析综合（参见第 @ref(pooling-es) 章）。</p>
+<p>在我们的模拟中，我们使用了变量的均值作为示例。重要的是要理解，我们在上面看到的属性也可以在其他结果度量中找到，包括常用的效应量。如果我们计算样本中的均值<strong>差异</strong>而不是均值，则此均值差异将表现出类似形状的抽样分布，并且随着样本大小的增加，均值差异的标准误也会降低（前提是标准差保持不变）。对于（Fisher 的 <span class="math inline">\(z\)</span> 转换的）相关性，例如，也是如此。</p>
+<p>在以下各节中，我们将介绍元分析中最常用的效应量和结果度量。这些效应量度量如此频繁使用的一个原因是它们满足了我们在本章开头定义的两个标准：它们是<strong>可靠的</strong>和<strong>可计算的</strong>。</p>
+<p>在公式 3.2 中，我们描述了如何计算均值的标准误，但此公式<strong>只能</strong>直接应用于<strong>均值</strong>。对于其他效应量和结果度量，需要不同的公式来计算标准误。对于我们在此处介绍的效应量度量，幸运的是，这些公式存在，我们将向您展示所有这些公式。<a href="#formula">附录</a> 中也可以找到这些公式的集合。其中一些公式有些复杂，但好消息是我们几乎不必手动计算标准误。<em>R</em> 中有各种函数可以为我们完成繁重的工作。</p>
+<p>在以下部分中，我们不仅要提供对不同效应量度量的理论讨论。我们还将向您展示必须在数据集中准备哪种信息，以便我们稍后使用的 <em>R</em> 元分析函数可以轻松地为我们计算效应量。</p>
+<p>我们根据效应量通常出现的<strong>研究设计</strong>类型对效应量进行分组：<strong>观察性设计</strong>（例如，自然主义研究或调查）和<strong>实验性设计</strong>（例如，对照临床试验）。请注意，这只是一种粗略的分类，而不是严格的规则。我们提供的许多效应量在技术上适用于任何类型的研究设计，只要结果数据的类型适合即可。</p>
+<p><br><br></p>
+</section>
+<section id="single-group-es" class="level2">
+<h2 class="anchored" data-anchor-id="single-group-es">观察性设计中的度量和效应量</h2>
+<hr>
+<section id="means" class="level3">
+<h3 class="anchored" data-anchor-id="means">均值</h3>
+<hr>
+<p></p>
+<p><strong>算术均值</strong>可能是最常用的中心趋势度量。尽管均值很少用作结果度量，但可以很容易地在元分析中合并它们。例如，可以通过合并几个具有代表性的研究来调查男性的平均身高，以厘米或英寸表示。</p>
+<p>算术均值 <span class="math inline">\(\bar{x}\)</span> 的计算方法是将样本中的所有单个值 <span class="math inline">\(x_i\)</span> 相加，然后将总和除以样本大小。</p>
+<p><span class="math display">\[\begin{equation}
+\bar{x} = \frac{\sum^{n}_{i=1}x_i}{n}
+(\#eq:es3)
+\end{equation}\]</span></p>
+<p>我们已经介绍了如何计算均值的标准误（参见第 @ref(what-is-es) 章）。我们只需将样本标准差 <span class="math inline">\(s\)</span> 除以样本大小的平方根即可。</p>
+<p><span class="math display">\[\begin{equation}
+SE_{\bar{x}} = \frac{s}{\sqrt{n}}
+(\#eq:es4)
+\end{equation}\]</span></p>
+<p>正如我们之前所见，均值及其标准误很容易在 <em>R</em> 中计算。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 为了可重现性，将种子设置为 123</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># 并抽取一个随机样本 (n=50)。</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>sample <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">50</span>, <span class="at">mean =</span> <span class="dv">20</span>, <span class="at">sd =</span> <span class="dv">5</span>)</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 计算均值</span></span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(sample)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 20.17202</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 计算标准误</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(sample)<span class="sc">/</span><span class="fu">sqrt</span>(<span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.6546889</code></pre>
+</div>
+</div>
+<p>要进行均值的元分析，我们的数据集应至少包含以下列：</p>
+<ul>
+<li><strong><code>n</code></strong>。研究中的观测数（样本大小）。</li>
+<li><strong><code>mean</code></strong>。研究中报告的均值。</li>
+<li><strong><code>sd</code></strong>。研究中报告的变量的标准差。</li>
+</ul>
+<p><br><br></p>
+</section>
+<section id="props" class="level3">
+<h3 class="anchored" data-anchor-id="props">比例</h3>
+<hr>
+<p></p>
+<p><strong>比例</strong>是另一种类型的中心趋势度量。它指定样本中有多少单位属于某个子组。比例可以取 0 到 1 之间的值，乘以 100 可以转换为<strong>百分比</strong>。例如，当我们想要检查给定时间点疾病的患病率时，比例可以用作结果度量。要计算比例 <span class="math inline">\(p\)</span>，我们必须将属于特定子组的个体数 <span class="math inline">\(k\)</span> 除以总样本大小 <span class="math inline">\(n\)</span>。</p>
+<p><span class="math display">\[\begin{equation}
+p = \frac{k}{n}
+(\#eq:es5)
+\end{equation}\]</span></p>
+<p>比例的标准误可以这样计算：</p>
+<p><span class="math display">\[\begin{equation}
+SE_{p} = \sqrt{\frac{p(1-p)}{n}}
+(\#eq:es6)
+\end{equation}\]</span></p>
+<p>我们可以使用此代码在 <em>R</em> 中计算比例及其标准误：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 我们为 k 和 n 定义以下值：</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">25</span></span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>n <span class="ot">&lt;-</span> <span class="dv">125</span></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 计算比例</span></span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>p <span class="ot">&lt;-</span> k<span class="sc">/</span>n</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a>p</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 计算标准误</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>((p<span class="sc">*</span>(<span class="dv">1</span><span class="sc">-</span>p))<span class="sc">/</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.03577709</code></pre>
+</div>
+</div>
+<p> </p>
+<p>比例的范围限制在 0 到 1 之间的事实可能存在问题 <span class="citation" data-cites="lipsey2001practical">[@lipsey2001practical, 第 3 章]</span>。当 <span class="math inline">\(p\)</span> 接近 0 或接近 1 时，标准误会被人为压缩，这导致我们高估了比例估计的精确度。</p>
+<p>这与抽样分布有关。当 <span class="math inline">\(p\)</span> 的值非常低或非常高时，抽样分布将不会像图 @ref(fig:samplingdist) 中那样近似为正态分布。分布将<strong>右偏</strong>或<strong>左偏</strong>，因为随机样本不可能具有 0-1 范围之外的计算比例。</p>
+<p>为了避免这种情况，比例通常在合并之前进行 <strong>logit</strong> 转换。Logit 转换首先涉及计算<strong>比值</strong>（参见第 @ref(or) 章）。比值定义为属于特定类别的参与者比例，除以不属于该类别的单位比例。</p>
+<p>然后使用自然对数函数 <span class="math inline">\(\log_e\)</span> 将比值转换为 <span class="math inline">\(p=\)</span> 0.5 等于 0 的值且没有范围限制的格式。这确保了抽样分布近似为正态分布，并且标准误没有偏差。</p>
+<p>Logit 转换比例及其标准误的计算可以使用以下公式 <span class="citation" data-cites="lipsey2001practical">[@lipsey2001practical, 第 3 章]</span><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>：</p>
+<p><span class="math display">\[\begin{equation}
+p_{\text{logit}} = \log_{e} \left(\frac{p}{1-p}\right)
+(\#eq:es7)
+\end{equation}\]</span></p>
+<p><span class="math display">\[\begin{equation}
+SE_{p_{\text{logit}}} = \sqrt{\frac{1}{np}+\frac{1}{n(1-p)}}
+(\#eq:es8)
+\end{equation}\]</span></p>
+<p>幸运的是，我们可以在 <em>R</em> 中使用的元分析函数会自动为我们执行此 Logit 转换。因此，我们只需要在数据集中准备以下列：</p>
+<ul>
+<li><strong><code>event</code></strong>。属于特定子组的观测数 (<span class="math inline">\(k\)</span>)。</li>
+<li><strong><code>n</code></strong>。总样本大小 <span class="math inline">\(n\)</span>。</li>
+</ul>
+<p><br><br></p>
+</section>
+<section id="cors" class="level3">
+<h3 class="anchored" data-anchor-id="cors">相关性</h3>
+<hr>
+<section id="pearson-cors" class="level4">
+<h4 class="anchored" data-anchor-id="pearson-cors">Pearson 积矩相关</h4>
+<hr>
+<p> </p>
+<p>相关性是一种表达两个变量之间<strong>协方差</strong>量的效应量。最常见的形式是 <strong>Pearson 积矩相关</strong><a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>，它可以为两个连续变量计算。例如，当元分析师想要检查关系质量和幸福感之间的关系时，可以使用积矩相关作为效应量。</p>
+<p>变量 <span class="math inline">\(x\)</span> 和变量 <span class="math inline">\(y\)</span> 之间的相关性 <span class="math inline">\(r_{xy}\)</span> 定义为 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 的<strong>协方差</strong> <span class="math inline">\(\text{Cov}(x,y)=\sigma^{2}_{xy}\)</span>，除以其标准差 <span class="math inline">\(\sigma_x\)</span> 和 <span class="math inline">\(\sigma_y\)</span> 的<strong>乘积</strong>。</p>
+<p><span class="math display">\[\begin{equation}
+r_{xy} = \frac{\sigma^{2}_{xy}}{\sigma_x \sigma_y}
+(\#eq:es9)
+\end{equation}\]</span></p>
+<p>使用样本大小 <span class="math inline">\(n\)</span>，可以这样计算 <span class="math inline">\(r_{xy}\)</span> 的标准误：</p>
+<p><span class="math display">\[\begin{equation}
+SE_{r_{xy}} = \frac{1-r_{xy}^2}{\sqrt{n-2}}
+(\#eq:es10)
+\end{equation}\]</span></p>
+<p>在计算积矩相关时，我们通过两个变量的标准差来标准化两个变量之间的协方差。这意味着如果两个或多个研究在同一尺度上测量一个结构，那么它的相关性就会降低；一旦我们计算出相关性，就可以自动比较效应。</p>
+<p>相关性可以取 -1 和 1 之间的值。相关性的大小通常使用 Cohen <span class="citation" data-cites="cohen1988statistical">[-@cohen1988statistical]</span> 的约定来解释：</p>
+<ul>
+<li><span class="math inline">\(r \approx\)</span> 0.10：小效应。</li>
+<li><span class="math inline">\(r \approx\)</span> 0.30：中等效应。</li>
+<li><span class="math inline">\(r \approx\)</span> 0.50：大效应。</li>
+</ul>
+<p>但是，应该注意的是，这些约定充其量可以被视为经验法则。通常最好根据主题和先前的研究将相关性量化为小或大。</p>
+<p> </p>
+<p>不幸的是，像比例（第 @ref(props) 章）一样，相关性在其范围内受到限制，并且当我们估计小样本研究的标准误时，可能会引入偏差 <span class="citation" data-cites="alexander1989statistical">[@alexander1989statistical]</span>。</p>
+<p>因此，在元分析中，相关性通常转换为 <strong>Fisher 的</strong> <span class="math inline">\(z\)</span><a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>。像 Logit 转换一样，这还需要使用自然对数函数来确保抽样分布近似为正态分布（有关更详细的说明，请参见第 @ref(ratios) 章）。公式如下：</p>
+<p><span class="math display">\[\begin{equation}
+z = 0.5\log_{e}\left(\frac{1+r}{1-r}\right)
+(\#eq:es11)
+\end{equation}\]</span></p>
+<p>如果我们知道样本大小 <span class="math inline">\(n\)</span>，则可以通过以下公式获得 Fisher 的 <span class="math inline">\(z\)</span> 的近似标准误 <span class="citation" data-cites="olkin1995correlations">[@olkin1995correlations]</span>：</p>
+<p><span class="math display">\[\begin{equation}
+SE_{z} = \frac{1}{\sqrt{n-3}}
+(\#eq:es12)
+\end{equation}\]</span></p>
+<p>我们也可以使用 <code>cor</code> 和 <code>log</code> 函数直接在 <em>R</em> 中计算 <span class="math inline">\(r_{xy}\)</span> 和 <span class="math inline">\(z\)</span>。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 模拟两个连续变量 x 和 y</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">12345</span>)</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>x <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="dv">50</span>, <span class="dv">10</span>)</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>y <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="dv">20</span>, <span class="dv">10</span>, <span class="dv">3</span>)</span>
+<span id="cb14-5"><a href="#cb14-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb14-6"><a href="#cb14-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 计算 x 和 y 之间的相关性</span></span>
+<span id="cb14-7"><a href="#cb14-7" aria-hidden="true" tabindex="-1"></a>r <span class="ot">&lt;-</span> <span class="fu">cor</span>(x,y)</span>
+<span id="cb14-8"><a href="#cb14-8" aria-hidden="true" tabindex="-1"></a>r</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2840509</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 计算 Fisher 的 z</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>z <span class="ot">&lt;-</span> <span class="fl">0.5</span><span class="sc">*</span><span class="fu">log</span>((<span class="dv">1</span><span class="sc">+</span>r)<span class="sc">/</span>(<span class="dv">1</span><span class="sc">-</span>r))</span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>z</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2920831</code></pre>
+</div>
+</div>
+<p>谢天谢地，在 <em>R</em> 中进行相关性元分析时，我们不必手动执行 Fisher 的 <span class="math inline">\(z\)</span> 转换。我们只需要在数据集中添加以下列：</p>
+<ul>
+<li><strong><code>cor</code></strong>。研究的（未转换的）相关系数。</li>
+<li><strong><code>n</code></strong>。研究的样本大小。</li>
+</ul>
+<p><br><br></p>
+</section>
+<section id="pb-cors" class="level4">
+<h4 class="anchored" data-anchor-id="pb-cors">点二列相关</h4>
+<hr>
+<p> </p>
+<p>Pearson 积矩相关描述了两个连续变量之间的关系。如果只有一个变量 <span class="math inline">\(y\)</span> 是连续的，而另一个变量 <span class="math inline">\(x\)</span> 是二分的（即仅取两个值），则可以计算 <strong>点二列相关</strong>，该相关性表示 <span class="math inline">\(y\)</span> 可以从 <span class="math inline">\(x\)</span> 中的组成员资格预测的程度。</p>
+<p>可以使用以下公式计算点二列相关：</p>
+<p><span class="math display">\[\begin{equation}
+{r_{pb}}= \frac{(\bar{y_1}-\bar{y_2})\sqrt{p_1(1-p_1)}}{s_y}
+(\#eq:es13)
+\end{equation}\]</span></p>
+<p>在此公式中，<span class="math inline">\(\bar{y_1}\)</span> 是仅考虑二分变量 <span class="math inline">\(x\)</span> 的第一组时连续变量的均值，<span class="math inline">\(\bar{y_2}\)</span> 是仅考虑 <span class="math inline">\(x\)</span> 的第二组时的均值；<span class="math inline">\(p_1\)</span> 是属于 <span class="math inline">\(x\)</span> 中第 1 组的案例比例，<span class="math inline">\(s_y\)</span> 是 <span class="math inline">\(y\)</span> 的标准差。</p>
+<p>可以使用 <code>cor</code> 函数在 <em>R</em> 中计算点二列相关（参见上一节）。如果其中一个提供的变量仅采用两个值，而另一个是连续的，则会自动计算（近似）点二列相关。</p>
+<p></p>
+<p>点二列相关与<strong>标准化均值差</strong>非常相似，我们将在后面介绍（第 @ref(b-group-smd) 章）。两种效应量度量都量化了连续变量的值在两组之间的差异程度。然而，在元分析中合并点二列相关并不常见。像积矩相关一样，点二列相关对于元分析具有不良的统计特性，例如当组比例不相等时，范围会受到限制 <span class="citation" data-cites="bonett2019point">[@bonett2019point]</span>。</p>
+<p>因此，当我们对连续结果变量的组间差异感兴趣时，建议将点二列相关转换为标准化均值差以进行元分析 <span class="citation" data-cites="lipsey2001practical">[@lipsey2001practical, 第 3 章]</span>。本书“实用工具”部分的第 @ref(convert-corr) 章中可以找到将点二列相关转换为标准化均值差的公式。</p>
+<p><br><br></p>
+</section>
+</section>
+</section>
+<section id="effect-sizes-in-control-group-designs" class="level2">
+<h2 class="anchored" data-anchor-id="effect-sizes-in-control-group-designs">实验设计中的效应量</h2>
+<hr>
+<section id="s-md" class="level3">
+<h3 class="anchored" data-anchor-id="s-md">(标准化) 均值差</h3>
+<hr>
+<section id="b-group-md" class="level4">
+<h4 class="anchored" data-anchor-id="b-group-md">组间均值差</h4>
+<hr>
+<p><strong>组间均值差</strong> <span class="math inline">\(\text{MD}_{\text{between}}\)</span> 定义为两个<strong>独立</strong>组之间均值的原始、未标准化的差异。当研究至少包含两组时，可以计算组间均值差，这通常是受控试验或其他类型的实验研究的情况。在元分析中，只有当<strong>所有</strong>研究都在<strong>完全</strong>相同的尺度上测量感兴趣的结果时，才能使用均值差。例如，在科学研究中，体重几乎总是以千克为单位测量；在糖尿病学中，HbA<span class="math inline">\(_{\text{1c}}\)</span> 值通常用于测量血糖。</p>
+<p>均值差定义为组 1 的均值 <span class="math inline">\(\bar{x}_1\)</span> 减去组 2 的均值 <span class="math inline">\(\bar{x}_2\)</span>：</p>
+<p><span class="math display">\[\begin{equation}
+\text{MD}_{\text{between}} = \bar{x}_1 - \bar{x}_2
+(\#eq:es14)
+\end{equation}\]</span></p>
+<p>可以使用以下公式获得标准误：</p>
+<p><span class="math display">\[\begin{equation}
+SE_{\text{MD}_{\text{between}}} = s_{\text{pooled}}\sqrt{\frac{1}{n_1}+\frac{1}{n_2}}
+(\#eq:es15)
+\end{equation}\]</span></p>
+<p></p>
+<p>在该公式中，<span class="math inline">\(n_1\)</span> 代表组 1 中的样本大小，<span class="math inline">\(n_2\)</span> 代表组 2 中的样本大小，<span class="math inline">\(s_{\text{pooled}}\)</span> 代表两组的<strong>合并标准差</strong>。使用组 1 的标准差 (<span class="math inline">\(s_1\)</span>) 和组 2 的标准差 (<span class="math inline">\(s_2\)</span>)，可以这样计算 <span class="math inline">\(s_{\text{pooled}}\)</span> 的值：</p>
+<p><span class="math display">\[\begin{align}
+s_{\text{pooled}} = \sqrt{\frac{(n_1-1)s^2_1+(n_2-1)s^2_2}{(n_1-1)+(n_2-1)}}
+(\#eq:es16)
+\end{align}\]</span></p>
+<p>现在是提供一个示例的时候了，说明我们如何在 <em>R</em> 中计算均值差及其标准误。第一步，我们将模拟一些数据。我们在这里只这样做，以便我们有一些合理的值可以使用。在真正的元分析中，<code>x1</code> 和 <code>x2</code> 的均值以及它们的标准差 <code>s1</code> 和 <code>s2</code> 是我们希望可以从已发表的论文中提取的东西，与组样本大小 <code>n1</code> 和 <code>n2</code> 相同。因此，您不必太担心第一部分。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 生成具有不同总体均值的两个随机变量</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>x1 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">mean =</span> <span class="dv">10</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>x2 <span class="ot">&lt;-</span> <span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">20</span>, <span class="at">mean =</span> <span class="dv">15</span>, <span class="at">sd =</span> <span class="dv">3</span>)</span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 计算公式所需的值</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>s1 <span class="ot">&lt;-</span> <span class="fu">sd</span>(x1)</span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>s2 <span class="ot">&lt;-</span> <span class="fu">sd</span>(x2)</span>
+<span id="cb18-9"><a href="#cb18-9" aria-hidden="true" tabindex="-1"></a>n1 <span class="ot">&lt;-</span> <span class="dv">20</span></span>
+<span id="cb18-10"><a href="#cb18-10" aria-hidden="true" tabindex="-1"></a>n2 <span class="ot">&lt;-</span> <span class="dv">20</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>有了这些数据，我们可以继续进行核心部分，在其中我们使用之前显示的公式计算均值差及其标准误：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 计算均值差</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>MD <span class="ot">&lt;-</span> <span class="fu">mean</span>(x1) <span class="sc">-</span> <span class="fu">mean</span>(x2)</span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>MD</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>## [1] -4.421357</code></pre>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 计算 s_pooled</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>s_pooled <span class="ot">&lt;-</span> <span class="fu">sqrt</span>(</span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  (((n1<span class="dv">-1</span>)<span class="sc">*</span>s1<span class="sc">^</span><span class="dv">2</span>) <span class="sc">+</span> ((n2<span class="dv">-1</span>)<span class="sc">*</span>s2<span class="sc">^</span><span class="dv">2</span>))<span class="sc">/</span></span>
+<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    ((n1<span class="dv">-1</span>)<span class="sc">+</span>(n2<span class="dv">-1</span>))</span>
+<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>)</span>
+<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 计算标准误</span></span>
+<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a>se <span class="ot">&lt;-</span> s_pooled<span class="sc">*</span><span class="fu">sqrt</span>((<span class="dv">1</span><span class="sc">/</span>n1)<span class="sc">+</span>(<span class="dv">1</span><span class="sc">/</span>n2))</span>
+<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>se</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>## [1] 0.8577262</code></pre>
+<p>通常没有必要像我们在这里所做的那样<strong>手动</strong>进行这些计算。对于均值差的元分析，我们只需要在数据集中准备以下列：</p>
+<ul>
+<li><strong><code>n.e</code></strong>。干预/实验组中的观测数。</li>
+<li><strong><code>mean.e</code></strong>。干预/实验组的均值。</li>
+<li><strong><code>sd.e</code></strong>。干预/实验组中的标准差。</li>
+<li><strong><code>n.c</code></strong>。对照组中的观测数。</li>
+<li><strong><code>mean.c</code></strong>。对照组的均值。</li>
+<li><strong><code>sd.c</code></strong>。对照组中的标准差。</li>
+</ul>
+<p><br><br></p>
+</section>
+<section id="b-group-smd" class="level4">
+<h4 class="anchored" data-anchor-id="b-group-smd">组间标准化均值差</h4>
+<hr>
+<p> </p>
+<p>标准化组间均值差 <span class="math inline">\(\text{SMD}_{\text{between}}\)</span> 定义为两个独立组之间均值的差异，通过合并标准差 <span class="math inline">\(s_{\text{pooled}}\)</span> 进行标准化。在文献中，标准化均值差也通常称为 <strong>Cohen 的</strong> <span class="math inline">\(d\)</span>，以心理学家和统计学家 Jacob Cohen 的名字命名。</p>
+<p>与未标准化均值差相比，<span class="math inline">\(\text{SMD}_{\text{between}}\)</span> 以<strong>标准差单位</strong>表示两组之间的差异。这可以通过将两组的原始均值差 <span class="math inline">\(\bar{x_1}\)</span> 和 <span class="math inline">\(\bar{x_2}\)</span> 除以两组的合并标准差 <span class="math inline">\(s_{\text{pooled}}\)</span> 来实现：</p>
+<p><span class="math display">\[\begin{equation}
+\text{SMD}_{\text{between}} = \frac{\bar{x}_1 - \bar{x}_2}{s_{\text{pooled}}}
+(\#eq:es17)
+\end{equation}\]</span></p>
+<p>其中 <span class="math inline">\(s_{\text{pooled}}\)</span> 使用我们在第 @ref(b-group-md) 章中已经介绍的相同公式 (3.16) 计算。标准化均值差比未标准化均值差更常用于元分析。这是因为 <span class="math inline">\(\text{SMD}_{\text{between}}\)</span> 可以在研究之间进行比较，即使这些研究没有使用相同的工具来测量感兴趣的结果。</p>
+<p>标准化具有这样的效果：<span class="math inline">\(\text{SMD}_{\text{between}}=\)</span> 1 始终表示两组均值相差</p>
+
+
+</section>
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>在本书中，我们在讨论效应量时，将主要遵循 Schwarzer 等人 <span class="citation" data-cites="schwarzer2015meta">[-@schwarzer2015meta]</span> 使用的符号。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>应该注意的是，除了抽样误差之外，观察到的效应量与真实效应量不同的原因通常还有更多；例如，研究方法的偏差或测量误差。在第 @ref(es-correction) 章中，我们将更详细地讨论这一点。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>要将 Logit 比例转换回原始比例，我们可以使用以下公式：<span class="math inline">\(p=\frac{\exp(p_{\text{logit}})}{1+\exp(p_{\text{logit}})}\)</span>, 其中 <span class="math inline">\(\exp\)</span> 是<strong>指数函数</strong>，在 <em>R</em> 中通过 <code>exp</code> 实现（参见第 @ref(ppoolbin) 章）。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>这种类型的相关性以 Karl Pearson 的名字命名，他是一位著名的统计学家，也在元分析的历史中发挥了作用（参见第 @ref(history) 章）。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>Fisher 的 <span class="math inline">\(z\)</span> 以我们在第 @ref(history) 章中提到的另一位著名统计学家 Ronald A. Fisher 的名字命名。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

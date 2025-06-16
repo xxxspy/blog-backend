@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Meta 分析</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R Meta 分析</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.rmd"> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./daizuo.html"> 
+<span class="menu-text">Meta 代做</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-discovering_R.html">发现R</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前言</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">作者</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">介绍</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-discovering_R.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">发现R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-pooling_effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">合并效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-heterogeneity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">异质性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-forestplots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">森林图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-subgroup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">亚组分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-metareg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Meta回归</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-publication-bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发表偏倚</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-mlma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">多元Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-sem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">结构方程模型</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-netwma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">网络Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-bayesianma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">贝叶斯Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-power-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">功效分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-risk-of-bias-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏倚风险图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-reporting-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">报告与可重复性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-effect-size-calculation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量计算</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">附录</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./98-cite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">引用</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#discovering-R" id="toc-discovering-R" class="nav-link active" data-scroll-target="#discovering-R">R语言探索</a>
+  <ul class="collapse">
+  <li><a href="#install-R" id="toc-install-R" class="nav-link" data-scroll-target="#install-R">安装 <em>R</em> 和 R Studio</a></li>
+  <li><a href="#packages" id="toc-packages" class="nav-link" data-scroll-target="#packages">包</a></li>
+  <li><a href="#dmetar" id="toc-dmetar" class="nav-link" data-scroll-target="#dmetar"><strong>{dmetar}</strong> 包</a></li>
+  <li><a href="#data-prep-R" id="toc-data-prep-R" class="nav-link" data-scroll-target="#data-prep-R">数据准备与导入</a></li>
+  <li><a href="#data-manip-R" id="toc-data-manip-R" class="nav-link" data-scroll-target="#data-manip-R">数据操作</a>
+  <ul class="collapse">
+  <li><a href="#class-conversion" id="toc-class-conversion" class="nav-link" data-scroll-target="#class-conversion">类转换</a></li>
+  <li><a href="#data-slicing" id="toc-data-slicing" class="nav-link" data-scroll-target="#data-slicing">数据切片</a></li>
+  <li><a href="#data-transform" id="toc-data-transform" class="nav-link" data-scroll-target="#data-transform">数据转换</a></li>
+  <li><a href="#saving-data" id="toc-saving-data" class="nav-link" data-scroll-target="#saving-data">保存数据</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="discovering-R" class="level1">
+<h1>R语言探索</h1>
+<hr>
+<p><img src="_figs/discover.jpg"></p>
+<p><br><br></p>
+<p><span class="firstcharacter">在</span> 这一章，我们将开始我们的 <em>R</em> 宇宙之旅。可能这是你第一次接触编程，你可能会感到有点焦虑。这是可以理解的，但没有理由担心。在过去的二十年里，世界各地成千上万的聪明人为 <em>R</em> 的用户贡献了使其更容易和更方便的方法。我们还将了解一个非常强大的计算机程序，我们可以用它来使编写和运行 <em>R</em> 代码变得不那么繁琐。</p>
+<p>尽管如此，与其他你可能使用过的数据分析程序相比，使用 <em>R</em> 仍然更难。 <em>R</em> 社区中最重要的成员之一 Hadley Wickham 曾经强调， <em>R</em> 从根本上不同于基于 <strong>图形用户界面</strong> (GUI) 的统计软件 <span class="citation" data-cites="grolemund2014hands">[@grolemund2014hands, Foreword]</span>。GUI 允许你仅通过点击几个按钮来执行数据分析，但你最终只能使用开发人员认为重要的功能。</p>
+<p>另一方面， <em>R</em> 没有这些限制，但可能需要更多的背景知识。像任何语言一样， <em>R</em> 需要学习，并且需要实践才能成为熟练的用户。沮丧是这个过程中令人不快但很自然的一部分。在序言中，你可以找到一整个部分，其中我们描述了如果你遇到困难可以做的一些事情。</p>
+<p>我们想向你保证，学习 <em>R</em> <strong>是</strong>值得的。 <em>R</em> 是最多才多艺、最全面和最常用的统计编程语言。 <em>R</em> 社区每年都在迅速扩大， <em>R</em> 的吸引力如此之大，以至于《纽约时报》也认为值得报道 <span class="citation" data-cites="vance2009data">[@vance2009data]</span>。</p>
+<p>无论你是在学术界还是在公司工作，你在 <em>R</em> 中可以做的事情对其他人来说通常看起来像是一种超能力。但这是每个人都可以学习的超能力，只要付出一些时间和精力。话虽如此，现在是开始的时候了。</p>
+<p><br><br></p>
+<section id="install-R" class="level2">
+<h2 class="anchored" data-anchor-id="install-R">安装 <em>R</em> 和 R Studio</h2>
+<hr>
+<p></p>
+<p>在我们开始之前，我们必须下载并准备一个计算机程序，使我们能够以方便的方式使用 <em>R</em> 进行统计分析。目前最好的选择可能是 <a href="https://rstudio.com/"><strong>R Studio</strong></a>。这个程序为我们提供了一个用户界面，使我们更容易处理我们的数据、包和输出。最棒的是 R Studio 完全免费，并且可以随时在互联网上下载。最近，R Studio 的在线版本已经 <a href="https://rstudio.cloud/">发布</a>，它通过你的网络浏览器为你提供基本相同的界面和功能。然而，在本书中，我们将重点介绍直接安装在我们计算机上的 R Studio 版本。</p>
+<div class="cell" type="boxinfo">
+<div class="boxinfo">
+<p>
+在本章中，我们将重点介绍如何<strong>在你的计算机上安装</strong> <em>R</em> 和 R Studio。如果你已经在你的计算机上安装了 R Studio，并且你是一位经验丰富的 <em>R</em> 用户，<strong>这些对你来说可能都不是新的</strong>。那么你可以跳过本章。如果你以前从未使用过 <em>R</em> ，请耐心等待。
+</p>
+</div>
+</div>
+<p></p>
+<p>让我们完成设置 <em>R</em> 和 R Studio 以进行我们的首次编码尝试的必要步骤。</p>
+<ol type="1">
+<li><p>R Studio 是一个界面，它允许我们编写 <em>R</em> 代码并以一种简单的方式运行它。但是 R Studio 与 <em>R</em> 并不相同；它要求 <em>R</em> 软件已经安装在你的计算机上。因此，首先我们必须安装最新的 <em>R</em> 版本。像 R Studio 一样， <em>R</em> 是完全免费的。它可以从 <strong>Comprehensive <code>R</code> Archive Network</strong>，或 CRAN 网站下载。你必须下载的 <em>R</em> 类型取决于你使用的是 <a href="https://cran.r-project.org/bin/windows/base/">Windows PC</a> 还是 <a href="https://cran.r-project.org/bin/macosx/">Mac</a>。关于 <em>R</em> 的一个重要细节是它的 <strong>版本</strong>。 <em>R</em> 会定期更新，这意味着会有新版本可用。当你的 <em>R</em> 版本变得太旧时，可能会发生某些事情不再有效。因此，定期更新 <em>R</em> 版本是有帮助的，可能大约每年一次，通过重新安装 <em>R</em> 。对于本书，我们使用的是 <em>R</em> 版本 4.0.3。在你安装 <em>R</em> 时，可能已经有更高的版本可用，建议始终安装最新版本。</p></li>
+<li><p>在你下载并安装 <em>R</em> 之后，你可以从 <a href="https://rstudio.com/products/rstudio/download/">R Studio 网站</a> 下载 “R Studio Desktop”。也有一些 R Studio 版本需要购买许可证，但对于我们的目的来说，这绝对不是必需的。只需下载并安装免费版本的 R Studio Desktop。</p></li>
+<li><p>第一次打开 R Studio 时，它可能看起来很像图 @ref(fig:rstudio-1) 中的样子。R Studio 中有三个窗格。在右上角，我们有 <strong>环境</strong> 窗格，它显示了我们在 <em>R</em> 内部定义的（即保存的）对象。在右下角，你可以找到 <strong>文件、绘图、包和帮助</strong> 窗格。此窗格有多种功能；例如，它用于显示你计算机上的文件、显示绘图和已安装的包，以及访问帮助页面。然而，R Studio 的核心是左侧，在那里你可以找到 <strong>控制台</strong>。控制台是所有 <em>R</em> 代码输入然后运行的地方。</p></li>
+</ol>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/rstudio_1_col_sep.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>R Studio 中的窗格。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<ol start="4" type="1">
+<li>R Studio 中还有一个第四个窗格，通常在一开始不显示，即 <strong>源</strong> 窗格。你可以通过点击菜单中的 <strong>文件</strong> &gt; <strong>新建文件</strong> &gt; <strong>R 脚本</strong> 来打开源窗格。这将在左上角打开一个新的窗格，其中包含一个空的 <em>R</em> <strong>脚本</strong>。 <em>R</em> 脚本是将你的代码收集到一个地方的好方法；你也可以将它们保存为扩展名为 “.R” 的文件（例如 <strong>myscript.R</strong>）在你的计算机上。要在 <em>R</em> 脚本中运行代码，请通过将光标拖过所有相关行来选择它，然后点击右侧的 “运行” 按钮。这会将代码发送到控制台，在那里对其进行评估。一个快捷方式是 Ctrl + R (Windows) 或 Cmd + R (Mac)。</li>
+</ol>
+<p><br><br></p>
+</section>
+<section id="packages" class="level2">
+<h2 class="anchored" data-anchor-id="packages">包</h2>
+<hr>
+<p> </p>
+<p>我们现在将使用 <em>R</em> 代码安装几个 <strong>包</strong>。包是 <em>R</em> 如此强大的主要原因之一。它们允许世界各地的专家开发其他人可以下载然后在 <em>R</em> 中使用的 <strong>函数</strong> 集合。函数是 <em>R</em> 的核心元素；它们允许我们执行预定义类型的操作，通常是在我们自己的数据上。</p>
+<p>函数的数学公式 <span class="math inline">\(f(x)\)</span> 与在 <em>R</em> 中定义函数的方式之间存在着平行关系。在 <em>R</em> 中，一个函数首先要写下它的名字，然后是包含函数输入和/或规范（所谓的 <strong>参数</strong>）的括号。</p>
+<p>假设我们想知道 9 的平方根是多少。在 <em>R</em> 中，我们可以使用 <code>sqrt</code> 函数来实现这一点。我们只需要提供 <code>9</code> 作为函数的输入即可获得结果。你可以自己尝试一下。在控制台中的小箭头 (<code>&gt;</code>) 旁边，写下 <code>sqrt(9)</code> 然后按 Enter。让我们看看会发生什么。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sqrt</span>(<span class="dv">9</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 3</code></pre>
+</div>
+</div>
+<p>我们现在收到了来自 <em>R</em> 的第一个 <strong>输出</strong>。它告诉我们 9 的平方根是 3。尽管 <em>R</em> 中有比这个更复杂的函数，但它们都遵循相同的原则：你提供函数所需的参数信息，函数使用此信息进行计算，最后，它为你提供输出。</p>
+<p> </p>
+<p>在 <em>R</em> 中，我们还使用一个名为 <code>install.packages</code> 的函数来 <strong>安装包</strong>。我们必须告诉这个函数的唯一事情是我们想要安装的包的名称。目前，我们应该安装三个包，因为它们在以后会有所帮助。</p>
+<ul>
+<li><p><strong>{tidyverse}</strong>。<strong>{tidyverse}</strong> 包 <span class="citation" data-cites="tidyverse">[@tidyverse]</span> 不是一个单独的包，而实际上是一个包的捆绑，它使得在 <em>R</em> 中操作和可视化数据变得容易。当我们安装 <strong>{tidyverse}</strong> 包时，这同时为我们提供了 <strong>{ggplot2}</strong>、<strong>{dplyr}</strong>、<strong>{tidyr}</strong>、<strong>{readr}</strong>、<strong>{purrr}</strong>、<strong>{stringr}</strong> 和 <strong>{forcats}</strong> 包。近年来，包含在 tidyverse 中的函数在 <em>R</em> 社区中变得非常流行，并被许多研究人员、程序员和数据科学家使用。如果你想了解更多关于 tidyverse 的信息，你可以访问它的 <a href="https://www.tidyverse.org/">网站</a>。</p></li>
+<li><p><strong>{meta}</strong>。这个包包含了一些函数，可以很容易地运行不同类型的 meta 分析 <span class="citation" data-cites="meta">[@meta]</span>。我们主要会在本指南中关注这个包，因为它易于使用，文档齐全，而且非常通用。关于 <strong>{meta}</strong> 包的更多信息可以在其 <a href="http://www.imbi.uni-freiburg.de/lehre/lehrbuecher/meta-analysis-with-r">网站</a> 上找到。</p></li>
+<li><p><strong>{metafor}</strong>。<strong>{metafor}</strong> 包 <span class="citation" data-cites="urviecht">[@urviecht]</span> 也致力于进行 meta 分析，并且在功能方面是一个真正的强大工具。由于我们有时会在后面的章节中使用这个包，并且由于 <strong>{meta}</strong> 包在许多应用中使用 <strong>{metafor}</strong>，因此最好安装它。 <strong>{metafor}</strong> 包还为各种与 meta 分析相关的主题提供了优秀的 <a href="http://www.metafor-project.org/doku.php/metafor">文档</a>。</p></li>
+</ul>
+<p><code>install.packages</code> 函数只需要我们想要安装的包的名称作为输入。一个接一个的包，我们的代码应该看起来像这样：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"tidyverse"</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"meta"</span>)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"metafor"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>只需将上面的代码输入到控制台中；然后按 Enter 开始安装（见图 @ref(fig:rstudio-1)）。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/rstudio_2_col.png" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>安装一个包。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" type="boximportant">
+
+<div class="boximportant">
+不要忘记将包名称放入<strong>引号</strong>（<code>""</code>）中。否则，你将收到一条错误消息。
+</div>
+</div>
+<p>在你点击 Enter 之后， <em>R</em> 将开始安装该包并打印一些关于安装进度的信息。当 <code>install.packages</code> 函数完成时，该包就可以使用了。已安装的包被添加到 <em>R</em> 的 <strong>系统库</strong> 中。这个系统库可以在你的 R Studio 屏幕左下角的 <strong>包</strong> 窗格中访问。每当我们想使用已安装的包时，我们可以使用 <code>library</code> 函数从我们的库中加载它。让我们尝试一下，并加载 <strong>{tidyverse}</strong> 包。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br><br></p>
+</section>
+<section id="dmetar" class="level2">
+<h2 class="anchored" data-anchor-id="dmetar"><strong>{dmetar}</strong> 包</h2>
+<hr>
+<p></p>
+<p>在本指南中，我们希望使研究人员能够尽可能轻松地进行 meta 分析。尽管有一些很棒的包，比如 <strong>{meta}</strong> 和 <strong>{metafor}</strong> 包，它们完成了大部分繁重的工作，但我们仍然认为 meta 分析的某些方面很重要，但在目前 <em>R</em> 中不容易做到，特别是如果你没有编程或统计背景。</p>
+<p>为了填补这个空白，我们开发了 <strong>{dmetar}</strong> 包，它是本书的配套 <em>R</em> 包。 <strong>{dmetar}</strong> 包有自己的文档，可以在 <a href="https://dmetar.protectlab.org/">网上</a> 找到。 <strong>{dmetar}</strong> 包的函数为 <strong>{meta}</strong> 和 <strong>{metafor}</strong> 包（以及其他一些更高级的包）提供了额外的功能，我们将在本指南中经常使用它们。包含在 <strong>{dmetar}</strong> 包中的大多数函数以及它们如何改善你的 meta 分析工作流程将在本书中详细描述。我们在本指南中使用的大多数示例数据集也包含在 <strong>{dmetar}</strong> 中。</p>
+<div class="cell" type="boxinfo">
+
+<div class="boxinfo">
+<p>虽然强烈建议，但<strong>不是必须</strong>安装 <strong>{dmetar}</strong> 包才能完成本指南。对于该包的每个函数，我们也会提供源代码，可以用来在你的计算机上本地保存该函数，以及这些函数所依赖的其他 <em>R</em> 包。我们还将为包含在该包中的数据集提供补充下载链接。</p>
+但是，事先安装 <strong>{dmetar}</strong> 包要方便得多，因为这会预先安装所有函数和数据集在你的计算机上。
+</div>
+</div>
+<p></p>
+<p>要安装 <strong>{dmetar}</strong> 包，你计算机上的 <em>R</em> 版本必须为 3.6 或更高版本。如果你最近（重新）安装了 <em>R</em>，情况可能就是这样。要检查你的 <em>R</em> 版本是否足够新，你可以将此行代码粘贴到控制台中，然后按 Enter。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">R.Version</span>()<span class="sc">$</span>version.string</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>这将显示你当前的 <em>R</em> 版本。如果 <em>R</em> 版本低于 3.6，你将必须更新它。互联网上有一些很好的 <a href="https://www.linkedin.com/pulse/3-methods-update-r-rstudio-windows-mac-woratana-ngarmtrakulchol/">博客文章</a> 提供了有关如何执行此操作的指导。</p>
+<p>如果你想安装 <strong>{dmetar}</strong>，首先需要安装一个包在你的计算机上。这个包叫做 <strong>{devtools}</strong>。所以，如果 <strong>{devtools}</strong> 还没有在你的计算机上，你可以像我们之前做的那样安装它。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(<span class="st">"devtools"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>然后你可以使用这行代码安装 <strong>{dmetar}</strong>：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>devtools<span class="sc">::</span><span class="fu">install_github</span>(<span class="st">"MathiasHarrer/dmetar"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>这将启动安装过程。很可能安装需要一些时间，因为必须与 <strong>{dmetar}</strong> 包一起安装其他几个包才能使其正常工作。在安装过程中，安装管理器可能会询问你是否要更新计算机上现有的 <em>R</em> 包。输出可能看起来像这样：</p>
+<pre><code>## 这些包有更新的版本可用。
+## 你想更新哪个？
+## 
+## 1：全部
+## 2：仅 CRAN 包
+## 3：无
+## 4：ggpubr (0.2.2 -&gt; 0.2.3) [CRAN]
+## 5：zip (2.0.3 -&gt; 2.0.4) [CRAN]
+## 
+## 输入一个或多个数字，或输入一个空行以跳过更新：</code></pre>
+<p>当你收到此消息时，最好告诉安装管理器不要更新任何包。在我们的示例中，这意味着将 <code>3</code> 粘贴到控制台中，然后按 Enter。同样地，当安装管理器提出这个问题时：</p>
+<pre><code>## 有二进制版本可用，但源版本较新：
+## 
+## [...]
+## 
+## 你想从需要编译的源安装包吗？
+## y/n：</code></pre>
+<p>最好选择 <code>n</code>（否）。如果使用此策略安装失败（意味着你收到一个 <code>Error</code>），请再次运行安装，但这次更新所有包。</p>
+<p>在编写本书和开发该包时，我们确保每个人都可以毫无错误地安装它。尽管如此，仍然有可能第一次尝试安装该包时不起作用。如果安装问题仍然存在，你可以查看本书序言中的 “联系我们” 部分。</p>
+<p><br><br></p>
+</section>
+<section id="data-prep-R" class="level2">
+<h2 class="anchored" data-anchor-id="data-prep-R">数据准备与导入</h2>
+<hr>
+<p>本章将告诉你如何使用 R Studio 将数据导入 <em>R</em> 。数据准备有时可能很繁琐和耗尽精力，但它是所有后续步骤的支柱。因此，我们必须密切注意将数据导入正确的格式，然后才能继续。</p>
+<p>通常，导入到 <em>R</em> 中的数据首先存储在 <strong>Microsoft Excel</strong> 电子表格中。我们建议在那里存储你的数据，因为这使得导入变得非常容易。在 <em>Excel</em> 中准备数据时，有一些 “应该做和不应该做” 的事项。</p>
+<ul>
+<li><p>命名电子表格的列非常重要。如果你已经在 <em>Excel</em> 中充分命名了工作表的列，那么你可以在以后节省大量时间，因为你的数据不必使用 <em>R</em> 进行转换。“命名” 电子表格的列仅仅意味着将变量的名称写入列的第一行； <em>R</em> 将自动检测到这是列的名称。</p></li>
+<li><p>列名不应包含任何空格。要在列名中分隔两个单词，可以使用下划线或点（例如 “column_name”）。</p></li>
+<li><p><em>Excel</em> 电子表格中列的顺序<strong>无关紧要</strong>。它们只需要正确标记。</p></li>
+<li><p>也<strong>没有</strong>必要以任何方式格式化列。如果你在电子表格的第一行中键入列名， <em>R</em> 将自动将其检测为列名。</p></li>
+<li><p>同样重要的是要知道导入可能会扭曲特殊字符，如 ä、ü、ö、á、é、ê 等。你可能想在继续之前将它们转换为 “正常” 字母。</p></li>
+<li><p>确保你的 <em>Excel</em> 文件只包含一个工作表。</p></li>
+<li><p>如果你有一个或几个曾经包含数据的空行或列，请确保完全删除这些列/行，因为 <em>R</em> 可能会认为这些列包含（缺失的）数据并也导入它们。</p></li>
+</ul>
+<p>让我们从一个示例数据集开始。假设你计划进行一项自杀预防计划的 meta 分析。你想要在你的研究中关注的结果是自杀意念的严重程度（即个体思考、考虑或计划结束其生命的程度），通过问卷评估。你已经完成了研究搜索和数据提取，现在想在 <em>R</em> 中导入你的 meta 分析数据。</p>
+<p>因此，下一个任务是准备一个 <em>Excel</em> 工作表，其中包含所有相关数据。表 @ref(tab:suicidedata) 显示了我们想要导入的所有数据。在第一行中，此表还显示了我们如何根据我们列出的规则在 <em>Excel</em> 文件中命名我们的列。我们可以看到电子表格在一行中列出了每个研究。对于每个研究，干预组和对照组都包括样本量 (<span class="math inline">\(n\)</span>)、均值和标准差 (<span class="math inline">\(SD\)</span>)。这是计算效应量所需的结果数据，我们将在第 @ref(effects) 章中详细介绍。以下三列包含我们稍后要作为 meta 分析一部分进行分析的变量。</p>
+<p>我们为你准备了一个名为 <strong>“SuicidePrevention.xlsx”</strong> 的 <em>Excel</em> 文件，其中包含完全相同的数据。该文件可以从 <a href="https://protectlab.org/en/datasets/suicide-prevention/">Internet</a> 下载。</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<div class="table-responsive">
+<table class="table table-condensed table-hover table-sm table-striped small" data-quarto-postprocess="true">
+<caption>The suicide prevention dataset.</caption>
+<colgroup>
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+<col style="width: 10%">
+</colgroup>
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+'author'
+</div></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+'n.e'
+</div></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+'mean.e'
+</div></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+'sd.e'
+</div></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+'n.c'
+</div></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+'mean.c'
+</div></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+'sd.c'
+</div></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+'pubyear'
+</div></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+'age_group'
+</div></th>
+<th data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+'control'
+</div></th>
+</tr>
+<tr class="odd">
+<th data-quarto-table-cell-role="th" style="text-align: left; empty-cells: hide; border-bottom: hidden;"></th>
+<th colspan="3" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Intervention Group
+</div></th>
+<th colspan="3" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Control Group
+</div></th>
+<th colspan="3" data-quarto-table-cell-role="th" style="text-align: center; border-bottom: hidden; padding-bottom: 0; padding-left: 3px; padding-right: 3px;"><div style="border-bottom: 1px solid #ddd; padding-bottom: 5px; ">
+Subgroups
+</div></th>
+</tr>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Author</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">SD</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">N</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Mean</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">SD</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Year</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Age Group</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Control Group</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Berry et al.</td>
+<td style="text-align: left;">90</td>
+<td style="text-align: left;">14.98</td>
+<td style="text-align: left;">3.29</td>
+<td style="text-align: left;">95</td>
+<td style="text-align: left;">15.54</td>
+<td style="text-align: left;">4.41</td>
+<td style="text-align: left;">2006</td>
+<td style="text-align: left;">general</td>
+<td style="text-align: left;">WLC</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">DeVries et al.</td>
+<td style="text-align: left;">77</td>
+<td style="text-align: left;">16.21</td>
+<td style="text-align: left;">5.35</td>
+<td style="text-align: left;">69</td>
+<td style="text-align: left;">20.13</td>
+<td style="text-align: left;">7.43</td>
+<td style="text-align: left;">2019</td>
+<td style="text-align: left;">older adult</td>
+<td style="text-align: left;">no intervention</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">Fleming et al.</td>
+<td style="text-align: left;">30</td>
+<td style="text-align: left;">3.01</td>
+<td style="text-align: left;">0.87</td>
+<td style="text-align: left;">30</td>
+<td style="text-align: left;">3.13</td>
+<td style="text-align: left;">1.23</td>
+<td style="text-align: left;">2006</td>
+<td style="text-align: left;">general</td>
+<td style="text-align: left;">no intervention</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">Hunt &amp; Burke</td>
+<td style="text-align: left;">64</td>
+<td style="text-align: left;">19.32</td>
+<td style="text-align: left;">6.41</td>
+<td style="text-align: left;">65</td>
+<td style="text-align: left;">20.22</td>
+<td style="text-align: left;">7.62</td>
+<td style="text-align: left;">2011</td>
+<td style="text-align: left;">general</td>
+<td style="text-align: left;">WLC</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">McCarthy et al.</td>
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">4.54</td>
+<td style="text-align: left;">2.75</td>
+<td style="text-align: left;">50</td>
+<td style="text-align: left;">5.61</td>
+<td style="text-align: left;">2.66</td>
+<td style="text-align: left;">1997</td>
+<td style="text-align: left;">general</td>
+<td style="text-align: left;">WLC</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+<td style="text-align: left;">...</td>
+</tr>
+</tbody>
+</table>
+</div>
+
+
+</div>
+</div>
+</div>
+<p>为了在 R Studio 中导入我们的 <em>Excel</em> 文件，我们首先必须设置一个 <strong>工作目录</strong>。工作目录是你计算机上的一个文件夹， <em>R</em> 可以从中使用数据，并且在其中保存输出。要设置工作目录，你首先必须在你的计算机上创建一个文件夹，你希望将所有 meta 分析数据和结果保存在其中。你还应该将我们要导入的 <strong>“SuicidePrevention.xlsx”</strong> 文件保存在此文件夹中。</p>
+<p>然后启动 R Studio 并在左下角的 <strong>文件</strong> 窗格中打开你新创建的文件夹。一旦你打开了你的文件夹，你应该显示你刚刚保存在那里的 <em>Excel</em> 文件。然后通过点击窗格顶部的小齿轮，然后在弹出菜单中点击 <strong>设置为工作目录</strong> 来将此文件夹设置为工作目录。这将使当前打开的文件夹成为工作目录。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/wd_col_sep.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>设置工作目录；数据集加载到 R 环境中。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>我们现在可以继续并将数据导入 <em>R</em> 。在 <strong>文件</strong> 窗格中，只需点击 <strong>“SuicidePrevention.xlsx”</strong> 文件。然后点击 <strong>导入数据集…</strong>。现在应该弹出一个导入助手，它也在加载你的数据的预览。这有时可能很耗时，所以你可以跳过这一步，直接点击 <strong>导入</strong>。</p>
+<p></p>
+<p>你的数据集应该以名称 <code>SuicidePrevention</code> 列在右上角的 <strong>环境</strong> 窗格中。这意味着你的数据现在已加载并且可以被 <em>R</em> 代码使用。像我们在这里导入的表格数据集在 <em>R</em> 中被称为 <strong>数据框</strong> (<code>data.frame</code>)。数据框是具有列和行的数据集，就像我们刚刚导入的 <em>Excel</em> 电子表格一样。</p>
+<p></p>
+<div class="cell" type="boxinfo">
+
+<div class="boxinfo">
+<p><strong>{openxlsx}</strong></p>
+<p>也可以使用代码直接导入数据文件。我们可以用来做到这一点的一个好的包叫做 <strong>{openxslx}</strong> <span class="citation" data-cites="openxlsx">[@openxlsx]</span>。与所有 <em>R</em> 包一样，你必须首先安装它。然后你可以使用 <code>read.xlsx</code> 函数导入 <em>Excel</em> 工作表。</p>
+<p>如果该文件保存在你的工作目录中，你只需为该函数提供该文件的名称，并将导入的数据分配给 <em>R</em> 中的一个对象。例如，如果我们希望我们的数据集在 <em>R</em> 中具有名称 <code>data</code>，我们可以使用此代码：</p>
+<code>library(openxlsx)</code> <br> <code>data &lt;- read.xlsx("SuicidePrevention.xlsx")</code>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="data-manip-R" class="level2">
+<h2 class="anchored" data-anchor-id="data-manip-R">数据操作</h2>
+<hr>
+<p>现在我们已经使用 R Studio 导入了我们的第一个数据集，让我们做一些操作。<strong>数据整理</strong>，意味着转换数据以使其可用于进一步分析，是所有数据分析的重要组成部分。一些职业，例如数据科学家，花费他们的大部分时间将原始的 “不整洁” 的数据变成 “整洁” 的数据集。 <strong>{tidyverse}</strong> 的函数为数据整理提供了一个出色的工具箱。如果你还没有从你的库中加载该包，你应该立即加载它以用于以下示例。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br><br></p>
+<section id="class-conversion" class="level3">
+<h3 class="anchored" data-anchor-id="class-conversion">类转换</h3>
+<hr>
+<p>首先，我们应该看一下我们在上一章中导入的 <code>SuicidePrevention</code> 数据集。为此，我们可以使用 <strong>{tidyverse}</strong> 提供的 <code>glimpse</code> 函数。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(SuicidePrevention)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 9
+Columns: 10
+$ author    &lt;chr&gt; "Berry et al.", "DeVries et al.", "Fleming et al.", "Hunt &amp; …
+$ n.e       &lt;chr&gt; "90", "77", "30", "64", "50", "109", "60", "40", "51"
+$ mean.e    &lt;chr&gt; "14.98", "16.21", "3.01", "19.32", "4.54", "15.11", "3.44", …
+$ sd.e      &lt;chr&gt; "3.29", "5.35", "0.87", "6.41", "2.75", "4.63", "1.26", "0.7…
+$ n.c       &lt;dbl&gt; 95, 69, 30, 65, 50, 111, 60, 40, 56
+$ mean.c    &lt;chr&gt; "15.54", "20.13", "3.13", "20.22", "5.61", "16.46", "3.42", …
+$ sd.c      &lt;chr&gt; "4.41", "7.43", "1.23", "7.62", "2.66", "5.39", "1.88", "1.4…
+$ pubyear   &lt;dbl&gt; 2006, 2019, 2006, 2011, 1997, 2000, 2013, 2015, 2014
+$ age_group &lt;chr&gt; "general", "older adult", "general", "general", "general", "…
+$ control   &lt;chr&gt; "WLC", "no intervention", "no intervention", "WLC", "WLC", "…</code></pre>
+</div>
+</div>
+<p>我们看到这为我们提供了关于我们存储在数据集的每一列中的数据类型的详细信息。有不同的缩写表示不同的数据类型。在 <em>R</em> 中，它们被称为 <strong>类</strong>。</p>
+<ul>
+<li><p><code>&lt;num&gt;</code> 代表 <strong>numeric</strong>。这是所有存储为数字的数据（例如 1.02）。</p></li>
+<li><p><code>&lt;chr&gt;</code> 代表 <strong>character</strong>。这是所有存储为单词的数据。</p></li>
+<li><p><code>&lt;log&gt;</code> 代表 <strong>logical</strong>。这些是二进制变量，意味着它们表明一个条件是 <code>TRUE</code> 还是 <code>FALSE</code>。</p></li>
+<li><p><code>&lt;factor&gt;</code> 代表 <strong>factor</strong>。因子存储为数字，每个数字表示变量的不同级别。变量可能的因子级别可能是 1 = “low”，2 = “medium”，3 = “high”。</p></li>
+</ul>
+<p>我们还可以使用 <code>class</code> 函数检查列的类。我们可以通过将 <code>$</code> 运算符添加到其名称，然后再添加列的名称来直接访问数据框中的列。让我们尝试一下。首先，我们让 <em>R</em> 为我们提供 <code>n.e</code> 列中包含的数据。之后，我们检查该列的类。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>n.e</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "90"  "77"  "30"  "64"  "50"  "109" "60"  "40"  "51" </code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(SuicidePrevention<span class="sc">$</span>n.e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "character"</code></pre>
+</div>
+</div>
+<p>我们看到包含干预组样本量的 <code>n.e</code> 列的类是 <code>character</code>。但是等等，这是错误的类！在导入过程中，此列被错误地分类为 <code>character</code> 变量，而它实际上应该具有 <code>numeric</code> 类。这对进一步的分析步骤有影响。例如，如果我们想计算平均样本量，我们会得到以下警告：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">mean</span>(SuicidePrevention<span class="sc">$</span>n.e)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in mean.default(SuicidePrevention$n.e): argument is not numeric or
+logical: returning NA</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] NA</code></pre>
+</div>
+</div>
+<p>为了使我们的数据集可用，我们通常必须首先将我们的列转换为正确的类。为此，我们可以使用一组以 “<code>as.</code>” 开头的函数：<code>as.numeric</code>、<code>as.character</code>、<code>as.logical</code> 和 <code>as.factor</code>。让我们来看几个例子。</p>
+<p>在之前 <code>glimpse</code> 函数的输出中，我们看到有几个列被赋予了 <code>character</code> 类，而它们应该是 <code>numeric</code>。这涉及到列 <code>n.e</code>、<code>mean.e</code>、<code>sd.e</code>、<code>mean.c</code> 和 <code>sd.c</code>。我们看到出版年份 <code>pubyear</code> 具有 <code>&lt;dbl&gt;</code> 类。这代表 <strong>double</strong>，意味着该列是一个数值向量。这是一个历史异常现象，在 <em>R</em> 中 <code>double</code> 和 <code>numeric</code> 都用于指代数值数据类型。然而，通常这没有实际的实际意义。</p>
+<p>然而，在我们的数据集中，一些数值被编码为 <strong>字符</strong>，这将导致下游问题，因此我们应该使用 <code>as.numeric</code> 函数更改该类。我们为该函数提供我们要更改的列，然后使用 <strong>赋值运算符</strong> (<code>&lt;-</code>) 将输出保存回其原始位置。这导致了以下代码。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>n.e <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(SuicidePrevention<span class="sc">$</span>n.e)</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>mean.e <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(SuicidePrevention<span class="sc">$</span>mean.e)</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>sd.e <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(SuicidePrevention<span class="sc">$</span>sd.e)</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>n.c <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(SuicidePrevention<span class="sc">$</span>n.c)</span>
+<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>mean.c <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(SuicidePrevention<span class="sc">$</span>mean.c)</span>
+<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>sd.c <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(SuicidePrevention<span class="sc">$</span>sd.c)</span>
+<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>n.c <span class="ot">&lt;-</span> <span class="fu">as.numeric</span>(SuicidePrevention<span class="sc">$</span>n.c)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>我们还在 <code>glimpse</code> 输出中看到 <code>age_group</code> 和 <code>control</code>，我们数据中的子组，被编码为字符。然而，实际上，将它们编码为因子更合适，每个因子级别有两个。我们可以使用 <code>as.factor</code> 函数更改类。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>age_group <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(SuicidePrevention<span class="sc">$</span>age_group)</span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>control <span class="ot">&lt;-</span> <span class="fu">as.factor</span>(SuicidePrevention<span class="sc">$</span>control)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>使用 <code>levels</code> 和 <code>nlevels</code> 函数，我们还可以查看因子标签和因子中的级别数。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(SuicidePrevention<span class="sc">$</span>age_group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "general"     "older adult"</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">nlevels</span>(SuicidePrevention<span class="sc">$</span>age_group)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2</code></pre>
+</div>
+</div>
+<p>我们还可以使用 <code>levels</code> 函数更改因子标签的名称。我们只需为原始标签分配新名称。要在 <em>R</em> 中执行此操作，我们必须使用 <strong>concatenate</strong>，或 <code>c</code> 函数。此函数可以将两个或多个单词或数字连接在一起并创建一个元素。让我们尝试一下。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>new.factor.levels <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"gen"</span>, <span class="st">"older"</span>)</span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>new.factor.levels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "gen"   "older"</code></pre>
+</div>
+</div>
+<p>完美。我们现在可以使用新创建的 <code>new.factor.levels</code> 对象，并将其分配给 <code>age_group</code> 列的因子标签。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(SuicidePrevention<span class="sc">$</span>age_group) <span class="ot">&lt;-</span> new.factor.levels</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>让我们检查一下重命名是否有效。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>age_group</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] gen   older gen   gen   gen   gen   gen   older older
+Levels: gen older</code></pre>
+</div>
+</div>
+<p>也可以使用 <code>as.logical</code> 创建逻辑值。假设我们想要重新编码 <code>pubyear</code> 列，以便它仅显示研究是否在 2009 年之后发表。为此，我们必须通过代码定义一个是/否规则。我们可以使用 “大于或等于” 运算符 <code>&gt;=</code> 来做到这一点，然后将其用作 <code>as.logical</code> 函数的输入。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>pubyear</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 2006 2019 2006 2011 1997 2000 2013 2015 2014</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">as.logical</span>(SuicidePrevention<span class="sc">$</span>pubyear <span class="sc">&gt;=</span> <span class="dv">2010</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] FALSE  TRUE FALSE  TRUE FALSE FALSE  TRUE  TRUE  TRUE</code></pre>
+</div>
+</div>
+<p>我们可以看到，这会将 <code>pubyear</code> 中的每个元素编码为 <code>TRUE</code> 或 <code>FALSE</code>，具体取决于发表年份是否大于或等于 2010。</p>
+<p><br><br></p>
+</section>
+<section id="data-slicing" class="level3">
+<h3 class="anchored" data-anchor-id="data-slicing">数据切片</h3>
+<hr>
+<p>在 <em>R</em> 中，有几种方法可以提取数据框的子集。我们已经介绍了一种方法，即 <code>$</code> 运算符，它可以用于提取列。从数据集中提取切片的更通用方法是使用方括号。我们使用方括号时必须遵循的通用形式是 <code>data.frame[rows, columns]</code>。始终可以通过使用它们在数据集中出现的数字来提取行和列。例如，我们可以使用以下代码提取数据框第二行中的数据。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>SuicidePrevention[<span class="dv">2</span>,]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          author n.e mean.e sd.e n.c mean.c sd.c pubyear age_group
+2 DeVries et al.  77  16.21 5.35  69  20.13 7.43    2019     older
+          control
+2 no intervention</code></pre>
+</div>
+</div>
+<p>我们可以更具体地告诉 <em>R</em> ，我们只想要第二行第一列中的信息。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>SuicidePrevention[<span class="dv">2</span>, <span class="dv">1</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "DeVries et al."</code></pre>
+</div>
+</div>
+<p>要选择特定的切片，我们必须再次使用连接 (<code>c</code>) 函数。例如，如果我们想提取第 2 行和第 3 行以及第 4 列和第 6 列，我们可以使用此代码。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>SuicidePrevention[<span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">3</span>), <span class="fu">c</span>(<span class="dv">4</span>,<span class="dv">6</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  sd.e mean.c
+2 5.35  20.13
+3 0.87   3.13</code></pre>
+</div>
+</div>
+<p>通常只能按行号选择行。但是，对于列，也可以提供列<strong>名称</strong>而不是数字。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>SuicidePrevention[, <span class="fu">c</span>(<span class="st">"author"</span>, <span class="st">"control"</span>)]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           author         control
+1    Berry et al.             WLC
+2  DeVries et al. no intervention
+3  Fleming et al. no intervention
+4    Hunt &amp; Burke             WLC
+5 McCarthy et al.             WLC
+6   Meijer et al. no intervention
+7   Rivera et al. no intervention
+8  Watkins et al. no intervention
+9  Zaytsev et al. no intervention</code></pre>
+</div>
+</div>
+<p>另一种可能性是根据行值 <strong>过滤</strong> 数据集。我们可以使用 <code>filter</code> 函数来做到这一点。在该函数中，我们需要指定我们的数据集名称，以及一个过滤逻辑。一个相对简单的例子是过滤所有 <code>n.e</code> 等于或小于 50 的研究。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(SuicidePrevention, n.e <span class="sc">&lt;=</span> <span class="dv">50</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           author n.e mean.e sd.e n.c mean.c sd.c pubyear age_group
+1  Fleming et al.  30   3.01 0.87  30   3.13 1.23    2006       gen
+2 McCarthy et al.  50   4.54 2.75  50   5.61 2.66    1997       gen
+3  Watkins et al.  40   7.10 0.76  40   7.38 1.41    2015     older
+          control
+1 no intervention
+2             WLC
+3 no intervention</code></pre>
+</div>
+</div>
+<p>但也可以按名称进行过滤。假设我们想提取作者为 <strong>Meijer</strong> 和 <strong>Zaytsev</strong> 的研究。为此，我们必须使用 <code>%in%</code> 运算符和连接函数来定义我们的过滤逻辑。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(SuicidePrevention, author <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Meijer et al."</span>,</span>
+<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a>                                        <span class="st">"Zaytsev et al."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          author n.e mean.e sd.e n.c mean.c  sd.c pubyear age_group
+1  Meijer et al. 109  15.11 4.63 111  16.46  5.39    2000       gen
+2 Zaytsev et al.  51  23.74 7.24  56  24.91 10.65    2014     older
+          control
+1 no intervention
+2 no intervention</code></pre>
+</div>
+</div>
+<p>相反，我们也可以通过在过滤逻辑前放置一个感叹号来提取所有<strong>除了</strong> <strong>Meijer</strong> 和 <strong>Zaytsev</strong> 的研究。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a><span class="fu">filter</span>(SuicidePrevention, <span class="sc">!</span>author <span class="sc">%in%</span> <span class="fu">c</span>(<span class="st">"Meijer et al."</span>, </span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>                                         <span class="st">"Zaytsev et al."</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br><br></p>
+</section>
+<section id="data-transform" class="level3">
+<h3 class="anchored" data-anchor-id="data-transform">数据转换</h3>
+<hr>
+<p>当然，也可以更改 <em>R</em> 数据框中的特定值，或者扩展它们。要更改我们保存在 <em>R</em> 内部的数据，我们必须使用 <strong>赋值运算符</strong>。让我们重新使用我们之前学到的关于数据切片的知识来更改我们数据集中的特定值。假设我们犯了一个错误，并且 <strong>DeVries et al.</strong> 研究的发表年份错误地报告为 2019 年，而它应该是 2018 年。我们可以通过相应地切片我们的数据集，然后分配新值来更改该值。记住，<strong>DeVries et al.</strong> 的结果在数据集的第二行中报告。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>SuicidePrevention[<span class="dv">2</span>, <span class="st">"pubyear"</span>] <span class="ot">&lt;-</span> <span class="dv">2018</span></span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>SuicidePrevention[<span class="dv">2</span>, <span class="st">"pubyear"</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>## [1] 2018</code></pre>
+<p>也可以一次更改多个值。例如，如果我们想在我们的数据集中为每个干预组均值加 5，我们可以使用以下代码来做到这一点。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>mean.e <span class="sc">+</span> <span class="dv">5</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 19.98 21.21  8.01 24.32  9.54 20.11  8.44 12.10 28.74</code></pre>
+</div>
+</div>
+<p>我们还可以使用两列或多列来进行计算。一个实际相关的例子是我们可能对计算每个研究的干预组和对照组均值之间的 <strong>均值差异</strong> 感兴趣。与其他编程语言相比，这在 <em>R</em> 中非常容易。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>mean.e <span class="sc">-</span> SuicidePrevention<span class="sc">$</span>mean.c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.56 -3.92 -0.12 -0.90 -1.07 -1.35  0.02 -0.28 -1.17</code></pre>
+</div>
+</div>
+<p>正如你所看到的，这获取了每个研究的干预组均值，然后减去对照组均值，每次都使用同一行的值。假设我们想在以后使用这个均值差异。因此，我们想将它保存为一个名为 <code>md</code> 的额外对象，并将它作为一个新列添加到我们的 <code>SuicidePrevention</code> 数据框中。使用赋值运算符很容易做到这两点。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a>md <span class="ot">&lt;-</span> SuicidePrevention<span class="sc">$</span>mean.e <span class="sc">-</span> SuicidePrevention<span class="sc">$</span>mean.c</span>
+<span id="cb54-2"><a href="#cb54-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb54-3"><a href="#cb54-3" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>md <span class="ot">&lt;-</span> SuicidePrevention<span class="sc">$</span>mean.e <span class="sc">-</span> </span>
+<span id="cb54-4"><a href="#cb54-4" aria-hidden="true" tabindex="-1"></a>                            SuicidePrevention<span class="sc">$</span>mean.c</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p></p>
+<p>我们想向你展示的最后一件事是 <strong>管道运算符</strong>。在 <em>R</em> 中，管道写成 <code>%&gt;%</code>。管道本质上允许我们将一个函数应用于一个对象，而无需直接在函数调用中指定对象名称。我们只需使用管道运算符连接对象和函数。让我们给你一个简单的例子。如果我们想计算对照组中的平均样本量，我们可以像这样使用 <code>mean</code> 函数和管道运算符：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a>SuicidePrevention<span class="sc">$</span>n.c <span class="sc">%&gt;%</span> <span class="fu">mean</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 64</code></pre>
+</div>
+</div>
+<p>诚然，在这个例子中，很难看到这种管道的附加价值。管道的特殊优势在于它们允许我们将许多函数 <strong>链接</strong> 在一起。假设我们想知道平均对照组样本量的平方根，但仅适用于 2009 年之后发表的研究。管道让我们可以在一步中方便地做到这一点。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a>SuicidePrevention <span class="sc">%&gt;%</span> </span>
+<span id="cb57-2"><a href="#cb57-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(pubyear <span class="sc">&gt;</span> <span class="dv">2009</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb57-3"><a href="#cb57-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>(n.c) <span class="sc">%&gt;%</span> </span>
+<span id="cb57-4"><a href="#cb57-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mean</span>() <span class="sc">%&gt;%</span> </span>
+<span id="cb57-5"><a href="#cb57-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sqrt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.615773</code></pre>
+</div>
+</div>
+<p>在管道中，我们使用了一个我们之前没有介绍的函数，即 <code>pull</code> 函数。这个函数可以被看作是 <code>$</code> 运算符的等价物，我们可以在管道中使用它。它只是 “拉出” 我们在函数中指定的变量，因此它可以被转发到管道的下一部分。</p>
+<div class="cell" type="boxinfo">
+<div class="boxinfo">
+<p>
+<strong>访问 <em>R</em> 文档</strong>
+</p>
+<p>
+<em>R</em> 中的许多函数都需要几个参数，并且不可能记住如何正确使用所有函数。谢天谢地，没有必要用心记住如何使用每个函数。R Studio 让我们很容易访问 <em>R</em> 文档，其中每个函数都有一个详细的描述页面。
+</p>
+<p>
+有两种方法可以搜索函数文档页面。第一种是访问 R Studio 左下角的 <strong>帮助</strong> 窗格，然后使用搜索栏查找关于特定函数的信息。更方便的方法是简单地运行 <code>?</code>，后跟控制台中函数的名称，例如 <code>?mean</code>。这将自动打开该函数的文档条目。
+</p>
+<p>
+一个函数的 <em>R</em> 文档通常至少包含一个 <strong>用法</strong>、<strong>参数</strong> 和 <strong>示例</strong> 部分。<strong>参数</strong> 和 <strong>示例</strong> 部分通常对于理解如何使用一个函数特别有帮助。
+</p>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="saving-data" class="level3">
+<h3 class="anchored" data-anchor-id="saving-data">保存数据</h3>
+<hr>
+<p>一旦我们用我们的数据完成了转换并将它们保存在 <em>R</em> 内部，我们必须在某个时候 <strong>导出</strong> 它。我们建议你在保存 <em>R</em> 数据框时使用两种类型的文件格式：<em>.rda</em> 和 <em>.csv</em>。</p>
+<p>文件结尾 <em>.rda</em> 代表 <em>R</em> <strong>数据</strong>。这是一种专门为 <em>R</em> 设计的文件类型，具有所有的优点和缺点。<em>.rda</em> 文件的优点是它们可以很容易地在 <em>R</em> 中重新打开，并且没有你的数据在导出过程中可能会被扭曲的风险。它们</p>
+
+
+</section>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

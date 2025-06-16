@@ -1,0 +1,1083 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Meta 分析</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R Meta 分析</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.rmd"> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./daizuo.html"> 
+<span class="menu-text">Meta 代做</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./07-heterogeneity.html">异质性</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前言</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">作者</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">介绍</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-discovering_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发现R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-pooling_effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">合并效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-heterogeneity.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">异质性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-forestplots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">森林图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-subgroup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">亚组分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-metareg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Meta回归</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-publication-bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发表偏倚</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-mlma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">多元Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-sem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">结构方程模型</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-netwma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">网络Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-bayesianma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">贝叶斯Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-power-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">功效分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-risk-of-bias-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏倚风险图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-reporting-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">报告与可重复性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-effect-size-calculation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量计算</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">附录</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./98-cite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">引用</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#heterogeneity" id="toc-heterogeneity" class="nav-link active" data-scroll-target="#heterogeneity">研究间异质性</a>
+  <ul class="collapse">
+  <li><a href="#het-measures" id="toc-het-measures" class="nav-link" data-scroll-target="#het-measures">异质性测量</a>
+  <ul class="collapse">
+  <li><a href="#cochran-q" id="toc-cochran-q" class="nav-link" data-scroll-target="#cochran-q">Cochran 的 <span class="math inline">\(Q\)</span></a></li>
+  <li><a href="#i-squared" id="toc-i-squared" class="nav-link" data-scroll-target="#i-squared">Higgins &amp; Thompson 的 <span class="math inline">\(I^2\)</span> 统计量</a></li>
+  <li><a href="#h2-统计量" id="toc-h2-统计量" class="nav-link" data-scroll-target="#h2-统计量"><span class="math inline">\(H^2\)</span> 统计量</a></li>
+  <li><a href="#tau" id="toc-tau" class="nav-link" data-scroll-target="#tau">异质性方差 <span class="math inline">\(\tau^2\)</span> 和标准差 <span class="math inline">\(\tau\)</span></a></li>
+  </ul></li>
+  <li><a href="#het-measure-which" id="toc-het-measure-which" class="nav-link" data-scroll-target="#het-measure-which">我应该使用哪种测量方法？</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="heterogeneity" class="level1">
+<h1>研究间异质性</h1>
+<hr>
+<p><img src="_figs/heterogeneity.jpg"></p>
+<p><br><br></p>
+<p><span class="firstcharacter">至</span> 此，我们已经学会了如何在荟萃分析中合并效应量。正如我们所见，固定效应模型和随机效应模型的目标都是将许多不同研究的效应综合成一个单一的数值。然而，只有当我们不是在比较苹果和橘子时，这样做才有意义。例如，可能存在这样一种情况：虽然我们在荟萃分析中计算出的总体效应很小，但仍然存在一些效应量非常高的离群值。这些信息在汇总效应中丢失了，我们不知道所有研究都产生了小的效应量，还是存在例外。</p>
+<p> </p>
+<p>真效应量在荟萃分析中变化的程度称为<strong>研究间异质性</strong>。我们在上一章中已经简要地提到了这个概念，与随机效应模型相关联。随机效应模型假设研究间异质性导致研究的真效应量有所不同。因此，它包括对 <span class="math inline">\(\tau^2\)</span> 的估计，<span class="math inline">\(\tau^2\)</span> 量化了真效应中的这种方差。这允许计算合并效应，定义为真效应量分布的平均值。</p>
+<p>即使研究之间存在很大的异质性，随机效应模型也总是允许我们计算合并效应量。然而，它并没有告诉我们这个合并效应是否可以以有意义的方式<strong>解释</strong>。在许多情况下，单独的合并效应并不能很好地代表我们荟萃分析中的数据。</p>
+<p>想象这样一种情况：异质性非常高，这意味着真效应量（例如，某种治疗）的范围从高度正值到负值。如果这种荟萃分析的合并效应是正的，这并没有告诉我们有一些研究具有真正的<strong>负</strong>效应。治疗在某些研究中产生不利影响这一事实丢失了。</p>
+<p>高异质性也可能是由于我们的数据中有两个或多个<strong>亚组</strong>的研究具有不同的真效应。这些信息对于研究人员来说非常有价值，因为它可能使我们能够找到某些效应较低或较高的环境。然而，如果我们孤立地看待合并效应，这个细节很可能会被忽略。在极端情况下，非常高的异质性可能意味着这些研究<strong>没有任何共同之处</strong>，并且根本没有意义去解释合并效应。</p>
+<p>因此，荟萃分析师必须始终考虑被分析研究中的变化。每一个好的荟萃分析不仅应该报告一个总体效应，还应该说明这个估计的可信度。其中一个关键部分是量化和分析研究间的异质性。</p>
+<p>在本章中，我们将更仔细地研究测量异质性的不同方法，以及如何解释它们。我们还将介绍一些工具，这些工具允许我们检测导致数据中异质性的研究。最后，我们将讨论在“真实世界”荟萃分析中解决大量异质性的方法。</p>
+<p><br><br></p>
+<section id="het-measures" class="level2">
+<h2 class="anchored" data-anchor-id="het-measures">异质性测量</h2>
+<hr>
+<p>在我们开始讨论异质性测量之前，我们首先应该明确异质性可能意味着不同的东西。例如，Rücker及其同事 <span class="citation" data-cites="rucker2008undue">[-@rucker2008undue]</span> 区分了<strong>基线</strong>或<strong>设计相关</strong>的异质性和<strong>统计</strong>异质性。</p>
+<ul>
+<li><p>当研究的人群或研究设计在研究之间存在差异时，就会出现<strong>基线</strong>或<strong>设计相关</strong>的异质性。当我们讨论“苹果和橘子”问题（第 @ref(pitfalls) 章）以及定义研究问题的方法（第 @ref(research-question) 章）时，我们已经讨论过这种类型的异质性。可以通过建立一个合适的 PICO 来<strong>先验地</strong>减少与设计相关的异质性，该 PICO 确定哪些类型的人群和设计有资格进行荟萃分析。</p></li>
+<li><p>另一方面，<strong>统计</strong>异质性是一种可量化的属性，受荟萃分析中包含的效应量估计的离散程度和精度的影响。基线异质性<strong>可以</strong>导致统计异质性（例如，如果效应在包括的人群之间存在差异），但并非必须如此。荟萃分析也可能表现出较高的统计异质性，即使包括的研究本身实际上是相同的。在本指南（以及大多数其他荟萃分析文本）中，术语“研究间异质性”仅指<strong>统计</strong>异质性。</p></li>
+</ul>
+<p></p>
+<p><br><br></p>
+<section id="cochran-q" class="level3">
+<h3 class="anchored" data-anchor-id="cochran-q">Cochran 的 <span class="math inline">\(Q\)</span></h3>
+<hr>
+<p>基于随机效应模型，我们知道有两种变异来源导致观察到的效应在研究之间有所不同。有抽样误差 <span class="math inline">\(\epsilon_k\)</span>，以及由研究间异质性引起的误差 <span class="math inline">\(\zeta_k\)</span>（第 @ref(rem) 章）。当我们想要量化研究间异质性时，困难在于确定有多少变异可以归因于抽样误差，有多少可以归因于真效应量差异。</p>
+<p>传统上，荟萃分析师使用 <strong>Cochran 的</strong> <span class="math inline">\(Q\)</span> <span class="citation" data-cites="cochran1954some">[@cochran1954some]</span> 来区分研究的抽样误差和实际的研究间异质性。Cochran 的 <span class="math inline">\(Q\)</span> 被定义为<strong>加权平方和</strong> (<em>WSS</em>)。它使用每个研究的观察效应 <span class="math inline">\(\hat\theta_k\)</span> 与汇总效应 <span class="math inline">\(\hat\theta\)</span> 的偏差，并以研究方差的倒数 <span class="math inline">\(w_k\)</span> 加权：</p>
+<p><span class="math display">\[\begin{equation}
+Q = \sum^K_{k=1}w_k(\hat\theta_k-\hat\theta)^2
+(\#eq:het1)
+\end{equation}\]</span></p>
+<p></p>
+<p>让我们仔细看看这个公式。首先，我们看到它使用了与合并效应量相同的逆方差加权类型。公式中的平均值 <span class="math inline">\(\hat\theta\)</span> 是根据固定效应模型得出的合并效应。各个效应与汇总效应的偏差量（<strong>残差</strong>）被平方（因此该值始终为正），加权然后求和。结果值是 Cochran 的 <span class="math inline">\(Q\)</span>。</p>
+<p>由于 <span class="math inline">\(w_k\)</span> 的加权， <span class="math inline">\(Q\)</span> 的值不仅取决于 <span class="math inline">\(\hat\theta_k\)</span> 与 <span class="math inline">\(\hat\theta\)</span> 的偏差程度，还取决于研究的精度。如果效应量的标准误差非常低（因此精度非常高），即使与汇总效应的微小偏差也会被赋予更高的权重，从而导致更高的 <span class="math inline">\(Q\)</span> 值。</p>
+<p><span class="math inline">\(Q\)</span> 的值可以用来检查我们的数据中是否存在<strong>过度变异</strong>，这意味着比仅从抽样误差预期的变异更大。如果是这种情况，我们可以假设其余的变异是由于研究间异质性造成的。我们将用一个小的模拟来说明这一点。</p>
+<p></p>
+<p>在我们的模拟中，我们想要检查 <span class="math inline">\(Q\)</span> 在两种不同情况下的行为：当没有研究间异质性时，以及当存在异质性时。让我们从没有异质性的情况开始。这意味着 <span class="math inline">\(\zeta_k=0\)</span>，并且残差 <span class="math inline">\(\hat\theta_k-\hat\theta\)</span> 仅是抽样误差 <span class="math inline">\(\epsilon_k\)</span> 的产物。我们可以使用 <code>rnorm</code> 函数来模拟与某个平均效应量 <span class="math inline">\(\hat\theta\)</span> 的偏差（假设它们遵循正态分布）。因为它们以 <span class="math inline">\(\hat\theta\)</span> 为中心，我们可以预期这些“残差”的平均值为零（<span class="math inline">\(\mu\)</span> = 0）。对于这个例子，让我们假设总体标准差为 <span class="math inline">\(\sigma=\)</span> 1，这导致一个<strong>标准</strong>正态分布。</p>
+<p>正态分布通常用 <span class="math inline">\(\mathcal{N}\)</span> 表示，我们可以像这样象征残差是从 <span class="math inline">\(\mu=\)</span> 0 和 <span class="math inline">\(\sigma=\)</span> 1 的正态分布中抽取的：</p>
+<p><span class="math display">\[\begin{equation}
+\hat\theta_k-\hat\theta \sim \mathcal{N}(0,1)
+(\#eq:het2)
+\end{equation}\]</span></p>
+<p>让我们在 <em>R</em> 中尝试一下，并使用 <code>rnorm</code> 抽取 <span class="math inline">\(K\)</span>=40 个效应量残差 <span class="math inline">\(\hat\theta_k-\hat\theta\)</span>。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) <span class="co"># 需要重现结果</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rnorm</span>(<span class="at">n =</span> <span class="dv">40</span>, <span class="at">mean =</span> <span class="dv">0</span>, <span class="at">sd =</span> <span class="dv">1</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>##  [1] -0.56048 -0.23018  1.55871  0.07051  0.12929
+##  [6]  1.71506  0.46092 -1.26506 -0.68685 -0.44566
+##  [...]
+</code></pre>
+<p>因为标准正态分布是 <code>rnorm</code> 的默认值，所以我们也可以使用更简单的代码 <code>rnorm(40)</code>。</p>
+<p>现在，让我们模拟重复多次抽取 <span class="math inline">\(n=\)</span> 40 个样本的过程。我们可以使用 <code>replicate</code> 函数来实现这一点，我们告诉它重复 <code>rnorm</code> 调用一万次。我们将结果值保存在一个名为 <code>error_fixed</code> 的对象中。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>error_fixed <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="at">n =</span> <span class="dv">10000</span>, <span class="fu">rnorm</span>(<span class="dv">40</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>我们继续第二个场景，其中我们假设除了抽样误差 <span class="math inline">\(\epsilon_k\)</span> 之外，还存在<strong>研究间异质性</strong>（<span class="math inline">\(\zeta_k\)</span> 误差）。我们可以通过添加对 <code>rnorm</code> 的第二次调用来模拟这一点，表示真效应量中的方差。在这个例子中，我们还假设真效应量遵循标准正态分布。</p>
+<p>我们可以使用以下代码模拟具有 <span class="math inline">\(K\)</span>=40 项研究和大量研究间异质性的一万个荟萃分析的残差：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>error_random <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="at">n =</span> <span class="dv">10000</span>, <span class="fu">rnorm</span>(<span class="dv">40</span>) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">40</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>现在我们已经模拟了<strong>有</strong>和<strong>没有</strong>异质性的荟萃分析的 <span class="math inline">\(\hat\theta_k-\hat\theta\)</span> 残差，让我们对 <span class="math inline">\(Q\)</span> 的值做同样的事情。对于这个模拟，我们可以通过假设每个研究的方差以及权重 <span class="math inline">\(w_k\)</span> 都是<strong>1</strong>，从而简化 <span class="math inline">\(Q\)</span> 的公式，导致 <span class="math inline">\(w_k\)</span> 从等式中消失。这意味着我们只需要使用之前对 <code>rnorm</code> 的调用，对结果进行平方和求和，并重复这个过程一万次。</p>
+<p>以下是该代码：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>Q_fixed <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">10000</span>, <span class="fu">sum</span>(<span class="fu">rnorm</span>(<span class="dv">40</span>)<span class="sc">^</span><span class="dv">2</span>))</span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>Q_random <span class="ot">&lt;-</span> <span class="fu">replicate</span>(<span class="dv">10000</span>, <span class="fu">sum</span>((<span class="fu">rnorm</span>(<span class="dv">40</span>) <span class="sc">+</span> <span class="fu">rnorm</span>(<span class="dv">40</span>))<span class="sc">^</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><span class="math inline">\(Q\)</span> 的一个重要特性是假设它（近似）遵循 <span class="math inline">\(\chi^2\)</span> 分布。像加权平方和一样，<span class="math inline">\(\chi^2\)</span> 分布只能取正值。它由其<strong>自由度</strong>（或 d.f.）定义；对于小的 d.f.，<span class="math inline">\(\chi^2\)</span> 分布是右偏的，但是当自由度变得更大时，越来越接近正态分布。同时，自由度也是相应 <span class="math inline">\(\chi^2\)</span> 分布的<strong>期望值</strong>或平均值。</p>
+<p>假设 <span class="math inline">\(Q\)</span> 将近似遵循具有 <span class="math inline">\(K-1\)</span> 个自由度的 <span class="math inline">\(\chi^2\)</span> 分布（其中 <span class="math inline">\(K\)</span> 是我们荟萃分析中的研究数量）——<strong>如果</strong>效应量差异<strong>仅</strong>由抽样误差引起。这意味着具有 <span class="math inline">\(K-1\)</span> 个自由度的 <span class="math inline">\(\chi^2\)</span> 分布的平均值告诉我们仅通过抽样误差我们可以预期的 <span class="math inline">\(Q\)</span> 值。</p>
+<p>这个解释非常抽象，所以让我们看一下模拟值的分布，使其更具体。在下面的代码中，我们使用 <code>hist</code> 函数来绘制效应量“残差”和 <span class="math inline">\(Q\)</span> 值的直方图。我们还在每个图中添加了一条线，显示理想化的分布。</p>
+<p>可以使用 <code>dnorm</code> 函数生成正态分布的这种分布，并使用 <code>dchisq</code> 函数生成 <span class="math inline">\(\chi^2\)</span> 分布，其中 <code>df</code> 指定自由度。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 残差的直方图 (theta_k - theta)</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># - 我们为 error_fixed 和 error_random 中的模拟值生成直方图</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="co"># - `lines` 用于添加蓝色正态分布。</span></span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(error_fixed, </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(theta[k])<span class="sc">~-</span><span class="er">~</span><span class="fu">hat</span>(theta)), <span class="at">prob =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">100</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">45</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>),</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"没有异质性"</span>)</span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.01</span>), <span class="fu">dnorm</span>(<span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.01</span>)), </span>
+<span id="cb6-10"><a href="#cb6-10" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb6-11"><a href="#cb6-11" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-12"><a href="#cb6-12" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(error_random, </span>
+<span id="cb6-13"><a href="#cb6-13" aria-hidden="true" tabindex="-1"></a>     <span class="at">xlab =</span> <span class="fu">expression</span>(<span class="fu">hat</span>(theta[k])<span class="sc">~-</span><span class="er">~</span><span class="fu">hat</span>(theta)), <span class="at">prob =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb6-14"><a href="#cb6-14" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">100</span>,<span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">45</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="sc">-</span><span class="dv">4</span>,<span class="dv">4</span>),</span>
+<span id="cb6-15"><a href="#cb6-15" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"异质性"</span>)</span>
+<span id="cb6-16"><a href="#cb6-16" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.01</span>), <span class="fu">dnorm</span>(<span class="fu">seq</span>(<span class="sc">-</span><span class="dv">4</span>, <span class="dv">4</span>, <span class="fl">0.01</span>)), </span>
+<span id="cb6-17"><a href="#cb6-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb6-18"><a href="#cb6-18" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-19"><a href="#cb6-19" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-20"><a href="#cb6-20" aria-hidden="true" tabindex="-1"></a><span class="co"># 模拟 Q 值的直方图</span></span>
+<span id="cb6-21"><a href="#cb6-21" aria-hidden="true" tabindex="-1"></a><span class="co"># - 我们为 Q_fixed 和 Q_random 中的模拟值生成直方图</span></span>
+<span id="cb6-22"><a href="#cb6-22" aria-hidden="true" tabindex="-1"></a><span class="co"># - `lines` 用于添加蓝色卡方分布。</span></span>
+<span id="cb6-23"><a href="#cb6-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-24"><a href="#cb6-24" aria-hidden="true" tabindex="-1"></a><span class="co"># 首先，我们计算自由度 (k-1)</span></span>
+<span id="cb6-25"><a href="#cb6-25" aria-hidden="true" tabindex="-1"></a><span class="co"># 记住：每次模拟使用 k=40 项研究</span></span>
+<span id="cb6-26"><a href="#cb6-26" aria-hidden="true" tabindex="-1"></a>df <span class="ot">&lt;-</span> <span class="dv">40-1</span></span>
+<span id="cb6-27"><a href="#cb6-27" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-28"><a href="#cb6-28" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Q_fixed, <span class="at">xlab =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(<span class="st">"Q"</span>)), <span class="at">prob =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb6-29"><a href="#cb6-29" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">100</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">06</span>),<span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">160</span>),</span>
+<span id="cb6-30"><a href="#cb6-30" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"没有异质性"</span>)</span>
+<span id="cb6-31"><a href="#cb6-31" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="fl">0.01</span>), <span class="fu">dchisq</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="fl">0.01</span>), <span class="at">df =</span> df), </span>
+<span id="cb6-32"><a href="#cb6-32" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span>
+<span id="cb6-33"><a href="#cb6-33" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-34"><a href="#cb6-34" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(Q_random,  <span class="at">xlab =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(<span class="st">"Q"</span>)), <span class="at">prob =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb6-35"><a href="#cb6-35" aria-hidden="true" tabindex="-1"></a>     <span class="at">breaks =</span> <span class="dv">100</span>, <span class="at">ylim =</span> <span class="fu">c</span>(<span class="dv">0</span>, .<span class="dv">06</span>), <span class="at">xlim =</span> <span class="fu">c</span>(<span class="dv">0</span>,<span class="dv">160</span>),</span>
+<span id="cb6-36"><a href="#cb6-36" aria-hidden="true" tabindex="-1"></a>     <span class="at">main =</span> <span class="st">"异质性"</span>)</span>
+<span id="cb6-37"><a href="#cb6-37" aria-hidden="true" tabindex="-1"></a><span class="fu">lines</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="fl">0.01</span>), <span class="fu">dchisq</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">100</span>, <span class="fl">0.01</span>), <span class="at">df =</span> df), </span>
+<span id="cb6-38"><a href="#cb6-38" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="st">"blue"</span>, <span class="at">lwd =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>以下是 <em>R</em> 为我们绘制的图：</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="07-heterogeneity_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="07-heterogeneity_files/figure-html/unnamed-chunk-6-2.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="07-heterogeneity_files/figure-html/unnamed-chunk-6-3.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="07-heterogeneity_files/figure-html/unnamed-chunk-6-4.png" class="img-fluid figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>如果您发现我们用来生成绘图的代码难以理解，请不要担心。我们仅将其用于此模拟，这些不是作为实际荟萃分析的一部分会产生的绘图。</p>
+<p>让我们回顾一下我们在四个直方图中看到的内容。在第一行中，我们看到了效应量“残差”的分布，有和没有异质性。正如我们所看到的，没有异质性的数据与我们在绘图中包含的标准正态分布线非常吻合。这是非常合乎逻辑的，因为数据是由 <code>rnorm</code> 生成的，假设了这种精确的分布。我们添加了额外异质性的数据不遵循标准正态分布。数据的离散度更大，导致具有较重尾部的分布。</p>
+<p></p>
+<p>现在，让我们探讨一下这与第二行中 <span class="math inline">\(Q\)</span> 值的分布有何关系。当没有异质性时，<span class="math inline">\(Q\)</span> 的值遵循一个特征性的右偏 <span class="math inline">\(\chi^2\)</span> 分布。在图中，实线显示了具有 39 个自由度的 <span class="math inline">\(\chi^2\)</span> 分布的形状（因为 d.f. = <span class="math inline">\(K-1\)</span>，并且每次模拟使用 <span class="math inline">\(K\)</span> = 40）。我们看到模拟数据很好地遵循了这条曲线。这不足为奇。我们已经了解到，当没有异质性时，<span class="math inline">\(Q\)</span> 遵循具有 <span class="math inline">\(K-1\)</span> 个自由度的 <span class="math inline">\(\chi^2\)</span> 分布。在我们的模拟数据中，情况正是如此：变异仅由于抽样误差而存在。</p>
+<p>对于我们的<strong>有</strong>异质性的示例，该分布看起来完全不同。模拟数据似乎根本不遵循预期的分布。值明显向右移动；分布的平均值大约高两倍。我们可以得出结论，当存在大量的研究间异质性时，<span class="math inline">\(Q\)</span> 的值明显高于我们在没有异质性的假设下预期的 <span class="math inline">\(K-1\)</span> 值。这并不奇怪，因为我们向数据添加了额外的变异以模拟研究间异质性的存在。</p>
+<p></p>
+<p>这是一个有些冗长的解释，但可能帮助我们更好地理解如何利用 <span class="math inline">\(Q\)</span> 的统计特性。Cochran 的 <span class="math inline">\(Q\)</span> 可用于<strong>检验</strong>荟萃分析中的变异是否显着超过我们可以在没有异质性的零假设下预期的数量。</p>
+<p>这种<strong>异质性检验</strong>在荟萃分析中很常用，如果您回到第 @ref(pooling-es) 章，您会看到 <strong>{meta}</strong> 也会默认提供给我们。它通常被称为 <strong>Cochran 的</strong> <span class="math inline">\(Q\)</span> <strong>检验</strong>，但实际上这是一种用词不当。Cochran 本人从未打算以这种方式使用 <span class="math inline">\(Q\)</span> <span class="citation" data-cites="hoaglin2016misunderstandings">[@hoaglin2016misunderstandings]</span>。</p>
+<p> </p>
+<p>Cochran 的 <span class="math inline">\(Q\)</span> 是一个非常重要的统计量，主要是因为其他常见的量化异质性的方法，例如 Higgins 和 Thompson 的 <span class="math inline">\(I^2\)</span> 统计量和 <span class="math inline">\(H^2\)</span>，都是基于它的。我们将在下一节中介绍这些测量方法。Cochran 的 <span class="math inline">\(Q\)</span> 也被一些异质性方差估计器用来计算 <span class="math inline">\(\tau^2\)</span>，最著名的是 DerSimonian-Laird 估计器<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。</p>
+<div class="cell" type="boximportant">
+<div class="boximportant">
+<p>
+<strong>关于 <span class="math inline">(Q)</span> 和 <span class="math inline">(Q)</span> 检验的问题</strong>
+</p>
+<p>
+虽然 <span class="math inline">(Q)</span> 在荟萃分析中被广泛使用和报告，但它有一些缺陷。例如，Hoaglin <span class="citation"><span class="citation" data-cites="hoaglin2016misunderstandings">[-@hoaglin2016misunderstandings]</span></span> 认为，<span class="math inline">(Q)</span> 遵循具有 <span class="math inline">(K-1)</span> 个自由度的 <span class="math inline">(^2)</span> 分布的假设并不能反映 <span class="math inline">(Q)</span> 在荟萃分析中的实际行为，并且相关程序（例如 DerSimonian-Laird 方法）因此可能存在偏差。
+</p>
+<p>
+一个更实际的担忧是，<span class="math inline">(Q)</span> 会随着研究数量 <span class="math inline">(K)</span> 的增加以及精度（即研究的样本量）的增加而增加。因此，<span class="math inline">(Q)</span> 以及它是否显着高度取决于您的荟萃分析的大小，因此也取决于它的统计功效。
+</p>
+<p>
+由此可见，我们在评估异质性时，不应仅依赖于 <span class="math inline">(Q)</span> 检验的显着性。有时，荟萃分析师根据 <span class="math inline">(Q)</span> 检验的显着性来决定是应用固定效应模型还是随机效应模型。由于我们在此处陈述的原因，强烈不建议使用这种方法。
+</p>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="i-squared" class="level3">
+<h3 class="anchored" data-anchor-id="i-squared">Higgins &amp; Thompson 的 <span class="math inline">\(I^2\)</span> 统计量</h3>
+<hr>
+<p></p>
+<p><span class="math inline">\(I^2\)</span> 统计量 <span class="citation" data-cites="higgins2002quantifying">[@higgins2002quantifying]</span> 是另一种量化研究间异质性的方法，它直接基于 Cochran 的 <span class="math inline">\(Q\)</span>。它被定义为效应量中不由抽样误差引起的变异百分比。 <span class="math inline">\(I^2\)</span> 利用了 <span class="math inline">\(Q\)</span> 在没有异质性的零假设下遵循具有 <span class="math inline">\(K-1\)</span> 个自由度的 <span class="math inline">\(\chi^2\)</span> 分布的假设。它以百分比量化了 <span class="math inline">\(Q\)</span> 的<strong>观察</strong>值在多大程度上<strong>超过</strong>了没有异质性时的<strong>预期</strong> <span class="math inline">\(Q\)</span> 值（即 <span class="math inline">\(K-1\)</span>）。</p>
+<p><span class="math inline">\(I^2\)</span> 的公式如下所示：</p>
+<p><span class="math display">\[\begin{equation}
+I^2 = \frac{Q-(K-1)}{Q}
+(\#eq:het3)
+\end{equation}\]</span></p>
+<p>其中 <span class="math inline">\(K\)</span> 是研究的总数。 <span class="math inline">\(I^2\)</span> 的值不能低于 0%，因此如果 <span class="math inline">\(Q\)</span> 恰好小于 <span class="math inline">\(K-1\)</span>，我们只需使用 <span class="math inline">\(0\)</span> 而不是负值<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
+<p>我们可以使用之前模拟的 <span class="math inline">\(Q\)</span> 值来说明如何计算 <span class="math inline">\(I^2\)</span>。首先，让我们随机选取 <code>Q_fixed</code> 中第十个模拟值，其中我们假设没有异质性。然后，我们使用上面的公式计算 <span class="math inline">\(I^2\)</span>。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 显示 Q 的第 10 个模拟的值</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>Q_fixed[<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 35.85787</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 定义 k</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>k <span class="ot">&lt;-</span> <span class="dv">40</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 计算 I^2</span></span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>(Q_fixed[<span class="dv">10</span>] <span class="sc">-</span> (k<span class="dv">-1</span>))<span class="sc">/</span>Q_fixed[<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] -0.08762746</code></pre>
+</div>
+</div>
+<p>由于结果为负，我们向上舍入为零，从而得到 <span class="math inline">\(I^2\)</span> = 0%。该值告诉我们，效应量中零百分比的变异是由于研究间异质性引起的。这与我们模拟中使用的设置一致。</p>
+<p>现在，我们对 <code>Q_random</code> 中的第十个模拟值执行相同的操作。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>(Q_random[<span class="dv">10</span>] <span class="sc">-</span> (k<span class="dv">-1</span>))<span class="sc">/</span>Q_random[<span class="dv">10</span>]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5692061</code></pre>
+</div>
+</div>
+<p>我们看到此模拟的 <span class="math inline">\(I^2\)</span> 值约为 50%，这意味着大约一半的变异是由于研究间异质性引起的。这也与我们的预期一致，因为此示例中的变异基于模拟的抽样误差和研究间异质性，各占一半。</p>
+<p>通常使用 <span class="math inline">\(I^2\)</span> 统计量来报告荟萃分析中的研究间异质性，并且默认情况下，我们在 <strong>{meta}</strong> 中获得的输出中包含 <span class="math inline">\(I^2\)</span>。该统计量的普及可能与其存在“经验法则”相关，说明我们如何解释它 <span class="citation" data-cites="higgins2002quantifying">[@higgins2002quantifying]</span>：</p>
+<ul>
+<li><p><span class="math inline">\(I^2\)</span> = 25%: 低异质性</p></li>
+<li><p><span class="math inline">\(I^2\)</span> = 50%: 中等异质性</p></li>
+<li><p><span class="math inline">\(I^2\)</span> = 75%: 大量异质性。</p></li>
+</ul>
+<p><br><br></p>
+</section>
+<section id="h2-统计量" class="level3">
+<h3 class="anchored" data-anchor-id="h2-统计量"><span class="math inline">\(H^2\)</span> 统计量</h3>
+<hr>
+<p><span class="math inline">\(H^2\)</span> 统计量 <span class="citation" data-cites="higgins2002quantifying">[@higgins2002quantifying]</span> 也来自 Cochran 的 <span class="math inline">\(Q\)</span>，并且与 <span class="math inline">\(I^2\)</span> 相似。它描述了观察到的变异（由 <span class="math inline">\(Q\)</span> 测量）与由于抽样误差引起的预期方差的比率：</p>
+<p><span class="math display">\[\begin{equation}
+H^2 = \frac{Q}{K-1}
+(\#eq:het4)
+\end{equation}\]</span></p>
+<p><span class="math inline">\(H^2\)</span> 的计算比 <span class="math inline">\(I^2\)</span> 的计算略微优雅一些，因为当 <span class="math inline">\(Q\)</span> 小于 <span class="math inline">\(K-1\)</span> 时，我们不必人为地校正其值。当没有研究间异质性时，<span class="math inline">\(H^2\)</span> 等于 1（或更小）。大于 1 的值表示存在研究间异质性。</p>
+<p>与 <span class="math inline">\(I^2\)</span> 相比，在已发表的荟萃分析中发现报告该统计量的频率要低得多。但是，默认情况下，<strong>{meta}</strong> 的荟萃分析函数的输出中也包含 <span class="math inline">\(H^2\)</span>。</p>
+<p><br><br></p>
+</section>
+<section id="tau" class="level3">
+<h3 class="anchored" data-anchor-id="tau">异质性方差 <span class="math inline">\(\tau^2\)</span> 和标准差 <span class="math inline">\(\tau\)</span></h3>
+<hr>
+<p>我们在第 @ref(rem) 章中已经详细讨论了异质性方差 <span class="math inline">\(\tau^2\)</span>。正如我们在那里提到的，<span class="math inline">\(\tau^2\)</span> 量化了我们数据基础的真效应量的<strong>方差</strong>。当我们取 <span class="math inline">\(\tau^2\)</span> 的平方根时，我们得到 <span class="math inline">\(\tau\)</span>，它是真效应量的<strong>标准差</strong>。</p>
+<p><span class="math inline">\(\tau\)</span> 的一个很大的优点是它以与效应量度量相同的尺度表示。这意味着我们可以像解释一级研究中样本年龄的平均值和标准差一样来解释它。 <span class="math inline">\(\tau\)</span> 的值告诉我们一些关于真效应量的<strong>范围</strong>的信息。</p>
+<p>例如，我们可以通过将 <span class="math inline">\(\tau\)</span> 乘以 1.96 来计算真效应量的 95% 置信区间，然后从合并效应量中加上和减去该值。我们可以使用我们在第 @ref(pre-calculated-es) 章中计算的 <code>m.gen</code> 荟萃分析来尝试一下。</p>
+<p>让我们再次看看该荟萃分析中的合并效应和 <span class="math inline">\(\tau\)</span> 估计值是什么：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 合并效应</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>m.gen<span class="sc">$</span>TE.random</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5771158</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co"># tau 的估计</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>m.gen<span class="sc">$</span>tau</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.2863311</code></pre>
+</div>
+</div>
+<p>我们看到 <span class="math inline">\(g=\)</span> 0.58 和 <span class="math inline">\(\tau=\)</span> 0.29。基于这些数据，我们可以计算 95% 真效应量置信区间的下限和上限：0.58 <span class="math inline">\(-\)</span> 1.96 <span class="math inline">\(\times\)</span> 0.29 = 0.01 和 0.58 <span class="math inline">\(+\)</span> 1.96 <span class="math inline">\(\times\)</span> 0.29 = 1.15。</p>
+<div class="cell" type="boxinfo">
+
+<div class="boxinfo">
+<p><strong>“我们不确定性的不确定性是什么？”：围绕 <span class="math inline">\(\tau^2\)</span> 计算置信区间</strong></p>
+<p>量化我们研究间异质性方差估计的不确定性的方法（即围绕 <span class="math inline">\(\tau^2\)</span> 的置信区间）仍然是一个正在进行的研究领域。有几种方法是可能的，它们的充分性取决于 <span class="math inline">\(\tau^2\)</span> 估计器的类型（第 @ref(tau-estimators) 章）。</p>
+<p><strong>{meta}</strong> 包遵循 Veronikki <span class="citation" data-cites="veroniki2016methods">[-@veroniki2016methods]</span> 的建议，并对大多数估计器使用 <span class="math inline">\(Q\)</span><strong>-Profile</strong> 方法 <span class="citation" data-cites="viechtbauer2007confidence">[@viechtbauer2007confidence]</span>。</p>
+<p><span class="math inline">\(Q\)</span>-Profile 方法基于更改后的 <span class="math inline">\(Q\)</span> 版本，即<strong>广义</strong> <span class="math inline">\(Q\)</span><strong>-statistic</strong> <span class="math inline">\(Q_{\text{gen}}\)</span>。虽然标准版本的 <span class="math inline">\(Q\)</span> 使用基于固定效应模型的合并效应，但 <span class="math inline">\(Q_{\text{gen}}\)</span> 基于随机效应模型。它使用根据随机效应模型得出的总体效应 <span class="math inline">\(\hat\mu\)</span> 来计算偏差，以及基于随机效应模型的权重：</p>
+<p><span class="math display">\[\begin{equation}
+Q_{\text{gen}} = \sum_{k=1}^{K} w^*_k (\hat\theta_k-\hat\mu)^2
+(\#eq:het5)
+\end{equation}\]</span></p>
+<p>其中 <span class="math inline">\(w^*_k\)</span> 是随机效应权重（参见第 @ref(tau-estimators) 章）：</p>
+<p><span class="math display">\[\begin{equation}
+w^*_k = \frac{1}{s^2_k+\tau^2}
+(\#eq:het6)
+\end{equation}\]</span></p>
+<p><span class="math inline">\(Q_{\text{gen}}\)</span> 也被证明遵循具有 <span class="math inline">\(K-1\)</span> 个自由度的 <span class="math inline">\(\chi^2\)</span> 分布。我们可以将广义 <span class="math inline">\(Q\)</span> 统计量视为一个函数 <span class="math inline">\(Q_{\text{gen}}(\tau^2)\)</span>，该函数为更高或更低的 <span class="math inline">\(\tau^2\)</span> 值返回不同的 <span class="math inline">\(Q_{\text{gen}}\)</span> 值。此函数的结果具有 <span class="math inline">\(\chi^2\)</span> 分布。</p>
+<p>由于 <span class="math inline">\(\chi^2\)</span> 分布遵循清晰可预测的模式，因此很容易确定具有例如 95% 覆盖率的置信区间。我们只需要根据其 <span class="math inline">\(K-1\)</span> 个自由度获得第 2.5 个百分位数和第 97.5 个百分位数的 <span class="math inline">\(\chi^2\)</span> 值。在 <em>R</em> 中，可以使用<strong>分位数函数</strong> <code>qchisq</code> 轻松完成此操作，例如：<code>qchisq(0.975, df=5)</code>。</p>
+<p><span class="math inline">\(Q\)</span>-Profile 方法利用这种关系，使用迭代过程（所谓的“分析”）计算围绕 <span class="math inline">\(\tau^2\)</span> 的置信区间。在这种方法中，重复计算 <span class="math inline">\(Q_{\text{gen}}(\widetilde{\tau}^2)\)</span>，同时增加 <span class="math inline">\(\tau^2\)</span> 的值，直到达到基于 <span class="math inline">\(\chi^2\)</span> 分布的置信区间的下限和上限的预期值。</p>
+<p>可以通过参数 <code>method.tau.ci = "QP"</code> 在 <strong>{meta}</strong> 函数中指定 <span class="math inline">\(Q\)</span>-Profile 方法。这是默认设置，这意味着我们不必手动添加此参数。唯一的例外是当我们使用 DerSimonian-Laird 估计器 (<code>method.tau = "DL"</code>) 时。在这种情况下，会自动使用 Jackson <span class="citation" data-cites="jackson2013confidence">[-@jackson2013confidence]</span> 的另一种方法（我们可以通过指定 <code>method.tau.ci = "J"</code> 手动执行此操作）。</p>
+<p>通常，没有必要偏离 <strong>{meta}</strong> 的默认行为，但对于其他人来说，报告已使用哪种方法在您的荟萃分析中计算围绕 <span class="math inline">\(\tau^2\)</span> 的置信区间可能会有所帮助。</p>
+</div>
+</div>
+<p><br><br></p>
+</section>
+</section>
+<section id="het-measure-which" class="level2">
+<h2 class="anchored" data-anchor-id="het-measure-which">我应该使用哪种测量方法？</h2>
+<hr>
+<p>当我们在荟萃分析中评估和报告异质性时，我们需要一种稳健的测量方法，并且不会受到统计功效的过度影响。Cochran 的 <span class="math inline">\(Q\)</span> 会随着研究数量的增加以及精度（即研究的样本量）的增加而增加。</p>
+<p>因此，<span class="math inline">\(Q\)</span> 以及它是否显着高度取决于您的荟萃分析的大小，因此也取决于它的统计功效。因此，我们在评估研究间异质性时，不应仅依赖于 <span class="math inline">\(Q\)</span>，尤其是 <span class="math inline">\(Q\)</span> 检验。</p>
+<p>另一方面，<span class="math inline">\(I^2\)</span> 对分析中研究数量的变化不敏感。它相对容易解释，并且许多研究人员都了解它的含义。总的来说，在我们的荟萃分析报告中包含 <span class="math inline">\(I^2\)</span> 作为异质性测量方法并不是一个坏主意，特别是如果我们还为此统计量提供置信区间，以便其他人可以评估估计的精确度。</p>
+<p> </p>
+<p>然而，尽管 <span class="math inline">\(I^2\)</span> 在文献中被广泛使用，但它也不是一个完美的异质性度量。它不是异质性的绝对度量，并且它的值仍然在很大程度上取决于所包含研究的精度 <span class="citation" data-cites="borenstein2017basics rucker2008undue">[@borenstein2017basics; @rucker2008undue]</span>。正如之前所说，<span class="math inline">\(I^2\)</span> 仅仅是不由抽样误差 <span class="math inline">\(\epsilon\)</span> 引起的变异百分比。如果我们的研究变得越来越大，则抽样误差趋向于零，同时，<span class="math inline">\(I^2\)</span> 趋向于 100%——仅仅是因为这些研究具有更大的样本量。</p>
+<p>因此，<strong>仅</strong>依赖 <span class="math inline">\(I^2\)</span> 也不是一个好的选择。由于 <span class="math inline">\(H^2\)</span> 的行为与 <span class="math inline">\(I^2\)</span> 相似，因此相同的注意事项也适用于此统计量。</p>
+<p>另一方面，<span class="math inline">\(\tau^2\)</span> 和 <span class="math inline">\(\tau\)</span> 的值对研究数量及其精度不敏感。随着研究数量及其规模的增加，它不会系统地增加。然而，通常很难从实际角度解释 <span class="math inline">\(\tau^2\)</span> 的相关性。例如，假设我们发现研究中真效应量的方差为 <span class="math inline">\(\tau^2=\)</span> 0.08。我们自己和其他人通常很难确定这种方差量是否有意义。</p>
+<p></p>
+<p><strong>预测区间</strong> (PI) 是克服此限制的好方法 <span class="citation" data-cites="inthout2016plea">[@inthout2016plea]</span>。预测区间为我们提供了一个范围，根据目前的证据，我们可以预期未来研究的效应会落入该范围。</p>
+<p>假设我们的预测区间完全位于支持干预的“正”侧。这意味着，尽管效应各不相同，但预计干预在未来我们研究的背景下是有益的。如果预测区间包括零，我们可以不太确定这一点，但应该注意的是，广泛的预测区间非常常见。</p>
+<p>为了计算围绕总体效应 <span class="math inline">\(\hat\mu\)</span> 的预测区间，我们同时使用估计的研究间异质性方差 <span class="math inline">\(\hat\tau^2\)</span> 和合并效应的标准误差 <span class="math inline">\(SE_{\hat\mu}\)</span>。我们对平方标准误差和 <span class="math inline">\(\hat\tau^2\)</span> 值求和，然后取结果的平方根。这使我们获得了预测区间的标准差 <span class="math inline">\(SD_{\text{PI}}\)</span>。假设预测范围的 <span class="math inline">\(t\)</span> 分布具有 <span class="math inline">\(K-1\)</span> 个自由度，这就是为什么我们将 <span class="math inline">\(SD_{\text{PI}}\)</span> 乘以 <span class="math inline">\(t_{K-1}\)</span> 的第 97.5 个百分位数值，然后从 <span class="math inline">\(\hat\mu\)</span> 中加上和</p>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>DerSimonian-Laird 方法使用 <span class="math inline">\(\hat\tau^2 = \dfrac{Q-(K-1)}{\sum_{k=1}^{K}w_k-\frac{\sum_{k=1}^Kw^2_k}{\sum_{k=1}^Kw_k}}\)</span> 估计异质性方差，当 <span class="math inline">\(Q&lt;(K-1)\)</span> 时，<span class="math inline">\(\hat\tau^2 := 0\)</span>；另见第 @ref(rem) 和 @ref(tau-estimators) 章。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>请注意，虽然 <span class="math inline">\(I^2\)</span> 通常使用上面的公式计算，但<strong>并非所有软件</strong>都遵循此定义。例如，在 <strong>{metafor}</strong> 中，它的值是使用估计的研究间异质性 <span class="math inline">\(\tau^2\)</span> 推导出来的（参见 <a href="https://www.metafor-project.org/doku.php/tips:i2_multilevel_multivariate">此处</a>），因此：<span class="math display">\[I^2 = \frac{\hat{\tau}^2}{\hat{\tau}^2 + \tilde{v}};\]</span> 其中：<span class="math display">\[\tilde{v} = \frac{(K-1) \sum w_k}{(\sum w_k)^2 - \sum w_k^2}\]</span> 是根据我们样本中所有研究 <span class="math inline">\(k\)</span> 的权重 <span class="math inline">\(w_k\)</span> 计算得出的“平均”或“典型”抽样方差（参见第 @ref(fem) 章）。与之前显示的公式相比，这种计算 <span class="math inline">\(I^2\)</span> 的方式更容易看出 <strong><span class="math inline">\(I^2\)</span> 是异质性的 <em>相对</em> 度量</strong>。它取决于“典型”的研究内方差 <span class="math inline">\(\tilde{v}\)</span>，该方差可能因荟萃分析而异。我们在第 @ref(het-measure-which) 章中详细阐述了这一点。另请注意，这些不同的公式有时可以解释为什么荟萃分析工具可以返回 <strong>不同的值</strong> <span class="math inline">\(I^2\)</span>，即使合并了相同的数据。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

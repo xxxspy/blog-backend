@@ -1,0 +1,1544 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Meta 分析</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R Meta 分析</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.rmd"> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./daizuo.html"> 
+<span class="menu-text">Meta 代做</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./17-risk-of-bias-plots.html">偏倚风险图</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前言</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">作者</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">介绍</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-discovering_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发现R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-pooling_effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">合并效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-heterogeneity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">异质性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-forestplots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">森林图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-subgroup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">亚组分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-metareg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Meta回归</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-publication-bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发表偏倚</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-mlma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">多元Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-sem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">结构方程模型</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-netwma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">网络Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-bayesianma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">贝叶斯Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-power-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">功效分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-risk-of-bias-plots.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">偏倚风险图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-reporting-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">报告与可重复性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-effect-size-calculation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量计算</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">附录</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./98-cite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">引用</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#risk-of-bias-plots" id="toc-risk-of-bias-plots" class="nav-link active" data-scroll-target="#risk-of-bias-plots">偏倚风险图</a>
+  <ul class="collapse">
+  <li><a href="#引言" id="toc-引言" class="nav-link" data-scroll-target="#引言">引言</a>
+  <ul class="collapse">
+  <li><a href="#加载-robvis" id="toc-加载-robvis" class="nav-link" data-scroll-target="#加载-robvis">加载 <strong>{robvis}</strong></a></li>
+  <li><a href="#导入您的偏倚风险汇总表数据" id="toc-导入您的偏倚风险汇总表数据" class="nav-link" data-scroll-target="#导入您的偏倚风险汇总表数据">导入您的偏倚风险汇总表数据</a></li>
+  <li><a href="#模板" id="toc-模板" class="nav-link" data-scroll-target="#模板">模板</a></li>
+  <li><a href="#示例数据集" id="toc-示例数据集" class="nav-link" data-scroll-target="#示例数据集">示例数据集</a></li>
+  </ul></li>
+  <li><a href="#汇总图" id="toc-汇总图" class="nav-link" data-scroll-target="#汇总图">汇总图</a>
+  <ul class="collapse">
+  <li><a href="#基础知识" id="toc-基础知识" class="nav-link" data-scroll-target="#基础知识">基础知识</a></li>
+  <li><a href="#修改图" id="toc-修改图" class="nav-link" data-scroll-target="#修改图">修改图</a></li>
+  </ul></li>
+  <li><a href="#交通灯图" id="toc-交通灯图" class="nav-link" data-scroll-target="#交通灯图">交通灯图</a>
+  <ul class="collapse">
+  <li><a href="#基础知识-1" id="toc-基础知识-1" class="nav-link" data-scroll-target="#基础知识-1">基础知识</a></li>
+  <li><a href="#修改图-1" id="toc-修改图-1" class="nav-link" data-scroll-target="#修改图-1">修改图</a></li>
+  </ul></li>
+  <li><a href="#rob1-template" id="toc-rob1-template" class="nav-link" data-scroll-target="#rob1-template">“ROB1” 通用模板</a>
+  <ul class="collapse">
+  <li><a href="#动机" id="toc-动机" class="nav-link" data-scroll-target="#动机">动机</a></li>
+  <li><a href="#变化的领域数量" id="toc-变化的领域数量" class="nav-link" data-scroll-target="#变化的领域数量">变化的领域数量</a></li>
+  <li><a href="#域名" id="toc-域名" class="nav-link" data-scroll-target="#域名">域名</a></li>
+  </ul></li>
+  <li><a href="#自定义和保存" id="toc-自定义和保存" class="nav-link" data-scroll-target="#自定义和保存">自定义和保存</a>
+  <ul class="collapse">
+  <li><a href="#ggplot2-包" id="toc-ggplot2-包" class="nav-link" data-scroll-target="#ggplot2-包"><strong>{ggplot2}</strong> 包</a></li>
+  <li><a href="#修改您的图" id="toc-修改您的图" class="nav-link" data-scroll-target="#修改您的图">修改您的图</a></li>
+  <li><a href="#保存图" id="toc-保存图" class="nav-link" data-scroll-target="#保存图">保存图</a></li>
+  <li><a href="#以不同的格式保存" id="toc-以不同的格式保存" class="nav-link" data-scroll-target="#以不同的格式保存">以不同的格式保存</a></li>
+  </ul></li>
+  <li><a href="#web-app" id="toc-web-app" class="nav-link" data-scroll-target="#web-app">Web App</a>
+  <ul class="collapse">
+  <li><a href="#登陆页面" id="toc-登陆页面" class="nav-link" data-scroll-target="#登陆页面">登陆页面</a></li>
+  <li><a href="#交通灯图页面" id="toc-交通灯图页面" class="nav-link" data-scroll-target="#交通灯图页面">交通灯图页面</a></li>
+  <li><a href="#汇总图页面" id="toc-汇总图页面" class="nav-link" data-scroll-target="#汇总图页面">汇总图页面</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="risk-of-bias-plots" class="level1">
+<h1>偏倚风险图</h1>
+<p><strong>作者：Luke A. McGuinness</strong></p>
+<hr>
+<p><img src="_figs/traffic_light.jpg"></p>
+<div class="cell" type="boxempty">
+
+<div class="boxempty">
+<p><strong>请引用本章如下：</strong></p>
+McGuinness, L. A. (2021). 偏倚风险图。见 Harrer, M., Cuijpers, P., Furukawa, T.A., &amp; Ebert, D.D., <em>使用 R 进行 Meta 分析：实操指南</em> (在线版本). bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/rob-plots.html.
+</div>
+</div>
+<p><br><br></p>
+<p><span class="firstcharacter">在</span>本章中，我们将介绍如何使用 <strong>{robvis}</strong> 包在 <em>R</em> 中创建偏倚风险图。</p>
+<p><br><br></p>
+<section id="引言" class="level2">
+<h2 class="anchored" data-anchor-id="引言">引言</h2>
+<hr>
+<p>作为系统评价和 Meta 分析的一部分，您可能还需要使用相关的 <a href="https://handbook-5-1.cochrane.org/chapter_8/8_3_1_types_of_tools.htm">基于领域的偏倚风险评估工具</a> 检查纳入研究的内部有效性（偏倚风险），并以图形格式呈现此评估的结果。</p>
+<p>Cochrane 手册推荐两种类型的图形：一种是汇总条形图，显示每个领域中具有给定偏倚风险判断的研究比例；另一种是交通灯图，显示每个研究的领域级别判断。</p>
+<p>然而，研究人员在创建这些图形时可用的选项有限。虽然 RevMan 具有创建图的功能，但许多研究人员不使用它来进行系统评价，因此将相关数据复制到系统中是一种低效的解决方案。</p>
+<p>同样，使用 MS PowerPoint 等软件手动制作图表既耗时，又意味着如果需要更改，则必须手动更新图表。此外，期刊通常要求图表具有出版质量（高于约 300-400dpi），这在从 RevMan 导出偏倚风险图或手动创建它们时很难实现。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/robsummaryrevman.jpg" class="img-fluid figure-img" style="width:75.0%"></p>
+<figcaption>RevMan 输出示例。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>为了避免所有这些，您现在可以使用 <strong>{robvis}</strong> 包 <span class="citation" data-cites="mcguinness2020risk robvis">[@mcguinness2020risk; @robvis]</span> 在 R Studio 中轻松绘制偏倚风险图，该包提供将偏倚风险评估汇总表转换为汇总图或交通灯图的函数。</p>
+<p><br><br></p>
+<section id="加载-robvis" class="level3">
+<h3 class="anchored" data-anchor-id="加载-robvis">加载 <strong>{robvis}</strong></h3>
+<hr>
+<p>假设您已经安装了 <strong>{dmetar}</strong> 包（参见第 @ref(dmetar) 章），请使用以下命令加载 <strong>{robvis}</strong> 包：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(robvis)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br><br></p>
+</section>
+<section id="导入您的偏倚风险汇总表数据" class="level3">
+<h3 class="anchored" data-anchor-id="导入您的偏倚风险汇总表数据">导入您的偏倚风险汇总表数据</h3>
+<hr>
+<p>为了生成我们的图，我们首先必须将偏倚风险评估的结果从 <strong>Excel</strong> 导入到 <em>R</em> 中。请注意，<strong>{robvis}</strong> 期望您提供的数据具有某些事实，因此请务必在 Excel 中设置表时遵循以下指南：</p>
+<ol type="1">
+<li>第一列标记为“Study”，包含研究标识符（例如，<strong>Anthony et al, 2019</strong>）</li>
+<li>倒数第二列标记为“Overall”，包含总体偏倚风险判断</li>
+<li>最后一列标记为“Weight”，包含研究精确度的一些度量，例如 Meta 分析中分配给每个研究的权重，或者如果没有进行 Meta 分析，则包含每个研究的样本量。有关更多详细信息，请参见第 @ref(fem) 章。</li>
+<li>所有其他列包含特定领域的偏倚风险评估结果。</li>
+</ol>
+<p>为了详细说明上述指南，以具有 5 个领域的 ROB2 工具为例。 <strong>{robvis}</strong> 期望的最终数据集将具有 8 列：</p>
+<ul>
+<li><strong>第 1 列</strong>：研究标识符</li>
+<li><strong>第 2-6 列</strong>：每列一个 RoB2 领域</li>
+<li><strong>第 7 列</strong>：总体偏倚风险判断</li>
+<li><strong>第 8 列</strong>：权重。</li>
+</ul>
+<p>在 Excel 中，此偏倚风险汇总表如下所示：</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/rob_excel.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" type="boximportant">
+<div class="boximportant">
+<p>
+<strong>列名</strong>
+</p>
+<p>
+对于四个工具模板中的三个（ROB2、ROBINS-I、QUADAS-2），包含领域级别判断的列的名称并不重要，因为 robvis 中的模板将使用正确的工具特定标题重新标记每个领域。
+</p>
+</div>
+</div>
+<p>将您在 Excel 中创建的表格以逗号分隔文件（例如“robdata.csv”）保存到工作目录后，您可以使用以下命令以编程方式将文件读取到 <em>R</em> 中，或者通过第 @ref(data-prep-R) 章中描述的“导入助手”方法。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>my_rob_data <span class="ot">&lt;-</span> <span class="fu">read.csv</span>(<span class="st">"robdata.csv"</span>, <span class="at">header =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br><br></p>
+</section>
+<section id="模板" class="level3">
+<h3 class="anchored" data-anchor-id="模板">模板</h3>
+<hr>
+<p><strong>{robvis}</strong> 通过使用您提供的数据来填充特定于您使用的偏倚风险评估工具的模板图来生成偏倚风险图。目前，<strong>{robvis}</strong> 包含以下三个工具的模板：</p>
+<ul>
+<li><strong>ROB2</strong>，用于随机对照试验的新的 Cochrane 偏倚风险工具；</li>
+<li><strong>ROBINS-I</strong>，非随机研究中的偏倚风险 - 干预工具；</li>
+<li><strong>QUADAS-2</strong>，诊断准确性研究的质量和适用性，第 2 版。</li>
+</ul>
+<p><strong>{robvis}</strong> 还包含一个特殊的通用模板，标记为 ROB1。它设计用于原始 Cochrane 随机对照试验偏倚风险工具，也可用于可视化使用上面列表中未包含的其他基于领域的工具进行的评估结果。有关使用此模板时所需其他步骤的更多信息，请参见第 @ref(rob1-template) 章。</p>
+<p><br><br></p>
+</section>
+<section id="示例数据集" class="level3">
+<h3 class="anchored" data-anchor-id="示例数据集">示例数据集</h3>
+<hr>
+<p><strong>{robvis}</strong> 包包含上面概述的每个模板的示例数据集。这些存储在以下对象中：</p>
+<ul>
+<li><code>data_rob2</code>：ROB2 工具的示例数据</li>
+<li><code>data_robins</code>：ROBINS-I 工具的示例数据</li>
+<li><code>data_quadas</code>：QUADAS-2 工具的示例数据</li>
+<li><code>data_rob1</code>：RoB-1 工具的示例数据。</li>
+</ul>
+<p>您可以使用 <code>glimpse</code> 函数探索这些数据集（参见第 @ref(class-conversion) 章）。例如，使用 <code>library(robvis)</code> 加载包后，可以通过运行以下命令查看 ROBINS-I 示例数据集：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(data_robins)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stdout">
+<pre><code>Rows: 12
+Columns: 10
+$ Study   &lt;fct&gt; Study 1, Study 2, Study 3, Study 4, Study 5, Study 6, Study 7,…
+$ D1      &lt;fct&gt; Critical, Moderate, Moderate, Low, Serious, Critical, Critical…
+$ D2      &lt;fct&gt; Low, Low, Low, Low, Serious, Serious, Moderate, Moderate, Low,…
+$ D3      &lt;fct&gt; Critical, Low, Moderate, Serious, Low, Moderate, Moderate, Low…
+$ D4      &lt;fct&gt; Critical, Critical, Critical, Critical, Low, Critical, Serious…
+$ D5      &lt;fct&gt; Low, Low, Critical, Moderate, Moderate, Critical, Critical, Lo…
+$ D6      &lt;fct&gt; Low, Moderate, Low, Low, Low, Moderate, Serious, Low, Serious,…
+$ D7      &lt;fct&gt; Serious, Low, Serious, Critical, Moderate, Serious, Serious, C…
+$ Overall &lt;fct&gt; Critical, Low, Serious, Low, Serious, Serious, Moderate, Moder…
+$ Weight  &lt;dbl&gt; 33.3333333, 33.3333333, 0.1428571, 9.0909091, 12.5000000, 25.0…</code></pre>
+</div>
+</div>
+<p>这些示例数据集用于创建本指南其余部分中介绍的图。</p>
+<p><br><br></p>
+</section>
+</section>
+<section id="汇总图" class="level2">
+<h2 class="anchored" data-anchor-id="汇总图">汇总图</h2>
+<hr>
+<section id="基础知识" class="level3">
+<h3 class="anchored" data-anchor-id="基础知识">基础知识</h3>
+<hr>
+<p>一旦我们成功地将偏倚风险汇总表导入到 <em>R</em> 中，创建偏倚风险图就非常简单了。</p>
+<p>首先，通过运行以下代码，使用 ROB2 示例数据集 (<code>data_rob2</code>) 创建一个简单的加权汇总条形图：</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_summary</span>(<span class="at">data =</span> data_rob2, </span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">tool =</span> <span class="st">"ROB2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="修改图" class="level3">
+<h3 class="anchored" data-anchor-id="修改图">修改图</h3>
+<hr>
+<p><code>rob_summary</code> 函数具有以下参数：</p>
+<ul>
+<li><code>data</code>。包含汇总（领域）级别偏倚风险评估的数据框，其中第一列包含研究详细信息，第二列包含评估的第一个领域，最后一列包含分配给每个研究的权重。该函数假定数据包括一列用于总体偏倚风险。例如，ROB2.0 数据集将具有 8 列（1 列用于研究详细信息，5 列用于领域级别判断，1 列用于总体判断，1 列用于权重，按该顺序）。</li>
+<li><code>tool</code>。使用的偏倚风险评估工具。目前支持 RoB2.0 (<code>"ROB2"</code>), <code>"ROBINS-I"</code> 和 <code>"QUADAS-2"</code>。</li>
+<li><code>overall</code>。一个在图中包含总体偏倚风险的附加条的选项。默认为 <code>FALSE</code>。</li>
+<li><code>weighted</code>。一个指定是否应在条形图中使用权重的选项。默认值为 <code>TRUE</code>，与当前的 Cochrane 协作指南一致。</li>
+<li><code>colour</code>。一个指定图的配色方案的参数。默认值为 <code>"cochrane"</code>，它使用无处不在的 Cochrane 颜色，而一个预设的适合色盲友好的调色板也可用 (<code>colour = "colourblind"</code>)。</li>
+<li><code>quiet</code>。一个以静默方式生成图而不显示它的逻辑选项。默认值为 <code>FALSE</code>。</li>
+</ul>
+<p>下面描述了每个参数的功能示例。</p>
+<p><br><br></p>
+<section id="工具" class="level4">
+<h4 class="anchored" data-anchor-id="工具">工具</h4>
+<hr>
+<p>一个定义您要使用的工具模板的参数。在上面的示例中，使用了 ROB2 模板。下面演示了另外两个主要模板 - ROBINS-I 和 QUADAS-2 模板：</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_summary</span>(<span class="at">data =</span> data_robins, </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">tool =</span> <span class="st">"ROBINS-I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_summary</span>(<span class="at">data =</span> data_quadas, </span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">tool =</span> <span class="st">"QUADAS-2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-9-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="总体" class="level4">
+<h4 class="anchored" data-anchor-id="总体">总体</h4>
+<hr>
+<p>默认情况下，图中不包含表示总体偏倚风险判断的附加条。如果您想包含它，请设置 <code>overall = TRUE</code>。例如：</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_summary</span>(<span class="at">data =</span> data_rob2, </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">tool =</span> <span class="st">"ROB2"</span>, </span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">overall =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-10-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="加权或未加权条形图" class="level4">
+<h4 class="anchored" data-anchor-id="加权或未加权条形图">加权或未加权条形图</h4>
+<hr>
+<p>默认情况下，条形图由研究精确度的某种度量加权，因此条形图显示的是信息的比例，而不是处于特定偏倚风险的研究的比例。此方法符合 <a href="https://training.cochrane.org/handbook/current/chapter-07#section-7-4">Cochrane 手册</a>。</p>
+<p>您可以通过设置 <code>weighted = FALSE</code> 来关闭此选项，以创建未加权条形图。例如，比较以下两个图：</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_summary</span>(<span class="at">data =</span> data_rob2, </span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">tool =</span> <span class="st">"ROB2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_summary</span>(<span class="at">data =</span> data_rob2, </span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">tool =</span> <span class="st">"ROB2"</span>,</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">weighted =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="配色方案" class="level4">
+<h4 class="anchored" data-anchor-id="配色方案">配色方案</h4>
+<hr>
+<div class="cell" type="boximportant">
+
+<div class="boximportant">
+<p><strong>英式英语拼写</strong></p>
+请注意 <strong>colour</strong> 的非美式英语拼写！
+</div>
+</div>
+<p>两个绘图函数的 <code>colour</code> 参数允许用户从两个预定义的配色方案 <code>"cochrane"</code>（默认）或 <code>"colourblind"</code> 中选择，或者通过提供 <strong>十六进制代码</strong> 向量来定义自己的调色板。例如，要使用预定义的 <code>"colourblind"</code> 调色板：</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_summary</span>(<span class="at">data =</span> data_rob2, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">tool =</span> <span class="st">"ROB2"</span>, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">colour =</span> <span class="st">"colourblind"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>并定义您自己的配色方案：</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_summary</span>(<span class="at">data =</span> data_rob2, </span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">tool =</span> <span class="st">"ROB2"</span>, </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">colour =</span> <span class="fu">c</span>(<span class="st">"#f442c8"</span>,<span class="st">"#bef441"</span>,<span class="st">"#000000"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>在定义您自己的配色方案时，您必须确保离散判断的数量（例如“低”、“中等”、“高”、“严重”）和指定的颜色数量相同。此外，颜色必须按偏倚风险升序指定（例如“低”到“严重”），第一个十六进制代码对应于“低”偏倚风险。</p>
+<p><br><br></p>
+</section>
+</section>
+</section>
+<section id="交通灯图" class="level2">
+<h2 class="anchored" data-anchor-id="交通灯图">交通灯图</h2>
+<hr>
+<p>通常，研究人员希望展示每个评估的研究的每个领域的偏倚风险。生成的图通常称为交通灯图，可以使用 <strong>{robvis}</strong> 通过 <code>rob_traffic_light</code> 函数生成。</p>
+<p><br><br></p>
+<section id="基础知识-1" class="level3">
+<h3 class="anchored" data-anchor-id="基础知识-1">基础知识</h3>
+<hr>
+<p>首先，通过运行以下代码，使用 ROB2 示例数据集 (<code>data_rob2</code>) 创建交通灯图：</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_traffic_light</span>(<span class="at">data =</span> data_rob2, </span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">tool =</span> <span class="st">"ROB2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in ggplot2::geom_point(shape = 1, colour = "black", size = psize, : All aesthetics have length 1, but the data has 54 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="修改图-1" class="level3">
+<h3 class="anchored" data-anchor-id="修改图-1">修改图</h3>
+<hr>
+<p><code>rob_summary</code> 函数具有以下参数：</p>
+<ul>
+<li><code>data</code>。包含汇总（领域）级别偏倚风险评估的数据框，其中第一列包含研究详细信息，第二列包含评估的第一个领域，最后一列包含分配给每个研究的权重。该函数假定数据包括一列用于总体偏倚风险。例如，ROB2.0 数据集将具有 8 列（1 列用于研究详细信息，5 列用于领域级别判断，1 列用于总体判断，1 列用于权重，按该顺序）。</li>
+<li><code>tool</code>。使用的偏倚风险评估工具。目前支持 RoB2.0 (<code>"ROB2"</code>), <code>"ROBINS-I"</code> 和 <code>"QUADAS-2"</code>。</li>
+<li><code>colour</code>。一个指定图的配色方案的参数。默认值为 <code>"cochrane"</code>，它使用无处不在的 Cochrane 颜色，而一个预设的适合色盲友好的调色板也可用 (<code>"colourblind"</code>)。</li>
+<li><code>psize</code>。一个更改“交通灯”点大小的选项。默认值为 <code>20</code>。</li>
+<li><code>quiet</code>。一个以静默方式生成图而不显示它的逻辑选项。默认值为 <code>FALSE</code>。</li>
+</ul>
+<p><br><br></p>
+<section id="工具-1" class="level4">
+<h4 class="anchored" data-anchor-id="工具-1">工具</h4>
+<hr>
+<p>一个定义您要使用的工具模板的参数。演示了 ROB2 模板，下面显示了另外两个主要模板 - ROBINS-I 和 QUADAS-2 模板：</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_traffic_light</span>(<span class="at">data =</span> data_robins, </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">tool =</span> <span class="st">"ROBINS-I"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in ggplot2::geom_point(shape = 1, colour = "black", size = psize, : All aesthetics have length 1, but the data has 96 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_traffic_light</span>(<span class="at">data =</span> data_quadas, </span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">tool =</span> <span class="st">"QUADAS-2"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in ggplot2::geom_point(shape = 1, colour = "black", size = psize, : All aesthetics have length 1, but the data has 60 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="配色方案-1" class="level4">
+<h4 class="anchored" data-anchor-id="配色方案-1">配色方案</h4>
+<hr>
+<div class="cell" type="boximportant">
+
+<div class="boximportant">
+<p><strong>英式英语拼写</strong></p>
+请注意 <strong>colour</strong> 的非美式英语拼写！
+</div>
+</div>
+<p>两个绘图函数的 <code>colour</code> 参数允许用户从两个预定义的配色方案 <code>"cochrane"</code>（默认）或 <code>"colourblind"</code> 中选择，或者通过提供十六进制代码向量来定义自己的调色板。</p>
+<p>例如，要使用预定义的 <code>"colourblind"</code> 调色板：</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_traffic_light</span>(<span class="at">data =</span> data_rob2, </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">tool =</span> <span class="st">"ROB2"</span>, </span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour =</span> <span class="st">"colourblind"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in ggplot2::geom_point(shape = 1, colour = "black", size = psize, : All aesthetics have length 1, but the data has 54 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>并定义您自己的配色方案：</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_traffic_light</span>(<span class="at">data =</span> data_rob2, </span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                  <span class="at">tool =</span> <span class="st">"ROB2"</span>, </span>
+<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">colour =</span> <span class="fu">c</span>(<span class="st">"#f442c8"</span>,<span class="st">"#bef441"</span>,<span class="st">"#000000"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in ggplot2::geom_point(shape = 1, colour = "black", size = psize, : All aesthetics have length 1, but the data has 54 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>在定义您自己的配色方案时，您必须确保离散判断的数量（例如“低”、“中等”、“高”、“严重”）和指定的颜色数量相同。此外，颜色必须按偏倚风险升序指定（例如“低”到“严重”），第一个十六进制代码对应于“低”偏倚风险。</p>
+<p><br><br></p>
+</section>
+<section id="点大小" class="level4">
+<h4 class="anchored" data-anchor-id="点大小">点大小</h4>
+<hr>
+<p>有时，当执行了大量的偏倚风险评估时，生成的交通灯图可能太长而无法使用。用户可以通过将 <code>rob_traffic_light</code> 函数的 <code>psize</code> 参数修改为较小的数字（默认值为 <code>20</code>）来解决此问题。例如：</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建更大的数据集（18 个研究）</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>new_rob2_data <span class="ot">&lt;-</span> <span class="fu">rbind</span>(data_rob2, data_rob2)</span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>new_rob2_data<span class="sc">$</span>Study <span class="ot">&lt;-</span> <span class="fu">paste</span>(<span class="st">"Study"</span>, <span class="fu">seq</span>(<span class="dv">1</span><span class="sc">:</span><span class="fu">length</span>(new_rob2_data<span class="sc">$</span>Study))) </span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a><span class="co"># 绘制更大的数据集，将 psize 参数从 20 减小到 8</span></span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_traffic_light</span>(<span class="at">data =</span> new_rob2_data, </span>
+<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>                  <span class="at">tool =</span> <span class="st">"ROB2"</span>, </span>
+<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>                  <span class="at">psize =</span> <span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in ggplot2::geom_point(shape = 1, colour = "black", size = psize, : All aesthetics have length 1, but the data has 108 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:45.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+</section>
+</section>
+<section id="rob1-template" class="level2">
+<h2 class="anchored" data-anchor-id="rob1-template">“ROB1” 通用模板</h2>
+<hr>
+<section id="动机" class="level3">
+<h3 class="anchored" data-anchor-id="动机">动机</h3>
+<hr>
+<p>此模板在图中包含的领域中提供了更大的灵活性。它可以处理任意数量的领域（cf.&nbsp;其他具有固定数量领域的工具模板），并使用用户定义的列标题作为生成的图中的领域标题。</p>
+<p><br><br></p>
+</section>
+<section id="变化的领域数量" class="level3">
+<h3 class="anchored" data-anchor-id="变化的领域数量">变化的领域数量</h3>
+<hr>
+<p>“ROB1”模板 (<code>tool = "ROB1"</code>) 可以处理变化的列数。这最初是为 ROB1 评估工具设计的，该工具经常添加或删除领域。<strong>虽然此模板可用于呈现使用其他工具（ROB2、QUADAS-2、ROBINS-I）的调整版本进行的评估结果，但我们强烈建议作者不要这样做</strong>。使用其他已发布工具的作者应使用先前章节中介绍的更严格的模板，以确保他们符合指南。</p>
+<p><br><br></p>
+</section>
+<section id="域名" class="level3">
+<h3 class="anchored" data-anchor-id="域名">域名</h3>
+<hr>
+<p>对于前面章节中列出的其他工具，包含领域级别偏倚风险判断的列的名称并不重要。例如，它们通常命名为 <em>D1</em>、<em>D2</em>、<em>D3</em> 等。但是，使用 <code>"ROB1"</code> 模板时并非如此。</p>
+<p>比较 data_rob2 和 data_rob1 的列标题（此处水平呈现，以便于比较）：</p>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: 'xfun::attr()' is deprecated.
+Use 'xfun::attr2()' instead.
+See help("Deprecated")
+
+Warning: 'xfun::attr()' is deprecated.
+Use 'xfun::attr2()' instead.
+See help("Deprecated")</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<table class="table table-sm table-striped small" data-quarto-postprocess="true">
+<caption>Comparison of column names in the `data_rob2` (left) and `data_rob1` (right) datasets.</caption>
+<thead>
+<tr class="header">
+<th style="text-align: right;" data-quarto-table-cell-role="th">No.</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">data_rob2</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">data_rob1</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: right;">1</td>
+<td style="text-align: left;">Study</td>
+<td style="text-align: left;">Study</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">2</td>
+<td style="text-align: left;">D1</td>
+<td style="text-align: left;">Random.sequence.generation.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">3</td>
+<td style="text-align: left;">D2</td>
+<td style="text-align: left;">Allocation.concealment.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">4</td>
+<td style="text-align: left;">D3</td>
+<td style="text-align: left;">Blinding.of.participants.and.personnel.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">5</td>
+<td style="text-align: left;">D4</td>
+<td style="text-align: left;">Blinding.of.outcome.assessment</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">6</td>
+<td style="text-align: left;">D5</td>
+<td style="text-align: left;">Incomplete.outcome.data</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">7</td>
+<td style="text-align: left;">Overall</td>
+<td style="text-align: left;">Selective.reporting.</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">8</td>
+<td style="text-align: left;">Weight</td>
+<td style="text-align: left;">Other.sources.of.bias.</td>
+</tr>
+<tr class="odd">
+<td style="text-align: right;">9</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">Overall</td>
+</tr>
+<tr class="even">
+<td style="text-align: right;">10</td>
+<td style="text-align: left;">.</td>
+<td style="text-align: left;">Weight</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+<p>ROB2 示例数据集中的领域列（第 2-6 列）已被赋予任意名称 <em>D1</em> - <em>D5</em>，因为它们将被该工具覆盖，以对应于 ROB2 指南给出的正确的领域标题。</p>
+<p>相比之下，ROB1 示例数据集中的领域列（第 2-8 列）已正确标记，因为这些将在 <code>rob_summary</code> 和 <code>rob_traffic_light</code> 生成的图中使用。</p>
+<p>例如，假设我们将“Random.sequence.generation”列的名称更改为“This is a test”。在 <code>rob_summary</code> 图中，第一个条的标题已更改，而在 <code>rob_traffic_light</code> 图中，字幕已更新以反映此更改。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建 data_rob1 数据集的副本</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>new_rob1_data <span class="ot">&lt;-</span> data_rob1</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 更改第一个领域的列标题</span></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">colnames</span>(new_rob1_data)[<span class="dv">2</span>] <span class="ot">&lt;-</span> <span class="st">"This is a test"</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建汇总条形图</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_summary</span>(<span class="at">data =</span> new_rob1_data, <span class="at">tool =</span> <span class="st">"ROB1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-24-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建交通灯图</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_traffic_light</span>(<span class="at">data =</span> new_rob1_data, </span>
+<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>                  <span class="at">tool =</span> <span class="st">"ROB1"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in ggplot2::geom_point(shape = 1, colour = "black", size = psize, : All aesthetics have length 1, but the data has 72 rows.
+ℹ Please consider using `annotate()` or provide this layer with data containing
+  a single row.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-25-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:65.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+</section>
+<section id="自定义和保存" class="level2">
+<h2 class="anchored" data-anchor-id="自定义和保存">自定义和保存</h2>
+<hr>
+<section id="ggplot2-包" class="level3">
+<h3 class="anchored" data-anchor-id="ggplot2-包"><strong>{ggplot2}</strong> 包</h3>
+<hr>
+<p><strong>{robvis}</strong> 函数（<code>rob_summary</code> 和 <code>rob_traffic_light</code>）都会生成一个 <code>ggplot</code> 对象，因此可以使用 <strong>{ggplot2}</strong> 包中的函数进行自定义和保存。使用以下代码加载此包：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br><br></p>
+</section>
+<section id="修改您的图" class="level3">
+<h3 class="anchored" data-anchor-id="修改您的图">修改您的图</h3>
+<hr>
+<p>您可以使用 <strong>{ggplot2}</strong> 函数对您的图进行一系列后期制作修改。一个有用的示例是向图中添加标题：</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 确保您已安装并加载 ggplot2 包</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="fu">rob_summary</span>(data_rob2, <span class="st">"ROB2"</span>) <span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"您的自定义标题"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="17-risk-of-bias-plots_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="保存图" class="level3">
+<h3 class="anchored" data-anchor-id="保存图">保存图</h3>
+<hr>
+<p>为了保存偏倚风险图，我们首先使用 &lt;- 运算符将其分配给一个对象，然后使用 <strong>{ggplot2}</strong> 包的 <code>ggsave</code> 函数保存它。</p>
+<p>保存汇总条形图时，我们建议使用以下代码，其中包含默认的高度和宽度值。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建您的图，并将其分配给一个对象</span></span>
+<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>rob_barplot <span class="ot">&lt;-</span> <span class="fu">rob_summary</span>(data_rob2, <span class="st">"ROB2"</span>)</span>
+<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-4"><a href="#cb31-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 保存您的图</span></span>
+<span id="cb31-5"><a href="#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> rob_barplot,        <span class="co"># 要保存的图对象</span></span>
+<span id="cb31-6"><a href="#cb31-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">filename =</span> <span class="st">"robplot2.png"</span>, <span class="co"># 目标文件</span></span>
+<span id="cb31-7"><a href="#cb31-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">8</span>,                 <span class="co"># 图像宽度（推荐）</span></span>
+<span id="cb31-8"><a href="#cb31-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="fl">2.41</span>,             <span class="co"># 图像高度（推荐）</span></span>
+<span id="cb31-9"><a href="#cb31-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">1000</span>)                <span class="co"># 图像分辨率</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>保存交通灯图时，方法相同。但是，<code>width</code> 和 <code>height</code> 参数没有推荐值，因为这些参数的最佳值会因图而异，因为包含的研究的数量和名称会发生变化。</p>
+<p><br><br></p>
+</section>
+<section id="以不同的格式保存" class="level3">
+<h3 class="anchored" data-anchor-id="以不同的格式保存">以不同的格式保存</h3>
+<hr>
+<p>只需更改文件名的扩展名（例如，从“.png”到“.pdf”），就可以使用上面概述的函数以多种格式保存图。可接受的格式包括 .png、.pdf、.tiff 和 .svg<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。</p>
+<p>例如，要将上面创建的条形图 (<code>rob_barplot</code>) 保存为 PDF：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 保存您的图</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="at">plot =</span> rob_barplot,                  </span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">filename =</span> <span class="st">"robplot2.pdf"</span>, <span class="co"># 文件扩展名现在为“.pdf”</span></span>
+<span id="cb32-4"><a href="#cb32-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">width =</span> <span class="dv">8</span>,                           </span>
+<span id="cb32-5"><a href="#cb32-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">height =</span> <span class="fl">2.41</span>,                       </span>
+<span id="cb32-6"><a href="#cb32-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi =</span> <span class="dv">1000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br><br></p>
+</section>
+</section>
+<section id="web-app" class="level2">
+<h2 class="anchored" data-anchor-id="web-app">Web App</h2>
+<hr>
+<p>为了使用户能够快速探索 robvis 的功能，我们创建了一个 Web 应用程序，该应用程序提供了 <strong>{robvis}</strong> 包的图形界面。</p>
+<p>Web 应用程序可在此处获得：<a href="https://mcguinlu.shinyapps.io/robvis">here</a>。下面简要介绍一下指导性演练。</p>
+<p><br><br></p>
+<section id="登陆页面" class="level3">
+<h3 class="anchored" data-anchor-id="登陆页面">登陆页面</h3>
+<hr>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/robvis-app-landingpage.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:90.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>该页面提供了先前章节中指导的简洁版本，特别是与设置数据集有关的指导。更重要的是，用户可以将每个工具的示例数据集下载为 CSV 文件，并使用这些数据集与应用程序进行交互并探索其功能。</p>
+<p><br><br></p>
+</section>
+<section id="交通灯图页面" class="level3">
+<h3 class="anchored" data-anchor-id="交通灯图页面">交通灯图页面</h3>
+<hr>
+<p>单击第二个选项卡会将您带到下面显示的屏幕。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/robvis-app-traffic-light.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:45.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>此菜单充当 <code>rob_traffic_light</code> 函数的图形界面：</p>
+<ul>
+<li>通过单击“Browse…”并导航到存储 CSV 文件的位置来上传您的偏倚风险汇总表。</li>
+<li>使用下拉框选择用于执行偏倚风险评估的工具。</li>
+</ul>
+<p>基本的交通灯图现在应出现在窗口的右侧。您可以使用以下选项自定义图：</p>
+<ul>
+<li>选择您要使用的配色方案（“Cochrane”或“色盲友好”）</li>
+<li>修改点大小（当您希望在单个交通灯图上绘制大量研究时很有用）</li>
+<li>修改文本大小。</li>
+</ul>
+<p>对图满意后，您可以通过选择所需的格式（.png、.jpg、.tiff、.eps）并单击“Download plot”按钮来下载它。请注意，如果您不首先选择格式，您将收到下载错误。</p>
+<p><br><br></p>
+</section>
+<section id="汇总图页面" class="level3">
+<h3 class="anchored" data-anchor-id="汇总图页面">汇总图页面</h3>
+<hr>
+<p>单击第三个选项卡会将您带到下面显示的屏幕。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/robvis-app-summary-plot.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:45.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><strong>此菜单充当 <code>rob_summary</code> 函数的图形界面：</strong></p>
+<ul>
+<li>通过单击“Browse…”并导航到存储 CSV 文件的位置来上传您的偏倚风险汇总表。</li>
+<li>使用下拉框选择用于执行偏倚风险评估的工具。</li>
+</ul>
+<p>基本的加权汇总条形图现在应出现在窗口的右侧。</p>
+<p><strong>您可以使用以下选项自定义图：</strong></p>
+<ul>
+<li>选择在创建图时是否使用权重</li>
+<li>包括表示总体偏倚风险判断分布的附加条</li>
+<li>选择您要使用的配色方案（“Cochrane”或“色盲友好”）</li>
+</ul>
+<p>与交通灯图选项卡一样，您可以通过选择所需的格式并单击“Download plot”按钮来下载您的图。</p>
+<p><span class="math display">\[\tag*{$\blacksquare$}\]</span></p>
+
+
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>此格式要求您安装并加载 <strong>{svglite}</strong> 包：<code>install.packages("svglite")</code>; <code>library(svglite)</code>。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Meta 分析</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R Meta 分析</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.rmd"> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./daizuo.html"> 
+<span class="menu-text">Meta 代做</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./11-publication-bias.html">发表偏倚</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前言</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">作者</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">介绍</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-discovering_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发现R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-pooling_effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">合并效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-heterogeneity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">异质性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-forestplots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">森林图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-subgroup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">亚组分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-metareg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Meta回归</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-publication-bias.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">发表偏倚</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-mlma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">多元Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-sem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">结构方程模型</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-netwma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">网络Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-bayesianma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">贝叶斯Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-power-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">功效分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-risk-of-bias-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏倚风险图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-reporting-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">报告与可重复性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-effect-size-calculation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量计算</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">附录</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./98-cite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">引用</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#pub-bias" id="toc-pub-bias" class="nav-link active" data-scroll-target="#pub-bias">发表偏倚</a>
+  <ul class="collapse">
+  <li><a href="#types-of-pub-biases" id="toc-types-of-pub-biases" class="nav-link" data-scroll-target="#types-of-pub-biases">什么是发表偏倚？</a></li>
+  <li><a href="#addressing-pubbias" id="toc-addressing-pubbias" class="nav-link" data-scroll-target="#addressing-pubbias">在元分析中解决发表偏倚</a>
+  <ul class="collapse">
+  <li><a href="#small-study-effects" id="toc-small-study-effects" class="nav-link" data-scroll-target="#small-study-effects">小型研究效应方法</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="pub-bias" class="level1">
+<h1>发表偏倚</h1>
+<hr>
+<p><img src="./_figs/pub_bias.jpg" class="img-fluid"></p>
+<p><br><br></p>
+<p><span class="firstcharacter">回</span>顾前面的章节，我们发现已经涵盖了大量的元分析技术。我们不仅学习了如何合并效应量，现在也知道如何评估我们发现的稳健性，检查异质性模式，以及检验效应差异的原因的假设。</p>
+<p>所有这些方法都可以帮助我们从元分析中得出有效的结论。然而，这基于一个关于我们数据性质的未明确的假设，我们尚未对此提出质疑。在进行元分析时，我们认为收集的数据是<strong>全面的</strong>，或者至少是<strong>具有代表性</strong>的，代表了所考察的研究领域。</p>
+<p>回到第 @ref(study-search) 章，我们提到元分析通常试图包括<strong>所有</strong>可用的证据，以便得出一个能够充分描述研究领域的单一效应量。从统计学的角度来看，我们或许可以容忍分析中缺失一些研究——但前提是这些研究是偶然“遗漏”的。</p>
+<p>不幸的是，元分析往往无法包括所有现有的证据。更糟糕的是，我们也有充分的理由认为，我们收集的数据中，一些研究的缺失并非完全是“随机的”。我们的世界并不完美，管理科学实践的激励机制和“规则”也是如此。这意味着存在一些系统性的偏倚，可以决定一项研究是否最终出现在我们的元分析中。</p>
+<p>这个问题的很好例子可以在一个不太近期的药物治疗研究轶事中找到。早在 20 世纪 90 年代，人们就普遍认为抗抑郁药物（如<strong>选择性血清素再摄取抑制剂</strong>，或 SSRIs）在治疗抑郁症患者方面是有效的。大部分证据来自已发表的药物治疗试验的元分析，在这些试验中，将抗抑郁药与安慰剂药丸进行比较。考虑到抗抑郁药物市场价值数十亿美元，并且还在稳步增长，关于抗抑郁药物效果的问题是一个重要的问题。</p>
+<p>这可能有助于理解欧文·基尔施（Irving Kirsch）及其同事撰写的一篇文章《<strong>皇帝的新药</strong>》<span class="citation" data-cites="kirsch2002emperor">[-@kirsch2002emperor]</span>引起的骚动，该文章认为情况可能并非那么乐观。</p>
+<p>基尔施及其同事根据“信息自由法案”，获得了制药公司向美国食品和药物管理局提供的先前未发表的抗抑郁药试验数据。他们发现，当也考虑到这些未发表的数据时，与安慰剂相比，抗抑郁药的益处充其量是微乎其微的，在临床上可以忽略不计。基尔施及其同事认为，这是因为公司只发表了具有有利结果的研究，而具有“令人失望”证据的研究则被隐瞒了 <span class="citation" data-cites="kirschemperorbook">[@kirschemperorbook]</span>。</p>
+<p></p>
+<p>一场激烈的辩论随之而来，基尔施的说法至今仍存在争议。我们选择这个例子不是为了站队，而是为了说明缺失研究可能对元分析推论的有效性构成的潜在威胁。在元分析文献中，此类问题通常概括为<strong>发表偏倚</strong>。</p>
+<p></p>
+<p>发表偏倚问题强调了元分析中的每一项发现都只能与其所依据的数据一样好。元分析技术只能处理手头的数据。因此，如果收集的数据被扭曲，即使是最好的统计模型也只会重现固有的偏倚。也许你还记得我们在本书的开头已经讨论过这个基本警告，当时我们讨论了“抽屉文件”问题（参见第 @ref(pitfalls) 章）。实际上，“抽屉文件问题”和“发表偏倚”这两个术语经常互换使用。</p>
+<p>发表偏倚及相关问题对元分析结果的影响可能是巨大的。它可能导致我们高估治疗效果、忽视负面副作用，或强化对实际上无效的理论的信念。</p>
+<p>因此，在本章中，我们将讨论发表偏倚可以通过哪些不同的形式和方式来扭曲我们的发现。我们还将了解一些元分析师可以用来检查我们数据中发表偏倚风险的方法；以及如何首先减轻发表偏倚。</p>
+<p><br><br></p>
+<section id="types-of-pub-biases" class="level2">
+<h2 class="anchored" data-anchor-id="types-of-pub-biases">什么是发表偏倚？</h2>
+<hr>
+<p>当一项研究的发表概率受到其结果的影响时，就存在发表偏倚 <span class="citation" data-cites="duval2005publication">[@duval2005publication，第 2 章和第 5 章]</span>。有大量证据表明，如果一项研究的发现具有统计学意义，或者证实了最初的假设，那么它更有可能进入公众视野 <span class="citation" data-cites="schmucker2014extent scherer2018full chan2014increasing dechartres2018association">[@schmucker2014extent; @scherer2018full; @chan2014increasing; @dechartres2018association]</span>。</p>
+<p>在搜索符合条件的研究时，我们通常仅限于以某种形式公开的证据，例如通过同行评审的文章、预印本、书籍或其他类型的可访问报告。在存在发表偏倚的情况下，这不仅意味着我们的数据集中缺少一些研究——这也意味着缺失的研究很可能是那些具有不利发现的研究。</p>
+<p>元分析技术使我们能够找到人群中平均效应量的无偏估计。但是，如果我们的样本本身被扭曲，那么即使从统计学角度来看是“真实”的效应估计也不会代表现实。这就像试图估计冰山的大小，但只测量它的尖端：我们的发现不可避免地会出错，即使我们能够以完美的精度测量水面以上的高度。</p>
+<p> </p>
+<p>发表偏倚实际上只是众多<strong>非报告偏倚</strong>之一。还有其他几个因素也会扭曲我们在元分析中获得的证据 <span class="citation" data-cites="page2020investigating">[@page2020investigating]</span>，包括：</p>
+<ul>
+<li><p><strong>引用偏倚</strong>：即使已发表，具有负面或不确定结果的研究也不太可能被相关文献引用。这使得例如通过参考文献搜索更难检测到它们。</p></li>
+<li><p><strong>时滞偏倚</strong>：具有积极结果的研究通常比具有不利结果的研究发表得更早。这意味着最近进行的具有积极结果的研究的发现通常已经可用，而那些具有不显着结果的研究则不可用。</p></li>
+<li><p><strong>多次发表偏倚</strong>：“成功”研究的结果更有可能在多篇期刊文章中报告，这使得至少找到其中一篇更容易。“香肠切片”也称为跨多篇文章报告研究发现的做法。</p></li>
+<li><p><strong>语言偏倚</strong>：在大多数学科中，发表证据的主要语言是英语。以其他语言发表的出版物不太可能被检测到，尤其是当研究人员自己无法在不翻译的情况下理解内容时。如果英语研究与以其他语言发表的研究系统性地不同，这也会引入偏倚。</p></li>
+<li><p><strong>结果报告偏倚</strong>：许多研究，尤其是临床试验，测量不止一个感兴趣的结果。一些研究人员利用这一点，只报告那些获得积极结果的结果，而那些未证实假设的结果则被删除。这也可能导致偏倚：从技术上讲，该研究已经发表，但其（不利的）结果仍将在我们的元分析中缺失，因为它未被报告。</p></li>
+</ul>
+<p></p>
+<p>非报告偏倚可以被视为系统性因素，使我们更难以找到现有的证据。但是，即使我们能够包括所有相关的发现，我们的结果可能仍然存在缺陷。由于研究人员在分析和报告他们的发现时应用了<strong>可疑的研究实践</strong> (QRP)，因此也可能存在偏倚 <span class="citation" data-cites="simonsohn2020specification">[@simonsohn2020specification]</span>。</p>
+<p></p>
+<p>我们之前已经提到了“研究人员的自由度”的概念（第 @ref(pitfalls) 章）。QRP 可以定义为研究人员滥用这些自由度将结果“弯曲”到所需方向的做法。不幸的是，对于什么是 QRP 尚无明确的共识。但是，有一些常见的建议示例。</p>
+<p>最突出的 QRP 之一是 <strong>p 值操纵</strong>，其中调整分析直到达到 <span class="math inline">\(p&lt;\)</span> 0.05 的传统显着性阈值。这可以包括删除异常值的方式、亚组分析或缺失数据处理。</p>
+<p></p>
+<p>另一个 QRP 是 <strong>HARKing</strong> <span class="citation" data-cites="kerr1998harking">[@kerr1998harking]</span>，它代表 <strong>在结果已知后提出假设</strong>。HARKing 的一种方法是假装探索性分析中的发现一直是该研究的先验假设。例如，研究人员可以在数据集上运行各种测试，然后围绕所有显着的测试“发明”假设。这是一种严重错误的方，会增加研究的错误发现率，从而增加虚假发现的风险（仅举几个问题）。另一种类型的 HARKing 是删除所有数据不支持的假设，这最终可能导致结果报告偏倚。</p>
+<p><br><br></p>
+</section>
+<section id="addressing-pubbias" class="level2">
+<h2 class="anchored" data-anchor-id="addressing-pubbias">在元分析中解决发表偏倚</h2>
+<hr>
+<p>很明显，发表偏倚、其他报告偏倚和 QRP 可能会对我们元分析的有效性产生强烈和有害的影响。它们构成了主要的挑战，因为通常实际上不可能知道偏倚的确切大小——或者它是否根本存在。</p>
+<p> </p>
+<p>在元分析中，我们可以应用一些技术，这些技术可以在一定程度上降低由于发表和报告偏倚以及 QRP 造成的扭曲的风险。其中一些方法与研究搜索有关，而另一些是统计方法。</p>
+<ul>
+<li><p><strong>研究搜索</strong>。在第 @ref(study-search) 章中，我们讨论了搜索符合条件的研究的过程。如果存在发表偏倚，则此步骤非常重要，因为这意味着对已发表文献的搜索可能会产生不能完全代表所有证据的数据。我们可以通过搜索<strong>灰色文献</strong>来抵消这一点，其中包括论文、预印本、政府报告或会议记录。幸运的是，预注册在许多学科中也变得越来越普遍。这使得可以搜索研究注册表，例如 ICTRP 或 <strong>OSF 注册表</strong>（参见第 @ref(study-search) 章中的表 @ref(tab:bibdatabases)），以查找具有未发表数据的研究，并询问作者是否可以向我们提供尚未公开的数据<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。灰色文献搜索可能既乏味又令人沮丧，但值得付出努力。一项大型研究发现，纳入灰色和未发表的文献可以帮助避免高估真实效应 <span class="citation" data-cites="mcauley2000does">[@mcauley2000does]</span>。</p></li>
+<li><p><strong>统计方法</strong>。也可以通过统计程序检查发表的存在。这些方法都不能直接识别发表偏倚，但它们可以检查我们数据的某些属性，这些属性可能表明存在发表偏倚。当校正发表偏倚时，一些方法也可以用于量化真实的总体效应。</p></li>
+</ul>
+<p></p>
+<p>在本章中，我们将展示评估和控制发表偏倚的常用<strong>统计</strong>方法。我们首先介绍侧重于<strong>小型研究效应</strong>的方法 <span class="citation" data-cites="sterne2000publication schwarzer2015meta">[@sterne2000publication; @schwarzer2015meta，第 5 章；@duval2005publication，第 5 章]</span>。这些方法的一个共同点是通过查看研究的精度和观察到的效应量之间的关系来查找发表偏倚的指标。</p>
+<p><br><br></p>
+<section id="small-study-effects" class="level3">
+<h3 class="anchored" data-anchor-id="small-study-effects">小型研究效应方法</h3>
+<hr>
+<p>有各种小型研究效应方法来评估和校正元分析中的发表偏倚。多年来，许多技术一直沿用至今。正如其名称所说，这些方法特别关注<strong>小型研究</strong>。从统计学角度来看，这转化为具有较高标准误差的研究。小型研究效应方法假定小型研究更有可能成为发表偏倚的牺牲品。</p>
+<p>该假设基于三个核心思想 <span class="citation" data-cites="borenstein2011introduction">[参见 @borenstein2011introduction，第 30 章]</span>：</p>
+<p></p>
+<ol type="1">
+<li><p>由于它们涉及大量资源和时间投入，因此大型研究很可能会发表，无论结果是否具有统计学意义。</p></li>
+<li><p>中等规模的研究更有可能不被发表。但是，即使统计功效仅为中等，通常也足以产生显着结果。这意味着只有一些研究不会被发表，因为它们提供了“不受欢迎”（即不显着）的结果。</p></li>
+<li><p>小型研究产生不显着结果的风险最高，因此仍然留在“抽屉文件”中。在小型研究中，只有非常大的效应才会变得显着。这意味着只有具有非常高效应量的小型研究才会被发表。</p></li>
+</ol>
+<p>我们看到这些假设背后的所谓机制非常简单。本质上，它表示存在发表偏倚，因为只有显着效应才会发表。由于获得显着结果的概率随着样本量的增加而增加，因此发表偏倚将不成比例地影响小型研究。</p>
+<p><br><br></p>
+<section id="funnel-plot" class="level4">
+<h4 class="anchored" data-anchor-id="funnel-plot">漏斗图</h4>
+<hr>
+<p></p>
+<p>在本指南的前面（第 @ref(what-is-es) 章），我们了解到研究的样本量和标准误差密切相关。效应量较大的标准误差会导致置信区间较宽，并增加效应不具有统计学意义的可能性。因此，假设小型研究效应将在很大程度上影响具有较大标准误差的研究是合理的。</p>
+<p>假设我们收集的数据受到发表偏倚的影响。如果是这种情况，我们可以假设具有较大标准误差的研究的效应量高于具有较小标准误差的研究。这是因为效应较小的小型研究不显着，因此从未考虑发表。因此，我们从未将它们纳入我们的元分析中。</p>
+<p>通常通过<strong>漏斗图</strong>检查小型研究效应。漏斗图是一个散点图，其中研究的观察到的效应量在 x 轴上，并以其标准误差的度量为 y 轴。通常，漏斗图中的 y 轴是倒置的（意味着 y 轴上的“较高”值表示<strong>较低</strong>标准误差）。</p>
+<p>当没有发表偏倚时，此类图中的数据点应形成大致对称的倒漏斗。这就是为什么它们被称为漏斗图。该图顶部（标准误差较低的那些）的研究应紧密地排列在一起，并且离合并效应量不远。在该图的下部，随着标准误差的增加，漏斗“打开”，并且预期效应量会更严重地散布在合并效应的左右两侧。</p>
+<p>当我们回想起我们在第 @ref(what-is-es) 章中学到的关于效应量的行为时，以及在第 @ref(fem) 章中讨论固定效应模型时（图 @ref(fig:funnel1)），更容易看到为什么研究应该形成漏斗。标准误差表明研究的<strong>精度</strong>：随着标准误差的降低，我们期望观察到的效应量越来越好地估计真实效应量。当标准误差较高时，效应量具有较低的精度，因此更有可能与人群中的实际效应相差甚远。</p>
+<p>我们现在将通过生成我们自己的漏斗图来使这更加具体。在 <strong>{meta}</strong> 包中，可以使用 <code>meta::funnel</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> 函数来为元分析对象打印漏斗图。在这里，我们为我们的 <code>m.gen</code> 元分析对象生成一个漏斗图。我们指定了两个进一步的参数 <code>xlim</code> 和 <code>studlab</code>。第一个控制图中 x 轴的限制，而第二个告诉函数包括研究标签。运行 <code>meta::funnel</code> 后调用 <code>title</code> 函数会将标题添加到图中。</p>
+<p>我们的代码如下所示：</p>
+<p>```{r, message=F, fig.width=8, fig.height=6, out.width=“85%”, collapse = TRUE, results=‘hold’, fig.align=‘center’, eval = F} # 加载“meta”包 library(meta)</p>
+<p># 生成漏斗图 meta::funnel(m.gen, xlim = c(-0.5, 2), studlab = TRUE)</p>
+<p># 添加标题 title(“漏斗图（第三代心理疗法）”)</p>
+<p>```</p>
+<p>```{r, message=F, fig.width=8, fig.height=6, out.width=“85%”, collapse = TRUE, results=‘hold’, fig.align=‘center’, echo=F} # 加载“meta”包 library(meta)</p>
+<p>par(bg=“#FFFEFA”) # 生成漏斗图 meta::funnel(m.gen, xlim = c(-0.5, 2), studlab = TRUE)</p>
+<p># 添加标题 title(“漏斗图（第三代心理疗法）”)</p>
+<p>```</p>
+<p>如所讨论的，生成的漏斗图显示了每项研究的效应量（表示为标准化平均差）在 x 轴上，以及标准误差（从大到小）在 y 轴上。为了便于解释，该图还包括我们期望我们的研究遵循的理想化漏斗形状。漏斗中间的垂直线显示了平均效应量。因为我们在生成 <code>m.gen</code> 时使用了随机效应模型，所以漏斗图也使用了随机效应估计。</p>
+<p>在不存在小型研究效应的情况下，我们的研究应大致遵循该图表中描绘的漏斗形状。在我们的例子中是这样吗？好吧，并非如此。虽然我们看到标准误差较低的研究更集中地位于估计的真实效应附近，但总体模式看起来不对称。这是因为在该图右下角有三项效应量非常高的小型研究（Shapiro、Kang 和 Danitz-Orsillo 的研究）。</p>
+<p>然而，这些研究在该图的左下角没有等效的研究。没有效应非常低或负面的小型研究来“平衡”那些效应非常高的研究。另一个令人担忧的细节是，我们样本中精度最高的 de Vibe 的研究似乎也没有很好地遵循漏斗模式。它的效应量比预期的要小得多。</p>
+<p>总体而言，数据集在漏斗图中显示出不对称的模式，这<strong>可能</strong>表明存在发表偏倚。可能是这三项小型研究很幸运地发现了足够高的效应，从而变得显着，但在未发表的研究中，存在一个具有类似标准误差的底层，但效应更小且因此不显着，没有通过筛选。</p>
+<p>检查不对称模式如何与统计学显着性相关的一个好方法是生成<strong>轮廓增强漏斗图</strong> <span class="citation" data-cites="peters2008contour">[@peters2008contour]</span>。此类图可以帮助区分发表偏倚和其他形式的不对称。轮廓增强漏斗图包括颜色，这些颜色表示图中每项研究的显着性水平。在 <code>meta::funnel</code> 函数中，可以通过将所需的显着性阈值提供给 <code>contour</code> 参数来添加轮廓。通常，这些阈值为 <code>0.9</code>、<code>0.95</code> 和 <code>0.99</code>，分别等于 <span class="math inline">\(p\)</span> &lt; 0.1、0.05 和 0.01。使用 <code>col.contour</code> 参数，我们还可以指定轮廓应具有的颜色。最后，之后可以使用 <code>legend</code> 函数将图例添加到图中，指定不同颜色的含义。我们可以使用 <code>x</code> 和 <code>y</code> 参数将图例放置在图上，在 <code>legend</code> 中提供标签，并使用 <code>fill</code> 参数添加填充颜色。</p>
+<p>这会产生以下代码：</p>
+<p>```{r, fig.width=8, fig.height=6, out.width=“82%”, collapse=TRUE, fig.align=‘center’, eval=F} # 定义轮廓的填充颜色 col.contour = c(“gray75”, “gray85”, “gray95”)</p>
+<p># 生成漏斗图（我们在此处不包括研究标签） meta::funnel(m.gen, xlim = c(-0.5, 2), contour = c(0.9, 0.95, 0.99), col.contour = col.contour)</p>
+<p># 添加图例 legend(x = 1.6, y = 0.01, legend = c(“p &lt; 0.1”, “p &lt; 0.05”, “p &lt; 0.01”), fill = col.contour)</p>
+<p># 添加标题 title(“轮廓增强漏斗图（第三代心理疗法）”)</p>
+<p>```</p>
+<p>```{r, fig.width=8, fig.height=6, out.width=“75%”, collapse=TRUE, fig.align=‘center’, echo=F} # 定义轮廓的填充颜色 col.contour = c(“gray75”, “gray85”, “gray95”)</p>
+<p>par(bg=“#FFFEFA”) # 生成漏斗图（我们在此处不包括研究标签） meta::funnel(m.gen, xlim = c(-0.5, 2), contour = c(0.9, 0.95, 0.99), col.contour = col.contour)</p>
+<p># 添加图例 legend(x = 1.6, y = 0.01, legend = c(“p &lt; 0.1”, “p &lt; 0.05”, “p &lt; 0.01”), fill = col.contour)</p>
+<p># 添加标题 title(“轮廓增强漏斗图（第三代心理疗法）”)</p>
+<p>```</p>
+<p>我们看到漏斗图现在包含三个阴影区域。我们特别关注 <span class="math inline">\(p&lt;\)</span> 0.05 和 <span class="math inline">\(p&lt;\)</span> 0.01 区域，因为落入该区域的效应量传统上被认为是显着的。</p>
+<p>添加轮廓区域是有启发性的：它表明这三项小型研究都具有显着效应，尽管具有较大的标准误差。只有一项具有类似标准误差的研究不显着。如果我们在图的左下角“估算”缺失的研究以增加对称性，这些研究将位于该图的不显着区域中；或者它们实际上会产生显着的负面影响。</p>
+<p>较大研究的模式看起来略有不同。我们看到有几项研究的 <span class="math inline">\(p&gt;\)</span> 0.05，并且效应的分布不太倾斜。尽管如此，可能存在问题的是，除了一个研究之外，所有研究都非常接近显着性阈值（即，它们位于 0.1 <span class="math inline">\(&gt; p &gt;\)</span> 0.05 区域中）。这些研究可能只是在原始论文中以不同的方式计算了效应量，这导致了显着的结果。或者，也许发现趋势水平上显着的效应已经足以使该研究发表。</p>
+<p>总之，对轮廓增强漏斗图的检查证实了我们最初的直觉，即漏斗图中存在不对称，这可能是由发表偏倚引起的。但是，至关重要的是不要妄下结论，并谨慎地解释漏斗图。我们必须牢记，发表偏倚只是漏斗图不对称的众多可能原因之一。</p>
+<p></p>
+<p>```{block, type=‘boxinfo’} <strong>漏斗图不对称的替代解释</strong></p>
+<p>虽然发表偏倚会导致不对称的漏斗图，但也有其他更“良性”的原因可能会产生类似的模式 <span class="citation" data-cites="page2020investigating">[@page2020investigating]</span>：</p>
+<ul>
+<li>不对称也可能由研究间的异质性引起。漏斗图假定效应量的分散是由研究的抽样误差引起的，但不控制研究可能是不同真实效应的估计量这一事实。</li>
+</ul>
+<ul>
+<li>小型研究中的研究程序可能有所不同，这导致了更高的效应。例如，在临床研究中，当样本量较小时，更容易确保每个参与者都按预期接受治疗。大型研究可能并非如此，导致<strong>治疗保真度</strong>较低，从而导致较低的效应。检查纳入研究的特征以评估这种替代解释是否合理是有意义的。</li>
+</ul>
+<ul>
+<li>一个常见的发现是，低质量的研究往往会显示出更大的效应量，因为存在更高的偏倚风险。大型研究需要更多的投资，因此它们的方法论也可能更严格。即使没有发表偏倚，这也可能导致漏斗图不对称。</li>
+</ul>
+<ul>
+<li>最后，完全有可能漏斗图不对称仅仅是偶然发生的。</li>
+</ul>
+<p>```</p>
+<p></p>
+<p>我们看到，仅通过查看（轮廓增强）漏斗图的视觉检查就已经可以为我们提供一些“危险信号”，表明我们的结果可能受到发表偏倚的影响。</p>
+<p>但是，仅通过查看来解释漏斗图显然也有其局限性。当我们的结果“过于不对称”时，没有明确的规则，这意味着来自漏斗图的推论总是有些主观。因此，以定量方式评估漏斗图不对称的存在是有帮助的。这通常通过 <strong>Egger 的回归检验</strong>来实现，我们将在接下来讨论。</p>
+<p><br><br></p>
+</section>
+<section id="eggers-test" class="level4">
+<h4 class="anchored" data-anchor-id="eggers-test">Egger 的回归检验</h4>
+<hr>
+<p>Egger 的回归检验 <span class="citation" data-cites="egger1997bias">[@egger1997bias]</span> 是一种常用的定量方法，用于检验漏斗图中的不对称。与漏斗图的视觉检查一样，它只能识别小型研究效应，而不能直接告诉我们是否存在发表偏倚。该检验基于一个简单的线性回归模型，其公式如下所示：</p>
+<p><span class="math display">\[\begin{equation}
+\frac{\hat\theta_k}{SE_{\hat\theta_k}} = \beta_0 + \beta_1 \frac{1}{SE_{\hat\theta_k}}
+(\#eq:pub1)
+\end{equation}\]</span></p>
+<p>此公式中的响应 <span class="math inline">\(y\)</span> 是我们的元分析中观察到的效应量 <span class="math inline">\(\hat\theta_k\)</span>，除以其标准误差。生成的值等效于 <span class="math inline">\(z\)</span> 分数。这些分数直接告诉我们效应量是否显着；当 <span class="math inline">\(z \geq\)</span> 1.96 或 <span class="math inline">\(\leq\)</span> -1.96 时，我们知道该效应是显着的 (<span class="math inline">\(p&lt;\)</span> 0.05)。此响应根据研究的标准误差的倒数进行回归，该倒数等效于它们的精度。</p>
+<p>但是，当使用 Egger 的检验时，我们对回归权重 <span class="math inline">\(\beta_1\)</span> 的大小和显着性不感兴趣，而是对<strong>截距</strong> <span class="math inline">\(\beta_0\)</span> 感兴趣。为了评估漏斗不对称，我们检查 <span class="math inline">\(\hat\beta_0\)</span> 的大小，以及它是否与零显着不同。当这种情况发生时，Egger 的检验表明漏斗图不对称。</p>
+<p>让我们花点时间来理解为什么回归截距的大小告诉我们一些关于漏斗图不对称的信息。在每个线性回归模型中，截距表示当所有其他预测变量为零时 <span class="math inline">\(y\)</span> 的值。我们模型中的预测变量是研究的精度，因此截距显示了当精度为零时（即当研究的标准误差无限大时）预期的 <span class="math inline">\(z\)</span> 分数。</p>
+<p>当没有发表偏倚时，预期的 <span class="math inline">\(z\)</span> 分数应分散在零附近。这是因为具有极其大的标准误差的研究具有极其大的置信区间，使得几乎不可能达到 <span class="math inline">\(|z| \geq\)</span> 1.96 的值。但是，当漏斗图不对称时，例如由于发表偏倚，我们期望具有非常高效应量的小型研究在我们数据中将被过度表示，从而导致数量惊人的低精度研究，<span class="math inline">\(z\)</span> 值大于或等于 1.96。由于这种扭曲，零精度 <span class="math inline">\(y\)</span> 的预测值将远大于零，从而导致显着的截距。</p>
+<p>下图说明了漏斗图不对称对 Egger 检验的回归斜率和截距的影响。</p>
+<p>```{r eggers_alt, echo=F, out.width=“50%”, message=F, warning=F, fig.width=6, fig.height=5, eval=F} library(ggplot2)</p>
+<p>load(“data/m.egdat.rda”) load(“data/m.egdat.bias.rda”)</p>
+<p>meta::funnel(m.egdat, xlab = “Effect Size”) title(“漏斗图（无不对称）”)</p>
+<p>m.egdat$data %&gt;%&gt; mutate(y = .TE/.seTE, x = 1/.seTE) %&gt;%&gt; ggplot(aes(y = y, x = x)) + xlim(c(0, 110)) + #ylim(c(0, 110)) + geom_point(fill = “grey”, pch=21) + geom_smooth(method = “lm”, se = F, fullrange = T, color = “black”) + theme_minimal() + ylab(“缩放效应量 (z)”) + xlab(“标准误差的倒数（精度）”) + annotate(“text”, x = 3, y = 33, label = bquote(hat(beta)[0]<sub>“=”</sub>0.21), hjust = “left”, cex = 6) + annotate(geom = “curve”, x = 0, y = 0.21, xend = 5, yend = 30, curvature = .3, arrow = arrow(length = unit(2, “mm”)), linetype = “dashed”) + ggtitle(“回归线（无不对称）”) + theme(plot.title = element_text(color=“black”, size=14, face=“bold”, hjust = 0.5), plot.margin = margin(1.08, 1, 1.08, 1, “cm”), plot.background = element_rect(fill = “#FFFEFA”, color = “#fbfbfb”), panel.background = element_rect(fill = “#FFFEFA”)) # ‘nearly-white’ used to keep knitr from cropping</p>
+<p>meta::funnel(m.egdat.bias, xlab = “Effect Size”) title(“漏斗图（不对称）”)</p>
+<p>m.egdat.bias$data %&gt;%&gt; mutate(y = .TE/.seTE, x = 1/.seTE) %&gt;%&gt; ggplot(aes(y = y, x = x)) + xlim(c(0, 9)) + ylim(c(0,6)) + geom_point(fill = “grey”, pch=21) + geom_smooth(method = “lm”, se = F, fullrange = T, color = “black”) + theme_minimal() + ylab(“缩放效应量 (z)”) + xlab(“标准误差的倒数（精度）”) + annotate(“text”, x = 0.8, y = 0.5, label = bquote(hat(beta)[0]<sub>“=”</sub>2.85), hjust = “left”, cex = 6) + annotate(geom = “curve”, x = 0, y = 2.85, xend = 0.7, yend = 0.7, curvature = .3, arrow = arrow(length = unit(2, “mm”)), linetype = “dashed”) + ggtitle(“回归线（不对称）”) + theme(plot.title = element_text(color=“black”, size=14, face=“bold”, hjust = 0.5), plot.margin = margin(1.08, 1, 1.08, 1, “cm”), plot.background = element_rect(fill = “#feffff”, color = “#fbfbfb”), panel.background = element_rect(fill = “#feffff”)) # ‘nearly-white’ used to keep knitr from cropping</p>
+<p>```</p>
+<p>```{r eggers, echo=F, out.width=“50%”, message=F, warning=F, fig.width=6, fig.height=5} library(OpenImageR) knitr::include_graphics(‘images/eggers-1_sep.png’) knitr::include_graphics(‘images/eggers-2_sep.png’) knitr::include_graphics(‘images/eggers-3_sep.png’) knitr::include_graphics(‘images/eggers-4_sep.png’) ```</p>
+<p></p>
+<p>让我们看看当我们对 <code>m.gen</code> 中的数据拟合这样的回归模型时会得到什么结果。使用 <em>R</em>，我们可以提取 <code>m.gen</code> 中的原始数据来计算响应 <code>y</code> 和我们的预测变量 <code>x</code>。在下面的代码中，我们使用管道（第 @ref(data-transform) 章）和 <code>mutate</code> 函数来执行此操作，该函数是 <strong>{tidyverse}</strong> 的一部分。之后，我们使用<strong>线性模型</strong>函数 <code>lm</code> 将 <span class="math inline">\(z\)</span> 分数 <code>y</code> 回归到精度 <code>x</code> 上。在管道的最后一部分中，我们请求结果的 <code>summary</code>。</p>
+<p>```{r, eval = F} # 加载所需的包 library(tidyverse)</p>
+<p>m.gen$data %&gt;%&gt; mutate(y = TE/seTE, x = 1/seTE) %&gt;%&gt; lm(y ~ x, data = .) %&gt;%&gt; summary()</p>
+<p>```</p>
+<pre><code>## [...]
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)   4.1111     0.8790   4.677 0.000252 ***
+## x            -0.3407     0.1837  -1.855 0.082140 .  
+## ---
+## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+## 
+## [...]</code></pre>
+<p>在结果中，我们看到我们的回归模型的截距为 <span class="math inline">\(\hat\beta_0\)</span> = 4.11。这远大于零 (<span class="math inline">\(t\)</span> = 4.677, <span class="math inline">\(p&lt;\)</span> 0.001)，并且表明漏斗图中的数据确实不对称。总体而言，这证实了我们最初的发现，即存在小型研究效应。但是，重申一下，不确定这种模式是否是由发表偏倚引起的。</p>
+<p>执行 Egger 截距检验的更便捷方法是使用 <strong>{meta}</strong> 中的 <code>metabias</code> 函数。此函数仅需要元分析对象作为输入，并且我们必须将 <code>method.bias</code> 参数设置为 <code>"linreg"</code>。如果我们将该函数应用于 <code>m.gen</code>，我们会得到与之前相同的结果。</p>
+<p>```{r} metabias(m.gen, method.bias = “linreg”) ```</p>
+<p>```{block2, type=‘boxreport’} <strong>报告 Egger 检验的结果</strong></p>
+<p>对于 Egger 检验，通常足以报告截距的值、其 95% 置信区间，以及 <span class="math inline">\(t\)</span> 值和 <span class="math inline">\(p\)</span> 值。在 <strong>{dmetar}</strong> 包中，我们包含了一个名为 <code>eggers.test</code> 的便捷函数。此函数是 <code>metabias</code> 的包装器，并以适合报告的格式提供 Egger 检验的结果。如果您没有安装 <strong>{dmetar}</strong>，您可以在 <a href="https://raw.githubusercontent.com/MathiasHarrer/dmetar/master/R/eggers.test.R">在线</a> 找到该函数的源代码。这是一个例子：</p>
+<p><code>eggers.test(m.gen)</code></p>
+<table class="table">
+<colgroup>
+<col style="width: 24%">
+<col style="width: 18%">
+<col style="width: 34%">
+<col style="width: 17%">
+<col style="width: 5%">
+</colgroup>
+<thead>
+<tr class="header">
+<th><span class="math inline">\(~\)</span></th>
+<th><code>截距</code></th>
+<th><code>置信区间</code></th>
+<th><code>t</code></th>
+<th><code>p</code></th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>Egger 检验</code></td>
+<td><code>4.111</code></td>
+<td><code>2.347-5.875</code></td>
+<td><code>4.677</code></td>
+<td><code>0.00025</code></td>
+</tr>
+</tbody>
+</table>
+<p>```</p>
+<p></p>
+<p><code>m.gen</code> 中使用的效应量度量是小样本偏倚校正的 SMD（Hedges’ <span class="math inline">\(g\)</span>）。有人认为，在 SMD 上运行 Egger 检验可能导致假阳性结果膨胀 <span class="citation" data-cites="pustejovsky2019testing">[@pustejovsky2019testing]</span>。这是因为研究的标准化平均差和标准误差不是独立的。</p>
+<p>我们可以通过查看用于计算组间 SMD 标准误差的公式（公式 3.18，第 @ref(b-group-smd) 章）轻松地看到这一点。此公式包括 SMD 本身，这意味着研究的标准误差会随着观察到的效应的大小而变化（即 SMD 与其标准误差之间存在人为的相关性）。</p>
+<p>Pustejovsky 和 Rodgers <span class="citation" data-cites="pustejovsky2019testing">[-@pustejovsky2019testing]</span> 建议在检验标准化平均差的漏斗图不对称时使用标准误差的修改版本。仅使用标准误差公式的第一部分，这意味着观察到的效应量会从等式中删除。因此，该公式如下所示：</p>
+<p><span class="math display">\[\begin{equation}
+SE^*_{\text{SMD}_{\text{between}}}= \sqrt{\frac{n_1+n_2}{n_1n_2}}
+(\#eq:pub2)
+\end{equation}\]</span></p>
+<p>其中 $SE^*_{\text{SMD</p>
+
+
+</section>
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>Mahmood 及其同事 <span class="citation" data-cites="mahood2014searching">[-@mahood2014searching]</span> 详细介绍了如何进行全面的灰色文献搜索，以及这可能带来的挑战。该文章可以在线公开访问。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>在本章中，我们在调用 <code>funnel</code> 函数时始终附加 <code>meta::</code>。这并非绝对必要，但在实践中可能有时有助于避免错误消息（以及相关的混乱），因为 <code>metafor</code> 包中还有另一个 <code>funnel</code> 函数，我们在此不作介绍。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

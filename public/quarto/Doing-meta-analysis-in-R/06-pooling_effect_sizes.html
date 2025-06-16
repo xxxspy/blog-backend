@@ -1,0 +1,1100 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Meta 分析</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R Meta 分析</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.rmd"> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./daizuo.html"> 
+<span class="menu-text">Meta 代做</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./06-pooling_effect_sizes.html">合并效应量</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前言</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">作者</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">介绍</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-discovering_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发现R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-pooling_effect_sizes.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">合并效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-heterogeneity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">异质性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-forestplots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">森林图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-subgroup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">亚组分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-metareg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Meta回归</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-publication-bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发表偏倚</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-mlma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">多元Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-sem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">结构方程模型</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-netwma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">网络Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-bayesianma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">贝叶斯Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-power-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">功效分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-risk-of-bias-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏倚风险图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-reporting-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">报告与可重复性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-effect-size-calculation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量计算</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">附录</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./98-cite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">引用</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#pooling-es" id="toc-pooling-es" class="nav-link active" data-scroll-target="#pooling-es">效应量的合并</a>
+  <ul class="collapse">
+  <li><a href="#fem-rem" id="toc-fem-rem" class="nav-link" data-scroll-target="#fem-rem">固定效应模型和随机效应模型</a>
+  <ul class="collapse">
+  <li><a href="#fem" id="toc-fem" class="nav-link" data-scroll-target="#fem">固定效应模型</a></li>
+  <li><a href="#rem" id="toc-rem" class="nav-link" data-scroll-target="#rem">随机效应模型</a></li>
+  </ul></li>
+  <li><a href="#pooling-es-r" id="toc-pooling-es-r" class="nav-link" data-scroll-target="#pooling-es-r"><em>R</em> 中的效应量合并</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="pooling-es" class="level1">
+<h1>效应量的合并</h1>
+<hr>
+<p><img src="_figs/pooling_es.jpg"></p>
+<p><br><br></p>
+<p><span class="firstcharacter">一</span>条漫长而曲折的道路已经展现在我们身后。幸运的是，我们现在已经到达了每个荟萃分析的核心部分：效应量的合并。我们希望您能够抵制住直接从本章开始的诱惑。本书已经讨论了各种主题，包括研究问题的定义、搜索、选择和提取研究数据的指南，以及如何准备我们的效应量。</p>
+<p>彻底的准备是良好荟萃分析的关键要素，并且对接下来要执行的步骤非常有帮助。我们可以向您保证，您花在学习前几章上的时间是物有所值的。</p>
+<p></p>
+<p>有很多包可以让我们在 <em>R</em> 中合并效应量。在这里，我们将重点介绍 <strong>{meta}</strong> 包的功能，该包我们在 @ref(packages) 章中已经安装过了。这个包非常用户友好，只需几行代码就可以为我们提供几乎所有重要的荟萃分析结果。在前一章中，我们介绍了效应量有不同的“风味”，具体取决于感兴趣的结果。<strong>{meta}</strong> 包包含专门的荟萃分析函数，用于处理每种效应量指标。所有函数也几乎遵循相同的结构。</p>
+<p>因此，一旦我们对 <strong>{meta}</strong> 的工作方式有了基本的了解，编写荟萃分析代码就会变得简单明了，无论我们关注哪种效应量。在本章中，我们将介绍 <strong>{meta}</strong> 包的总体结构。当然，我们还将通过实践示例更详细地探索该包的荟萃分析函数。</p>
+<p><strong>{meta}</strong> 包允许我们调整效应量合并方式的许多细节。正如我们之前提到的，荟萃分析伴随着许多“研究者自由度”。关于我们可以应用的统计技术和方法有很多选择，而且一种方法是否比另一种方法更好通常取决于具体情况。</p>
+<p> </p>
+<p>在我们开始在 <em>R</em> 中进行分析之前，我们首先要对荟萃分析的统计假设和背后的数学原理有一个基本的了解。重要的是，我们还将讨论荟萃分析背后的“思想”。在统计学中，这个“思想”转化为一个<strong>模型</strong>，我们将了解荟萃分析模型是什么样的。</p>
+<p>正如我们将看到的，荟萃分析的性质要求我们立即做出一个根本性的决定：我们必须假设一个<strong>固定效应模型</strong>或一个<strong>随机效应模型</strong>。需要了解荟萃分析合并背后的概念，以便在知情的情况下决定哪种模型，以及其他分析规范，在何种情况下更合适。</p>
+<p><br><br></p>
+<section id="fem-rem" class="level2">
+<h2 class="anchored" data-anchor-id="fem-rem">固定效应模型和随机效应模型</h2>
+<hr>
+<p>在我们指定荟萃分析模型之前，我们首先应该明确统计模型实际上是什么。统计学充满了“模型”，而且您很可能以前在这个语境中听说过这个术语。有“线性模型”、“广义线性模型”、“混合模型”、“高斯加性模型”、“结构方程模型”等等。</p>
+<p>模型在统计学中的普遍存在表明了这个概念的重要性。在某种程度上，模型构成了我们几乎所有统计工具箱的基础。在 <span class="math inline">\(t\)</span> 检验、方差分析和回归分析的背后都有一个模型。每个假设检验都有其相应的统计模型。</p>
+<p>在定义统计模型时，我们从已经给我们的信息开始。这实际上就是我们的<strong>数据</strong><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。在荟萃分析中，数据是在纳入研究中观察到的效应量。我们的模型用于描述生成这些观察数据的过程。</p>
+<p>这些数据被视为一个<strong>黑盒子</strong>的产物，而我们的模型旨在阐明黑盒子内部发生的事情。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/model_concept_sep.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>通常，统计模型就像一种特殊的<strong>理论</strong>。模型试图解释生成我们观察数据的机制，尤其是当这些机制本身无法直接观察到时。它们是对<strong>生活的模仿</strong>，使用数学公式以理想化的方式描述我们周围世界中的过程。</p>
+<p>模型的这种解释性特征深深地根植于现代统计学中，荟萃分析也不例外。将模型概念化为解释工具是统计学“文化”的标志，正如 Breiman <span class="citation" data-cites="breiman2001statistical">[-@breiman2001statistical]</span> 著名地估计，98% 的统计学家都坚持这种文化。</p>
+<p>通过指定一个统计模型，我们试图找到一个近似表示我们数据背后“现实”的模型。我们想要一个数学公式来解释如何根据研究的观察结果找到所有研究背后的<strong>真实</strong>效应量。正如我们在 @ref(what-are-mas) 章中学到的，荟萃分析的最终目标之一是找到一个数值来表征我们的研究<strong>作为一个整体</strong>，即使观察到的效应量因研究而异。因此，荟萃分析模型必须解释为什么以及观察到的研究结果差异有多大的原因，即使只有一个总体效应。</p>
+<p>有两种模型试图准确地回答这个问题，即<strong>固定效应模型</strong>和<strong>随机效应模型</strong>。尽管两者都基于不同的假设，但它们之间仍然存在很强的联系，我们很快就会看到。</p>
+<p><br><br></p>
+<section id="fem" class="level3">
+<h3 class="anchored" data-anchor-id="fem">固定效应模型</h3>
+<hr>
+<p> </p>
+<p>固定效应模型假设所有效应量都来自一个单一的、同质的总体。它指出所有研究都共享<strong>相同</strong>的真实效应量。这个真实效应是我们想要在荟萃分析中计算的总体效应量，用 <span class="math inline">\(\theta\)</span> 表示。</p>
+<p>根据固定效应模型，研究 <span class="math inline">\(k\)</span> 的观察效应量 <span class="math inline">\(\hat\theta_k\)</span> 偏离 <span class="math inline">\(\theta\)</span> 的唯一原因是由于其抽样误差 <span class="math inline">\(\epsilon_k\)</span>。固定效应模型告诉我们，产生研究不同效应量的过程，即“黑盒子”的内容，很简单：所有研究都是相同真实效应量的估计量。然而，由于每项研究只能从无限大的研究人群中抽取或大或小的样本，因此结果会受到抽样误差的影响。这种抽样误差导致观察到的效应偏离总体真实效应。</p>
+<p>我们可以这样描述这种关系 <span class="citation" data-cites="borenstein2011introduction">[@borenstein2011introduction, 第 11 章]</span>：</p>
+<p><span class="math display">\[\begin{equation}
+\hat\theta_k = \theta + \epsilon_k
+(\#eq:pes1)
+\end{equation}\]</span></p>
+<p>对于警觉的读者来说，这个公式可能与 @ref(what-is-es) 章中的公式非常相似。您没有错。在之前的公式中，我们定义了某个研究 <span class="math inline">\(k\)</span> 的观察效应量 <span class="math inline">\(\hat\theta_k\)</span> 是该研究真实效应量 <span class="math inline">\(\theta_k\)</span> 的估计量，受到该研究抽样误差 <span class="math inline">\(\epsilon_k\)</span> 的影响。</p>
+<p>之前的公式与固定效应模型的公式之间只有一个很小但很有见地的差异。在固定效应模型的公式中，真实效应量不是用 <span class="math inline">\(\theta_k\)</span> 符号表示，而是用 <span class="math inline">\(\theta\)</span> 表示；下标 <span class="math inline">\(k\)</span> 被省略了。</p>
+<p>以前，我们只是对<strong>一项</strong>个体研究 <span class="math inline">\(k\)</span> 的真实效应量进行陈述。固定效应模型更进一步。它告诉我们，如果我们找到研究 <span class="math inline">\(k\)</span> 的真实效应量，这个效应量不仅对 <span class="math inline">\(k\)</span> 而言是真的，而且对我们荟萃分析中的<strong>所有</strong>研究而言也是真的。一个<strong>研究</strong>的真实效应量 <span class="math inline">\(\theta_k\)</span>，和<strong>总体</strong>合并的效应量 <span class="math inline">\(\theta\)</span>，是<strong>相同的</strong>。</p>
+<div class="cell" type="boxinfo">
+
+<div class="boxinfo">
+<strong>固定效应模型背后的思想</strong>是，观察到的效应量可能因研究而异，但这只是由于抽样误差造成的。实际上，它们的真实效应量<strong>都相同</strong>：它们是固定的。因此，固定效应模型有时也被称为<strong>“等效应”</strong>或<strong>“共同效应”</strong>模型。<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>
+</div>
+</div>
+<p>固定效应模型的公式告诉我们，观察到的效应量 <span class="math inline">\(\theta_k\)</span> 偏离真实总体效应的唯一原因是：由于抽样误差 <span class="math inline">\(\epsilon_k\)</span>。在 @ref(what-is-es) 章中，我们已经讨论了抽样误差与研究样本量之间存在联系。在所有条件相同的情况下，随着样本量的增大，抽样误差减小。我们还了解到，抽样误差可以用<strong>标准误差</strong>来数值表示，标准误差也会随着样本量的增加而减小。</p>
+<p>虽然我们不知道研究的真实总体效应量，但我们可以利用这种关系来得出真实总体效应的最佳估计值，<span class="math inline">\(\hat\theta\)</span>。我们知道标准误差越小，对应的抽样误差也越小；因此，与标准误差大的研究相比，标准误差小的研究应该能更好地估计真实总体效应。</p>
+<p>我们可以用一个模拟来说明这一点。使用我们之前使用过的 <code>rnorm</code> 函数，我们模拟了一系列研究，其中真实总体效应为 <span class="math inline">\(\theta = 0\)</span>。我们选取了几个样本，但改变了样本量，使得“观察到”的效应之间的标准误差不同。模拟的结果可以在图 @ref(fig:funnel1) 中找到。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
+ℹ Please use the `linewidth` argument instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="06-pooling_effect_sizes_files/figure-html/funnel1-1.png" class="img-fluid figure-img" style="width:50.0%"></p>
+<figcaption>效应量与标准误差之间的关系。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>模拟结果显示出一种有趣的模式。我们看到具有较小抽样误差的效应量紧密地聚集在真实效应量 <span class="math inline">\(\theta = 0\)</span> 附近。随着 y 轴上的标准误差<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> 的增加，效应量的<strong>离散程度</strong>变得越来越大，并且观察到的效应越来越偏离真实效应。</p>
+<p>这种行为可以通过固定效应模型的公式来预测。我们知道具有较小标准误差的研究具有较小的抽样误差，因此它们对总体效应量的估计更可能接近真实值。</p>
+<p></p>
+<p>我们已经看到，虽然所有观察到的效应量都是真实效应的估计量，但有些比其他的好。当我们合并荟萃分析中的效应时，我们应该给予具有更高<strong>精度</strong>（即更小的标准误差）的效应量更大的<strong>权重</strong>。如果我们想要计算固定效应模型下的合并效应量，我们只需使用所有研究的<strong>加权平均值</strong>。</p>
+<p>要计算每个研究 <span class="math inline">\(k\)</span> 的权重 <span class="math inline">\(w_k\)</span>，我们可以使用标准误差，对其进行平方以获得每个效应量的<strong>方差</strong> <span class="math inline">\(s^2_k\)</span>。由于<strong>较低</strong>的方差表示较高的精度，因此使用方差的<strong>倒数</strong>来确定每个研究的权重。</p>
+<p><span class="math display">\[\begin{equation}
+w_k = \frac{1}{s^2_k}
+(\#eq:pes2)
+\end{equation}\]</span></p>
+<p>一旦我们知道权重，我们就可以计算加权平均值，即我们对真实合并效应 <span class="math inline">\(\hat\theta\)</span> 的估计。我们只需要将每个研究的效应量 <span class="math inline">\(\hat\theta_k\)</span> 与其对应的权重 <span class="math inline">\(w_k\)</span> 相乘，将荟萃分析中所有研究 <span class="math inline">\(K\)</span> 的结果相加，然后除以所有个体权重的总和。</p>
+<p><span class="math display">\[\begin{equation}
+\hat\theta = \frac{\sum^{K}_{k=1} \hat\theta_kw_k}{\sum^{K}_{k=1} w_k}
+(\#eq:pes3)
+\end{equation}\]</span></p>
+<p> </p>
+<p>这种方法是荟萃分析中计算平均效应的最常见方法。由于我们使用方差的倒数，因此它通常被称为<strong>逆方差加权</strong>或简称为<strong>逆方差荟萃分析</strong>。</p>
+<p>对于二元效应量数据，有其他方法来计算加权平均值，包括 <strong>Mantel-Haenszel</strong>、<strong>Peto</strong> 或 Bakbergenuly <span class="citation" data-cites="bakbergenuly2020methods">[-@bakbergenuly2020methods]</span> 的样本量加权法。我们将在 @ref(pooling-or-rr) 章中讨论这些方法。</p>
+<p><strong>{meta}</strong> 包使得执行固定效应荟萃分析非常容易。但是，在此之前，让我们尝试在 <em>R</em> 中“手动”进行逆方差合并。在我们的例子中，我们将使用 <code>SuicidePrevention</code> 数据集，我们已经在 @ref(data-prep-R) 章中导入了该数据集。</p>
+<p></p>
+<div class="cell" type="boxdmetar">
+
+<div class="boxdmetar">
+<p><strong>“SuicidePrevention”数据集</strong></p>
+<code>SuicidePrevention</code> 数据集也直接包含在 <strong>{dmetar}</strong> 包中。如果您已经安装了 <strong>{dmetar}</strong> 并且已从您的库中加载了它，则运行 <code>data(SuicidePrevention)</code> 会自动将数据集保存在您的 <em>R</em> 环境中。然后就可以使用该数据集了。如果您没有安装 <strong>{dmetar}</strong>，您可以从 <a href="https://www.protectlab.org/meta-analysis-in-r/data/suicideprevention.rda">Internet</a> 下载数据集作为 <em>.rda</em> 文件，将其保存在您的工作目录中，然后在您的 R Studio 窗口中单击它以导入它。
+</div>
+</div>
+<p> </p>
+<p><code>SuicidePrevention</code> 数据集包含原始效应量数据，这意味着我们必须首先计算效应量。在本例中，我们计算了小样本调整的标准化均数差（Hedges’ <span class="math inline">\(g\)</span>）。为此，我们使用了 <strong>{esc}</strong> 包中的 <code>esc_mean_sd</code> 函数（@ref(b-group-smd) 章）。</p>
+<p>该函数有一个额外的参数 <code>es.type</code>，通过该参数我们可以指定是否要执行小样本校正（通过设置 <code>es.type = "g"</code>；@ref(hedges-g) 章）。</p>
+<p>自 <em>R</em> 4.2.1 版本发布以来，我们还必须将对 <code>esc_mean_sd</code> 的调用插入到 <code>pmap_dfr</code> 函数中，以便为数据集中的每一行计算一个标准化均数差：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 加载 dmetar、esc 和 tidyverse (用于管道)</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dmetar)</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(esc)</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 从 dmetar 加载数据集</span></span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(SuicidePrevention)</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true" tabindex="-1"></a><span class="co"># 计算 Hedges' g 和标准误差</span></span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true" tabindex="-1"></a><span class="co"># - 我们将研究名称保存在 "study" 中。</span></span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true" tabindex="-1"></a><span class="co"># - 我们使用 pmap_dfr 函数来计算</span></span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true" tabindex="-1"></a><span class="co">#   每一行的效应量。</span></span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true" tabindex="-1"></a>SP_calc <span class="ot">&lt;-</span> <span class="fu">pmap_dfr</span>(SuicidePrevention,</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true" tabindex="-1"></a>                    <span class="cf">function</span>(mean.e, sd.e, n.e, mean.c,</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true" tabindex="-1"></a>                             sd.c, n.c, author, ...){</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true" tabindex="-1"></a>                      <span class="fu">esc_mean_sd</span>(<span class="at">grp1m =</span> mean.e,</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">grp1sd =</span> sd.e,</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">grp1n =</span> n.e,</span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">grp2m =</span> mean.c,</span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">grp2sd =</span> sd.c,</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">grp2n =</span> n.c,</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">study =</span> author,</span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true" tabindex="-1"></a>                                  <span class="at">es.type =</span> <span class="st">"g"</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true" tabindex="-1"></a>                        <span class="fu">as.data.frame</span>()})</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true" tabindex="-1"></a><span class="co"># 让我们快速浏览一下数据</span></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true" tabindex="-1"></a><span class="co"># 数据集包含 Hedges' g ("es") 和标准误差 ("se")</span></span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(SP_calc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>## Rows: 9
+## Columns: 9
+## $ study       &lt;chr&gt; "Berry et al.", "DeVries et …
+## $ es          &lt;dbl&gt; -0.14279447, -0.60770928, -0…
+## $ weight      &lt;dbl&gt; 46.09784, 34.77314, 14.97625…
+## $ sample.size &lt;dbl&gt; 185, 146, 60, 129, 100, 220,…
+## $ se          &lt;dbl&gt; 0.1472854, 0.1695813, 0.2584…
+## $ var         &lt;dbl&gt; 0.02169299, 0.02875783, 0.06…
+## $ ci.lo       &lt;dbl&gt; -0.4314686, -0.9400826, -0.6…
+## $ ci.hi       &lt;dbl&gt; 0.145879624, -0.275335960, 0…
+## $ measure     &lt;chr&gt; "g", "g", "g", "g", "g", "g"…</code></pre>
+<p>接下来，我们使用这些结果来应用固定效应模型的公式：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 计算每个研究的逆方差权重</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>SP_calc<span class="sc">$</span>w <span class="ot">&lt;-</span> <span class="dv">1</span><span class="sc">/</span>SP_calc<span class="sc">$</span>se<span class="sc">^</span><span class="dv">2</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 然后，我们使用权重来计算合并效应</span></span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>pooled_effect <span class="ot">&lt;-</span> <span class="fu">sum</span>(SP_calc<span class="sc">$</span>w<span class="sc">*</span>SP_calc<span class="sc">$</span>es)<span class="sc">/</span><span class="fu">sum</span>(SP_calc<span class="sc">$</span>w)</span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>pooled_effect</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>## [1] -0.2311121</code></pre>
+<p>我们的计算结果表明，假设一个固定效应模型，合并效应量为 <span class="math inline">\(g \approx\)</span> -0.23。</p>
+<p><br><br></p>
+</section>
+<section id="rem" class="level3">
+<h3 class="anchored" data-anchor-id="rem">随机效应模型</h3>
+<hr>
+<p></p>
+<p>正如我们所看到的，固定效应模型是一种概念化荟萃分析数据生成方式以及如何合并效应的方式。然而，重要的问题是：这种方法是否充分反映了现实？</p>
+<p>固定效应模型假设我们所有的研究都是同质群体的一部分，并且观察到的效应差异的唯一原因是研究的抽样误差。如果我们在没有抽样误差的情况下计算每项研究的效应量，那么所有真实效应量将完全相同。</p>
+<p></p>
+<p>对这个概念进行快速的现实检验，我们发现固定效应模型的假设在许多实际应用中可能过于简单。荟萃分析中的研究总是完全同质的，这简直是不现实的。研究经常会存在差异，即使只是在细微的方式上。感兴趣的结果可能以不同的方式测量。也许治疗的类型不完全相同，或者治疗的强度和持续时间不同。研究的目标人群可能不完全相同，或者可能使用的对照组存在差异。</p>
+<p>您荟萃分析中的研究很可能不仅在一个方面存在差异，而且在几个方面同时存在差异。如果这是真的，我们可以预期真实效应中存在相当大的研究间<strong>异质性</strong>。</p>
+<p>所有这些都使固定效应模型的有效性受到质疑。例如，如果一些研究使用了不同类型的治疗，那么似乎很正常的是，一种形式比另一种更有效。假设这些差异只是噪音，由研究的抽样误差产生，这未免有些牵强。</p>
+<p>恰恰相反，可能存在无数的原因导致研究的<strong>真实</strong>效应量存在<strong>实际</strong>差异。随机效应模型解决了这个担忧。它为我们提供了一个模型，该模型通常能更好地反映我们数据背后的现实。</p>
+<p></p>
+<p>在随机效应模型中，我们希望解释效应量显示的方差大于从一个单一同质群体中抽取的方差这一事实 <span class="citation" data-cites="hedges1998fixed">[@hedges1998fixed]</span>。因此，我们假设个体研究的效应不仅由于抽样误差而有所偏差，而且还存在<strong>另一个</strong>方差来源。</p>
+<p>这个额外的方差分量是由研究不是来自一个单一群体这一事实引入的。相反，每项研究都被视为从一个“宇宙”群体中独立抽取的结果。</p>
+<div class="cell" type="boxinfo">
+
+<div class="boxinfo">
+随机效应模型假设不仅存在一个真实的效应量，而且存在一个真实效应量的<strong>分布</strong>。因此，随机效应模型的目标不是估计所有研究的一个真实效应量，而是真实效应<strong>分布</strong>的<strong>均值</strong>。
+</div>
+</div>
+<p>让我们看看如何用公式表达随机效应模型。与固定效应模型类似，随机效应模型首先假设观察到的效应量 <span class="math inline">\(\hat\theta_k\)</span> 是研究真实效应量 <span class="math inline">\(\theta_k\)</span> 的估计量，受到抽样误差 <span class="math inline">\(\epsilon_k\)</span> 的影响：</p>
+<p><span class="math display">\[\begin{equation}
+\hat\theta_k = \theta_k + \epsilon_k
+(\#eq:pes4)
+\end{equation}\]</span></p>
+<p>我们使用 <span class="math inline">\(\theta_k\)</span> 而不是 <span class="math inline">\(\theta\)</span> 这一事实已经表明了一个重要的差异。随机效应模型仅假设 <span class="math inline">\(\theta_k\)</span> 是<strong>一项</strong>单一研究 <span class="math inline">\(k\)</span> 的真实效应量。它规定存在第二个误差来源，用 <span class="math inline">\(\zeta_k\)</span> 表示。这个第二个误差来源是由以下事实引入的：即使研究 <span class="math inline">\(k\)</span> 的真实效应量 <span class="math inline">\(\theta_k\)</span> 也只是真实效应总体分布的一部分，该分布的均值为 <span class="math inline">\(\mu\)</span>。</p>
+<p><span class="math display">\[\begin{equation}
+\theta_k  = \mu + \zeta_k
+(\#eq:pes5)
+\end{equation}\]</span></p>
+<p>随机效应模型告诉我们，在我们的黑盒子里发生了两个过程的层次结构 <span class="citation" data-cites="thompson2001multilevel">[@thompson2001multilevel]</span>：一项研究的观察效应量由于抽样误差而偏离了它们的真实值。但是，即使真实效应量也只是从真实效应总体中抽取的一个样本，我们希望将该总体的均值 <span class="math inline">\(\mu\)</span> 估计为我们荟萃分析的合并效应。</p>
+<p>通过将第二个公式插入到第一个公式中（即，用它在第二个公式中的定义替换 <span class="math inline">\(\theta_k\)</span>），我们可以用一行来表达随机效应模型 <span class="citation" data-cites="borenstein2011introduction">[@borenstein2011introduction, 第 12 章]</span>：</p>
+<p><span class="math display">\[\begin{equation}
+\hat\theta_k = \mu + \zeta_k + \epsilon_k
+(\#eq:pes6)
+\end{equation}\]</span></p>
+<p>这个公式清楚地表明，我们观察到的效应量由于两个误差项 <span class="math inline">\(\zeta_k\)</span> 和 <span class="math inline">\(\epsilon_k\)</span> 而偏离了合并效应 <span class="math inline">\(\mu\)</span>。这种关系在图 @ref(fig:random) 中进行了可视化。</p>
+<p></p>
+<p>随机效应模型的一个关键假设是 <span class="math inline">\(\zeta_k\)</span> 的大小与 <span class="math inline">\(k\)</span> <strong>无关</strong>。换句话说，我们假设没有任何东西可以<strong>先验地</strong>表明一项研究中的 <span class="math inline">\(\zeta_k\)</span> 高于另一项研究。我们预先假定 <span class="math inline">\(\zeta_k\)</span> 的大小是偶然的产物，而且仅仅是偶然的产物。</p>
+<p>这被称为随机效应模型的<strong>可交换性</strong>假设 <span class="citation" data-cites="higgins2009re lunn2012bugs">[@higgins2009re; @lunn2012bugs, 第 10.1 章]</span>。假设所有真实效应量都是可交换的，因为在我们看到数据之前，我们没有任何东西可以告诉我们一些研究 <span class="math inline">\(k\)</span> 中 <span class="math inline">\(\zeta_k\)</span> 将有多大。</p>
+<p></p>
+<div class="cell" type="boxinfo">
+
+<div class="boxinfo">
+<p><strong>我应该使用哪个模型？</strong></p>
+<p>在实践中，发现一组研究是完全同质的非常罕见。即使我们遵循最佳实践，并通过我们的 PICO（@ref(research-question) 章）尽可能精确地确定分析的范围，也是如此。</p>
+<p>因此，在包括医学和社会科学在内的许多领域，通常<strong>总是</strong>使用随机效应模型，因为几乎总是可以预期到一定程度的研究间异质性。只有当我们没有检测到任何研究间异质性（我们将在 @ref(heterogeneity) 章中讨论如何做到这一点）<strong>并且</strong>当我们有非常好的理由假设真实效应是固定的时，才可以使用固定效应模型。例如，当只考虑一项研究的精确复制时，或者当我们对一项大型研究的子集进行荟萃分析时，可能会出现这种情况。毋庸置疑，这种情况很少发生，并且固定效应模型“在野外”的应用相当罕见。</p>
+<p>即使先验地使用随机效应模型是常规做法，但这种方法也并非没有争议。在计算荟萃分析的总体效应时，随机效应模型会更多地关注小型研究 <span class="citation" data-cites="schwarzer2015meta">[@schwarzer2015meta, 第 2.3 章]</span>。然而，特别是小型研究通常充满偏见（参见 @ref(small-study-effects) 章）。这就是为什么有些人认为固定效应模型（有时）更可取 <span class="citation" data-cites="poole1999random furukawa2003low">[@poole1999random; @furukawa2003low]</span>。Stanley、Doucouliagos 和 Ioannidis <span class="citation" data-cites="stanley2022beyond">[-@stanley2022beyond]</span> 提出了类似的观点，并认为在某些学科中，应该使用所谓的“无限制加权最小二乘法”（UWLS）模型来代替随机效应模型。</p>
+</div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/rem_sep2.png" class="img-fluid figure-img" style="width:60.0%"></p>
+<figcaption>随机效应模型参数的图示。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+<section id="tau-estimators" class="level4">
+<h4 class="anchored" data-anchor-id="tau-estimators">研究间异质性的估计量</h4>
+<hr>
+<p></p>
+<p>与随机效应模型相关的挑战是我们必须考虑误差 <span class="math inline">\(\zeta_k\)</span>。为此，我们必须估计真实效应量分布的<strong>方差</strong>。这个方差被称为 <span class="math inline">\(\tau^2\)</span>，或 <strong>tau 平方</strong>。一旦我们知道 <span class="math inline">\(\tau^2\)</span> 的值，我们就可以在确定每个效应量的逆方差权重时包括研究间异质性。</p>
+<p>因此，在随机效应模型中，我们为每个观察值计算一个调整后的<strong>随机效应权重</strong> <span class="math inline">\(w^*_k\)</span>。该公式如下所示：</p>
+<p><span class="math display">\[\begin{equation}
+w^*_k = \frac{1}{s^2_k+\tau^2}
+(\#eq:pes7)
+\end{equation}\]</span></p>
+<p></p>
+<p>使用调整后的随机效应权重，我们然后使用逆方差方法计算合并效应量，就像我们使用固定效应模型所做的那样：</p>
+<p><span class="math display">\[\begin{equation}
+\hat\theta = \frac{\sum^{K}_{k=1} \hat\theta_kw^*_k}{\sum^{K}_{k=1} w^*_k}
+(\#eq:pes8)
+\end{equation}\]</span></p>
+<p>有几种方法来估计 <span class="math inline">\(\tau^2\)</span>，其中大多数方法过于复杂而无法手动完成。幸运的是，这些估计量在 <strong>{meta}</strong> 包的函数中实现，该包会自动为我们进行计算。以下是最常见估计量的列表，以及它们在 <strong>{meta}</strong> 中引用的代码：</p>
+<p> </p>
+<ul>
+<li><strong>DerSimonian-Laird</strong> (<code>"DL"</code>) 估计量 <span class="citation" data-cites="dersimonian1986meta">[@dersimonian1986meta]</span>。</li>
+<li><strong>限制最大似然</strong> (<code>"REML"</code>) 或 <strong>最大似然</strong> (<code>"ML"</code>) 程序 <span class="citation" data-cites="viechtbauer2005bias">[@viechtbauer2005bias]</span>。</li>
+<li><strong>Paule-Mandel</strong> (<code>"PM"</code>) 程序 <span class="citation" data-cites="paule1982consensus">[@paule1982consensus]</span>。</li>
+<li><strong>经验贝叶斯</strong> (<code>"EB"</code>) 程序 <span class="citation" data-cites="sidik2019note">[@sidik2019note]</span>，实际上与 Paule-Mandel 方法相同。</li>
+<li><strong>Sidik-Jonkman</strong> (<code>"SJ"</code>) 估计量 <span class="citation" data-cites="sidik2005simple">[@sidik2005simple]</span>。</li>
+</ul>
+<p>哪种估计量最适合不同类型的数据是一个持续研究的问题。一种方法是否比另一种方法更好通常取决于参数，例如研究的数量 <span class="math inline">\(k\)</span>、每个研究中的参与者数量 <span class="math inline">\(n\)</span>、<span class="math inline">\(n\)</span> 在研究之间的变化程度以及 <span class="math inline">\(\tau^2\)</span> 有多大。几项研究分析了在这些不同情况下 <span class="math inline">\(\tau^2\)</span> 估计量的偏差 <span class="citation" data-cites="veroniki2016methods viechtbauer2005bias sidik2007comparison langan2019comparison">[@veroniki2016methods; @viechtbauer2005bias; @sidik2007comparison; @langan2019comparison]</span>。</p>
+<p> </p>
+<p>可以说，最常用的估计量是 DerSimonian 和 Laird 的估计量。该估计量已在过去荟萃分析人员常用的软件中实现，例如 <strong>RevMan</strong>（Cochrane 开发的程序）或 <strong>Comprehensive Meta-Analysis</strong>。它也曾经是 <strong>{meta}</strong> 中使用的默认估计量<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>。由于这种历史遗产，人们经常发现研究论文中使用“使用随机效应模型”等同于使用 DerSimonian-Laird 估计量。</p>
+<p>然而，人们发现这种估计量可能存在偏差，尤其是在研究数量较少且异质性较高时 <span class="citation" data-cites="hartung1999alternative hartung2001refined hartung2001tests follmann1999valid makambi2004effect">[@hartung1999alternative; @hartung2001refined; @hartung2001tests; @follmann1999valid; @makambi2004effect]</span>。这是非常成问题的，因为发现研究数量少且异质性高的荟萃分析非常常见。</p>
+<p> </p>
+<p>在一篇概述性论文中，Veroniki 及其同事 <span class="citation" data-cites="veroniki2016methods">[-@veroniki2016methods]</span> 回顾了各种 <span class="math inline">\(\tau^2\)</span> 估计量稳健性的证据。他们推荐了 Paule-Mandel 方法用于二元和连续效应量数据，并推荐了限制最大似然估计量用于连续结果。限制最大似然估计量也是 <strong>{metafor}</strong> 包使用的默认方法。</p>
+<p>Langan 及其同事 <span class="citation" data-cites="langan2019comparison">[-@langan2019comparison]</span> 最近的一项模拟研究得出了类似的结果，但发现当研究的样本量差异很大时，Paule-Mandel 估计量可能不是最佳选择。Bakbergenuly 及其同事 <span class="citation" data-cites="bakbergenuly2020methods">[-@bakbergenuly2020methods]</span> 的另一项研究发现，Paule-Mandel 估计量特别适用于研究数量较少的情况。Sidik-Jonkman 估计量，也称为<strong>模型误差方差法</strong>，仅在 <span class="math inline">\(\tau^2\)</span> 非常大时才适用 <span class="citation" data-cites="sidik2007comparison">[@sidik2007comparison]</span>。</p>
+<div class="cell" type="boxinfo">
+
+<div class="boxinfo">
+<p><strong>我应该使用哪个估计量？</strong></p>
+<p>关于何时应该使用哪个估计量，没有铁律。在许多情况下，各种估计量产生的结果只会存在微小的差异，这意味着您不应该<strong>太</strong>担心这个问题。</p>
+<p>如有疑问，您可以随时使用不同的 <span class="math inline">\(\tau^2\)</span> 估计量重新运行您的分析，看看这是否会改变您对结果的解释。以下是一些您可以在自己的荟萃分析中遵循的初步指南：</p>
+<ol type="1">
+<li><p>对于基于连续结果数据的效应量，限制最大似然估计量可以用作第一个起点。</p></li>
+<li><p>对于二元效应量数据，Paule-Mandel 估计量是一个很好的首选，前提是样本量没有极端变化。</p></li>
+<li><p>当您有非常好的理由相信样本中效应的异质性非常大，并且避免假阳性具有非常高的优先级时，您可以使用 Sidik-Jonkman 估计量。</p></li>
+<li><p>如果您希望其他人在 <em>R</em> 之外尽可能精确地复制您的结果，则 DerSimonian-Laird 估计量是首选方法。</p></li>
+</ol>
+</div>
+</div>
+<p>总的来说，<span class="math inline">\(\tau^2\)</span> 的估计量分为两类。一些，如 DerSimonian-Laird 和 Sidik-Jonkman 估计量，基于<strong>封闭形式表达式</strong>，这意味着它们可以使用公式直接计算。</p>
+<p>（限制）最大似然、Paule-Mandel 和经验贝叶斯估计量通过<strong>迭代算法</strong>找到 <span class="math inline">\(\tau^2\)</span> 的最佳值。因此，后者的估计量有时可能需要更长的时间来计算结果。然而，在大多数实际情况下，这些时间差异最多只是微不足道的。</p>
+<p><br><br></p>
+</section>
+<section id="knapp-hartung" class="level4">
+<h4 class="anchored" data-anchor-id="knapp-hartung">Knapp-Hartung 调整</h4>
+<hr>
+<p> </p>
+<p>除了我们选择的 <span class="math inline">\(\tau^2\)</span> 估计量之外，我们还必须决定是否要应用所谓的 Knapp-Hartung 调整<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> <span class="citation" data-cites="knapp2003improved sidik2002simple">[@knapp2003improved; @sidik2002simple]</span>。这些调整会影响我们合并效应量 <span class="math inline">\(\hat\theta\)</span> 的标准误差（以及因此置信区间）的计算方式。</p>
+<p>Knapp-Hartung 调整试图控制我们对研究间异质性估计的不确定性。虽然合并效应的显著性检验通常假设正态分布（所谓的 <strong>Wald 型</strong>检验），但 Knapp-Hartung 方法基于 <span class="math inline">\(t\)</span> 分布。Knapp-Hartung 调整只能在随机效应模型中使用，并且通常会导致合并效应的置信区间略微变大。</p>
+<p></p>
+<div class="cell" type="boxreport">
+<div class="boxreport">
+<p>
+<strong>报告在您的荟萃分析中使用的模型类型</strong>
+</p>
+<p>
+强烈建议您在荟萃分析报告的方法部分指定您使用的模型类型。以下是一个示例：
+</p>
+<blockquote class="blockquote">
+<p>
+<em>“由于我们预计到相当大的研究间异质性，因此使用随机效应模型来合并效应量。使用限制最大似然估计量 (Viechtbauer, 2005) 来计算异质性方差 <span class="math inline">(^2)</span>。我们使用 Knapp-Hartung 调整 (Knapp &amp; Hartung, 2003) 来计算合并效应周围的置信区间。”</em>
+</p>
+</blockquote>
+</div>
+</div>
+<p>应用 Knapp-Hartung 调整通常是明智的。几项研究 <span class="citation" data-cites="inthout2014hartung langan2019comparison">[@inthout2014hartung; @langan2019comparison]</span> 表明，这些调整可以减少假阳性的可能性，尤其是在研究数量较少时。</p>
+<p>然而，使用 Knapp-Hartung 调整并非没有争议。例如，Wiksten 及其同事 <span class="citation" data-cites="wiksten2016hartung">[-@wiksten2016hartung]</span> 认为，该方法在效应非常同质的情况下（很少发生）会导致反保守的结果。</p>
+<p><br><br></p>
+</section>
+</section>
+</section>
+<section id="pooling-es-r" class="level2">
+<h2 class="anchored" data-anchor-id="pooling-es-r"><em>R</em> 中的效应量合并</h2>
+<hr>
+<p></p>
+<p>是时候将我们所学到的知识付诸实践了。在本章的其余部分，我们将探讨如何在 <em>R</em> 中直接运行不同效应量的荟萃分析。我们将用于执行此操作的 <strong>{meta}</strong> 包具有特殊的结构。它包含几个荟萃分析函数，每个函数都专注于一种类型的效应量数据。有一组参数可以在所有这些函数中以相同的方式指定；例如，如果我们想要应用固定效应或随机效应模型，或者应该使用哪个 <span class="math inline">\(\tau^2\)</span> 估计量。除此之外，还有一些<strong>特定于函数</strong>的参数，这些参数允许我们调整荟萃分析的细节，这些细节仅与特定类型的数据相关。</p>
+<p>图 @ref(fig:metaflow) 提供了 <strong>{meta}</strong> 结构的概述。要确定要使用的函数，我们首先必须明确我们想要合成哪种效应量数据。最根本的区别是<strong>原始</strong>和<strong>预计算</strong>效应量数据之间的区别。当我们拥有计算所需效应量所需的所有必要信息存储在我们的数据框中但尚未计算实际效应量时，我们称之为“原始”数据。我们之前使用的 <code>SuicidePrevention</code> 数据集包含原始数据：计算标准化均数差所需的两组的均值、标准差和样本量。</p>
+<p>另一方面，当效应量数据已经包含每个研究的最终效应量以及标准误差时，我们称之为“预计算”。如果我们想要使用效应指标的校正版本（例如 Hedges’ <span class="math inline">\(g\)</span>，@ref(hedges-g) 章），则在开始合并</p>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>“数据”来源于拉丁语 <strong>datum</strong>，意思是“给定的事物”<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p><strong>{metafor}</strong> 包使用术语“等效应模型”，而 <strong>{meta}</strong> 使用术语“共同效应模型”。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>我们在绘制之前对标准误差进行了对数转换，以便更容易看到该模式。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>在较新版本的 <strong>{meta}</strong> 中，限制最大似然 (<code>"REML"</code>) 估计量现在用作默认值。<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>这种方法也被称为“Hartung-Knapp 调整”或“Hartung-Knapp-Sidik-Jonkman” (HKSJ) 方法。<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

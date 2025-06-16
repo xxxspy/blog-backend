@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Meta 分析</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R Meta 分析</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.rmd"> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./daizuo.html"> 
+<span class="menu-text">Meta 代做</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-subgroup.html">亚组分析</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前言</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">作者</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">介绍</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-discovering_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发现R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-pooling_effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">合并效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-heterogeneity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">异质性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-forestplots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">森林图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-subgroup.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">亚组分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-metareg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Meta回归</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-publication-bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发表偏倚</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-mlma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">多元Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-sem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">结构方程模型</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-netwma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">网络Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-bayesianma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">贝叶斯Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-power-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">功效分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-risk-of-bias-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏倚风险图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-reporting-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">报告与可重复性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-effect-size-calculation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量计算</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">附录</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./98-cite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">引用</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#subgroup" id="toc-subgroup" class="nav-link active" data-scroll-target="#subgroup">子组分析</a>
+  <ul class="collapse">
+  <li><a href="#fixed-effect-plural" id="toc-fixed-effect-plural" class="nav-link" data-scroll-target="#fixed-effect-plural">固定效应（复数）模型</a>
+  <ul class="collapse">
+  <li><a href="#汇集子组中的效应" id="toc-汇集子组中的效应" class="nav-link" data-scroll-target="#汇集子组中的效应">汇集子组中的效应</a></li>
+  <li><a href="#comparing-the-subgroup-effects" id="toc-comparing-the-subgroup-effects" class="nav-link" data-scroll-target="#comparing-the-subgroup-effects">比较子组效应</a></li>
+  </ul></li>
+  <li><a href="#limits-subgroup" id="toc-limits-subgroup" class="nav-link" data-scroll-target="#limits-subgroup">子组分析的局限性和陷阱</a></li>
+  <li><a href="#subgroup-R" id="toc-subgroup-R" class="nav-link" data-scroll-target="#subgroup-R"><em>R</em> 中的子组分析</a></li>
+  <li><a href="#问题与解答" id="toc-问题与解答" class="nav-link" data-scroll-target="#问题与解答">问题与解答</a></li>
+  <li><a href="#总结" id="toc-总结" class="nav-link" data-scroll-target="#总结">总结</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="subgroup" class="level1">
+<h1>子组分析</h1>
+<hr>
+<p><img src="_figs/fassade.jpg"></p>
+<p><br><br></p>
+<p><span class="firstcharacter">在</span> 第 @ref(heterogeneity) 章中，我们讨论了研究间异质性的概念，以及它在元分析中的重要性。我们还学习了一些方法，允许我们识别哪些研究对观察到的异质性有贡献，作为离群值和影响分析的一部分。在这些分析中，我们从纯粹的统计角度来处理我们的元分析。我们“测量”数据中相当大的异质性，因此排除具有不合适的统计属性（即，离群和有影响的研究）的研究，以提高我们模型的稳健性。</p>
+<p> </p>
+<p>这种方法可以被看作是<strong>事后</strong>程序。离群值和影响分析是在看到数据<strong>之后</strong>进行的，而且通常是<strong>因为</strong>我们发现的结果。此外，它们除了数据本身之外，不关注任何其他东西。一个影响分析方法可能会告诉我们，某些研究没有正确地遵循我们模型的预期，但没有告诉我们<strong>为什么</strong>会这样。这可能是因为这项研究使用了稍微不同的研究方法或治疗方法。然而，我们无法仅凭这项研究的影响来了解这一点。</p>
+<p>想象一下，你进行了一项元分析，调查一种医疗手段的有效性。你发现，总的来说，这种治疗方法没有效果。然而，有三项研究发现了相当大的治疗效果。有可能在影响分析中检测到这些研究，但这不会告诉你它们为什么有影响力。有可能是这三项研究都使用了一种与所有其他研究略有不同的治疗方法，而这个小细节对治疗的有效性产生了深远的影响。这将是一个开创性的发现。然而，这仅仅通过离群值和影响分析是无法实现的。</p>
+<p> </p>
+<p>这清楚地表明，我们需要一种不同的方法，一种可以让我们识别<strong>为什么</strong>在我们的数据中可以找到特定的异质性模式的方法。<strong>子组分析</strong>，也称为<strong>调节效应分析</strong>，是做到这一点的一种方法。它们允许我们测试具体的假设，描述为什么某些类型的研究产生比其他研究更低或更高的效果。</p>
+<p>正如我们在第 @ref(analysis-plan) 章中学到的，子组测试应该<strong>先验</strong>定义。在我们开始进行元分析之前，我们应该定义可能影响观察到的效应量的不同研究特征，并相应地对每项研究进行编码。效应量可能不同的原因有很多，但我们应该将自己限制在与我们的分析相关的那些原因上。</p>
+<p>例如，我们可以检查某种类型的药物是否比另一种药物产生更高的效果。或者，我们可以将随访期较短的研究与随访期较长的研究进行比较。我们还可以检查观察到的效果是否因研究进行的文化区域而异。作为一名元分析师，拥有一些特定领域的专业知识会有所帮助，因为这可以让你找到与该领域的其他科学家或从业者实际相关的问题。</p>
+<p>子组分析背后的想法是，元分析不仅仅是计算平均效应量，它也可以是一种研究我们证据中变异的工具。在子组分析中，我们不仅仅将异质性视为一种麻烦，而是将其视为有趣的变异，这种变异可能可以用科学假设来解释，也可能无法解释。在最好的情况下，这可以进一步加深我们对周围世界的理解，或者至少产生指导未来决策的实际见解。</p>
+<p>在本章中，我们将描述子组分析背后的统计模型，以及我们如何在 <em>R</em> 中直接进行分析。</p>
+<p><br><br></p>
+<section id="fixed-effect-plural" class="level2">
+<h2 class="anchored" data-anchor-id="fixed-effect-plural">固定效应（复数）模型</h2>
+<hr>
+<p></p>
+<p>在子组分析中，我们假设元分析中的研究并非来自一个总体。相反，我们假设它们属于不同的<strong>子组</strong>，并且每个子组都有其自身真实的总体效应。我们的目标是拒绝子组间效应量没有差异的零假设。</p>
+<p>子组分析的计算包括两个部分：首先，我们汇集每个子组中的效应。随后，使用统计检验比较子组的效应 <span class="citation" data-cites="borenstein2013meta">[@borenstein2013meta]</span>。</p>
+<p><br><br></p>
+<section id="汇集子组中的效应" class="level3">
+<h3 class="anchored" data-anchor-id="汇集子组中的效应">汇集子组中的效应</h3>
+<hr>
+<p>第一部分相当简单，因为与没有子组的元分析（参见第 @ref(fem-rem) 章）的标准相同。如果我们假设子组中的所有研究都来自同一总体，并且具有一个共享的真实效应，我们可以使用固定效应模型。正如我们之前提到的，即使我们将研究划分为更小的组，这种假设在实践中也很难成立。</p>
+<p></p>
+<p>因此，另一种选择是使用随机效应模型。这假设子组内的研究来自一个总体集合，我们想要估计这些总体的平均值。与正常元分析的区别在于，我们进行<strong>几个</strong>独立的随机效应元分析，每个子组一个。从逻辑上讲，这会导致每个子组 <span class="math inline">\(g\)</span> 的汇集效应 <span class="math inline">\(\hat\mu_g\)</span>。</p>
+<p></p>
+<p>由于每个子组都有其自身独立的元分析，因此 <span class="math inline">\(\tau^2\)</span> 异质性的估计也会因组而异。然而，在实践中，各个异质性值 <span class="math inline">\(\hat\tau^2_g\)</span> 通常会被替换为跨子组汇集的 <span class="math inline">\(\tau^2\)</span> 版本。</p>
+<p>这意味着假设所有子组共享研究间异质性的<strong>共同</strong>估计。这主要是出于实际原因。当子组中的研究数量很少时，例如 <span class="math inline">\(k_g \leq 5\)</span> <span class="citation" data-cites="borenstein2011introduction">[@borenstein2011introduction, chapter 19]</span>，<span class="math inline">\(\tau^2\)</span> 的估计值可能不精确。在这种情况下，最好计算一个跨所有子组使用的 <span class="math inline">\(\tau^2\)</span> 的汇集版本，而不是依赖于一个子组中研究间异质性的非常不精确的估计。</p>
+<p><br><br></p>
+</section>
+<section id="comparing-the-subgroup-effects" class="level3">
+<h3 class="anchored" data-anchor-id="comparing-the-subgroup-effects">比较子组效应</h3>
+<hr>
+<p>下一步，我们评估 <span class="math inline">\(G\)</span> 个子组之间是否存在<strong>真实</strong>差异。假设是子组是不同的，这意味着至少有一个子组是不同研究总体的一部分。</p>
+<p>测试这一点的一个优雅方法是假装子组的汇集效应实际上只不过是<strong>一项大型研究</strong>的<strong>观察到的效应量</strong><span class="citation" data-cites="borenstein2011introduction">[参见 @borenstein2011introduction, chapter 19]</span>。例如，如果我们进行一个 <span class="math inline">\(G=3\)</span> 个子组的子组分析，我们假装我们已经计算了三项大型研究的观察到的效应量（和标准误差）。</p>
+<p>一旦我们这样看待子组，就很明显，我们问自己的问题与我们在评估正常元分析的异质性时面临的问题非常相似。我们想知道效应量的差异仅仅是由于抽样误差造成的，还是由于效应量的<strong>真实</strong>差异造成的。</p>
+<p></p>
+<p>因此，我们使用 <span class="math inline">\(Q\)</span> 的值来确定子组差异是否足够大，以至于不能仅用抽样误差来解释。假设子组效应是<strong>观察到的</strong>效应量，我们计算 <span class="math inline">\(Q\)</span> 的值。假设一个自由度为 <span class="math inline">\(G-1\)</span> 的 <span class="math inline">\(\chi^2\)</span> 分布，<span class="math inline">\(Q\)</span> 的这个观察到的值与它的预期值进行比较（第 @ref(cochran-q) 章）。</p>
+<p>当 <span class="math inline">\(Q\)</span> 的观察值明显大于预期值时，<span class="math inline">\(Q\)</span> 检验的 <span class="math inline">\(p\)</span> 值将变得显著。这表明子组之间的真实效应量存在差异。这个 <span class="math inline">\(Q\)</span> 检验是一个<strong>总括检验</strong>。它检验所有子组效应量相等的零假设，并且当至少两个子组或其组合存在差异时，该检验是显著的。</p>
+<p>虽然我们通常假设子组内的研究符合随机效应模型，但在汇集的子组水平上，情况看起来有所不同。Borenstein 和 Higgins <span class="citation" data-cites="borenstein2013meta">[-@borenstein2013meta]</span> 认为，在许多领域中，我们选择分析的子组不能被看作是从可能的子组“集合”中随机抽取的，而是代表我们想要检查的特征的<strong>固定</strong>水平。以就业状况为例。这个特征有两个固定的子组，“已就业”和“未就业”。例如，对于患有和不患有特定合并症的患者的研究，情况也是如此。</p>
+<p> </p>
+<p>Borenstein 和 Higgins 将子组分析的模型称为<strong>固定效应（复数）模型</strong>。之所以添加“复数”一词，是因为我们必须将其与标准的固定效应模型区分开来。固定效应（复数）模型可以看作是一种混合生物，既包含固定效应模型的特征，又包含随机效应模型的特征。与随机效应模型一样，我们假设存在不止一个真实效应量，因为我们的数据中存在子组。</p>
+<p>然而，我们不将子组视为从整个子组集合中随机抽取的。我们的子组水平是固定的，并且是<strong>详尽的</strong>，这意味着不需要推广。这清楚地表明了为什么我们将生成子组数据的过程称为固定效应“复数”模型：因为存在<strong>几个</strong>真实的效应量，但是真实的效应量代表假设为<strong>固定</strong>的子组水平。</p>
+<p>Borenstein 及其同事 <span class="citation" data-cites="borenstein2011introduction">[-@borenstein2011introduction, chapter 19]</span> 认为，所有这些可能让我们感到有点困惑，因为“固定”一词在统计学中可以意味着不同的东西。在传统的元分析中，“固定效应”一词与“共同效应”同义。然而，在子组分析的上下文中，我们说“固定效应”是为了强调它们“不是随机的”。它们不仅仅是我们旨在推广到的一个总括分布的随机表现，而是变量可以归入的<strong>真实</strong>和<strong>唯一</strong>类别。</p>
+<p>图 @ref(fig:subgroups) 可视化了固定效应（复数）模型，假设子组内的研究遵循随机效应模型。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/subgroups_sep.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>Visualization of the fixed-effects (plural) model, assuming a random-effects model within subgroups.</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell" type="boxinfo">
+<div class="boxinfo">
+<p>
+<strong>具有固定水平的子组变量的一些示例</strong>
+</p>
+<ul>
+<li>
+<strong>年龄组</strong>：儿童、年轻人、成人、老年人。
+</li>
+</ul>
+<ul>
+<li>
+<strong>文化背景</strong>：西方、非西方。
+</li>
+</ul>
+<ul>
+<li>
+<strong>对照组</strong>：替代治疗、最小治疗、不治疗。
+</li>
+</ul>
+<ul>
+<li>
+<strong>用于测量结果的工具</strong>：自我报告、专家评定。
+</li>
+</ul>
+<ul>
+<li>
+<strong>研究质量</strong>：高、低、不明确。
+</li>
+</ul>
+<ul>
+<li>
+<strong>物种</strong>：植物、动物。
+</li>
+</ul>
+<ul>
+<li>
+<strong>设置</strong>：学校、医院、私人家庭。
+</li>
+</ul>
+<p>
+请注意，子组的具体选择和定义可以而且应该根据您的元分析的目的和范围进行调整。
+</p>
+</div>
+</div>
+<p> </p>
+<p>因为固定效应（复数）模型既包含随机效应（子组内），又包含固定效应（因为假设子组是固定的），所以在文献中也称为<strong>混合效应模型</strong>。我们之前在第 @ref(pooling-props) 章中已经遇到过这个术语，我们在那里讨论了一种不同类型的（广义）混合效应模型，该模型可用于汇集，例如，比例。</p>
+<p>我们用于子组分析的模型与其他也经常用于元分析的方法密切相关。在第 @ref(metareg) 章中，我们将展示子组分析只是<strong>元回归</strong>的一个特例，为此我们也使用混合效应模型。</p>
+<p></p>
+<p>此外，子组水平也可能<strong>不能</strong>假设为固定的。想象一下，我们想要评估效应量是否因观察到效应的位置而异。一些研究评估了在以色列的效应，一些在意大利，另一些在墨西哥，还有一些在中国大陆。有人可能会说“原籍国”不是一个具有固定水平的因素：世界上有许多国家，而我们的研究仅仅包括一个“随机”选择。</p>
+<p>在这种情况下，不将子组建模为固定的是有意义的，而是让我们的模型估计国家之间的变异性作为随机效应。这导致了<strong>多层模型</strong>，我们将在第 @ref(multilevel-ma) 章中介绍。</p>
+<p><br><br></p>
+</section>
+</section>
+<section id="limits-subgroup" class="level2">
+<h2 class="anchored" data-anchor-id="limits-subgroup">子组分析的局限性和陷阱</h2>
+<hr>
+<p></p>
+<p>直观地说，人们可能会认为子组分析是一种检测效应调节因素的绝佳工具。毕竟，元分析的目的是研究所有可用的证据。这意味着元分析中分析的个体总数通常会超过主要研究的数量级。</p>
+<p>然而，不幸的是，这并不一定为我们提供更多的<strong>统计功效</strong>来检测子组差异。这有几个原因 <span class="citation" data-cites="hedges2004power">[@hedges2004power]</span>：</p>
+<ul>
+<li><p>首先，请记住，在子组分析中，子组内的结果通常使用随机效应模型进行汇集。如果子组内存在大量的研究间异质性，这将降低汇集效应的精度（即增加标准误差）。然而，当子组效应估计非常不精确时，这意味着它们的置信区间将有很大的重叠。因此，即使这种差异确实存在，也更难找到子组之间的显著差异。</p></li>
+<li><p>同样，统计功效通常也很低，因为我们想要在子组分析中检测到的效应远低于正常元分析中的效应。想象一下，我们想要检查评估通过<strong>自我报告</strong>与<strong>专家评定</strong>感兴趣的结果的研究之间的效应是否存在差异。即使存在差异，也很可能是很小的。通常可以找到治疗组和对照组之间的显著差异。然而，检测<strong>研究之间</strong>的效应量差异通常要困难得多，因为差异较小，并且需要更多的统计功效。</p></li>
+<li><p>从以上几点得出一个重要的警告：<strong>缺乏证据并不意味着没有证据</strong>。如果我们<strong>没有</strong>发现子组之间的效应量差异，这并不自动意味着子组产生<strong>等效</strong>的结果。正如我们上面所说，有各种原因可以解释为什么我们的子组分析可能没有确定效应的真实差异所需的统计功效。如果是这种情况，那么说子组具有相同的效应将是一种严重的误解——我们根本不知道是否存在差异。当我们想要评估一种治疗方法是否比另一种更好时，这一点尤其具有爆炸性。包括公司在内的一些利益相关者，通常对显示治疗方法的等效性有既得利益。但是子组分析通常不是证明这一点的充分方法。</p></li>
+<li><p>我们可以事先执行<strong>子组功效分析</strong>来检查统计功效是否是我们的子组分析中的一个问题。在这样的分析中，我们可以检查我们能够在子组分析中检测到的最小效应量差异。在“有用的工具”部分的 @ref(power-subgroup) 章中，我们介绍了如何在 <em>R</em> 中执行子组功效分析。但请注意，功效分析充其量只能被视为有用的诊断，而不是证明我们的分析的功效足以表明子组是等效的。Schwarzer 及其同事 <span class="citation" data-cites="schwarzer2015meta">[@schwarzer2015meta, chapter 4.3]</span> 提到，作为一般经验法则，子组分析只有在您的元分析包含至少 <span class="math inline">\(K=\)</span> 10 项研究时才有意义。</p></li>
+</ul>
+<p>子组分析的另一个重要局限性是它们纯粹是观察性的 <span class="citation" data-cites="borenstein2013meta">[@borenstein2013meta]</span>。元分析通常只包括随机对照试验 (RCT)，其中参与者被随机分配到治疗组或对照组。如果正确进行，此类 RCT 可以提供证据表明治疗<strong>导致</strong>了研究中观察到的组间差异。这是因为可能影响评估结果的所有相关变量在两组中都是相等的。唯一的区别是一组接受了治疗，而另一组没有。</p>
+<p>子组分析，即使仅由随机研究组成，也不能显示因果关系。想象一下，我们的子组分析发现一种类型的治疗方法比另一种更有效。有很多原因可以解释为什么这一发现可能是虚假的；例如，可能调查治疗 A 的研究使用了与检查治疗 B 的研究不同的对照组。这意味着两种治疗方法可能同样有效——我们只是看到差异，因为治疗类型与方法学因素<strong>混淆</strong>了。这个例子应该强调，应该始终批判性地评估子组分析的结果。</p>
+<p>最后一个重要的陷阱涉及子组的定义方式。通常，根据<strong>汇总信息</strong>将研究分类到子组中可能很诱人。Schwarzer 及其同事 <span class="citation" data-cites="schwarzer2015meta">[@schwarzer2015meta, chapter 4.3]</span> 将研究的平均年龄作为一个常见的例子。假设您想评估老年人（65 岁以上）和一般成年人群之间的效应是否存在差异。因此，您根据报告的平均年龄是否高于或低于 65 岁，将研究分为这两类。</p>
+<p>如果我们发现较高平均年龄的子组中的效应较高，我们可能会直观地认为这表明老年人的效应较高。但这种推理存在严重缺陷。当一项主要研究的<strong>平均</strong>年龄高于 65 岁时，它仍然可能包括很大一部分<strong>小于</strong>该年龄的个体。<strong>反之亦然</strong>，即使<strong>平均</strong>年龄<strong>较低</strong>，一项研究也完全有可能包括很大一部分<strong>大于</strong> 65 岁的个体。</p>
+<p>这意味着在“老年人”子组中发现的较高效应可能<strong>仅仅</strong>是由实际年龄小于 65 岁的个体驱动的。相反，在“年轻人”子组中，较低的效应可能是由研究中年龄大于 65 岁的个体引起的。</p>
+<p>这导致了一种自相矛盾的情况：在汇总水平上，我们发现平均年龄较高的研究具有较高的效应。但在个体水平上，情况恰恰相反：随着年龄的增长，一个人会经历<strong>较低</strong>的效应。</p>
+<p></p>
+<p>我们刚刚描述的场景是由所谓的<strong>生态偏差</strong>引起的 <span class="citation" data-cites="thompson2002should piantadosi1988ecological">[@thompson2002should; @piantadosi1988ecological]</span>。每当我们想要使用汇总（<strong>宏观</strong>）水平的关系来预测个体（<strong>微观</strong>）水平的关联时，就会出现这种情况。</p>
+<p>避免生态偏差的最佳方法是<strong>永远不要</strong>在子组分析和元回归中使用汇总信息。但是，如果我们知道一项研究中的<strong>所有</strong>个体都属于一个类别，则情况会有所不同。例如，如果我们有一些研究<strong>仅</strong>包括 18 岁以下的青少年，而另一些研究<strong>仅</strong>允许成年人（18 岁以上）参与，则生态偏差的风险在很大程度上被消除。但是，仍然有可能效应差异是由混淆变量引起的，而不是由参与者的年龄引起的。</p>
+<div class="cell" type="boxinfo">
+<div class="boxinfo">
+<p>
+<strong>子组分析：总结了 Dos &amp; Don’ts</strong>
+</p>
+<ol style="list-style-type: decimal">
+<li>
+子组分析取决于统计功效，因此当研究数量较少时（即 <span class="math inline">(K)</span> &lt; 10），进行子组分析通常没有意义。
+</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>
+如果您没有发现子组之间的效应量差异，这并<strong>不</strong>自动意味着子组产生<strong>等效</strong>的结果。
+</li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>
+子组分析纯粹是<strong>观察性的</strong>，因此我们应该始终牢记，效应差异也可能是由混淆变量引起的。
+</li>
+</ol>
+<ol start="4" style="list-style-type: decimal">
+<li>
+在子组分析中使用汇总研究信息不是一个好主意，因为这可能会引入生态偏差。
+</li>
+</ol>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="subgroup-R" class="level2">
+<h2 class="anchored" data-anchor-id="subgroup-R"><em>R</em> 中的子组分析</h2>
+<hr>
+<p></p>
+<p>现在是时候在 <em>R</em> 中实施我们所学的内容了。使用 <strong>{meta}</strong> 包进行子组分析相对简单。在 <strong>{meta}</strong> 中的每个元分析函数中，都可以指定 <code>subgroup</code> 参数<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。这会告诉函数哪个效应量属于哪个子组并运行子组分析。<code>subgroup</code> 参数接受 <code>character</code>、<code>factor</code>、<code>logical</code> 或 <code>numeric</code> 变量。我们唯一需要注意的是，同一子组中的研究具有完全相同的标签。</p>
+<p>在这个例子中，我们再次使用我们的 <code>m.gen</code> 元分析对象。我们用于计算元分析的 <code>ThirdWave</code> 数据集包含一些带有子组信息的列。在这里，我们想要检查具有高风险与低风险偏倚的研究之间的效应量是否存在差异。偏倚风险信息存储在 <code>RiskOfBias</code> 列中。</p>
+<p>让我们首先看一下这一列。在我们的代码中，我们使用 <code>head</code> 函数，以便只显示数据集的前几行。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(meta)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: metadat</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading 'meta' package (version 8.1-0).
+Type 'help(meta)' for a brief overview.</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(dmetar)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Extensive documentation for the dmetar package can be found at: 
+ www.bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(ThirdWave)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a><span class="co"># Show first entries of study name and 'RiskOfBias' column</span></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(ThirdWave[,<span class="fu">c</span>(<span class="st">"Author"</span>, <span class="st">"RiskOfBias"</span>)])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Author RiskOfBias
+1     Call et al.       high
+2 Cavanagh et al.        low
+3   DanitzOrsillo       high
+4  de Vibe et al.        low
+5  Frazier et al.        low
+6  Frogeli et al.        low</code></pre>
+</div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>m.gen <span class="ot">&lt;-</span> <span class="fu">metagen</span>(<span class="at">TE =</span> TE,</span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>                 <span class="at">seTE =</span> seTE,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>                 <span class="at">studlab =</span> Author,</span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>                 <span class="at">data =</span> ThirdWave,</span>
+<span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>                 <span class="at">sm =</span> <span class="st">"SMD"</span>,</span>
+<span id="cb8-6"><a href="#cb8-6" aria-hidden="true" tabindex="-1"></a>                 <span class="at">comb.fixed =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb8-7"><a href="#cb8-7" aria-hidden="true" tabindex="-1"></a>                 <span class="at">comb.random =</span> <span class="cn">TRUE</span>,</span>
+<span id="cb8-8"><a href="#cb8-8" aria-hidden="true" tabindex="-1"></a>                 <span class="at">method.tau =</span> <span class="st">"REML"</span>,</span>
+<span id="cb8-9"><a href="#cb8-9" aria-hidden="true" tabindex="-1"></a>                 <span class="at">method.random.ci =</span> <span class="st">"HK"</span>,</span>
+<span id="cb8-10"><a href="#cb8-10" aria-hidden="true" tabindex="-1"></a>                 <span class="at">title =</span> <span class="st">"Third Wave Psychotherapies"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use argument 'common' instead of 'comb.fixed' (deprecated).</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Use argument 'random' instead of 'comb.random' (deprecated).</code></pre>
+</div>
+</div>
+<p>我们看到我们数据集中的每项研究都有一个指定其偏倚风险评估的标签。当我们使用 <code>metagen</code> 计算元分析时，此信息在内部保存在 <code>m.gen</code> 对象中。要进行子组分析，我们可以使用 <code>update</code> 函数，为其提供 <code>m.gen</code> 对象，并使用 <code>subgroup</code> 参数来指定我们的数据集中哪一列包含子组标签。</p>
+<p>之前，我们还介绍了子组分析可以在子组间使用或不使用 <span class="math inline">\(\tau^2\)</span> 的共同估计来进行。这可以通过在 <strong>{meta}</strong> 中将 <code>tau.common</code> 设置为 <code>TRUE</code> 或 <code>FALSE</code> 来控制。现在，让我们在每个子组中使用研究间异质性方差的单独估计。</p>
+<p>在我们的例子中，我们想要应用固定效应（复数）模型并假设子组内的研究使用随机效应模型进行汇集。鉴于 <code>m.gen</code> 包含随机效应模型的结果（因为我们将 <code>comb.fixed</code> 设置为 <code>FALSE</code> 并且将 <code>comb.random</code> 设置为 <code>TRUE</code>），我们不需要更改任何内容。因为原始元分析是使用随机效应模型执行的，所以 <code>update</code> 自动假设子组内的研究也应该使用随机效应模型进行汇集。</p>
+<p>因此，生成的代码如下所示：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update</span>(m.gen, </span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">subgroup =</span> RiskOfBias, </span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">tau.common =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>## Review:     Third Wave Psychotherapies
+## 
+## Number of studies combined: k = 18
+## 
+##                              SMD            95%-CI    t  p-value
+## Random effects model (HK) 0.5771 [ 0.3782; 0.7760] 6.12 &lt; 0.0001
+## Prediction interval              [-0.0572; 1.2115]              
+## 
+## Quantifying heterogeneity:
+##  tau^2 = 0.0820 [0.0295; 0.3533]; tau = 0.2863 [0.1717; 0.5944]
+##  I^2 = 62.6% [37.9%; 77.5%]; H = 1.64 [1.27; 2.11]
+## 
+## Test of heterogeneity:
+##      Q d.f. p-value
+##  45.50   17  0.0002
+## 
+## Results for subgroups (random effects model (HK)):
+##                     k    SMD           95%-CI  tau^2    tau     Q   I^2
+## RiskOfBias = high   7 0.8126 [0.2835; 1.3417] 0.2423 0.4922 25.89 76.8%
+## RiskOfBias = low   11 0.4300 [0.2770; 0.5830] 0.0099 0.0997 13.42 25.5%
+## 
+## Test for subgroup differences (random effects model (HK)):
+##                   Q d.f. p-value
+## Between groups 2.84    1  0.0917
+## 
+## Details on meta-analytical method:
+## - Inverse variance method
+## - Restricted maximum-likelihood estimator for tau^2
+## - Q-Profile method for confidence interval of tau^2 and tau
+## - Hartung-Knapp (HK) adjustment for random effects model (df = 17)
+## - Prediction interval based on t-distribution (df = 16)</code></pre>
+<p>在输出中，我们看到一个名为 <code>Results for subgroups</code> 的新部分。输出的这一部分显示了每个子组的单独汇集效应量。我们看到有 <span class="math inline">\(k=\)</span> 7 项研究具有高偏倚风险，有 11 项研究具有低偏倚风险。估计的研究间异质性差异很大，高偏倚风险研究中的 <span class="math inline">\(I^2=\)</span> 77%，而低风险研究中的 <span class="math inline">\(I^2\)</span> 只有 26%。</p>
+<p>子组的效应量也不同。对于 <span class="math inline">\(g=\)</span> 0.43，低偏倚风险研究中的效应估计小于高偏倚风险研究中的效应估计。这是一个常见的发现，因为有偏倚的研究更有可能高估治疗的效果。</p>
+<p>但是这种差异在统计上是否显著？我们可以通过查看 <code>Test for subgroup differences</code> 的结果来检查这一点。这向我们展示了 <span class="math inline">\(Q\)</span> 检验，在我们的示例中，它基于 2 个子组，基于一个自由度。检验的 <span class="math inline">\(p\)</span> 值为 0.09，大于传统的显著性阈值，但仍然表明趋势水平上的差异。</p>
+<p>如果我们假设两个子组中 <span class="math inline">\(\tau^2\)</span> 的<strong>共同</strong>估计，我们也可以检查结果。我们只需要将 <code>tau.common</code> 设置为 <code>TRUE</code>。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">update</span>(m.gen, <span class="at">subgroup =</span> RiskOfBias, <span class="at">tau.common =</span> <span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>## [...]
+##                     k    SMD           95%-CI  tau^2    tau     Q   I^2
+## RiskOfBias = high   7 0.7691 [0.2533; 1.2848] 0.0691 0.2630 25.89 76.8%
+## RiskOfBias = low   11 0.4698 [0.3015; 0.6382] 0.0691 0.2630 13.42 25.5%
+## 
+## Test for subgroup differences (random effects model (HK)):
+##                    Q d.f. p-value
+## Between groups  1.79    1  0.1814
+## Within groups  39.31   16  0.0010
+## 
+## Details on meta-analytical method:
+## - Inverse variance method
+## - Restricted maximum-likelihood estimator for tau^2
+##   (assuming common tau^2 in subgroups)
+## [...]</code></pre>
+<p>在输出中，我们看到估计的研究间异质性方差为 <span class="math inline">\(\tau^2=\)</span> 0.069，并且在两个子组中相同。我们得到了两个 <span class="math inline">\(Q\)</span> 检验：一个<strong>组间</strong>（实际的子组检验），另一个是<strong>子组内</strong>异质性。</p>
+<p>与正常的元分析一样，后者只是表明子组中存在过多的变异性（<span class="math inline">\(p=\)</span> 0.001）。子组差异检验再次表明，低偏倚风险和高偏倚风险研究之间没有显著差异（<span class="math inline">\(p=\)</span> 0.181）。</p>
+<p>我们现在假设 <span class="math inline">\(\tau^2\)</span> 的独立或共同估计来探索结果。由于我们不知道有什么好的理由假设两个子组中的异质性是相等的，并且考虑到我们在每个子组中至少有 <span class="math inline">\(k=\)</span> 7 项研究，因此可能适合使用 <span class="math inline">\(\tau^2\)</span> 的单独估计。然而，我们看到，无论如何，至少在我们的示例中，我们对结果的解释对于这两种方法都是相似的。</p>
+<div class="cell" type="boxreport">
+
+<div class="boxreport">
+<p><strong>报告子组分析的结果</strong></p>
+<p>子组分析的结果通常以表格形式报告，表格显示了每个子组中的估计效应和异质性，以及子组差异检验的 <span class="math inline">\(p\)</span> 值。</p>
+</div>
+</div>
+<div class="cell">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: 'xfun::attr()' is deprecated.
+Use 'xfun::attr2()' instead.
+See help("Deprecated")
+
+Warning: 'xfun::attr()' is deprecated.
+Use 'xfun::attr2()' instead.
+See help("Deprecated")</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<table class="table table-condensed table-sm table-striped small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th"></th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">$g$</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">95\%CI</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">$p$</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">$I^2$</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">95\%CI</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">$p$ (subgroup)</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">Risk of Bias</td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;"></td>
+<td style="text-align: left;">0.092</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">- High</td>
+<td style="text-align: left;">0.81</td>
+<td style="text-align: left;">0.28-1.34</td>
+<td style="text-align: left;">0.009</td>
+<td style="text-align: left;">0.77</td>
+<td style="text-align: left;">0.51-0.89</td>
+<td style="text-align: left;"></td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">- Low</td>
+<td style="text-align: left;">0.43</td>
+<td style="text-align: left;">0.28-0.58</td>
+<td style="text-align: left;">&lt; 0.001</td>
+<td style="text-align: left;">0.25</td>
+<td style="text-align: left;">0.00-0.63</td>
+<td style="text-align: left;"></td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+<div class="cell" type="boxempty">
+
+<div class="boxempty">
+<p>在上表中，第三列中的两个 <span class="math inline">\(p\)</span> 值显示了特定于子组的效应是否显著。我们可以看到，高偏倚风险和低偏倚风险研究都是这种情况。与此同时，<span class="math inline">\(p_{\textsf{subgroup}}\)</span> 下的值显示，高偏倚风险和低偏倚风险研究之间的效应_差异_不显著。</p>
+<p>要提取特定于子组的 <span class="math inline">\(p\)</span> 值，需要将 <code>update</code> 的结果保存到对象中，然后使用 <code>$</code> 运算符从该对象中提取 <code>pval.random.w</code> 元素。</p>
+如果进行了多个子组分析，则可以将更多行添加到表中。
+</div>
+</div>
+<p><span class="math display">\[\tag*{$\blacksquare$}\]</span> <br><br></p>
+</section>
+<section id="问题与解答" class="level2">
+<h2 class="anchored" data-anchor-id="问题与解答">问题与解答</h2>
+<div class="cell" type="boxquestion">
+<div class="boxquestion">
+<p>
+<strong>测试您的知识！</strong>
+</p>
+<ol style="list-style-type: decimal">
+<li>
+在最好的情况下，子组分析可以告诉我们什么影响和离群值分析无法告诉我们的信息？
+</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>
+为什么子组分析背后的模型被称为固定效应（复数）模型？
+</li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>
+作为您的元分析的一部分，您想检查教育培训计划的效果是否因其交付的学区而异。使用固定效应（复数）模型进行子组分析是否适合回答这个问题？
+</li>
+</ol>
+<ol start="4" style="list-style-type: decimal">
+<li>
+您的一个朋友进行了一项元分析，其中包含总共 9 项研究。其中五项研究属于一个子组，四项研究属于另一个子组。她问您进行子组分析是否有意义。您会推荐什么？
+</li>
+</ol>
+<ol start="5" style="list-style-type: decimal">
+<li>
+您找到了一项元分析，其中作者声称分析的治疗方法在女性中比男性更有效。这一发现是基于一项子组分析，其中研究根据研究人群中包含的女性<strong>比例</strong>分为几组。这一发现是否可信，为什么（不）？
+</li>
+</ol>
+<p>
+<strong>这些问题的答案列在本 <a href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda7">书</a> 末尾的 <a href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda7">附录 A</a> 中。</strong>
+</p>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="总结" class="level2">
+<h2 class="anchored" data-anchor-id="总结">总结</h2>
+<ul>
+<li><p>尽管有很多方法可以评估元分析的异质性，但这些方法并没有告诉我们<strong>为什么</strong>我们在数据中发现了过多的变异性。子组分析允许我们检验关于为什么一些研究的真实效应量高于或低于其他研究的假设。</p></li>
+<li><p>对于子组分析，我们通常假设一个<strong>固定效应（复数）模型</strong>。在大多数情况下，子组内的研究使用随机效应模型进行汇集。随后，使用基于总体子组结果的 <span class="math inline">\(Q\)</span> 检验来确定组之间是否存在显著差异。</p></li>
+<li><p>子组分析模型被称为“固定效应”模型，因为假设不同的类别本身是固定的。子组水平不被视为从可能的类别集合中随机抽取的。它们代表子组变量可以采用的唯一值。</p></li>
+<li><p>在计算子组分析时，我们必须决定是应该使用单独的还是共同的研究间异质性估计来汇集子组内的结果。</p></li>
+<li><p>子组分析并非万能药。它们通常缺乏检测子组差异所需的统计功效。因此，子组差异的非显著性检验并<strong>不</strong>自动意味着子组产生等效的结果。</p></li>
+</ul>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>在 <strong>{meta}</strong> 的旧版本（5.0-0 之前的版本）中，此参数称为 <code>byvar</code>。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

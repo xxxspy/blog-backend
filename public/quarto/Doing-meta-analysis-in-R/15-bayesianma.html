@@ -1,0 +1,1061 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Meta 分析</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R Meta 分析</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.rmd"> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./daizuo.html"> 
+<span class="menu-text">Meta 代做</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./15-bayesianma.html">贝叶斯Meta分析</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前言</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">作者</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">介绍</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-discovering_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发现R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-pooling_effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">合并效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-heterogeneity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">异质性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-forestplots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">森林图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-subgroup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">亚组分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-metareg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Meta回归</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-publication-bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发表偏倚</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-mlma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">多元Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-sem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">结构方程模型</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-netwma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">网络Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-bayesianma.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">贝叶斯Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-power-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">功效分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-risk-of-bias-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏倚风险图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-reporting-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">报告与可重复性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-effect-size-calculation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量计算</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">附录</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./98-cite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">引用</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#bayesian-ma" id="toc-bayesian-ma" class="nav-link active" data-scroll-target="#bayesian-ma">贝叶斯元分析</a>
+  <ul class="collapse">
+  <li><a href="#bayes-hierarchical-model" id="toc-bayes-hierarchical-model" class="nav-link" data-scroll-target="#bayes-hierarchical-model">贝叶斯分层模型</a></li>
+  <li><a href="#priors" id="toc-priors" class="nav-link" data-scroll-target="#priors">设置先验分布</a></li>
+  <li><a href="#bayes-ma-R" id="toc-bayes-ma-R" class="nav-link" data-scroll-target="#bayes-ma-R"><em>R</em> 中的贝叶斯元分析</a>
+  <ul class="collapse">
+  <li><a href="#拟合模型" id="toc-拟合模型" class="nav-link" data-scroll-target="#拟合模型">拟合模型</a></li>
+  <li><a href="#评估收敛性和模型有效性" id="toc-评估收敛性和模型有效性" class="nav-link" data-scroll-target="#评估收敛性和模型有效性">评估收敛性和模型有效性</a></li>
+  <li><a href="#解释结果" id="toc-解释结果" class="nav-link" data-scroll-target="#解释结果">解释结果</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="bayesian-ma" class="level1">
+<h1>贝叶斯元分析</h1>
+<hr>
+<p><img src="_figs/waves.jpg"></p>
+<p><br><br></p>
+<p><span class="firstcharacter">在</span> 前面的章节中，我们深入探讨了元分析的一些更为复杂的扩展，例如“多层”模型（第 @ref(multilevel-ma) 章），元分析结构方程建模（第 @ref(sem) 章）和网络元分析（第 @ref(netwma) 章）。现在，我们将后退一步，再次回顾“传统”元分析——但这次是从另一个角度。在本章中，我们将讨论<strong>贝叶斯元分析</strong>。</p>
+<p> </p>
+<p>在上一章关于网络元分析中，我们已经介绍了一个贝叶斯模型。在那里，我们讨论了贝叶斯统计背后的主要思想，包括贝叶斯定理和先验分布的概念（参见第 @ref(bayesian-inference) 章）。在本章中，我们将在这些知识的基础上，尝试更彻底地理解进行元分析的“贝叶斯方式”。例如，当我们建立贝叶斯网络元分析模型时，<strong>{gemtc}</strong> 程序包会自动为我们指定先验。在这里，我们将自己完成这项工作。</p>
+<p>虽然其背景稍微复杂一些，但我们将看到，贝叶斯元分析本质上旨在完成与任何“传统”元分析相同的事情：它将观察到的效应量汇集到一个总体（真实）效应中。但是，与频率学派方法相比，使用贝叶斯模型还具有一些实际优势。这使得学习如何使用 <em>R</em> 实现此类模型是有价值的。</p>
+<p><br><br></p>
+<section id="bayes-hierarchical-model" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-hierarchical-model">贝叶斯分层模型</h2>
+<hr>
+<p></p>
+<p>为了执行贝叶斯元分析，我们采用所谓的<strong>贝叶斯分层模型</strong> <span class="citation" data-cites="rover2017bayesian higgins2009re">[@rover2017bayesian; @higgins2009re]</span>。我们已经在网络元分析章节（第 @ref(bayesian-net-ma-model) 章）中简要介绍了这种类型的模型。</p>
+<p>在第 @ref(multilevel-ma) 章中，我们了解到每个元分析模型都具有固有的“多层”结构，因此也是<strong>分层</strong>结构。在第一层，我们有各个参与者。此级别的数据通常以每个研究 <span class="math inline">\(k\)</span> 的计算效应量 <span class="math inline">\(\hat\theta_k\)</span> 的形式到达我们手中。我们假设参与者嵌套在第二层的研究中，并且元分析中不同研究的真实效应量 <span class="math inline">\(\theta_k\)</span> 遵循其自身分布。这种真实效应的分布具有均值 <span class="math inline">\(\mu\)</span>（我们想要估计的汇集“真实”效应）和方差 <span class="math inline">\(\tau^2\)</span>，表示研究间的异质性。</p>
+<p>让我们尝试将此形式化。在第一层，我们假设研究 <span class="math inline">\(k\)</span> 中报告的观察效应量 <span class="math inline">\(\hat\theta_k\)</span> 是该研究中“真实”效应 <span class="math inline">\(\theta_k\)</span> 的估计值。由于抽样误差 <span class="math inline">\(\epsilon_k\)</span>，观察到的效应 <span class="math inline">\(\hat\theta_k\)</span> 偏离 <span class="math inline">\(\theta_k\)</span>。这是因为我们假设 <span class="math inline">\(\hat\theta_k\)</span> 是从 <span class="math inline">\(k\)</span> 的基础人群中抽取（采样）的。该人群可以被视为具有均值 <span class="math inline">\(\theta_k\)</span>（研究的“真实”效应）和方差 <span class="math inline">\(\sigma^2\)</span> 的分布。</p>
+<p>在第二步中，我们假设真实效应量 <span class="math inline">\(\theta_k\)</span> 本身只是真实效应量总体分布的样本。此分布的均值 <span class="math inline">\(\mu\)</span> 是我们想要估计的汇集效应量。研究特定的真实效应 <span class="math inline">\(\theta_k\)</span> 偏离 <span class="math inline">\(\mu\)</span>，因为总体分布也具有方差 <span class="math inline">\(\tau^2\)</span>，表示研究间的异质性。综上所述，这给出了以下两个方程：</p>
+<p><span class="math display">\[\begin{align}
+\hat\theta_k &amp;\sim \mathcal{N}(\theta_k,\sigma_k^2) \notag \\
+\theta_k &amp;\sim \mathcal{N}(\mu,\tau^2) (\#eq:by1)
+\end{align}\]</span></p>
+<p>这里，我们使用 <span class="math inline">\(\mathcal{N}\)</span> 来表示左侧的参数是从<strong>正态</strong>分布中采样的。有些人可能会争辩说，对于第二个方程来说，这是一个不必要的严格假设 <span class="citation" data-cites="higgins2009re">[@higgins2009re]</span>，但如此处所示的公式是使用最多的公式。如前所述，固定效应模型只是该模型的一个特例，在该模型中，我们假设 <span class="math inline">\(\tau^2 = 0\)</span>，这意味着不存在研究间的异质性，并且所有研究共享一个单一的真实效应量（即对于所有研究 <span class="math inline">\(k\)</span>：<span class="math inline">\(\theta_k = \mu\)</span>）。</p>
+<p>我们还可以使用边际形式简化此公式：</p>
+<p><span class="math display">\[\begin{equation}
+\hat\theta_k  \sim \mathcal{N}(\mu,\sigma_k^2 + \tau^2)
+(\#eq:by2)
+\end{equation}\]</span></p>
+<p>您可能已经发现这些公式看起来很像我们在讨论随机效应（第 @ref(rem) 章）和三层元分析（第 @ref(multilevel-nature) 章）模型时定义的公式。的确，这种公式化并没有什么特别的“贝叶斯”之处。但是，当我们添加以下公式时，情况会发生变化 <span class="citation" data-cites="williams2018bayesian">[@williams2018bayesian]</span>：</p>
+<p><span class="math display">\[\begin{align}
+(\mu, \tau^2) &amp;\sim p(.) \notag \\
+\tau^2 &amp;&gt; 0 (\#eq:by3)
+\end{align}\]</span></p>
+<p></p>
+<p>第一行尤为重要。它定义了参数 <span class="math inline">\(\mu\)</span> 和 <span class="math inline">\(\tau^2\)</span> 的<strong>先验分布</strong>。这使我们能够<strong>先验地</strong>指定我们认为真实汇集效应量 <span class="math inline">\(\mu\)</span> 和研究间异质性 <span class="math inline">\(\tau^2\)</span> 可能看起来如何，以及我们对此有多确定。第二个方程添加了研究间异质性方差必须大于零的约束。但是，此公式未指定用于 <span class="math inline">\(\mu\)</span> 和 <span class="math inline">\(\tau^2\)</span> 的先验分布的确切<strong>类型</strong>。它仅告诉我们假设了<strong>某些</strong>先验分布。稍后，我们将更详细地介绍贝叶斯元分析模型合理的特定先验。</p>
+<p> </p>
+<p>在关于网络元分析的章节中，我们已经介绍了贝叶斯方法估计模型参数的方法。概括地说，这涉及使用基于 <strong>马尔可夫链蒙特卡洛</strong> 的抽样程序，例如 <strong>吉布斯抽样</strong>。在我们将在本章中使用的 <strong>{brms}</strong> 程序包中，使用了所谓的 <strong>无 U 形转弯</strong> 抽样 <span class="citation" data-cites="hoffman2014no">[NUTS, @hoffman2014no]</span><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。</p>
+<p> </p>
+<p>在前面的章节中，我们主要使用了 <strong>{meta}</strong> 和 <strong>{metafor}</strong> 程序包。这些程序包允许基于非贝叶斯或 <strong>频率学派</strong> 框架进行元分析。因此，您可能想知道，鉴于我们已经可以使用“传统”方法求助于如此强大的工具，为什么还要开始使用贝叶斯方法。原因是贝叶斯元分析具有一些独特的优势 <span class="citation" data-cites="williams2018bayesian mcneish2016using chung2013nondegenerate">[@williams2018bayesian; @mcneish2016using; @chung2013nondegenerate]</span>：</p>
+<ul>
+<li><p>贝叶斯方法允许直接对我们对 <span class="math inline">\(\tau^2\)</span> 的估计中的<strong>不确定性</strong>进行建模。它们在估计汇集效应方面也可能更出色，尤其是在包含的研究数量较少时（这在实践中非常常见）。</p></li>
+<li><p>贝叶斯方法为 <span class="math inline">\(\mu\)</span> 和 <span class="math inline">\(\tau^2\)</span> 生成完整的<strong>后验分布</strong>。这允许计算 <span class="math inline">\(\mu\)</span> 或 <span class="math inline">\(\tau^2\)</span> 小于或大于某个指定值的确切<strong>概率</strong>。这与频率学派方法形成对比，在频率学派方法中，我们仅计算置信区间。但是，（95%）置信区间仅说明，如果数据抽样重复多次，人口参数（例如 <span class="math inline">\(\mu\)</span> 或 <span class="math inline">\(\tau^2\)</span>）的真实值将在 95% 的样本中落入置信区间的范围内。它们没有告诉我们真实参数位于两个指定值之间的<strong>概率</strong>。</p></li>
+<li><p>贝叶斯方法允许我们在计算元分析时整合<strong>先验知识</strong>和假设。</p></li>
+</ul>
+<p><br><br></p>
+</section>
+<section id="priors" class="level2">
+<h2 class="anchored" data-anchor-id="priors">设置先验分布</h2>
+<hr>
+<p>之前，我们形式化了可用于在贝叶斯元分析中汇集效应的分层模型。但是，要运行这样的模型，我们必须指定 <span class="math inline">\(\mu\)</span> 和 <span class="math inline">\(\tau^2\)</span> 的先验分布。尤其是在研究数量较少时，先验会对结果产生相当大的影响，因此我们应明智地选择它们。</p>
+<p> </p>
+<p>通常，一个好的方法是使用<strong>弱信息</strong>先验 <span class="citation" data-cites="williams2018bayesian">[@williams2018bayesian]</span>。弱信息先验可以与<strong>无信息</strong>先验形成对比。无信息先验是先验分布的最简单形式。它们通常基于<strong>均匀</strong>分布，并用于表示所有值都同样可信。</p>
+<p>另一方面，弱信息先验稍微复杂一些。它们依赖于表示我们<strong>微弱</strong>相信某些值比其他值更可信的分布。但是，它们仍然没有对要从我们的数据中估计的参数的值做出任何具体陈述。</p>
+<p></p>
+<p>从直觉上讲，这很有意义。例如，在许多元分析中，假设真实效应位于 SMD = -2.0 和 2.0 之间的某个位置似乎是合理的，但不太可能是 SMD = 50。基于此理由，我们的 <span class="math inline">\(\mu\)</span> 先验的一个很好的起点可能是均值为 0 且方差为 1 的正态分布。这意味着我们授予大约 95% 的先验概率，即真实汇集效应量 <span class="math inline">\(\mu\)</span> 位于 −2.0 和 2.0 之间：</p>
+<p><span class="math display">\[\begin{equation}
+\mu \sim \mathcal{N}(0,1)
+(\#eq:by4)
+\end{equation}\]</span></p>
+<p>我们必须指定的下一个先验是 <span class="math inline">\(\tau^2\)</span> 的先验。这有点困难，因为我们知道 <span class="math inline">\(\tau^2\)</span> 应始终为非负数，但可以（接近）零。在这种情况下，推荐的分布，并且通常用于方差（例如 <span class="math inline">\(\tau^2\)</span>）的分布是 <strong>半柯西</strong> 先验。半柯西分布是柯西分布的一个特例，它仅为分布的“一半”（即正侧）定义<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>。</p>
+<p>半柯西分布由两个参数控制。第一个是位置参数 <span class="math inline">\(x_0\)</span>，它指定分布的峰值。第二个是 <span class="math inline">\(s\)</span>，即比例参数。它控制分布的<strong>重尾</strong>程度（即它“扩展”到更高值的程度）。半柯西分布用 <span class="math inline">\(\mathcal{HC}(x_0,s)\)</span> 表示。</p>
+<p>下图可视化了 <span class="math inline">\(s\)</span> 的不同值的半柯西分布，其中 <span class="math inline">\(x_0\)</span> 的值固定为 0。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using `size` aesthetic for lines was deprecated in ggplot2 3.4.0.
+ℹ Please use `linewidth` instead.</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: The `size` argument of `element_rect()` is deprecated as of ggplot2 3.4.0.
+ℹ Please use the `linewidth` argument instead.</code></pre>
+</div>
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="15-bayesianma_files/figure-html/unnamed-chunk-1-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:55.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>半柯西分布通常具有相当重的尾部，这使其特别适合用作 <span class="math inline">\(\tau\)</span> 的先验分布。重尾确保我们仍然给予 <span class="math inline">\(\tau\)</span> 的非常高的值<strong>一些</strong>概率，同时假设较低的值更可能。</p>
+<p>在许多元分析中，<span class="math inline">\(\tau\)</span>（<span class="math inline">\(\tau^2\)</span> 的平方根）位于 0.3 附近，或者至少在同一范围内。要指定半柯西先验，我们可以因此使用 <span class="math inline">\(s=\)</span> 0.3。这确保小于 <span class="math inline">\(\tau=\)</span> 0.3 的值具有 50% 的概率 <span class="citation" data-cites="williams2018bayesian">[@williams2018bayesian]</span>。我们可以使用 <strong>{extraDistr}</strong> 程序包 <span class="citation" data-cites="extradistr">[@extradistr]</span> 的 <code>phcauchy</code> 函数中实现的半柯西分布函数来确认这一点。</p>
+<p></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(extraDistr)</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a><span class="fu">phcauchy</span>(<span class="fl">0.3</span>, <span class="at">sigma =</span> <span class="fl">0.3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 0.5</code></pre>
+</div>
+</div>
+<p>但是，这已经是关于 <span class="math inline">\(\tau\)</span> 的真实值的一个非常具体的假设。一种更保守的方法（我们将在我们的实践示例中遵循）是将 <span class="math inline">\(s\)</span> 设置为 0.5；这使分布更平坦。通常，建议始终使用不同的先验规范进行敏感性分析，以检查它们是否会显着影响结果。使用 <span class="math inline">\(s=\)</span> 0.5 作为半柯西分布的参数，我们可以像这样写下我们的 <span class="math inline">\(\tau\)</span> 先验：</p>
+<p><span class="math display">\[\begin{equation}
+\tau \sim \mathcal{HC}(0,0.5)
+(\#eq:by5)
+\end{equation}\]</span></p>
+<p>我们现在可以将分层模型的公式和我们的先验规范放在一起。这导致了我们可以用于贝叶斯元分析的完整模型：</p>
+<p><span class="math display">\[\begin{align}
+\hat\theta_k &amp;\sim \mathcal{N}(\theta_k,\sigma_k^2) \notag \\
+\theta_k &amp;\sim \mathcal{N}(\mu,\tau^2) \notag \\
+\mu &amp;\sim \mathcal{N}(0,1) \notag \\
+\tau &amp;\sim \mathcal{HC}(0,0.5) (\#eq:by5)
+\end{align}\]</span></p>
+<p><br><br></p>
+</section>
+<section id="bayes-ma-R" class="level2">
+<h2 class="anchored" data-anchor-id="bayes-ma-R"><em>R</em> 中的贝叶斯元分析</h2>
+<hr>
+<p> </p>
+<p>现在我们已经定义了元分析的贝叶斯模型，现在是在 <em>R</em> 中实现它的时间了。在这里，我们使用 <strong>{brms}</strong> 程序包 <span class="citation" data-cites="burknerJSS burkner2017advanced">[@burknerJSS; @burkner2017advanced]</span> 来拟合我们的模型。<strong>{brms}</strong> 程序包是一个非常通用且强大的工具，用于拟合贝叶斯回归模型。它可以用于广泛的应用，包括多层（混合效应）模型、广义线性模型、多元模型和广义可加模型，仅举几例。这些模型中的大多数都需要个人级别的数据，但 <strong>{brms}</strong> 也可以用于元分析，在元分析中，我们处理（加权）研究级别的数据<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a>。</p>
+<p>在我们开始拟合模型之前，我们首先必须安装并加载 <strong>{brms}</strong> 程序包。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(brms)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br><br></p>
+<section id="拟合模型" class="level3">
+<h3 class="anchored" data-anchor-id="拟合模型">拟合模型</h3>
+<hr>
+<p>在我们的实践示例中，我们再次使用 <code>ThirdWave</code> 数据集，该数据集包含来自一项元分析的信息，该元分析调查了大学生中“第三波”心理疗法的效果（第 @ref(pre-calculated-es) 章）。在我们拟合模型之前，让我们首先指定总体效应量 <span class="math inline">\(\mu\)</span> 和研究间异质性 <span class="math inline">\(\tau\)</span> 的先验分布。之前，我们定义了 <span class="math inline">\(\mu \sim \mathcal{N}(0,1)\)</span> 和 <span class="math inline">\(\tau \sim \mathcal{HC}(0,0.5)\)</span>。</p>
+<p>我们可以使用 <code>prior</code> 函数来指定分布。该函数接受两个参数。在第一个参数中，我们指定要为先验假设的分布，包括分布参数。在第二个参数中，我们必须定义先验的 <code>class</code>。对于 <span class="math inline">\(\mu\)</span>，合适的类是 <code>Intercept</code>，因为它是一个固定的总体级别效应。对于 <span class="math inline">\(\tau\)</span>，类是 <code>sd</code>，因为它是一个方差（或者，更准确地说，是一个<strong>标准差</strong>）。我们可以使用 <code>prior</code> 函数定义这两个先验，然后将它们连接起来，并将结果对象另存为 <code>priors</code>。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>priors <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">prior</span>(<span class="fu">normal</span>(<span class="dv">0</span>,<span class="dv">1</span>), <span class="at">class =</span> Intercept),</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>            <span class="fu">prior</span>(<span class="fu">cauchy</span>(<span class="dv">0</span>,<span class="fl">0.5</span>), <span class="at">class =</span> sd))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>现在，我们可以继续并拟合模型。为此，我们使用 <strong>{brms}</strong> 中的 <code>brm</code> 函数。该函数有很多参数，但只有少数与我们相关。</p>
+<p>在 <strong><code>formula</code></strong> 参数中，指定了模型的公式。<strong>{brms}</strong> 程序包使用回归公式表示法，其中一个结果（在我们的例子中，是观察到的效应量）<code>y</code> 由一个或多个预测变量 <code>x</code> 预测。波浪号 (<code>~</code>) 用于指定存在预测关系：<code>y ~ x</code>。</p>
+<p>元分析有点特殊，因为我们没有预测效应量的变量（除非我们执行元回归）。这意味着 <code>x</code> 必须替换为 <code>1</code>，表示<strong>仅截距</strong>模型。此外，我们不能简单地按<strong>原样</strong>使用 <code>y</code> 中每个研究的效应量。我们还必须给具有更高精度（即样本量）的研究更大的权重。这可以通过使用 <code>y|se(se_y)</code> 而不是仅使用 <code>y</code> 来完成，其中 <code>se(se_y)</code> 部分代表我们数据集中每个效应量 <code>y</code> 的标准误差。</p>
+<p>如果我们想使用随机效应模型，最后一步是将随机效应项 <code>(1|study)</code> 添加到公式的右侧。这指定了 <code>y</code> 中的效应量被假定为嵌套在研究中，这些研究的真实效应本身是从真实效应的总体分布中随机抽取的。如果我们想使用固定效应模型，我们可以简单地省略此项。因此，随机效应模型的通用完整公式如下所示：<code>y|se(se_y) ~ 1 + (1|random)</code>。要了解有关 <code>brm</code> 模型中公式设置的更多信息，可以在控制台中键入 <code>?brmsformula</code> 以打开文档。</p>
+<p>其他参数相当简单。在 <code>prior</code> 中，我们指定要为模型定义的先验。在我们的示例中，我们可以简单地插入我们之前创建的 <code>priors</code> 对象。<code>iter</code> 参数指定 MCMC 算法的迭代次数。您的模型越复杂，此数字就应该越高。但是，更多的迭代也意味着该函数将花费更长的时间才能完成。最后，我们还必须指定 <code>data</code>，我们在其中简单地提供数据集的名称。</p>
+<p>我们将拟合的贝叶斯元分析模型以名称 <code>m.brm</code> 保存。代码如下所示：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>m.brm <span class="ot">&lt;-</span> <span class="fu">brm</span>(TE<span class="sc">|</span><span class="fu">se</span>(seTE) <span class="sc">~</span> <span class="dv">1</span> <span class="sc">+</span> (<span class="dv">1</span><span class="sc">|</span>Author),</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> ThirdWave,</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">prior =</span> priors,</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">iter =</span> <span class="dv">4000</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>请注意，与我们之前介绍的标准元分析技术相比，贝叶斯方法的计算成本要高得多。因此，采样可能需要几分钟才能完成。</p>
+<p><br><br></p>
+</section>
+<section id="评估收敛性和模型有效性" class="level3">
+<h3 class="anchored" data-anchor-id="评估收敛性和模型有效性">评估收敛性和模型有效性</h3>
+<hr>
+<p></p>
+<p>在我们开始分析结果之前，我们必须确保模型已<strong>收敛</strong>（即 MCMC 算法找到了最佳解决方案）。如果不是这种情况，则参数不可信，不应解释。非收敛在贝叶斯模型中经常发生，通常可以通过使用更多迭代次数 (<code>iter</code>) 重新运行模型来解决。为了评估我们模型的收敛性和整体有效性，我们应该始终做两件事。首先，检查参数估计的 <span class="math inline">\(\hat{R}\)</span> 值，其次，进行<strong>后验预测检查</strong>。</p>
+<p><span class="math inline">\(\hat{R}\)</span> 值表示我们在讨论贝叶斯网络元分析时已经介绍过的<strong>潜在尺度缩减因子</strong> (PSRF)（第 @ref(bayesian-model-convergence) 章）。我们估计的 <span class="math inline">\(\hat{R}\)</span> 值应小于 1.01。要检查这一点，我们可以生成 <code>m.brm</code> 对象的 <code>summary</code>。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m.brm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>## Family: gaussian 
+##   Links: mu = identity; sigma = identity 
+## Formula: TE | se(seTE) ~ 1 + (1 | Author) 
+##    Data: ThirdWave (Number of observations: 18) 
+## Samples: 4 chains, each with iter = 4000; warmup = 2000; thin = 1;
+##          total post-warmup samples = 8000
+## 
+## Group-Level Effects: 
+## ~Author (Number of levels: 18) 
+##               Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS 
+## sd(Intercept)     0.29      0.10     0.11     0.51 1.00     2086   
+## 
+## Population-Level Effects: 
+##           Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS 
+## Intercept     0.57      0.09     0.39     0.76 1.00     3660    
+## 
+##
+## [...]
+## 
+## Samples were drawn using sampling(NUTS). For each parameter, 
+## Bulk_ESS and Tail_ESS are effective sample size measures, 
+## and Rhat is the potential scale reduction factor on split 
+## chains (at convergence, Rhat = 1).</code></pre>
+<p>正如我们所看到的，两个参数的 <code>Rhat</code> 值均为 1，表示收敛。这意味着可以解释结果。</p>
+<p>另一方面，在后验预测检查中，通过从后验预测分布中随机抽取来模拟数据，然后将其与观察到的数据进行比较。如果模型已收敛并且可以很好地捕获数据，我们可以预期复制的密度与观察到的数据的密度大致相似。可以使用 <code>pp_check</code> 函数的输出来轻松检查这一点。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pp_check</span>(m.brm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ppcheck_sep.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p>
+<p><br><br></p>
+</section>
+<section id="解释结果" class="level3">
+<h3 class="anchored" data-anchor-id="解释结果">解释结果</h3>
+<hr>
+<p>我们可以首先查看摘要输出中的 <code>Group-Level Effects</code> 来开始解释结果。本节保留给我们在公式中定义的随机效应。由于我们拟合了一个随机效应元分析模型，因此变量 <code>~Author</code>（表示各个研究）已使用随机截距进行建模。正如我们之前描述的，这代表了我们对级别 2 的假设，即每个研究都有其自己的“真实”效应量，这些效应量是从真实效应的总体分布中抽取的。我们还看到我们的组级别效应有 18 个级别，与我们数据中的 <span class="math inline">\(K=\)</span> 18 个研究相对应。</p>
+<p>研究间异质性的估计值 <code>sd(Intercept)</code> 为 <span class="math inline">\(\tau=\)</span> 0.29，因此与我们在设置先验时最初的“最佳猜测”非常相似。使用 <code>ranef</code> 函数，我们还可以提取每个研究的“真实”效应量与汇集效应的估计偏差：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ranef</span>(m.brm)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>## $Author
+## , , Intercept
+##                           Estimate Est.Error         Q2.5       Q97.5
+## Call et al.             0.06836636 0.1991649 -0.327463365  0.47663987
+## Cavanagh et al.        -0.14151644 0.1767123 -0.510165576  0.18799272
+## DanitzOrsillo           0.48091338 0.2829719 -0.003425284  1.08636421
+## de Vibe et al.         -0.31923470 0.1454819 -0.612269461 -0.03795683
+## Frazier et al.         -0.11388029 0.1497128 -0.417029387  0.17085917
+## [...]</code></pre>
+<p>我们可以解释的输出的下一部分是 <code>Population-Level Effects</code>。本节代表了我们建模的“固定”人口参数。在我们的例子中，这是 <span class="math inline">\(\mu\)</span>，即我们元分析的总体效应量。</p>
+<p></p>
+<p>在输出中，我们看到估计值为 0.57 的（偏差校正的）SMD，其中 95% 的可信区间范围为 95%CrI：0.39−0.76。这表明在此元分析中研究的干预措施具有中等大小的总体效果。</p>
+<p>因为这是一个贝叶斯模型，所以我们在这里没有找到任何 <span class="math inline">\(p\)</span> 值。但我们的示例应该强调，即使不必诉诸经典显着性检验，我们也可以做出合理的推断。在贝叶斯中，但在频率学派元分析中，我们可以做的一件很棒的事情是<strong>概率性地</strong>对我们要估计的参数进行建模。贝叶斯模型不仅估计感兴趣的参数，还估计 <span class="math inline">\(\tau^2\)</span> 和 <span class="math inline">\(\mu\)</span> 的整个后验分布，我们可以很容易地访问它们。我们只需要使用 <code>posterior_samples</code> 函数。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>post.samples <span class="ot">&lt;-</span> <span class="fu">posterior_samples</span>(m.brm, <span class="fu">c</span>(<span class="st">"^b"</span>, <span class="st">"^sd"</span>))</span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(post.samples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>## [1] "b_Intercept"          "sd_Author__Intercept"</code></pre>
+<p>结果数据框包含两列：<code>b_Intercept</code>，汇集效应量的后验样本数据，以及 <code>sd_Author_Intercept</code>，研究间异质性 <span class="math inline">\(\tau\)</span> 的数据。我们将列重命名为 <code>smd</code> 和 <code>tau</code>，以使名称更具信息性。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(post.samples) <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"smd"</span>, <span class="st">"tau"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p></p>
+<p>使用 <code>post.samples</code> 中的数据，我们现在可以生成后验分布的<strong>密度图</strong>。我们使用 <strong>{ggplot2}</strong> 程序包进行绘图。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> smd), <span class="at">data =</span> post.samples) <span class="sc">+</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"lightblue"</span>,                <span class="co"># set the color</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"lightblue"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span>  </span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">y =</span> <span class="dv">0</span>,                               <span class="co"># add point at mean</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> <span class="fu">mean</span>(post.samples<span class="sc">$</span>smd)) <span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(<span class="fu">italic</span>(SMD)),</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x =</span> tau), <span class="at">data =</span> post.samples) <span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">fill =</span> <span class="st">"lightgreen"</span>,               <span class="co"># set the color</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>               <span class="at">color =</span> <span class="st">"lightgreen"</span>, <span class="at">alpha =</span> <span class="fl">0.7</span>) <span class="sc">+</span>  </span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">y =</span> <span class="dv">0</span>, </span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a>             <span class="at">x =</span> <span class="fu">mean</span>(post.samples<span class="sc">$</span>tau)) <span class="sc">+</span>        <span class="co"># add point at mean</span></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">labs</span>(<span class="at">x =</span> <span class="fu">expression</span>(tau),</span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>       <span class="at">y =</span> <span class="fu">element_blank</span>()) <span class="sc">+</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/posterior1_sep.png" class="img-fluid figure-img" style="width:49.0%"></p>
+</figure>
+</div>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="images/posterior2_sep.png" class="img-fluid figure-img" style="width:49.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>我们看到后验分布遵循单峰且大致正态分布，在 <span class="math inline">\(\mu\)</span> 和 <span class="math inline">\(\tau\)</span> 的估计值附近达到峰值。</p>
+<p>贝叶斯方法为我们感兴趣的参数创建实际抽样分布这一事实意味着我们可以计算 <span class="math inline">\(\mu\)</span> 或 <span class="math inline">\(\tau\)</span> 大于或小于某个特定值的<strong>确切概率</strong>。假设我们在以前的文献中发现，如果干预措施的效果低于 SMD = 0.30，它们就不再有意义。因此，我们可以根据我们的模型计算出我们元分析中真实总体效应小于 SMD = 0.30 的概率。</p>
+<p></p>
+<p>这可以通过查看<strong>经验累积分布函数</strong> (ECDF) 来完成。ECDF 允许我们选择一个特定值 <span class="math inline">\(X\)</span>，并根据提供的数据返回某个值 <span class="math inline">\(x\)</span> 小于 <span class="math inline">\(X\)</span> 的概率。在我们的示例中，可以在下面看到 <span class="math inline">\(\mu\)</span> 的后验分布的 ECDF。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/ecdf_sep.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:50.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>我们可以使用 <code>ecdf</code> 函数在 _</p>
+
+
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>NUTS 是所谓的 <strong>哈密顿蒙特卡洛</strong> (HMC) 的扩展，后者是另一种类型的马尔可夫链蒙特卡洛方法。与其他方法（例如吉布斯抽样）相比，HMC 可以提供更有效的解决方案来估计分层模型 <span class="citation" data-cites="betancourt2015hamiltonian">[例如用于元分析的模型，@betancourt2015hamiltonian]</span>。HMC 和 NUTS 的简要描述可以在 <strong>Stan</strong> <a href="https://mc-stan.org/docs/2_26/reference-manual/hamiltonian-monte-carlo.html" target="_blank">参考手册</a> 中找到（Stan 是 <strong>{brms}</strong> 基于的低级编程语言，请参见第 @ref(bayes-ma-R) 章）。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>标准柯西分布本身是自由度 <span class="math inline">\(\text{d.f.}=1\)</span> 的 <span class="math inline">\(t\)</span> 分布的一个特例。<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p><strong>{brms}</strong> 程序包基于 <strong>Stan</strong>，这是一种用于贝叶斯建模的低级编程语言。Stan 项目有自己的、积极维护的在线论坛 (https://discourse.mc-stan.org/)，也可以在那里讨论与 <strong>{brms}</strong> 相关的问题。该论坛还有一个“元分析”标签，可用于过滤掉可能相关的线程。<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

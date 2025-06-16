@@ -1,0 +1,1182 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Meta 分析</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+<script src="site_libs/kePrint-0.0.1/kePrint.js"></script>
+
+<link href="site_libs/lightable-0.0.1/lightable.css" rel="stylesheet">
+
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R Meta 分析</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.rmd"> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./daizuo.html"> 
+<span class="menu-text">Meta 代做</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./13-sem.html">结构方程模型</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前言</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">作者</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">介绍</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-discovering_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发现R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-pooling_effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">合并效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-heterogeneity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">异质性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-forestplots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">森林图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-subgroup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">亚组分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-metareg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Meta回归</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-publication-bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发表偏倚</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-mlma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">多元Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-sem.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">结构方程模型</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-netwma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">网络Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-bayesianma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">贝叶斯Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-power-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">功效分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-risk-of-bias-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏倚风险图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-reporting-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">报告与可重复性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-effect-size-calculation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量计算</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">附录</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./98-cite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">引用</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#sem" id="toc-sem" class="nav-link active" data-scroll-target="#sem">结构方程模型元分析</a>
+  <ul class="collapse">
+  <li><a href="#what-is-meta-sem" id="toc-what-is-meta-sem" class="nav-link" data-scroll-target="#what-is-meta-sem">什么是元分析结构方程模型？</a>
+  <ul class="collapse">
+  <li><a href="#模型规范" id="toc-模型规范" class="nav-link" data-scroll-target="#模型规范">模型规范</a></li>
+  <li><a href="#从-sem-角度看元分析" id="toc-从-sem-角度看元分析" class="nav-link" data-scroll-target="#从-sem-角度看元分析">从 SEM 角度看元分析</a></li>
+  <li><a href="#两阶段元分析-sem-方法" id="toc-两阶段元分析-sem-方法" class="nav-link" data-scroll-target="#两阶段元分析-sem-方法">两阶段元分析 SEM 方法</a></li>
+  </ul></li>
+  <li><a href="#multivariate-ma" id="toc-multivariate-ma" class="nav-link" data-scroll-target="#multivariate-ma">多元元分析</a>
+  <ul class="collapse">
+  <li><a href="#指定模型" id="toc-指定模型" class="nav-link" data-scroll-target="#指定模型">指定模型</a></li>
+  <li><a href="#评估结果" id="toc-评估结果" class="nav-link" data-scroll-target="#评估结果">评估结果</a></li>
+  <li><a href="#可视化结果" id="toc-可视化结果" class="nav-link" data-scroll-target="#可视化结果">可视化结果</a></li>
+  </ul></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="sem" class="level1">
+<h1>结构方程模型元分析</h1>
+<hr>
+<p><img src="_figs/semtitle_leaf.jpg"></p>
+<p><br><br></p>
+<p><span class="firstcharacter">I</span> n 在上一章中，我们展示了元分析模型具有固有的多层结构。例如，这种特性可以用于将传统元分析扩展到三层模型。</p>
+<p> </p>
+<p>统计方法的一个特殊之处在于，它们通常被放入单独的“盒子”中。在研究和实践中，它们被视为不相关的，但事实并非如此。例如，对于许多社会科学专业的学生来说，听到<strong>方差分析</strong>（ANOVA）和带有分类预测变量的线性回归本质上做的是同一件事，通常会感到惊讶<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。这种情况经常发生，因为这两种方法传统上用于不同的背景，并作为独立的实体进行教授。</p>
+<p></p>
+<p>类似地，直到最近，研究人员才开始将多层模型视为<strong>结构方程模型</strong>的一种特殊形式，或 SEM <span class="citation" data-cites="mehta2005people bauer2003estimating">[@mehta2005people; @bauer2003estimating]</span>。正如我们所了解的，每个元分析都基于一个多层模型。因此，我们也可以将元分析视为结构方程模型，其中合并效应量被视为潜在（或未观察到的）变量 <span class="citation" data-cites="cheung2015meta">[@cheung2015meta, chapter 4.6]</span>。简而言之：元分析是多层模型；因此，它们也可以表示为结构方程模型。</p>
+<p> </p>
+<p>这不仅意味着我们可以从结构方程建模的角度来概念化之前涵盖的元分析类型。它还允许我们使用 SEM 来构建更复杂的元分析模型。使用<strong>元分析</strong> SEM，我们可以测试<strong>因子分析</strong>模型，或者执行包含多个感兴趣结果的<strong>多元元分析</strong>（仅举几个应用）。</p>
+<p>当我们想要评估文献中的某些模型在考虑所有可用证据后是否仍然成立时，元分析 SEM 会有所帮助。相反，它也可以用于检查某个理论是否没有证据支持；或者，更有趣的是，它是否只适用于某个特定个体或实体的亚组。</p>
+<p>当然，应用元分析 SEM 技术的前提是对结构方程建模有基本的了解。因此，在下一节中，我们将简要讨论结构方程建模背后的总体思路，以及它的元分析扩展。</p>
+<p><br><br></p>
+<section id="what-is-meta-sem" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-meta-sem">什么是元分析结构方程模型？</h2>
+<hr>
+<p>结构方程模型是一种用于检验关于<strong>显性</strong>（观察到的）和<strong>潜在</strong>变量之间关系的假设的统计技术 <span class="citation" data-cites="kline2015principles">[@kline2015principles, chapter 1]</span>。潜在变量要么未被观察到，要么<strong>无法观察到</strong>。例如，人格是一种只能间接测量的结构，例如通过问卷中的不同项目。在 SEM 中，使用显性、测量变量对显性和潜在变量之间假设的关系（“结构”）进行建模，同时考虑到它们的测量误差。</p>
+<p>SEM 分析与“传统”统计假设检验（例如 <span class="math inline">\(t\)</span> 检验）有些不同。通常，统计检验涉及针对<strong>零假设</strong>进行检验，例如 <span class="math inline">\(H_0: \mu_1 = \mu_2\)</span>（其中 <span class="math inline">\(\mu_1\)</span> 和 <span class="math inline">\(\mu_2\)</span> 是两组的均值）。在这样的检验中，研究人员“旨在”<strong>拒绝</strong>零假设，因为这允许得出两组不同的结论。然而，在 SEM 中，事先提出了一个特定的结构模型，如果拟合优度足够，研究人员反而“旨在”<strong>接受</strong>这个模型 <span class="citation" data-cites="cheung2015meta">[@cheung2015meta, chapter 2.4.6]</span>。</p>
+<p><br><br></p>
+<section id="模型规范" class="level3">
+<h3 class="anchored" data-anchor-id="模型规范">模型规范</h3>
+<hr>
+<p>通常，SEM 通过一系列<strong>矩阵</strong>进行数学上的指定和表示。您可以将矩阵想象成一个简单的表格，包含行和列，很像 <em>R</em> 中的 <code>data.frame</code> 对象（事实上，大多数数据框可以使用 <code>as.matrix</code> 函数轻松转换为矩阵）。在视觉上，SEM 可以表示为<strong>路径图</strong>。这样的路径图通常非常直观，并且在解释上很简单。因此，我们将首先<strong>以可视化方式</strong>指定 SEM，然后转到矩阵表示法。</p>
+<p><br><br></p>
+<section id="路径图" class="level4">
+<h4 class="anchored" data-anchor-id="路径图">路径图</h4>
+<hr>
+<p></p>
+<p>路径图以图形方式表示我们的 SEM。关于如何绘制路径图没有完全一致的意见，但有一些约定俗成。以下是路径图的主要组成部分，以及它们所代表的含义。</p>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<table class="table table-condensed table-striped table-sm small" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th style="text-align: left;" data-quarto-table-cell-role="th">Symbol</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Name</th>
+<th style="text-align: left;" data-quarto-table-cell-role="th">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: left;">$\square$</td>
+<td style="text-align: left;">矩形</td>
+<td style="text-align: left; width: 13cm;">显性/观察到的变量。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">$\circ$</td>
+<td style="text-align: left;">圆形</td>
+<td style="text-align: left; width: 13cm;">潜在/未观察到的变量。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">$\triangle$</td>
+<td style="text-align: left;">三角形</td>
+<td style="text-align: left; width: 13cm;">截距（固定的 1 的向量）。</td>
+</tr>
+<tr class="even">
+<td style="text-align: left;">$\rightarrow$</td>
+<td style="text-align: left;">箭头</td>
+<td style="text-align: left; width: 13cm;">预测。箭头开始处的变量预测箭头结束处的变量：预测变量 $\rightarrow$ 目标变量。</td>
+</tr>
+<tr class="odd">
+<td style="text-align: left;">$\leftrightarrow$</td>
+<td style="text-align: left;">双向箭头</td>
+<td style="text-align: left; width: 13cm;">（共）方差。如果双向箭头连接两个变量（矩形/圆形），则表示两个变量之间的协方差/相关性。如果双向箭头在一个变量的顶部形成一个循环，则表示该变量的方差。</td>
+</tr>
+</tbody>
+</table>
+
+
+</div>
+</div>
+</div>
+<p>作为说明，让我们为一个简单的线性（“非元分析”）回归模型创建一个路径图，其中我们想要用 <span class="math inline">\(x\)</span> 预测 <span class="math inline">\(y\)</span>。模型公式如下所示：</p>
+<p><span class="math display">\[\begin{equation}
+y_i = \beta_0 + \beta_1x_i + e_i
+(\#eq:sem1)
+\end{equation}\]</span></p>
+<p>现在，让我们“解构”这个公式。在该模型中，<span class="math inline">\(x_i\)</span> 和 <span class="math inline">\(y_i\)</span> 是观察到的变量。没有未观察到的（潜在的）变量。<span class="math inline">\(y\)</span> 的真实总体均值是回归截距 <span class="math inline">\(\beta_0\)</span>，而 <span class="math inline">\(\mu_x\)</span> 表示 <span class="math inline">\(x\)</span> 的总体均值。我们观察到的预测变量 <span class="math inline">\(x\)</span> 的方差用 <span class="math inline">\(\sigma^2_x\)</span> 表示。假设 <span class="math inline">\(x\)</span> 不是 <span class="math inline">\(y\)</span> 的完美预测变量，那么与 <span class="math inline">\(y\)</span> 相关联的将存在一些残差误差方差 <span class="math inline">\(\sigma^2_{e_y}\)</span>。有两个回归系数：<span class="math inline">\(\beta_0\)</span>，截距，以及 <span class="math inline">\(\beta_1\)</span>，<span class="math inline">\(x\)</span> 的斜率系数。</p>
+<p>使用这些组成部分，我们可以为我们的线性回归模型构建一个路径图，如下所示。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/regression_path_sep.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:43.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>我们也可以使用这个图形模型作为起点来重新组装回归模型方程。从该模型中，我们可以推断出 <span class="math inline">\(y\)</span> 受两个组成部分的影响：<span class="math inline">\(x \times \beta_1\)</span> 和 <span class="math inline">\(1 \times \beta_0\)</span>。如果我们把这两个部分加在一起，我们再次得到之前 <span class="math inline">\(y\)</span> 的公式。</p>
+<p><br><br></p>
+</section>
+<section id="矩阵表示" class="level4">
+<h4 class="anchored" data-anchor-id="矩阵表示">矩阵表示</h4>
+<hr>
+<p>有几种方法可以通过矩阵来表示 SEM <span class="citation" data-cites="joreskog2006lisrel muthen2012mplus mcardle1984some">[@joreskog2006lisrel; @muthen2012mplus; @mcardle1984some]</span>。在这里，我们将重点关注<strong>网状作用模型</strong>公式，或 RAM <span class="citation" data-cites="mcardle1984some">[@mcardle1984some]</span>。我们这样做是因为这个公式被我们稍后将要介绍的 <strong>{metaSEM}</strong> 包使用。RAM 使用四个矩阵：<span class="math inline">\(\boldsymbol{F}\)</span>、<span class="math inline">\(\boldsymbol{A}\)</span>、<span class="math inline">\(\boldsymbol{S}\)</span> 和 <span class="math inline">\(\boldsymbol{M}\)</span>。因为 <span class="math inline">\(\boldsymbol{M}\)</span> 矩阵对于拟合我们涵盖的元分析 SEM 不是必需的，所以我们在这里省略它 <span class="citation" data-cites="cheung2015meta">[有关更广泛的介绍，请参见 @cheung2015meta]</span>。</p>
+<p>我们现在将为之前的线性回归模型指定剩余的 <span class="math inline">\(\boldsymbol{A}\)</span>、<span class="math inline">\(\boldsymbol{F}\)</span> 和 <span class="math inline">\(\boldsymbol{S}\)</span> 矩阵。这三个矩阵都具有相同数量的行和列，与我们在模型中拥有的变量相对应：<span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span>。因此，我们的回归模型的通用矩阵结构始终如下所示：</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/M1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:18.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+<p><strong><span class="math inline">\(\boldsymbol{A}\)</span> 矩阵：单箭头</strong></p>
+<p><span class="math inline">\(\boldsymbol{A}\)</span> 矩阵表示我们路径模型中的非对称（单）箭头。我们可以通过搜索箭头开始的变量的<strong>列</strong>条目 (<span class="math inline">\(x\)</span>)，然后搜索箭头结束的变量的矩阵<strong>行</strong>条目 (<span class="math inline">\(y\)</span>) 来填充这个矩阵。我们的箭头的值，<span class="math inline">\(\beta_1\)</span>，放在所选列和行在矩阵 (<span class="math inline">\(i_{y,x}\)</span>) 中相交的位置。鉴于我们的模型中变量之间没有其他路径，我们用 0 填充剩余字段。因此，我们的示例的 <span class="math inline">\(\boldsymbol{A}\)</span> 矩阵如下所示：</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/M2.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+<p><strong><span class="math inline">\(\boldsymbol{S}\)</span> 矩阵：单箭头</strong></p>
+<p><span class="math inline">\(\boldsymbol{S}\)</span> 矩阵表示我们想要为包含的变量估计的（共）方差。对于我们的预测变量 <span class="math inline">\(x\)</span>，我们需要估计方差 <span class="math inline">\(\sigma^2_x\)</span>。对于我们预测的变量 <span class="math inline">\(y\)</span>，我们想知道预测误差方差 <span class="math inline">\(\sigma^2_{e_y}\)</span>。因此，我们像这样指定 <span class="math inline">\(\boldsymbol{S}\)</span>：</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/M4.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+<p><strong><span class="math inline">\(\boldsymbol{F}\)</span> 矩阵：单箭头</strong></p>
+<p><span class="math inline">\(\boldsymbol{F}\)</span> 矩阵允许我们指定模型中的<strong>观察到的</strong>变量。为了指定一个变量已被观察到，我们只需在矩阵的相应对角线字段中插入 1。鉴于 <span class="math inline">\(x\)</span> 和 <span class="math inline">\(y\)</span> 都在我们的模型中被观察到，我们将 1 插入到两个对角线字段中：</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/M3.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:20.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p>
+<p>一旦设置了这些矩阵，就可以估计我们 SEM 中的参数，并评估指定的模型与数据的拟合程度。这涉及一些矩阵代数和通过最大似然估计进行参数估计，我们在此省略其数学细节。如果您有兴趣了解此步骤背后的细节，您可以查看 <span class="citation" data-cites="cheung2015meta">@cheung2015meta</span>, chapter 4.3。</p>
+<p><br><br></p>
+</section>
+</section>
+<section id="从-sem-角度看元分析" class="level3">
+<h3 class="anchored" data-anchor-id="从-sem-角度看元分析">从 SEM 角度看元分析</h3>
+<hr>
+<p>我们现在将结合我们关于元分析模型和 SEM 的知识，将元分析公式化为结构方程模型 <span class="citation" data-cites="cheung2008model">[@cheung2008model]</span>。</p>
+<p>首先，让我们回到随机效应模型的公式。之前，我们已经描述了元分析模型遵循一个多层结构（参见第 @ref(multilevel-nature) 章），如下所示：</p>
+<p><strong>第 1 层</strong></p>
+<p><span class="math display">\[\begin{equation}
+\hat\theta_k = \theta_k + \epsilon_k
+(\#eq:sem2)
+\end{equation}\]</span></p>
+<p><strong>第 2 层</strong></p>
+<p><span class="math display">\[\begin{equation}
+\theta_k = \mu + \zeta_k
+(\#eq:sem3)
+\end{equation}\]</span></p>
+<p>在第一层，我们假设研究 <span class="math inline">\(k\)</span> 中报告的效应量 <span class="math inline">\(\hat\theta_k\)</span> 是真实效应量 <span class="math inline">\(\theta_k\)</span> 的估计量。观察到的效应量由于抽样误差 <span class="math inline">\(\epsilon_k\)</span> 而偏离真实效应量，抽样误差由方差 <span class="math inline">\(\widehat{\text{Var}}(\hat\theta_k)=v_k\)</span> 表示。</p>
+<p> </p>
+<p>在随机效应模型中，我们假设即使每个研究的真实效应量也仅从第 2 层的真实效应量总体中抽取。这个真实效应量总体均值，<span class="math inline">\(\mu\)</span>，是我们想要估计的，因为它代表了合并效应量。为此，我们还需要估计真实效应量的方差 <span class="math inline">\(\widehat{\text{Var}}(\theta)=\tau^2\)</span>（即研究间的异质性）。固定效应模型是随机效应模型的一个特例，其中 <span class="math inline">\(\tau^2\)</span> 被假定为零。</p>
+<p>将此模型表示为 SEM 图非常简单。我们使用第 1 层的参数作为潜在变量来“解释”我们观察到的效应量是如何产生的 <span class="citation" data-cites="cheung2015meta">[@cheung2015meta, chapter 4.6.2]</span>：</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/REM_SEM_sep.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:45.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>在图形模型中，我们看到一些研究 <span class="math inline">\(k\)</span> 的观察到的效应量 <span class="math inline">\(\hat\theta_k\)</span> 受两个分支的“影响”：方差为 <span class="math inline">\(v_k\)</span> 的抽样误差 <span class="math inline">\(\epsilon_k\)</span> 和方差为 <span class="math inline">\(\tau^2\)</span> 的真实效应量 <span class="math inline">\(\theta_k\)</span>。</p>
+<p><br><br></p>
+</section>
+<section id="两阶段元分析-sem-方法" class="level3">
+<h3 class="anchored" data-anchor-id="两阶段元分析-sem-方法">两阶段元分析 SEM 方法</h3>
+<hr>
+<p>上面，我们从 SEM 的角度定义了（随机效应）元分析模型。虽然这从理论角度来看很有趣，但上面的模型并不比我们之前介绍的元分析技术更强大：它描述了假设随机效应模型来合并效应量。</p>
+<p>为了真正利用元分析 SEM 的多功能性，需要一个两步法 <span class="citation" data-cites="tang2016testing cheung2015meta">[@tang2016testing; @cheung2015meta, chapter 7]</span>。在<strong>两阶段结构方程模型</strong>（TSSEM）中，我们首先合并每个研究的效应量。通常，这些效应量是几个变量之间的相关性，我们想要使用这些变量进行建模。对于每个研究 <span class="math inline">\(k\)</span>，我们有一组相关性，用向量 <span class="math inline">\(\boldsymbol{r_k} = (r_1, r_2, \dots, r_p)\)</span> 表示，其中 <span class="math inline">\(p\)</span> 是（唯一）相关性的总数。与正常的随机效应模型一样，我们假设研究 <span class="math inline">\(k\)</span> 中观察到的每个相关性由于抽样误差 <span class="math inline">\(\epsilon_k\)</span> 和研究间异质性 <span class="math inline">\(\zeta_k\)</span> 而偏离真实平均相关性 <span class="math inline">\(\rho\)</span>。</p>
+<p>当我们考虑到 <span class="math inline">\(\boldsymbol{r_k}\)</span> 代表包含在一个研究中的<strong>几个</strong>相关性时，我们得到以下随机效应模型的方程：</p>
+<p><span class="math display">\[\begin{align}
+  \boldsymbol{r_k} &amp;= \boldsymbol{\rho} + \boldsymbol{\zeta_k} + \boldsymbol{\epsilon_k} \notag \\
+  \begin{bmatrix} r_1 \\ r_2 \\ \vdots \\ r_p \end{bmatrix} &amp;=
+  \begin{bmatrix} \rho_1 \\ \rho_2 \\ \vdots \\ \rho_p \end{bmatrix} +
+  \begin{bmatrix} \zeta_1 \\ \zeta_2 \\ \vdots \\ \zeta_p \end{bmatrix} +
+  \begin{bmatrix} \epsilon_1 \\ \epsilon_2 \\ \vdots \\ \epsilon_p \end{bmatrix} (\#eq:sem4)
+\end{align}\]</span></p>
+<p></p>
+<p>使用这个模型，我们可以计算一个<strong>合并</strong>相关性的向量，<span class="math inline">\(\boldsymbol{r}\)</span>。第一个合并步骤允许评估研究之间的效应异质性，以及是否应该使用随机效应模型或亚组分析。由于 <strong>{metaSEM}</strong> 包使用的基于最大似然的方法，即使是数据部分缺失的研究也可以包含在这一步中。</p>
+<p></p>
+<p>在第二步中，我们然后使用<strong>加权最小二乘法</strong>（参见第 @ref(metareg-model-fit) 章）来拟合我们指定的结构方程模型。指定模型的函数 <span class="math inline">\(\rho(\hat\theta)\)</span> 是 <span class="citation" data-cites="cheung2009two cheung2015meta">[@cheung2009two; @cheung2015meta, chapter 7.4.2]</span>：</p>
+<p><span class="math display">\[\begin{equation}
+F_{\text{WLS}}(\hat\theta) =  (\boldsymbol{r} - \rho(\hat\theta))^\top \boldsymbol{V}^{-1} ({r} - \rho(\hat\theta))
+(\#eq:sem5)
+\end{equation}\]</span></p>
+<p>其中 <span class="math inline">\(\boldsymbol{r}\)</span> 是合并的相关向量。这个公式的重要部分是 <span class="math inline">\(\boldsymbol{V}^{-1}\)</span>，它是一个包含 <span class="math inline">\(\boldsymbol{r}\)</span> 的协方差的逆矩阵。这个矩阵用于加权。重要的是，无论我们假设随机效应模型还是固定效应模型，第二步中的公式都是相同的，因为研究间异质性（如果存在）已经在第 1 步中处理了。</p>
+<p><br><br></p>
+</section>
+</section>
+<section id="multivariate-ma" class="level2">
+<h2 class="anchored" data-anchor-id="multivariate-ma">多元元分析</h2>
+<hr>
+<p></p>
+<p>是时候深入研究我们的第一个已完成的元分析 SEM 示例了。我们将首先使用 SEM 方法进行<strong>多元元分析</strong>，这是我们尚未介绍的内容。在多元元分析中，我们尝试同时估计多个效应。当我们研究的研究主题有多个主要结果（而不仅仅是一个结果）时，这种类型的元分析很有帮助。</p>
+<p>想象一下，我们正在检查某种类型的治疗的效果。对于这种治疗，可能存在两种被大多数专家认为重要的结果，因此在大多数研究中都会评估。多元元分析可以通过在一个模型中<strong>联合</strong>估计两种结果的效应量来解决这个问题。这种多元方法还允许我们将两种结果之间的相关性考虑在内。这可以用于确定在一个结果上具有高效应量的研究是否在另一个结果上也具有更高的效应量。或者，我们可能还会发现两种结果之间存在负相关，或者根本没有关联。</p>
+<p></p>
+<p>值得注意的是，多元元分析也可以在 SEM 框架之外执行 <span class="citation" data-cites="schwarzer2015meta mvmeta">[@schwarzer2015meta, chapter 7; @mvmeta]</span>。然而，在这里，我们将向您展示如何从 SEM 的角度执行它们。在本示例和以下示例中，我们将使用 <strong>{metaSEM}</strong>，这是一个由 Mike Cheung <span class="citation" data-cites="metasem">[-@metasem]</span> 开发的用于元分析 SEM 的出色包。与往常一样，我们首先必须安装 <strong>{metaSEM}</strong> 包并从您的库中加载它。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(metaSEM)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p></p>
+<p>在我们的示例中，我们将再次使用 <strong>{dmetar}</strong> 的 <code>ThirdWave</code> 数据集（参见第 @ref(pre-calculated-es) 章）。默认情况下，此数据集仅包含一个结果（感知压力）的效应。现在，想象一下，此元分析中的大多数研究还测量了<strong>焦虑</strong>的效应，这是另一个重要的与心理健康相关的结果。因此，我们可以使用多元元分析来联合估计压力和焦虑的效应，以及它们如何相互关联。</p>
+<p>为了继续，我们首先必须创建一个新的数据框，其中包含两种结果的数据。首先，我们定义一个包含每个研究中报告的焦虑效应（表示为 Hedges’ <span class="math inline">\(g\)</span>）的向量，以及它们的标准误差。我们还需要定义一个包含每个研究中报告的压力和焦虑之间<strong>协方差</strong>的向量。一项研究没有评估焦虑结果，因此我们在三个向量中使用 <code>NA</code> 来表示信息缺失。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 定义包含焦虑效应（Hedges g）的向量</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>Anxiety <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.224</span>,<span class="fl">0.389</span>,<span class="fl">0.913</span>,<span class="fl">0.255</span>,<span class="fl">0.615</span>,<span class="sc">-</span><span class="fl">0.021</span>,<span class="fl">0.201</span>, </span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>             <span class="fl">0.665</span>,<span class="fl">0.373</span>,<span class="fl">1.118</span>,<span class="fl">0.158</span>,<span class="fl">0.252</span>,<span class="fl">0.142</span>,<span class="cn">NA</span>, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>             <span class="fl">0.410</span>,<span class="fl">1.139</span>,<span class="sc">-</span><span class="fl">0.002</span>,<span class="fl">1.084</span>)</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a><span class="co"># 焦虑效应的标准误差</span></span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>Anxiety_SE <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.193</span>,<span class="fl">0.194</span>,<span class="fl">0.314</span>,<span class="fl">0.165</span>,<span class="fl">0.270</span>,<span class="fl">0.233</span>,<span class="fl">0.159</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.298</span>,<span class="fl">0.153</span>,<span class="fl">0.388</span>,<span class="fl">0.206</span>,<span class="fl">0.256</span>,<span class="fl">0.256</span>,<span class="cn">NA</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.431</span>,<span class="fl">0.242</span>,<span class="fl">0.274</span>,<span class="fl">0.250</span>)</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a><span class="co"># 压力和焦虑结果之间的协方差</span></span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>Covariance <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fl">0.023</span>,<span class="fl">0.028</span>,<span class="fl">0.065</span>,<span class="fl">0.008</span>,<span class="fl">0.018</span>,<span class="fl">0.032</span>,<span class="fl">0.026</span>, </span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.046</span>,<span class="fl">0.020</span>,<span class="fl">0.063</span>,<span class="fl">0.017</span>,<span class="fl">0.043</span>,<span class="fl">0.037</span>,<span class="cn">NA</span>, </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>                <span class="fl">0.079</span>,<span class="fl">0.046</span>,<span class="fl">0.040</span>,<span class="fl">0.041</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>然后，我们将此数据与 <code>ThirdWave</code> 中的信息一起使用来创建一个名为 <code>ThirdWaveMV</code> 的新数据框。在此数据集中，我们包括效应量<strong>方差</strong> <code>Stress_var</code> 和 <code>Anxiety_var</code>，可以通过将标准误差平方获得。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ThirdWaveMV <span class="ot">&lt;-</span> <span class="fu">data.frame</span>(<span class="at">Author =</span> ThirdWave<span class="sc">$</span>Author,</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>                          <span class="at">Stress =</span> ThirdWave<span class="sc">$</span>TE,</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>                          <span class="at">Stress_var =</span> ThirdWave<span class="sc">$</span>seTE<span class="sc">^</span><span class="dv">2</span>,</span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a>                          <span class="at">Anxiety =</span> Anxiety,</span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true" tabindex="-1"></a>                          <span class="at">Anxiety_var =</span> Anxiety_SE<span class="sc">^</span><span class="dv">2</span>,</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true" tabindex="-1"></a>                          <span class="at">Covariance =</span> Covariance)</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true" tabindex="-1"></a><span class="fu">format</span>(<span class="fu">head</span>(ThirdWaveMV), <span class="at">digits =</span> <span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>##            Author Stress Stress_var Anxiety Anxiety_var Covariance
+## 1     Call et al.   0.71      0.068   0.224       0.037      0.023
+## 2 Cavanagh et al.   0.35      0.039   0.389       0.038      0.028
+## 3   DanitzOrsillo   1.79      0.119   0.913       0.099      0.065
+## 4  de Vibe et al.   0.18      0.014   0.255       0.027      0.008
+## 5  Frazier et al.   0.42      0.021   0.615       0.073      0.018
+## 6  Frogeli et al.   0.63      0.038  -0.021       0.054      0.032
+</code></pre>
+<p>正如我们所看到的，新的数据集包含压力和焦虑的效应量，以及各自的抽样方差。<code>Covariance</code> 列存储每个研究中测量的压力和焦虑之间的协方差。</p>
+<p>实践中一个常见的问题是，原始研究中未报告两个结果之间的协方差（或相关性）。如果发生这种情况，我们必须根据关于结果之间相关性的合理假设来<strong>估计</strong>协方差。</p>
+<p>假设我们还不知道每个研究中的协方差。我们如何估计它？一个好方法是寻找评估两种结果之间相关性的先前文献，最好是在我们现在正在处理的相同类型的背景下。假设我们在文献中发现，在临床试验的后测中，压力和焦虑非常高度相关，其中 <span class="math inline">\(r_{\text{S,A}} \approx\)</span> 0.6。基于这种假设的相关性，我们可以使用以下公式来近似某个研究 <span class="math inline">\(k\)</span> 的协方差 <span class="citation" data-cites="schwarzer2015meta">[@schwarzer2015meta, chapter 7]</span>：</p>
+<p><span class="math display">\[\begin{equation}
+\widehat{\text{Cov}}(\theta_{1},\theta_{2}) = SE_{\theta_{1}} \times SE_{\theta_{2}} \times \hat\rho_{1, 2}
+(\#eq:sem6)
+\end{equation}\]</span></p>
+<p>使用我们的示例数据并假设 <span class="math inline">\(r_{\text{S,A}} \approx\)</span> 0.6，这个公式可以在 <em>R</em> 中这样实现：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 我们使用方差的平方根，因为 SE = sqrt(var)</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>cov.est <span class="ot">&lt;-</span> <span class="fu">with</span>(ThirdWaveMV, </span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>                <span class="fu">sqrt</span>(Stress_var) <span class="sc">*</span> <span class="fu">sqrt</span>(Anxiety_var) <span class="sc">*</span> <span class="fl">0.6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>请注意，当我们以这种方式计算协方差时，假设相关性的选择会对结果产生深刻的影响。因此，强烈建议 (1) 始终报告假设的相关系数，以及 (2) 进行敏感性分析，在敏感性分析中，我们检查结果如何根据我们选择的相关性而变化。</p>
+<p><br><br></p>
+<section id="指定模型" class="level3">
+<h3 class="anchored" data-anchor-id="指定模型">指定模型</h3>
+<hr>
+<p>要指定多元元分析模型，我们不必以编程方式遵循 TSSEM 过程（参见上一章），也不必指定任何 RAM 矩阵。对于这样一个相对简单的模型，我们可以使用 <strong>{metaSEM}</strong> 中的 <code>meta</code> 函数一步到位地拟合元分析 SEM。要使用 <code>meta</code>，我们只需要指定三个基本参数：</p>
+<ul>
+<li><p><strong><code>y</code></strong>。包含效应量数据集的数据列。在多元元分析中，我们必须使用 <code>cbind</code> 组合我们想要包含的效应量列。</p></li>
+<li><p><strong><code>v</code></strong>。包含效应量数据集的数据列。在多元元分析中，我们必须使用 <code>cbind</code> 组合我们想要包含的方差列。我们还必须包括包含效应量之间协方差的列。参数的结构应为 <code>cbind(variance_1, covariance, variance_2)</code>。</p></li>
+<li><p><strong><code>data</code></strong>。存储效应量和方差的数据集。</p></li>
+</ul>
+<p>我们将拟合的模型保存在名称 <code>m.mv</code> 下。重要的是，在运行 <code>meta</code> 之前，请确保 <strong>{meta}</strong> 包<strong>未</strong>加载。<strong>{meta}</strong> 和 <strong>{metaSEM}</strong> 中的一些函数具有相同的名称，这可能会在 <em>R</em> 中运行代码时导致错误。可以使用 <code>detach</code> 函数“卸载”包。</p>
+<p>可以使用 <code>summary</code> 检查生成的 <code>m.mv</code> 对象。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>m.mv <span class="ot">&lt;-</span> <span class="fu">meta</span>(<span class="at">y =</span> <span class="fu">cbind</span>(Stress, Anxiety), </span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">v =</span> <span class="fu">cbind</span>(Stress_var, Covariance, Anxiety_var),</span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> ThirdWaveMV)</span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(m.mv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<pre><code>## [...]
+## Coefficients:
+##            Estimate Std.Error lbound ubound z value Pr(&gt;|z|)    
+## Intercept1    0.570     0.087  0.399  0.740  6.5455  5.9e-13 ***
+## Intercept2    0.407     0.083  0.244  0.570  4.9006  9.5e-09 ***
+## Tau2_1_1      0.073     0.049 -0.023  0.169  1.4861   0.1372    
+## Tau2_2_1      0.028     0.035 -0.041  0.099  0.8040   0.4214    
+## Tau2_2_2      0.057     0.042 -0.025  0.140  1.3643   0.1725    
+## ---
+## Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+## [...]
+## 
+## Heterogeneity indices (based on the estimated Tau2):
+##                              Estimate
+## Intercept1: I2 (Q statistic)   0.6203
+## Intercept2: I2 (Q statistic)   0.5292
+## 
+## Number of studies (or clusters): 18
+## [...]
+## OpenMx status1: 0 ("0" or "1": The optimization is considered fine.
+## Other values may indicate problems.)</code></pre>
+<p><br><br></p>
+</section>
+<section id="评估结果" class="level3">
+<h3 class="anchored" data-anchor-id="评估结果">评估结果</h3>
+<hr>
+<p></p>
+<p>鉴于 SEM 模型是使用最大似然算法拟合的，我们首先要做的是检查输出末尾的 <code>OpenMx status</code>。最大似然估计是一种优化过程，其中参数会迭代更改，直到找到手头数据的最佳解决方案。但是，尤其是在更复杂的模型中，即使经过多次迭代，也可能无法达到此最佳值；最大似然算法将停止并输出到目前为止已近似的参数值。但是，我们的模型组件的那些值很可能是不正确的，不应被信任。</p>
+<p>我们模型的 <code>OpenMx status</code> 为 <code>0</code>，这表明最大似然估计运行良好。如果状态不是 0 或 1，则需要使用以下代码重新运行模型：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rerun</span>(m.mv)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>在输出中，两个合并的效应量显示为 <code>Intercept1</code> 和 <code>Intercept2</code>。效应量按照我们将其插入到 <code>meta</code> 调用中的顺序进行编号。我们可以看到合并的效应量是 <span class="math inline">\(g_{\text{Stress}}\)</span> = 0.57 和 <span class="math inline">\(g_{\text{Anxiety}}\)</span> = 0.41。两个效应量都很显著。在 <code>Heterogeneity indices</code> 下，我们还可以看到 <span class="math inline">\(I^2\)</span> 的值，分别为 <span class="math inline">\(I^2_{\text{Stress}}\)</span> = 62% 和 <span class="math inline">\(I^2_{\text{Anxiety}}\)</span> = 53%，表明两个结果中都存在相当大的研究间异质性。</p>
+<p>还提供了研究间异质性方差 <span class="math inline">\(\tau^2\)</span> 的直接估计。我们看到不仅有两个估计，而且有三个。要理解这意味着什么，我们可以从 <code>m.mv</code> 对象中提取“随机”值。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>tau.coefs <span class="ot">&lt;-</span> <span class="fu">coef</span>(m.mv, <span class="at">select =</span> <span class="st">"random"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>然后，我们使用 <code>vec2symMat</code> 函数创建一个系数矩阵。我们为矩阵的行和列赋予变量的名称：<code>Stress</code> 和 <code>Anxiety</code>。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co"># 创建矩阵</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>tc.mat <span class="ot">&lt;-</span> <span class="fu">vec2symMat</span>(tau.coefs)</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a><span class="co"># 标记行和列</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a><span class="fu">dimnames</span>(tc.mat)[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">dimnames</span>(tc.mat)[[<span class="dv">2</span>]] <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">"Stress"</span>, </span>
+<span id="cb10-6"><a href="#cb10-6" aria-hidden="true" tabindex="-1"></a>                                                    <span class="st">"Anxiety"</span>)</span>
+<span id="cb10-7"><a href="#cb10-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb10-8"><a href="#cb10-8" aria-hidden="true" tabindex="-1"></a>tc.mat</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            Stress    Anxiety
+Stress  0.07331199 0.02894342
+Anxiety 0.02894342 0.05753271</code></pre>
+</div>
+</div>
+<p>我们现在更好地理解了这三个 <span class="math inline">\(\tau^2\)</span> 值的含义：它们代表了矩阵对角线上的研究间方差（异质性）。在其他两个字段中，矩阵显示了压力和焦虑之间的估计协方差。鉴于协方差只是相关性的非标准化版本，我们可以使用 <code>cov2cor</code> 函数将这些值转换为相关性。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cov2cor</span>(tc.mat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>           Stress   Anxiety
+Stress  1.0000000 0.4456613
+Anxiety 0.4456613 1.0000000</code></pre>
+</div>
+</div>
+<p>我们看到，很合乎逻辑的是，矩阵对角线元素中的相关性为 1。压力和焦虑效应之间的相关性为 <span class="math inline">\(r_{\text{S,A}}\)</span> = 0.45。这是一个有趣的发现：它表明治疗对感知压力的影响与其对焦虑的影响之间存在正相关关系。我们可以说，对压力有高影响的治疗似乎对焦虑也有更高的影响。</p>
+<p></p>
+<p>值得注意的是，<code>m.mv</code> 摘要中提供的置信区间是 Wald 型区间（参见第 @ref(knapp-hartung) 章）。这种 Wald 型区间有时可能不准确，尤其是在小样本中 <span class="citation" data-cites="diciccio1996bootstrap">[@diciccio1996bootstrap]</span>。因此，通过使用<strong>基于似然</strong>的置信区间以另一种方式构建置信区间可能很有价值。我们可以通过重新运行 <code>meta</code> 函数并另外指定 <code>intervals.type = "LB"</code> 来获得这些 CI。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>m.mv <span class="ot">&lt;-</span> <span class="fu">meta</span>(<span class="at">y =</span> <span class="fu">cbind</span>(Stress, Anxiety), </span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">v =</span> <span class="fu">cbind</span>(Stress_var, Covariance, Anxiety_var),</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> ThirdWaveMV,</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">intervals.type =</span> <span class="st">"LB"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>我们已经看到，我们的 m.mv 的输出包含非零的估计值，用于研究间异质性 <span class="math inline">\(\tau^2\)</span>。因此，我们可以得出结论，我们刚刚拟合的模型是随机效应模型。<code>meta</code> 函数自动使用随机效应模型。考虑到输出中的 <span class="math inline">\(I^2\)</span> 值，我们可以得出结论，这确实是足够的。但是，如果我们无论如何都想拟合固定效应模型，我们可以通过重新运行分析并添加参数 <code>RE.constraints = matrix(0, nrow=2, ncol=2)</code> 来做到这一点。这将创建一个 0 的矩阵，将所有 <span class="math inline">\(\tau^2\)</span> 值约束为零：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>m.mv <span class="ot">&lt;-</span> <span class="fu">meta</span>(<span class="at">y =</span> <span class="fu">cbind</span>(Stress, Anxiety), </span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">v =</span> <span class="fu">cbind</span>(Stress_var, Covariance, Anxiety_var),</span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">data =</span> ThirdWaveMV,</span>
+<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">RE.constraints =</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow=</span><span class="dv">2</span>, <span class="at">ncol=</span><span class="dv">2</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br><br></p>
+</section>
+<section id="可视化结果" class="level3">
+<h3 class="anchored" data-anchor-id="可视化结果">可视化结果</h3>
+<hr>
+<p>要绘制多元元分析模型，我们可以使用 <code>plot</code> 函数。我们还进行了一些其他指定来更改图的外观。如果您想查看所有样式选项，可以将 <code>?metaSEM::plot.meta</code> 粘贴到控制台中，然后按 Enter。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(m.mv, </span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>     <span class="at">axis.labels =</span> <span class="fu">c</span>(<span class="st">"感知压力"</span>, <span class="st">"焦虑"</span>), </span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>     <span class="at">randeff.ellipse.col =</span> <span class="st">"#014d64"</span>,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>     <span class="at">univariate.arrows.col =</span> <span class="st">"gray40"</span>,</span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>     <span class="at">univariate.arrows.lwd =</span> <span class="dv">9</span>,</span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>     <span class="at">univariate.polygon.col =</span> <span class="st">"gray40"</span>,</span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>     <span class="at">estimate.ellipse.col =</span> <span class="st">"gray40"</span>,</span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">estimate.col =</span> <span class="st">"firebrick"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>library(OpenImageR) knitr::include_graphics(’images/forest_metasem.png</p>
+
+
+</section>
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>方差分析基于模型 <span class="math inline">\(y_{ij} = \mu + \tau_i + \epsilon_{ij}\)</span>，其中 <span class="math inline">\(\tau_i\)</span> 是第 <span class="math inline">\(i\)</span> 个因子水平/处理的效果，<span class="math inline">\(\epsilon_{ij}\)</span> 代表由于（未解释的）随机误差造成的偏差 <span class="citation" data-cites="montgomery">[@montgomery，第 3.2 章]</span>。这只不过是线性回归模型的一个特例。主要区别在于 <span class="math inline">\(\tau_i\)</span> 是<strong>效应编码</strong>的（例如，处理变量是 -1 或 1，因此分类处理效果的总和为零：<span class="math inline">\(\sum_{i=1}^{a} \tau_i = 0\)</span>）。相比之下，分类预测变量在线性回归模型中通常是虚拟编码的（例如，0 和 1）。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

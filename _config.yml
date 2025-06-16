@@ -26,16 +26,19 @@ category_dir: categories
 code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
-- '*.json'
-- '*.vender'
-- '*.html'
-- '*.js'
-- 'skip_render/**'
-- '_posts/**/skip_render/**'
-- '_posts/**/**.html'  # 这是用于 p5js教程
-- 'siteMirrors/**'
-- 'skip_me_*'
-- '**/*.js'
+  - "quarto/**/*"
+  - '*.json'
+  - '*.vender'
+  - '*.html'
+  - '*.js'
+  - 'skip_render/**'
+  - '_posts/**/skip_render/**'
+  - '_posts/**/**.html'  # 这是用于 p5js教程
+  - 'siteMirrors/**'
+  - 'skip_me_*'
+  - '**/*.js'
+  - 'source/quarto/**/*'
+  - 'quarto/Doing-meta-analysis-in-R/90-appendix.html'
 
 
 # Writing
@@ -139,6 +142,8 @@ alimama:
     url: https://item.taobao.com/item.htm?spm=2013.1.w4023-21724689242.4.76085e0a2k46Ky&id=601314051411
     
 toplinks:
+  - name: Meta 分析入门教程
+    url: /quarto/Doing-meta-analysis-in-R
   - name: Mplus中介和调节教程
     url: /mplus-model-templates
   - name: 大学生问卷互填群

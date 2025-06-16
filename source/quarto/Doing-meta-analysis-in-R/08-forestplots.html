@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>R Meta 分析</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-dark.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">R Meta 分析</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="./index.rmd"> 
+<span class="menu-text"></span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./daizuo.html"> 
+<span class="menu-text">Meta 代做</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-forestplots.html">森林图</a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">首页</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-preface.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">前言</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-author.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">作者</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-introduction.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">介绍</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-discovering_R.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发现R</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-pooling_effect_sizes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">合并效应量</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-heterogeneity.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">异质性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-forestplots.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">森林图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-subgroup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">亚组分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-metareg.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Meta回归</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-publication-bias.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">发表偏倚</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-mlma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">多元Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-sem.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">结构方程模型</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-netwma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">网络Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-bayesianma.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">贝叶斯Meta分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-power-analysis.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">功效分析</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-risk-of-bias-plots.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏倚风险图</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-reporting-reproducibility.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">报告与可重复性</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-effect-size-calculation.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量计算</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./90-appendix.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">附录</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./98-cite.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">引用</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./99-references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">参考文献</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#forest" id="toc-forest" class="nav-link active" data-scroll-target="#forest">森林图</a>
+  <ul class="collapse">
+  <li><a href="#什么是森林图" id="toc-什么是森林图" class="nav-link" data-scroll-target="#什么是森林图">什么是森林图？</a></li>
+  <li><a href="#forest-R" id="toc-forest-R" class="nav-link" data-scroll-target="#forest-R"><em>R</em> 中的森林图</a>
+  <ul class="collapse">
+  <li><a href="#布局类型" id="toc-布局类型" class="nav-link" data-scroll-target="#布局类型">布局类型</a></li>
+  <li><a href="#保存森林图" id="toc-保存森林图" class="nav-link" data-scroll-target="#保存森林图">保存森林图</a></li>
+  </ul></li>
+  <li><a href="#drapery" id="toc-drapery" class="nav-link" data-scroll-target="#drapery">织锦图</a></li>
+  <li><a href="#问题与解答" id="toc-问题与解答" class="nav-link" data-scroll-target="#问题与解答">问题与解答</a></li>
+  <li><a href="#总结" id="toc-总结" class="nav-link" data-scroll-target="#总结">总结</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="forest" class="level1">
+<h1>森林图</h1>
+<hr>
+<p><img src="_figs/forest2.jpg"></p>
+<p><br><br></p>
+<p></p>
+<p><span class="firstcharacter">在</span> 前面的章节中，我们学习了如何在 <em>R</em> 中合并效应量，以及如何评估 meta 分析中的异质性。现在我们来到了 meta 分析中稍微令人愉快的部分，在这里我们将可视化我们在前面步骤中获得的结果。</p>
+<p>可视化 meta 分析最常见的方法是使用<strong>森林图</strong>。这种图以图形方式显示了每个研究的观察效应、置信区间，通常还包括权重。它们还显示了我们在 meta 分析中计算出的合并效应。总的来说，这使其他人可以快速检查纳入研究的精度和分布，以及合并效应与观察效应大小的关系。</p>
+<p></p>
+<p><strong>{meta}</strong> 包有一个内置函数，可以非常容易地直接在 <em>R</em> 中生成美观的森林图。该函数具有广泛的功能，并允许根据需要更改图的外观。本章将主要关注此森林图函数以及如何在实践中使用它。此外，我们还将简要讨论另一种可视化 meta 分析结果的方法。</p>
+<p><br><br></p>
+<section id="什么是森林图" class="level2">
+<h2 class="anchored" data-anchor-id="什么是森林图">什么是森林图？</h2>
+<hr>
+<p>图 @ref(fig:forest) 显示了森林图的主要组成部分。在左侧，森林图显示了 meta 分析中包含的每个研究的名称。对于每个研究，都提供了效应量的图形表示，通常在图的中心。此可视化在 x 轴上显示研究的点估计。该点估计由一条线补充，该线表示为观察到的效应量计算出的置信区间的范围。通常，点估计被一个正方形包围。该正方形的大小由效应量的权重（第 @ref(fem) 章）决定：权重较大的研究会得到较大的正方形，而权重较低的研究会得到较小的正方形。</p>
+<p>按照惯例，森林图还应包含用于执行 meta 分析的效应量数据。这为其他人提供了复制我们结果所需的数据。</p>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/forest_sep.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>森林图的关键要素。</figcaption>
+</figure>
+</div>
+</div>
+</div>
+<p>在图的底部，一个菱形表示平均效应。菱形的长度象征着合并结果在 x 轴上的置信区间。通常，森林图还包括一条垂直的<strong>参考线</strong>，指示 x 轴上等于没有效应的点。正如我们将在接下来的示例中看到的那样，可以通过显示异质性度量（例如 <span class="math inline">\(I^2\)</span> 或 <span class="math inline">\(\tau^2\)</span>）来增强森林图。</p>
+<p></p>
+<p>森林图中的效应量和置信区间通常以线性刻度显示。然而，当汇总指标是一个<strong>比率</strong>（例如优势比或风险比）时，通常在 x 轴上使用<strong>对数</strong>刻度。这意味着 1 附近的值比远低于或高于 1 的值更接近。</p>
+<p>这对于比率来说是有意义的，因为这些效应量指标不能以“线性”方式解释（即 RR = 0.50 的“相反”是 2，而不是 1.5；请参阅第 @ref(ratios) 章）。此类效应量的参考线通常为 1，表示没有效应。</p>
+<p><br><br></p>
+</section>
+<section id="forest-R" class="level2">
+<h2 class="anchored" data-anchor-id="forest-R"><em>R</em> 中的森林图</h2>
+<hr>
+<p>我们可以使用 <code>meta::forest</code> 函数为任何类型的 <strong>{meta}</strong> meta 分析对象（例如 <code>metagen</code>、<code>metacont</code> 或 <code>metabin</code> 的结果）生成森林图<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>。我们只需为 <code>meta::forest</code> 提供我们的 <strong>{meta}</strong> 对象，即可创建一个图。通常，这些森林图默认情况下看起来已经很不错了，但是该函数还有无数其他参数可以进一步调整外观。所有这些参数都在函数文档中进行了描述（可以通过运行 <code>?meta::forest</code> 访问）。以下是更重要的参数的列表：</p>
+<ul>
+<li><p><strong><code>sortvar</code></strong>。meta 分析数据集中用于在森林图中对研究进行排序的变量。例如，如果我们想按效应量对结果进行排序，可以使用代码 <code>sortvar = TE</code>。</p></li>
+<li><p><strong><code>comb.fixed</code></strong>。逻辑值，指示是否应在图中包含固定效应模型估计值。</p></li>
+<li><p><strong><code>comb.random</code></strong>。逻辑值，指示是否应在图中包含随机效应模型估计值。</p></li>
+<li><p><strong><code>text.fixed</code></strong>。根据固定效应模型合并效应的<strong>标签</strong>。默认情况下，打印 <code>"Fixed effect model"</code>。</p></li>
+<li><p><strong><code>text.random</code></strong>。根据随机效应模型合并效应的标签。默认情况下，打印 <code>"Random effects model"</code>。</p></li>
+<li><p><strong><code>prediction</code></strong>。逻辑值，指示是否应将预测区间添加到图中。</p></li>
+<li><p><strong><code>label.left</code></strong> 和 <strong><code>label.right</code></strong>。添加到森林图左侧和右侧的标签。这可以用于指定，例如，此侧的效应有利于治疗（例如，<code>label.left = "Favors treatment"</code>）。</p></li>
+<li><p><strong><code>smlab</code></strong>。显示在图顶部的标签。这可以用于显示使用了哪种效应量指标。</p></li>
+<li><p><strong><code>xlim</code></strong>。x 轴的限制，或字符 <code>“s”</code> 以生成对称森林图。当您的结果与零有很大偏差，或者您还想描绘异常值时，此参数尤其相关。例如，如果我们希望 x 轴的范围为 0 到 2，则代码为 <code>xlim = c(0,2)</code>。</p></li>
+<li><p><strong><code>ref</code></strong>。图中的参考线。根据我们使用的汇总指标，默认情况下，此值为 0 或 1。</p></li>
+<li><p><strong><code>leftcols</code></strong> 和 <strong><code>rightcols</code></strong>。在这里，您可以指定应在森林图的左侧和右侧显示哪些变量。该函数默认使用一些内置元素。例如，<code>"studlab"</code> 代表研究标签，<code>"effect"</code> 代表观察到的效应量，<strong><code>effect.ci</code></strong> 代表效应量及其置信区间。也可以添加用户定义的列，只要这些列包含在我们最初提供给 <strong>{meta}</strong> 函数的 <code>data.frame</code> 中。在这种情况下，我们只需要将列的名称添加为字符串即可。</p></li>
+<li><p><strong><code>leftlabs</code></strong> 和 <strong><code>rightlabs</code></strong>。应用于森林图左侧和右侧显示的列的标签。</p></li>
+<li><p><strong><code>print.I2</code></strong> 和 <code>print.I2.ci</code>。逻辑值，指示是否应打印 <span class="math inline">\(I^2\)</span> 值及其置信区间。默认情况下，此值为 <code>TRUE</code>。</p></li>
+<li><p><strong><code>print.tau2</code></strong> 和 <strong><code>print.tau</code></strong>。逻辑值，指示是否应打印 <span class="math inline">\(\tau^2\)</span> 和 <span class="math inline">\(\tau\)</span> 值。默认情况下，打印 <span class="math inline">\(\tau^2\)</span> 的值。</p></li>
+<li><p><strong><code>col.square</code></strong>、<strong><code>col.diamond</code></strong> 和 <strong><code>col.predict</code></strong>。正方形、菱形和预测区间的颜色（例如，<code>"blue"</code>）。</p></li>
+</ul>
+<p>现在是生成我们的第一个森林图的时候了。在此示例中，我们绘制了我们在前面的示例中也使用的 <code>m.gen</code> 对象。我们按效应量对森林图中的研究进行排序，添加预测区间，并在左侧添加用户定义的标签。<code>meta::forest</code> 函数默认打印 <span class="math inline">\(\tau^2\)</span> 值，我们在这里不需要它，因此我们将 <code>print.tau2</code> 设置为 <code>FALSE</code>。</p>
+<p>这是我们的代码最终的样子：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>meta<span class="sc">::</span><span class="fu">forest</span>(m.gen, </span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">sortvar =</span> TE,</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">prediction =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">print.tau2 =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">leftlabs =</span> <span class="fu">c</span>(<span class="st">"作者"</span>, <span class="st">"g"</span>, <span class="st">"SE"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-forestplots_files/figure-html/unnamed-chunk-2-1.png" class="img-fluid figure-img" width="768"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><code>meta::forest</code> 为我们提供的图看起来已经相当不错了。我们还看到图中添加了一条细的黑线，表示我们合并效应周围的预测区间。</p>
+<p></p>
+<p>我们可以通过添加一列显示每个研究的偏倚风险来增强该图。我们用于生成 <code>m.gen</code> 的 <code>ThirdWave</code> 数据集包含一列名为 <code>RiskOfBias</code> 的列，其中存储了每个研究的偏倚风险评估。</p>
+<p>当我们使用 <code>metagen</code> 计算 meta 分析（第 @ref(pre-calculated-es) 章）时，该函数会自动将此数据保存在 <code>m.gen</code> 中。因此，我们可以使用 <code>leftcols</code> 参数将该列添加到图中。这将导致以下代码：</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>meta<span class="sc">::</span><span class="fu">forest</span>(m.gen, </span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">sortvar =</span> TE,</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">prediction =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">print.tau2 =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">leftcols =</span> <span class="fu">c</span>(<span class="st">"studlab"</span>, <span class="st">"TE"</span>, <span class="st">"seTE"</span>, <span class="st">"RiskOfBias"</span>),</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">leftlabs =</span> <span class="fu">c</span>(<span class="st">"作者"</span>, <span class="st">"g"</span>, <span class="st">"SE"</span>, <span class="st">"偏倚风险"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-forestplots_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="864"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>我们看到，现在，每个研究的偏倚风险信息已添加到森林图中。</p>
+<p><br><br></p>
+<section id="布局类型" class="level3">
+<h3 class="anchored" data-anchor-id="布局类型">布局类型</h3>
+<hr>
+<p><code>meta::forest</code> 函数有两种“预先打包”的布局，我们可以使用它们将我们的森林图引入特定格式，而无需指定大量参数。其中之一是 <code>"JAMA"</code> 布局，它为我们提供了一个符合<strong>美国医学会杂志</strong>指南的森林图。如果您想在医学期刊上发表您的 meta 分析，可以使用此布局。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>meta<span class="sc">::</span><span class="fu">forest</span>(m.gen, <span class="at">layout =</span> <span class="st">"JAMA"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="08-forestplots_files/figure-html/unnamed-chunk-6-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p></p>
+<p>另一种布局是 <code>"RevMan5"</code>，它生成的森林图类似于 Cochrane 的 <strong>Review Manager 5</strong> 生成的森林图。</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>meta<span class="sc">::</span><span class="fu">forest</span>(m.gen, <span class="at">layout =</span> <span class="st">"RevMan5"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="08-forestplots_files/figure-html/unnamed-chunk-8-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" style="width:75.0%"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="保存森林图" class="level3">
+<h3 class="anchored" data-anchor-id="保存森林图">保存森林图</h3>
+<hr>
+<p>由 <code>meta::forest</code> 生成的森林图可以保存为 PDF、PNG 或<strong>可缩放矢量图形</strong> (SVG) 文件。与其他通过基本 <em>R</em> 或 <strong>{ggplot2}</strong> 包生成的图不同，当我们将其另存为文件时，<code>meta::forest</code> 的输出不会自动重新缩放。这意味着森林图有时会在两个或四个侧面被截断，我们必须手动调整宽度和高度，以便所有内容都可见。</p>
+<p><code>pdf</code>、<code>png</code> 和 <code>svg</code> 函数可用于通过 <em>R</em> 代码保存图。我们必须从调用这些函数之一开始，该函数告诉 <em>R</em> 以下代码的输出应保存在文档中。然后，我们添加对 <code>meta::forest</code> 函数的调用。在最后一行，我们必须包含 <code>dev.off()</code>，它会将生成的输出保存到我们在上面指定的文件中。</p>
+<p>所有这三个函数都需要我们指定 <code>file</code> 参数，该参数应包含文件的名称。然后，该文件会自动保存在工作目录中，并使用该名称。此外，我们可以使用 <code>width</code> 和 <code>height</code> 参数来控制图的大小，这在输出被截断时可能会有所帮助。</p>
+<p>假设我们要将我们的初始森林图另存为“forestplot”，我们可以使用以下代码来生成 PDF、PNG 和 SVG 文件。</p>
+<p><strong>PDF</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">pdf</span>(<span class="at">file =</span> <span class="st">"forestplot.pdf"</span>, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">7</span>)</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>meta<span class="sc">::</span><span class="fu">forest</span>(m.gen, </span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">sortvar =</span> TE,</span>
+<span id="cb5-5"><a href="#cb5-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">prediction =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb5-6"><a href="#cb5-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">print.tau2 =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb5-7"><a href="#cb5-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">leftlabs =</span> <span class="fu">c</span>(<span class="st">"作者"</span>, <span class="st">"g"</span>, <span class="st">"SE"</span>))</span>
+<span id="cb5-8"><a href="#cb5-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-9"><a href="#cb5-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>PNG</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">png</span>(<span class="at">file =</span> <span class="st">"forestplot.png"</span>, <span class="at">width =</span> <span class="dv">2800</span>, <span class="at">height =</span> <span class="dv">2400</span>, <span class="at">res =</span> <span class="dv">300</span>)</span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-3"><a href="#cb6-3" aria-hidden="true" tabindex="-1"></a>meta<span class="sc">::</span><span class="fu">forest</span>(m.gen, </span>
+<span id="cb6-4"><a href="#cb6-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">sortvar =</span> TE,</span>
+<span id="cb6-5"><a href="#cb6-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">prediction =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb6-6"><a href="#cb6-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">print.tau2 =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb6-7"><a href="#cb6-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">leftlabs =</span> <span class="fu">c</span>(<span class="st">"作者"</span>, <span class="st">"g"</span>, <span class="st">"SE"</span>))</span>
+<span id="cb6-8"><a href="#cb6-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb6-9"><a href="#cb6-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><strong>SVG</strong></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">svg</span>(<span class="at">file =</span> <span class="st">"forestplot.svg"</span>, <span class="at">width =</span> <span class="dv">8</span>, <span class="at">height =</span> <span class="dv">7</span>)</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>meta<span class="sc">::</span><span class="fu">forest</span>(m.gen, </span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">sortvar =</span> TE,</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>             <span class="at">prediction =</span> <span class="cn">TRUE</span>, </span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>             <span class="at">print.tau2 =</span> <span class="cn">FALSE</span>,</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a>             <span class="at">leftlabs =</span> <span class="fu">c</span>(<span class="st">"作者"</span>, <span class="st">"g"</span>, <span class="st">"SE"</span>))</span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a><span class="fu">dev.off</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><br><br></p>
+</section>
+</section>
+<section id="drapery" class="level2">
+<h2 class="anchored" data-anchor-id="drapery">织锦图</h2>
+<hr>
+<p></p>
+<p></p>
+<p>到目前为止，森林图是可视化 meta 分析的最常见方法。大多数已发表的 meta 分析都包含森林图，并且许多研究人员都了解如何解释它们。建议您也在您的 meta 分析报告中包含一个森林图，因为森林图提供了对您的发现的全面且易于理解的摘要。</p>
+<p>但是，森林图并不是说明我们结果的唯一方法。例如，meta 分析也可以通过<strong>织锦图</strong> <span class="citation" data-cites="rucker2020beyond">[@rucker2020beyond]</span> 可视化。森林图的一个缺点是，它们只能显示假设固定显着性阈值（通常为 <span class="math inline">\(p&lt;\)</span> 0.05）的置信区间。正是基于这些置信区间，研究人员才能确定效应是否显着。</p>
+<p>近年来，围绕 <span class="math inline">\(p\)</span> 值的使用一直存在争议 <span class="citation" data-cites="wellek2017critical">[@wellek2017critical]</span>，并且有些人认为基于 <span class="math inline">\(p\)</span> 值的假设检验导致了许多研究领域的“复制危机”<span class="citation" data-cites="nuzzo2014statistical">[@nuzzo2014statistical]</span>。</p>
+<p>织锦图基于 <span class="math inline">\(p\)</span> <strong>值函数</strong>。已经提出了这样的 <span class="math inline">\(p\)</span> 值函数，以防止我们在解释分析结果时仅仅依赖于 <span class="math inline">\(p\)</span>&lt;0.05 显着性阈值 <span class="citation" data-cites="infanger2019p">[@infanger2019p]</span>。</p>
+<p>因此，除了仅计算 95% 置信区间之外，<span class="math inline">\(p\)</span> 值函数还提供了一条连续曲线，该曲线显示了 <span class="math inline">\(p\)</span> 的不同值的置信区间。在织锦图中，为每个研究以及平均效应绘制一条置信曲线。x 轴显示效应量指标，y 轴显示假设的 <span class="math inline">\(p\)</span> 值。</p>
+<p>可以通过 <strong>{meta}</strong> 中的 <code>drapery</code> 函数生成织锦图。与 <code>meta::forest</code> 一样，一旦我们为其提供 <strong>{meta}</strong> meta 分析对象，此函数就会自动生成图。还有一些其他参数，其中最重要的参数是：</p>
+<ul>
+<li><p><strong><code>type</code></strong>：定义要在 y 轴上绘制的值的类型。对于检验统计量，可以是 <code>"zvalue"</code>（默认值），也可以是 <span class="math inline">\(p\)</span> 值 (<code>"pvalue"</code>)。</p></li>
+<li><p><strong><code>study.results</code></strong>：逻辑值，指示是否应在图中包含每个研究的结果。如果 <code>FALSE</code>，则仅打印汇总效应。</p></li>
+<li><p><strong><code>labels</code></strong>：当我们把这个参数设置为 <code>"studlab"</code>，研究标签将包含在图中。</p></li>
+<li><p><strong><code>legend</code></strong>：逻辑值，指示是否应打印图例。</p></li>
+<li><p><strong><code>pos.legend</code></strong>：图例的位置。可以是 <code>"bottomright"</code>、<code>"bottom"</code>、<code>"bottomleft"</code>、<code>"left"</code>、<code>"topleft"</code>、<code>"top"</code>、<code>"topright"</code>、<code>"right"</code> 或 <code>"center"</code>。</p></li>
+</ul>
+<p>让我们在一个示例中使用我们的 <code>m.gen</code> meta 分析对象来试用 <code>drapery</code> 函数。</p>
+<div class="cell" data-layout-align="center">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">drapery</span>(m.gen, </span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">labels =</span> <span class="st">"studlab"</span>,</span>
+<span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a>        <span class="at">type =</span> <span class="st">"pval"</span>, </span>
+<span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend =</span> <span class="cn">FALSE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell" data-layout-align="center">
+<div class="cell-output-display">
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="08-forestplots_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid quarto-figure quarto-figure-center figure-img" width="1152"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>生成的图包含每个效应量的 <span class="math inline">\(p\)</span> 值曲线，所有曲线都呈倒 V 形。粗线表示根据随机效应模型的平均效应。我们在图中看到的阴影区域表示预测区间，该区间比合并效应的置信区间宽得多。</p>
+<p><span class="math inline">\(p\)</span> 值函数的“峰值”表示我们的 meta 分析中效应量的确切值。当我们沿着 y 轴向下移动时，<span class="math inline">\(p\)</span> 值变得更小，并且置信区间越来越宽，直到我们达到由虚线水平线指示的常规显着性阈值。</p>
+<p>根据该图，我们看到我们可以非常确信合并效应量大于零，因为当 <span class="math inline">\(p\)</span> 已经非常非常小（&lt;0.01）时，粗线在 x 轴上达到零。</p>
+<p>Rücker 等人 <span class="citation" data-cites="rucker2020beyond">[-@rucker2020beyond]</span> 建议织锦图应主要<strong>除了</strong>森林图<strong>之外</strong>使用。简单地用织锦图代替森林图可能不是一个好主意，因为后者不包含其他方可能需要重现我们的结果的许多效应量信息。</p>
+<p><span class="math display">\[\tag*{$\blacksquare$}\]</span></p>
+<p><br><br></p>
+</section>
+<section id="问题与解答" class="level2">
+<h2 class="anchored" data-anchor-id="问题与解答">问题与解答</h2>
+<div class="cell" type="boxquestion">
+<div class="boxquestion">
+<p>
+<strong>测试您的知识！</strong>
+</p>
+<ol style="list-style-type: decimal">
+<li>
+森林图的关键组成部分是什么？
+</li>
+</ol>
+<ol start="2" style="list-style-type: decimal">
+<li>
+展示我们的 meta 分析的森林图有什么优势？
+</li>
+</ol>
+<ol start="3" style="list-style-type: decimal">
+<li>
+森林图的局限性是什么？织锦图如何克服这一局限性？
+</li>
+</ol>
+<p>
+<strong>这些问题的答案在本章末尾的 <a href="https://bookdown.org/MathiasHarrer/Doing_Meta_Analysis_in_R/qanda.html#qanda6">附录 A</a> 中列出。</strong>
+</p>
+</div>
+</div>
+<p><br><br></p>
+</section>
+<section id="总结" class="level2">
+<h2 class="anchored" data-anchor-id="总结">总结</h2>
+<ul>
+<li><p>习惯上通过森林图可视化 meta 分析的结果。</p></li>
+<li><p>森林图包含每个研究的效应量和置信区间的图形表示，并且还显示计算出的总体效应。此外，它们还包含用于合并的效应量数据。</p></li>
+<li><p>也可以将其他类型的信息添加到森林图中，例如每个研究收到的质量评级。</p></li>
+<li><p>森林图只能显示假设固定显着性阈值（通常为 <span class="math inline">\(p&lt;\)</span> 0.05）的结果。为了可视化结果如何随不同的显着性阈值变化，可以另外生成织锦图。</p></li>
+</ul>
+
+
+</section>
+</section>
+
+
+<div id="quarto-appendix" class="default"><section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes"><h2 class="anchored quarto-appendix-heading">Footnotes</h2>
+
+<ol>
+<li id="fn1"><p>在本章中，我们在调用 <code>forest</code> 函数时总是附加 <code>meta::</code>。这不是绝对必要的，但在实践中可能有时有助于避免错误消息（以及相关的混淆），因为 <code>metafor</code> 包中还有另一个 <code>forest</code> 函数，我们在这里不介绍。<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
