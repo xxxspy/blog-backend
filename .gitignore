@@ -47,3 +47,6 @@ _converting
 /package-lock.json
 /db.json
 /package.json
+
+/.public
+/xxxspy.github.io
