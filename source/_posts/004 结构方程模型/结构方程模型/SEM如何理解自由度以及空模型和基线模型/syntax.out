@@ -1,0 +1,206 @@
+Mplus VERSION 8.3
+MUTHEN & MUTHEN
+09/19/2023  10:50 AM
+
+INPUT INSTRUCTIONS
+
+  Title: Degrees of freedom example - Empty model
+
+  Data:   File is data.txt;
+          Type is correlation;
+          nobservations are 350;
+
+
+  Variable: Names are X1 X2 X3 Y1 Y2;
+
+  Analysis:
+  Model:
+
+
+
+
+  Output: samp stand;
+
+
+
+*** WARNING in MODEL command
+  All variables are uncorrelated with all other variables in the model.
+  Check that this is what is intended.
+   1 WARNING(S) FOUND IN THE INPUT INSTRUCTIONS
+
+
+
+Degrees of freedom example - Empty model
+
+SUMMARY OF ANALYSIS
+
+Number of groups                                                 1
+Number of observations                                         350
+
+Number of dependent variables                                    5
+Number of independent variables                                  0
+Number of continuous latent variables                            0
+
+Observed dependent variables
+
+  Continuous
+   X1          X2          X3          Y1          Y2
+
+
+Estimator                                                       ML
+Information matrix                                        EXPECTED
+Maximum number of iterations                                  1000
+Convergence criterion                                    0.500D-04
+Maximum number of steepest descent iterations                   20
+
+Input data file(s)
+  data.txt
+
+Input data format  FREE
+
+
+SAMPLE STATISTICS
+
+
+     SAMPLE STATISTICS
+
+
+           Covariances/Correlations/Residual Correlations
+              X1            X2            X3            Y1            Y2
+              ________      ________      ________      ________      ________
+ X1             1.000
+ X2             0.100         1.000
+ X3             0.320         0.220         1.000
+ Y1             0.440         0.160         0.150         1.000
+ Y2             0.240         0.400         0.270         0.190         1.000
+
+
+THE MODEL ESTIMATION TERMINATED NORMALLY
+
+
+
+MODEL FIT INFORMATION
+
+Number of Free Parameters                        5
+
+Loglikelihood
+
+          H0 Value                       -2480.639
+          H1 Value                       -2368.751
+
+Information Criteria
+
+          Akaike (AIC)                    4971.278
+          Bayesian (BIC)                  4990.567
+          Sample-Size Adjusted BIC        4974.706
+            (n* = (n + 2) / 24)
+
+Chi-Square Test of Model Fit
+
+          Value                            223.777
+          Degrees of Freedom                    10
+          P-Value                           0.0000
+
+RMSEA (Root Mean Square Error Of Approximation)
+
+          Estimate                           0.247
+          90 Percent C.I.                    0.220  0.276
+          Probability RMSEA <= .05           0.000
+
+CFI/TLI
+
+          CFI                                0.000
+          TLI                                0.000
+
+Chi-Square Test of Model Fit for the Baseline Model
+
+          Value                            223.777
+          Degrees of Freedom                    10
+          P-Value                           0.0000
+
+SRMR (Standardized Root Mean Square Residual)
+
+          Value                              0.220
+
+
+
+MODEL RESULTS
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ Variances
+    X1                 0.997      0.075     13.229      0.000
+    X2                 0.997      0.075     13.229      0.000
+    X3                 0.997      0.075     13.229      0.000
+    Y1                 0.997      0.075     13.229      0.000
+    Y2                 0.997      0.075     13.229      0.000
+
+
+STANDARDIZED MODEL RESULTS
+
+
+STDYX Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ Variances
+    X1                 1.000      0.000    999.000    999.000
+    X2                 1.000      0.000    999.000    999.000
+    X3                 1.000      0.000    999.000    999.000
+    Y1                 1.000      0.000    999.000    999.000
+    Y2                 1.000      0.000    999.000    999.000
+
+
+STDY Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ Variances
+    X1                 1.000      0.000    999.000    999.000
+    X2                 1.000      0.000    999.000    999.000
+    X3                 1.000      0.000    999.000    999.000
+    Y1                 1.000      0.000    999.000    999.000
+    Y2                 1.000      0.000    999.000    999.000
+
+
+STD Standardization
+
+                                                    Two-Tailed
+                    Estimate       S.E.  Est./S.E.    P-Value
+
+ Variances
+    X1                 0.997      0.075     13.229      0.000
+    X2                 0.997      0.075     13.229      0.000
+    X3                 0.997      0.075     13.229      0.000
+    Y1                 0.997      0.075     13.229      0.000
+    Y2                 0.997      0.075     13.229      0.000
+
+
+R-SQUARE
+
+
+QUALITY OF NUMERICAL RESULTS
+
+     Condition Number for the Information Matrix              0.100E+01
+       (ratio of smallest to largest eigenvalue)
+
+
+     Beginning Time:  10:50:07
+        Ending Time:  10:50:07
+       Elapsed Time:  00:00:00
+
+
+
+MUTHEN & MUTHEN
+3463 Stoner Ave.
+Los Angeles, CA  90066
+
+Tel: (310) 391-9971
+Fax: (310) 391-8971
+Web: www.StatModel.com
+Support: Support@StatModel.com
+
+Copyright (c) 1998-2019 Muthen & Muthen

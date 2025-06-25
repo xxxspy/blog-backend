@@ -548,3 +548,8 @@ figure.highlight table tbody tr td pre .clojure .title {
 figure.highlight table tbody tr td pre .deletion {
   color: #dc322f;
 }
+
+
+section.main .post .content img {
+    display: inline!important;
+}

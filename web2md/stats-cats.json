@@ -1,0 +1,310 @@
+[
+    {
+        "category": "统计软件入门",
+        "category_en": "Introduction to Statistical Software",
+        "subcategories": [
+            {
+                "name": "SPSS基础",
+                "name_en": "Basics of SPSS"
+            },
+            {
+                "name": "R基础",
+                "name_en": "Basics of R"
+            },
+            {
+                "name": "Python基础",
+                "name_en": "Statistical Analysis with Python"
+            },
+            {
+                "name": "Stata基础",
+                "name_en": "Basics of Stata"
+            },
+            {
+                "name": "SAS基础",
+                "name_en": "Basics of SAS"
+            }
+        ]
+    },
+    {
+        "category": "描述性统计",
+        "category_en": "Descriptives",
+        "subcategories": [
+            {
+                "name": "描述性统计",
+                "name_en": "Descriptives"
+            }
+        ]
+    },
+    {
+        "category": "差异比较",
+        "category_en": "Comparison of Groups",
+        "subcategories": [
+            {
+                "name": "单样本t检验",
+                "name_en": "One-Sample t-Test"
+            },
+            {
+                "name": "独立样本t检验",
+                "name_en": "Independent Samples t-Test"
+            },
+            {
+                "name": "配对样本t检验",
+                "name_en": "Paired Samples t-Test"
+            },
+            {
+                "name": "方差分析（ANOVA）",
+                "name_en": "Analysis of Variance (ANOVA)"
+            },
+            {
+                "name": "重复测量方差分析",
+                "name_en": "Repeated Measures ANOVA"
+            },
+            {
+                "name": "协方差分析（ANCOVA）",
+                "name_en": "Analysis of Covariance (ANCOVA)"
+            },
+            {
+                "name": "多元方差分析（MANOVA）",
+                "name_en": "Multivariate Analysis of Variance (MANOVA)"
+            },
+            {
+                "name": "多元协方差分析（MANCOVA）",
+                "name_en": "Multivariate Analysis of Covariance (MANCOVA)"
+            },
+            {
+                "name": "非参数检验（Mann-Whitney U检验）",
+                "name_en": "Non-Parametric Test (Mann-Whitney U Test)"
+            },
+            {
+                "name": "非参数检验（Wilcoxon符号秩检验）",
+                "name_en": "Non-Parametric Test (Wilcoxon Signed-Rank Test)"
+            },
+            {
+                "name": "非参数检验（Kruskal-Wallis检验）",
+                "name_en": "Non-Parametric Test (Kruskal-Wallis Test)"
+            },
+            {
+                "name": "非参数检验（Friedman检验）",
+                "name_en": "Non-Parametric Test (Friedman Test)"
+            },
+            {
+                "name": "卡方检验",
+                "name_en": "Chi-Square Test"
+            }
+        ]
+    },
+    {
+        "category": "信效度分析",
+        "category_en": "Reliability and Validity Analysis",
+        "subcategories": [
+            {
+                "name": "克隆巴赫α信度",
+                "name_en": "Cronbach's Alpha Reliability"
+            },
+            {
+                "name": "探索性因子分析",
+                "name_en": "Exploratory Factor Analysis (EFA)"
+            },
+            {
+                "name": "验证性因子分析",
+                "name_en": "Confirmatory Factor Analysis (CFA)"
+            }
+        ]
+    },
+    {
+        "category": "相关分析",
+        "category_en": "Correlation Analysis",
+        "subcategories": [
+            {
+                "name": "皮尔逊相关",
+                "name_en": "Pearson Correlation"
+            },
+            {
+                "name": "斯皮尔曼相关",
+                "name_en": "Spearman Correlation"
+            },
+            {
+                "name": "肯德尔相关",
+                "name_en": "Kendall Correlation"
+            }
+        ]
+    },
+    {
+        "category": "回归分析",
+        "category_en": "Regression Analysis",
+        "subcategories": [
+            {
+                "name": "线性回归",
+                "name_en": "Linear Regression"
+            },
+            {
+                "name": "非线性回归",
+                "name_en": "Non-linear Regression"
+            },
+            {
+                "name": "广义线性模型",
+                "name_en": "Generalized Linear Models (GLM)"
+            },
+            {
+                "name": "稳健回归",
+                "name_en": "Robust Regression"
+            },
+            {
+                "name": "分位数回归",
+                "name_en": "Quantile Regression"
+            }
+        ]
+    },
+    {
+        "category": "中介调节",
+        "category_en": "Mediation and Moderation",
+        "subcategories": [
+            {
+                "name": "中介分析",
+                "name_en": "Mediation Analysis"
+            },
+            {
+                "name": "调节分析",
+                "name_en": "Moderation Analysis"
+            },
+            {
+                "name": "中介调节模型",
+                "name_en": "Mediated Moderation Models"
+            },
+            {
+                "name": "调节中介模型",
+                "name_en": "Moderated Mediation Models"
+            }
+        ]
+    },
+    {
+        "category": "生存分析",
+        "category_en": "Survival Analysis",
+        "subcategories": [
+            {
+                "name": "Kaplan-Meier方法",
+                "name_en": "Kaplan-Meier Method"
+            },
+            {
+                "name": "Cox比例风险模型",
+                "name_en": "Cox Proportional Hazards Model"
+            },
+            {
+                "name": "参数生存模型",
+                "name_en": "Parametric Survival Models"
+            },
+            {
+                "name": "竞争风险模型",
+                "name_en": "Competing Risks Model"
+            }
+        ]
+    },
+    {
+        "category": "时间序列分析",
+        "category_en": "Time Series Analysis",
+        "subcategories": [
+            {
+                "name": "平稳序列模型",
+                "name_en": "Stationary Time Series Models"
+            },
+            {
+                "name": "非平稳序列模型",
+                "name_en": "Non-Stationary Time Series Models"
+            },
+            {
+                "name": "向量自回归模型",
+                "name_en": "Vector Autoregression (VAR)"
+            },
+            {
+                "name": "ARCH/GARCH模型",
+                "name_en": "ARCH/GARCH Models"
+            }
+        ]
+    },
+    {
+        "category": "计量经济学统计方法",
+        "category_en": "Econometric Statistical Methods",
+        "subcategories": [
+            {
+                "name": "面板数据分析",
+                "name_en": "Panel Data Analysis"
+            },
+            {
+                "name": "工具变量法",
+                "name_en": "Instrumental Variables (IV)"
+            },
+            {
+                "name": "联立方程模型",
+                "name_en": "Simultaneous Equation Models"
+            },
+            {
+                "name": "断点回归设计",
+                "name_en": "Regression Discontinuity Design (RDD)"
+            },
+            {
+                "name": "倾向得分匹配",
+                "name_en": "Propensity Score Matching (PSM)"
+            }
+        ]
+    },
+    {
+        "category": "结构方程模型",
+        "category_en": "Structural Equation Modeling Related Methods",
+        "subcategories": [
+            {
+                "name": "因子分析",
+                "name_en": "Factor Analysis"
+            },
+            {
+                "name": "路径分析",
+                "name_en": "Path Analysis"
+            },
+            {
+                "name": "结构方程模型",
+                "name_en": "Structural Equation Modeling (SEM)"
+            },
+            {
+                "name": "主客体互依模型",
+                "name_en": "Subject-Object Interdependence Models"
+            },
+            {
+                "name": "多水平结构方程模型",
+                "name_en": "Multilevel Structural Equation Modeling (MSEM)"
+            },
+            {
+                "name": "潜变量增长模型",
+                "name_en": "Latent Growth Modeling (LGM)"
+            },
+            {
+                "name": "潜类别分析",
+                "name_en": "Latent Class Analysis (LCA)"
+            },
+            {
+                "name": "潜剖面分析",
+                "name_en": "Latent Profile Analysis (LPA)"
+            },
+            {
+                "name": "项目反应理论",
+                "name_en": "Item Response Theory (IRT)"
+            }
+        ]
+    },
+    {
+        "category": "多水平分析方法",
+        "category_en": "Multilevel Analysis Methods",
+        "subcategories": [
+            {
+                "name": "层次线性模型",
+                "name_en": "Hierarchical Linear Models (HLM)"
+            },
+            {
+                "name": "混合效应模型",
+                "name_en": "Mixed-Effects Models"
+            },
+            {
+                "name": "交叉分类模型",
+                "name_en": "Cross-Classified Models"
+            }
+        ]
+    }
+]

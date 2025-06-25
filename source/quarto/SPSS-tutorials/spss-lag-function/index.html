@@ -1,0 +1,2605 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.551">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>SPSS 终极教程</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar docked nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">SPSS 终极教程</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="https://mlln.cn"> 
+<span class="menu-text">网站首页</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">SPSS终极教程</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../download.html"> 
+<span class="menu-text">数据文件下载</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../about.html"> 
+<span class="menu-text">关于我们</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../zixun.html"> 
+<span class="menu-text">统计咨询</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+          <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation docked overflow-auto">
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true">
+ <span class="menu-text">基础入门</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false">
+ <span class="menu-text">SPSS 简介</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-2" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-2" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-what-is-it/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 是什么？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../basics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 初学者教程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false">
+ <span class="menu-text">SPSS 界面和基本操作</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-3" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-3" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-data-editor-window/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 数据编辑器窗口</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-syntax-editor-window/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 语法简介</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../overview-all-spss-commands/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 所有命令的快速概览</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-command-types/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 命令类型</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-procedures/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 过程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-keywords/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 关键字</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-keyboard-shortcuts/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 键盘快捷键</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-toolbar-building/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 工具栏构建</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-toolbar-tool-building/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 工具栏工具构建</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true">
+ <span class="menu-text">数据准备与管理</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-4" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-4" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false">
+ <span class="menu-text">数据导入与导出</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-5" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-5" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../open-excel-file-in-spss/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">在 SPSS 中打开 Excel 文件</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-open-csv-data-file/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS – 打开 CSV 数据文件</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-opening-data-with-syntax/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS – 使用语法打开数据</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false">
+ <span class="menu-text">变量属性设置</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-6" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-6" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../changing-variable-properties-1-introduction/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">更改变量属性 1 – 简介</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../changing-variable-properties-2-names/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">更改变量属性 2 – 名称</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../changing-variable-properties-3-type/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">更改变量属性 3 – 类型</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../changing-variable-properties-4-width-and-decimals/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">更改变量属性 4 – 宽度和小数位数</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../changing-variable-properties-5-variable-and-value-labels/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS – 使用语法设置变量标签</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../changing-variable-properties-6-missing-values-and-more/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS – 如何从语法中设置缺失值？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-variable-types-and-formats/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 变量类型和格式</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../measurement-levels/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">测量水平 – 是什么以及为什么？</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false">
+ <span class="menu-text">数据清洗与转换</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-7" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-7" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-data-preparation-1-overview-main-steps/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 数据准备 1 – 主要步骤概述</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-data-preparation-2-initial-data-checks/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 数据准备 2 – 初始数据检查</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-data-preparation-3-inspect-variable-types/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 数据准备 3 – 检查变量类型</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-data-preparation-4-specify-missing-values/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 数据准备 4 – 指定缺失值</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-data-preparation-5-inspect-variables/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 数据准备 5 – 检查变量</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-data-preparation-6-inspect-cases/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 数据准备 6 – 检查个案</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-missing-values/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 缺失值教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-missing-values-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 缺失值教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-find-and-exclude-outliers/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">如何在 SPSS 中查找和排除异常值？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../recode/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS RECODE – 简单教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-recode-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS RECODE – 简单教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-autorecode-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS AUTORECODE – 快速教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-alter-type-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS ALTER TYPE – 简单教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-convert-string-to-numeric-variable/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">如何将字符串变量转换为数值变量？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../normalizing-variable-transformations/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">规范化变量转换 – 6 个简单选项</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-transformation-commands/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 转换命令 – 快速介绍</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false">
+ <span class="menu-text">数据操作</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-8" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-8" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../compute-a-is-b-is-c/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">计算 A = B = C</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-compute-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS COMPUTE – 简单教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../if/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS IF – 快速教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-if-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS IF – 快速教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-do-if-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS DO IF – 简单教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-select-if-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS SELECT IF – 教程和示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-filter-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS FILTER – 快速和简单教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-split-file-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS SPLIT FILE – 快速教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-weight-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS WEIGHT 命令</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-aggregate-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS AGGREGATE 命令</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../disaggregate-data/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">分解数据</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../match-files/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS MATCH FILES – 快速教程和示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-match-files-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS MATCH FILES – 快速教程和示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-add-files-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS ADD FILES 命令</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-varstocases-what-and-why/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS VARSTOCASES – 是什么以及为什么？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-rank-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS RANK 命令</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-loop-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS LOOP – 快速教程和示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-do-repeat-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS DO REPEAT – 简单教程和示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-vector-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS VECTOR – 快速教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-temporary-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS TEMPORARY 命令</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false">
+ <span class="menu-text">日期和时间变量</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-9" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-9" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../date-variable/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 日期变量基础</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../date-variables/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 日期变量教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-date-variables-basics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 日期变量基础</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-date-variables-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 日期计算 – 快速教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-datetime-variables-basics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 日期时间变量基础</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-datetime-variables-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 日期时间变量教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../time-variable/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 时间变量基础</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../time-variables/index.md" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 时间变量基础</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-time-variables-basics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 时间变量基础</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-time-variables-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 时间变量教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../convert-numeric-to-date-variable/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">将数值转换为日期变量</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../convert-string-date-to-spss-date-variable/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">将字符串日期转换为 SPSS 日期变量</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../convert-string-to-date-variable/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS – 将字符串转换为日期变量</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../extract-a-year-from-a-date/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">从日期中提取年份</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false">
+ <span class="menu-text">字符串变量</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-10" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-10" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../string-variables/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">字符串变量</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-string-variables-basics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 字符串变量基础</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-string-variables-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 字符串变量教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-split-string-variable-into-separate-variables/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS – 拆分字符串变量</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../split-string-variable-into-components/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS – 拆分字符串变量</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-extract-digits-from-string/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">从字符串变量中提取数字</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true">
+ <span class="menu-text">描述性统计</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-11" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-11" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="false">
+ <span class="menu-text">基本概念</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-12" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-12" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../frequency-distribution-what-is-it/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">什么是频率分布？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../descriptive-statistics-one-metric-variable/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">描述性统计 – 一个度量变量</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../median/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">中位数 – 简单教程和示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../mode-in-statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">众数（统计）– 简单教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../percentile-what-is-it/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">百分位数 – 快速介绍和示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../variance-what-is-it/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">方差 – 是什么？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../standard-deviation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">标准差 – 是什么？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../standard-deviation-what-is-it/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">标准差 – 是什么？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../skewness/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">偏度 – 是什么以及为什么？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kurtosis/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">峰度 – 快速介绍</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="false">
+ <span class="menu-text">SPSS 命令</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-13" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-13" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-frequencies-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS FREQUENCIES – 快速教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-descriptives-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS DESCRIPTIVES – 快速教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-means-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS MEANS – 按类别统计</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="true">
+ <span class="menu-text">推论统计</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-14" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-14" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="false">
+ <span class="menu-text">基本概念</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-15" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-15" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../inferential-statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">推论统计 – 快速介绍</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../null-hypothesis/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">零假设 – 简单介绍</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../statistical-significance/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">“统计显著性”是什么意思？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../confidence-intervals/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">置信区间简单介绍</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../sampling-distribution-what-is-it/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">抽样分布 – 是什么？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../power-in-statistics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">功效 – 快速介绍</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../effect-size/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">效应量 – 快速指南</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" aria-expanded="false">
+ <span class="menu-text">T 检验</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-16" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-16" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../t-test/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS T 检验教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../one-sample-t-test/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">单样本 T 检验 – 快速教程和示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-one-sample-t-test/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 单样本 T 检验教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../independent-samples-t-test/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">独立样本 T 检验 – 快速介绍</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-independent-samples-t-test/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 独立样本 T 检验</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-paired-samples-t-test/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 配对样本 T 检验教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../cohens-d/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Cohen’s D – T 检验的效应量</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" aria-expanded="false">
+ <span class="menu-text">方差分析 (ANOVA)</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-17" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-17" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../anova/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS ANOVA 教程 – 概述</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../anova-what-is-it/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">ANOVA – 超级简单的介绍</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-one-way-anova/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 单因素 ANOVA 教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-one-way-anova-with-post-hoc-tests-example/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS ANOVA 与事后检验</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-two-way-anova-basics-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 双因素 ANOVA – 基础教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-two-way-anova-interaction-significant/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 具有交互作用的双因素 ANOVA 教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../repeated-measures-anova/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">重复测量 ANOVA – 简单介绍</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-repeated-measures-anova/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 重复测量 ANOVA 教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-repeated-measures-anova-2-within-subjects-factors/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS RM ANOVA – 2 个被试内因子</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-repeated-measures-anova-example-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 重复测量 ANOVA II</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-ancova-analysis-of-covariance/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS ANCOVA – 初学者教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-partial-eta-squared/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">如何从 SPSS 中获取（部分）Eta 平方？</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="false">
+ <span class="menu-text">卡方检验</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-18" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-18" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chi-square-test/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 卡方检验教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chi-square-goodness-of-fit-test/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">卡方拟合优度检验 – 简单教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-one-sample-chi-square-test/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 单样本卡方检验</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../chi-square-independence-test/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">卡方独立性检验 – 是什么以及为什么？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-chi-square-independence-test/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 卡方独立性检验教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-chi-square-test-with-pairwise-z-tests/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 卡方检验与成对 Z 检验</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" aria-expanded="false">
+ <span class="menu-text">非参数检验</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-19" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-19" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../nonparametric-tests/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 非参数检验概述</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kruskal-wallis-test/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kruskal-Wallis 检验 – 简单教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kruskal-wallis-test-in-spss/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">如何在 SPSS 中运行 Kruskal-Wallis 检验？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-kruskal-wallis-test-simple-tutorial-with-example/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">如何在 SPSS 中运行 Kruskal-Wallis 检验？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-mann-whitney-test-simple-example/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS Mann-Whitney 检验教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-friedman-test-simple-example/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS Friedman 检验教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-cochran-q-test/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS Cochran Q 检验</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-wilcoxon-signed-ranks-test-simple-example/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS Wilcoxon 符号秩检验 – 简单示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-sign-test-for-one-median-simple-example/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 单个中位数的符号检验 – 简单示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-sign-test-for-two-medians-simple-example/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 两个中位数的符号检验 – 简单示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-median-test-for-2-independent-medians-simple-example/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 2 个独立中位数的中位数检验</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-mcnemar-test/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS McNemar 检验</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" aria-expanded="false">
+ <span class="menu-text">相关分析</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-20" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-20" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../correlation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 相关教程概述</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../correlation-coefficient-what-is-it/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pearson 相关性 – 快速介绍</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../covariance-what-is-it/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">协方差 – 快速介绍</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../pearson-correlation-coefficient/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Pearson 相关性 – 快速介绍</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spearman-rank-correlation/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Spearman 等级相关 – 简单教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kendalls-tau/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Kendall’s Tau – 简单介绍</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../kendalls-tau-in-spss/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 中的 Kendall’s Tau – 2 个简单的选项</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-correlation-analysis/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 相关分析教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-correlations-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS CORRELATIONS – 初学者教程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" aria-expanded="false">
+ <span class="menu-text">回归分析</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-21" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-21" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../regression/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 回归教程 – 概述</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../simple-linear-regression/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">简单线性回归 – 快速介绍</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-simple-linear-regression-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 简单线性回归教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../multiple-linear-regression/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">多元线性回归 – 是什么以及为什么？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../linear-regression-in-spss-example/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 多元线性回归示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-multiple-linear-regression-example/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 多元线性回归示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-dummy-variable-regression-examples/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 虚拟变量回归教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-hierarchical-regression-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 分层回归教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-stepwise-regression-example-2/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 逐步回归教程 II</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../logistic-regression/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Logistic 回归 – 简单介绍</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" aria-expanded="false">
+ <span class="menu-text">因子分析</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-22" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-22" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-factor-analysis-tutorials/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 因子分析教程概述</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-factor-analysis-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 因子分析 – 初学者教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-factor-analysis-intermediate-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 因子分析 – 中级教程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" aria-expanded="true">
+ <span class="menu-text">数据可视化</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-23" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-23" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" aria-expanded="false">
+ <span class="menu-text">图表基础</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-24" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-24" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../charts/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 图表教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../histogram-what-is-it/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">什么是直方图？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../boxplot-what-is-it/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">箱线图 – 初学者教程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" aria-expanded="false">
+ <span class="menu-text">图表类型</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-25" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-25" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-bar-charts-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 条形图教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-scatterplot-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 散点图教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../creating-histograms-in-spss/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">在 SPSS 中创建直方图</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../creating-boxplots-in-spss/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">在 SPSS 中创建箱线图 – 快速指南</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" aria-expanded="false">
+ <span class="menu-text">图表定制</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-26" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-26" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-chart-templates/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 图表模板教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-stacked-bar-charts-percentages/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS – 堆积条形图百分比</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-create-bar-chart-means-by-category/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">创建按类别平均值的条形图</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-clustered-bar-chart-multiple-variables/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">多个变量的聚类条形图</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" aria-expanded="true">
+ <span class="menu-text">SPSS 语法</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-27" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-27" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" aria-expanded="false">
+ <span class="menu-text">语法基础</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-28" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-28" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../syntax/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 语法介绍</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-syntax/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 语法介绍</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-syntax-beginners-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 语法初学者教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-syntax-six-reasons-you-should-use-it/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 语法 – 应该使用它的六个理由</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" aria-expanded="false">
+ <span class="menu-text">常用语法命令</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-29" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-29" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-formats-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS FORMATS – 设置变量的显示格式</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-recode-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS RECODE – 简单教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-compute-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS COMPUTE – 简单教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-if-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS IF – 快速教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-select-if-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS SELECT IF – 教程和示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-filter-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS FILTER – 快速和简单教程</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-split-file-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS SPLIT FILE – 快速教程</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" aria-expanded="false">
+ <span class="menu-text">语法示例</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-30" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-30" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-syntax-examples/spss-autorecode-save-and-apply-template-going-bad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS AUTORECODE - 保存并应用模板失败</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-syntax-examples/spss-cumulative-percentages-in-bar-chart-issue.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 条形图中的累积百分比问题</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-syntax-examples/spss-extract-weekdays-from-date-variable.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 从日期变量中提取工作日</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-syntax-examples/spss-left-pad-string-values-with-leading-zeroes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS - 用前导零左填充字符串值</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-syntax-examples/spss-scatterplot-case-labels-not-working.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 散点图个案标签不起作用</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-syntax-examples/spss-set-chart-sizes-with-syntax-tool.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 使用语法工具设置图表大小</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-syntax-examples/spss-set-unicode-on-or-off.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 打开或关闭 Unicode</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" aria-expanded="true">
+ <span class="menu-text">SPSS 和 Python 整合</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-31" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-31" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-32" aria-expanded="false">
+ <span class="menu-text">Python 基础</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-32" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-32" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python-for-spss-what-is-it/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 的 Python – 是什么？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../introducing-python-4-installing-and-testing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 的 Python – 如何使用？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python-for-spss-installing-and-testing/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 的 Python – 如何使用？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python-for-spss-how-to-use-it/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 的 Python – 如何使用？</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-python-basics/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 与 Python – 基础</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-33" aria-expanded="false">
+ <span class="menu-text">Python 语法</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-33" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-33" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../python-and-spss-syntax-main-differences/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python 和 SPSS 语法的主要区别</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../conditions-and-loops-in-python/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python 中的条件和循环</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../overview-python-object-types/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python 对象类型快速概述</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../overview-python-operators/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python 运算符 – 快速概述和示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../overview-python-string-methods/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python 字符串方法概述</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-python-string-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python 字符串方法概述</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-34" aria-expanded="false">
+ <span class="menu-text">Python 和 SPSS 交互</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-34" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-34" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-with-python-looping-over-scatterplots/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 与 Python – 循环遍历散点图</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../looping-over-spss-commands-with-python/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">使用 Python 循环遍历 SPSS 命令</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../process-multiple-spss-data-files-with-python/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">使用 Python 处理多个 SPSS 数据文件</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-batch-process-files-with-python/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS – 使用 Python 批量处理文件</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../set-spss-variable-names-as-labels-with-python/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">使用 Python 将 SPSS 变量名称设置为标签</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-change-value-labels-with-python/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS – 使用 Python 编辑值标签</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-edit-value-labels-with-python/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS – 使用 Python 编辑值标签</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-cloning-variables-with-python/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS – 使用 Python 克隆变量</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-delete-selection-of-variables-with-python/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS – 使用 Python 删除变量选择</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-create-new-files-with-python/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS – 使用 Python 创建新文件</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-python-text-replacement-tutorial/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Python 文本替换教程和示例</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-35" aria-expanded="true">
+ <span class="menu-text">高级主题</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-35" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-35" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-36" aria-expanded="false">
+ <span class="menu-text">复杂数据处理</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-36" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-36" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-oms-tutorial-creating-data-from-output/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS OMS 教程 – 从输出创建数据</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-37" aria-expanded="false">
+ <span class="menu-text">自定义工具</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-37" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-37" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-custom-dialogs/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 自定义对话框 – 快速介绍</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-38" aria-expanded="false">
+ <span class="menu-text">SPSS 输出</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-38" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-38" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-output/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 输出 – 基础知识、提示和技巧</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-output-modify-command/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS OUTPUT MODIFY – 教程和示例</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../set-decimals-for-output/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">设置输出的小数位数</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-set-decimals-output-tables/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 设置输出表格的小数位数</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-39" aria-expanded="false">
+ <span class="menu-text">APA 格式报告</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-39" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-39" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-apa-contingency-tables/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">在 SPSS 中创建 APA 样式的列联表</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-apa-format-descriptives-tables/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">在 SPSS 中创建 APA 样式的描述性统计表</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-apa-frequency-tables/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">在 SPSS 中创建 APA 样式的频率表</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-correlations-apa-format/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">创建 APA 样式的 SPSS 相关表</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-40" aria-expanded="true">
+ <span class="menu-text">附录</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-40" aria-expanded="true" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-40" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-41" aria-expanded="false">
+ <span class="menu-text">术语表</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-41" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-41" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../spss-glossary/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">简明 SPSS 词典 – A 到 Z</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../statistics-glossary/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">简明统计词典 – A 到 Z</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+          <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-42" aria-expanded="false">
+ <span class="menu-text">其他</span></a>
+          <a class="sidebar-item-toggle text-start collapsed" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-42" aria-expanded="false" aria-label="Toggle section">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-42" class="collapse list-unstyled sidebar-section depth2 ">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../about-us/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 教程 | 关于我们</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../disclaimer/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">SPSS 教程 | 免责声明</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+      </ul>
+  </li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#spss-lag-函数用途与详解" id="toc-spss-lag-函数用途与详解" class="nav-link active" data-scroll-target="#spss-lag-函数用途与详解">SPSS LAG 函数：用途与详解</a>
+  <ul class="collapse">
+  <li><a href="#spss-lag---基础示例-1" id="toc-spss-lag---基础示例-1" class="nav-link" data-scroll-target="#spss-lag---基础示例-1">SPSS LAG - 基础示例 1</a></li>
+  <li><a href="#spss-lag-语法示例-1" id="toc-spss-lag-语法示例-1" class="nav-link" data-scroll-target="#spss-lag-语法示例-1">SPSS LAG 语法示例 1</a></li>
+  <li><a href="#spss-lag---创建计数器" id="toc-spss-lag---创建计数器" class="nav-link" data-scroll-target="#spss-lag---创建计数器">SPSS LAG - 创建计数器</a></li>
+  <li><a href="#spss-长数据格式-long-data-format" id="toc-spss-长数据格式-long-data-format" class="nav-link" data-scroll-target="#spss-长数据格式-long-data-format">SPSS 长数据格式 (Long Data Format)</a></li>
+  <li><a href="#spss-lag-示例---订单之间的天数" id="toc-spss-lag-示例---订单之间的天数" class="nav-link" data-scroll-target="#spss-lag-示例---订单之间的天数">SPSS LAG 示例 - 订单之间的天数</a></li>
+  <li><a href="#spss-lag-语法示例-2" id="toc-spss-lag-语法示例-2" class="nav-link" data-scroll-target="#spss-lag-语法示例-2">SPSS LAG 语法示例 2</a></li>
+  <li><a href="#spss-lag-示例---每个客户的累计订单" id="toc-spss-lag-示例---每个客户的累计订单" class="nav-link" data-scroll-target="#spss-lag-示例---每个客户的累计订单">SPSS LAG 示例 - 每个客户的累计订单</a></li>
+  <li><a href="#spss-lag-语法示例-3" id="toc-spss-lag-语法示例-3" class="nav-link" data-scroll-target="#spss-lag-语法示例-3">SPSS LAG 语法示例 3</a></li>
+  <li><a href="#spss-lag-示例---累计支出" id="toc-spss-lag-示例---累计支出" class="nav-link" data-scroll-target="#spss-lag-示例---累计支出">SPSS LAG 示例 - 累计支出</a></li>
+  <li><a href="#spss-lag-语法示例-4" id="toc-spss-lag-语法示例-4" class="nav-link" data-scroll-target="#spss-lag-语法示例-4">SPSS LAG 语法示例 4</a></li>
+  <li><a href="#注意事项" id="toc-注意事项" class="nav-link" data-scroll-target="#注意事项">注意事项</a></li>
+  <li><a href="#从下一个个案获取值" id="toc-从下一个个案获取值" class="nav-link" data-scroll-target="#从下一个个案获取值">从下一个个案获取值</a></li>
+  </ul></li>
+  <li><a href="#其他示例" id="toc-其他示例" class="nav-link" data-scroll-target="#其他示例">其他示例</a>
+  <ul class="collapse">
+  <li><a href="#spss-lag---识别会话" id="toc-spss-lag---识别会话" class="nav-link" data-scroll-target="#spss-lag---识别会话">SPSS Lag - 识别会话</a></li>
+  <li><a href="#spss-lag-语法示例-5" id="toc-spss-lag-语法示例-5" class="nav-link" data-scroll-target="#spss-lag-语法示例-5">SPSS LAG 语法示例 5</a></li>
+  <li><a href="#spss-lag---统计家庭中的选票" id="toc-spss-lag---统计家庭中的选票" class="nav-link" data-scroll-target="#spss-lag---统计家庭中的选票">SPSS Lag - 统计家庭中的选票</a></li>
+  <li><a href="#spss-lag-语法示例-6" id="toc-spss-lag-语法示例-6" class="nav-link" data-scroll-target="#spss-lag-语法示例-6">SPSS LAG 语法示例 6</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+
+
+
+<section id="spss-lag-函数用途与详解" class="level1">
+<h1>SPSS LAG 函数：用途与详解</h1>
+<p>在 <a href="..\spss-what-is-it">SPSS</a> 中，<code>LAG</code> 函数用于返回前一个个案的值。它主要用于每个受访者有多行数据的数据集。在这种情况下，它对于计算累计总和或计数非常有用。</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="./4aa0a87858d009794c084f5d845f49.png" class="img-fluid figure-img"></p>
+<figcaption>SPSS Lag Function</figcaption>
+</figure>
+</div>
+<section id="spss-lag---基础示例-1" class="level2">
+<h2 class="anchored" data-anchor-id="spss-lag---基础示例-1">SPSS LAG - 基础示例 1</h2>
+<p>使用 <code>LAG</code> 最基本的方法是 <code>COMPUTE V1 = LAG(V2)</code>。 这将简单地计算一个（可能是新的）变量 <code>V1</code>，其中包含 <code>V2</code> 上前一个个案的值。第一个屏幕截图说明了这一点。 它是运行以下 <a href="..\spss-syntax">语法</a> 的结果。由于第一个个案没有前一个个案，因此新变量上会有一个 <a href="..\spss-missing-values-tutorial">系统缺失值</a> 。</p>
+</section>
+<section id="spss-lag-语法示例-1" class="level2">
+<h2 class="anchored" data-anchor-id="spss-lag-语法示例-1">SPSS LAG 语法示例 1</h2>
+<pre class="spss"><code>***1. 创建数据.
+**
+data list free / id.
+begin data
+1 2 2 3 3 3 4 4 4 4
+end data.
+
+***2. 查找前一个个案的 id 值.
+**
+compute previous_id = lag(id).
+exe.</code></pre>
+</section>
+<section id="spss-lag---创建计数器" class="level2">
+<h2 class="anchored" data-anchor-id="spss-lag---创建计数器">SPSS LAG - 创建计数器</h2>
+<p>说明 <code>LAG</code> 如何工作的一个好方法是创建一个计数器变量。 对于每个 <code>id</code> 值，我们将创建一个变量，指示其数据的第 <em>n</em> 行。 我们将首先使用 <code>[IF](/spss-if-command)</code> 命令识别每个 id 的第一个记录，如下面的语法所示。 屏幕截图说明了它的工作原理。</p>
+<pre class="spss"><code>***对于每个 id 的第一行，counter = 1.
+**
+if $casenum = 1 or id ne lag(id) counter = 1.
+exe.</code></pre>
+<p><img src="./63004cfe74ca457515ea2e97d2c6c8.png" class="img-fluid" alt="SPSS LAG Function Example"> 识别每个 id 值的首行</p>
+<p>接下来，我们将完成我们的计数器。 这里需要理解的重要一点是，<strong>当 SPSS 执行数据转换时，个案会从上到下按顺序处理</strong>。 也就是说，SPSS 将从 <code>$casenum = 1</code> 开始，然后逐个个案地向下处理。 因此，在此过程中由 <code>LAG</code> 创建的值可能会被下一个个案使用。 下面的屏幕截图说明了 SPSS 处理以下语法时发生的三个步骤。 由于这些步骤通常需要几毫秒才能完成，因此您实际上看不到它们在正常情况下发生。</p>
+<pre class="spss"><code>***2. 对于每个后续行，将计数器加 1.
+**
+if sysmis(counter) counter = lag(counter) + 1.
+exe.</code></pre>
+<p><img src="./b0e9d78e4ecd988722db7efc926225.png" class="img-fluid" alt="SPSS LAG Function Result"> SPSS 从上到下按顺序处理个案</p>
+</section>
+<section id="spss-长数据格式-long-data-format" class="level2">
+<h2 class="anchored" data-anchor-id="spss-长数据格式-long-data-format">SPSS 长数据格式 (Long Data Format)</h2>
+<p><img src="./853b803722c0ee3411b77b4a2f8377.png" class="img-fluid" alt="SPSS Long Data Format"> SPSS 长数据格式。 注意每个客户可以有一个或多个记录。</p>
+<p>我们将继续使用实际示例，这些示例的级别会逐渐提高。 假设我们有以记录形式保存订单的数据，如上图所示。 请注意，每个客户可以有一行或多行数据。 这种格式通常称为 <strong>长数据格式 (long data format)</strong>。 与此相反，每个客户的数据位于一行上，称为 <em>宽数据格式 (wide data format)</em>。 关于这些数据的相关问题可能是：</p>
+<ol type="1">
+<li>客户多久下一次订单？ 或者，一个客户的订单之间间隔多少天？</li>
+<li>平均每个客户下多少订单？</li>
+<li>客户花费多少钱？</li>
+</ol>
+<p>我们将使用 <code>LAG</code> 函数来解答这些问题。</p>
+</section>
+<section id="spss-lag-示例---订单之间的天数" class="level2">
+<h2 class="anchored" data-anchor-id="spss-lag-示例---订单之间的天数">SPSS LAG 示例 - 订单之间的天数</h2>
+<p>运行以下语法将创建上一个屏幕截图中的数据，并找到一个客户的订单之间的天数。 请注意，必须首先以有意义的方式对记录进行排序。 接下来，<code>if customer_id = lag(customer_id)</code> 检查每个记录是否 <em>不是</em> 给定客户的第一个记录。 仅对于这些记录，才会计算 <code>days_between_orders</code>。</p>
+</section>
+<section id="spss-lag-语法示例-2" class="level2">
+<h2 class="anchored" data-anchor-id="spss-lag-语法示例-2">SPSS LAG 语法示例 2</h2>
+<pre class="spss"><code>***1. 创建测试数据.
+**
+data list free / order_id (f2.0) order_date(edate10) customer_id invoice_amount (2f3.0).
+begin data
+1 26.09.2011 8 100 2 30.10.2011 8 100 3 28.12.2011 3 100 4 21.01.2012 12 150 5 26.01.2012 3 110
+6 31.01.2012 7 140 7 16.02.2012 12 190 8 22.02.2012 12 30 9 23.02.2012 3 150 10 04.04.2012 12 50
+end data.
+
+***2. 按 customer_id 和 order_date 对记录进行排序.
+**
+sort cases customer_id order_date.
+
+***3. 计算单个客户的订单之间的天数.
+**
+if customer_id = lag(customer_id) days_between_orders = datediff(order_date,lag(order_date),'days').
+exe.</code></pre>
+</section>
+<section id="spss-lag-示例---每个客户的累计订单" class="level2">
+<h2 class="anchored" data-anchor-id="spss-lag-示例---每个客户的累计订单">SPSS LAG 示例 - 每个客户的累计订单</h2>
+<p>现在，我们将创建一个每个客户的累计订单计数。 我们将首先将这个新变量设置为每个客户的第一个记录的 <code>1</code>。 这是通过 <code>if $casenum = 1 or lag(customer_id) ne customer_id</code> 选择的。 接下来，如果每个连续记录属于同一客户，我们将对其加 <code>1</code>。 此条件由 <code>if customer_id = lag(customer_id)</code> 暗示。 请注意，我们利用了 <code>SUM(SYSTEM MISSING,X) = X</code> 这一事实。 我们不能在此处使用 <code>+</code> 运算符，因为 <code>SYSTEM MISSING + X = SYSTEM MISSING</code>。</p>
+</section>
+<section id="spss-lag-语法示例-3" class="level2">
+<h2 class="anchored" data-anchor-id="spss-lag-语法示例-3">SPSS LAG 语法示例 3</h2>
+<pre class="spss"><code>***1. 对于每个 customer_id 的第一条记录，cumulative_orders = 1.
+**
+if $casenum = 1 or lag(customer_id) ne customer_id cumulative_orders = 1.
+exe.
+
+***2. 对于每个连续记录，将 cumulative_orders 加 1.
+**
+if customer_id = lag(customer_id) cumulative_orders = sum(lag(cumulative_orders),1).
+exe.</code></pre>
+</section>
+<section id="spss-lag-示例---累计支出" class="level2">
+<h2 class="anchored" data-anchor-id="spss-lag-示例---累计支出">SPSS LAG 示例 - 累计支出</h2>
+<p>最后，我们将创建累计支出。 这与前面的示例非常相似。 我们现在不是将 <code>1</code> 添加到每个连续记录，而是添加 <code>invoice_amount</code>。</p>
+</section>
+<section id="spss-lag-语法示例-4" class="level2">
+<h2 class="anchored" data-anchor-id="spss-lag-语法示例-4">SPSS LAG 语法示例 4</h2>
+<pre class="spss"><code>***1. 对于每个 customer_id 的第一条记录，cumulative_amount = invoice_amount.
+**
+if $casenum = 1 or lag(customer_id) ne customer_id cumulative_amount = invoice_amount.
+exe.
+
+***2. 第二条到第 n 条记录的累计金额.
+**
+if customer_id = lag(customer_id) cumulative_amount = sum(invoice_amount,lag(cumulative_amount)).
+exe.</code></pre>
+<p><img src="./ab55c9284e40a977d1aa4558ebbe21.png" class="img-fluid" alt="SPSS Lag Function Result"> 原始变量和使用 LAG 创建的变量</p>
+</section>
+<section id="注意事项" class="level2">
+<h2 class="anchored" data-anchor-id="注意事项">注意事项</h2>
+<ul>
+<li>根据经验，<strong>在使用 <code>LAG</code> 的命令之后，始终立即运行 <code>EXECUTE</code></strong>。 这是您真正需要运行 <code>EXECUTE</code> 或过程的极少数情况之一。 这样做的原因是相当技术性的，但对于那些想知道的人：<code>LAG</code> 总是在所有其他转换之后执行。 这意味着命令的执行顺序可能与指定它们的顺序不同。 因此，如果在后续命令中使用受 <code>LAG</code> 影响的变量，则后者很可能使用“错误”的值，因为 <code>LAG</code> 尚未发生。</li>
+<li>为了获得第 <em>n</em> 个前一个个案的值，请使用 <code>LAG(...,n)</code>。 请注意，<code>n</code> 必须是正整数。 也就是说，您不能使用 <code>LAG(v1,-1)</code> 从 <em>下一个</em> 个案而不是上一个个案获取值。</li>
+</ul>
+</section>
+<section id="从下一个个案获取值" class="level2">
+<h2 class="anchored" data-anchor-id="从下一个个案获取值">从下一个个案获取值</h2>
+<ul>
+<li><code>LAG</code> 不能轻易地从下一个个案而不是上一个个案访问值。 如果您确实需要下一个个案的值，一种选择是<strong>反转个案的顺序</strong>并仍然使用 <code>LAG</code>。</li>
+<li>您还可以使用 <code>CREATE</code> 或 <code>SHIFT VALUES</code> 从下一个个案获取值。 请注意，这些是过程（而不是函数）。 这意味着您不能在 <code>IF</code> 命令中使用它们来评估条件，就像我们在本教程中讨论的大多数示例中所做的那样。</li>
+</ul>
+</section>
+</section>
+<section id="其他示例" class="level1">
+<h1>其他示例</h1>
+<p>在编写本教程后不久，我们收到了一些更具挑战性的问题，这些问题主要通过使用 <code>LAG</code> 和 <code>[IF](/spss-if-command)</code> 语句来解决。 我们将在下面逐步介绍它们。</p>
+<section id="spss-lag---识别会话" class="level2">
+<h2 class="anchored" data-anchor-id="spss-lag---识别会话">SPSS Lag - 识别会话</h2>
+<p><em>“我们进行了一项实验，其中向受访者展示了随机图片。 每张图片可能会或可能不会重复出现。 单个图片的后续演示构成一个 <strong>会话 (session)</strong>。 我们如何将会话添加到我们的数据中？”</em></p>
+<p>下面的语法侧重于逐步解释事物的运作方式。 这不是回答问题的最快选择。 有关缩短它的方法之一，请参阅 <a href="..\compute-a-is-b-is-c">Compute A = B = C</a>。</p>
+</section>
+<section id="spss-lag-语法示例-5" class="level2">
+<h2 class="anchored" data-anchor-id="spss-lag-语法示例-5">SPSS LAG 语法示例 5</h2>
+<pre class="spss"><code>***1. 创建数据.
+**
+data list free / sequence id picture.
+begin data.
+1 1 1 2 1 4 3 1 3 4 1 4 5 1 4 6 1 4 7 1 1 8 1 1 9 1 3 10 1 3 1 2 3 2 2 3 3 2 3
+4 2 4 5 2 2 6 2 4 7 2
+1 8 2 2 9 2 3 10 2 1 3 1 2 3 3 3 3 3 4 3 4 5 3 4 6 3 2 7 3 1 8 3 4 9 3 3 10
+3 3
+end data.
+
+variable labels id 'Respondent id'.
+
+***.2 对于每个受访者的第一行数据，Session = 1.
+**
+if $casenum eq 1 or id ne lag(id) session = 1.
+exe.
+
+***3. 检测切换（同一受访者的不同图片）.
+**
+if $casenum gt 1 and id eq lag(id) and picture ne lag(picture) switch = 1.
+exe.
+
+***4. 每次切换时，将会话数加 1.
+**
+if $casenum ne 1 and id eq lag(id) session = sum(lag(session),switch).
+exe.
+
+***5. 可选，删除 "switch".
+**
+delete variables switch.</code></pre>
+</section>
+<section id="spss-lag---统计家庭中的选票" class="level2">
+<h2 class="anchored" data-anchor-id="spss-lag---统计家庭中的选票">SPSS Lag - 统计家庭中的选票</h2>
+<p><em>“我们收集了关于家庭中不同人的数据。 我们的一个变量 <code>vote</code> 是每个受访者在被问及时会投票支持的政党。 我们想通过计算 <code>vote</code> 上不同值的数量来估计家庭的政治异质性。 我们该怎么做？”</em></p>
+<p>请注意步骤 6 中 <code>[AGGREGATE](/spss-aggregate-command)</code> 的使用。 与前面的示例一样，此语法可以缩短。</p>
+</section>
+<section id="spss-lag-语法示例-6" class="level2">
+<h2 class="anchored" data-anchor-id="spss-lag-语法示例-6">SPSS LAG 语法示例 6</h2>
+<pre class="spss"><code>***1. 创建数据.
+**
+data list free / household_member household vote.
+begin data
+1 1 4 1 2 3 2 2 3 3 2 1 4 2 1 5 2 4 1 3 3 2 3 4 1 4 1 2 4 4 1 5 2 2 5 2 3 5 3
+4 5 4 5 5 1
+end data.
+
+***2. 按家庭，然后按投票排序.
+**
+sort cases by household vote.
+
+***3. 对于家庭的第一个成员，counter = 1.
+**
+if $casenum = 1 or household ne lag(household) counter = 1.
+exe.
+
+***4. 识别切换（家庭内的投票变化）.
+**
+if $casenum ne 1 and household = lag(household) and vote ne lag(vote) switch = 1.
+exe.
+
+***5. 每次切换时，将计数器加 1.
+**
+if $casenum ne 1 and household = lag(household) counter = sum(lag(counter),switch).
+exe.
+
+***6. 家庭中不同的选票 = max(counter).
+**
+aggregate outfile = * mode addvariables
+/break household
+/different_votes_in_household = max(counter).
+
+***7. 可选删除临时帮助变量.
+**
+delete variables counter switch.</code></pre>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

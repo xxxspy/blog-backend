@@ -1,0 +1,18 @@
+Title: Degrees of freedom example - Empty model
+
+Data:   File is data.txt;
+        Type is correlation;
+        nobservations are 350;
+
+
+Variable: Names are X1 X2 X3 Y1 Y2;
+
+Analysis:
+Model:  
+    Y1 on X1 X2;
+    Y2 on X1 X2 X3;
+    Y1 with Y2;
+    
+    
+
+Output: samp stand;

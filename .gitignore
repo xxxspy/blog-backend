@@ -50,3 +50,8 @@ _converting
 
 /.public
 /xxxspy.github.io
+/.env
+
+**/.outputs/
+.envs
+.cache/

@@ -9,7 +9,7 @@ description: 专注于数据开发, 数据分析, 数据采集, python教学
 author: xxxspy
 language:
 timezone:
-
+tags: true
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
 url: http://mlln.cn
@@ -38,7 +38,7 @@ skip_render:
   - 'skip_me_*'
   - '**/*.js'
   - 'source/quarto/**/*'
-  - 'quarto/Doing-meta-analysis-in-R/90-appendix.html'
+  - '_posts/_old/**'
 
 
 # Writing
@@ -86,7 +86,7 @@ sitemap:
   path: sitemap.xml
 
 ## Themes: https://hexo.io/themes/
-theme: alpha-dust
+theme: tree
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
@@ -136,17 +136,21 @@ alimama:
   - name: Mplus 中介和调节教程PPT
     url: /mplus-model-templates
   - name: 大学生问卷互填群
-    url: https://mlln.cn/2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/
+    url: /2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/
   - name: 问卷代填保证质量
     url: https://item.taobao.com/item.htm?spm=2013.1.w4023-21724689242.4.76085e0a2k46Ky&id=601314051411
     
 toplinks:
+  - name: 统计咨询服务
+    url: /2020/09/10/附录03-统计咨询服务/
   - name: Meta 分析入门教程
     url: /quarto/Doing-meta-analysis-in-R
+  - name: SPSS 终极教程
+    url: /quarto/SPSS-tutorials/
   - name: Mplus中介和调节教程
     url: /mplus-model-templates
   - name: 大学生问卷互填群
-    url: https://mlln.cn/2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/
+    url: /2019/12/26/2020%E5%B9%B4%E5%A4%A7%E5%AD%A6%E7%94%9F%E6%AF%95%E4%B8%9A%E8%AE%BA%E6%96%87%E9%97%AE%E5%8D%B7%E4%BA%92%E5%A1%AB%E7%BE%A4%E6%8E%A8%E8%8D%90/
   - name: Meta分析辅导+代找数据
     url: /2024/11/12/Meta%E5%88%86%E6%9E%90%E4%BB%A3%E5%81%9A-%E4%BB%8E%E6%89%BE%E6%95%B0%E6%8D%AE%E5%88%B0%E5%87%BA%E6%8A%A5%E5%91%8A/
   - name: SPSS+AMOS数据分析案例教程-关于中介模
@@ -154,12 +158,10 @@ toplinks:
   - name: SPSS视频教程内容目录和跳转链接
     url: /2020/10/31/SPSS视频教程内容目录和跳转链接/
   - name: R语言快速入门视频教程
-    url: https://mlln.cn/2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/
+    url: /2022/08/11/R%E8%AF%AD%E8%A8%80%E5%BF%AB%E9%80%9F%E5%85%A5%E9%97%A8%E7%BB%83%E4%B9%A0%E6%9D%90%E6%96%99/
   - name: LCA潜在类别分析和Mplus应用
-    url: /2022/07/24/潜在类别分析入门/
+    url: /2024/07/24/潜在类别分析入门/
   - name: Amos结构方程模型数据分析入门教程
     url: /2022/06/12/Amos结构方程数据分析案例教程/
   - name: 倒U关系回归分析中介效应和调节效应分析SPSS视频教程
     url: /2022/12/05/倒U关系回归分析中介效应和调节效应分析SPSS和R语言应用视频教程/
-  - name: 统计咨询(图文问答)
-    url: ./#xingqiu
