@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ECharts通用变异实验室</title>
+    <!-- Load Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Load ECharts Core and ECharts GL for 3D -->
+    <!-- Switched to ECharts 5.4.3 and GL 2.0.8 via cdnjs for maximum stability -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.4.3/echarts.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts-gl/2.0.8/echarts-gl.min.js"></script>
+    <style>
+        #variance-chart-2d {
+            width: 100%;
+            height: 400px;
+        }
+        #scatter-plot {
+            width: 100%;
+            height: 450px;
+            background-color: #ffffff;
+        }
+        input[type=range] {
+            touch-action: none;
+        }
+        /* Custom scrollbar for cleaner look */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1; 
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c1c1c1; 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #a8a8a8; 
+        }
+    </style>
+</head>
+<body class="bg-gray-100 font-sans antialiased h-screen flex flex-col overflow-hidden">
+
+    <!-- Header -->
+    <header class="bg-white shadow-sm z-10 p-4 flex-shrink-0">
+        <h1 class="text-2xl font-bold text-gray-800 text-center">ECharts 通用变异实验室 <span class="text-sm font-normal text-gray-500 ml-2">实体几何版</span></h1>
+    </header>
+
+    <!-- Main Layout -->
+    <div class="flex-1 flex flex-col lg:flex-row overflow-hidden">
+        
+        <!-- LEFT SIDEBAR: Control Panel -->
+        <aside class="w-full lg:w-96 flex-shrink-0 bg-white border-r border-gray-200 overflow-y-auto p-6 shadow-lg z-20">
+            <div id="control-panel">
+                <h2 class="text-xl font-bold mb-6 text-gray-800 border-b pb-2">变异架构师模式</h2>
+                
+                <!-- Scale Sliders Section -->
+                <div class="mb-8">
+                    <h3 class="text-sm uppercase tracking-wide text-gray-500 font-semibold mb-4">整体变量大小</h3>
+                    <div class="space-y-5">
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <label for="a-scale" class="text-sm font-medium text-gray-700">自变量 A</label>
+                                <span id="a-scale-value" class="text-sm font-bold text-red-600">100%</span>
+                            </div>
+                            <input type="range" id="a-scale" min="10" max="200" value="100" step="1" class="w-full h-2 bg-red-200 rounded-lg appearance-none cursor-pointer accent-red-500">
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <label for="b-scale" class="text-sm font-medium text-gray-700">中介变量 B</label>
+                                <span id="b-scale-value" class="text-sm font-bold text-blue-600">100%</span>
+                            </div>
+                            <input type="range" id="b-scale" min="10" max="200" value="100" step="1" class="w-full h-2 bg-blue-200 rounded-lg appearance-none cursor-pointer accent-blue-500">
+                        </div>
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <label for="c-scale" class="text-sm font-medium text-gray-700">因变量 C</label>
+                                <span id="c-scale-value" class="text-sm font-bold text-green-600">100%</span>
+                            </div>
+                            <input type="range" id="c-scale" min="10" max="200" value="100" step="1" class="w-full h-2 bg-green-200 rounded-lg appearance-none cursor-pointer accent-green-500">
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Components Sliders Section -->
+                <div class="mb-8">
+                    <h3 class="text-sm uppercase tracking-wide text-gray-500 font-semibold mb-4">变异成分构成</h3>
+                    <div class="space-y-4">
+                        <!-- Common -->
+                        <div>
+                            <div class="flex justify-between mb-1">
+                                <label for="abc" class="text-xs font-medium text-gray-700">共同变异 (ABC)</label>
+                                <span id="abc-value" class="text-xs font-bold text-gray-500">50</span>
+                            </div>
+                            <input type="range" id="abc" min="0" max="100" value="50" step="1" class="w-full h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-gray-700">
+                        </div>
+                        
+                        <!-- Pairwise -->
+                        <div class="grid grid-cols-1 gap-3 pt-2">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <label for="ab" class="text-xs font-medium text-purple-700">共享 (AB)</label>
+                                    <span id="ab-value" class="text-xs font-bold text-purple-600">20</span>
+                                </div>
+                                <input type="range" id="ab" min="0" max="100" value="20" step="1" class="w-full h-1.5 bg-purple-100 rounded-lg appearance-none cursor-pointer accent-purple-500">
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <label for="bc" class="text-xs font-medium text-cyan-700">共享 (BC)</label>
+                                    <span id="bc-value" class="text-xs font-bold text-cyan-600">20</span>
+                                </div>
+                                <input type="range" id="bc" min="0" max="100" value="20" step="1" class="w-full h-1.5 bg-cyan-100 rounded-lg appearance-none cursor-pointer accent-cyan-500">
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <label for="ac" class="text-xs font-medium text-orange-700">共享 (AC)</label>
+                                    <span id="ac-value" class="text-xs font-bold text-orange-600">20</span>
+                                </div>
+                                <input type="range" id="ac" min="0" max="100" value="20" step="1" class="w-full h-1.5 bg-orange-100 rounded-lg appearance-none cursor-pointer accent-orange-500">
+                            </div>
+                        </div>
+
+                        <!-- Unique -->
+                        <div class="grid grid-cols-1 gap-3 pt-2 border-t border-gray-100 mt-2">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <label for="a-unique" class="text-xs font-medium text-red-700">独立 (A)</label>
+                                    <span id="a-unique-value" class="text-xs font-bold text-red-600">10</span>
+                                </div>
+                                <input type="range" id="a-unique" min="0" max="100" value="10" step="1" class="w-full h-1.5 bg-red-100 rounded-lg appearance-none cursor-pointer accent-red-500">
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <label for="b-unique" class="text-xs font-medium text-blue-700">独立 (B)</label>
+                                    <span id="b-unique-value" class="text-xs font-bold text-blue-600">10</span>
+                                </div>
+                                <input type="range" id="b-unique" min="0" max="100" value="10" step="1" class="w-full h-1.5 bg-blue-100 rounded-lg appearance-none cursor-pointer accent-blue-500">
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <label for="c-unique" class="text-xs font-medium text-green-700">独立 (C)</label>
+                                    <span id="c-unique-value" class="text-xs font-bold text-green-600">10</span>
+                                </div>
+                                <input type="range" id="c-unique" min="0" max="100" value="10" step="1" class="w-full h-1.5 bg-green-100 rounded-lg appearance-none cursor-pointer accent-green-500">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Presets Section -->
+                <div>
+                    <h3 class="text-sm uppercase tracking-wide text-gray-500 font-semibold mb-3">预设模式</h3>
+                    <div class="grid grid-cols-1 gap-2">
+                        <button id="preset-no-mediation" class="w-full px-4 py-2 bg-white border border-blue-500 text-blue-600 rounded-md hover:bg-blue-50 transition-colors text-sm font-medium">无中介效应</button>
+                        <button id="preset-partial-mediation" class="w-full px-4 py-2 bg-white border border-green-500 text-green-600 rounded-md hover:bg-green-50 transition-colors text-sm font-medium">部分中介效应</button>
+                        <button id="preset-full-mediation" class="w-full px-4 py-2 bg-white border border-red-500 text-red-600 rounded-md hover:bg-red-50 transition-colors text-sm font-medium">完全中介效应</button>
+                    </div>
+                </div>
+            </div>
+        </aside>
+
+        <!-- RIGHT MAIN CONTENT: Charts -->
+        <main class="flex-1 flex flex-col min-w-0 bg-gray-50 overflow-y-auto">
+            <div class="p-4 space-y-4">
+                <!-- Chart 1: 2D Stacked -->
+                <div class="bg-white p-4 rounded-xl shadow border border-gray-200">
+                    <h2 class="text-lg font-semibold mb-2 text-gray-700 flex items-center">
+                        <span class="w-2 h-8 bg-indigo-500 rounded mr-2"></span>
+                        变异成分与流动 (2D 堆叠图)
+                    </h2>
+                    <div id="variance-chart-2d"></div>
+                </div>
+
+                <!-- Chart 2: 3D Scatter -->
+                <div class="bg-white p-4 rounded-xl shadow border border-gray-200">
+                    <h2 class="text-lg font-semibold mb-2 text-gray-700 flex items-center">
+                        <span class="w-2 h-8 bg-indigo-500 rounded mr-2"></span>
+                        样本分布形态 (3D 散点图 - 实体采样)
+                    </h2>
+                    <div id="scatter-plot"></div>
+                </div>
+            </div>
+        </main>
+
+    </div>
+
+    <script>
+        // --- Constants & State ---
+        const COLORS = {
+            abc: '#1f2937', ab: '#8b5cf6', bc: '#06b6d4', ac: '#f97316',
+            uniqueA: '#ef4444', uniqueB: '#3b82f6', uniqueC: '#10b981'
+        };
+        const TOTAL_SAMPLES = 1500; 
+
+        // Global State
+        let scaleA = 100, scaleB = 100, scaleC = 100;
+        let varianceState = {
+            abc: 50, ab: 20, bc: 20, ac: 20,
+            'a-unique': 10, 'b-unique': 10, 'c-unique': 10
+        };
+
+        // Chart Instances
+        let chart2D, chart3D;
+
+        // --- DOM Elements ---
+        const els = {
+            sA: document.getElementById('a-scale'), vA: document.getElementById('a-scale-value'),
+            sB: document.getElementById('b-scale'), vB: document.getElementById('b-scale-value'),
+            sC: document.getElementById('c-scale'), vC: document.getElementById('c-scale-value'),
+            div2D: document.getElementById('variance-chart-2d'),
+            div3D: document.getElementById('scatter-plot')
+        };
+
+        // --- 2D Chart Logic ---
+        function init2D() {
+            if (chart2D) return;
+            if (typeof echarts === 'undefined') return;
+            chart2D = echarts.init(els.div2D);
+            window.addEventListener('resize', () => chart2D && chart2D.resize());
+        }
+
+        function renderVarianceScene(params, api) {
+            const s = varianceState;
+            const scA = scaleA / 100, scB = scaleB / 100, scC = scaleC / 100;
+
+            const f_ABC = (scA + scB + scC) / 3;
+            const f_AB = (scA + scB) / 2;
+            const f_BC = (scB + scC) / 2;
+            const f_AC = (scA + scC) / 2;
+
+            const toH = (val, factor) => val * factor * 1.8; 
+
+            const h_ABC = toH(s.abc, f_ABC);
+            const hA_AB = toH(s.ab, f_AB), hB_AB = toH(s.ab, f_AB);
+            const hB_BC = toH(s.bc, f_BC), hC_BC = toH(s.bc, f_BC);
+            const hA_AC = toH(s.ac, f_AC), hC_AC = toH(s.ac, f_AC);
+            const hA_U  = toH(s['a-unique'], scA);
+            const hB_U  = toH(s['b-unique'], scB);
+            const hC_U  = toH(s['c-unique'], scC);
+
+            const xA = api.coord([1, 0])[0], xB = api.coord([2, 0])[0], xC = api.coord([3, 0])[0];
+            const yBase = api.coord([0, 0])[1];
+            const bw = 60, hw = 30; 
+
+            const rect = (x, yBot, h, col, txt) => ({
+                type: 'rect', shape: { x: x - hw, y: yBot - h, width: bw, height: h },
+                style: { fill: col }, textContent: { style: { text: h > 14 ? txt : '', fill: '#fff', fontSize: 10 } }, textConfig: { position: 'inside' }
+            });
+            const poly = (x1, y1Bot, h1, x2, y2Bot, h2, col) => {
+                if (h1 < 1 || h2 < 1) return null;
+                return { type: 'polygon', shape: { points: [[x1+hw, y1Bot], [x1+hw, y1Bot-h1], [x2-hw, y2Bot-h2], [x2-hw, y2Bot]] }, style: { fill: col, opacity: 0.3 } };
+            };
+            const label = (x, y, txt, col) => ({ type: 'text', style: { x: x, y: y, text: txt, fill: col, textAlign: 'center', font: 'bold 12px sans-serif' } });
+
+            const elems = [];
+            let yA = yBase, yB = yBase, yC = yBase;
+            
+            // ABC
+            elems.push(rect(xA, yA, h_ABC, COLORS.abc, `ABC`)); elems.push(rect(xB, yB, h_ABC, COLORS.abc, `ABC`)); elems.push(rect(xC, yC, h_ABC, COLORS.abc, `ABC`));
+            elems.push(poly(xA, yA, h_ABC, xB, yB, h_ABC, COLORS.abc)); elems.push(poly(xB, yB, h_ABC, xC, yC, h_ABC, COLORS.abc));
+            yA -= h_ABC; yB -= h_ABC; yC -= h_ABC;
+
+            // AB
+            elems.push(rect(xA, yA, hA_AB, COLORS.ab, `AB`)); elems.push(rect(xB, yB, hB_AB, COLORS.ab, `AB`));
+            elems.push(poly(xA, yA, hA_AB, xB, yB, hB_AB, COLORS.ab));
+            yA -= hA_AB; yB -= hB_AB;
+
+            // BC
+            elems.push(rect(xB, yB, hB_BC, COLORS.bc, `BC`)); elems.push(rect(xC, yC, hC_BC, COLORS.bc, `BC`));
+            elems.push(poly(xB, yB, hB_BC, xC, yC, hC_BC, COLORS.bc));
+            yB -= hB_BC; yC -= hC_BC;
+
+            // AC
+            elems.push(rect(xA, yA, hA_AC, COLORS.ac, `AC`)); elems.push(rect(xC, yC, hC_AC, COLORS.ac, `AC`));
+            if (hA_AC > 1 && hC_AC > 1) elems.push({ type: 'polygon', shape: { points: [[xA+hw, yA], [xA+hw, yA-hA_AC], [xC-hw, yC-hC_AC], [xC-hw, yC]] }, style: { fill: COLORS.ac, opacity: 0.4 } });
+            yA -= hA_AC; yC -= hC_AC;
+
+            // Unique
+            elems.push(rect(xA, yA, hA_U, COLORS.uniqueA, 'Unique')); elems.push(rect(xB, yB, hB_U, COLORS.uniqueB, 'Unique')); elems.push(rect(xC, yC, hC_U, COLORS.uniqueC, 'Unique'));
+            yA -= hA_U; yB -= hB_U; yC -= hC_U;
+
+            // Labels
+            elems.push(label(xA, yBase + 25, '自变量 A', COLORS.uniqueA)); elems.push(label(xB, yBase + 25, '中介变量 B', COLORS.uniqueB)); elems.push(label(xC, yBase + 25, '因变量 C', COLORS.uniqueC));
+            elems.push({ type: 'text', style: { x: xA, y: yBase + 45, text: `H: ${(yBase - yA).toFixed(0)}`, fill: '#666', textAlign: 'center', font: '10px sans-serif' } });
+            elems.push({ type: 'text', style: { x: xB, y: yBase + 45, text: `H: ${(yBase - yB).toFixed(0)}`, fill: '#666', textAlign: 'center', font: '10px sans-serif' } });
+            elems.push({ type: 'text', style: { x: xC, y: yBase + 45, text: `H: ${(yBase - yC).toFixed(0)}`, fill: '#666', textAlign: 'center', font: '10px sans-serif' } });
+
+            return { type: 'group', children: elems.filter(e => e) };
+        }
+
+        function update2D() {
+            init2D();
+            if (!chart2D) return;
+            chart2D.setOption({
+                tooltip: { trigger: 'none' },
+                grid: { top: 20, bottom: 60, left: 10, right: 10 },
+                xAxis: { min: 0, max: 4, show: false },
+                yAxis: { min: 0, max: 600, show: false },
+                series: [{ type: 'custom', renderItem: renderVarianceScene, data: [0], animation: false }]
+            });
+        }
+
+        // --- 3D Scatter Logic (Modified for Thickness) ---
+        function init3D() {
+            if (chart3D) return;
+            if (typeof echarts === 'undefined') return;
+            
+            try {
+                chart3D = echarts.init(els.div3D);
+                window.addEventListener('resize', () => chart3D && chart3D.resize());
+            } catch (e) {
+                console.error("3D Chart Init Error:", e);
+            }
+        }
+
+        function randn() {
+            let u = 0, v = 0;
+            while (u === 0) u = Math.random();
+            while (v === 0) v = Math.random();
+            return Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v);
+        }
+
+        function update3D() {
+            init3D();
+            if (!chart3D) return;
+
+            const s = varianceState;
+            const scA = scaleA / 100, scB = scaleB / 100, scC = scaleC / 100;
+            
+            const totalVariance = Object.values(s).reduce((acc, v) => acc + v, 0);
+            if (totalVariance === 0) return;
+
+            const data = [];
+            const freeNoiseScale = 2.5; // Large variance for the independent dimension (Plane surface)
+            const thickness = 0.25; // Small variance for correlated dimensions (Plane thickness)
+
+            // Helper to generate samples
+            const generateSamples = (key, count, color) => {
+                for (let i = 0; i < count; i++) {
+                    let A, B, C;
+                    const r = randn(); // Main signal
+                    
+                    // Jitter for thickness (Gaussian noise)
+                    const t1 = randn() * thickness;
+                    const t2 = randn() * thickness;
+                    const t3 = randn() * thickness;
+
+                    // Wide spread for the "free" dimension (Uniform-ish to fill plane)
+                    const free = (Math.random() - 0.5) * 2 * freeNoiseScale; 
+
+                    switch(key) {
+                        case 'abc': // Line with thickness (Cylinder)
+                            A = (r + t1) * scA;
+                            B = (r + t2) * scB;
+                            C = (r + t3) * scC;
+                            break;
+                        case 'ab': // Plane: A ~ B (correlated with jitter), C is free
+                            A = (r + t1) * scA;
+                            B = (r + t2) * scB;
+                            C = free * scC; 
+                            break;
+                        case 'bc': // Plane: B ~ C (correlated with jitter), A is free
+                            A = free * scA;
+                            B = (r + t1) * scB;
+                            C = (r + t2) * scC;
+                            break;
+                        case 'ac': // Plane: A ~ C (correlated with jitter), B is free
+                            A = (r + t1) * scA;
+                            B = free * scB;
+                            C = (r + t2) * scC;
+                            break;
+                        case 'a-unique': // Cloud along A
+                            A = r * scA;
+                            B = t1 * 2 * scB; // More noise perpendicular
+                            C = t2 * 2 * scC;
+                            break;
+                        case 'b-unique': 
+                            A = t1 * 2 * scA;
+                            B = r * scB;
+                            C = t2 * 2 * scC;
+                            break;
+                        case 'c-unique': 
+                            A = t1 * 2 * scA;
+                            B = t2 * 2 * scB;
+                            C = r * scC;
+                            break;
+                    }
+                    
+                    data.push({ value: [A, B, C], itemStyle: { color: color } });
+                }
+            };
+
+            generateSamples('abc', Math.round(TOTAL_SAMPLES * (s.abc / totalVariance)), COLORS.abc);
+            generateSamples('ab', Math.round(TOTAL_SAMPLES * (s.ab / totalVariance)), COLORS.ab);
+            generateSamples('bc', Math.round(TOTAL_SAMPLES * (s.bc / totalVariance)), COLORS.bc);
+            generateSamples('ac', Math.round(TOTAL_SAMPLES * (s.ac / totalVariance)), COLORS.ac);
+            generateSamples('a-unique', Math.round(TOTAL_SAMPLES * (s['a-unique'] / totalVariance)), COLORS.uniqueA);
+            generateSamples('b-unique', Math.round(TOTAL_SAMPLES * (s['b-unique'] / totalVariance)), COLORS.uniqueB);
+            generateSamples('c-unique', Math.round(TOTAL_SAMPLES * (s['c-unique'] / totalVariance)), COLORS.uniqueC);
+
+            chart3D.setOption({
+                backgroundColor: '#ffffff',
+                grid3D: {
+                    viewControl: {
+                        projection: 'perspective',
+                        autoRotate: true,
+                        autoRotateSpeed: 10,
+                        distance: 300,
+                        alpha: 25,
+                        beta: 45
+                    },
+                    boxWidth: 120, boxHeight: 120, boxDepth: 120,
+                    environment: 'auto',
+                    axisLine: { lineStyle: { color: '#888' } },
+                    axisPointer: { show: false },
+                    scale: true 
+                },
+                xAxis3D: { name: 'A', nameTextStyle: { color: COLORS.uniqueA, fontSize: 14 }, scale: true },
+                yAxis3D: { name: 'B', nameTextStyle: { color: COLORS.uniqueB, fontSize: 14 }, scale: true },
+                zAxis3D: { name: 'C', nameTextStyle: { color: COLORS.uniqueC, fontSize: 14 }, scale: true },
+                series: [{
+                    type: 'scatter3D',
+                    data: data,
+                    symbolSize: 4,
+                    itemStyle: { 
+                        opacity: 0.8,
+                        borderWidth: 0
+                    }
+                }]
+            });
+        }
+
+        function update() {
+            update2D();
+            update3D();
+        }
+
+        window.onload = () => {
+            // Init Sliders
+            const linkSlider = (el, disp, key) => {
+                el.addEventListener('input', e => {
+                    const v = parseInt(e.target.value);
+                    disp.innerText = v + '%';
+                    if (key === 'A') scaleA = v;
+                    if (key === 'B') scaleB = v;
+                    if (key === 'C') scaleC = v;
+                    update();
+                });
+            };
+            linkSlider(els.sA, els.vA, 'A');
+            linkSlider(els.sB, els.vB, 'B');
+            linkSlider(els.sC, els.vC, 'C');
+
+            Object.keys(varianceState).forEach(k => {
+                const el = document.getElementById(k);
+                if (el) {
+                    el.addEventListener('input', e => {
+                        const v = parseInt(e.target.value);
+                        varianceState[k] = v;
+                        document.getElementById(k+'-value').innerText = v;
+                        update();
+                    });
+                }
+            });
+
+            const setPreset = (mode) => {
+                const s = varianceState;
+                if (mode === 'no') { s.abc=10; s.ab=60; s.bc=5; s.ac=70; }
+                if (mode === 'part') { s.abc=30; s.ab=30; s.bc=30; s.ac=30; }
+                if (mode === 'full') { s.abc=10; s.ab=70; s.bc=70; s.ac=5; }
+                Object.keys(s).forEach(k => {
+                    const el = document.getElementById(k);
+                    if (el) {
+                        el.value = s[k];
+                        document.getElementById(k+'-value').innerText = s[k];
+                    }
+                });
+                update();
+            };
+            document.getElementById('preset-no-mediation').onclick = () => setPreset('no');
+            document.getElementById('preset-partial-mediation').onclick = () => setPreset('part');
+            document.getElementById('preset-full-mediation').onclick = () => setPreset('full');
+
+            setTimeout(() => {
+                update();
+                if (chart3D) chart3D.resize();
+            }, 500);
+        };
+    </script>
+</body>
+</html>
