@@ -465,9 +465,9 @@
 
             const setPreset = (mode) => {
                 const s = varianceState;
-                if (mode === 'no') { s.abc=10; s.ab=60; s.bc=5; s.ac=70; }
+                if (mode === 'no') { s.abc=1; s.ab=60; s.bc=50; s.ac=70; }
                 if (mode === 'part') { s.abc=30; s.ab=30; s.bc=30; s.ac=30; }
-                if (mode === 'full') { s.abc=10; s.ab=70; s.bc=70; s.ac=5; }
+                if (mode === 'full') { s.abc=40; s.ab=70; s.bc=70; s.ac=1; }
                 Object.keys(s).forEach(k => {
                     const el = document.getElementById(k);
                     if (el) {
