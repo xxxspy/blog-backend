@@ -27,6 +27,7 @@ code_dir: downloads/code
 i18n_dir: :lang
 skip_render:
   - "quarto/**/*"
+  - "quarto/**"
   - '*.json'
   - '*.vender'
   - '*.html'
@@ -38,6 +39,7 @@ skip_render:
   - 'skip_me_*'
   - '**/*.js'
   - 'source/quarto/**/*'
+  - 'source/quarto/*'
   - '_posts/_old/**'
 
 
