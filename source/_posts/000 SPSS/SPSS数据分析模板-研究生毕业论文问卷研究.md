@@ -280,7 +280,7 @@ FACTOR
 ```
 
 #### SPSS 输出结果
-<a href="./result-组织氛围探索性因子分析-1.html" target="_blank">SPSS 原始输出结果</a>
+<a href="./result-组织氛围探索性因子分析-5.html" target="_blank">SPSS 原始输出结果</a>
 
 
 ### 员工创新行为探索性因子分析
@@ -322,6 +322,19 @@ FACTOR
 
 #### SPSS 输出结果
 <a href="./result-员工创新行为探索性因子分析-8.html" target="_blank">SPSS 原始输出结果</a>
+
+## 计算变量
+
+#### SPSS 源代码
+```sps
+* 计算变量 . 
+COMPUTE A1=(A11+A12+A13+A14+A15)/5.
+* 中心化 . 
+COMPUTE A1_c=A1-MEAN(A1).
+* 交叉变量 .
+COMPUTE A1_c_x_A2_c=A1_c*A2_c.
+```
+
 
 ## 回归分析
 
