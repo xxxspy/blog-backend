@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AHP 专家决策分析系统 - 交互增强版</title>
+    <!-- 修正后的 React 18 引用地址 -->
+    <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    
+    <style>
+        .excel-table th, .excel-table td { border: 1px solid #e2e8f0; padding: 4px 8px; font-size: 12px; }
+        .excel-table th { background-color: #f8fafc; color: #64748b; font-weight: 600; text-align: left; }
+        .excel-table tr.selected { background-color: #dbeafe; outline: 2px solid #3b82f6; z-index: 10; }
+        .matrix-cell-inconsistent { background-color: #fef2f2; border: 2px solid #ef4444 !important; }
+        .custom-scrollbar::-webkit-scrollbar { width: 6px; height: 6px; }
+        .custom-scrollbar::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
+        input[type="range"] { accent-color: #4f46e5; }
+        
+        /* 弹出滑块样式 */
+        .slider-popover {
+            position: absolute;
+            background: white;
+            border: 1px solid #3b82f6;
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.2);
+            padding: 12px;
+            border-radius: 8px;
+            z-index: 50;
+            width: 180px;
+            /* 居中偏右显示 */
+            top: 50%;
+            left: 100%;
+            transform: translateY(-50%) translateX(10px);
+        }
+    </style>
+</head>
+<body class="bg-slate-100">
+    <div id="root"></div>
+
+    <script type="text/babel">
+        const { useState, useEffect, useMemo, useRef } = React;
+
+        // --- AHP 核心数学工具 ---
+        const AHP = {
+            calculateEVM: (matrix) => {
+                const n = matrix.length;
+                let weights = Array(n).fill(1/n);
+                let lambda = n;
+                for (let iter = 0; iter < 100; iter++) {
+                    const nextW = matrix.map(row => row.reduce((sum, v, i) => sum + v * weights[i], 0));
+                    const sum = nextW.reduce((a, b) => a + b, 0);
+                    const normalized = nextW.map(v => v / sum);
+                    lambda = sum;
+                    let diff = normalized.reduce((d, v, i) => d + Math.abs(v - weights[i]), 0);
+                    weights = normalized;
+                    if (diff < 1e-12) break;
+                }
+                return { weights, lambda };
+            },
+
+            rowErrors: (matrix, weights) => {
+                const n = matrix.length;
+                const errors = Array(n).fill(0);
+
+                // AHP 矩阵通常 n > 1，防止除以零
+                if (n <= 1) return errors;
+                console.log('===========================')
+                let smOfChsh = 0;
+                for (let i = 0; i < n; i++) {
+                    let sumSqLog = 0;
+                    for (let j = 0; j < n; j++) {
+                        // 根据公式: ln^2( a_ij * w_j / w_i )
+                        // 注意：文档中公式为 a_ik * (w_k / w_i)，对应代码中的 matrix[i][j] * (weights[j] / weights[i])
+                        const val = matrix[i][j] * (weights[j] / weights[i]);
+                        sumSqLog += Math.pow(Math.log(val), 2);
+                        // console.log({i, j, sumSqLog});console.log(matrix[i][j], weights[j], weights[i])
+                    }
+
+                    // 计算 Delta_i = sqrt( 1/(n-1) * sum )
+                    // 文档第 6 页公式中的 C 通常取 1
+                    const deltaI = Math.sqrt(sumSqLog / (n - 1));
+                
+                    console.log({sumSqLog, deltaI})
+
+                    // 计算 Row Error: Δw_i = w_i * sinh(Delta_i)
+                    // 这是文档中明确给出的误差项公式
+                    smOfChsh += weights[i] * Math.cosh(deltaI) ;
+                    errors[i] = weights[i] * Math.sinh(deltaI);
+                }
+                console.log({smOfChsh})
+                for (let i = 0; i < n; i++){
+                    if (smOfChsh != 0){
+                        errors[i] = errors[i] / smOfChsh;
+                    }
+                    
+                }
+                
+                return errors;
+            },
+
+            calculateGCI: (matrix)=> {
+                const N = matrix.length;
+                if (N <= 2) return 0; // GCI 在 N=1,2 时没有意义或分母为0
+
+                // 1. 使用 RGMM 计算权重 (Priorities)
+                let r = [];
+                for (let i = 0; i < N; i++) {
+                    let rowProduct = 1;
+                    for (let j = 0; j < N; j++) {
+                        rowProduct *= matrix[i][j];
+                    }
+                    r.push(Math.pow(rowProduct, 1 / N));
+                }
+
+                const sumR = r.reduce((a, b) => a + b, 0);
+                const p = r.map(val => val / sumR);
+
+                console.log("权重 (p):", p.map(v => v.toFixed(4)));
+
+                // 2. 计算 GCI 公式中的求和部分
+                // 公式: CGI = [2 * sum_{i<j} (ln(a_ij) - ln(pi/pj))^2] / [(N-1)(N-2)]
+                let sumDiffSq = 0;
+                for (let i = 0; i < N; i++) {
+                    for (let j = i + 1; j < N; j++) {
+                        const lnAij = Math.log(matrix[i][j]);
+                        const lnPiPj = Math.log(p[i] / p[j]);
+                        sumDiffSq += Math.pow(lnAij - lnPiPj, 2);
+                    }
+                }
+
+                const gci = (2 * sumDiffSq) / ((N - 1) * (N - 2));
+                return gci;
+            },
+
+
+            calculatePSI: (matrix)=> {
+                const n = matrix.length;
+                if (n <= 2) return 0; // 只有两个元素时不可能出现序数矛盾
+
+                // 1. 定义步进函数 step(x)
+                const step = (x) => (x > 0 ? 1 : 0);
+
+                let totalPsi_ij = 0;
+
+                // 2. 遍历所有配对 i, j (i < j)
+                for (let i = 0; i < n; i++) {
+                    for (let j = i + 1; j < n; j++) {
+                        
+                        let sumStep = 0;
+                        // 3. 寻找中间节点 k (k != i 且 k != j)
+                        for (let k = 0; k < n; k++) {
+                            if (k !== i && k !== j) {
+                                // 计算公式中的核心项: -log(a_ij) * log(a_ik * a_kj)
+                                // a_ik * a_kj 代表通过 k 得到的间接比较值
+                                const val = -Math.log(matrix[i][j]) * Math.log(matrix[i][k] * matrix[k][j]);
+                                sumStep += step(val);
+                            }
+                        }
+
+                        // 计算该对的 psi_ij
+                        const psi_ij = (1 / (n - 2)) * sumStep;
+                        totalPsi_ij += psi_ij;
+                    }
+                }
+
+                // 4. 计算总体 Psi (所有配对的平均值)
+                // 公式: Ψ = (2 / (n * (n-1))) * Σ psi_ij
+                const overallPsi = (2 / (n * (n - 1))) * totalPsi_ij;
+                
+                return overallPsi;
+            },
+
+            calculateCR: (lambda, n) => {
+                if (n <= 2) return 0;
+                // 平均随机一致性指标 RI
+                const riMap = [0, 0, 0, 0.52, 0.89, 1.12, 1.26, 1.36, 1.41, 1.46, 1.49];
+                const ri = riMap[n] || 1.5; 
+                return (lambda-n)/((2.7699*n-4.3513)-n)
+            },
+            findInconsistencySource: (matrix, weights) => {
+                const n = matrix.length;
+                let maxDiff = -1;
+                let source = { i: 0, j: 0, suggestion: 0 };
+                for (let i = 0; i < n; i++) {
+                    for (let j = 0; j < n; j++) {
+                        if (i === j) continue;
+                        const idealValue = weights[i] / weights[j];
+                        const actualValue = matrix[i][j];
+                        const diff = Math.abs(Math.log(actualValue) - Math.log(idealValue));
+                        if (diff > maxDiff) {
+                            maxDiff = diff;
+                            source = { i, j, suggestion: idealValue };
+                        }
+                    }
+                }
+                return source;
+            },
+            consolidate: (matrices, n) => {
+                const result = Array(n).fill(0).map(() => Array(n).fill(1));
+                for (let i = 0; i < n; i++) {
+                    for (let j = 0; j < n; j++) {
+                        if (i === j) continue;
+                        let prod = 1;
+                        matrices.forEach(m => prod *= m[i][j]);
+                        result[i][j] = Math.pow(prod, 1 / matrices.length);
+                    }
+                }
+                return result;
+            },
+            calculateConsensus: (allWeights, n) => {
+                if (allWeights.length <= 1) return 100;
+                const k = allWeights.length;
+                let hAlpha = 0;
+                allWeights.forEach(w => w.forEach(p => { if(p > 0) hAlpha += -p * Math.log(p); }));
+                hAlpha /= k;
+                const avgW = Array(n).fill(0).map((_, i) => allWeights.reduce((s, w) => s + w[i], 0) / k);
+                let hGamma = 0;
+                avgW.forEach(p => { if(p > 0) hGamma += -p * Math.log(p); });
+                const m = 1 / Math.exp(Math.max(0, hGamma - hAlpha));
+                return Math.min(100, m * 100);
+            }
+        };
+
+        const App = () => {
+            const [n, setN] = useState(3);
+            const [criteria, setCriteria] = useState(['成本', '质量', '技术']);
+            const [samples, setSamples] = useState([
+                { id: 1, name: '专家 A', data: [1, 1, 1] }
+            ]);
+            const [selectedId, setSelectedId] = useState(1);
+            
+            // 当前激活的矩阵编辑单元格 {i, j}
+            const [activeCell, setActiveCell] = useState(null);
+
+            // 动态计算索引映射
+            const pairMap = useMemo(() => {
+                const map = {};
+                let k = 0;
+                for (let i = 0; i < n; i++) {
+                    for (let j = i + 1; j < n; j++) {
+                        map[`${i}-${j}`] = k;
+                        k++;
+                    }
+                }
+                return map;
+            }, [n]);
+
+            const currentSample = samples.find(s => s.id === selectedId) || samples[0];
+            
+            const currentMatrix = useMemo(() => {
+                const m = Array(n).fill(0).map(() => Array(n).fill(1));
+                let k = 0;
+                for (let i = 0; i < n; i++) {
+                    for (let j = i + 1; j < n; j++) {
+                        const val = currentSample.data[k] || 1;
+                        m[i][j] = val; m[j][i] = 1 / val;
+                        k++;
+                    }
+                }
+                return m;
+            }, [currentSample, n]);
+
+            const stats = useMemo(() => {
+                const { weights, lambda } = AHP.calculateEVM(currentMatrix);
+                const cr = AHP.calculateCR(lambda, n);
+                const worst = AHP.findInconsistencySource(currentMatrix, weights);
+                const errors = AHP.rowErrors(currentMatrix, weights);
+                return { weights, lambda, cr, worst, errors };
+            }, [currentMatrix, n]);
+
+            const groupStats = useMemo(() => {
+                const allMatrices = samples.map(s => {
+                    const m = Array(n).fill(0).map(() => Array(n).fill(1));
+                    let k = 0;
+                    for (let i = 0; i < n; i++) {
+                        for (let j = i + 1; j < n; j++) {
+                            const val = s.data[k] || 1;
+                            m[i][j] = val; m[j][i] = 1 / val;
+                            k++;
+                        }
+                    }
+                    return m;
+                });
+                const consolidated = AHP.consolidate(allMatrices, n);
+                const { weights, lambda } = AHP.calculateEVM(consolidated);
+                const allWeights = allMatrices.map(m => AHP.calculateEVM(m).weights);
+                return { weights, cr: AHP.calculateCR(lambda, n), consensus: AHP.calculateConsensus(allWeights, n), gci: AHP.calculateGCI(consolidated), psi: AHP.calculatePSI(consolidated) };
+            }, [samples, n]);
+
+            const updateSampleData = (sampleId, i, j, val) => {
+                let pairIdx;
+                let finalVal = val;
+                if (i < j) {
+                    pairIdx = pairMap[`${i}-${j}`];
+                } else {
+                    pairIdx = pairMap[`${j}-${i}`];
+                    finalVal = 1 / val;
+                }
+
+                setSamples(samples.map(s => {
+                    if (s.id !== sampleId) return s;
+                    const newData = [...s.data];
+                    newData[pairIdx] = parseFloat(finalVal) || 1;
+                    return { ...s, data: newData };
+                }));
+            };
+
+            const handleCriteriaCount = (count) => {
+                const newN = Math.max(2, Math.min(10, count));
+                setN(newN);
+                const newCriteria = Array.from({length: newN}, (_, i) => criteria[i] || `指标 ${i+1}`);
+                setCriteria(newCriteria);
+                const numPairs = (newN * (newN - 1)) / 2;
+                setSamples(samples.map(s => {
+                    const newData = [...s.data];
+                    while(newData.length < numPairs) newData.push(1);
+                    return { ...s, data: newData.slice(0, numPairs) };
+                }));
+                setActiveCell(null);
+            };
+
+            const handlePaste = (e) => {
+                e.preventDefault();
+                const text = e.clipboardData.getData('text');
+                const lines = text.split(/\r?\n/).filter(l => l.trim());
+                const numPairs = (n * (n - 1)) / 2;
+                
+                const newSamples = lines.map((line, idx) => {
+                    const cells = line.split(/\t|,/);
+                    const name = cells[0] || `粘贴样本 ${idx + 1}`;
+                    const data = cells.slice(1, numPairs + 1).map(v => {
+                        if (v.includes('/')) {
+                            const [a, b] = v.split('/');
+                            return parseFloat(a) / parseFloat(b);
+                        }
+                        return parseFloat(v) || 1;
+                    });
+                    while(data.length < numPairs) data.push(1);
+                    return { id: Date.now() + idx, name, data };
+                });
+                if (newSamples.length > 0) {
+                    setSamples(newSamples);
+                    setSelectedId(newSamples[0].id);
+                }
+            };
+
+            return (
+                <div className="flex flex-col h-screen overflow-hidden text-slate-700" onClick={() => setActiveCell(null)}>
+                    {/* Header */}
+                    <div className="bg-indigo-700 text-white px-6 py-4 shadow-lg z-30" onClick={e => e.stopPropagation()}>
+                        <div className="flex justify-between items-center mb-3">
+                            <h1 className="text-xl font-bold flex items-center">
+                                <i className="fa-solid fa-microchip mr-3 text-indigo-300"></i> AHP 决策矩阵分析专家
+                            </h1>
+                            
+                        </div>
+                        
+                        <div className="flex flex-wrap gap-2 pt-2 border-t border-indigo-600/50">
+                            <div className="flex items-center space-x-2 bg-indigo-800/50 px-3 py-1.5 rounded-lg border border-indigo-500/30">
+                                <span className="text-xs font-bold opacity-70">指标数量:</span>
+                                <input 
+                                    type="number" className="w-10 bg-transparent text-center focus:outline-none font-bold text-indigo-100"
+                                    value={n} onChange={(e) => handleCriteriaCount(parseInt(e.target.value))}
+                                />
+                            </div>
+                            <span className="text-[10px] font-black text-indigo-300 uppercase flex items-center mr-2">修改指标名称:</span>
+                            {criteria.map((c, i) => (
+                                <div key={i} className="flex items-center bg-indigo-900/40 rounded-full px-3 py-1 border border-indigo-500/20">
+                                    <span className="text-[10px] text-indigo-400 font-mono mr-2">{i+1}</span>
+                                    <input 
+                                        className="bg-transparent text-xs focus:outline-none w-20 text-white font-medium"
+                                        value={c}
+                                        onChange={(e) => {
+                                            const next = [...criteria];
+                                            next[i] = e.target.value;
+                                            setCriteria(next);
+                                        }}
+                                    />
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+
+                    <div className="flex flex-1 overflow-hidden">
+                        {/* 左侧数据表格 */}
+                        <div className="w-[45%] flex flex-col bg-white border-r border-slate-200 p-2" onClick={e => e.stopPropagation()}>
+                            <div className="p-4 bg-slate-50 border-b flex justify-between items-center">
+                                <h3 className="text-xs font-black text-slate-400 uppercase tracking-widest flex items-center">
+                                    <i className="fa-solid fa-database mr-2"></i> 专家样本库
+                                </h3>
+                                <button 
+                                    onClick={() => {
+                                        const numPairs = (n * (n - 1)) / 2;
+                                        setSamples([...samples, { id: Date.now(), name: `新专家 ${samples.length + 1}`, data: Array(numPairs).fill(1) }]);
+                                    }}
+                                    className="text-[11px] bg-indigo-600 text-white px-3 py-1 rounded hover:bg-indigo-700 shadow-sm transition"
+                                >
+                                    <i className="fa-solid fa-plus mr-1"></i> 新增行
+                                </button>
+                            </div>
+                            
+                            <div className="flex-1 overflow-auto custom-scrollbar" onPaste={handlePaste}>
+                                <table className="excel-table w-full border-collapse">
+                                    <thead className="sticky top-0 z-10 shadow-sm">
+                                        <tr>
+                                            <th className="w-10 text-center">#</th>
+                                            <th className="w-24">姓名</th>
+                                            {Object.keys(pairMap).map((key, idx) => {
+                                                const [i, j] = key.split('-').map(Number);
+                                                return <th key={idx} className="min-w-[70px] bg-slate-50/80 backdrop-blur-sm text-[10px] truncate">{criteria[i]}-{criteria[j]}</th>
+                                            })}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {samples.map((s, idx) => (
+                                            <tr 
+                                                key={s.id} 
+                                                className={selectedId === s.id ? 'selected' : 'hover:bg-slate-50 cursor-pointer'}
+                                                onClick={() => setSelectedId(s.id)}
+                                            >
+                                                <td className="text-center font-mono text-slate-300 text-[10px]">{idx + 1}</td>
+                                                <td className="p-0">
+                                                    <input 
+                                                        className="w-full h-full p-2 bg-transparent focus:outline-none font-medium"
+                                                        value={s.name} onChange={(e) => {
+                                                            setSamples(samples.map(row => row.id === s.id ? {...row, name: e.target.value} : row));
+                                                        }}
+                                                    />
+                                                </td>
+                                                {s.data.map((val, pIdx) => (
+                                                    <td key={pIdx} className="p-0 text-right font-mono text-indigo-600 text-[11px]">
+                                                        <div className="p-2">{val >= 1 ? val.toFixed(0) : `1/${(1/val).toFixed(0)}`}</div>
+                                                    </td>
+                                                ))}
+                                            </tr>
+                                        ))}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        {/* 右侧矩阵与分析 */}
+                        <div className="w-[55%] flex flex-col bg-slate-100 overflow-y-auto custom-scrollbar p-6">
+                            
+                            <div className="bg-white rounded-2xl shadow-xl border border-slate-200 p-6 mb-6 relative overflow-visible">
+                                <div className="flex justify-between items-center mb-8">
+                                    <div>
+                                        <h2 className="text-lg font-black text-slate-800 flex items-center">
+                                            <span className="w-2 h-6 bg-indigo-600 rounded-full mr-3"></span>
+                                            {currentSample.name} 的判断矩阵
+                                        </h2>
+                                        <p className="text-xs text-slate-400 mt-1">点击单元格弹出滑动条微调重要性</p>
+                                    </div>
+                                    <div className={`flex flex-col items-center px-5 py-2 rounded-xl border ${stats.cr < 0.1 ? 'bg-emerald-50 border-emerald-200 text-emerald-700' : 'bg-rose-50 border-rose-200 text-rose-700'}`}>
+                                        <span className="text-2xl font-black">{(stats.cr * 100).toFixed(2)}%</span>
+                                        <span className="text-[10px] font-bold uppercase tracking-widest opacity-70">CR 指标</span>
+                                    </div>
+                                    <div className={`flex flex-col items-center px-5 py-2 rounded-xl border ${stats.cr < 0.1 ? 'bg-emerald-50 border-emerald-200 text-emerald-700' : 'bg-rose-50 border-rose-200 text-rose-700'}`}>
+                                        <span className="text-2xl font-black">{stats.lambda}</span>
+                                        <span className="text-[10px] font-bold uppercase tracking-widest opacity-70">Lambda</span>
+                                    </div>
+                                </div>
+
+                                <div className="relative">
+                                    <table className="w-full border-separate border-spacing-2 text-sm">
+                                        <thead>
+                                            <tr>
+                                                <th className="p-2"></th>
+                                                {criteria.map((c, i) => <th key={i} className="p-2 font-bold text-slate-500 text-[11px] uppercase truncate max-w-[80px]">{c}</th>)}
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            {currentMatrix.map((row, i) => (
+                                                <tr key={i}>
+                                                    <td className="p-2 font-bold text-slate-500 text-[11px] uppercase text-right truncate max-w-[80px]">{criteria[i]}</td>
+                                                    {row.map((val, j) => {
+                                                        const isWorst = (stats.cr >= 0.1 && ((i === stats.worst.i && j === stats.worst.j) || (i === stats.worst.j && j === stats.worst.i)));
+                                                        const isDiagonal = i === j;
+                                                        const isActive = activeCell && activeCell.i === i && activeCell.j === j;
+                                                        
+                                                        return (
+                                                            <td 
+                                                                key={j} 
+                                                                className={`
+                                                                    relative h-16 border rounded-xl cursor-pointer transition-all duration-200 text-center font-mono font-bold
+                                                                    ${isDiagonal ? 'bg-slate-50 text-slate-300 border-slate-100 cursor-default' : 
+                                                                      isActive ? 'border-indigo-500 ring-4 ring-indigo-100 bg-indigo-50 text-indigo-700 z-40 scale-105' :
+                                                                      isWorst ? 'matrix-cell-inconsistent text-rose-600 border-rose-300 animate-pulse shadow-inner' : 
+                                                                      'bg-white border-slate-200 text-indigo-500 hover:border-indigo-300 hover:shadow-lg'}
+                                                                `}
+                                                                onClick={(e) => {
+                                                                    e.stopPropagation();
+                                                                    if (!isDiagonal) setActiveCell({i, j});
+                                                                }}
+                                                            >
+                                                                {val >= 1 ? val.toFixed(0) : `1/${(1/val).toFixed(0)}`}
+                                                                
+                                                                {isActive && (
+                                                                    <div className="slider-popover" onClick={e => e.stopPropagation()}>
+                                                                        <div className="flex justify-between items-center mb-3">
+                                                                            <span className="text-[10px] text-slate-400 font-bold truncate max-w-[50px]">{criteria[i]}</span>
+                                                                            <span className="text-indigo-600 text-xs font-black px-2 py-0.5 bg-indigo-50 rounded">
+                                                                                {val >= 1 ? val.toFixed(0) : `1/${(1/val).toFixed(0)}`}
+                                                                            </span>
+                                                                            <span className="text-[10px] text-slate-400 font-bold truncate max-w-[50px]">{criteria[j]}</span>
+                                                                        </div>
+                                                                        <input 
+                                                                            type="range" min="-9" max="9" step="1"
+                                                                            value={val >= 1 ? val : -1/val + 1}
+                                                                            className="w-full h-2 bg-slate-200 rounded-lg appearance-none cursor-pointer"
+                                                                            onChange={(e) => {
+                                                                                let v = parseInt(e.target.value);
+                                                                                if (v === 0) v = 1;
+                                                                                const finalV = v > 0 ? v : 1/Math.abs(v-1);
+                                                                                updateSampleData(currentSample.id, i, j, finalV);
+                                                                            }}
+                                                                        />
+                                                                        <div className="flex justify-between mt-2 text-[9px] text-slate-400 font-mono">
+                                                                            <span>较次要</span>
+                                                                            <span>同等</span>
+                                                                            <span>较重要</span>
+                                                                        </div>
+                                                                    </div>
+                                                                )}
+                                                            </td>
+                                                        );
+                                                    })}
+                                                </tr>
+                                            ))}
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                {stats.cr >= 0.1 && (
+                                    <div className="mt-8 p-4 bg-rose-50 rounded-xl border border-rose-100 flex items-start space-x-4">
+                                        <div className="w-8 h-8 rounded-full bg-rose-500 flex items-center justify-center text-white shrink-0 shadow-lg">
+                                            <i className="fa-solid fa-wand-magic-sparkles text-xs"></i>
+                                        </div>
+                                        <div className="text-xs">
+                                            <h4 className="font-black text-rose-800 uppercase mb-1">一致性智能建议</h4>
+                                            <p className="text-rose-700 leading-relaxed">
+                                                逻辑冲突点：<b>{criteria[stats.worst.i]}</b> 与 <b>{criteria[stats.worst.j]}</b>。<br/>
+                                                尝试将该格数值调整为 <b>{stats.worst.suggestion.toFixed(1)}</b> 左右。
+                                            </p>
+                                        </div>
+                                    </div>
+                                )}
+                            </div>
+
+                            {/* 权重分析面板 */}
+                            <div className="grid grid-cols-2 gap-6">
+                                <div className="bg-white rounded-2xl shadow-lg border border-slate-200 p-6">
+                                    <h4 className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-4 flex items-center">
+                                        <i className="fa-solid fa-chart-pie mr-2 text-indigo-500"></i> 本人权重分配 RGMM(Error)
+                                    </h4>
+                                    <div className="space-y-4">
+                                        {stats.weights.map((w, i) => (
+                                            <div key={i}>
+                                                <div className="flex justify-between text-[11px] mb-1.5">
+                                                    <span className="font-bold text-slate-600">{criteria[i]}</span>
+                                                    <span className="font-mono text-indigo-600">{(w * 100).toFixed(3)}%({(stats.errors[i] * 100).toFixed(3)}%)</span>
+                                                </div>
+                                                <div className="h-2 w-full bg-slate-100 rounded-full overflow-hidden">
+                                                    <div className="h-full bg-indigo-500 transition-all duration-500" style={{width: `${w*100}%`}}></div>
+                                                </div>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+
+                                <div className="bg-slate-800 rounded-2xl shadow-xl p-6 text-white relative overflow-hidden">
+                                    <div className="relative z-10">
+                                        <h4 className="text-[10px] font-black opacity-40 uppercase tracking-widest mb-4">群体决策综合 (AHP Consensus)</h4>
+                                        <div className="flex items-end space-x-2 mb-6">
+                                            <span className="text-4xl font-black">{(groupStats.consensus).toFixed(2)}%</span>
+                                            <span className="text-[10px] font-bold opacity-60 mb-1.5">群体共识度</span>
+                                            <span className="text-4xl font-black">{(groupStats.gci).toFixed(3)}%</span>
+                                            <span className="text-4xl font-black">{(groupStats.psi).toFixed(3)}%</span>
+
+                                        </div>
+                                        <div className="space-y-3">
+                                            {groupStats.weights.map((w, i) => (
+                                                <div key={i} className="flex items-center space-x-2">
+                                                    <div className="w-1.5 h-1.5 rounded-full bg-indigo-400"></div>
+                                                    <span className="text-[11px] font-medium opacity-80 flex-1 truncate">{criteria[i]}</span>
+                                                    <span className="text-[11px] font-mono font-bold">{(w * 100).toFixed(1)}%</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    </div>
+                                    <div className="absolute -bottom-4 -right-4 text-white opacity-5 text-7xl transform -rotate-12">
+                                        <i className="fa-solid fa-users"></i>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            );
+        };
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
+</body>
+</html>
